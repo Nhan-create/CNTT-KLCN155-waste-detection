@@ -47,6 +47,7 @@ env/
 /data/interim/
 /data/sources/
 /data/detection/
+/data/detection_sandbox/
 
 # Generated per-version metadata; keep the reviewed mapping source of truth.
 /data/metadata/*/

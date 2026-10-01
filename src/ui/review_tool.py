@@ -16,14 +16,24 @@ import os
 import sys
 import json
 import datetime
+import shutil
 from pathlib import Path
 import pandas as pd
 from PIL import Image, ImageDraw, ImageFont
 import streamlit as st
 
-# Setup Project Root
+# Setup Project Root & Data Directory (Configurable via env var for test sandboxing)
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
-DATA_DIR = PROJECT_ROOT / "data" / "detection"
+
+def get_data_dir() -> Path:
+    env_dir = os.environ.get("REVIEW_TOOL_DATA_DIR")
+    if env_dir:
+        p = Path(env_dir).resolve()
+        if p.exists():
+            return p
+    return PROJECT_ROOT / "data" / "detection"
+
+DATA_DIR = get_data_dir()
 MANIFEST_PATH = DATA_DIR / "manifest_detection_v1.csv"
 AUDIT_LOG_PATH = DATA_DIR / "review_audit_log.csv"
 
@@ -59,6 +69,29 @@ st.set_page_config(
     layout="wide"
 )
 
+def validate_box(b: dict) -> tuple[bool, str]:
+    """Strict geometric and taxonomy validation for a bounding box."""
+    cls_id = b.get("class_id")
+    if cls_id is None or not (0 <= int(cls_id) <= 9):
+        return False, f"Class ID {cls_id} out of bounds [0, 9]"
+    xc, yc = float(b.get("xc", 0.0)), float(b.get("yc", 0.0))
+    w, h = float(b.get("w", 0.0)), float(b.get("h", 0.0))
+    if not (0.0 <= xc <= 1.0) or not (0.0 <= yc <= 1.0):
+        return False, f"Center coordinates ({xc:.4f}, {yc:.4f}) must be within [0.0, 1.0]"
+    if w <= 0.001 or h <= 0.001:
+        return False, f"Box dimensions w={w:.4f}, h={h:.4f} too small (<= 0.001)"
+    if w > 1.0 or h > 1.0:
+        return False, f"Box dimensions w={w:.4f}, h={h:.4f} exceed 1.0"
+    xmin = xc - w / 2.0
+    xmax = xc + w / 2.0
+    ymin = yc - h / 2.0
+    ymax = yc + h / 2.0
+    if xmin < -0.001 or xmax > 1.001 or ymin < -0.001 or ymax > 1.001:
+        return False, f"Box boundaries [{xmin:.4f}, {ymin:.4f}, {xmax:.4f}, {ymax:.4f}] exceed image boundaries [0, 1]"
+    if w * h < 0.00005:
+        return False, f"Box area ({w*h:.6f}) is smaller than minimum threshold (0.00005)"
+    return True, ""
+
 def load_manifest() -> pd.DataFrame:
     if not MANIFEST_PATH.exists():
         st.error(f"Manifest file not found: {MANIFEST_PATH}")
@@ -68,15 +101,15 @@ def load_manifest() -> pd.DataFrame:
 def save_manifest(df: pd.DataFrame):
     df.to_csv(MANIFEST_PATH, index=False)
 
-def log_audit(image_id: str, old_status: str, new_status: str, num_boxes: int, notes: str):
+def log_audit(image_id: str, old_status: str, new_status: str, num_boxes: int, notes: str, action: str = "STATUS_UPDATE"):
     AUDIT_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
     header = not AUDIT_LOG_PATH.exists()
     with open(AUDIT_LOG_PATH, "a", encoding="utf-8") as f:
         if header:
-            f.write("timestamp,image_id,old_status,new_status,num_boxes,notes\n")
+            f.write("timestamp,image_id,action,old_status,new_status,num_boxes,notes\n")
         ts = datetime.datetime.now().isoformat()
         clean_notes = notes.replace(",", ";").replace("\n", " ")
-        f.write(f"{ts},{image_id},{old_status},{new_status},{num_boxes},{clean_notes}\n")
+        f.write(f"{ts},{image_id},{action},{old_status},{new_status},{num_boxes},{clean_notes}\n")
 
 def read_yolo_boxes(label_path: Path):
     if not label_path.exists():
@@ -257,16 +290,21 @@ def main():
             add_h = add_c1.number_input("Height", 0.001, 1.0, 0.2, step=0.01, key="add_h")
 
             if st.button("Add Box to Image"):
-                boxes.append({
+                candidate_box = {
                     "class_id": add_cls,
                     "class_name": TAXONOMY_10[add_cls],
                     "xc": add_xc,
                     "yc": add_yc,
                     "w": add_w,
                     "h": add_h
-                })
-                st.session_state.current_boxes = boxes
-                st.rerun()
+                }
+                is_valid, err_msg = validate_box(candidate_box)
+                if not is_valid:
+                    st.error(f"❌ Cannot add box: {err_msg}")
+                else:
+                    boxes.append(candidate_box)
+                    st.session_state.current_boxes = boxes
+                    st.rerun()
 
         st.divider()
         st.subheader("🎯 Review Decision")
@@ -279,26 +317,44 @@ def main():
         notes = st.text_input("Reviewer Notes", value="Verified bounding boxes and class labels.")
 
         if st.button("💾 Save Changes & Update Manifest", type="primary", use_container_width=True):
-            # Save label file
-            write_yolo_boxes(lbl_full_path, boxes)
+            # Validate all boxes before saving
+            validation_errors = []
+            for idx, b in enumerate(boxes):
+                valid, err = validate_box(b)
+                if not valid:
+                    validation_errors.append(f"Box #{idx+1}: {err}")
 
-            # Update manifest dataframe
-            old_status = row["review_status"]
-            cls_counts = {}
-            for b in boxes:
-                cls_counts[b["class_id"]] = cls_counts.get(b["class_id"], 0) + 1
+            if validation_errors:
+                st.error("❌ Validation Failed! Cannot save changes:\n" + "\n".join(validation_errors))
+            else:
+                # Backup existing file before overwrite
+                if lbl_full_path.exists():
+                    backup_path = lbl_full_path.with_suffix(".txt.bak")
+                    try:
+                        shutil.copy2(lbl_full_path, backup_path)
+                    except Exception:
+                        pass
 
-            idx_in_df = df[df["image_id"] == selected_img_id].index[0]
-            df.at[idx_in_df, "review_status"] = action_decision
-            df.at[idx_in_df, "num_boxes"] = len(boxes)
-            df.at[idx_in_df, "class_distribution"] = json.dumps(cls_counts)
-            save_manifest(df)
+                # Save label file
+                write_yolo_boxes(lbl_full_path, boxes)
 
-            # Audit log
-            log_audit(selected_img_id, old_status, action_decision, len(boxes), notes)
+                # Update manifest dataframe
+                old_status = row["review_status"]
+                cls_counts = {}
+                for b in boxes:
+                    cls_counts[b["class_id"]] = cls_counts.get(b["class_id"], 0) + 1
 
-            st.success(f"Successfully saved {selected_img_id} as {action_decision} ({len(boxes)} boxes)!")
-            st.rerun()
+                idx_in_df = df[df["image_id"] == selected_img_id].index[0]
+                df.at[idx_in_df, "review_status"] = action_decision
+                df.at[idx_in_df, "num_boxes"] = len(boxes)
+                df.at[idx_in_df, "class_distribution"] = json.dumps(cls_counts)
+                save_manifest(df)
+
+                # Audit log
+                log_audit(selected_img_id, old_status, action_decision, len(boxes), notes, action="SAVE_MANUAL")
+
+                st.success(f"Successfully saved {selected_img_id} as {action_decision} ({len(boxes)} boxes)!")
+                st.rerun()
 
 if __name__ == "__main__":
     main()

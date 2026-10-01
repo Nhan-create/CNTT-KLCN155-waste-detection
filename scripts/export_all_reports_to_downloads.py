@@ -78,8 +78,11 @@ def main():
     # 4. Copy Audit & Real Detection Data
     real_audit_dir = part02_artifacts / "real_data_audit"
     if real_audit_dir.exists():
-        for f in real_audit_dir.glob("*.*"):
-            shutil.copy2(f, dir_audit_real / f.name)
+        for item in real_audit_dir.iterdir():
+            if item.is_file():
+                shutil.copy2(item, dir_audit_real / item.name)
+            elif item.is_dir():
+                shutil.copytree(item, dir_audit_real / item.name, dirs_exist_ok=True)
 
     data_audit = project_root / "data" / "audit"
     if data_audit.exists():
@@ -154,6 +157,7 @@ def main():
 
 #### 2. `02_Toi_Uu_Hoa_CPU_Va_Runtime_Gate_A/`
 - **`mobilenetv3_large_waste.onnx`**: Model MobileNetV3-Large đã xuất ONNX (16,8 MB, FP32).
+- **`validation_pytorch_vs_onnx_comparison.csv`**: Đối chứng dự đoán PyTorch FP32 vs ONNX FP32 trên toàn bộ 2.223 ảnh validation (100,0000% Top-1 match, max diff logit 5.63e-5).
 - **`runtime_benchmark_results.json`**: Số liệu đo lường chi tiết PyTorch vs ONNX trên 1, 2, 4, 6, 8, 12 luồng CPU AMD Ryzen 5 6600H.
 - **`optimization_protocol_frozen.json`**: Giao thức đóng băng trước khi benchmark tối ưu hóa CPU.
 - **`raw_timings.csv`**: Dữ liệu thô 3.000 lần suy luận trên 500 ảnh validation thực tế.
@@ -173,8 +177,10 @@ def main():
 - **`standalone_package_verification.log`**: Log chạy gói bàn giao độc lập ngoài repo.
 
 #### 4. `04_Kiem_Toan_Du_Lieu_That_Va_Detection_Data/`
-- **`real_images_audit_table.csv`**: Kết quả kiểm toán từng ảnh trong số 114 ảnh thật OpenImages (URL, nhãn gốc, nhãn bị xóa, phân loại phù hợp rác).
-- **`real_images_contact_sheet_sample.jpg`**: Ảnh ghép minh họa 12 ảnh thực tế chứng minh giày đang mang trên chân người sống.
+- **`real_images_audit_table.csv`**: Kết quả kiểm toán bằng mắt 114/114 ảnh thật OpenImages (103 giày đang mang, 10 ảnh sản phẩm studio, 1 giày ngoài trời).
+- **`real_data_audit_summary.json`**: Tổng hợp số liệu kiểm toán ảnh thực tế và số bounding box bị tước bỏ.
+- **`contact_sheets/`**: Thư mục chứa 10 contact sheets trực quan (`contact_sheet_01.jpg` đến `contact_sheet_10.jpg`) hiển thị toàn bộ 114 ảnh thực tế kèm nhãn giày và nhãn OpenImages gốc.
+- **`thirteen_images_inspection.jpg`**: Ảnh phóng to trực quan 13 ảnh nghi vấn (10 ảnh thương mại, 2 ca hiếm, 1 ca rác ngoài trời).
 - **`manifest_detection_v1.csv`**: Bảng kê 1.419 ảnh detection đã bổ sung Group ID phân cụm (pHash Hamming distance <= 4).
 - **`leakage_audit_report.json`**: Báo cáo kiểm toán rò rỉ hash (exact SHA-256 = 0, candidate phash = 33, resolved = 33).
 - **`phash_decision_table.csv`**: Bảng 33 quyết định kiểm chứng thủ công từng cặp ảnh gần giống nhau.
@@ -182,7 +188,8 @@ def main():
 - **`dataset_summary.json`**: Thống kê số lượng box từng lớp trên dữ liệu đa rác.
 
 #### 5. `05_Bang_Chung_Kiem_Thu_Cong_Cu_Review_Tool/`
-- **`case_01_open_and_display.png` đến `case_09_manifest_audit_log.png`**: 9 ảnh chụp màn hình tương ứng với 9 ca kiểm thử chức năng tự động.
+- **`case_01_open_and_display.png` đến `case_09_manifest_audit_log.png`**: 9 ảnh chụp màn hình tương ứng với 9 ca kiểm thử chức năng tự động trên sandbox cô lập.
+- **`mcp_live_review_tool.png`**: Ảnh chụp màn hình live stream từ Chrome DevTools MCP trực tiếp trên port 8501.
 - **`review_tool_verified.png`**: Ảnh chụp màn hình giao diện review tool hoàn chỉnh.
 - **`detection_annotation_validation.json`**: Kết quả kiểm toán 4.602 bounding box (1.419 file nhãn, 0 lỗi hình học hay cú pháp).
 
