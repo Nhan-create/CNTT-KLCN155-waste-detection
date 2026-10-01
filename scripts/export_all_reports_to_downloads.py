@@ -37,15 +37,16 @@ def main():
 
     # Subdirectories
     dir_reports = export_dir / "01_Bao_Cao_Nghiem_Thu_Va_Ke_Hoach"
-    dir_part02 = export_dir / "02_Ket_Qua_Thuc_Nghiem_Gate_A_Va_Part02"
+    dir_gate_a_runtime = export_dir / "02_Toi_Uu_Hoa_CPU_Va_Runtime_Gate_A"
     dir_part01 = export_dir / "03_Ket_Qua_Thuc_Nghiem_Part01_MobileNetV3"
-    dir_audit = export_dir / "04_Kiem_Toan_Du_Lieu_Va_Detection_Data"
-    dir_src = export_dir / "05_Ma_Nguon_Cong_Cu_Va_Kiem_Thu"
+    dir_audit_real = export_dir / "04_Kiem_Toan_Du_Lieu_That_Va_Detection_Data"
+    dir_tool_evidence = export_dir / "05_Bang_Chung_Kiem_Thu_Cong_Cu_Review_Tool"
+    dir_src = export_dir / "06_Ma_Nguon_Cong_Cu_Va_Kiem_Thu"
 
-    for d in [dir_reports, dir_part02, dir_part01, dir_audit, dir_src]:
+    for d in [dir_reports, dir_gate_a_runtime, dir_part01, dir_audit_real, dir_tool_evidence, dir_src]:
         d.mkdir(parents=True, exist_ok=True)
 
-    # 1. Copy Docs & Plans
+    # 1. Copy Docs & Plans & Formal Word Report
     docs_plan = project_root / "docs" / "plan"
     if docs_plan.exists():
         for f in docs_plan.glob("*.md"):
@@ -53,48 +54,65 @@ def main():
     pm_scope = project_root / "docs" / "pm" / "P0_SCOPE_AUDIT.md"
     if pm_scope.exists():
         shutil.copy2(pm_scope, dir_reports / "P0_SCOPE_AUDIT.md")
+    docx_report = project_root / "artifacts" / "part02" / "Bao_Cao_Kiem_Thu_Cong_Cu_Review_Tool.docx"
+    if docx_report.exists():
+        shutil.copy2(docx_report, dir_reports / docx_report.name)
 
-    # 2. Copy Part 2 / Gate A Artifacts
+    # 2. Copy Gate A & CPU Runtime Optimization Artifacts
     part02_artifacts = project_root / "artifacts" / "part02"
     if part02_artifacts.exists():
         for f in (part02_artifacts / "gate_a").glob("*.*"):
-            shutil.copy2(f, dir_part02 / f.name)
-        val_json = part02_artifacts / "detection_annotation_validation.json"
-        if val_json.exists():
-            shutil.copy2(val_json, dir_part02 / val_json.name)
-        ui_png = part02_artifacts / "ui_evidence" / "review_tool_verified.png"
-        if ui_png.exists():
-            shutil.copy2(ui_png, dir_part02 / ui_png.name)
+            shutil.copy2(f, dir_gate_a_runtime / f.name)
+        opt_dir = part02_artifacts / "runtime_optimization"
+        if opt_dir.exists():
+            for f in opt_dir.glob("*.*"):
+                shutil.copy2(f, dir_gate_a_runtime / f.name)
 
     # 3. Copy Part 1 Artifacts
     official_run = project_root / "artifacts" / "official_run"
     if official_run.exists():
         for f in official_run.glob("*.*"):
-            if not f.name.endswith(".pt"):  # omit 50MB model weight from reports directory, keep metrics/logs/csvs
+            if not f.name.endswith(".pt"):
                 shutil.copy2(f, dir_part01 / f.name)
 
-    # 4. Copy Audit & Detection Metadata
+    # 4. Copy Audit & Real Detection Data
+    real_audit_dir = part02_artifacts / "real_data_audit"
+    if real_audit_dir.exists():
+        for f in real_audit_dir.glob("*.*"):
+            shutil.copy2(f, dir_audit_real / f.name)
+
     data_audit = project_root / "data" / "audit"
     if data_audit.exists():
         for f in data_audit.glob("*.*"):
-            if f.name != "split_manifest_v2.csv":  # 15k rows can be included or separate
-                shutil.copy2(f, dir_audit / f.name)
-        # Also copy split_manifest_v2.csv
-        manifest_v2 = data_audit / "split_manifest_v2.csv"
-        if manifest_v2.exists():
-            shutil.copy2(manifest_v2, dir_audit / manifest_v2.name)
+            shutil.copy2(f, dir_audit_real / f.name)
 
     data_det = project_root / "data" / "detection"
     if data_det.exists():
         for f in data_det.glob("*.*"):
-            shutil.copy2(f, dir_audit / f.name)
+            shutil.copy2(f, dir_audit_real / f.name)
 
-    # 5. Copy Core Scripts and Test Files
+    # 5. Copy Tool Verification Evidence (Screenshots & Logs)
+    mcp_evidence_dir = part02_artifacts / "mcp_test_evidence"
+    if mcp_evidence_dir.exists():
+        for f in mcp_evidence_dir.glob("*.png"):
+            shutil.copy2(f, dir_tool_evidence / f.name)
+    ui_png = part02_artifacts / "ui_evidence" / "review_tool_verified.png"
+    if ui_png.exists():
+        shutil.copy2(ui_png, dir_tool_evidence / ui_png.name)
+    val_json = part02_artifacts / "detection_annotation_validation.json"
+    if val_json.exists():
+        shutil.copy2(val_json, dir_tool_evidence / val_json.name)
+
+    # 6. Copy Core Scripts and Test Files
     scripts_to_copy = [
         project_root / "scripts" / "evaluate_final_test.py",
+        project_root / "scripts" / "benchmark_classifier_runtime.py",
         project_root / "scripts" / "prepare_detection_dataset.py",
+        project_root / "scripts" / "audit_real_detection_images.py",
+        project_root / "scripts" / "cluster_detection_groups.py",
         project_root / "scripts" / "validate_detection_annotations.py",
         project_root / "scripts" / "verify_review_tool_ui.py",
+        project_root / "scripts" / "test_review_tool_functional.py",
         project_root / "scripts" / "check_split_leakage.py",
         project_root / "scripts" / "reproduce_official_validation.py",
         project_root / "src" / "ui" / "review_tool.py",
@@ -110,7 +128,7 @@ def main():
     readme_content = """# TỔNG MỤC TÀI LIỆU BÁO CÁO VÀ BẰNG CHỨNG THỰC NGHIỆM
 ## DỰ ÁN CNTT-KLCN155 — HỆ THỐNG PHÁT HIỆN VÀ PHÂN LOẠI RÁC THẢI ĐA ĐỐI TƯỢNG
 
-**Người nhận:** ThS. Ngô Thanh Nhân — Project Manager (HUIT)  
+**Người nhận:** PM Ngô Thanh Nhân (HUIT)  
 **Ngày xuất gói:** 02/10/2026  
 **Thư mục nguồn:** `D:\\CNTT-KLCN155-waste-detection`  
 **Gói nén đính kèm:** `CNTT-KLCN155_Bao_Cao_Va_Bang_Chung.zip`
@@ -120,25 +138,31 @@ def main():
 ### CẤU TRÚC THƯ MỤC XUẤT RA:
 
 #### 1. `01_Bao_Cao_Nghiem_Thu_Va_Ke_Hoach/`
-- **`PART_02_ACCEPTANCE.md`**: Báo cáo nghiệm thu chính thức Task 2 (Gate A + Chuẩn bị dữ liệu đa rác).
-- **`PART_02_EVALUATION_PROTOCOL.md`**: Quy chuẩn đánh giá đóng băng của Gate A (ngưỡng, phần cứng, phương pháp đo).
-- **`PART_02_TASKS_AND_GATES.md`**: Chi tiết phân rã nhiệm vụ và tiêu chí cổng kiểm soát của Task 2.
-- **`PART_01_ACCEPTANCE.md`**: Báo cáo nghiệm thu giai đoạn phân loại đơn rác MobileNetV3.
+- **`Bao_Cao_Kiem_Thu_Cong_Cu_Review_Tool.docx`**: Báo cáo Word chính thức kiểm thử 9 ca chức năng của công cụ rà soát nhãn (kèm ảnh chụp giao diện và giải trình trạng thái MCP).
+- **`PART_02_CPU_OPTIMIZATION.md`**: Báo cáo chi tiết tối ưu hóa thời gian thực thi CPU (PyTorch vs ONNX Runtime 6 luồng đạt 7,40 ms, đối chứng tương đương 100% trên 2.223 ảnh validation).
+- **`PART_02_REAL_DATA_AUDIT.md`**: Báo cáo kiểm toán 114 ảnh thật OpenImages (phát hiện 88,6% là giày đang mang trên chân người sống, bị xóa 239 nhãn quần áo).
+- **`PART_02_COLLECTION_AND_LABELING_PLAN.md`**: Kế hoạch thu thập 500+ ảnh rác thực tế TP.HCM và quy chuẩn gán nhãn đa rác (10 lớp, quy trình QA/QC 2 vòng).
+- **`PART_02_ACCEPTANCE.md`**: Báo cáo tổng hợp Task 2 (Gate A + chuẩn bị dữ liệu đa rác).
+- **`PART_02_EVALUATION_PROTOCOL.md`**: Quy chuẩn đánh giá đóng băng của Gate A.
+- **`PART_02_TASKS_AND_GATES.md`**: Phân rã nhiệm vụ và tiêu chí cổng kiểm soát Task 2.
+- **`PART_01_ACCEPTANCE.md`**: Báo cáo nghiệm thu phân loại đơn rác MobileNetV3.
 - **`PART_01_VERIFICATION_R2.md` & `PART_01_CHANGELOG_R2.md`**: Báo cáo kiểm định và lịch sử sửa đổi Phần 1.
-- **`00_MASTER_PLAN.md`**: Kế hoạch tổng thể dự án đã cập nhật.
-- **`BAO_CAO_TONG_KET_KIEM_KE_VA_KE_HOACH_CHI_TIET.md`**: Tổng hợp kiểm kê toàn diện và giải quyết mâu thuẫn.
-- **`REPRODUCIBILITY_GUIDE.md`**: Hướng dẫn độc lập tái hiện toàn bộ kết quả phân loại và kiểm toán.
+- **`00_MASTER_PLAN.md`**: Kế hoạch tổng thể dự án.
+- **`BAO_CAO_TONG_KET_KIEM_KE_VA_KE_HOACH_CHI_TIET.md`**: Báo cáo tổng kết kiểm kê và kế hoạch chi tiết.
+- **`REPRODUCIBILITY_GUIDE.md`**: Hướng dẫn tái hiện độc lập toàn bộ kết quả.
 - **`P0_SCOPE_AUDIT.md`**: Báo cáo kiểm toán phạm vi P0 ban đầu.
 
-#### 2. `02_Ket_Qua_Thuc_Nghiem_Gate_A_Va_Part02/`
-- **`gate_a_metrics.json`**: File JSON chứa toàn bộ số liệu Gate A (Top-1: 96,13%, Macro-F1: 0,9578, Battery Recall: 95,58%, Latency: 23,86 ms).
-- **`gate_a_protocol_frozen.json`**: Cấu hình đóng băng trước khi chạy test.
-- **`gate_a_raw_execution.log`**: Log chạy suy luận thực tế từng bước trên 2.223 ảnh test.
-- **`test_predictions.csv`**: Bảng dự đoán chi tiết 2.223 ảnh test kèm hash SHA-256 đọc trực tiếp từ đĩa.
+#### 2. `02_Toi_Uu_Hoa_CPU_Va_Runtime_Gate_A/`
+- **`mobilenetv3_large_waste.onnx`**: Model MobileNetV3-Large đã xuất ONNX (16,8 MB, FP32).
+- **`runtime_benchmark_results.json`**: Số liệu đo lường chi tiết PyTorch vs ONNX trên 1, 2, 4, 6, 8, 12 luồng CPU AMD Ryzen 5 6600H.
+- **`optimization_protocol_frozen.json`**: Giao thức đóng băng trước khi benchmark tối ưu hóa CPU.
+- **`raw_timings.csv`**: Dữ liệu thô 3.000 lần suy luận trên 500 ảnh validation thực tế.
+- **`gate_a_metrics.json`**: Kết quả đo Gate A gốc trên final test (Acc: 96,13%, F1: 0,9578, Battery Recall: 95,58%, Latency: 23,86 ms).
+- **`gate_a_protocol_frozen.json`**: Giao thức đóng băng Gate A gốc.
+- **`gate_a_raw_execution.log`**: Log chạy suy luận thực tế trên 2.223 ảnh test.
+- **`test_predictions.csv`**: Bảng dự đoán 2.223 ảnh test kèm hash SHA-256 đọc trực tiếp từ đĩa.
 - **`test_confusion_matrix.csv`**: Ma trận nhầm lẫn 10x10 trên tập final test.
 - **`test_error_analysis.csv`**: Danh sách chi tiết 86 ca đoán sai trên tập test.
-- **`detection_annotation_validation.json`**: Kết quả kiểm toán 4.602 bounding box (1.419 file nhãn, 0 lỗi).
-- **`review_tool_verified.png`**: Ảnh chụp màn hình thật việc vận hành công cụ rà soát nhãn in-repo bằng Playwright/Chrome.
 
 #### 3. `03_Ket_Qua_Thuc_Nghiem_Part01_MobileNetV3/`
 - **`official_training_metrics.json`**: Số liệu huấn luyện chính thức 12 epoch mô hình MobileNetV3-Large.
@@ -148,19 +172,32 @@ def main():
 - **`reproduced_validation_summary.json`**: Báo cáo tái hiện độc lập của bên thứ ba.
 - **`standalone_package_verification.log`**: Log chạy gói bàn giao độc lập ngoài repo.
 
-#### 4. `04_Kiem_Toan_Du_Lieu_Va_Detection_Data/`
+#### 4. `04_Kiem_Toan_Du_Lieu_That_Va_Detection_Data/`
+- **`real_images_audit_table.csv`**: Kết quả kiểm toán từng ảnh trong số 114 ảnh thật OpenImages (URL, nhãn gốc, nhãn bị xóa, phân loại phù hợp rác).
+- **`real_images_contact_sheet_sample.jpg`**: Ảnh ghép minh họa 12 ảnh thực tế chứng minh giày đang mang trên chân người sống.
+- **`manifest_detection_v1.csv`**: Bảng kê 1.419 ảnh detection đã bổ sung Group ID phân cụm (pHash Hamming distance <= 4).
 - **`leakage_audit_report.json`**: Báo cáo kiểm toán rò rỉ hash (exact SHA-256 = 0, candidate phash = 33, resolved = 33).
 - **`phash_decision_table.csv`**: Bảng 33 quyết định kiểm chứng thủ công từng cặp ảnh gần giống nhau.
 - **`split_manifest_v2.csv`**: Bảng kê 14.829 ảnh phân loại đơn rác.
-- **`manifest_detection_v1.csv`**: Bảng kê 1.419 ảnh bounding box phân tách Synthetic và Real.
 - **`dataset_summary.json`**: Thống kê số lượng box từng lớp trên dữ liệu đa rác.
 
-#### 5. `05_Ma_Nguon_Cong_Cu_Va_Kiem_Thu/`
+#### 5. `05_Bang_Chung_Kiem_Thu_Cong_Cu_Review_Tool/`
+- **`case_01_open_and_display.png` đến `case_09_manifest_audit_log.png`**: 9 ảnh chụp màn hình tương ứng với 9 ca kiểm thử chức năng tự động.
+- **`review_tool_verified.png`**: Ảnh chụp màn hình giao diện review tool hoàn chỉnh.
+- **`detection_annotation_validation.json`**: Kết quả kiểm toán 4.602 bounding box (1.419 file nhãn, 0 lỗi hình học hay cú pháp).
+
+#### 6. `06_Ma_Nguon_Cong_Cu_Va_Kiem_Thu/`
 - **`evaluate_final_test.py`**: Mã nguồn đánh giá final test Gate A.
+- **`benchmark_classifier_runtime.py`**: Mã nguồn benchmark tối ưu hóa CPU runtime (PyTorch vs ONNX đa luồng).
+- **`audit_real_detection_images.py`**: Mã nguồn kiểm toán ảnh thực tế OpenImages và đối soát bounding box gốc.
+- **`cluster_detection_groups.py`**: Mã nguồn phân cụm Group ID chống rò rỉ phân vùng detection.
 - **`prepare_detection_dataset.py`**: Mã nguồn chuẩn bị và phân lập dữ liệu đa rác.
 - **`validate_detection_annotations.py`**: Mã nguồn kiểm toán cú pháp và hình học bounding box.
 - **`review_tool.py`**: Mã nguồn ứng dụng Streamlit rà soát và chỉnh sửa nhãn đa rác.
-- **`verify_review_tool_ui.py`**: Script kiểm thử tự động giao diện review tool bằng Playwright.
+- **`test_review_tool_functional.py`**: Bộ kịch bản kiểm thử tự động 9 ca giao diện review tool.
+- **`verify_review_tool_ui.py`**: Script kiểm thử cơ bản giao diện review tool.
+- **`check_split_leakage.py`**: Script kiểm tra rò rỉ dữ liệu.
+- **`reproduce_official_validation.py`**: Script tái hiện suy luận validation.
 - **`test_verification_gates.py` & `test_detection_annotations.py`**: Bộ kiểm thử tự động 11 test cases (100% PASS).
 """
 
