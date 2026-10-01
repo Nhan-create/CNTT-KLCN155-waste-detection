@@ -106,11 +106,12 @@ def main():
     if val_json.exists():
         shutil.copy2(val_json, dir_tool_evidence / val_json.name)
 
-    # 6. Copy Core Scripts and Test Files
+    # 6. Copy Core Scripts, Configs, and Test Files
     scripts_to_copy = [
         project_root / "scripts" / "evaluate_final_test.py",
         project_root / "scripts" / "benchmark_classifier_runtime.py",
         project_root / "scripts" / "prepare_detection_dataset.py",
+        project_root / "scripts" / "collect_real_detection_data.py",
         project_root / "scripts" / "audit_real_detection_images.py",
         project_root / "scripts" / "cluster_detection_groups.py",
         project_root / "scripts" / "validate_detection_annotations.py",
@@ -118,6 +119,8 @@ def main():
         project_root / "scripts" / "test_review_tool_functional.py",
         project_root / "scripts" / "check_split_leakage.py",
         project_root / "scripts" / "reproduce_official_validation.py",
+        project_root / "configs" / "detection_source_mapping.yaml",
+        project_root / "artifacts" / "part02" / "real_detection_readiness.json",
         project_root / "src" / "ui" / "review_tool.py",
         project_root / "tests" / "conftest.py",
         project_root / "tests" / "test_verification_gates.py",

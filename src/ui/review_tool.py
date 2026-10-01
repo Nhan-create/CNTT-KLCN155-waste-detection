@@ -176,10 +176,17 @@ def main():
     st.sidebar.header("🔍 Dataset Filters")
 
     # Source filter
-    source_choice = st.sidebar.selectbox("Filter Source", ["All", "Real (OpenImages)", "Synthetic (Mendeley)"])
+    source_choice = st.sidebar.selectbox(
+        "Filter Source",
+        ["All", "Real (All)", "Real (TACO)", "Real (OpenImages)", "Synthetic (Mendeley)"]
+    )
     filtered_df = df.copy()
-    if source_choice == "Real (OpenImages)":
+    if source_choice == "Real (All)":
         filtered_df = filtered_df[~filtered_df["is_synthetic"]]
+    elif source_choice == "Real (TACO)":
+        filtered_df = filtered_df[filtered_df["source"] == "taco"]
+    elif source_choice == "Real (OpenImages)":
+        filtered_df = filtered_df[(filtered_df["source"] == "openimages_v7") | (filtered_df["source"].str.contains("openimages", na=False))]
     elif source_choice == "Synthetic (Mendeley)":
         filtered_df = filtered_df[filtered_df["is_synthetic"]]
 

@@ -1,0 +1,121 @@
+# configs/detection_source_mapping.yaml
+# Taxonomy and Source Label Mapping for Multi-Object Waste Detection
+# Project: CNTT-KLCN155 Waste Detection
+
+project_taxonomy:
+  0: battery
+  1: biological
+  2: cardboard
+  3: clothes
+  4: glass
+  5: metal
+  6: paper
+  7: plastic
+  8: shoes
+  9: trash
+
+acceptance_criteria:
+  min_box_area_normalized: 0.0001
+  max_box_area_normalized: 1.0000
+  allowed_out_of_bounds_margin: 0.05
+  min_dimension_normalized: 0.002
+  duplicate_iou_threshold: 0.98
+  require_material_clarity: true
+  exclude_in_use_person_clothing: true
+
+sources:
+  taco:
+    version: "v0.1"
+    official_url: "https://github.com/pedropro/TACO"
+    annotations_url: "https://raw.githubusercontent.com/pedropro/TACO/master/data/annotations.json"
+    license: "CC BY 4.0 / Flickr CC"
+    annotation_type: "COCO Bounding Box [x, y, w, h] + Polygon Segmentation"
+    category_mapping:
+      # Class 0: battery
+      1: { name: "Battery", class_id: 0, class_name: "battery", status: "CONFIRMED" }
+      # Class 1: biological
+      25: { name: "Food waste", class_id: 1, class_name: "biological", status: "CONFIRMED" }
+      # Class 2: cardboard
+      13: { name: "Toilet tube", class_id: 2, class_name: "cardboard", status: "CONFIRMED" }
+      14: { name: "Other carton", class_id: 2, class_name: "cardboard", status: "CONFIRMED" }
+      15: { name: "Egg carton", class_id: 2, class_name: "cardboard", status: "CONFIRMED" }
+      16: { name: "Drink carton", class_id: 2, class_name: "cardboard", status: "CONFIRMED" }
+      17: { name: "Corrugated carton", class_id: 2, class_name: "cardboard", status: "CONFIRMED" }
+      18: { name: "Meal carton", class_id: 2, class_name: "cardboard", status: "CONFIRMED" }
+      19: { name: "Pizza box", class_id: 2, class_name: "cardboard", status: "CONFIRMED" }
+      # Class 4: glass
+      6: { name: "Glass bottle", class_id: 4, class_name: "glass", status: "CONFIRMED" }
+      9: { name: "Broken glass", class_id: 4, class_name: "glass", status: "CONFIRMED" }
+      23: { name: "Glass cup", class_id: 4, class_name: "glass", status: "CONFIRMED" }
+      26: { name: "Glass jar", class_id: 4, class_name: "glass", status: "CONFIRMED" }
+      # Class 5: metal
+      0: { name: "Aluminium foil", class_id: 5, class_name: "metal", status: "CONFIRMED" }
+      2: { name: "Aluminium blister pack", class_id: 5, class_name: "metal", status: "CONFIRMED" }
+      8: { name: "Metal bottle cap", class_id: 5, class_name: "metal", status: "CONFIRMED" }
+      10: { name: "Food Can", class_id: 5, class_name: "metal", status: "CONFIRMED" }
+      11: { name: "Aerosol", class_id: 5, class_name: "metal", status: "CONFIRMED" }
+      12: { name: "Drink can", class_id: 5, class_name: "metal", status: "CONFIRMED" }
+      28: { name: "Metal lid", class_id: 5, class_name: "metal", status: "CONFIRMED" }
+      50: { name: "Pop tab", class_id: 5, class_name: "metal", status: "CONFIRMED" }
+      52: { name: "Scrap metal", class_id: 5, class_name: "metal", status: "CONFIRMED" }
+      # Class 6: paper
+      20: { name: "Paper cup", class_id: 6, class_name: "paper", status: "CONFIRMED" }
+      30: { name: "Magazine paper", class_id: 6, class_name: "paper", status: "CONFIRMED" }
+      31: { name: "Tissues", class_id: 6, class_name: "paper", status: "CONFIRMED" }
+      32: { name: "Wrapping paper", class_id: 6, class_name: "paper", status: "CONFIRMED" }
+      33: { name: "Normal paper", class_id: 6, class_name: "paper", status: "CONFIRMED" }
+      34: { name: "Paper bag", class_id: 6, class_name: "paper", status: "CONFIRMED" }
+      56: { name: "Paper straw", class_id: 6, class_name: "paper", status: "CONFIRMED" }
+      # Class 7: plastic
+      4: { name: "Other plastic bottle", class_id: 7, class_name: "plastic", status: "CONFIRMED" }
+      5: { name: "Clear plastic bottle", class_id: 7, class_name: "plastic", status: "CONFIRMED" }
+      7: { name: "Plastic bottle cap", class_id: 7, class_name: "plastic", status: "CONFIRMED" }
+      21: { name: "Disposable plastic cup", class_id: 7, class_name: "plastic", status: "CONFIRMED" }
+      22: { name: "Foam cup", class_id: 7, class_name: "plastic", status: "CONFIRMED" }
+      24: { name: "Other plastic cup", class_id: 7, class_name: "plastic", status: "CONFIRMED" }
+      27: { name: "Plastic lid", class_id: 7, class_name: "plastic", status: "CONFIRMED" }
+      29: { name: "Other plastic", class_id: 7, class_name: "plastic", status: "CONFIRMED" }
+      36: { name: "Plastic film", class_id: 7, class_name: "plastic", status: "CONFIRMED" }
+      37: { name: "Six pack rings", class_id: 7, class_name: "plastic", status: "CONFIRMED" }
+      38: { name: "Garbage bag", class_id: 7, class_name: "plastic", status: "CONFIRMED" }
+      39: { name: "Other plastic wrapper", class_id: 7, class_name: "plastic", status: "CONFIRMED" }
+      40: { name: "Single-use carrier bag", class_id: 7, class_name: "plastic", status: "CONFIRMED" }
+      41: { name: "Polypropylene bag", class_id: 7, class_name: "plastic", status: "CONFIRMED" }
+      42: { name: "Crisp packet", class_id: 7, class_name: "plastic", status: "CONFIRMED" }
+      43: { name: "Spread tub", class_id: 7, class_name: "plastic", status: "CONFIRMED" }
+      44: { name: "Tupperware", class_id: 7, class_name: "plastic", status: "CONFIRMED" }
+      45: { name: "Disposable food container", class_id: 7, class_name: "plastic", status: "CONFIRMED" }
+      46: { name: "Foam food container", class_id: 7, class_name: "plastic", status: "CONFIRMED" }
+      47: { name: "Other plastic container", class_id: 7, class_name: "plastic", status: "CONFIRMED" }
+      48: { name: "Plastic glooves", class_id: 7, class_name: "plastic", status: "CONFIRMED" }
+      49: { name: "Plastic utensils", class_id: 7, class_name: "plastic", status: "CONFIRMED" }
+      54: { name: "Squeezable tube", class_id: 7, class_name: "plastic", status: "CONFIRMED" }
+      55: { name: "Plastic straw", class_id: 7, class_name: "plastic", status: "CONFIRMED" }
+      57: { name: "Styrofoam piece", class_id: 7, class_name: "plastic", status: "CONFIRMED" }
+      # Class 8: shoes
+      53: { name: "Shoe", class_id: 8, class_name: "shoes", status: "CONFIRMED" }
+      # Class 9: trash
+      58: { name: "Unlabeled litter", class_id: 9, class_name: "trash", status: "CONFIRMED" }
+      59: { name: "Cigarette", class_id: 9, class_name: "trash", status: "CONFIRMED" }
+      # Ambiguous / Complex categories
+      3: { name: "Carded blister pack", class_id: null, class_name: "ambiguous", status: "REQUIRES_REVIEW", note: "Composite plastic/cardboard" }
+      35: { name: "Plastified paper bag", class_id: null, class_name: "ambiguous", status: "REQUIRES_REVIEW", note: "Composite plastic/paper" }
+      51: { name: "Rope & strings", class_id: null, class_name: "ambiguous", status: "REQUIRES_REVIEW", note: "Material unclear" }
+
+  openimages_v7:
+    version: "V7"
+    official_url: "https://storage.googleapis.com/openimages/web/index.html"
+    s3_image_url_template: "https://open-images-dataset.s3.amazonaws.com/validation/{image_id}.jpg"
+    license: "CC BY 4.0 / CC BY 2.0"
+    annotation_type: "Normalized Coordinates [XMin, XMax, YMin, YMax]"
+    class_mapping:
+      "/m/02jnhm": { name: "Tin can", class_id: 5, class_name: "metal", status: "CONFIRMED" }
+      "/m/09tvcd": { name: "Wine glass", class_id: 4, class_name: "glass", status: "CONFIRMED" }
+      "/m/05gqfk": { name: "Plastic bag", class_id: 7, class_name: "plastic", status: "CONFIRMED" }
+      "/m/02w3r3": { name: "Paper towel", class_id: 6, class_name: "paper", status: "CONFIRMED" }
+      "/m/09gtd": { name: "Toilet paper", class_id: 6, class_name: "paper", status: "CONFIRMED" }
+      "/m/09j5n": { name: "Footwear", class_id: 8, class_name: "shoes", status: "REQUIRES_REVIEW", note: "Check worn vs discarded" }
+      "/m/09j2d": { name: "Clothing", class_id: 3, class_name: "clothes", status: "REQUIRES_REVIEW", note: "Check worn vs discarded" }
+      # Material ambiguous
+      "/m/04dr76w": { name: "Bottle", class_id: null, class_name: "ambiguous", status: "REQUIRES_REVIEW", note: "Material unknown: glass vs plastic vs metal" }
+      "/m/025dyy": { name: "Box", class_id: null, class_name: "ambiguous", status: "REQUIRES_REVIEW", note: "Material unknown: cardboard vs wood vs plastic" }
