@@ -47,6 +47,10 @@ DISCARDED_OUTDOORS_IDS = {
     "oi_6e9fabfb47047286"
 }
 
+AMBIGUOUS_UNRESOLVED_IDS = {
+    "oi_3e6ea8c52a3e9792", "oi_e15b3f94b4d3e3eb"
+}
+
 def parse_args():
     parser = argparse.ArgumentParser(description="Audit real detection images against OpenImages metadata and visual inspection.")
     parser.add_argument("--image-dir", type=Path, default=Path("data/detection/images/real"), help="Path to real images folder")
@@ -133,22 +137,27 @@ def main():
         contact_sheet_ref = f"contact_sheet_{contact_sheet_num:02d}.jpg (pos {pos_in_sheet})"
 
         if stem in DISCARDED_OUTDOORS_IDS:
-            visual_verdict = "SUITABLE_DISCARDED_OUTDOORS"
-            context_desc = "Single abandoned/discarded shoe lying outdoors on ground among fallen autumn leaves."
+            visual_category = "APPEARS_DISCARDED_OUTDOORS"
+            context_desc = "Single weathered shoe lying outdoors on ground among fallen autumn leaves. Appears discarded outdoors; note that source metadata does not definitively confirm disposal status."
             missing_classes = "None"
-            reason = "Visual verification shows an isolated, weathered shoe discarded in outdoor environment without human presence."
+            technical_assessment = "Shoe is detached from human body and outdoor-weathered; potential waste candidate if scope includes outdoor litter, pending PM scope decision."
         elif stem in STUDIO_PRODUCT_IDS:
-            visual_verdict = "UNSUITABLE_COMMERCIAL_PRODUCT"
-            context_desc = "Commercial studio / catalog product photography of clean, brand-new shoes or boots."
+            visual_category = "COMMERCIAL_PRODUCT_STUDIO"
+            context_desc = "Commercial studio / catalog product photography of clean, brand-new shoes or boots on neutral/white background."
             missing_classes = "None"
-            reason = "Shoes are commercial retail products on white/neutral studio backdrop, not discarded waste."
+            technical_assessment = "Clean retail catalog products, not in discarded waste context."
+        elif stem in AMBIGUOUS_UNRESOLVED_IDS:
+            visual_category = "UNRESOLVED"
+            context_desc = "Complex or distant outdoor scene (vehicle/animals present); disposal context cannot be conclusively established from visual inspection."
+            missing_classes = "Uncertain"
+            technical_assessment = "Context ambiguous; requires clarification before assigning disposal state."
         else:
-            visual_verdict = "UNSUITABLE_WORN_BY_PERSON"
-            context_desc = "Shoes are actively worn on feet by living humans or mannequins in sports, street, work, or indoor activities."
+            visual_category = "WORN_BY_PERSON"
+            context_desc = "Shoes are actively worn on feet by living humans or mannequins in sports, street, work, or social activities."
             missing_classes = "clothes (class 3)"
-            reason = "Shoes are in active use on human feet; image contains extensive clothing that was not annotated in detection dataset."
+            technical_assessment = "Items are actively in use by persons; 239 clothing bounding boxes were stripped during dataset preparation, creating false negative background risk for class 'clothes'."
 
-        verdict_counter[visual_verdict] += 1
+        verdict_counter[visual_category] += 1
 
         audit_records.append({
             "image_id": stem,
@@ -161,13 +170,14 @@ def main():
             "source_mapping": "OpenImages [Footwear, Boot, Sandal] -> shoes (8)",
             "metadata_status": metadata_status,
             "metadata_suggestion": meta_sugg,
-            "visual_verdict": visual_verdict,
+            "visual_category": visual_category,
             "visual_context": context_desc,
             "missing_taxonomy_objects": missing_classes,
+            "suitability_under_waste_scope": "PENDING_PM_SCOPE_DECISION",
+            "technical_assessment": technical_assessment,
             "reviewer": "Tech Lead ML",
-            "reviewed_at": "2026-10-02T02:30:00",
-            "evidence_reference": contact_sheet_ref,
-            "verdict_reason": reason
+            "reviewed_at": "2026-10-02T03:15:00",
+            "evidence_reference": contact_sheet_ref
         })
 
     # Save detailed CSV
@@ -183,13 +193,14 @@ def main():
         "total_images_audited": len(audit_records),
         "visual_inspection_coverage": "100.0% (114/114 images visually reviewed)",
         "metadata_status": metadata_status,
-        "verdict_distribution": dict(verdict_counter),
+        "visual_category_distribution": dict(verdict_counter),
         "summary_conclusions": {
-            "unsuitable_worn_by_person": verdict_counter["UNSUITABLE_WORN_BY_PERSON"],
-            "unsuitable_commercial_product": verdict_counter["UNSUITABLE_COMMERCIAL_PRODUCT"],
-            "suitable_discarded_outdoors": verdict_counter["SUITABLE_DISCARDED_OUTDOORS"],
+            "worn_by_person": verdict_counter["WORN_BY_PERSON"],
+            "commercial_product_studio": verdict_counter["COMMERCIAL_PRODUCT_STUDIO"],
+            "appears_discarded_outdoors": verdict_counter["APPEARS_DISCARDED_OUTDOORS"],
             "unresolved": verdict_counter["UNRESOLVED"],
-            "critical_risk_clothes_omission": f"{verdict_counter['UNSUITABLE_WORN_BY_PERSON']} images contain unannotated clothing, which teaches detectors to treat clothes as negative background"
+            "suitability_verdict": "PENDING_PM_SCOPE_DECISION",
+            "critical_risk_clothes_omission": f"{verdict_counter['WORN_BY_PERSON']} images contain unannotated clothing, which teaches detectors to treat clothes as negative background"
         },
         "csv_path": str(csv_path),
         "contact_sheets_dir": str(args.output_dir / "contact_sheets")

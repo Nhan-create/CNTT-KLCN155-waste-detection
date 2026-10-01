@@ -262,10 +262,10 @@ def main():
                 b["class_id"] = new_cls
                 b["class_name"] = TAXONOMY_10[new_cls]
 
-                b["xc"] = c2.number_input(f"Center X #{i+1}", 0.0, 1.0, float(b["xc"]), step=0.01, key=f"xc_{selected_img_id}_{i}")
-                b["yc"] = c1.number_input(f"Center Y #{i+1}", 0.0, 1.0, float(b["yc"]), step=0.01, key=f"yc_{selected_img_id}_{i}")
-                b["w"] = c2.number_input(f"Width #{i+1}", 0.001, 1.0, float(b["w"]), step=0.01, key=f"w_{selected_img_id}_{i}")
-                b["h"] = c1.number_input(f"Height #{i+1}", 0.001, 1.0, float(b["h"]), step=0.01, key=f"h_{selected_img_id}_{i}")
+                b["xc"] = c2.number_input(f"Center X #{i+1}", 0.0, 1.0, float(b["xc"]), step=0.01, format="%.4f", key=f"xc_{selected_img_id}_{i}")
+                b["yc"] = c1.number_input(f"Center Y #{i+1}", 0.0, 1.0, float(b["yc"]), step=0.01, format="%.4f", key=f"yc_{selected_img_id}_{i}")
+                b["w"] = c2.number_input(f"Width #{i+1}", 0.001, 1.0, float(b["w"]), step=0.01, format="%.4f", key=f"w_{selected_img_id}_{i}")
+                b["h"] = c1.number_input(f"Height #{i+1}", 0.001, 1.0, float(b["h"]), step=0.01, format="%.4f", key=f"h_{selected_img_id}_{i}")
 
                 if c2.button(f"🗑️ Delete Box #{i+1}", key=f"del_{selected_img_id}_{i}"):
                     box_to_delete = i
@@ -284,10 +284,10 @@ def main():
                 format_func=lambda cid: f"{cid}: {TAXONOMY_10[cid]}",
                 key="add_cls"
             )
-            add_xc = add_c2.number_input("Center X", 0.0, 1.0, 0.5, step=0.01, key="add_xc")
-            add_yc = add_c1.number_input("Center Y", 0.0, 1.0, 0.5, step=0.01, key="add_yc")
-            add_w = add_c2.number_input("Width", 0.001, 1.0, 0.2, step=0.01, key="add_w")
-            add_h = add_c1.number_input("Height", 0.001, 1.0, 0.2, step=0.01, key="add_h")
+            add_xc = add_c2.number_input("Center X", 0.0, 1.0, 0.5, step=0.01, format="%.4f", key="add_xc")
+            add_yc = add_c1.number_input("Center Y", 0.0, 1.0, 0.5, step=0.01, format="%.4f", key="add_yc")
+            add_w = add_c2.number_input("Width", 0.001, 1.0, 0.2, step=0.01, format="%.4f", key="add_w")
+            add_h = add_c1.number_input("Height", 0.001, 1.0, 0.2, step=0.01, format="%.4f", key="add_h")
 
             if st.button("Add Box to Image"):
                 candidate_box = {

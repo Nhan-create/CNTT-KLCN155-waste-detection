@@ -56,19 +56,20 @@ Tech Lead ML đã trực tiếp kiểm tra bằng mắt toàn bộ **114/114 b�
 
 Bảng thẩm định chi tiết 114 dòng được lưu tại [`real_images_audit_table.csv`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/part02/real_data_audit/real_images_audit_table.csv).
 
-### 3.1. Phân loại thực tế sau thẩm định trực quan
+### 3.1. Phân loại bối cảnh trực quan (Visual Context Breakdown)
 
-| Nhóm thẩm định trực quan | Số lượng ảnh | Tỷ lệ | Mô tả ngữ cảnh thực tế | Phù hợp bài toán rác thải? |
-|---|:---:|:---:|---|:---:|
-| **`UNSUITABLE_WORN_BY_PERSON`** | **103** | **90,35%** | Giày đang được con người hoặc mannequin/tượng mang trên chân trong sinh hoạt: chạy bộ, thi đấu thể thao (bóng đá, điền kinh, đấu vật, trượt băng), trình diễn thời trang, đi lại ngoài đường, học sinh trong lớp. | **KHÔNG PHÙ HỢP** (Vật dụng đang sử dụng, không phải rác) |
-| **`UNSUITABLE_COMMERCIAL_PRODUCT`** | **10** | **8,77%** | Ảnh chụp sản phẩm studio/catalog quảng cáo thương mại: giày lười da sang trọng, bốt da cao bồi, giày Converse, giày cao gót, giày thể thao trên phông nền trắng/studio sạch sẽ. | **KHÔNG PHÙ HỢP** (Sản phẩm thương mại nguyên vẹn, không phải rác) |
-| **`SUITABLE_DISCARDED_OUTDOORS`** | **1** | **0,88%** | Ảnh `oi_6e9fabfb47047286.jpg`: Duy nhất một chiếc giày cũ màu đen bị vứt bỏ nằm đơn độc ngoài trời trên thảm lá cây mùa thu rụng. | **CÓ THỂ PHÙ HỢP** (Rác thải ngoài môi trường tự nhiên) |
-| **TỔNG CỘNG** | **114** | **100%** | 100% ảnh đã được thẩm định trực quan độc lập. | **Chỉ 1 ảnh rác thực tế** |
+| Nhóm bối cảnh trực quan | Số lượng ảnh | Tỷ lệ | Mô tả ngữ cảnh thực tế | Đánh giá kỹ thuật & Sự phù hợp bài toán rác |
+|---|:---:|:---:|---|---|
+| **`WORN_BY_PERSON`** | **101** | **88,60%** | Giày đang được con người hoặc mannequin/tượng mang trên chân trong sinh hoạt: chạy bộ, thi đấu thể thao (bóng đá, điền kinh, đấu vật, trượt băng), trình diễn thời trang, đi lại ngoài đường, học sinh trong lớp. | **Vật dụng đang sử dụng; bị tước bỏ 239 nhãn quần áo.** Có nguy cơ cao làm mô hình học sai rằng quần áo là vùng nền (negative background). Phù hợp/không phù hợp phụ thuộc quyết định phạm vi của PM. |
+| **`COMMERCIAL_PRODUCT_STUDIO`** | **10** | **8,77%** | Ảnh chụp sản phẩm studio/catalog quảng cáo thương mại: giày lười da sang trọng, bốt da cao bồi, giày Converse, giày cao gót, giày thể thao trên phông nền trắng/studio sạch sẽ. | **Sản phẩm thương mại nguyên vẹn đơn lập.** Không ở trong bối cảnh thu gom rác thải. |
+| **`UNRESOLVED`** | **2** | **1,75%** | Ảnh `oi_3e6ea8c52a3e9792` và `oi_e15b3f94b4d3e3eb`: Cảnh ngoài trời phức tạp/ở xa (có xe cộ, đàn chó đi dạo cùng người); kích thước box nhỏ và bối cảnh không đủ thông tin để xác nhận ý định thải bỏ. | **Chưa xác định được ngữ cảnh.** Cần đối chứng thêm trước khi đưa ra kết luận. |
+| **`APPEARS_DISCARDED_OUTDOORS`** | **1** | **0,88%** | Ảnh `oi_6e9fabfb47047286.jpg`: Một chiếc giày cũ màu đen nằm ngoài trời trên thảm lá cây mùa thu rụng mà không có người xuất hiện. | **Có vẻ bị bỏ ngoài trời.** Lưu ý metadata nguồn OpenImages không có nhãn xác nhận đây là rác thải bỏ hay ảnh nhiếp ảnh sắp đặt. Tiềm năng làm mẫu rác ngoài trời nếu phạm vi cho phép. |
+| **TỔNG CỘNG** | **114** | **100%** | 100% ảnh đã được thẩm định trực quan độc lập qua 10 contact sheets. | **Trạng thái thẩm định chính thức: PENDING_PM_SCOPE_DECISION** |
 
 > [!CAUTION]
-> **Phát hiện lỗi bỏ sót nhãn nghiêm trọng (Critical Annotation Leakage):**
-> Trong 103 bức ảnh có người mang giày, OpenImages vốn ghi nhận **239 bounding box quần áo (`/m/09j2d: Clothing`)** và **187 bounding box con người (`/m/01g317: Person`)**. Quá trình trích xuất dữ liệu cũ chỉ lấy nhãn giày và **bỏ toàn bộ nhãn quần áo**.  
-> **Hậu quả:** Khi đưa vào huấn luyện mô hình phát hiện đa rác, các vùng quần áo trên người sẽ bị gán nhãn là vùng nền (background/negative), triệt tiêu hoàn toàn khả năng nhận dạng lớp 3 (`clothes`) của mô hình.
+> **Phát hiện lỗi bỏ sót nhãn nghiêm trọng (Critical Annotation Omission):**
+> Trong 101 bức ảnh có người mang giày, OpenImages vốn ghi nhận **239 bounding box quần áo (`Clothing`)** và **187 bounding box con người (`Person`)**. Quá trình trích xuất dữ liệu cũ chỉ lấy nhãn giày và **bỏ toàn bộ nhãn quần áo**.  
+> **Hậu quả:** Khi đưa vào huấn luyện mô hình phát hiện đa rác, các vùng quần áo trên người sẽ bị gán nhãn là vùng nền (background/negative), gây độc dữ liệu đối với lớp 3 (`clothes`) của mô hình. Cần cách ly nhóm ảnh này khỏi tập huấn luyện detector đa lớp.
 
 ---
 

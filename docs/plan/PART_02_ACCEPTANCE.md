@@ -8,7 +8,9 @@
 - **Ngày lập:** 02/10/2026
 - **Trạng thái Gate A gốc (Final Test):** `GATE_A_FAILED` (Do chỉ tiêu CPU forward PyTorch FP32 23,86 ms vượt ngưỡng < 20,0 ms; các chỉ tiêu Accuracy 96,13%, Macro-F1 0,9578, Battery Recall 95,58% đều đạt xuất sắc. Giữ nguyên không sửa lịch sử).
 - **Trạng thái Tối ưu hóa Runtime (Deployment Ready):** `RUNTIME_OPTIMIZATION_VERIFIED` (Mô hình ONNX Runtime FP32 tại 6 luồng CPU đạt **7,40 ms**, tương đương 135,2 FPS, khớp 100,0000% nhãn dự đoán Top-1 trên toàn bộ 2.223 ảnh validation với sai lệch logit cực đại $\le 5,63 \times 10^{-5}$).
-- **Trạng thái Dữ liệu Đa rác (Part 2 Data Gate):** `DATA_INSUFFICIENT_FOR_PART_03` (Đã xây dựng xong hạ tầng kiểm toán, validator cú pháp và review tool, nhưng phát hiện dữ liệu thực tế bị mất cân bằng cực đoan và thiếu hụt 9/10 lớp rác — KHUYẾN NGHỊ CHƯA HUẤN LUYỆN DETECTOR Ở PHẦN 3).
+- **Trạng thái Công cụ Review (Review Tool Verification):** `REVIEW_TOOL_VERIFIED` (Đạt 9/9 ca kiểm thử chức năng tự động Playwright trên sandbox cô lập; kiểm chứng thao tác live bằng MCP Chrome DevTools; bảo toàn 100% hash SHA-256 của 2.841 tệp dữ liệu gốc).
+- **Trạng thái Dữ liệu Đa rác (Part 2 Data Gate):** `DATA_PENDING_MULTICLASS_SUPPLEMENT` (Phát hiện ảnh thật hiện tại chỉ có duy nhất lớp giày và 88,6% là giày đang mang; thiếu hụt 9/10 lớp rác thực tế. Đang chờ bổ sung nguồn dữ liệu thật và quyết định phạm vi từ PM).
+- **KẾT LUẬN TRẠNG THÁI TASK 2:** **`TOOL_VERIFIED_DATA_PENDING`** (Công cụ đạt chuẩn, dữ liệu detection cần bổ sung trước khi train detector Phần 3).
 
 ---
 
@@ -19,7 +21,7 @@ Trong Task 2, đội ngũ kỹ thuật tuân thủ nghiêm ngặt các nguyên t
 2. **Đóng băng protocol đánh giá Gate A:** Không tuning siêu tham số, không chọn lọc checkpoint bằng tập test. Đánh giá duy nhất một lần trên tập final test 2.223 ảnh chưa từng được mô hình nhìn thấy.
 3. **Trung thực về kết quả thực nghiệm:** Ghi nhận chính xác độ trễ CPU (23,86 ms), không sửa ngưỡng, không bóp méo log hay che giấu lỗi.
 4. **Kiểm toán dữ liệu bounding box tận gốc:** Phân tách rạch ròi dữ liệu ảnh nhân tạo (Synthetic) và ảnh thực tế (OpenImages), ngăn chặn rò rỉ synthetic vào tập test detection.
-5. **Bảo toàn dữ liệu gốc trong kiểm thử UI:** Toàn bộ quá trình kiểm thử tự động của công cụ Review Tool được chạy trên môi trường sandbox cách ly (`data/detection_sandbox/`), giữ nguyên 100% dữ liệu gốc tại `data/detection/`.
+5. **Bảo toàn dữ liệu gốc trong kiểm thử UI:** Toàn bộ quá trình kiểm thử tự động của công cụ Review Tool được chạy trên môi trường sandbox cách ly (`data/detection_sandbox/`), đối soát mã băm trước và sau chứng minh 100% tệp dữ liệu gốc tại `data/detection/` không bị thay đổi bit nào.
 
 ---
 
@@ -38,9 +40,6 @@ Trong Task 2, đội ngũ kỹ thuật tuân thủ nghiêm ngặt các nguyên t
 | **Data Integrity** (Hash đĩa vs Manifest) | $0$ sai lệch | **0** sai lệch | **PASS** | Đọc byte trực tiếp 2.223 ảnh |
 | **CPU Forward Latency** (PyTorch FP32, 4 luồng) | $< 20,0\text{ ms}$ | **23,86 ms** (41,9 FPS) | **FAIL** | Vượt ngưỡng cho phép +3,86 ms |
 | **TỔNG KẾT GATE A GỐC** | **Tất cả các tiêu chí phải PASS** | **5 / 6 tiêu chí PASS** | **GATE_A_FAILED** | **Giữ nguyên kết quả thực nghiệm** |
-
-> [!CAUTION]
-> **Quyết định kỹ thuật của Tech Lead:** Theo đúng nguyên tắc trung thực và chỉ đạo của PM, trạng thái Gate A gốc được xác lập là **`GATE_A_FAILED`**. Chúng tôi không cố tình nới lỏng ngưỡng thời gian trễ hay sửa kết quả đo để làm đẹp báo cáo.
 
 ---
 
@@ -71,66 +70,80 @@ Nhằm giải quyết bài toán độ trễ phục vụ triển khai thực t�
 
 ---
 
-## 4. KẾT QUẢ KIỂM TOÁN TẬP DỮ LIỆU ĐA RÁC VÀ 114 ẢNH OPENIMAGES
+## 4. KẾT QUẢ THẨM ĐỊNH TRỰC QUAN 114 ẢNH OPENIMAGES
 
-### 4.1. Cơ cấu dữ liệu hiện có
-- **1.305 ảnh Synthetic:** Tải từ Mendeley Data (ID: `2x69gjbcz6`), chứa đúng **4.095 bounding box** bao phủ 9 lớp (0, 1, 2, 3, 4, 5, 6, 7, 9). Không có bất kỳ box nào thuộc lớp 8 (`shoes`).
-- **114 ảnh Real:** Tải từ OpenImages V7 (validation set), chứa **507 bounding box** chỉ thuộc duy nhất lớp 8 (`shoes`). Hoàn toàn không có 9 lớp còn lại.
-- **Tổng cộng:** 1.419 ảnh, 4.602 bounding box (0 lỗi hình học, 0 lỗi cú pháp).
+Tech Lead ML đã thẩm định trực tiếp bằng mắt 114/114 ảnh qua 10 contact sheets tại `artifacts/part02/real_data_audit/contact_sheets/` và đối soát metadata gốc:
 
-### 4.2. Thẩm định trực quan 114 ảnh thật qua 10 Contact Sheets
-Tech Lead đã trực tiếp kiểm tra bằng mắt 114 bức ảnh qua 10 contact sheets tại `artifacts/part02/real_data_audit/contact_sheets/`:
-- **103 ảnh (90,35%): `UNSUITABLE_WORN_BY_PERSON`** — Giày đang được con người hoặc tượng/mannequin mang trên chân trong sinh hoạt đời thường (thể thao, khiêu vũ, đi bộ, học tập).
-- **10 ảnh (8,77%): `UNSUITABLE_COMMERCIAL_PRODUCT`** — Ảnh chụp sản phẩm giày studio/catalog quảng cáo thương mại trên nền trắng sạch.
-- **1 ảnh (0,88%): `SUITABLE_DISCARDED_OUTDOORS`** — Ảnh `oi_6e9fabfb47047286.jpg`: Chiếc giày cũ đơn độc bị vứt bỏ trên thảm lá rụng ngoài trời.
-- **Nguy cơ bỏ sót nhãn:** Trong 103 ảnh người mang giày, có **239 vị trí quần áo (`Clothing`)** và **187 vị trí con người (`Person`)** bị xóa bỏ nhãn, gây nguy cơ detector coi quần áo là vùng nền (background).
-
-### 4.3. Chống rò rỉ phân vùng detection bằng Group ID
-- Đã phân cụm 1.419 ảnh thành **1.354 Group ID duy nhất** theo pHash Hamming distance $\le 4$.
-- Thực nghiệm mô phỏng `GroupShuffleSplit` (70/15/15) chứng minh **Group Overlap giữa Train, Val, Test = 0**.
-- **Đánh giá giới hạn:** pHash giải quyết triệt để rò rỉ bối cảnh chụp liền kề, nhưng đối với ảnh ghép synthetic dùng chung một mẫu sprite rác trên các nền khác nhau, cần tiếp tục kiểm soát sprite ID ở Phần 3.
+| Phân nhóm bối cảnh trực quan | Số lượng ảnh | Tỷ lệ | Đặc điểm bối cảnh thực tế | Đánh giá kỹ thuật & Hệ quả |
+|---|:---:|:---:|---|---|
+| **`WORN_BY_PERSON`** | **101** | **88,60%** | Giày đang mang trên chân người sống/mannequin (thể thao, khiêu vũ, học đường). | Đã bị tước bỏ 239 nhãn `Clothing` và 187 nhãn `Person`. Nguy cơ cao đầu độc lớp `clothes` (class 3). |
+| **`COMMERCIAL_PRODUCT_STUDIO`** | **10** | **8,77%** | Ảnh sản phẩm thương mại studio/catalog trên phông nền trắng/xám sạch. | Vật phẩm thương mại đơn lập, không phản ánh rác thải bỏ. |
+| **`UNRESOLVED`** | **2** | **1,75%** | `oi_3e6ea8c52a3e9792`, `oi_e15b3f94b4d3e3eb`: Cảnh ngoài trời phức tạp có xe cộ, đàn chó dạo phố; box nhỏ ở xa. | Ngữ cảnh thải bỏ chưa thể xác định chắc chắn từ ảnh chụp. |
+| **`APPEARS_DISCARDED_OUTDOORS`** | **1** | **0,88%** | `oi_6e9fabfb47047286.jpg`: Chiếc giày cũ đơn độc nằm ngoài trời trên thảm lá rụng mùa thu. | Có vẻ bị bỏ ngoài trời; lưu ý metadata OpenImages không có nhãn xác nhận đây là rác thải bỏ. |
+| **TỔNG CỘNG** | **114** | **100%** | 100% ảnh đã được đối soát qua 10 contact sheets. | **Trạng thái thẩm định: PENDING_PM_SCOPE_DECISION** |
 
 ---
 
-## 5. CÔNG CỤ RÀ SOÁT NHÃN VÀ KẾT QUẢ KIỂM THỬ THỰC CHẤT
+## 5. BẢNG KIỂM KÊ 10 LỚP VÀ PHƯƠNG ÁN BỔ SUNG DỮ LIỆU ĐA RÁC
 
-### 5.1. Nâng cấp công cụ Review Tool (`src/ui/review_tool.py`)
-- Hỗ trợ biến môi trường `REVIEW_TOOL_DATA_DIR` để chạy trên môi trường sandbox cách ly, bảo vệ 100% dữ liệu gốc.
-- Tích hợp hàm kiểm tra hình học và cú pháp thời gian thực `validate_box`: Chặn tọa độ ngoài $[0, 1]$, chặn $w, h \le 0,001$, chặn diện tích box $< 0,00005$, chặn $class\_id \notin [0, 9]$.
-- Tự động tạo bản sao lưu `.txt.bak` trước khi ghi đĩa.
-- Ghi nhật ký kiểm toán có cấu trúc `review_audit_log.csv`.
+### 5.1. Bảng kiểm kê hiện trạng theo 10 lớp vật liệu
 
-### 5.2. Giải trình trạng thái daemon MCP Chrome DevTools
-- **Nguyên nhân xung đột ban đầu:** Hai server MCP (`chrome-devtools` và `chrome-devtools-plugin_chrome-devtools`) cùng đăng ký trỏ về một thư mục dữ liệu `chrome-profile`. Một tiến trình automation cũ (PID 23636) giữ khóa tệp khiến việc khởi động trình duyệt mới bị từ chối.
-- **Khắc phục thành công:** Đã dừng an toàn tiến trình automation PID 23636. Server MCP `chrome-devtools` đã kết nối thành công, điều hướng trực tiếp tới `http://localhost:8501` và chụp ảnh màn hình thời gian thực ([`mcp_live_review_tool.png`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/part02/mcp_test_evidence/mcp_live_review_tool.png)).
+| ID | Tên lớp (Class) | Số ảnh Real đã duyệt | Số BBox Real | Số ảnh Synthetic | Số BBox Synthetic | Đánh giá hiện trạng | Nguồn & Phương án bổ sung khả thi (Không yêu cầu PM tự chụp toàn bộ) |
+|:---:|---|:---:|:---:|:---:|:---:|---|---|
+| 0 | `battery` | 0 | 0 | 397 | 462 | **Thiếu hoàn toàn ảnh thật** | Trích xuất OpenImages `/m/01c648` (Battery) + tập TACO (Batteries). |
+| 1 | `biological` | 0 | 0 | 379 | 446 | **Thiếu hoàn toàn ảnh thật** | Trích xuất TACO (Food waste) + gán nhãn ảnh phân loại VN-trash sẵn có trong repo. |
+| 2 | `cardboard` | 0 | 0 | 379 | 452 | **Thiếu hoàn toàn ảnh thật** | Trích xuất OpenImages `/m/025dyy` (Box/Cardboard) + TACO (Corrugated cardboard). |
+| 3 | `clothes` | 0 | 0 | 389 | 462 | **Thiếu hoàn toàn ảnh thật** | Trích xuất OpenImages `/m/01g317` (Clothing) đơn lập; loại bỏ ảnh người mặc. |
+| 4 | `glass` | 0 | 0 | 383 | 476 | **Thiếu hoàn toàn ảnh thật** | Trích xuất OpenImages `/m/09tvcd` (Wine glass) + TACO (Glass bottle, Broken glass). |
+| 5 | `metal` | 0 | 0 | 372 | 448 | **Thiếu hoàn toàn ảnh thật** | Trích xuất OpenImages `/m/02jnhm` (Tin can) + TACO (Drink can, Food can). |
+| 6 | `paper` | 0 | 0 | 353 | 422 | **Thiếu hoàn toàn ảnh thật** | Trích xuất OpenImages `/m/02w3_ws` (Paper towel) + TACO (Newspaper, Paper cup). |
+| 7 | `plastic` | 0 | 0 | 400 | 472 | **Thiếu hoàn toàn ảnh thật** | Trích xuất OpenImages `/m/04dr76x` (Bottle), `/m/054_l` (Bag) + TACO (Plastic). |
+| 8 | `shoes` | 114 | 507 | 0 | 0 | **Đã có ảnh thật (cần lọc)** | Đã có 114 ảnh OpenImages; giữ 10 ảnh studio + 1 ảnh lá; cách ly 101 ảnh mang trên chân. |
+| 9 | `trash` | 0 | 0 | 385 | 455 | **Thiếu hoàn toàn ảnh thật** | Trích xuất TACO (Unlabeled litter, Cigarette) + gán nhãn tập TrashNet sẵn có. |
+| **Σ** | **TỔNG HỢP** | **114** | **507** | **1.305** | **4.095** | **Lệch cực đoan: 9/10 lớp là 0 box thật** | **Sử dụng 4 nguồn dữ liệu mở + 50-100 ảnh tự chụp kiểm thử tại HUIT** |
 
-### 5.3. Kết quả kiểm thử tự động 9 ca chức năng (Playwright trên Sandbox)
-Tất cả 9 ca kiểm thử chức năng đã được thực thi tự động qua script `scripts/test_review_tool_functional.py` với assertions nghiêm ngặt trên DOM và tệp đĩa:
-
-| Mã ca | Tên ca kiểm thử | Phương pháp kiểm tra & Xác nhận | Kết quả | Bằng chứng |
-| :---: | :--- | :--- | :---: | :--- |
-| **TC-01** | Mở ảnh & đối chiếu đĩa | Đọc file đĩa `syn_syn_000000.txt` (6 boxes), đối chiếu số expanders trên UI (6 expanders). | **PASS** | `case_01_open_and_display.png` |
-| **TC-02** | Thêm box mới | Nhập tọa độ xác định (0.35, 0.45, 0.15, 0.25), bấm thêm, xác nhận số box tăng lên 7. | **PASS** | `case_02_add_box.png` |
-| **TC-03** | Sửa tọa độ | Sửa Center X #1 thành 0.25, Center Y #1 thành 0.65, kiểm tra input value binding. | **PASS** | `case_03_edit_coordinates.png` |
-| **TC-04** | Đổi lớp phân loại | Tương tác bàn phím trên selectbox Class #1, kiểm tra giá trị cập nhật. | **PASS** | `case_04_change_class.png` |
-| **TC-05** | Xóa bounding box | Bấm nút 'Delete Box #1', xác nhận số lượng box giảm chính xác từ 7 xuống 6. | **PASS** | `case_05_delete_box.png` |
-| **TC-06** | Lưu đĩa & reload đối chiếu | Lưu đĩa, kiểm tra file `.txt` có 6 boxes, file `.bak` tồn tại, reload trang hiển thị đúng 6 boxes. | **PASS** | `case_06_persistence_verify.png` |
-| **TC-07** | Quyết định duyệt | Chọn 'APPROVED', ghi chú, lưu; đọc `manifest_detection_v1.csv` xác nhận status=APPROVED. | **PASS** | `case_07_decision_status.png` |
-| **TC-08** | Chặn dữ liệu lỗi | Nhập $x_c=0.95, w=0.30$ ($x_{max}=1.10$), xác nhận hiển thị lỗi đỏ, đĩa không bị ghi đè. | **PASS** | `case_08_error_blocking.png` |
-| **TC-09** | Kiểm toán nhật ký | Đọc `review_audit_log.csv`, xác nhận dòng ghi vết có timestamp, image_id, status, notes. | **PASS** | `case_09_manifest_audit_log.png` |
-
-Báo cáo Word chính thức kèm ảnh chụp chi tiết: [`Bao_Cao_Kiem_Thu_Cong_Cu_Review_Tool.docx`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/part02/Bao_Cao_Kiem_Thu_Cong_Cu_Review_Tool.docx) (5,08 MB).
+> [!IMPORTANT]
+> **Vai trò của Synthetic:** 1.305 ảnh synthetic (4.095 box) chỉ được sử dụng làm tập tăng cường huấn luyện (Training augmentation). **Tuyệt đối không đưa synthetic vào tập Validation hoặc Test thực tế** để đánh giá detector ở Phần 3.
 
 ---
 
-## 6. KẾT LUẬN VÀ KIẾN NGHỊ CHUYỂN GIAO SANG PHẦN 3
+## 6. KẾT QUẢ KIỂM THỬ THỰC CHẤT CÔNG CỤ REVIEW TOOL
 
-1. **Về mô hình Phân loại đơn rác (Part 1 & Gate A):**
-   - Hoàn tất và đóng băng. Giữ nguyên kết quả Gate A gốc là FAILED trên PyTorch (23,86 ms), nhưng đã chứng minh giải pháp triển khai thực tế trên ONNX Runtime đạt **7,40 ms** (135,2 FPS) với độ tương đương số học 100%. Không train lại classifier.
-2. **Về dữ liệu Detection (Part 2 Data Gate):**
-   - **TẬP DỮ LIỆU HIỆN TẠI HOÀN TOÀN CHƯA ĐỦ ĐIỀU KIỆN ĐỂ HUẤN LUYỆN DETECTOR Ở PHẦN 3.**
-   - 91,97% ảnh là synthetic ghép đồ họa; 8,03% ảnh thật chỉ có lớp giày (trong đó 90,35% là người đang mang giày, không phải rác).
-3. **Kế hoạch hành động trước khi bước vào Phần 3:**
-   - Kính đề nghị PM phê duyệt câu hỏi phạm vi bài toán (thùng rác thông minh vs camera giám sát đường phố).
-   - Triển khai thu thập tối thiểu 500+ ảnh rác thực tế tại TP.HCM theo kế hoạch tại `PART_02_COLLECTION_AND_LABELING_PLAN.md`.
-   - **Cam kết kỷ luật:** Tuyệt đối không tiến hành huấn luyện YOLOv8n hay SSDLite320 khi chưa có tập dữ liệu thực tế đạt chuẩn.
+Công cụ `src/ui/review_tool.py` đã vượt qua toàn bộ 9 ca kiểm thử chức năng tự động với Playwright trên sandbox cô lập và được kiểm chứng thao tác live trực tiếp bằng MCP Chrome DevTools:
+
+| Mã ca | Tên ca kiểm thử | Hành động thực hiện | Phương pháp đối chiếu & Xác minh | Kết quả | Bằng chứng |
+| :---: | :--- | :--- | :--- | :---: | :--- |
+| **TC-01** | Mở ảnh & đối chiếu đĩa | Tải trang Streamlit, đọc ảnh mặc định `syn_syn_000000.jpg`. | Đọc file đĩa `syn_syn_000000.txt` (6 boxes), đối chiếu số expanders trên UI (6 expanders). Khớp 100%. | **PASS** | `case_01_open_and_display.png` |
+| **TC-02** | Thêm box mới có tọa độ cụ thể | Nhập form thêm box: xc=0.35, yc=0.45, w=0.15, h=0.25, class=cardboard. Bấm Add Box. | Số lượng box expander tăng từ 6 lên 7; Box #7 hiển thị nhãn cardboard. | **PASS** | `case_02_add_box.png` |
+| **TC-03** | Sửa tọa độ Box #1 (Bảo tồn) | Sửa Center X #1=0.25, Center Y #1=0.65, Width #1=0.18, Height #1=0.22. Không xóa box. | Form input phản hồi và lưu giữ giá trị mới (0.25, 0.65, 0.18, 0.22). Box #1 được giữ nguyên để đối soát lưu đĩa. | **PASS** | `case_03_edit_coordinates.png` |
+| **TC-04** | Đổi lớp Box #1 (Assert khác biệt) | Đổi lớp của Box #1 từ `4: glass` sang `6: paper` bằng phím điều hướng. | Khẳng định `class_before ('4: glass') != class_after ('6: paper')`. Giữ nguyên Box #1 để kiểm tra việc ghi đĩa. | **PASS** | `case_04_change_class.png` |
+| **TC-06** | Lưu đĩa & reload đối chiếu | Bấm 'Save Changes & Update Manifest', đọc từng dòng file `.txt` trên đĩa, reload trang web. | File đĩa lưu chính xác Box #1 (class=6, xc=0.25, yc=0.65, w=0.18, h=0.22) và Box #7 (class=2, xc=0.35, yc=0.45). File `.bak` được tạo. Reload trang hiển thị đủ 7 boxes với đúng tọa độ đã lưu. | **PASS** | `case_06_persistence_verify.png` |
+| **TC-05** | Xóa box và xác nhận lưu đĩa | Bấm '🗑️ Delete Box #7', bấm Lưu để cập nhật ổ cứng. | Số lượng box trên UI giảm từ 7 xuống 6. Đọc file đĩa xác nhận còn đúng 6 boxes, Box #1 vẫn được bảo toàn nguyên vẹn với class=6 và tọa độ đã sửa. | **PASS** | `case_05_delete_box.png` |
+| **TC-07** | Chuyển trạng thái thẩm định thật | Thực hiện chuỗi chuyển trạng thái thật: APPROVED -> REJECTED -> APPROVED, kèm ghi chú cho từng bước. | Đọc trực tiếp `manifest_detection_v1.csv` trên đĩa sau mỗi lần lưu: xác nhận trạng thái chuyển dịch chuẩn xác (APPROVED -> REJECTED -> APPROVED), num_boxes=6. | **PASS** | `case_07_decision_status.png` |
+| **TC-08** | Chặn dữ liệu lỗi (Add & Edit) | Kiểm tra 2 trường hợp lỗi: (1) Nhập tọa độ vượt biên khi thêm box mới (xc=0.95, w=0.30 -> xmax=1.10); (2) Sửa Box #1 thành tọa độ lỗi rồi bấm Lưu thay đổi. | Cả hai trường hợp đều kích hoạt cảnh báo lỗi màu đỏ 'Validation Failed / exceed image boundaries [0, 1]'. Đối soát mã băm SHA-256 tệp nhãn và manifest: hoàn toàn không đổi. | **PASS** | `case_08_error_blocking.png` |
+| **TC-09** | Nhật ký kiểm toán có cấu trúc | Đọc và thẩm định toàn bộ các dòng ghi trong file `review_audit_log.csv` trên ổ cứng. | Ghi nhận đủ 5 bản ghi có cấu trúc chuẩn; ghi nhận đầy đủ chu kỳ chuyển trạng thái (APPROVED, REJECTED), số lượng boxes, timestamp ISO và ghi chú của kiểm định viên. | **PASS** | `case_09_manifest_audit_log.png` |
+
+- **Bằng chứng thao tác trực tiếp qua Chrome DevTools MCP:**
+  - Ảnh thao tác MCP sửa tọa độ, đổi lớp và lưu thành công: [`mcp_live_interaction_saved.png`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/part02/mcp_test_evidence/mcp_live_interaction_saved.png).
+  - Ảnh thao tác MCP nhập tọa độ vượt biên và hiển thị cảnh báo đỏ chặn lưu: [`mcp_live_error_blocking.png`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/part02/mcp_test_evidence/mcp_live_error_blocking.png).
+- **Kiểm tra tính toàn vẹn dữ liệu gốc:** Đối soát 2.841 file trong `data/detection/` trước và sau toàn bộ quá trình kiểm thử: **100% bitwise identical**.
+- **Báo cáo Word chính thức:** Đã tạo và cập nhật đầy đủ tại [`Bao_Cao_Kiem_Thu_Cong_Cu_Review_Tool.docx`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/part02/Bao_Cao_Kiem_Thu_Cong_Cu_Review_Tool.docx) (4,58 MB).
+
+---
+
+## 7. KẾ HOẠCH BÀN GIAO VÀ PHÂN ĐỊNH TRÁCH NHIỆM
+
+### 7.1. Phân định công việc
+
+| Hạng mục công việc | Người thực hiện | Thời gian dự kiến | Điều kiện phụ thuộc / Ghi chú |
+|---|:---:|:---:|---|
+| **1. Chốt phạm vi ứng dụng & vùng nhìn camera** | **PM Ngô Thanh Nhân** | 0,5 giờ | Quyết định bài toán: Khoang thu gom/Thùng thông minh vs Camera đường phố mở |
+| **2. Viết script trích xuất 9 lớp rác từ OpenImages V7 & TACO** | Tech Lead (Tự chủ) | 4 giờ | Phụ thuộc metadata OpenImages có sẵn trên máy và API/bộ lọc TACO |
+| **3. Gán nhãn bounding box tập rác nội bộ (TrashNet / VN-trash)** | Tech Lead / Nhóm ML | 6 – 8 giờ | Sử dụng chính công cụ Review Tool đã được kiểm chứng |
+| **4. Thu thập tập ảnh thực nghiệm thực địa HUIT (50 – 100 ảnh)** | Nhóm sinh viên thực hiện | 1 – 2 buổi | Chụp tại sảnh giảng đường, căn tin, phòng lab trường ĐH Công Thương TP.HCM |
+| **5. Rà soát chất lượng (QA/QC 2 vòng) và đóng gói tập dữ liệu Part 2** | Tech Lead (Tự chủ) | 4 giờ | Thẩm định 100% box bằng Review Tool, xuất manifest V2 và phân cụm Group ID |
+| **6. Khởi động huấn luyện YOLOv8n & SSDLite320 (Part 3)** | Tech Lead / Nhóm ML | 12 – 16 giờ | **Bắt đầu sau khi hoàn thành mục 1 đến 5** |
+
+### 7.2. Dự kiến mốc thời gian hoàn tất
+- **Mốc hoàn tất kiểm chứng công cụ Review Tool:** **ĐÃ HOÀN TẤT 100%** (02/10/2026).
+- **Mốc hoàn tất bổ sung và chuẩn bị dữ liệu đa rác đạt chuẩn:** **Dự kiến 3 ngày làm việc** sau khi PM chốt định hướng phạm vi ứng dụng.
