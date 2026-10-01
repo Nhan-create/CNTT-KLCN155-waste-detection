@@ -22,8 +22,8 @@ if hasattr(sys.stdout, "reconfigure"):
 if hasattr(sys.stderr, "reconfigure"):
     sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 
-PROJECT_ROOT = Path("D:/CNTT-KLCN155-waste-detection")
-DOWNLOADS_DIR = Path("C:/Users/ad/Downloads")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+DOWNLOADS_DIR = Path.home() / "Downloads"
 
 ZIP_NAME_R2 = "CNTT-KLCN155_PART01_VERIFIED_R2.zip"
 MANIFEST_NAME_R2 = "CNTT-KLCN155_PART01_VERIFIED_R2_manifest.csv"
@@ -52,7 +52,6 @@ def build_package(zip_name: str, manifest_name: str, root_arcname: str) -> dict:
         "data/audit",
         "data/metadata",
         "artifacts/official_run",
-        "artifacts/smoke_test_v2",
         "configs",
     ]
     include_files = [

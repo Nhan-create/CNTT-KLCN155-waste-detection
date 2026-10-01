@@ -32,10 +32,15 @@ from torch.utils.data import DataLoader
 from torchvision import datasets, transforms
 from torchvision.models import mobilenet_v3_large
 
-PROJECT_ROOT = Path("D:/CNTT-KLCN155-waste-detection")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_CHECKPOINT = PROJECT_ROOT / "artifacts" / "official_run" / "best_model.pt"
 DEFAULT_MANIFEST = PROJECT_ROOT / "data" / "audit" / "split_manifest_v2.csv"
-DEFAULT_VAL_DIR = PROJECT_ROOT / "data" / "processed_v2" / "val"
+if (PROJECT_ROOT / "data" / "processed_v2" / "val").exists():
+    DEFAULT_VAL_DIR = PROJECT_ROOT / "data" / "processed_v2" / "val"
+elif Path("D:/CNTT-KLCN155-waste-detection/data/processed_v2/val").exists():
+    DEFAULT_VAL_DIR = Path("D:/CNTT-KLCN155-waste-detection/data/processed_v2/val")
+else:
+    DEFAULT_VAL_DIR = PROJECT_ROOT / "data" / "processed_v2" / "val"
 DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "artifacts" / "official_run"
 
 CLASS_NAMES = [

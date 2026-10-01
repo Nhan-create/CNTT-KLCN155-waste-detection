@@ -25,7 +25,7 @@ if hasattr(sys.stderr, "reconfigure"):
 
 import pandas as pd
 
-PROJECT_ROOT = Path("D:/CNTT-KLCN155-waste-detection")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_RAW_LOG = PROJECT_ROOT / "artifacts" / "official_run" / "official_training_raw_execution.log"
 DEFAULT_CHECKPOINT = PROJECT_ROOT / "artifacts" / "official_run" / "best_model.pt"
 DEFAULT_MANIFEST = PROJECT_ROOT / "data" / "audit" / "split_manifest_v2.csv"
