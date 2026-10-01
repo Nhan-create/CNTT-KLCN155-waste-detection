@@ -76,6 +76,7 @@ def main():
                 shutil.copy2(f, dir_part01 / f.name)
 
     # 4. Copy Audit & Real Detection Data
+    # 4. Copy Audit & Real Detection Data
     real_audit_dir = part02_artifacts / "real_data_audit"
     if real_audit_dir.exists():
         for item in real_audit_dir.iterdir():
@@ -93,6 +94,18 @@ def main():
     if data_det.exists():
         for f in data_det.glob("*.*"):
             shutil.copy2(f, dir_audit_real / f.name)
+
+    split_audit_json = part02_artifacts / "detection_split_audit.json"
+    if split_audit_json.exists():
+        shutil.copy2(split_audit_json, dir_audit_real / split_audit_json.name)
+
+    det_yaml = project_root / "configs" / "detection_dataset.yaml"
+    if det_yaml.exists():
+        shutil.copy2(det_yaml, dir_audit_real / det_yaml.name)
+
+    contact_sheet = part02_artifacts / "taco_approved_contact_sheet.jpg"
+    if contact_sheet.exists():
+        shutil.copy2(contact_sheet, dir_tool_evidence / contact_sheet.name)
 
     # 5. Copy Tool Verification Evidence (Screenshots & Logs)
     mcp_evidence_dir = part02_artifacts / "mcp_test_evidence"
@@ -119,8 +132,12 @@ def main():
         project_root / "scripts" / "test_review_tool_functional.py",
         project_root / "scripts" / "check_split_leakage.py",
         project_root / "scripts" / "reproduce_official_validation.py",
+        project_root / "scripts" / "build_detection_splits.py",
+        project_root / "scripts" / "reconcile_audited_decisions.py",
         project_root / "configs" / "detection_source_mapping.yaml",
+        project_root / "configs" / "detection_dataset.yaml",
         project_root / "artifacts" / "part02" / "real_detection_readiness.json",
+        project_root / "artifacts" / "part02" / "detection_split_audit.json",
         project_root / "src" / "ui" / "review_tool.py",
         project_root / "tests" / "conftest.py",
         project_root / "tests" / "test_verification_gates.py",

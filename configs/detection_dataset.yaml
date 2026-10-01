@@ -1,17 +1,28 @@
-# Phase 2: reviewed boxes, six material classes; stage-1 classifier stays ten-class.
-# Build with: python -m src.detection.prepare --manifest <reviewed.jsonl> --output data/detection/v2-six-class
-path: ../data/detection/v2-six-class
-train: images/train
-val: images/val
-test: images/test
-manifest: manifest.jsonl
-split_seed: 42
-split_ratios: [0.70, 0.15, 0.15]
-augmentation_variant: none
+path: D:/CNTT-KLCN155-waste-detection/data/detection
+train: splits/train.txt
+val: splits/val.txt
+test: splits/test.txt
 names:
-  0: plastic
-  1: paper
-  2: metal
-  3: glass
-  4: organic
-  5: hazardous
+  0: battery
+  1: biological
+  2: cardboard
+  3: clothes
+  4: glass
+  5: metal
+  6: paper
+  7: plastic
+  8: shoes
+  9: trash
+metadata:
+  version: v1.0-leakage-free
+  classes_total: 10
+  classes_fully_evaluable: 7
+  classes_limited_evaluable:
+  - battery
+  - shoes
+  classes_blocked:
+  - clothes
+  total_images: 1327
+  train_images: 1317
+  val_images: 5
+  test_images: 5

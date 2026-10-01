@@ -105,15 +105,15 @@ def load_manifest() -> pd.DataFrame:
 def save_manifest(df: pd.DataFrame):
     df.to_csv(MANIFEST_PATH, index=False)
 
-def log_audit(image_id: str, old_status: str, new_status: str, num_boxes: int, notes: str, action: str = "STATUS_UPDATE"):
+def log_audit(image_id: str, old_status: str, new_status: str, num_boxes: int, notes: str, action: str = "STATUS_UPDATE", reviewer: str = "AI_assistant_audit"):
     AUDIT_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
     header = not AUDIT_LOG_PATH.exists()
     with open(AUDIT_LOG_PATH, "a", encoding="utf-8") as f:
         if header:
-            f.write("timestamp,image_id,action,old_status,new_status,num_boxes,notes\n")
+            f.write("timestamp,image_id,action,old_status,new_status,num_boxes,reviewer,notes\n")
         ts = datetime.datetime.now().isoformat()
         clean_notes = notes.replace(",", ";").replace("\n", " ")
-        f.write(f"{ts},{image_id},{action},{old_status},{new_status},{num_boxes},{clean_notes}\n")
+        f.write(f"{ts},{image_id},{action},{old_status},{new_status},{num_boxes},{reviewer},{clean_notes}\n")
 
 def load_ambiguous_queue() -> list:
     if not AMBIGUOUS_QUEUE_PATH.exists():
@@ -167,11 +167,14 @@ def sync_manifests_and_readiness(selected_img_id: str, new_status: str, boxes: l
             per_class_all_boxes = Counter()
             per_class_app_boxes = Counter()
             per_class_app_images = Counter()
+            per_class_all_groups = {cid: set() for cid in range(10)}
+            per_class_app_groups = {cid: set() for cid in range(10)}
             status_counts = Counter(df_real["review_status"].dropna())
 
             for _, r in df_real.iterrows():
                 is_app = r["review_status"] == "APPROVED"
                 lbl_path = DATA_DIR / r["relative_label_path"]
+                grp_id = r.get("group_id", r.get("filename"))
                 if lbl_path.exists():
                     classes_in_file = set()
                     with open(lbl_path, "r", encoding="utf-8") as lf:
@@ -183,9 +186,11 @@ def sync_manifests_and_readiness(selected_img_id: str, new_status: str, boxes: l
                                 classes_in_file.add(cid)
                                 if is_app:
                                     per_class_app_boxes[cid] += 1
-                    if is_app:
-                        for cid in classes_in_file:
+                    for cid in classes_in_file:
+                        per_class_all_groups[cid].add(grp_id)
+                        if is_app:
                             per_class_app_images[cid] += 1
+                            per_class_app_groups[cid].add(grp_id)
 
             queue_items = load_ambiguous_queue()
             queue_counts = Counter(item.get("status", "PENDING") for item in queue_items)
@@ -204,6 +209,14 @@ def sync_manifests_and_readiness(selected_img_id: str, new_status: str, boxes: l
             }
             readiness_data["approved_per_class_boxes"] = {
                 TAXONOMY_10[cid]: per_class_app_boxes[cid] for cid in range(10)
+            }
+            readiness_data["group_split_feasibility"] = {
+                TAXONOMY_10[cid]: {
+                    "all_collected_groups": len(per_class_all_groups[cid]),
+                    "approved_groups": len(per_class_app_groups[cid]),
+                    "feasible_with_all_collected": len(per_class_all_groups[cid]) >= 3,
+                    "feasible_with_approved_only": len(per_class_app_groups[cid]) >= 3
+                } for cid in range(10)
             }
             readiness_data["ambiguous_boxes_queue"] = {
                 "total_items": len(queue_items),
@@ -494,6 +507,16 @@ def main():
         if st.button("💾 Save Changes & Update Manifest", type="primary", use_container_width=True):
             # Validate all boxes before saving
             validation_errors = []
+
+            # Gating check: Cannot approve an image if it has PENDING ambiguous boxes
+            if action_decision == "APPROVED":
+                pending_in_queue = [q for q in img_queue_items if q.get("status") == "PENDING"]
+                if pending_in_queue:
+                    validation_errors.append(
+                        f"CHẶN PHÊ DUYỆT (Gate Blocked): Ảnh có {len(pending_in_queue)} bounding box nghi vấn đang ở trạng thái PENDING "
+                        f"trong hàng đợi (ambiguous_boxes_queue.json). Phải gán nhãn (Assign) hoặc loại bỏ (Discard) tất cả box nghi vấn trước khi duyệt APPROVED!"
+                    )
+
             for idx, b in enumerate(boxes):
                 valid, err = validate_box(b)
                 if not valid:
@@ -529,7 +552,7 @@ def main():
                 sync_manifests_and_readiness(selected_img_id, action_decision, boxes)
 
                 # Audit log
-                log_audit(selected_img_id, old_status, action_decision, len(boxes), notes, action="SAVE_MANUAL")
+                log_audit(selected_img_id, old_status, action_decision, len(boxes), notes, action="SAVE_MANUAL", reviewer="AI_assistant_audit")
 
                 st.success(f"Successfully saved {selected_img_id} as {action_decision} ({len(boxes)} boxes)!")
                 st.rerun()

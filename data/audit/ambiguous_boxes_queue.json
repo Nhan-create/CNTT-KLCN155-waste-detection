@@ -538,8 +538,12 @@
     "suggested_class_names": [
       "cardboard"
     ],
-    "status": "PENDING",
-    "resolution": null
+    "status": "DISCARDED",
+    "resolution": {
+      "timestamp": "2026-10-02T04:30:00",
+      "reason": "Discarded: Image oi_04e310af546ec9d0 rejected as non-waste/merchandise (Zenitar camera lens packaging box on studio blue backdrop (commercial merchandise).)",
+      "reviewer": "AI_assistant_audit"
+    }
   },
   {
     "queue_id": "amb_oi_07d2a7e5d98e6f27_0",
@@ -568,8 +572,12 @@
     "suggested_class_names": [
       "cardboard"
     ],
-    "status": "PENDING",
-    "resolution": null
+    "status": "DISCARDED",
+    "resolution": {
+      "timestamp": "2026-10-02T04:30:00",
+      "reason": "Discarded: Image oi_07d2a7e5d98e6f27 rejected as non-waste/merchandise (Military surplus tactical gear hanging with retail price tags ($14.95) (store merchandise).)",
+      "reviewer": "AI_assistant_audit"
+    }
   },
   {
     "queue_id": "amb_oi_00a36f96e31731c4_1",
@@ -600,8 +608,12 @@
       "glass",
       "plastic"
     ],
-    "status": "PENDING",
-    "resolution": null
+    "status": "DISCARDED",
+    "resolution": {
+      "timestamp": "2026-10-02T04:30:00",
+      "reason": "Discarded: Image oi_00a36f96e31731c4 rejected as non-waste/merchandise (Out of scope)",
+      "reviewer": "AI_assistant_audit"
+    }
   },
   {
     "queue_id": "amb_oi_02deba0102b5ce2a_0",
@@ -632,8 +644,12 @@
       "glass",
       "plastic"
     ],
-    "status": "PENDING",
-    "resolution": null
+    "status": "DISCARDED",
+    "resolution": {
+      "timestamp": "2026-10-02T04:30:00",
+      "reason": "Discarded: Image oi_02deba0102b5ce2a rejected as non-waste/merchandise (Out of scope)",
+      "reviewer": "AI_assistant_audit"
+    }
   },
   {
     "queue_id": "amb_oi_02deba0102b5ce2a_1",
@@ -664,7 +680,11 @@
       "glass",
       "plastic"
     ],
-    "status": "PENDING",
-    "resolution": null
+    "status": "DISCARDED",
+    "resolution": {
+      "timestamp": "2026-10-02T04:30:00",
+      "reason": "Discarded: Image oi_02deba0102b5ce2a rejected as non-waste/merchandise (Out of scope)",
+      "reviewer": "AI_assistant_audit"
+    }
   }
 ]
