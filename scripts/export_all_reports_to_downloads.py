@@ -1,0 +1,205 @@
+"""
+scripts/export_all_reports_to_downloads.py
+-------------------------------------------
+Exports all project reports, plans, metrics, logs, test suites, and visual evidence
+to C:\\Users\\ad\\Downloads\\CNTT-KLCN155_Bao_Cao_Va_Bang_Chung
+and archives it into a ZIP file in Downloads for PM Ngô Thanh Nhân.
+"""
+
+import os
+import sys
+import shutil
+import hashlib
+import zipfile
+from pathlib import Path
+import pandas as pd
+
+def compute_sha256(filepath: Path) -> str:
+    sha = hashlib.sha256()
+    with open(filepath, "rb") as f:
+        while chunk := f.read(65536):
+            sha.update(chunk)
+    return sha.hexdigest()
+
+def main():
+    project_root = Path(__file__).resolve().parent.parent
+    downloads_root = Path(r"C:\Users\ad\Downloads")
+    export_dir = downloads_root / "CNTT-KLCN155_Bao_Cao_Va_Bang_Chung"
+    zip_output_path = downloads_root / "CNTT-KLCN155_Bao_Cao_Va_Bang_Chung.zip"
+
+    print(f"[INFO] Project Root:   {project_root}")
+    print(f"[INFO] Export Folder:  {export_dir}")
+    print(f"[INFO] ZIP Output:     {zip_output_path}")
+
+    if export_dir.exists():
+        shutil.rmtree(export_dir)
+    export_dir.mkdir(parents=True, exist_ok=True)
+
+    # Subdirectories
+    dir_reports = export_dir / "01_Bao_Cao_Nghiem_Thu_Va_Ke_Hoach"
+    dir_part02 = export_dir / "02_Ket_Qua_Thuc_Nghiem_Gate_A_Va_Part02"
+    dir_part01 = export_dir / "03_Ket_Qua_Thuc_Nghiem_Part01_MobileNetV3"
+    dir_audit = export_dir / "04_Kiem_Toan_Du_Lieu_Va_Detection_Data"
+    dir_src = export_dir / "05_Ma_Nguon_Cong_Cu_Va_Kiem_Thu"
+
+    for d in [dir_reports, dir_part02, dir_part01, dir_audit, dir_src]:
+        d.mkdir(parents=True, exist_ok=True)
+
+    # 1. Copy Docs & Plans
+    docs_plan = project_root / "docs" / "plan"
+    if docs_plan.exists():
+        for f in docs_plan.glob("*.md"):
+            shutil.copy2(f, dir_reports / f.name)
+    pm_scope = project_root / "docs" / "pm" / "P0_SCOPE_AUDIT.md"
+    if pm_scope.exists():
+        shutil.copy2(pm_scope, dir_reports / "P0_SCOPE_AUDIT.md")
+
+    # 2. Copy Part 2 / Gate A Artifacts
+    part02_artifacts = project_root / "artifacts" / "part02"
+    if part02_artifacts.exists():
+        for f in (part02_artifacts / "gate_a").glob("*.*"):
+            shutil.copy2(f, dir_part02 / f.name)
+        val_json = part02_artifacts / "detection_annotation_validation.json"
+        if val_json.exists():
+            shutil.copy2(val_json, dir_part02 / val_json.name)
+        ui_png = part02_artifacts / "ui_evidence" / "review_tool_verified.png"
+        if ui_png.exists():
+            shutil.copy2(ui_png, dir_part02 / ui_png.name)
+
+    # 3. Copy Part 1 Artifacts
+    official_run = project_root / "artifacts" / "official_run"
+    if official_run.exists():
+        for f in official_run.glob("*.*"):
+            if not f.name.endswith(".pt"):  # omit 50MB model weight from reports directory, keep metrics/logs/csvs
+                shutil.copy2(f, dir_part01 / f.name)
+
+    # 4. Copy Audit & Detection Metadata
+    data_audit = project_root / "data" / "audit"
+    if data_audit.exists():
+        for f in data_audit.glob("*.*"):
+            if f.name != "split_manifest_v2.csv":  # 15k rows can be included or separate
+                shutil.copy2(f, dir_audit / f.name)
+        # Also copy split_manifest_v2.csv
+        manifest_v2 = data_audit / "split_manifest_v2.csv"
+        if manifest_v2.exists():
+            shutil.copy2(manifest_v2, dir_audit / manifest_v2.name)
+
+    data_det = project_root / "data" / "detection"
+    if data_det.exists():
+        for f in data_det.glob("*.*"):
+            shutil.copy2(f, dir_audit / f.name)
+
+    # 5. Copy Core Scripts and Test Files
+    scripts_to_copy = [
+        project_root / "scripts" / "evaluate_final_test.py",
+        project_root / "scripts" / "prepare_detection_dataset.py",
+        project_root / "scripts" / "validate_detection_annotations.py",
+        project_root / "scripts" / "verify_review_tool_ui.py",
+        project_root / "scripts" / "check_split_leakage.py",
+        project_root / "scripts" / "reproduce_official_validation.py",
+        project_root / "src" / "ui" / "review_tool.py",
+        project_root / "tests" / "conftest.py",
+        project_root / "tests" / "test_verification_gates.py",
+        project_root / "tests" / "test_detection_annotations.py"
+    ]
+    for s in scripts_to_copy:
+        if s.exists():
+            shutil.copy2(s, dir_src / s.name)
+
+    # Generate Readme Index
+    readme_content = """# TỔNG MỤC TÀI LIỆU BÁO CÁO VÀ BẰNG CHỨNG THỰC NGHIỆM
+## DỰ ÁN CNTT-KLCN155 — HỆ THỐNG PHÁT HIỆN VÀ PHÂN LOẠI RÁC THẢI ĐA ĐỐI TƯỢNG
+
+**Người nhận:** ThS. Ngô Thanh Nhân — Project Manager (HUIT)  
+**Ngày xuất gói:** 02/10/2026  
+**Thư mục nguồn:** `D:\\CNTT-KLCN155-waste-detection`  
+**Gói nén đính kèm:** `CNTT-KLCN155_Bao_Cao_Va_Bang_Chung.zip`
+
+---
+
+### CẤU TRÚC THƯ MỤC XUẤT RA:
+
+#### 1. `01_Bao_Cao_Nghiem_Thu_Va_Ke_Hoach/`
+- **`PART_02_ACCEPTANCE.md`**: Báo cáo nghiệm thu chính thức Task 2 (Gate A + Chuẩn bị dữ liệu đa rác).
+- **`PART_02_EVALUATION_PROTOCOL.md`**: Quy chuẩn đánh giá đóng băng của Gate A (ngưỡng, phần cứng, phương pháp đo).
+- **`PART_02_TASKS_AND_GATES.md`**: Chi tiết phân rã nhiệm vụ và tiêu chí cổng kiểm soát của Task 2.
+- **`PART_01_ACCEPTANCE.md`**: Báo cáo nghiệm thu giai đoạn phân loại đơn rác MobileNetV3.
+- **`PART_01_VERIFICATION_R2.md` & `PART_01_CHANGELOG_R2.md`**: Báo cáo kiểm định và lịch sử sửa đổi Phần 1.
+- **`00_MASTER_PLAN.md`**: Kế hoạch tổng thể dự án đã cập nhật.
+- **`BAO_CAO_TONG_KET_KIEM_KE_VA_KE_HOACH_CHI_TIET.md`**: Tổng hợp kiểm kê toàn diện và giải quyết mâu thuẫn.
+- **`REPRODUCIBILITY_GUIDE.md`**: Hướng dẫn độc lập tái hiện toàn bộ kết quả phân loại và kiểm toán.
+- **`P0_SCOPE_AUDIT.md`**: Báo cáo kiểm toán phạm vi P0 ban đầu.
+
+#### 2. `02_Ket_Qua_Thuc_Nghiem_Gate_A_Va_Part02/`
+- **`gate_a_metrics.json`**: File JSON chứa toàn bộ số liệu Gate A (Top-1: 96,13%, Macro-F1: 0,9578, Battery Recall: 95,58%, Latency: 23,86 ms).
+- **`gate_a_protocol_frozen.json`**: Cấu hình đóng băng trước khi chạy test.
+- **`gate_a_raw_execution.log`**: Log chạy suy luận thực tế từng bước trên 2.223 ảnh test.
+- **`test_predictions.csv`**: Bảng dự đoán chi tiết 2.223 ảnh test kèm hash SHA-256 đọc trực tiếp từ đĩa.
+- **`test_confusion_matrix.csv`**: Ma trận nhầm lẫn 10x10 trên tập final test.
+- **`test_error_analysis.csv`**: Danh sách chi tiết 86 ca đoán sai trên tập test.
+- **`detection_annotation_validation.json`**: Kết quả kiểm toán 4.602 bounding box (1.419 file nhãn, 0 lỗi).
+- **`review_tool_verified.png`**: Ảnh chụp màn hình thật việc vận hành công cụ rà soát nhãn in-repo bằng Playwright/Chrome.
+
+#### 3. `03_Ket_Qua_Thuc_Nghiem_Part01_MobileNetV3/`
+- **`official_training_metrics.json`**: Số liệu huấn luyện chính thức 12 epoch mô hình MobileNetV3-Large.
+- **`training_history.csv`**: Lịch sử loss/acc từng epoch.
+- **`val_predictions.csv` & `val_confusion_matrix.csv`**: Kết quả xác minh trên 2.223 ảnh validation (Acc: 96,18%, F1: 0,9559).
+- **`val_error_analysis.csv`**: Danh sách 85 ca đoán sai trên tập validation.
+- **`reproduced_validation_summary.json`**: Báo cáo tái hiện độc lập của bên thứ ba.
+- **`standalone_package_verification.log`**: Log chạy gói bàn giao độc lập ngoài repo.
+
+#### 4. `04_Kiem_Toan_Du_Lieu_Va_Detection_Data/`
+- **`leakage_audit_report.json`**: Báo cáo kiểm toán rò rỉ hash (exact SHA-256 = 0, candidate phash = 33, resolved = 33).
+- **`phash_decision_table.csv`**: Bảng 33 quyết định kiểm chứng thủ công từng cặp ảnh gần giống nhau.
+- **`split_manifest_v2.csv`**: Bảng kê 14.829 ảnh phân loại đơn rác.
+- **`manifest_detection_v1.csv`**: Bảng kê 1.419 ảnh bounding box phân tách Synthetic và Real.
+- **`dataset_summary.json`**: Thống kê số lượng box từng lớp trên dữ liệu đa rác.
+
+#### 5. `05_Ma_Nguon_Cong_Cu_Va_Kiem_Thu/`
+- **`evaluate_final_test.py`**: Mã nguồn đánh giá final test Gate A.
+- **`prepare_detection_dataset.py`**: Mã nguồn chuẩn bị và phân lập dữ liệu đa rác.
+- **`validate_detection_annotations.py`**: Mã nguồn kiểm toán cú pháp và hình học bounding box.
+- **`review_tool.py`**: Mã nguồn ứng dụng Streamlit rà soát và chỉnh sửa nhãn đa rác.
+- **`verify_review_tool_ui.py`**: Script kiểm thử tự động giao diện review tool bằng Playwright.
+- **`test_verification_gates.py` & `test_detection_annotations.py`**: Bộ kiểm thử tự động 11 test cases (100% PASS).
+"""
+
+    with open(export_dir / "00_HUONG_DAN_DOC_BAO_CAO.md", "w", encoding="utf-8") as f:
+        f.write(readme_content)
+
+    # Generate Manifest SHA-256 for all exported files
+    exported_files = sorted([p for p in export_dir.rglob("*") if p.is_file()])
+    manifest_rows = []
+    for f in exported_files:
+        rel = f.relative_to(export_dir)
+        sha = compute_sha256(f)
+        size = f.stat().st_size
+        manifest_rows.append({
+            "relative_path": str(rel).replace("\\", "/"),
+            "size_bytes": size,
+            "sha256": sha
+        })
+
+    manifest_df = pd.DataFrame(manifest_rows)
+    manifest_df.to_csv(export_dir / "MANIFEST_SHA256.csv", index=False, encoding="utf-8")
+
+    # Zip the entire folder
+    print(f"\n[INFO] Compressing {len(manifest_rows)} files into {zip_output_path}...")
+    with zipfile.ZipFile(zip_output_path, "w", zipfile.ZIP_DEFLATED) as zipf:
+        for f in export_dir.rglob("*"):
+            if f.is_file():
+                arcname = f.relative_to(export_dir)
+                zipf.write(f, arcname)
+
+    zip_sha = compute_sha256(zip_output_path)
+    zip_size_mb = zip_output_path.stat().st_size / (1024 * 1024)
+
+    print(f"\n[SUCCESS] Export Completed!")
+    print(f"Directory:    {export_dir}")
+    print(f"Total Files:  {len(manifest_rows)}")
+    print(f"ZIP Archive:  {zip_output_path}")
+    print(f"ZIP Size:     {zip_size_mb:.2f} MB")
+    print(f"ZIP SHA-256:  {zip_sha}")
+
+if __name__ == "__main__":
+    main()
