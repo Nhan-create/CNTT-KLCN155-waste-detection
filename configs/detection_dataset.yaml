@@ -1,0 +1,17 @@
+# Phase 2: reviewed boxes, six material classes; stage-1 classifier stays ten-class.
+# Build with: python -m src.detection.prepare --manifest <reviewed.jsonl> --output data/detection/v2-six-class
+path: ../data/detection/v2-six-class
+train: images/train
+val: images/val
+test: images/test
+manifest: manifest.jsonl
+split_seed: 42
+split_ratios: [0.70, 0.15, 0.15]
+augmentation_variant: none
+names:
+  0: plastic
+  1: paper
+  2: metal
+  3: glass
+  4: organic
+  5: hazardous

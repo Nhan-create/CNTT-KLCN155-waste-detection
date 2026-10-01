@@ -1,0 +1,10 @@
+{
+  "classifier_total_keys": 312,
+  "ssd_total_keys": 476,
+  "transferable_backbone_keys": 258,
+  "total_backbone_keys": 308,
+  "classifier_head_keys_excluded": 4,
+  "ssd_detection_head_keys_to_train": 96,
+  "ssd_extra_pyramid_keys_to_train": 72,
+  "mapping_ratio": "258/308"
+}

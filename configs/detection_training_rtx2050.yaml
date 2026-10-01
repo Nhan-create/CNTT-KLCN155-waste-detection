@@ -1,0 +1,38 @@
+# First production baseline for the available 4 GB RTX 2050.
+# YOLO26n keeps enough headroom for 640 px training and real-time mobile export.
+model: yolo26n.pt
+project: artifacts/detection
+name: waste-yolo26n-public-v1
+train:
+  epochs: 120
+  imgsz: 640
+  batch: 4
+  workers: 2
+  cache: disk
+  patience: 30
+  optimizer: AdamW
+  lr0: 0.001
+  lrf: 0.01
+  weight_decay: 0.0005
+  warmup_epochs: 3.0
+  cos_lr: true
+  close_mosaic: 15
+  mosaic: 0.5
+  mixup: 0.05
+  cutmix: 0.05
+  degrees: 15.0
+  translate: 0.15
+  scale: 0.5
+  shear: 5.0
+  perspective: 0.0005
+  flipud: 0.1
+  fliplr: 0.5
+  hsv_h: 0.015
+  hsv_s: 0.5
+  hsv_v: 0.4
+  amp: true
+  seed: 42
+  deterministic: true
+  val: true
+  plots: true
+  save_period: 10

@@ -1,0 +1,42 @@
+{
+  "audit_timestamp": "2026-10-01T14:20:04+0700",
+  "raw_counts": {
+    "garbage_v2_original": 12259,
+    "vn_trash_all": 3495,
+    "total_raw": 15754,
+    "resized_256_excluded": 12259,
+    "resized_384_excluded": 12259,
+    "total_resized_excluded": 24518
+  },
+  "deduplication": {
+    "duplicate_files_excluded": 923,
+    "duplicate_clusters_count": 810,
+    "exact_md5_matches": 897,
+    "near_phash_matches": 26,
+    "cross_source_duplicates": 0
+  },
+  "processed_10_class": {
+    "total_clean": 14831,
+    "train": 10381,
+    "val": 2225,
+    "test": 2225,
+    "sum_check": 14831
+  },
+  "zero_leakage_verification": {
+    "train_val_overlap_sha256": 0,
+    "train_test_overlap_sha256": 0,
+    "val_test_overlap_sha256": 0,
+    "zero_leakage_status": true
+  },
+  "detection_v1_inventory": {
+    "total_images": 1419,
+    "mendeley_synthetic_images": 1305,
+    "openimages_images": 114,
+    "total_boxes": 4602
+  },
+  "discrepancy_explanation": {
+    "why_r1_said_14832": "R1 mistyped train/val/test counts as 10489+2173+2170=14832. Actual on-disk split is train 10381, val 2225, test 2225, summing to exactly 14831.",
+    "why_r1_said_15448": "R1 summed unverified raw numbers across some classes (756+699+2705+1892+1736+2275+1442+1991+1449+503 = 15448) which mixed pre-dedup and post-dedup counts.",
+    "why_r1_said_13760_vs_10987": "Excluding clothes(1892), shoes(1449), trash(503) = 3844 files from 14831 gives EXACTLY 10987 files, not 13760. The 13760 figure was an arithmetic error in R1."
+  }
+}

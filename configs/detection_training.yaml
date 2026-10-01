@@ -1,0 +1,37 @@
+# Accuracy/realtime starting point. Benchmark n/s/m on the target phone before release.
+model: yolo26s.pt
+project: artifacts/detection
+name: waste-yolo26s
+train:
+  epochs: 200
+  imgsz: 640
+  batch: -1
+  workers: 4
+  patience: 40
+  optimizer: AdamW
+  lr0: 0.001
+  lrf: 0.01
+  weight_decay: 0.0005
+  warmup_epochs: 3.0
+  cos_lr: true
+  close_mosaic: 20
+  mosaic: 0.8
+  mixup: 0.1
+  cutmix: 0.1
+  degrees: 15.0
+  translate: 0.15
+  scale: 0.5
+  shear: 5.0
+  perspective: 0.0005
+  flipud: 0.1
+  fliplr: 0.5
+  hsv_h: 0.015
+  hsv_s: 0.5
+  hsv_v: 0.4
+  amp: true
+  seed: 42
+  deterministic: true
+  val: true
+  plots: true
+  save_period: 10
+

@@ -1,0 +1,9 @@
+# Tune only on validation. Values here are a search grid, not measured optima.
+ap_score_floor: 0.001
+image_size: 320
+nms_iou_grid: [0.45, 0.55, 0.65]
+fusion_iou_grid: [0.45, 0.55, 0.65]
+fusion_weights_grid: [[1.0, 1.0], [2.0, 1.0], [1.0, 2.0]]
+fusion_input_confidence_grid: [0.001, 0.01, 0.05]
+operating_confidence_grid: [0.10, 0.20, 0.30, 0.35, 0.40, 0.50, 0.60, 0.70]
+matching_iou: 0.5
