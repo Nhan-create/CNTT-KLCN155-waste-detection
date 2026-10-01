@@ -173,18 +173,33 @@ def main() -> int:
     all_preds = np.array(all_preds)
     all_probs = np.array(all_probs)
 
-    # 5. Build Sample-by-Sample Prediction Table
+    # 5. Build Sample-by-Sample Prediction Table with Direct Disk SHA-256
     sample_paths = [Path(p) for p, _ in val_dataset.samples]
     val_manifest_sha_map = val_manifest.set_index("filename")["sha256"].to_dict()
 
+    print("\n[5] Computing Direct Disk SHA-256 & Building Prediction Table...")
+    t_hash_start = time.perf_counter()
     prediction_records = []
+    disk_hash_mismatches = 0
+    missing_manifest_count = 0
+
     for i in range(len(val_dataset)):
-        fname = sample_paths[i].name
+        sample_p = sample_paths[i]
+        fname = sample_p.name
         t_cls = CLASS_NAMES[all_targets[i]]
         p_cls = CLASS_NAMES[all_preds[i]]
         conf = float(all_probs[i][all_preds[i]])
         is_corr = bool(all_targets[i] == all_preds[i])
-        file_sha = val_manifest_sha_map.get(fname, "")
+
+        # Compute SHA-256 directly from the physical image bytes on disk
+        actual_disk_sha256 = compute_sha256(sample_p)
+
+        # Cross-reference against manifest to strictly prove byte integrity
+        expected_manifest_sha = val_manifest_sha_map.get(fname)
+        if expected_manifest_sha is None:
+            missing_manifest_count += 1
+        elif actual_disk_sha256 != expected_manifest_sha:
+            disk_hash_mismatches += 1
 
         prediction_records.append({
             "sample_index": i + 1,
@@ -193,9 +208,19 @@ def main() -> int:
             "predicted_label": p_cls,
             "confidence": round(conf, 4),
             "is_correct": is_corr,
-            "sha256": file_sha,
-            "full_path": str(sample_paths[i]),
+            "sha256": actual_disk_sha256,
+            "full_path": str(sample_p),
         })
+
+    t_hash_elapsed = time.perf_counter() - t_hash_start
+    print(f"  - Direct disk SHA-256 computed for {len(prediction_records)} samples in {t_hash_elapsed:.2f}s")
+    print(f"  - Disk vs Manifest mismatches:  {disk_hash_mismatches}")
+    print(f"  - Missing from manifest:        {missing_manifest_count}")
+
+    if disk_hash_mismatches > 0 or missing_manifest_count > 0:
+        print(f"ERROR: Disk hash integrity failure! (mismatches={disk_hash_mismatches}, missing={missing_manifest_count})")
+        return 1
+    print("  -> Direct disk byte verification: PASSED (100% match against manifest)")
 
     pred_df = pd.DataFrame(prediction_records)
     pred_csv_path = args.output_dir / "val_predictions.csv"
@@ -299,6 +324,13 @@ def main() -> int:
             "battery_recall": per_class_summary["battery"]["recall"],
             "battery_precision": per_class_summary["battery"]["precision"],
             "matches_baseline_exactly": True,
+        },
+        "disk_hash_verification": {
+            "total_samples_hashed_from_disk": len(prediction_records),
+            "hash_calculation_method": "direct_disk_read_sha256",
+            "mismatches_against_manifest": disk_hash_mismatches,
+            "missing_from_manifest": missing_manifest_count,
+            "passed": bool(disk_hash_mismatches == 0 and missing_manifest_count == 0),
         },
         "per_class": per_class_summary,
     }

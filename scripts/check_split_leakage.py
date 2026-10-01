@@ -97,29 +97,37 @@ def main() -> int:
     print(f"  - Val & Test SHA-256 overlap:   {val_test_sha}")
 
     # 2. Disk validation: check physical files
+    disk_performed = not args.skip_disk_hash
     disk_verified = False
-    if not args.skip_disk_hash and args.processed_dir.exists():
+    missing_count = 0
+    mismatch_count = 0
+
+    if disk_performed:
         print("\n[2] Direct Disk Image Verification:")
-        missing_count = 0
-        mismatch_count = 0
-        for idx, row in manifest.iterrows():
-            img_path = args.processed_dir / row["split"] / row["unified_label_10"] / row["filename"]
-            if not img_path.exists():
-                missing_count += 1
-                continue
-            with open(img_path, "rb") as f:
-                h = hashlib.sha256(f.read()).hexdigest()
-            if h != row["sha256"]:
-                mismatch_count += 1
-        print(f"  - Missing files on disk:       {missing_count}")
-        print(f"  - SHA-256 mismatches on disk: {mismatch_count}")
-        if missing_count == 0 and mismatch_count == 0:
-            disk_verified = True
-            print("  -> Direct disk byte verification: PASSED 100%")
+        if not args.processed_dir.exists():
+            missing_count = len(manifest)
+            print(f"  -> ERROR: Processed directory not found: {args.processed_dir}")
+            print(f"  - Missing files on disk:       {missing_count}")
+            print("  -> Direct disk byte verification: FAILED (Directory absent)")
         else:
-            print("  -> Direct disk byte verification: FAILED")
+            for idx, row in manifest.iterrows():
+                img_path = args.processed_dir / row["split"] / row["unified_label_10"] / row["filename"]
+                if not img_path.exists():
+                    missing_count += 1
+                    continue
+                with open(img_path, "rb") as f:
+                    h = hashlib.sha256(f.read()).hexdigest()
+                if h != row["sha256"]:
+                    mismatch_count += 1
+            print(f"  - Missing files on disk:       {missing_count}")
+            print(f"  - SHA-256 mismatches on disk: {mismatch_count}")
+            if missing_count == 0 and mismatch_count == 0 and len(manifest) > 0:
+                disk_verified = True
+                print("  -> Direct disk byte verification: PASSED 100%")
+            else:
+                print("  -> Direct disk byte verification: FAILED")
     else:
-        print("\n[2] Direct Disk Image Verification: SKIPPED (flag or directory absent)")
+        print("\n[2] Direct Disk Image Verification: SKIPPED (--skip-disk-hash specified)")
 
     # 3. pHash Mapping and Validation
     def get_proc_name(p: str) -> str:
@@ -208,15 +216,20 @@ def main() -> int:
         h_dist = row["hamming_dist"]
 
         # Check in decision table
+        is_unresolved = False
         if (f1, f2) in decision_map:
             d_entry = decision_map[(f1, f2)]
-            verdict = d_entry["relationship"]
-            rationale = d_entry["rationale"]
-            comp_image = d_entry["comparison_image"]
-            inspector = d_entry["inspector"]
-            inspect_time = d_entry["inspection_timestamp"]
-            audit_status = d_entry["status"]
-            pixel_mae = d_entry["pixel_mae"]
+            verdict = str(d_entry.get("relationship", "")).strip()
+            rationale = str(d_entry.get("rationale", "")).strip()
+            comp_image = str(d_entry.get("comparison_image", "NONE")).strip()
+            inspector = str(d_entry.get("inspector", "NONE")).strip()
+            inspect_time = str(d_entry.get("inspection_timestamp", "NONE")).strip()
+            audit_status = str(d_entry.get("status", "")).strip().upper()
+            pixel_mae = d_entry.get("pixel_mae")
+
+            # Validate that the entry is truly resolved and verified
+            if audit_status != "VERIFIED" or verdict.startswith("UNRESOLVED") or verdict == "" or verdict.upper() == "NAN":
+                is_unresolved = True
         else:
             verdict = "UNRESOLVED_REQUIRES_INSPECTION"
             rationale = "Candidate pair not yet reviewed by human or verified agent."
@@ -225,9 +238,16 @@ def main() -> int:
             inspect_time = "NONE"
             audit_status = "UNRESOLVED"
             pixel_mae = None
-            unresolved_count += 1
+            is_unresolved = True
 
-        if verdict in ["BURST_SHOT_SAME_OBJECT", "SAME_OBJECT_ROTATED_PERSPECTIVE", "SAME_OBJECT_BURST"]:
+        if is_unresolved:
+            unresolved_count += 1
+        elif verdict in [
+            "BURST_SHOT_SAME_OBJECT",
+            "SAME_OBJECT_ROTATED_PERSPECTIVE",
+            "SAME_OBJECT_BURST",
+            "SAME_OBJECT_MULTI_VIEW",
+        ]:
             burst_leakage_count += 1
 
         verdicts.append({
@@ -254,22 +274,47 @@ def main() -> int:
     print(f"Saved cross-split verdicts to: {verdict_path}")
 
     # Summary
+    total_sha_collisions = train_val_sha + train_test_sha + val_test_sha
     print("\n[5] Audit Summary & Final Verdict:")
-    print(f"  - Exact SHA-256 Cross-Split Collisions: {train_val_sha + train_test_sha + val_test_sha}")
+    print(f"  - Exact SHA-256 Cross-Split Collisions: {total_sha_collisions}")
     print(f"  - Cross-Split pHash Candidates (dist <= {args.phash_threshold}): {len(df_cand)}")
     print(f"  - Confirmed Burst/Same-Object Leakages: {burst_leakage_count}")
     print(f"  - Unresolved Candidate Pairs:          {unresolved_count}")
-
-    # Bounded verdict status
-    if (train_val_sha + train_test_sha + val_test_sha == 0) and (burst_leakage_count == 0) and (unresolved_count == 0):
-        status = "VERIFIED_NO_LEAKAGE_WITHIN_HASH_SCOPE"
-        msg = f"Zero exact SHA-256 collisions and zero burst-shot/same-object leakages verified across splits within pHash Hamming distance <= {args.phash_threshold} with exhaustive visual review of all candidate pairs."
-    elif burst_leakage_count > 0:
-        status = "LEAKAGE_DETECTED"
-        msg = f"Detected {burst_leakage_count} cross-split burst-shot / same-object leakages requiring split repartitioning!"
+    if disk_performed:
+        print(f"  - Direct Disk Verification:            {'PASSED' if disk_verified else 'FAILED'} (missing={missing_count}, mismatch={mismatch_count})")
     else:
-        status = "UNRESOLVED_CANDIDATES_PRESENT"
-        msg = f"Audit has {unresolved_count} unresolved candidate pairs requiring visual inspection."
+        print(f"  - Direct Disk Verification:            SKIPPED")
+
+    failure_reasons = []
+    if total_sha_collisions > 0:
+        failure_reasons.append(f"Found {total_sha_collisions} exact byte-level SHA-256 collisions across splits.")
+    if burst_leakage_count > 0:
+        failure_reasons.append(f"Detected {burst_leakage_count} cross-split burst-shot / same-object leakages.")
+    if unresolved_count > 0:
+        failure_reasons.append(f"Found {unresolved_count} candidate pairs with UNRESOLVED status requiring visual audit.")
+    if disk_performed and not disk_verified:
+        if not args.processed_dir.exists():
+            failure_reasons.append(f"Processed image directory does not exist: {args.processed_dir}")
+        else:
+            failure_reasons.append(f"Direct disk image verification failed (missing={missing_count}, sha_mismatches={mismatch_count}).")
+
+    if not failure_reasons:
+        if disk_performed:
+            status = "VERIFIED_NO_LEAKAGE_WITHIN_HASH_SCOPE"
+            msg = f"Zero exact SHA-256 collisions, zero burst-shot/same-object leakages verified across splits within pHash Hamming distance <= {args.phash_threshold} with exhaustive visual review of all candidate pairs, and 100% direct disk images verified."
+        else:
+            status = "VERIFIED_NO_LEAKAGE_METADATA_ONLY"
+            msg = f"Zero exact SHA-256 collisions and zero burst leakages verified within metadata hash scope (direct disk check was skipped)."
+    else:
+        if disk_performed and not disk_verified:
+            status = "FAILED_DISK_IMAGE_VERIFICATION"
+        elif unresolved_count > 0:
+            status = "UNRESOLVED_CANDIDATES_PRESENT"
+        elif burst_leakage_count > 0:
+            status = "LEAKAGE_DETECTED"
+        else:
+            status = "COLLISION_DETECTED"
+        msg = " | ".join(failure_reasons)
 
     print(f"\nAudit Status: {status}")
     print(f"Details: {msg}")
@@ -286,7 +331,7 @@ def main() -> int:
             "train_val": train_val_sha,
             "train_test": train_test_sha,
             "val_test": val_test_sha,
-            "total_collisions": train_val_sha + train_test_sha + val_test_sha,
+            "total_collisions": total_sha_collisions,
         },
         "phash_cross_split_candidates": {
             "threshold": args.phash_threshold,
@@ -296,9 +341,13 @@ def main() -> int:
             "unresolved_candidates": unresolved_count,
         },
         "disk_verification": {
-            "performed": not args.skip_disk_hash and args.processed_dir.exists(),
+            "performed": disk_performed,
+            "directory_exists": args.processed_dir.exists(),
+            "missing_files": missing_count,
+            "sha256_mismatches": mismatch_count,
             "passed": disk_verified,
         },
+        "failure_reasons": failure_reasons,
         "candidate_verdicts": verdicts,
     }
 
@@ -308,7 +357,7 @@ def main() -> int:
     print(f"Saved JSON report to: {report_path}")
     print("=" * 80)
 
-    return 0 if status == "VERIFIED_NO_LEAKAGE_WITHIN_HASH_SCOPE" else 1
+    return 0 if status in ["VERIFIED_NO_LEAKAGE_WITHIN_HASH_SCOPE", "VERIFIED_NO_LEAKAGE_METADATA_ONLY"] else 1
 
 
 if __name__ == "__main__":
