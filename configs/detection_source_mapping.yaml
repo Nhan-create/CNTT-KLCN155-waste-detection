@@ -116,6 +116,13 @@ sources:
       "/m/09gtd": { name: "Toilet paper", class_id: 6, class_name: "paper", status: "CONFIRMED" }
       "/m/09j5n": { name: "Footwear", class_id: 8, class_name: "shoes", status: "REQUIRES_REVIEW", note: "Check worn vs discarded" }
       "/m/09j2d": { name: "Clothing", class_id: 3, class_name: "clothes", status: "REQUIRES_REVIEW", note: "Check worn vs discarded" }
+      "/m/01n4qj": { name: "Shirt", class_id: 3, class_name: "clothes", status: "REQUIRES_REVIEW", note: "Check worn vs discarded" }
+      "/m/07mhn": { name: "Trousers", class_id: 3, class_name: "clothes", status: "REQUIRES_REVIEW", note: "Check worn vs discarded" }
+      "/m/0174k2": { name: "Suit", class_id: 3, class_name: "clothes", status: "REQUIRES_REVIEW", note: "Check worn vs discarded" }
+      "/m/032b3c": { name: "Jacket", class_id: 3, class_name: "clothes", status: "REQUIRES_REVIEW", note: "Check worn vs discarded" }
+      "/m/01d40f": { name: "Dress", class_id: 3, class_name: "clothes", status: "REQUIRES_REVIEW", note: "Check worn vs discarded" }
+      "/m/0fly7": { name: "Jeans", class_id: 3, class_name: "clothes", status: "REQUIRES_REVIEW", note: "Check worn vs discarded" }
+      "/m/01xygc": { name: "Coat", class_id: 3, class_name: "clothes", status: "REQUIRES_REVIEW", note: "Check worn vs discarded" }
       # Material ambiguous
       "/m/04dr76w": { name: "Bottle", class_id: null, class_name: "ambiguous", status: "REQUIRES_REVIEW", note: "Material unknown: glass vs plastic vs metal" }
       "/m/025dyy": { name: "Box", class_id: null, class_name: "ambiguous", status: "REQUIRES_REVIEW", note: "Material unknown: cardboard vs wood vs plastic" }

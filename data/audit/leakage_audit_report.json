@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-02T01:20:04+0700",
+  "timestamp": "2026-10-02T04:09:58+0700",
   "audit_script": "scripts/check_split_leakage.py",
   "manifest_path": "D:\\CNTT-KLCN155-waste-detection\\data\\audit\\split_manifest_v2.csv",
   "manifest_sha256": "1429a22ebbf95cc464881f903dae5ac6dcc5e6e64152e1dd3353e9365429ec96",

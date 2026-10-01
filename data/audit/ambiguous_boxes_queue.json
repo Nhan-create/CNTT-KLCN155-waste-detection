@@ -1,0 +1,670 @@
+[
+  {
+    "queue_id": "amb_oi_13d3f1e5893726a2_0",
+    "image_id": "oi_13d3f1e5893726a2",
+    "filename": "oi_13d3f1e5893726a2.jpg",
+    "source": "openimages_v7",
+    "annotation_id": "13d3f1e5893726a2_0",
+    "raw_category_id": "/m/04dr76w",
+    "raw_category_name": "Bottle",
+    "note": "Material unknown: glass vs plastic vs metal",
+    "bbox_openimages": [
+      0.0,
+      0.099352,
+      0.0,
+      0.185801
+    ],
+    "yolo_bbox": [
+      0.049676,
+      0.0929,
+      0.099352,
+      0.185801
+    ],
+    "suggested_classes": [
+      4,
+      7
+    ],
+    "suggested_class_names": [
+      "glass",
+      "plastic"
+    ],
+    "status": "PENDING",
+    "resolution": null
+  },
+  {
+    "queue_id": "amb_oi_13d3f1e5893726a2_1",
+    "image_id": "oi_13d3f1e5893726a2",
+    "filename": "oi_13d3f1e5893726a2.jpg",
+    "source": "openimages_v7",
+    "annotation_id": "13d3f1e5893726a2_1",
+    "raw_category_id": "/m/04dr76w",
+    "raw_category_name": "Bottle",
+    "note": "Material unknown: glass vs plastic vs metal",
+    "bbox_openimages": [
+      0.0,
+      1.0,
+      0.0,
+      0.228097
+    ],
+    "yolo_bbox": [
+      0.5,
+      0.114048,
+      1.0,
+      0.228097
+    ],
+    "suggested_classes": [
+      4,
+      7
+    ],
+    "suggested_class_names": [
+      "glass",
+      "plastic"
+    ],
+    "status": "PENDING",
+    "resolution": null
+  },
+  {
+    "queue_id": "amb_oi_13d3f1e5893726a2_2",
+    "image_id": "oi_13d3f1e5893726a2",
+    "filename": "oi_13d3f1e5893726a2.jpg",
+    "source": "openimages_v7",
+    "annotation_id": "13d3f1e5893726a2_2",
+    "raw_category_id": "/m/04dr76w",
+    "raw_category_name": "Bottle",
+    "note": "Material unknown: glass vs plastic vs metal",
+    "bbox_openimages": [
+      0.0,
+      0.978402,
+      0.244713,
+      0.501511
+    ],
+    "yolo_bbox": [
+      0.489201,
+      0.373112,
+      0.978402,
+      0.256798
+    ],
+    "suggested_classes": [
+      4,
+      7
+    ],
+    "suggested_class_names": [
+      "glass",
+      "plastic"
+    ],
+    "status": "PENDING",
+    "resolution": null
+  },
+  {
+    "queue_id": "amb_oi_13d3f1e5893726a2_3",
+    "image_id": "oi_13d3f1e5893726a2",
+    "filename": "oi_13d3f1e5893726a2.jpg",
+    "source": "openimages_v7",
+    "annotation_id": "13d3f1e5893726a2_3",
+    "raw_category_id": "/m/04dr76w",
+    "raw_category_name": "Bottle",
+    "note": "Material unknown: glass vs plastic vs metal",
+    "bbox_openimages": [
+      0.0,
+      0.665227,
+      0.265861,
+      0.501511
+    ],
+    "yolo_bbox": [
+      0.332613,
+      0.383686,
+      0.665227,
+      0.23565
+    ],
+    "suggested_classes": [
+      4,
+      7
+    ],
+    "suggested_class_names": [
+      "glass",
+      "plastic"
+    ],
+    "status": "PENDING",
+    "resolution": null
+  },
+  {
+    "queue_id": "amb_oi_13d3f1e5893726a2_4",
+    "image_id": "oi_13d3f1e5893726a2",
+    "filename": "oi_13d3f1e5893726a2.jpg",
+    "source": "openimages_v7",
+    "annotation_id": "13d3f1e5893726a2_4",
+    "raw_category_id": "/m/04dr76w",
+    "raw_category_name": "Bottle",
+    "note": "Material unknown: glass vs plastic vs metal",
+    "bbox_openimages": [
+      0.041037,
+      0.974082,
+      0.528701,
+      0.858006
+    ],
+    "yolo_bbox": [
+      0.507559,
+      0.693353,
+      0.933045,
+      0.329305
+    ],
+    "suggested_classes": [
+      4,
+      7
+    ],
+    "suggested_class_names": [
+      "glass",
+      "plastic"
+    ],
+    "status": "PENDING",
+    "resolution": null
+  },
+  {
+    "queue_id": "amb_oi_13d3f1e5893726a2_5",
+    "image_id": "oi_13d3f1e5893726a2",
+    "filename": "oi_13d3f1e5893726a2.jpg",
+    "source": "openimages_v7",
+    "annotation_id": "13d3f1e5893726a2_5",
+    "raw_category_id": "/m/04dr76w",
+    "raw_category_name": "Bottle",
+    "note": "Material unknown: glass vs plastic vs metal",
+    "bbox_openimages": [
+      0.116631,
+      0.941685,
+      0.880665,
+      1.0
+    ],
+    "yolo_bbox": [
+      0.529158,
+      0.940332,
+      0.825054,
+      0.119335
+    ],
+    "suggested_classes": [
+      4,
+      7
+    ],
+    "suggested_class_names": [
+      "glass",
+      "plastic"
+    ],
+    "status": "PENDING",
+    "resolution": null
+  },
+  {
+    "queue_id": "amb_oi_13d3f1e5893726a2_6",
+    "image_id": "oi_13d3f1e5893726a2",
+    "filename": "oi_13d3f1e5893726a2.jpg",
+    "source": "openimages_v7",
+    "annotation_id": "13d3f1e5893726a2_6",
+    "raw_category_id": "/m/04dr76w",
+    "raw_category_name": "Bottle",
+    "note": "Material unknown: glass vs plastic vs metal",
+    "bbox_openimages": [
+      0.347732,
+      0.449244,
+      0.05287,
+      0.205438
+    ],
+    "yolo_bbox": [
+      0.398488,
+      0.129154,
+      0.101512,
+      0.152568
+    ],
+    "suggested_classes": [
+      4,
+      7
+    ],
+    "suggested_class_names": [
+      "glass",
+      "plastic"
+    ],
+    "status": "PENDING",
+    "resolution": null
+  },
+  {
+    "queue_id": "amb_oi_13d3f1e5893726a2_7",
+    "image_id": "oi_13d3f1e5893726a2",
+    "filename": "oi_13d3f1e5893726a2.jpg",
+    "source": "openimages_v7",
+    "annotation_id": "13d3f1e5893726a2_7",
+    "raw_category_id": "/m/04dr76w",
+    "raw_category_name": "Bottle",
+    "note": "Material unknown: glass vs plastic vs metal",
+    "bbox_openimages": [
+      0.37797,
+      0.632829,
+      0.883686,
+      1.0
+    ],
+    "yolo_bbox": [
+      0.5054,
+      0.941843,
+      0.25486,
+      0.116314
+    ],
+    "suggested_classes": [
+      4,
+      7
+    ],
+    "suggested_class_names": [
+      "glass",
+      "plastic"
+    ],
+    "status": "PENDING",
+    "resolution": null
+  },
+  {
+    "queue_id": "amb_oi_13d3f1e5893726a2_8",
+    "image_id": "oi_13d3f1e5893726a2",
+    "filename": "oi_13d3f1e5893726a2.jpg",
+    "source": "openimages_v7",
+    "annotation_id": "13d3f1e5893726a2_8",
+    "raw_category_id": "/m/04dr76w",
+    "raw_category_name": "Bottle",
+    "note": "Material unknown: glass vs plastic vs metal",
+    "bbox_openimages": [
+      0.455724,
+      0.542117,
+      0.05136,
+      0.216012
+    ],
+    "yolo_bbox": [
+      0.49892,
+      0.133686,
+      0.086393,
+      0.164653
+    ],
+    "suggested_classes": [
+      4,
+      7
+    ],
+    "suggested_class_names": [
+      "glass",
+      "plastic"
+    ],
+    "status": "PENDING",
+    "resolution": null
+  },
+  {
+    "queue_id": "amb_oi_13d3f1e5893726a2_9",
+    "image_id": "oi_13d3f1e5893726a2",
+    "filename": "oi_13d3f1e5893726a2.jpg",
+    "source": "openimages_v7",
+    "annotation_id": "13d3f1e5893726a2_9",
+    "raw_category_id": "/m/04dr76w",
+    "raw_category_name": "Bottle",
+    "note": "Material unknown: glass vs plastic vs metal",
+    "bbox_openimages": [
+      0.50108,
+      0.976242,
+      0.55287,
+      0.861027
+    ],
+    "yolo_bbox": [
+      0.738661,
+      0.706949,
+      0.475162,
+      0.308157
+    ],
+    "suggested_classes": [
+      4,
+      7
+    ],
+    "suggested_class_names": [
+      "glass",
+      "plastic"
+    ],
+    "status": "PENDING",
+    "resolution": null
+  },
+  {
+    "queue_id": "amb_oi_13d3f1e5893726a2_10",
+    "image_id": "oi_13d3f1e5893726a2",
+    "filename": "oi_13d3f1e5893726a2.jpg",
+    "source": "openimages_v7",
+    "annotation_id": "13d3f1e5893726a2_10",
+    "raw_category_id": "/m/04dr76w",
+    "raw_category_name": "Bottle",
+    "note": "Material unknown: glass vs plastic vs metal",
+    "bbox_openimages": [
+      0.548596,
+      0.656587,
+      0.007553,
+      0.208459
+    ],
+    "yolo_bbox": [
+      0.602592,
+      0.108006,
+      0.107991,
+      0.200906
+    ],
+    "suggested_classes": [
+      4,
+      7
+    ],
+    "suggested_class_names": [
+      "glass",
+      "plastic"
+    ],
+    "status": "PENDING",
+    "resolution": null
+  },
+  {
+    "queue_id": "amb_oi_04d9284ebdc41aeb_0",
+    "image_id": "oi_04d9284ebdc41aeb",
+    "filename": "oi_04d9284ebdc41aeb.jpg",
+    "source": "openimages_v7",
+    "annotation_id": "04d9284ebdc41aeb_0",
+    "raw_category_id": "/m/04dr76w",
+    "raw_category_name": "Bottle",
+    "note": "Material unknown: glass vs plastic vs metal",
+    "bbox_openimages": [
+      0.402083,
+      0.458333,
+      0.167187,
+      0.290625
+    ],
+    "yolo_bbox": [
+      0.430208,
+      0.228906,
+      0.05625,
+      0.123438
+    ],
+    "suggested_classes": [
+      4,
+      7
+    ],
+    "suggested_class_names": [
+      "glass",
+      "plastic"
+    ],
+    "status": "PENDING",
+    "resolution": null
+  },
+  {
+    "queue_id": "amb_oi_04d9284ebdc41aeb_1",
+    "image_id": "oi_04d9284ebdc41aeb",
+    "filename": "oi_04d9284ebdc41aeb.jpg",
+    "source": "openimages_v7",
+    "annotation_id": "04d9284ebdc41aeb_1",
+    "raw_category_id": "/m/04dr76w",
+    "raw_category_name": "Bottle",
+    "note": "Material unknown: glass vs plastic vs metal",
+    "bbox_openimages": [
+      0.475,
+      0.510417,
+      0.164062,
+      0.260937
+    ],
+    "yolo_bbox": [
+      0.492708,
+      0.2125,
+      0.035417,
+      0.096875
+    ],
+    "suggested_classes": [
+      4,
+      7
+    ],
+    "suggested_class_names": [
+      "glass",
+      "plastic"
+    ],
+    "status": "PENDING",
+    "resolution": null
+  },
+  {
+    "queue_id": "amb_oi_04d9284ebdc41aeb_2",
+    "image_id": "oi_04d9284ebdc41aeb",
+    "filename": "oi_04d9284ebdc41aeb.jpg",
+    "source": "openimages_v7",
+    "annotation_id": "04d9284ebdc41aeb_2",
+    "raw_category_id": "/m/04dr76w",
+    "raw_category_name": "Bottle",
+    "note": "Material unknown: glass vs plastic vs metal",
+    "bbox_openimages": [
+      0.510417,
+      0.9625,
+      0.0,
+      1.0
+    ],
+    "yolo_bbox": [
+      0.736458,
+      0.5,
+      0.452083,
+      1.0
+    ],
+    "suggested_classes": [
+      4,
+      7
+    ],
+    "suggested_class_names": [
+      "glass",
+      "plastic"
+    ],
+    "status": "PENDING",
+    "resolution": null
+  },
+  {
+    "queue_id": "amb_oi_17135174fbbf3301_0",
+    "image_id": "oi_17135174fbbf3301",
+    "filename": "oi_17135174fbbf3301.jpg",
+    "source": "openimages_v7",
+    "annotation_id": "17135174fbbf3301_0",
+    "raw_category_id": "/m/04dr76w",
+    "raw_category_name": "Bottle",
+    "note": "Material unknown: glass vs plastic vs metal",
+    "bbox_openimages": [
+      0.612832,
+      0.993363,
+      0.064801,
+      0.923417
+    ],
+    "yolo_bbox": [
+      0.803097,
+      0.494109,
+      0.380531,
+      0.858616
+    ],
+    "suggested_classes": [
+      4,
+      7
+    ],
+    "suggested_class_names": [
+      "glass",
+      "plastic"
+    ],
+    "status": "PENDING",
+    "resolution": null
+  },
+  {
+    "queue_id": "amb_oi_1a04c113301b09f8_0",
+    "image_id": "oi_1a04c113301b09f8",
+    "filename": "oi_1a04c113301b09f8.jpg",
+    "source": "openimages_v7",
+    "annotation_id": "1a04c113301b09f8_0",
+    "raw_category_id": "/m/04dr76w",
+    "raw_category_name": "Bottle",
+    "note": "Material unknown: glass vs plastic vs metal",
+    "bbox_openimages": [
+      0.557762,
+      0.844765,
+      0.037906,
+      0.808664
+    ],
+    "yolo_bbox": [
+      0.701264,
+      0.423285,
+      0.287004,
+      0.770758
+    ],
+    "suggested_classes": [
+      4,
+      7
+    ],
+    "suggested_class_names": [
+      "glass",
+      "plastic"
+    ],
+    "status": "PENDING",
+    "resolution": null
+  },
+  {
+    "queue_id": "amb_oi_04e310af546ec9d0_0",
+    "image_id": "oi_04e310af546ec9d0",
+    "filename": "oi_04e310af546ec9d0.jpg",
+    "source": "openimages_v7",
+    "annotation_id": "04e310af546ec9d0_0",
+    "raw_category_id": "/m/025dyy",
+    "raw_category_name": "Box",
+    "note": "Material unknown: cardboard vs wood vs plastic",
+    "bbox_openimages": [
+      0.087087,
+      0.996997,
+      0.0,
+      1.0
+    ],
+    "yolo_bbox": [
+      0.542042,
+      0.5,
+      0.90991,
+      1.0
+    ],
+    "suggested_classes": [
+      2
+    ],
+    "suggested_class_names": [
+      "cardboard"
+    ],
+    "status": "PENDING",
+    "resolution": null
+  },
+  {
+    "queue_id": "amb_oi_07d2a7e5d98e6f27_0",
+    "image_id": "oi_07d2a7e5d98e6f27",
+    "filename": "oi_07d2a7e5d98e6f27.jpg",
+    "source": "openimages_v7",
+    "annotation_id": "07d2a7e5d98e6f27_0",
+    "raw_category_id": "/m/025dyy",
+    "raw_category_name": "Box",
+    "note": "Material unknown: cardboard vs wood vs plastic",
+    "bbox_openimages": [
+      0.508039,
+      0.794212,
+      0.73428,
+      0.941176
+    ],
+    "yolo_bbox": [
+      0.651125,
+      0.837728,
+      0.286174,
+      0.206897
+    ],
+    "suggested_classes": [
+      2
+    ],
+    "suggested_class_names": [
+      "cardboard"
+    ],
+    "status": "PENDING",
+    "resolution": null
+  },
+  {
+    "queue_id": "amb_oi_00a36f96e31731c4_1",
+    "image_id": "oi_00a36f96e31731c4",
+    "filename": "oi_00a36f96e31731c4.jpg",
+    "source": "openimages_v7",
+    "annotation_id": "00a36f96e31731c4_1",
+    "raw_category_id": "/m/04dr76w",
+    "raw_category_name": "Bottle",
+    "note": "Material unknown: glass vs plastic vs metal",
+    "bbox_openimages": [
+      0.8625,
+      0.942187,
+      0.425,
+      0.822917
+    ],
+    "yolo_bbox": [
+      0.902344,
+      0.623958,
+      0.079687,
+      0.397917
+    ],
+    "suggested_classes": [
+      4,
+      7
+    ],
+    "suggested_class_names": [
+      "glass",
+      "plastic"
+    ],
+    "status": "PENDING",
+    "resolution": null
+  },
+  {
+    "queue_id": "amb_oi_02deba0102b5ce2a_0",
+    "image_id": "oi_02deba0102b5ce2a",
+    "filename": "oi_02deba0102b5ce2a.jpg",
+    "source": "openimages_v7",
+    "annotation_id": "02deba0102b5ce2a_0",
+    "raw_category_id": "/m/04dr76w",
+    "raw_category_name": "Bottle",
+    "note": "Material unknown: glass vs plastic vs metal",
+    "bbox_openimages": [
+      0.234513,
+      0.690265,
+      0.168142,
+      0.830384
+    ],
+    "yolo_bbox": [
+      0.462389,
+      0.499263,
+      0.455752,
+      0.662242
+    ],
+    "suggested_classes": [
+      4,
+      7
+    ],
+    "suggested_class_names": [
+      "glass",
+      "plastic"
+    ],
+    "status": "PENDING",
+    "resolution": null
+  },
+  {
+    "queue_id": "amb_oi_02deba0102b5ce2a_1",
+    "image_id": "oi_02deba0102b5ce2a",
+    "filename": "oi_02deba0102b5ce2a.jpg",
+    "source": "openimages_v7",
+    "annotation_id": "02deba0102b5ce2a_1",
+    "raw_category_id": "/m/04dr76w",
+    "raw_category_name": "Bottle",
+    "note": "Material unknown: glass vs plastic vs metal",
+    "bbox_openimages": [
+      0.915929,
+      1.0,
+      0.331858,
+      0.921829
+    ],
+    "yolo_bbox": [
+      0.957965,
+      0.626844,
+      0.084071,
+      0.58997
+    ],
+    "suggested_classes": [
+      4,
+      7
+    ],
+    "suggested_class_names": [
+      "glass",
+      "plastic"
+    ],
+    "status": "PENDING",
+    "resolution": null
+  }
+]

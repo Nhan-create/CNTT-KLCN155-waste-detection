@@ -36,6 +36,10 @@ def get_data_dir() -> Path:
 DATA_DIR = get_data_dir()
 MANIFEST_PATH = DATA_DIR / "manifest_detection_v1.csv"
 AUDIT_LOG_PATH = DATA_DIR / "review_audit_log.csv"
+AUDIT_DIR = PROJECT_ROOT / "data" / "audit"
+REAL_MANIFEST_PATH = AUDIT_DIR / "real_detection_source_manifest.csv"
+AMBIGUOUS_QUEUE_PATH = AUDIT_DIR / "ambiguous_boxes_queue.json"
+READINESS_PATH = PROJECT_ROOT / "artifacts" / "part02" / "real_detection_readiness.json"
 
 TAXONOMY_10 = [
     "battery",      # 0
@@ -110,6 +114,107 @@ def log_audit(image_id: str, old_status: str, new_status: str, num_boxes: int, n
         ts = datetime.datetime.now().isoformat()
         clean_notes = notes.replace(",", ";").replace("\n", " ")
         f.write(f"{ts},{image_id},{action},{old_status},{new_status},{num_boxes},{clean_notes}\n")
+
+def load_ambiguous_queue() -> list:
+    if not AMBIGUOUS_QUEUE_PATH.exists():
+        return []
+    try:
+        with open(AMBIGUOUS_QUEUE_PATH, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return []
+
+def save_ambiguous_queue(items: list):
+    AMBIGUOUS_QUEUE_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with open(AMBIGUOUS_QUEUE_PATH, "w", encoding="utf-8") as f:
+        json.dump(items, f, indent=2)
+
+def compute_file_sha256(p: Path) -> str:
+    if not p.exists():
+        return ""
+    import hashlib
+    sha = hashlib.sha256()
+    with open(p, "rb") as f:
+        while chunk := f.read(65536):
+            sha.update(chunk)
+    return sha.hexdigest()
+
+def sync_manifests_and_readiness(selected_img_id: str, new_status: str, boxes: list):
+    from collections import Counter
+    # 1. Update real_detection_source_manifest.csv if present
+    if REAL_MANIFEST_PATH.exists():
+        try:
+            df_real = pd.read_csv(REAL_MANIFEST_PATH)
+            fn = f"{selected_img_id}.jpg"
+            idx_match = df_real[df_real["filename"] == fn].index
+            if not idx_match.empty:
+                idx = idx_match[0]
+                df_real.at[idx, "review_status"] = new_status
+                df_real.at[idx, "num_boxes"] = len(boxes)
+                c_set = sorted(list(set(b["class_id"] for b in boxes)))
+                df_real.at[idx, "classes_present"] = str(c_set)
+                lbl_path = DATA_DIR / "labels" / "real" / f"{selected_img_id}.txt"
+                if lbl_path.exists():
+                    df_real.at[idx, "label_sha256"] = compute_file_sha256(lbl_path)
+                df_real.to_csv(REAL_MANIFEST_PATH, index=False)
+        except Exception as e:
+            st.warning(f"Note: Could not sync real source manifest: {e}")
+
+    # 2. Recalculate readiness report if present
+    if REAL_MANIFEST_PATH.exists() and READINESS_PATH.exists():
+        try:
+            df_real = pd.read_csv(REAL_MANIFEST_PATH)
+            per_class_all_boxes = Counter()
+            per_class_app_boxes = Counter()
+            per_class_app_images = Counter()
+            status_counts = Counter(df_real["review_status"].dropna())
+
+            for _, r in df_real.iterrows():
+                is_app = r["review_status"] == "APPROVED"
+                lbl_path = DATA_DIR / r["relative_label_path"]
+                if lbl_path.exists():
+                    classes_in_file = set()
+                    with open(lbl_path, "r", encoding="utf-8") as lf:
+                        for line in lf:
+                            parts = line.strip().split()
+                            if parts:
+                                cid = int(parts[0])
+                                per_class_all_boxes[cid] += 1
+                                classes_in_file.add(cid)
+                                if is_app:
+                                    per_class_app_boxes[cid] += 1
+                    if is_app:
+                        for cid in classes_in_file:
+                            per_class_app_images[cid] += 1
+
+            queue_items = load_ambiguous_queue()
+            queue_counts = Counter(item.get("status", "PENDING") for item in queue_items)
+
+            with open(READINESS_PATH, "r", encoding="utf-8") as rf:
+                readiness_data = json.load(rf)
+
+            readiness_data["timestamp"] = datetime.datetime.now().isoformat()
+            readiness_data["review_status_summary"] = dict(status_counts)
+            readiness_data["approved_images_count"] = status_counts.get("APPROVED", 0)
+            readiness_data["rejected_images_count"] = status_counts.get("REJECTED", 0)
+            readiness_data["needs_relabel_images_count"] = status_counts.get("NEEDS_RELABEL", 0)
+            readiness_data["unreviewed_images_count"] = status_counts.get("UNREVIEWED", 0)
+            readiness_data["approved_per_class_images"] = {
+                TAXONOMY_10[cid]: per_class_app_images[cid] for cid in range(10)
+            }
+            readiness_data["approved_per_class_boxes"] = {
+                TAXONOMY_10[cid]: per_class_app_boxes[cid] for cid in range(10)
+            }
+            readiness_data["ambiguous_boxes_queue"] = {
+                "total_items": len(queue_items),
+                "status_breakdown": dict(queue_counts),
+                "queue_file": "data/audit/ambiguous_boxes_queue.json"
+            }
+
+            with open(READINESS_PATH, "w", encoding="utf-8") as wf:
+                json.dump(readiness_data, wf, indent=2)
+        except Exception as e:
+            st.warning(f"Note: Could not update readiness report: {e}")
 
 def read_yolo_boxes(label_path: Path):
     if not label_path.exists():
@@ -217,8 +322,16 @@ def main():
         return
 
     # Image selector
+    param_img_id = st.query_params.get("image_id")
+    if param_img_id and param_img_id in df["image_id"].values:
+        if param_img_id not in filtered_df["image_id"].values:
+            filtered_df = pd.concat([df[df["image_id"] == param_img_id], filtered_df]).drop_duplicates(subset=["image_id"])
+
     image_list = filtered_df["image_id"].tolist()
-    selected_img_id = st.sidebar.selectbox("Select Image ID", image_list, index=0)
+    default_idx = 0
+    if param_img_id and param_img_id in image_list:
+        default_idx = image_list.index(param_img_id)
+    selected_img_id = st.sidebar.selectbox("Select Image ID", image_list, index=default_idx)
 
     # --- MAIN VIEW ---
     row = df[df["image_id"] == selected_img_id].iloc[0]
@@ -313,6 +426,61 @@ def main():
                     st.session_state.current_boxes = boxes
                     st.rerun()
 
+        # Ambiguous Boxes Queue for this Image
+        queue_items = load_ambiguous_queue()
+        img_queue_items = [q for q in queue_items if q.get("image_id") == selected_img_id or q.get("filename") == row["filename"]]
+        if img_queue_items:
+            pending_items = [q for q in img_queue_items if q.get("status") == "PENDING"]
+            with st.expander(f"⚠️ Ambiguous Boxes Queue ({len(pending_items)} pending / {len(img_queue_items)} total)", expanded=bool(pending_items)):
+                st.caption("Boxes flagged from source datasets with ambiguous categories, requiring human/reviewer class assignment.")
+                for q_idx, q in enumerate(img_queue_items):
+                    st.markdown(f"**Box #{q_idx+1}: {q['raw_category_name']}** (`{q['queue_id']}`)")
+                    st.write(f"- Note: {q.get('note', 'N/A')}")
+                    ybox = q.get("yolo_bbox", [0.5, 0.5, 0.2, 0.2])
+                    st.write(f"- Coordinates: `[xc={ybox[0]:.4f}, yc={ybox[1]:.4f}, w={ybox[2]:.4f}, h={ybox[3]:.4f}]`")
+                    st.write(f"- Queue Status: **{q.get('status', 'PENDING')}**")
+                    if q.get("status") == "PENDING":
+                        col_q1, col_q2, col_q3 = st.columns([2, 2, 2])
+                        suggested = q.get("suggested_classes", [])
+                        default_cls = suggested[0] if suggested else 0
+                        assigned_cls = col_q1.selectbox(
+                            "Assign Class",
+                            range(len(TAXONOMY_10)),
+                            index=default_cls,
+                            format_func=lambda cid: f"{cid}: {TAXONOMY_10[cid]}",
+                            key=f"q_cls_{q['queue_id']}"
+                        )
+                        if col_q2.button("➕ Assign Box", key=f"q_btn_assign_{q['queue_id']}"):
+                            new_box = {
+                                "class_id": assigned_cls,
+                                "class_name": TAXONOMY_10[assigned_cls],
+                                "xc": ybox[0],
+                                "yc": ybox[1],
+                                "w": ybox[2],
+                                "h": ybox[3]
+                            }
+                            boxes.append(new_box)
+                            st.session_state.current_boxes = boxes
+                            q["status"] = "ASSIGNED"
+                            q["resolution"] = {
+                                "assigned_class_id": assigned_cls,
+                                "assigned_class_name": TAXONOMY_10[assigned_cls],
+                                "timestamp": datetime.datetime.now().isoformat()
+                            }
+                            save_ambiguous_queue(queue_items)
+                            st.rerun()
+                        if col_q3.button("🚫 Discard Box", key=f"q_btn_discard_{q['queue_id']}"):
+                            q["status"] = "DISCARDED"
+                            q["resolution"] = {
+                                "timestamp": datetime.datetime.now().isoformat(),
+                                "reason": "Discarded as non-waste or out of scope"
+                            }
+                            save_ambiguous_queue(queue_items)
+                            st.rerun()
+                    else:
+                        st.info(f"Resolved: {q.get('status')} | {q.get('resolution')}")
+                    st.divider()
+
         st.divider()
         st.subheader("🎯 Review Decision")
         action_decision = st.radio(
@@ -356,6 +524,9 @@ def main():
                 df.at[idx_in_df, "num_boxes"] = len(boxes)
                 df.at[idx_in_df, "class_distribution"] = json.dumps(cls_counts)
                 save_manifest(df)
+
+                # Sync real source manifest and readiness report
+                sync_manifests_and_readiness(selected_img_id, action_decision, boxes)
 
                 # Audit log
                 log_audit(selected_img_id, old_status, action_decision, len(boxes), notes, action="SAVE_MANUAL")
