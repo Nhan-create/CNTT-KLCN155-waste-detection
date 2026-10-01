@@ -1,10 +1,30 @@
 {
-  "classifier_total_keys": 312,
-  "ssd_total_keys": 476,
-  "transferable_backbone_keys": 258,
-  "total_backbone_keys": 308,
-  "classifier_head_keys_excluded": 4,
-  "ssd_detection_head_keys_to_train": 96,
-  "ssd_extra_pyramid_keys_to_train": 72,
-  "mapping_ratio": "258/308"
+  "audit_timestamp": "2026-10-01T15:31:40+0700",
+  "classifier": {
+    "model_name": "mobilenet_v3_large",
+    "total_keys": 312,
+    "feature_keys": 308,
+    "head_keys": 4
+  },
+  "ssdlite320": {
+    "model_name": "ssdlite320_mobilenet_v3_large",
+    "total_keys": 476,
+    "backbone_feature_keys": 308,
+    "extra_pyramid_keys": 72,
+    "head_keys": 96
+  },
+  "transfer_audit": {
+    "matched_keys_count": 258,
+    "total_classifier_features": 308,
+    "compatibility_ratio": "258/308",
+    "unmapped_feature_keys_count": 50,
+    "keys_to_train_from_scratch": 222,
+    "real_load_successful": true,
+    "real_forward_pass_successful": true,
+    "forward_pass_output_sample": {
+      "boxes_detected": 300,
+      "scores_detected": 300
+    }
+  },
+  "scientific_limitation_statement": "Transferring 258/308 backbone feature keys provides feature extractor initialization. It does NOT prove detection efficacy. The remaining 168 detector keys (heads + extra layers) must be trained on real bounding box annotations, and mAP must be measured empirically."
 }

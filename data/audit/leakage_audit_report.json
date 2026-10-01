@@ -1,0 +1,22 @@
+{
+  "audit_timestamp": "2026-10-01T15:32:03+0700",
+  "total_manifest_images": 14831,
+  "exact_sha256": {
+    "train_val_overlap": 0,
+    "train_test_overlap": 0,
+    "val_test_overlap": 0,
+    "zero_exact_leakage": true
+  },
+  "phash_near_duplicate": {
+    "threshold": 4,
+    "total_candidate_pairs": 18,
+    "verdict_breakdown": {
+      "BURST_SHOT_SAME_OBJECT": 10,
+      "SAME_OBJECT_ROTATED_OR_PERSPECTIVE": 5,
+      "CROSS_CLASS_COINCIDENCE": 3
+    },
+    "true_leakage_pairs_count": 15,
+    "leakage_detected": true,
+    "status": "LEAKAGE_DETECTED"
+  }
+}

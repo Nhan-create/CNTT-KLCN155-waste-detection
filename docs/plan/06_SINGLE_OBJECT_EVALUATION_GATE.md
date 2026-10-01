@@ -1,61 +1,76 @@
-# 06 — SINGLE OBJECT EVALUATION GATE: CỔNG ĐÁNH GIÁ CHUYỂN GIAI ĐOẠN ĐƠN RÁC (R2)
+# 06 — SINGLE OBJECT EVALUATION GATE: CỔNG ĐÁNH GIÁ CHUYỂN GIAI ĐOẠN ĐƠN RÁC (R2.1)
 
 **Dự án:** Phân loại và phát hiện rác thải sinh hoạt (`CNTT-KLCN155`)  
 **Tác giả:** Tech Lead & Machine Learning Engineer  
-**Phiên:** Task R2 — Reconcile, Audit & Rectify  
-**Trạng thái:** `VERIFIED_AND_LOCKED` (Đã cập nhật chỉ số test set thực tế 2.225 ảnh)
+**Phiên:** Task R2.1 — Data Gate Audit, Leakage Verification & Smoke Test  
+**Trạng thái:** `VERIFIED_AND_LOCKED` (Đã loại bỏ hoàn toàn vòng lặp phản hồi Test Set; chuẩn hóa quy trình đánh giá chuẩn khoa học)
 
 ---
 
 ## 1. Mục tiêu và vấn đề cần giải quyết
 
 ### 1.1. Mục tiêu
-Thiết lập một **Cổng kiểm soát kỹ thuật nghiêm ngặt (Quality Gate A)** nhằm đánh giá toàn diện mô hình phân loại đơn rác MobileNetV3-Large trên tập Test độc lập (**2.225 ảnh sạch**); đo lường các chỉ số học máy đa chiều (Top-1 Accuracy, Macro-F1, Precision, Recall từng lớp, Confusion Matrix); phân tích sâu các sai số theo chi phí bất đối xứng (Asymmetric Misclassification Cost); và đưa ra quyết định có điều kiện cho phép chuyển giao sang Giai đoạn B (Phát hiện đa rác).
+Thiết lập một **Cổng kiểm soát chất lượng kỹ thuật nghiêm ngặt (Quality Gate A)** nhằm đánh giá mô hình phân loại đơn rác MobileNetV3-Large trên tập Test độc lập (**2.225 ảnh**); tuân thủ nguyên tắc liêm chính học thuật tuyệt đối: **Test Set chỉ được mở đúng 1 lần duy nhất sau khi đã đóng băng toàn bộ siêu tham số, trọng số mô hình và ngưỡng phân loại**.
 
-### 1.2. Vấn đề cần giải quyết
-1. **Khắc phục sai lệch số lượng tập Test:** Sửa con số nháp 2.170 thành con số vật lý chính xác trên ổ đĩa: **2.225 ảnh** (đã kiểm toán trong [data/audit/class_counts.csv](file:///D:/CNTT-KLCN155-waste-detection/data/audit/class_counts.csv)).
-2. **Chi phí sai lệch bất đối xứng (Asymmetric Cost):** Nhầm một chai nhựa thành tờ giấy chỉ gây phiền toái nhỏ trong khâu tái chế; nhưng bỏ sót hoặc nhầm một cục pin / rác nguy hại thành rác hữu cơ có thể dẫn đến nguy cơ cháy nổ lò ép rác. Lớp `battery` bắt buộc phải có ngưỡng Recall kiểm soát riêng ($\ge 0.880$).
-3. **Đánh giá trên tập ngoại bộ (Out-of-distribution Test):** Tiến hành benchmark đối chứng trên tập VN Trash và ảnh thực tế TP.HCM để xác minh tính khái quát hóa độc lập.
-
----
-
-## 2. Hiện trạng tập Test độc lập đã xác minh (`VERIFIED`)
-
-Thư mục vật lý: [D:\HK7\Đồ án khóa luận\Data\processed\test](file:///D:/HK7/Đồ%20án%20khóa%20luận/Data/processed/test) gồm đúng **2.225 ảnh**, phân bố 10 lớp:
-- `battery`: **114** ảnh
-- `biological`: **105** ảnh
-- `cardboard`: **309** ảnh
-- `clothes`: **284** ảnh
-- `glass`: **261** ảnh
-- `metal`: **338** ảnh
-- `paper`: **223** ảnh
-- `plastic`: **298** ảnh
-- `shoes`: **218** ảnh
-- `trash`: **75** ảnh
-- **Tổng cộng:** $114 + 105 + 309 + 284 + 261 + 338 + 223 + 298 + 218 + 75 = \mathbf{2.225\text{ ảnh}}$ (khớp 100%).
+### 1.2. Sửa đổi quy trình cốt lõi trong R2.1 (`PROTOCOL_RECTIFIED`)
+1. **Xóa bỏ hoàn toàn luồng phản hồi từ Test Set về Huấn luyện:**
+   - Trong bản R2 trước đây từng xuất hiện sơ đồ: *"Nếu Fail Test Gate -> phân tích confusion matrix test -> điều chỉnh loss/class weight -> train lại"*.
+   - **Đây là một vi phạm quy trình nghiêm trọng (Test Set Snooping / Peeking Violation):** Nếu nhìn vào lỗi trên tập Test để quay lại chỉnh sửa siêu tham số hoặc trọng số hàm mất mát rồi train lại, tập Test sẽ không còn là tập kiểm thử độc lập nữa mà đã bị nhiễm thông tin gián tiếp (Information Leakage qua con người).
+   - **Quy tắc mới trong R2.1:**
+     * Toàn bộ quá trình chọn mô hình (Model Selection), tinh chỉnh siêu tham số (Hyperparameter Tuning), chọn ngưỡng tin cậy (Threshold Calibration) và chặn dừng sớm (Early Stopping) **chỉ được phép thực hiện trên tập Validation**.
+     * Tập Test **hoàn toàn bị cô lập và khóa kín** trong suốt quá trình thử nghiệm và huấn luyện.
+     * Chỉ khi mô hình đạt điểm xuất sắc trên tập Validation và được đóng băng hoàn toàn (Frozen Checkpoint), cổng Test mới được mở ra **duy nhất một lần** để xuất báo cáo kết quả cuối cùng.
+     * Nếu mô hình không đạt ngưỡng trên tập Test, mô hình đó bị kết luận là **không đạt chuẩn chuyển giao (REJECTED)**. Không được phép "chỉnh nhẹ siêu tham số rồi chạy lại trên chính tập Test đó". Muốn đánh giá lại mô hình mới, phải thu thập thêm tập Test mới hoặc khai báo rõ nguy cơ quá khớp tập kiểm thử.
+2. **Làm rõ tính chất tập kiểm thử ngoại bộ:**
+   - Bác bỏ hoàn toàn việc dùng VN Trash làm "external test set" vì VN Trash đã nằm trong Train (1.801 ảnh) và trùng với Garbage V2 (879 ảnh).
+   - Đánh giá khả năng hoạt động thực tế bắt buộc phải dùng **Bộ ảnh chụp thực tế độc lập tại TP.HCM** do nhóm tự thu thập từ thực địa.
 
 ---
 
-## 3. Bảng Tiêu chí Nghiệm thu Cổng Chuyển giai đoạn (Gate A Criteria)
+## 2. Quy trình Đánh giá Khoa học Chuẩn (Rigorous Evaluation Protocol)
 
-Mô hình phân loại MobileNetV3-Large chỉ được phê duyệt hoàn thành Giai đoạn A khi đạt đầy đủ tất cả các điều kiện sau trên tập Test:
+```mermaid
+flowchart TD
+    subgraph PHASE_DEV["1. GIAI ĐOẠN PHÁT TRIỂN & CHỌN MÔ HÌNH (LẶP TRÊN TRAIN & VAL)"]
+        D_TRAIN["Tập Train (10,381 ảnh)"] --> T_LOOP["Huấn luyện MobileNetV3 (AMP fp16)"]
+        T_LOOP --> V_EVAL["Đánh giá Validation (2,225 ảnh)"]
+        V_EVAL --> V_METRICS{"Đạt ngưỡng Val?\n(Acc >= 88%, F1 >= 0.85)"}
+        V_METRICS -- "Chưa đạt" --> V_TUNE["Tinh chỉnh siêu tham số trên Val\n(lr, class weight, scheduler)"]
+        V_TUNE --> T_LOOP
+        V_METRICS -- "Đạt chuẩn" --> FREEZE["ĐÓNG BĂNG MÔ HÌNH & TRỌNG SỐ\n(Lưu checkpoint chính thức)"]
+    end
+
+    subgraph PHASE_GATE["2. CỔNG NGHIỆM THU TEST (DUY NHẤT 1 LẦN - KHÔNG QUAY ĐẦU)"]
+        FREEZE --> UNLOCK["Mở khóa Tập Test (2,225 ảnh)"]
+        UNLOCK --> TEST_EVAL["Chạy đánh giá chuẩn một lần duy nhất"]
+        TEST_EVAL --> DECISION{"Đạt tiêu chí Gate A?"}
+        DECISION -- "PASS (Acc >= 88%, F1 >= 0.85, Battery >= 88%)" --> APPROVE["PHÊ DUYỆT CHUYỂN GIAI ĐOẠN B\n(Trích xuất 258 backbone keys sang SSDLite)"]
+        DECISION -- "FAIL" --> REJECT["KẾT LUẬN: MÔ HÌNH KHÔNG ĐẠT CHUẨN\n(Báo cáo trung thực trong khóa luận; không tinh chỉnh lại trên test)"]
+    end
+```
+
+---
+
+## 3. Tiêu chí Nghiệm thu Cổng Chuyển giai đoạn (Gate A Criteria)
+
+Mô hình phân loại MobileNetV3-Large chỉ được phê duyệt hoàn thành Giai đoạn A khi đạt đầy đủ tất cả các điều kiện sau trên tập Test chính thức:
 
 | Chỉ số kiểm soát | Ngưỡng bắt buộc (Threshold) | Ý nghĩa kỹ thuật & Ràng buộc học thuật | Trạng thái kiểm tra |
 |:---|:---:|:---|:---:|
-| **Top-1 Accuracy tổng** | **$\ge 88.0\%$** | Đảm bảo năng lực nhận dạng vượt trội trên toàn tập | Bắt buộc |
-| **Macro-Averaged F1 Score** | **$\ge 0.850$** | Đảm bảo chất lượng đồng đều giữa các lớp | Bắt buộc |
-| **Recall lớp `battery` (Nguy hại)** | **$\ge 0.880$** | Chặn đứng nguy cơ bỏ sót pin / rác thải nguy hại | Bắt buộc |
-| **Recall tối thiểu trên mọi lớp** | **$\ge 0.800$** | Không cho phép bất kỳ lớp nào bị bỏ rơi dưới 80% | Bắt buộc |
-| **Data Leakage Check** | **Zero Duplicate** | Xác nhận 0 tệp trùng băm SHA-256 hay pHash giữa Train và Test | Bắt buộc |
-| **Độ trễ suy luận (Inference Latency)** | **$< 20\text{ ms/ảnh}$ (CPU)** | Đảm bảo chạy mượt trên CPU máy tính cá nhân | Bắt buộc |
+| **Top-1 Accuracy tổng** | **$\ge 88.0\%$** | Đảm bảo năng lực nhận dạng vượt trội trên toàn tập | Bắt buộc trên Test |
+| **Macro-Averaged F1 Score** | **$\ge 0.850$** | Đảm bảo chất lượng đồng đều giữa 10 lớp | Bắt buộc trên Test |
+| **Recall lớp `battery` (Nguy hại)** | **$\ge 0.880$** | Chặn đứng nguy cơ bỏ sót pin / rác thải nguy hại cháy nổ | Bắt buộc trên Test |
+| **Recall tối thiểu trên mọi lớp** | **$\ge 0.800$** | Không cho phép bất kỳ lớp nào bị bỏ rơi dưới 80% | Bắt buộc trên Test |
+| **Độ trễ suy luận (Inference Latency)** | **$< 20\text{ ms/ảnh}$ (CPU)** | Đảm bảo chạy mượt trên CPU máy tính cá nhân | Bắt buộc trên CPU |
+| **Data Leakage Check** | **Zero Burst-Shot Leakage** | Phải giải quyết 15 cặp rò rỉ trước khi chạy test chính thức | Điều kiện tiên quyết |
 
 ---
 
-## 4. Biên bản nghiệm thu và Quyết định chuyển tiếp
+## 4. Biên bản Nghiệm thu và Quyết định Chuyển tiếp
 
-- Nếu **PASS Gate A**:
-  - Trích xuất 258 keys backbone features từ `artifacts/run-001/best.pt` để chuyển giao sang mạng SSDLite320 ở Giai đoạn B.
-  - Phê duyệt khởi động quy trình gán nhãn đa rác bằng in-repo review tool [src/ui/review_tool.py](file:///D:/CNTT-KLCN155-waste-detection/src/ui/review_tool.py).
-- Nếu **FAIL Gate A**:
-  - Dừng lại phân tích ma trận nhầm lẫn `confusion_matrix_test.png`.
-  - Điều chỉnh hàm mất mát (Focal Loss / Tăng class-weight) và huấn luyện lại trước khi sang Giai đoạn B.
+- **Nếu ĐẠT (PASS Gate A):**
+  1. Trích xuất trọng số 258 keys backbone features từ checkpoint đã đóng băng.
+  2. Bắt đầu Giai đoạn B: Huấn luyện bộ dò đa rác YOLOv8n và SSDLite320 trên tập dữ liệu gán nhãn bounding box.
+- **Nếu KHÔNG ĐẠT (FAIL Gate A):**
+  1. Giữ nguyên kết quả thực nghiệm và ghi nhận trung thực vào báo cáo khóa luận (phân tích rõ nguyên nhân sai lệch, ví dụ lớp `trash` quá ít mẫu hoặc nền chụp phức tạp).
+  2. Tuyệt đối không được phép chỉnh sửa mã nguồn rồi chạy lại trên tập Test cũ để "lấy số đẹp".

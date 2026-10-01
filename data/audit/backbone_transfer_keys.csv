@@ -1,0 +1,313 @@
+classifier_key,classifier_shape,expected_ssd_key,ssd_shape,transfer_status,requires_training_from_scratch
+features.0.0.weight,"[16, 3, 3, 3]",backbone.features.0.0.0.weight,"[16, 3, 3, 3]",MATCHED_AND_TRANSFERABLE,False
+features.0.1.weight,[16],backbone.features.0.0.1.weight,[16],MATCHED_AND_TRANSFERABLE,False
+features.0.1.bias,[16],backbone.features.0.0.1.bias,[16],MATCHED_AND_TRANSFERABLE,False
+features.0.1.running_mean,[16],backbone.features.0.0.1.running_mean,[16],MATCHED_AND_TRANSFERABLE,False
+features.0.1.running_var,[16],backbone.features.0.0.1.running_var,[16],MATCHED_AND_TRANSFERABLE,False
+features.0.1.num_batches_tracked,[],backbone.features.0.0.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.1.block.0.0.weight,"[16, 1, 3, 3]",backbone.features.0.1.block.0.0.weight,"[16, 1, 3, 3]",MATCHED_AND_TRANSFERABLE,False
+features.1.block.0.1.weight,[16],backbone.features.0.1.block.0.1.weight,[16],MATCHED_AND_TRANSFERABLE,False
+features.1.block.0.1.bias,[16],backbone.features.0.1.block.0.1.bias,[16],MATCHED_AND_TRANSFERABLE,False
+features.1.block.0.1.running_mean,[16],backbone.features.0.1.block.0.1.running_mean,[16],MATCHED_AND_TRANSFERABLE,False
+features.1.block.0.1.running_var,[16],backbone.features.0.1.block.0.1.running_var,[16],MATCHED_AND_TRANSFERABLE,False
+features.1.block.0.1.num_batches_tracked,[],backbone.features.0.1.block.0.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.1.block.1.0.weight,"[16, 16, 1, 1]",backbone.features.0.1.block.1.0.weight,"[16, 16, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.1.block.1.1.weight,[16],backbone.features.0.1.block.1.1.weight,[16],MATCHED_AND_TRANSFERABLE,False
+features.1.block.1.1.bias,[16],backbone.features.0.1.block.1.1.bias,[16],MATCHED_AND_TRANSFERABLE,False
+features.1.block.1.1.running_mean,[16],backbone.features.0.1.block.1.1.running_mean,[16],MATCHED_AND_TRANSFERABLE,False
+features.1.block.1.1.running_var,[16],backbone.features.0.1.block.1.1.running_var,[16],MATCHED_AND_TRANSFERABLE,False
+features.1.block.1.1.num_batches_tracked,[],backbone.features.0.1.block.1.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.2.block.0.0.weight,"[64, 16, 1, 1]",backbone.features.0.2.block.0.0.weight,"[64, 16, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.2.block.0.1.weight,[64],backbone.features.0.2.block.0.1.weight,[64],MATCHED_AND_TRANSFERABLE,False
+features.2.block.0.1.bias,[64],backbone.features.0.2.block.0.1.bias,[64],MATCHED_AND_TRANSFERABLE,False
+features.2.block.0.1.running_mean,[64],backbone.features.0.2.block.0.1.running_mean,[64],MATCHED_AND_TRANSFERABLE,False
+features.2.block.0.1.running_var,[64],backbone.features.0.2.block.0.1.running_var,[64],MATCHED_AND_TRANSFERABLE,False
+features.2.block.0.1.num_batches_tracked,[],backbone.features.0.2.block.0.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.2.block.1.0.weight,"[64, 1, 3, 3]",backbone.features.0.2.block.1.0.weight,"[64, 1, 3, 3]",MATCHED_AND_TRANSFERABLE,False
+features.2.block.1.1.weight,[64],backbone.features.0.2.block.1.1.weight,[64],MATCHED_AND_TRANSFERABLE,False
+features.2.block.1.1.bias,[64],backbone.features.0.2.block.1.1.bias,[64],MATCHED_AND_TRANSFERABLE,False
+features.2.block.1.1.running_mean,[64],backbone.features.0.2.block.1.1.running_mean,[64],MATCHED_AND_TRANSFERABLE,False
+features.2.block.1.1.running_var,[64],backbone.features.0.2.block.1.1.running_var,[64],MATCHED_AND_TRANSFERABLE,False
+features.2.block.1.1.num_batches_tracked,[],backbone.features.0.2.block.1.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.2.block.2.0.weight,"[24, 64, 1, 1]",backbone.features.0.2.block.2.0.weight,"[24, 64, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.2.block.2.1.weight,[24],backbone.features.0.2.block.2.1.weight,[24],MATCHED_AND_TRANSFERABLE,False
+features.2.block.2.1.bias,[24],backbone.features.0.2.block.2.1.bias,[24],MATCHED_AND_TRANSFERABLE,False
+features.2.block.2.1.running_mean,[24],backbone.features.0.2.block.2.1.running_mean,[24],MATCHED_AND_TRANSFERABLE,False
+features.2.block.2.1.running_var,[24],backbone.features.0.2.block.2.1.running_var,[24],MATCHED_AND_TRANSFERABLE,False
+features.2.block.2.1.num_batches_tracked,[],backbone.features.0.2.block.2.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.3.block.0.0.weight,"[72, 24, 1, 1]",backbone.features.0.3.block.0.0.weight,"[72, 24, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.3.block.0.1.weight,[72],backbone.features.0.3.block.0.1.weight,[72],MATCHED_AND_TRANSFERABLE,False
+features.3.block.0.1.bias,[72],backbone.features.0.3.block.0.1.bias,[72],MATCHED_AND_TRANSFERABLE,False
+features.3.block.0.1.running_mean,[72],backbone.features.0.3.block.0.1.running_mean,[72],MATCHED_AND_TRANSFERABLE,False
+features.3.block.0.1.running_var,[72],backbone.features.0.3.block.0.1.running_var,[72],MATCHED_AND_TRANSFERABLE,False
+features.3.block.0.1.num_batches_tracked,[],backbone.features.0.3.block.0.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.3.block.1.0.weight,"[72, 1, 3, 3]",backbone.features.0.3.block.1.0.weight,"[72, 1, 3, 3]",MATCHED_AND_TRANSFERABLE,False
+features.3.block.1.1.weight,[72],backbone.features.0.3.block.1.1.weight,[72],MATCHED_AND_TRANSFERABLE,False
+features.3.block.1.1.bias,[72],backbone.features.0.3.block.1.1.bias,[72],MATCHED_AND_TRANSFERABLE,False
+features.3.block.1.1.running_mean,[72],backbone.features.0.3.block.1.1.running_mean,[72],MATCHED_AND_TRANSFERABLE,False
+features.3.block.1.1.running_var,[72],backbone.features.0.3.block.1.1.running_var,[72],MATCHED_AND_TRANSFERABLE,False
+features.3.block.1.1.num_batches_tracked,[],backbone.features.0.3.block.1.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.3.block.2.0.weight,"[24, 72, 1, 1]",backbone.features.0.3.block.2.0.weight,"[24, 72, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.3.block.2.1.weight,[24],backbone.features.0.3.block.2.1.weight,[24],MATCHED_AND_TRANSFERABLE,False
+features.3.block.2.1.bias,[24],backbone.features.0.3.block.2.1.bias,[24],MATCHED_AND_TRANSFERABLE,False
+features.3.block.2.1.running_mean,[24],backbone.features.0.3.block.2.1.running_mean,[24],MATCHED_AND_TRANSFERABLE,False
+features.3.block.2.1.running_var,[24],backbone.features.0.3.block.2.1.running_var,[24],MATCHED_AND_TRANSFERABLE,False
+features.3.block.2.1.num_batches_tracked,[],backbone.features.0.3.block.2.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.4.block.0.0.weight,"[72, 24, 1, 1]",backbone.features.0.4.block.0.0.weight,"[72, 24, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.4.block.0.1.weight,[72],backbone.features.0.4.block.0.1.weight,[72],MATCHED_AND_TRANSFERABLE,False
+features.4.block.0.1.bias,[72],backbone.features.0.4.block.0.1.bias,[72],MATCHED_AND_TRANSFERABLE,False
+features.4.block.0.1.running_mean,[72],backbone.features.0.4.block.0.1.running_mean,[72],MATCHED_AND_TRANSFERABLE,False
+features.4.block.0.1.running_var,[72],backbone.features.0.4.block.0.1.running_var,[72],MATCHED_AND_TRANSFERABLE,False
+features.4.block.0.1.num_batches_tracked,[],backbone.features.0.4.block.0.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.4.block.1.0.weight,"[72, 1, 5, 5]",backbone.features.0.4.block.1.0.weight,"[72, 1, 5, 5]",MATCHED_AND_TRANSFERABLE,False
+features.4.block.1.1.weight,[72],backbone.features.0.4.block.1.1.weight,[72],MATCHED_AND_TRANSFERABLE,False
+features.4.block.1.1.bias,[72],backbone.features.0.4.block.1.1.bias,[72],MATCHED_AND_TRANSFERABLE,False
+features.4.block.1.1.running_mean,[72],backbone.features.0.4.block.1.1.running_mean,[72],MATCHED_AND_TRANSFERABLE,False
+features.4.block.1.1.running_var,[72],backbone.features.0.4.block.1.1.running_var,[72],MATCHED_AND_TRANSFERABLE,False
+features.4.block.1.1.num_batches_tracked,[],backbone.features.0.4.block.1.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.4.block.2.fc1.weight,"[24, 72, 1, 1]",backbone.features.0.4.block.2.fc1.weight,"[24, 72, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.4.block.2.fc1.bias,[24],backbone.features.0.4.block.2.fc1.bias,[24],MATCHED_AND_TRANSFERABLE,False
+features.4.block.2.fc2.weight,"[72, 24, 1, 1]",backbone.features.0.4.block.2.fc2.weight,"[72, 24, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.4.block.2.fc2.bias,[72],backbone.features.0.4.block.2.fc2.bias,[72],MATCHED_AND_TRANSFERABLE,False
+features.4.block.3.0.weight,"[40, 72, 1, 1]",backbone.features.0.4.block.3.0.weight,"[40, 72, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.4.block.3.1.weight,[40],backbone.features.0.4.block.3.1.weight,[40],MATCHED_AND_TRANSFERABLE,False
+features.4.block.3.1.bias,[40],backbone.features.0.4.block.3.1.bias,[40],MATCHED_AND_TRANSFERABLE,False
+features.4.block.3.1.running_mean,[40],backbone.features.0.4.block.3.1.running_mean,[40],MATCHED_AND_TRANSFERABLE,False
+features.4.block.3.1.running_var,[40],backbone.features.0.4.block.3.1.running_var,[40],MATCHED_AND_TRANSFERABLE,False
+features.4.block.3.1.num_batches_tracked,[],backbone.features.0.4.block.3.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.5.block.0.0.weight,"[120, 40, 1, 1]",backbone.features.0.5.block.0.0.weight,"[120, 40, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.5.block.0.1.weight,[120],backbone.features.0.5.block.0.1.weight,[120],MATCHED_AND_TRANSFERABLE,False
+features.5.block.0.1.bias,[120],backbone.features.0.5.block.0.1.bias,[120],MATCHED_AND_TRANSFERABLE,False
+features.5.block.0.1.running_mean,[120],backbone.features.0.5.block.0.1.running_mean,[120],MATCHED_AND_TRANSFERABLE,False
+features.5.block.0.1.running_var,[120],backbone.features.0.5.block.0.1.running_var,[120],MATCHED_AND_TRANSFERABLE,False
+features.5.block.0.1.num_batches_tracked,[],backbone.features.0.5.block.0.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.5.block.1.0.weight,"[120, 1, 5, 5]",backbone.features.0.5.block.1.0.weight,"[120, 1, 5, 5]",MATCHED_AND_TRANSFERABLE,False
+features.5.block.1.1.weight,[120],backbone.features.0.5.block.1.1.weight,[120],MATCHED_AND_TRANSFERABLE,False
+features.5.block.1.1.bias,[120],backbone.features.0.5.block.1.1.bias,[120],MATCHED_AND_TRANSFERABLE,False
+features.5.block.1.1.running_mean,[120],backbone.features.0.5.block.1.1.running_mean,[120],MATCHED_AND_TRANSFERABLE,False
+features.5.block.1.1.running_var,[120],backbone.features.0.5.block.1.1.running_var,[120],MATCHED_AND_TRANSFERABLE,False
+features.5.block.1.1.num_batches_tracked,[],backbone.features.0.5.block.1.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.5.block.2.fc1.weight,"[32, 120, 1, 1]",backbone.features.0.5.block.2.fc1.weight,"[32, 120, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.5.block.2.fc1.bias,[32],backbone.features.0.5.block.2.fc1.bias,[32],MATCHED_AND_TRANSFERABLE,False
+features.5.block.2.fc2.weight,"[120, 32, 1, 1]",backbone.features.0.5.block.2.fc2.weight,"[120, 32, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.5.block.2.fc2.bias,[120],backbone.features.0.5.block.2.fc2.bias,[120],MATCHED_AND_TRANSFERABLE,False
+features.5.block.3.0.weight,"[40, 120, 1, 1]",backbone.features.0.5.block.3.0.weight,"[40, 120, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.5.block.3.1.weight,[40],backbone.features.0.5.block.3.1.weight,[40],MATCHED_AND_TRANSFERABLE,False
+features.5.block.3.1.bias,[40],backbone.features.0.5.block.3.1.bias,[40],MATCHED_AND_TRANSFERABLE,False
+features.5.block.3.1.running_mean,[40],backbone.features.0.5.block.3.1.running_mean,[40],MATCHED_AND_TRANSFERABLE,False
+features.5.block.3.1.running_var,[40],backbone.features.0.5.block.3.1.running_var,[40],MATCHED_AND_TRANSFERABLE,False
+features.5.block.3.1.num_batches_tracked,[],backbone.features.0.5.block.3.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.6.block.0.0.weight,"[120, 40, 1, 1]",backbone.features.0.6.block.0.0.weight,"[120, 40, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.6.block.0.1.weight,[120],backbone.features.0.6.block.0.1.weight,[120],MATCHED_AND_TRANSFERABLE,False
+features.6.block.0.1.bias,[120],backbone.features.0.6.block.0.1.bias,[120],MATCHED_AND_TRANSFERABLE,False
+features.6.block.0.1.running_mean,[120],backbone.features.0.6.block.0.1.running_mean,[120],MATCHED_AND_TRANSFERABLE,False
+features.6.block.0.1.running_var,[120],backbone.features.0.6.block.0.1.running_var,[120],MATCHED_AND_TRANSFERABLE,False
+features.6.block.0.1.num_batches_tracked,[],backbone.features.0.6.block.0.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.6.block.1.0.weight,"[120, 1, 5, 5]",backbone.features.0.6.block.1.0.weight,"[120, 1, 5, 5]",MATCHED_AND_TRANSFERABLE,False
+features.6.block.1.1.weight,[120],backbone.features.0.6.block.1.1.weight,[120],MATCHED_AND_TRANSFERABLE,False
+features.6.block.1.1.bias,[120],backbone.features.0.6.block.1.1.bias,[120],MATCHED_AND_TRANSFERABLE,False
+features.6.block.1.1.running_mean,[120],backbone.features.0.6.block.1.1.running_mean,[120],MATCHED_AND_TRANSFERABLE,False
+features.6.block.1.1.running_var,[120],backbone.features.0.6.block.1.1.running_var,[120],MATCHED_AND_TRANSFERABLE,False
+features.6.block.1.1.num_batches_tracked,[],backbone.features.0.6.block.1.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.6.block.2.fc1.weight,"[32, 120, 1, 1]",backbone.features.0.6.block.2.fc1.weight,"[32, 120, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.6.block.2.fc1.bias,[32],backbone.features.0.6.block.2.fc1.bias,[32],MATCHED_AND_TRANSFERABLE,False
+features.6.block.2.fc2.weight,"[120, 32, 1, 1]",backbone.features.0.6.block.2.fc2.weight,"[120, 32, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.6.block.2.fc2.bias,[120],backbone.features.0.6.block.2.fc2.bias,[120],MATCHED_AND_TRANSFERABLE,False
+features.6.block.3.0.weight,"[40, 120, 1, 1]",backbone.features.0.6.block.3.0.weight,"[40, 120, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.6.block.3.1.weight,[40],backbone.features.0.6.block.3.1.weight,[40],MATCHED_AND_TRANSFERABLE,False
+features.6.block.3.1.bias,[40],backbone.features.0.6.block.3.1.bias,[40],MATCHED_AND_TRANSFERABLE,False
+features.6.block.3.1.running_mean,[40],backbone.features.0.6.block.3.1.running_mean,[40],MATCHED_AND_TRANSFERABLE,False
+features.6.block.3.1.running_var,[40],backbone.features.0.6.block.3.1.running_var,[40],MATCHED_AND_TRANSFERABLE,False
+features.6.block.3.1.num_batches_tracked,[],backbone.features.0.6.block.3.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.7.block.0.0.weight,"[240, 40, 1, 1]",backbone.features.0.7.block.0.0.weight,"[240, 40, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.7.block.0.1.weight,[240],backbone.features.0.7.block.0.1.weight,[240],MATCHED_AND_TRANSFERABLE,False
+features.7.block.0.1.bias,[240],backbone.features.0.7.block.0.1.bias,[240],MATCHED_AND_TRANSFERABLE,False
+features.7.block.0.1.running_mean,[240],backbone.features.0.7.block.0.1.running_mean,[240],MATCHED_AND_TRANSFERABLE,False
+features.7.block.0.1.running_var,[240],backbone.features.0.7.block.0.1.running_var,[240],MATCHED_AND_TRANSFERABLE,False
+features.7.block.0.1.num_batches_tracked,[],backbone.features.0.7.block.0.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.7.block.1.0.weight,"[240, 1, 3, 3]",backbone.features.0.7.block.1.0.weight,"[240, 1, 3, 3]",MATCHED_AND_TRANSFERABLE,False
+features.7.block.1.1.weight,[240],backbone.features.0.7.block.1.1.weight,[240],MATCHED_AND_TRANSFERABLE,False
+features.7.block.1.1.bias,[240],backbone.features.0.7.block.1.1.bias,[240],MATCHED_AND_TRANSFERABLE,False
+features.7.block.1.1.running_mean,[240],backbone.features.0.7.block.1.1.running_mean,[240],MATCHED_AND_TRANSFERABLE,False
+features.7.block.1.1.running_var,[240],backbone.features.0.7.block.1.1.running_var,[240],MATCHED_AND_TRANSFERABLE,False
+features.7.block.1.1.num_batches_tracked,[],backbone.features.0.7.block.1.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.7.block.2.0.weight,"[80, 240, 1, 1]",backbone.features.0.7.block.2.0.weight,"[80, 240, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.7.block.2.1.weight,[80],backbone.features.0.7.block.2.1.weight,[80],MATCHED_AND_TRANSFERABLE,False
+features.7.block.2.1.bias,[80],backbone.features.0.7.block.2.1.bias,[80],MATCHED_AND_TRANSFERABLE,False
+features.7.block.2.1.running_mean,[80],backbone.features.0.7.block.2.1.running_mean,[80],MATCHED_AND_TRANSFERABLE,False
+features.7.block.2.1.running_var,[80],backbone.features.0.7.block.2.1.running_var,[80],MATCHED_AND_TRANSFERABLE,False
+features.7.block.2.1.num_batches_tracked,[],backbone.features.0.7.block.2.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.8.block.0.0.weight,"[200, 80, 1, 1]",backbone.features.0.8.block.0.0.weight,"[200, 80, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.8.block.0.1.weight,[200],backbone.features.0.8.block.0.1.weight,[200],MATCHED_AND_TRANSFERABLE,False
+features.8.block.0.1.bias,[200],backbone.features.0.8.block.0.1.bias,[200],MATCHED_AND_TRANSFERABLE,False
+features.8.block.0.1.running_mean,[200],backbone.features.0.8.block.0.1.running_mean,[200],MATCHED_AND_TRANSFERABLE,False
+features.8.block.0.1.running_var,[200],backbone.features.0.8.block.0.1.running_var,[200],MATCHED_AND_TRANSFERABLE,False
+features.8.block.0.1.num_batches_tracked,[],backbone.features.0.8.block.0.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.8.block.1.0.weight,"[200, 1, 3, 3]",backbone.features.0.8.block.1.0.weight,"[200, 1, 3, 3]",MATCHED_AND_TRANSFERABLE,False
+features.8.block.1.1.weight,[200],backbone.features.0.8.block.1.1.weight,[200],MATCHED_AND_TRANSFERABLE,False
+features.8.block.1.1.bias,[200],backbone.features.0.8.block.1.1.bias,[200],MATCHED_AND_TRANSFERABLE,False
+features.8.block.1.1.running_mean,[200],backbone.features.0.8.block.1.1.running_mean,[200],MATCHED_AND_TRANSFERABLE,False
+features.8.block.1.1.running_var,[200],backbone.features.0.8.block.1.1.running_var,[200],MATCHED_AND_TRANSFERABLE,False
+features.8.block.1.1.num_batches_tracked,[],backbone.features.0.8.block.1.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.8.block.2.0.weight,"[80, 200, 1, 1]",backbone.features.0.8.block.2.0.weight,"[80, 200, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.8.block.2.1.weight,[80],backbone.features.0.8.block.2.1.weight,[80],MATCHED_AND_TRANSFERABLE,False
+features.8.block.2.1.bias,[80],backbone.features.0.8.block.2.1.bias,[80],MATCHED_AND_TRANSFERABLE,False
+features.8.block.2.1.running_mean,[80],backbone.features.0.8.block.2.1.running_mean,[80],MATCHED_AND_TRANSFERABLE,False
+features.8.block.2.1.running_var,[80],backbone.features.0.8.block.2.1.running_var,[80],MATCHED_AND_TRANSFERABLE,False
+features.8.block.2.1.num_batches_tracked,[],backbone.features.0.8.block.2.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.9.block.0.0.weight,"[184, 80, 1, 1]",backbone.features.0.9.block.0.0.weight,"[184, 80, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.9.block.0.1.weight,[184],backbone.features.0.9.block.0.1.weight,[184],MATCHED_AND_TRANSFERABLE,False
+features.9.block.0.1.bias,[184],backbone.features.0.9.block.0.1.bias,[184],MATCHED_AND_TRANSFERABLE,False
+features.9.block.0.1.running_mean,[184],backbone.features.0.9.block.0.1.running_mean,[184],MATCHED_AND_TRANSFERABLE,False
+features.9.block.0.1.running_var,[184],backbone.features.0.9.block.0.1.running_var,[184],MATCHED_AND_TRANSFERABLE,False
+features.9.block.0.1.num_batches_tracked,[],backbone.features.0.9.block.0.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.9.block.1.0.weight,"[184, 1, 3, 3]",backbone.features.0.9.block.1.0.weight,"[184, 1, 3, 3]",MATCHED_AND_TRANSFERABLE,False
+features.9.block.1.1.weight,[184],backbone.features.0.9.block.1.1.weight,[184],MATCHED_AND_TRANSFERABLE,False
+features.9.block.1.1.bias,[184],backbone.features.0.9.block.1.1.bias,[184],MATCHED_AND_TRANSFERABLE,False
+features.9.block.1.1.running_mean,[184],backbone.features.0.9.block.1.1.running_mean,[184],MATCHED_AND_TRANSFERABLE,False
+features.9.block.1.1.running_var,[184],backbone.features.0.9.block.1.1.running_var,[184],MATCHED_AND_TRANSFERABLE,False
+features.9.block.1.1.num_batches_tracked,[],backbone.features.0.9.block.1.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.9.block.2.0.weight,"[80, 184, 1, 1]",backbone.features.0.9.block.2.0.weight,"[80, 184, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.9.block.2.1.weight,[80],backbone.features.0.9.block.2.1.weight,[80],MATCHED_AND_TRANSFERABLE,False
+features.9.block.2.1.bias,[80],backbone.features.0.9.block.2.1.bias,[80],MATCHED_AND_TRANSFERABLE,False
+features.9.block.2.1.running_mean,[80],backbone.features.0.9.block.2.1.running_mean,[80],MATCHED_AND_TRANSFERABLE,False
+features.9.block.2.1.running_var,[80],backbone.features.0.9.block.2.1.running_var,[80],MATCHED_AND_TRANSFERABLE,False
+features.9.block.2.1.num_batches_tracked,[],backbone.features.0.9.block.2.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.10.block.0.0.weight,"[184, 80, 1, 1]",backbone.features.0.10.block.0.0.weight,"[184, 80, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.10.block.0.1.weight,[184],backbone.features.0.10.block.0.1.weight,[184],MATCHED_AND_TRANSFERABLE,False
+features.10.block.0.1.bias,[184],backbone.features.0.10.block.0.1.bias,[184],MATCHED_AND_TRANSFERABLE,False
+features.10.block.0.1.running_mean,[184],backbone.features.0.10.block.0.1.running_mean,[184],MATCHED_AND_TRANSFERABLE,False
+features.10.block.0.1.running_var,[184],backbone.features.0.10.block.0.1.running_var,[184],MATCHED_AND_TRANSFERABLE,False
+features.10.block.0.1.num_batches_tracked,[],backbone.features.0.10.block.0.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.10.block.1.0.weight,"[184, 1, 3, 3]",backbone.features.0.10.block.1.0.weight,"[184, 1, 3, 3]",MATCHED_AND_TRANSFERABLE,False
+features.10.block.1.1.weight,[184],backbone.features.0.10.block.1.1.weight,[184],MATCHED_AND_TRANSFERABLE,False
+features.10.block.1.1.bias,[184],backbone.features.0.10.block.1.1.bias,[184],MATCHED_AND_TRANSFERABLE,False
+features.10.block.1.1.running_mean,[184],backbone.features.0.10.block.1.1.running_mean,[184],MATCHED_AND_TRANSFERABLE,False
+features.10.block.1.1.running_var,[184],backbone.features.0.10.block.1.1.running_var,[184],MATCHED_AND_TRANSFERABLE,False
+features.10.block.1.1.num_batches_tracked,[],backbone.features.0.10.block.1.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.10.block.2.0.weight,"[80, 184, 1, 1]",backbone.features.0.10.block.2.0.weight,"[80, 184, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.10.block.2.1.weight,[80],backbone.features.0.10.block.2.1.weight,[80],MATCHED_AND_TRANSFERABLE,False
+features.10.block.2.1.bias,[80],backbone.features.0.10.block.2.1.bias,[80],MATCHED_AND_TRANSFERABLE,False
+features.10.block.2.1.running_mean,[80],backbone.features.0.10.block.2.1.running_mean,[80],MATCHED_AND_TRANSFERABLE,False
+features.10.block.2.1.running_var,[80],backbone.features.0.10.block.2.1.running_var,[80],MATCHED_AND_TRANSFERABLE,False
+features.10.block.2.1.num_batches_tracked,[],backbone.features.0.10.block.2.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.11.block.0.0.weight,"[480, 80, 1, 1]",backbone.features.0.11.block.0.0.weight,"[480, 80, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.11.block.0.1.weight,[480],backbone.features.0.11.block.0.1.weight,[480],MATCHED_AND_TRANSFERABLE,False
+features.11.block.0.1.bias,[480],backbone.features.0.11.block.0.1.bias,[480],MATCHED_AND_TRANSFERABLE,False
+features.11.block.0.1.running_mean,[480],backbone.features.0.11.block.0.1.running_mean,[480],MATCHED_AND_TRANSFERABLE,False
+features.11.block.0.1.running_var,[480],backbone.features.0.11.block.0.1.running_var,[480],MATCHED_AND_TRANSFERABLE,False
+features.11.block.0.1.num_batches_tracked,[],backbone.features.0.11.block.0.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.11.block.1.0.weight,"[480, 1, 3, 3]",backbone.features.0.11.block.1.0.weight,"[480, 1, 3, 3]",MATCHED_AND_TRANSFERABLE,False
+features.11.block.1.1.weight,[480],backbone.features.0.11.block.1.1.weight,[480],MATCHED_AND_TRANSFERABLE,False
+features.11.block.1.1.bias,[480],backbone.features.0.11.block.1.1.bias,[480],MATCHED_AND_TRANSFERABLE,False
+features.11.block.1.1.running_mean,[480],backbone.features.0.11.block.1.1.running_mean,[480],MATCHED_AND_TRANSFERABLE,False
+features.11.block.1.1.running_var,[480],backbone.features.0.11.block.1.1.running_var,[480],MATCHED_AND_TRANSFERABLE,False
+features.11.block.1.1.num_batches_tracked,[],backbone.features.0.11.block.1.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.11.block.2.fc1.weight,"[120, 480, 1, 1]",backbone.features.0.11.block.2.fc1.weight,"[120, 480, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.11.block.2.fc1.bias,[120],backbone.features.0.11.block.2.fc1.bias,[120],MATCHED_AND_TRANSFERABLE,False
+features.11.block.2.fc2.weight,"[480, 120, 1, 1]",backbone.features.0.11.block.2.fc2.weight,"[480, 120, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.11.block.2.fc2.bias,[480],backbone.features.0.11.block.2.fc2.bias,[480],MATCHED_AND_TRANSFERABLE,False
+features.11.block.3.0.weight,"[112, 480, 1, 1]",backbone.features.0.11.block.3.0.weight,"[112, 480, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.11.block.3.1.weight,[112],backbone.features.0.11.block.3.1.weight,[112],MATCHED_AND_TRANSFERABLE,False
+features.11.block.3.1.bias,[112],backbone.features.0.11.block.3.1.bias,[112],MATCHED_AND_TRANSFERABLE,False
+features.11.block.3.1.running_mean,[112],backbone.features.0.11.block.3.1.running_mean,[112],MATCHED_AND_TRANSFERABLE,False
+features.11.block.3.1.running_var,[112],backbone.features.0.11.block.3.1.running_var,[112],MATCHED_AND_TRANSFERABLE,False
+features.11.block.3.1.num_batches_tracked,[],backbone.features.0.11.block.3.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.12.block.0.0.weight,"[672, 112, 1, 1]",backbone.features.0.12.block.0.0.weight,"[672, 112, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.12.block.0.1.weight,[672],backbone.features.0.12.block.0.1.weight,[672],MATCHED_AND_TRANSFERABLE,False
+features.12.block.0.1.bias,[672],backbone.features.0.12.block.0.1.bias,[672],MATCHED_AND_TRANSFERABLE,False
+features.12.block.0.1.running_mean,[672],backbone.features.0.12.block.0.1.running_mean,[672],MATCHED_AND_TRANSFERABLE,False
+features.12.block.0.1.running_var,[672],backbone.features.0.12.block.0.1.running_var,[672],MATCHED_AND_TRANSFERABLE,False
+features.12.block.0.1.num_batches_tracked,[],backbone.features.0.12.block.0.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.12.block.1.0.weight,"[672, 1, 3, 3]",backbone.features.0.12.block.1.0.weight,"[672, 1, 3, 3]",MATCHED_AND_TRANSFERABLE,False
+features.12.block.1.1.weight,[672],backbone.features.0.12.block.1.1.weight,[672],MATCHED_AND_TRANSFERABLE,False
+features.12.block.1.1.bias,[672],backbone.features.0.12.block.1.1.bias,[672],MATCHED_AND_TRANSFERABLE,False
+features.12.block.1.1.running_mean,[672],backbone.features.0.12.block.1.1.running_mean,[672],MATCHED_AND_TRANSFERABLE,False
+features.12.block.1.1.running_var,[672],backbone.features.0.12.block.1.1.running_var,[672],MATCHED_AND_TRANSFERABLE,False
+features.12.block.1.1.num_batches_tracked,[],backbone.features.0.12.block.1.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.12.block.2.fc1.weight,"[168, 672, 1, 1]",backbone.features.0.12.block.2.fc1.weight,"[168, 672, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.12.block.2.fc1.bias,[168],backbone.features.0.12.block.2.fc1.bias,[168],MATCHED_AND_TRANSFERABLE,False
+features.12.block.2.fc2.weight,"[672, 168, 1, 1]",backbone.features.0.12.block.2.fc2.weight,"[672, 168, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.12.block.2.fc2.bias,[672],backbone.features.0.12.block.2.fc2.bias,[672],MATCHED_AND_TRANSFERABLE,False
+features.12.block.3.0.weight,"[112, 672, 1, 1]",backbone.features.0.12.block.3.0.weight,"[112, 672, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.12.block.3.1.weight,[112],backbone.features.0.12.block.3.1.weight,[112],MATCHED_AND_TRANSFERABLE,False
+features.12.block.3.1.bias,[112],backbone.features.0.12.block.3.1.bias,[112],MATCHED_AND_TRANSFERABLE,False
+features.12.block.3.1.running_mean,[112],backbone.features.0.12.block.3.1.running_mean,[112],MATCHED_AND_TRANSFERABLE,False
+features.12.block.3.1.running_var,[112],backbone.features.0.12.block.3.1.running_var,[112],MATCHED_AND_TRANSFERABLE,False
+features.12.block.3.1.num_batches_tracked,[],backbone.features.0.12.block.3.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.13.block.0.0.weight,"[672, 112, 1, 1]",backbone.features.0.13.block.0.0.weight,N/A,NOT_FOUND_IN_SSD,True
+features.13.block.0.1.weight,[672],backbone.features.0.13.block.0.1.weight,N/A,NOT_FOUND_IN_SSD,True
+features.13.block.0.1.bias,[672],backbone.features.0.13.block.0.1.bias,N/A,NOT_FOUND_IN_SSD,True
+features.13.block.0.1.running_mean,[672],backbone.features.0.13.block.0.1.running_mean,N/A,NOT_FOUND_IN_SSD,True
+features.13.block.0.1.running_var,[672],backbone.features.0.13.block.0.1.running_var,N/A,NOT_FOUND_IN_SSD,True
+features.13.block.0.1.num_batches_tracked,[],backbone.features.0.13.block.0.1.num_batches_tracked,N/A,NOT_FOUND_IN_SSD,True
+features.13.block.1.0.weight,"[672, 1, 5, 5]",backbone.features.0.13.block.1.0.weight,N/A,NOT_FOUND_IN_SSD,True
+features.13.block.1.1.weight,[672],backbone.features.0.13.block.1.1.weight,N/A,NOT_FOUND_IN_SSD,True
+features.13.block.1.1.bias,[672],backbone.features.0.13.block.1.1.bias,N/A,NOT_FOUND_IN_SSD,True
+features.13.block.1.1.running_mean,[672],backbone.features.0.13.block.1.1.running_mean,N/A,NOT_FOUND_IN_SSD,True
+features.13.block.1.1.running_var,[672],backbone.features.0.13.block.1.1.running_var,N/A,NOT_FOUND_IN_SSD,True
+features.13.block.1.1.num_batches_tracked,[],backbone.features.0.13.block.1.1.num_batches_tracked,N/A,NOT_FOUND_IN_SSD,True
+features.13.block.2.fc1.weight,"[168, 672, 1, 1]",backbone.features.0.13.block.2.fc1.weight,N/A,NOT_FOUND_IN_SSD,True
+features.13.block.2.fc1.bias,[168],backbone.features.0.13.block.2.fc1.bias,N/A,NOT_FOUND_IN_SSD,True
+features.13.block.2.fc2.weight,"[672, 168, 1, 1]",backbone.features.0.13.block.2.fc2.weight,N/A,NOT_FOUND_IN_SSD,True
+features.13.block.2.fc2.bias,[672],backbone.features.0.13.block.2.fc2.bias,N/A,NOT_FOUND_IN_SSD,True
+features.13.block.3.0.weight,"[160, 672, 1, 1]",backbone.features.0.13.block.3.0.weight,N/A,NOT_FOUND_IN_SSD,True
+features.13.block.3.1.weight,[160],backbone.features.0.13.block.3.1.weight,N/A,NOT_FOUND_IN_SSD,True
+features.13.block.3.1.bias,[160],backbone.features.0.13.block.3.1.bias,N/A,NOT_FOUND_IN_SSD,True
+features.13.block.3.1.running_mean,[160],backbone.features.0.13.block.3.1.running_mean,N/A,NOT_FOUND_IN_SSD,True
+features.13.block.3.1.running_var,[160],backbone.features.0.13.block.3.1.running_var,N/A,NOT_FOUND_IN_SSD,True
+features.13.block.3.1.num_batches_tracked,[],backbone.features.0.13.block.3.1.num_batches_tracked,N/A,NOT_FOUND_IN_SSD,True
+features.14.block.0.0.weight,"[960, 160, 1, 1]",backbone.features.1.0.block.0.0.weight,N/A,NOT_FOUND_IN_SSD,True
+features.14.block.0.1.weight,[960],backbone.features.1.0.block.0.1.weight,N/A,NOT_FOUND_IN_SSD,True
+features.14.block.0.1.bias,[960],backbone.features.1.0.block.0.1.bias,N/A,NOT_FOUND_IN_SSD,True
+features.14.block.0.1.running_mean,[960],backbone.features.1.0.block.0.1.running_mean,N/A,NOT_FOUND_IN_SSD,True
+features.14.block.0.1.running_var,[960],backbone.features.1.0.block.0.1.running_var,N/A,NOT_FOUND_IN_SSD,True
+features.14.block.0.1.num_batches_tracked,[],backbone.features.1.0.block.0.1.num_batches_tracked,N/A,NOT_FOUND_IN_SSD,True
+features.14.block.1.0.weight,"[960, 1, 5, 5]",backbone.features.1.0.block.1.0.weight,N/A,NOT_FOUND_IN_SSD,True
+features.14.block.1.1.weight,[960],backbone.features.1.0.block.1.1.weight,N/A,NOT_FOUND_IN_SSD,True
+features.14.block.1.1.bias,[960],backbone.features.1.0.block.1.1.bias,N/A,NOT_FOUND_IN_SSD,True
+features.14.block.1.1.running_mean,[960],backbone.features.1.0.block.1.1.running_mean,N/A,NOT_FOUND_IN_SSD,True
+features.14.block.1.1.running_var,[960],backbone.features.1.0.block.1.1.running_var,N/A,NOT_FOUND_IN_SSD,True
+features.14.block.1.1.num_batches_tracked,[],backbone.features.1.0.block.1.1.num_batches_tracked,N/A,NOT_FOUND_IN_SSD,True
+features.14.block.2.fc1.weight,"[240, 960, 1, 1]",backbone.features.1.0.block.2.fc1.weight,N/A,NOT_FOUND_IN_SSD,True
+features.14.block.2.fc1.bias,[240],backbone.features.1.0.block.2.fc1.bias,N/A,NOT_FOUND_IN_SSD,True
+features.14.block.2.fc2.weight,"[960, 240, 1, 1]",backbone.features.1.0.block.2.fc2.weight,N/A,NOT_FOUND_IN_SSD,True
+features.14.block.2.fc2.bias,[960],backbone.features.1.0.block.2.fc2.bias,N/A,NOT_FOUND_IN_SSD,True
+features.14.block.3.0.weight,"[160, 960, 1, 1]",backbone.features.1.0.block.3.0.weight,N/A,NOT_FOUND_IN_SSD,True
+features.14.block.3.1.weight,[160],backbone.features.1.0.block.3.1.weight,N/A,NOT_FOUND_IN_SSD,True
+features.14.block.3.1.bias,[160],backbone.features.1.0.block.3.1.bias,N/A,NOT_FOUND_IN_SSD,True
+features.14.block.3.1.running_mean,[160],backbone.features.1.0.block.3.1.running_mean,N/A,NOT_FOUND_IN_SSD,True
+features.14.block.3.1.running_var,[160],backbone.features.1.0.block.3.1.running_var,N/A,NOT_FOUND_IN_SSD,True
+features.14.block.3.1.num_batches_tracked,[],backbone.features.1.0.block.3.1.num_batches_tracked,N/A,NOT_FOUND_IN_SSD,True
+features.15.block.0.0.weight,"[960, 160, 1, 1]",backbone.features.1.1.block.0.0.weight,"[960, 160, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.15.block.0.1.weight,[960],backbone.features.1.1.block.0.1.weight,[960],MATCHED_AND_TRANSFERABLE,False
+features.15.block.0.1.bias,[960],backbone.features.1.1.block.0.1.bias,[960],MATCHED_AND_TRANSFERABLE,False
+features.15.block.0.1.running_mean,[960],backbone.features.1.1.block.0.1.running_mean,[960],MATCHED_AND_TRANSFERABLE,False
+features.15.block.0.1.running_var,[960],backbone.features.1.1.block.0.1.running_var,[960],MATCHED_AND_TRANSFERABLE,False
+features.15.block.0.1.num_batches_tracked,[],backbone.features.1.1.block.0.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.15.block.1.0.weight,"[960, 1, 5, 5]",backbone.features.1.1.block.1.0.weight,"[960, 1, 5, 5]",MATCHED_AND_TRANSFERABLE,False
+features.15.block.1.1.weight,[960],backbone.features.1.1.block.1.1.weight,[960],MATCHED_AND_TRANSFERABLE,False
+features.15.block.1.1.bias,[960],backbone.features.1.1.block.1.1.bias,[960],MATCHED_AND_TRANSFERABLE,False
+features.15.block.1.1.running_mean,[960],backbone.features.1.1.block.1.1.running_mean,[960],MATCHED_AND_TRANSFERABLE,False
+features.15.block.1.1.running_var,[960],backbone.features.1.1.block.1.1.running_var,[960],MATCHED_AND_TRANSFERABLE,False
+features.15.block.1.1.num_batches_tracked,[],backbone.features.1.1.block.1.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.15.block.2.fc1.weight,"[240, 960, 1, 1]",backbone.features.1.1.block.2.fc1.weight,"[240, 960, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.15.block.2.fc1.bias,[240],backbone.features.1.1.block.2.fc1.bias,[240],MATCHED_AND_TRANSFERABLE,False
+features.15.block.2.fc2.weight,"[960, 240, 1, 1]",backbone.features.1.1.block.2.fc2.weight,"[960, 240, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.15.block.2.fc2.bias,[960],backbone.features.1.1.block.2.fc2.bias,[960],MATCHED_AND_TRANSFERABLE,False
+features.15.block.3.0.weight,"[160, 960, 1, 1]",backbone.features.1.1.block.3.0.weight,"[160, 960, 1, 1]",MATCHED_AND_TRANSFERABLE,False
+features.15.block.3.1.weight,[160],backbone.features.1.1.block.3.1.weight,[160],MATCHED_AND_TRANSFERABLE,False
+features.15.block.3.1.bias,[160],backbone.features.1.1.block.3.1.bias,[160],MATCHED_AND_TRANSFERABLE,False
+features.15.block.3.1.running_mean,[160],backbone.features.1.1.block.3.1.running_mean,[160],MATCHED_AND_TRANSFERABLE,False
+features.15.block.3.1.running_var,[160],backbone.features.1.1.block.3.1.running_var,[160],MATCHED_AND_TRANSFERABLE,False
+features.15.block.3.1.num_batches_tracked,[],backbone.features.1.1.block.3.1.num_batches_tracked,N/A,MATCHED_AND_TRANSFERABLE,False
+features.16.0.weight,"[960, 160, 1, 1]",backbone.features.1.2.0.weight,N/A,NOT_FOUND_IN_SSD,True
+features.16.1.weight,[960],backbone.features.1.2.1.weight,N/A,NOT_FOUND_IN_SSD,True
+features.16.1.bias,[960],backbone.features.1.2.1.bias,N/A,NOT_FOUND_IN_SSD,True
+features.16.1.running_mean,[960],backbone.features.1.2.1.running_mean,N/A,NOT_FOUND_IN_SSD,True
+features.16.1.running_var,[960],backbone.features.1.2.1.running_var,N/A,NOT_FOUND_IN_SSD,True
+features.16.1.num_batches_tracked,[],backbone.features.1.2.1.num_batches_tracked,N/A,NOT_FOUND_IN_SSD,True
+classifier.0.weight,"[1280, 960]",N/A (Classifier head dropped),N/A,CLASSIFIER_HEAD_EXCLUDED,True
+classifier.0.bias,[1280],N/A (Classifier head dropped),N/A,CLASSIFIER_HEAD_EXCLUDED,True
+classifier.3.weight,"[1000, 1280]",N/A (Classifier head dropped),N/A,CLASSIFIER_HEAD_EXCLUDED,True
+classifier.3.bias,[1000],N/A (Classifier head dropped),N/A,CLASSIFIER_HEAD_EXCLUDED,True
