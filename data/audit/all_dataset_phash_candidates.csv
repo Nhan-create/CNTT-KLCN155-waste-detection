@@ -1,0 +1,34 @@
+idx1,idx2,file1,file2,split1,split2,class1,class2,raw_path1,raw_path2,hamming_dist,same_class,same_split
+1082,1130,garbage_v2_metal_158.jpg,garbage_v2_metal_435.jpg,test,test,metal,metal,data\raw\garbage_v2\metal\metal_158.jpg,data\raw\garbage_v2\metal\metal_435.jpg,4,True,True
+1084,1374,garbage_v2_metal_183.jpg,vn_trash_train_beverage_cans701.jpg,test,test,metal,metal,data\raw\garbage_v2\metal\metal_183.jpg,data\raw\vn_trash\Alu\train_beverage_cans701.jpg,2,True,True
+1212,1368,vn_trash_test_beverage_cans 599.jpg,vn_trash_train_beverage_cans619.jpg,test,test,metal,metal,data\raw\vn_trash\Alu\test_beverage_cans 599.jpg,data\raw\vn_trash\Alu\train_beverage_cans619.jpg,4,True,True
+1238,1239,vn_trash_train_AluCan1011.jpg,vn_trash_train_AluCan1013.jpg,test,test,metal,metal,data\raw\vn_trash\Alu\train_AluCan1011.jpg,data\raw\vn_trash\Alu\train_AluCan1013.jpg,2,True,True
+1291,3450,vn_trash_train_beverage_cans174.jpg,garbage_v2_cardboard_1286.jpg,test,train,metal,cardboard,data\raw\vn_trash\Alu\train_beverage_cans174.jpg,data\raw\garbage_v2\cardboard\cardboard_1286.jpg,4,False,False
+1291,14238,vn_trash_train_beverage_cans174.jpg,vn_trash_test_paper_cups 599.jpg,test,val,metal,paper,data\raw\vn_trash\Alu\train_beverage_cans174.jpg,data\raw\vn_trash\Paper_cup\test_paper_cups 599.jpg,2,False,False
+1425,1625,garbage_v2_paper_1118.jpg,vn_trash_test_paper 879.jpg,test,test,paper,paper,data\raw\garbage_v2\paper\paper_1118.jpg,data\raw\vn_trash\Paper\test_paper 879.jpg,4,True,True
+1931,8699,garbage_v2_shoes_1003.jpg,vn_trash_train_beverage_cans820.jpg,test,train,shoes,metal,data\raw\garbage_v2\shoes\shoes_1003.jpg,data\raw\vn_trash\Alu\train_beverage_cans820.jpg,4,False,False
+2054,2086,garbage_v2_shoes_410.jpg,garbage_v2_shoes_607.jpg,test,test,shoes,shoes,data\raw\garbage_v2\shoes\shoes_410.jpg,data\raw\garbage_v2\shoes\shoes_607.jpg,4,True,True
+2409,2456,garbage_v2_battery_345.jpg,garbage_v2_battery_405.jpg,train,train,battery,battery,data\raw\garbage_v2\battery\battery_345.jpg,data\raw\garbage_v2\battery\battery_405.jpg,4,True,True
+3269,4573,garbage_v2_cardboard_1036.jpg,vn_trash_train_cardboard245.jpg,train,train,cardboard,cardboard,data\raw\garbage_v2\cardboard\cardboard_1036.jpg,data\raw\vn_trash\Carton\train_cardboard245.jpg,2,True,True
+3484,6840,garbage_v2_cardboard_1333.jpg,garbage_v2_glass_499.jpg,train,train,cardboard,glass,data\raw\garbage_v2\cardboard\cardboard_1333.jpg,data\raw\garbage_v2\glass\glass_499.jpg,4,False,True
+3690,4649,garbage_v2_cardboard_329.jpg,vn_trash_train_cardboard711.jpg,train,train,cardboard,cardboard,data\raw\garbage_v2\cardboard\cardboard_329.jpg,data\raw\vn_trash\Carton\train_cardboard711.jpg,4,True,True
+4361,4362,vn_trash_train_cardboard 123.jpg,vn_trash_train_cardboard 124.jpg,train,train,cardboard,cardboard,data\raw\vn_trash\Carton\train_cardboard 123.jpg,data\raw\vn_trash\Carton\train_cardboard 124.jpg,2,True,True
+7270,8261,garbage_v2_metal_155.jpg,vn_trash_train_AluCan94.jpg,train,train,metal,metal,data\raw\garbage_v2\metal\metal_155.jpg,data\raw\vn_trash\Alu\train_AluCan94.jpg,2,True,True
+7295,8065,garbage_v2_metal_186.jpg,vn_trash_train_AluCan105.jpg,train,train,metal,metal,data\raw\garbage_v2\metal\metal_186.jpg,data\raw\vn_trash\Alu\train_AluCan105.jpg,2,True,True
+8140,8141,vn_trash_train_AluCan530.jpg,vn_trash_train_AluCan535.jpg,train,train,metal,metal,data\raw\vn_trash\Alu\train_AluCan530.jpg,data\raw\vn_trash\Alu\train_AluCan535.jpg,4,True,True
+8179,8181,vn_trash_train_AluCan652.jpg,vn_trash_train_AluCan660.jpg,train,train,metal,metal,data\raw\vn_trash\Alu\train_AluCan652.jpg,data\raw\vn_trash\Alu\train_AluCan660.jpg,4,True,True
+8208,8209,vn_trash_train_AluCan755.jpg,vn_trash_train_AluCan756.jpg,train,train,metal,metal,data\raw\vn_trash\Alu\train_AluCan755.jpg,data\raw\vn_trash\Alu\train_AluCan756.jpg,2,True,True
+8216,8218,vn_trash_train_AluCan770.jpg,vn_trash_train_AluCan773.jpg,train,train,metal,metal,data\raw\vn_trash\Alu\train_AluCan770.jpg,data\raw\vn_trash\Alu\train_AluCan773.jpg,4,True,True
+8436,8448,vn_trash_train_beverage_cans357.jpg,vn_trash_train_beverage_cans373.jpg,train,train,metal,metal,data\raw\vn_trash\Alu\train_beverage_cans357.jpg,data\raw\vn_trash\Alu\train_beverage_cans373.jpg,4,True,True
+8692,8748,vn_trash_train_beverage_cans809.jpg,vn_trash_train_beverage_cans903.jpg,train,train,metal,metal,data\raw\vn_trash\Alu\train_beverage_cans809.jpg,data\raw\vn_trash\Alu\train_beverage_cans903.jpg,2,True,True
+8742,8749,vn_trash_train_beverage_cans89.jpg,vn_trash_train_beverage_cans904.jpg,train,train,metal,metal,data\raw\vn_trash\Alu\train_beverage_cans89.jpg,data\raw\vn_trash\Alu\train_beverage_cans904.jpg,2,True,True
+9074,9801,garbage_v2_paper_1326.jpg,vn_trash_test_paper 978.jpg,train,train,paper,paper,data\raw\garbage_v2\paper\paper_1326.jpg,data\raw\vn_trash\Paper\test_paper 978.jpg,2,True,True
+9120,9750,garbage_v2_paper_185.jpg,vn_trash_test_00000010.jpg,train,train,paper,paper,data\raw\garbage_v2\paper\paper_185.jpg,data\raw\vn_trash\Paper_cup\test_00000010.jpg,4,True,True
+9381,9796,garbage_v2_paper_518.jpg,vn_trash_test_paper 546.jpg,train,train,paper,paper,data\raw\garbage_v2\paper\paper_518.jpg,data\raw\vn_trash\Paper\test_paper 546.jpg,4,True,True
+9569,9795,garbage_v2_paper_770.jpg,vn_trash_test_paper 540.jpg,train,train,paper,paper,data\raw\garbage_v2\paper\paper_770.jpg,data\raw\vn_trash\Paper\test_paper 540.jpg,4,True,True
+10654,11169,garbage_v2_plastic_601.jpg,vn_trash_test_plastic_bottle 544.jpg,train,train,plastic,plastic,data\raw\garbage_v2\plastic\plastic_601.jpg,data\raw\vn_trash\PET\test_plastic_bottle 544.jpg,4,True,True
+11179,11189,vn_trash_train_00000012.jpg,vn_trash_train_00000024.jpg,train,train,plastic,plastic,data\raw\vn_trash\Foam_box\train_00000012.jpg,data\raw\vn_trash\Foam_box\train_00000024.jpg,4,True,True
+13827,13966,vn_trash_test_beverage_cans 700.jpg,vn_trash_train_beverage_cans640.jpg,val,val,metal,metal,data\raw\vn_trash\Alu\test_beverage_cans 700.jpg,data\raw\vn_trash\Alu\train_beverage_cans640.jpg,4,True,True
+13874,13875,vn_trash_train_AluCan653.jpg,vn_trash_train_AluCan659.jpg,val,val,metal,metal,data\raw\vn_trash\Alu\train_AluCan653.jpg,data\raw\vn_trash\Alu\train_AluCan659.jpg,4,True,True
+13916,13989,vn_trash_train_beverage_cans285.jpg,vn_trash_train_beverage_cans799.jpg,val,val,metal,metal,data\raw\vn_trash\Alu\train_beverage_cans285.jpg,data\raw\vn_trash\Alu\train_beverage_cans799.jpg,2,True,True
+14169,14222,garbage_v2_paper_720.jpg,vn_trash_test_paper 891.jpg,val,val,paper,paper,data\raw\garbage_v2\paper\paper_720.jpg,data\raw\vn_trash\Paper\test_paper 891.jpg,2,True,True

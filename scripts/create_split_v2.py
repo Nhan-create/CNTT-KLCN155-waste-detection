@@ -23,7 +23,7 @@ import numpy as np
 import pandas as pd
 
 MANIFEST_V1_PATH = Path(r"D:\CNTT-KLCN155-waste-detection\data\audit\split_manifest.csv")
-DATASET_INFO_PATH = Path(r"D:\HK7\Đồ án khóa luận\Data\metadata\dataset_info.csv")
+DATASET_INFO_PATH = Path(r"D:\CNTT-KLCN155-waste-detection\data\metadata\dataset_info.csv")
 OUTPUT_MANIFEST_V2 = Path(r"D:\CNTT-KLCN155-waste-detection\data\audit\split_manifest_v2.csv")
 OUTPUT_PROCESSED_V2 = Path(r"D:\CNTT-KLCN155-waste-detection\data\processed_v2")
 AUDIT_DIR = Path(r"D:\CNTT-KLCN155-waste-detection\data\audit")

@@ -1,20 +1,78 @@
 {
-  "audit_timestamp": "2026-10-01T16:30:51+0700",
-  "total_manifest_images": 14829,
-  "exact_sha256": {
-    "train_val_overlap": 0,
-    "train_test_overlap": 0,
-    "val_test_overlap": 0,
-    "zero_exact_leakage": true
+  "timestamp": "2026-10-02T00:03:16+0700",
+  "audit_script": "scripts/check_split_leakage.py",
+  "manifest_path": "D:\\CNTT-KLCN155-waste-detection\\data\\audit\\split_manifest_v2.csv",
+  "manifest_sha256": "1429a22ebbf95cc464881f903dae5ac6dcc5e6e64152e1dd3353e9365429ec96",
+  "audit_status": "VERIFIED_NO_LEAKAGE_WITHIN_HASH_SCOPE",
+  "audit_scope": "Exhaustive pairwise scan: exact SHA-256 byte match + pHash (64-bit DCT) Hamming distance <= 4 with manual visual review of all candidate pairs.",
+  "exact_sha256_overlap": {
+    "train_val": 0,
+    "train_test": 0,
+    "val_test": 0,
+    "total_collisions": 0
   },
-  "phash_near_duplicate": {
+  "phash_cross_split_candidates": {
     "threshold": 4,
-    "total_candidate_pairs": 3,
-    "verdict_breakdown": {
-      "CROSS_CLASS_COINCIDENCE": 3
+    "total_candidates": 3,
+    "confirmed_same_object_leakages": 0,
+    "verified_distinct_object_coincidences": 3,
+    "unresolved_candidates": 0
+  },
+  "disk_verification": {
+    "performed": true,
+    "passed": true
+  },
+  "candidate_verdicts": [
+    {
+      "pair_id": 1,
+      "class1": "cardboard",
+      "class2": "metal",
+      "split1": "train",
+      "file1": "garbage_v2_cardboard_1286.jpg",
+      "split2": "test",
+      "file2": "vn_trash_train_beverage_cans174.jpg",
+      "hamming_dist": 4,
+      "pixel_mae": 19.0,
+      "verdict": "DISTINCT_OBJECTS_VISUAL_COINCIDENCE",
+      "rationale": "Visual inspection confirms distinct physical objects: Left is a blank white aluminum beverage can; Right is a rectangular Milbona milk carton (green/purple). Resemblance is an artifact of DCT low-frequency response on uniform white studio background.",
+      "comparison_image": "cross_pair_01_metal_vs_cardboard_dist4.jpg",
+      "inspector": "Antigravity Tech Lead & ML Engineer",
+      "inspection_timestamp": "2026-10-02T00:05:00+07:00",
+      "audit_status": "VERIFIED"
     },
-    "true_leakage_pairs_count": 0,
-    "leakage_detected": false,
-    "status": "ZERO_LEAKAGE_VERIFIED"
-  }
+    {
+      "pair_id": 2,
+      "class1": "metal",
+      "class2": "shoes",
+      "split1": "train",
+      "file1": "vn_trash_train_beverage_cans820.jpg",
+      "split2": "test",
+      "file2": "garbage_v2_shoes_1003.jpg",
+      "hamming_dist": 4,
+      "pixel_mae": 10.91,
+      "verdict": "DISTINCT_OBJECTS_VISUAL_COINCIDENCE",
+      "rationale": "Visual inspection confirms distinct physical objects: Left is a brown leather toddler sandal; Right is a red Coca-Cola aluminum can. Resemblance is due to both being small centered objects on white canvas.",
+      "comparison_image": "cross_pair_02_shoes_vs_metal_dist4.jpg",
+      "inspector": "Antigravity Tech Lead & ML Engineer",
+      "inspection_timestamp": "2026-10-02T00:05:00+07:00",
+      "audit_status": "VERIFIED"
+    },
+    {
+      "pair_id": 3,
+      "class1": "paper",
+      "class2": "metal",
+      "split1": "val",
+      "file1": "vn_trash_test_paper_cups 599.jpg",
+      "split2": "test",
+      "file2": "vn_trash_train_beverage_cans174.jpg",
+      "hamming_dist": 2,
+      "pixel_mae": 12.3,
+      "verdict": "DISTINCT_OBJECTS_VISUAL_COINCIDENCE",
+      "rationale": "Visual inspection confirms distinct physical objects: Left is a blank white aluminum beverage can; Right is a stack of white paper cups with decorative lines. Both are white vertical cylinders on white background, causing low Hamming distance.",
+      "comparison_image": "cross_pair_03_metal_vs_paper_dist2.jpg",
+      "inspector": "Antigravity Tech Lead & ML Engineer",
+      "inspection_timestamp": "2026-10-02T00:05:00+07:00",
+      "audit_status": "VERIFIED"
+    }
+  ]
 }
