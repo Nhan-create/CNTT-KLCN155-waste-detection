@@ -1,5 +1,5 @@
 {
-  "audit_timestamp": "2026-10-01T14:20:04+0700",
+  "audit_timestamp": "2026-10-01T16:26:46+0700",
   "raw_counts": {
     "garbage_v2_original": 12259,
     "vn_trash_all": 3495,
@@ -13,7 +13,10 @@
     "duplicate_clusters_count": 810,
     "exact_md5_matches": 897,
     "near_phash_matches": 26,
-    "cross_source_duplicates": 0
+    "cross_source_duplicates": 890,
+    "cross_source_exact_md5": 879,
+    "cross_source_near_phash": 11,
+    "within_source_duplicates": 33
   },
   "processed_10_class": {
     "total_clean": 14831,
@@ -23,10 +26,20 @@
     "sum_check": 14831
   },
   "zero_leakage_verification": {
-    "train_val_overlap_sha256": 0,
-    "train_test_overlap_sha256": 0,
-    "val_test_overlap_sha256": 0,
-    "zero_leakage_status": true
+    "exact_sha256_overlap": {
+      "train_val_overlap_sha256": 0,
+      "train_test_overlap_sha256": 0,
+      "val_test_overlap_sha256": 0,
+      "zero_sha256_leakage": true
+    },
+    "phash_near_duplicate_audit": {
+      "total_candidate_pairs_le_4": 18,
+      "burst_shot_same_object_pairs": 10,
+      "same_object_rotated_pairs": 5,
+      "cross_class_coincidence_pairs": 3,
+      "true_cross_split_leakage_pairs": 15,
+      "leakage_status": "LEAKAGE_DETECTED_IN_EXISTING_PROCESSED_SPLIT"
+    }
   },
   "detection_v1_inventory": {
     "total_images": 1419,
@@ -36,7 +49,8 @@
   },
   "discrepancy_explanation": {
     "why_r1_said_14832": "R1 mistyped train/val/test counts as 10489+2173+2170=14832. Actual on-disk split is train 10381, val 2225, test 2225, summing to exactly 14831.",
-    "why_r1_said_15448": "R1 summed unverified raw numbers across some classes (756+699+2705+1892+1736+2275+1442+1991+1449+503 = 15448) which mixed pre-dedup and post-dedup counts.",
-    "why_r1_said_13760_vs_10987": "Excluding clothes(1892), shoes(1449), trash(503) = 3844 files from 14831 gives EXACTLY 10987 files, not 13760. The 13760 figure was an arithmetic error in R1."
+    "why_r1_said_15448": "R1 summed unverified raw numbers across some classes which mixed pre-dedup and post-dedup counts.",
+    "why_r1_said_13760_vs_10987": "Excluding clothes(1892), shoes(1449), trash(503) = 3844 files from 14831 gives EXACTLY 10987 files, not 13760.",
+    "why_r2_reported_cross_source_zero": "R2 had a reporting/hardcoded bug where cross_source_duplicates was set to 0 because all 923 excluded physical files were in vn_trash. In reality, 890 of those 923 files were duplicate copies (879 exact MD5, 11 near pHash) of primary files in garbage_v2."
   }
 }

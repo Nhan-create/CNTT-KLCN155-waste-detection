@@ -1,0 +1,81 @@
+{
+  "timestamp": "2026-10-01T16:30:28+0700",
+  "version": "v2",
+  "seed": 42,
+  "method": "Stratified Group Split (Atomic Near-Duplicate Component Grouping)",
+  "total_samples": 14829,
+  "quarantined_samples": 2,
+  "split_counts": {
+    "train": 10383,
+    "val": 2223,
+    "test": 2223
+  },
+  "cluster_verification": {
+    "train_val_cluster_overlap": 0,
+    "train_test_cluster_overlap": 0,
+    "val_test_cluster_overlap": 0,
+    "zero_cluster_leakage": true
+  },
+  "class_breakdown": {
+    "battery": {
+      "train": 530,
+      "val": 113,
+      "test": 113,
+      "total": 756
+    },
+    "biological": {
+      "train": 489,
+      "val": 105,
+      "test": 105,
+      "total": 699
+    },
+    "cardboard": {
+      "train": 1447,
+      "val": 310,
+      "test": 310,
+      "total": 2067
+    },
+    "clothes": {
+      "train": 1324,
+      "val": 284,
+      "test": 284,
+      "total": 1892
+    },
+    "glass": {
+      "train": 1216,
+      "val": 260,
+      "test": 260,
+      "total": 1736
+    },
+    "metal": {
+      "train": 1580,
+      "val": 339,
+      "test": 339,
+      "total": 2258
+    },
+    "paper": {
+      "train": 1039,
+      "val": 222,
+      "test": 222,
+      "total": 1483
+    },
+    "plastic": {
+      "train": 1390,
+      "val": 298,
+      "test": 298,
+      "total": 1986
+    },
+    "shoes": {
+      "train": 1015,
+      "val": 217,
+      "test": 217,
+      "total": 1449
+    },
+    "trash": {
+      "train": 353,
+      "val": 75,
+      "test": 75,
+      "total": 503
+    }
+  }
+}

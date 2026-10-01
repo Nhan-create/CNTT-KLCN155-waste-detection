@@ -1,0 +1,176 @@
+{
+  "timestamp": "2026-10-01T16:29:29+0700",
+  "total_images": 14831,
+  "total_edges_le_4": 29,
+  "cross_split_edges": 15,
+  "within_split_edges": 14,
+  "multi_node_clusters": 29,
+  "cross_split_clusters_count": 15,
+  "cross_split_clusters_details": [
+    {
+      "cluster_size": 2,
+      "splits_involved": [
+        "test",
+        "train"
+      ],
+      "sample_files": [
+        "garbage_v2_cardboard_1036.jpg",
+        "vn_trash_train_cardboard245.jpg"
+      ]
+    },
+    {
+      "cluster_size": 2,
+      "splits_involved": [
+        "val",
+        "train"
+      ],
+      "sample_files": [
+        "vn_trash_train_AluCan94.jpg",
+        "garbage_v2_metal_155.jpg"
+      ]
+    },
+    {
+      "cluster_size": 2,
+      "splits_involved": [
+        "val",
+        "train"
+      ],
+      "sample_files": [
+        "vn_trash_train_AluCan105.jpg",
+        "garbage_v2_metal_186.jpg"
+      ]
+    },
+    {
+      "cluster_size": 2,
+      "splits_involved": [
+        "test",
+        "train"
+      ],
+      "sample_files": [
+        "garbage_v2_metal_435.jpg",
+        "garbage_v2_metal_158.jpg"
+      ]
+    },
+    {
+      "cluster_size": 2,
+      "splits_involved": [
+        "test",
+        "train"
+      ],
+      "sample_files": [
+        "vn_trash_train_AluCan756.jpg",
+        "vn_trash_train_AluCan755.jpg"
+      ]
+    },
+    {
+      "cluster_size": 2,
+      "splits_involved": [
+        "val",
+        "train"
+      ],
+      "sample_files": [
+        "vn_trash_train_AluCan773.jpg",
+        "vn_trash_train_AluCan770.jpg"
+      ]
+    },
+    {
+      "cluster_size": 2,
+      "splits_involved": [
+        "val",
+        "train"
+      ],
+      "sample_files": [
+        "vn_trash_train_beverage_cans357.jpg",
+        "vn_trash_train_beverage_cans373.jpg"
+      ]
+    },
+    {
+      "cluster_size": 2,
+      "splits_involved": [
+        "val",
+        "train"
+      ],
+      "sample_files": [
+        "vn_trash_train_beverage_cans701.jpg",
+        "garbage_v2_metal_183.jpg"
+      ]
+    },
+    {
+      "cluster_size": 2,
+      "splits_involved": [
+        "test",
+        "train"
+      ],
+      "sample_files": [
+        "vn_trash_train_beverage_cans904.jpg",
+        "vn_trash_train_beverage_cans89.jpg"
+      ]
+    },
+    {
+      "cluster_size": 2,
+      "splits_involved": [
+        "val",
+        "train"
+      ],
+      "sample_files": [
+        "vn_trash_test_paper 879.jpg",
+        "garbage_v2_paper_1118.jpg"
+      ]
+    },
+    {
+      "cluster_size": 2,
+      "splits_involved": [
+        "test",
+        "train"
+      ],
+      "sample_files": [
+        "vn_trash_test_00000010.jpg",
+        "garbage_v2_paper_185.jpg"
+      ]
+    },
+    {
+      "cluster_size": 2,
+      "splits_involved": [
+        "val",
+        "train"
+      ],
+      "sample_files": [
+        "garbage_v2_paper_720.jpg",
+        "vn_trash_test_paper 891.jpg"
+      ]
+    },
+    {
+      "cluster_size": 2,
+      "splits_involved": [
+        "test",
+        "train"
+      ],
+      "sample_files": [
+        "garbage_v2_paper_1326.jpg",
+        "vn_trash_test_paper 978.jpg"
+      ]
+    },
+    {
+      "cluster_size": 2,
+      "splits_involved": [
+        "val",
+        "train"
+      ],
+      "sample_files": [
+        "vn_trash_test_plastic_bottle 544.jpg",
+        "garbage_v2_plastic_601.jpg"
+      ]
+    },
+    {
+      "cluster_size": 2,
+      "splits_involved": [
+        "test",
+        "train"
+      ],
+      "sample_files": [
+        "vn_trash_train_00000012.jpg",
+        "vn_trash_train_00000024.jpg"
+      ]
+    }
+  ]
+}

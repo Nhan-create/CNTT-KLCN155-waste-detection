@@ -31,13 +31,14 @@ Xây dựng một hệ thống học sâu hoàn chỉnh, nhẹ, có khả năng 
 2. **Dữ liệu thô và đã xử lý (`VERIFIED`):**
    - Dữ liệu thô tại `D:\HK7\Đồ án khóa luận\Data\`: gồm `raw/garbage_v2` (12.259 ảnh gốc) và `raw/vn_trash` (3.495 ảnh gốc). Tổng: **15.754** ảnh thô.
    - Loại trừ 24.518 ảnh sao chép resize (`standardized_256`: 12.259, `standardized_384`: 12.259).
-   - Khử trùng chính xác 923 ảnh trùng lặp (897 MD5 exact match, 26 pHash near match). Toàn bộ 923 trùng lặp nằm trong `vn_trash`. Trùng lặp chéo giữa 2 bộ dữ liệu: **0 ảnh**.
-   - Dữ liệu sạch thực tế: **14.831** ảnh độc lập, phân chia 70/15/15 tại `Data/processed/`:
-     - **Train:** **10.381** ảnh ($69,99\%$)
-     - **Val:** **2.225** ảnh ($15,00\%$)
-     - **Test:** **2.225** ảnh ($15,00\%$)
-     - Tổng: $10.381 + 2.225 + 2.225 = \mathbf{14.831}$ ảnh (khớp 100%, không rò rỉ SHA-256).
-   - Nếu loại 3 lớp `clothes` (1.892) + `shoes` (1.449) + `trash` (503) = 3.844 ảnh $\rightarrow$ còn lại chính xác **10.987** ảnh (sửa lỗi 13.760 ở R1).
+   - Khử trùng chính xác 923 ảnh trùng lặp (897 MD5 exact match, 26 pHash near match). Trong đó: **890 cặp trùng liên nguồn** giữa `garbage_v2` và `vn_trash` (gồm 879 cặp trùng tuyệt đối MD5) và 33 cặp trùng nội bộ `vn_trash`.
+   - Cách ly 2 mẫu xung đột nhãn (`cardboard` vs `paper` ở Cặp 10) tại `data/audit/quarantined_samples.csv`.
+   - **Tập dữ liệu sạch Split V2 (Đã triệt tiêu rò rỉ):** Gồm chính xác **14.829** ảnh độc lập, phân chia theo cụm nguyên tử (Stratified Group Split, seed 42) tại `data/processed_v2/` và manifest `data/audit/split_manifest_v2.csv`:
+     - **Train:** **10.383** ảnh ($70,02\%$)
+     - **Val:** **2.223** ảnh ($14,99\%$)
+     - **Test:** **2.223** ảnh ($14,99\%$) — **KHÓA CHẶT TUYỆT ĐỐI**
+     - Tổng: $10.383 + 2.223 + 2.223 = \mathbf{14.829}$ ảnh sạch ($100\%$ không rò rỉ cụm, không rò rỉ SHA-256).
+   - Nếu loại 3 lớp `clothes` (1.892) + `shoes` (1.449) + `trash` (503) = 3.844 ảnh $\rightarrow$ còn lại chính xác **10.985** ảnh sạch trong Split V2.
 3. **Dữ liệu bounding box đa vật thể (`VERIFIED`):**
    - `data/detection/v1` gồm 1.419 ảnh và 4.602 bounding boxes.
    - **1.305 ảnh (91,97%)** là ảnh tổng hợp (Mendeley Synthetic) và chỉ có **114 ảnh (8,03%)** từ OpenImages. Tập này được cô lập chỉ dùng cho pretraining đa vật thể, không dùng làm test set thực tế.

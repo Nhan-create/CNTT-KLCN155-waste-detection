@@ -43,6 +43,7 @@ env/
 # Datasets and large data folders (root-anchored so src/data and tests/data stay tracked)
 /data/raw/
 /data/processed/
+/data/processed_v2/
 /data/interim/
 /data/sources/
 /data/detection/

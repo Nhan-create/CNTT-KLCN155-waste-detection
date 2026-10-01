@@ -1,0 +1,3 @@
+split,unified_label_10,filename,path,sha256,size_bytes,phash,raw_path,quarantine_reason
+train,cardboard,vn_trash_train_cardboard438.jpg,D:\HK7\Đồ án khóa luận\Data\processed\train\cardboard\vn_trash_train_cardboard438.jpg,e19ee24e65c8241a4617f3035b4cd7ba02bbec51ba2752aea3948aa411fefa1d,2767,ea2f9525957885f0,data\raw\vn_trash\Carton\train_cardboard438.jpg,CROSS_DATASET_LABEL_CONFLICT_SAME_OBJECT
+test,paper,garbage_v2_paper_582.jpg,D:\HK7\Đồ án khóa luận\Data\processed\test\paper\garbage_v2_paper_582.jpg,d2eed34953bad87b1f3be07a2c67cac3048b71ff21dfa49c163a37e9880c79ee,8029,ea2f952d95709570,data\raw\garbage_v2\paper\paper_582.jpg,CROSS_DATASET_LABEL_CONFLICT_SAME_OBJECT
