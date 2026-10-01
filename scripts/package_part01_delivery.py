@@ -48,13 +48,13 @@ def build_package(zip_name: str, manifest_name: str, root_arcname: str) -> dict:
     include_dirs = [
         "docs/plan",
         "scripts",
-        "tests",
         "data/audit",
         "data/metadata",
         "artifacts/official_run",
         "configs",
     ]
     include_files = [
+        "tests/test_verification_gates.py",
         "README.md",
         "requirements.txt",
         ".gitignore",
