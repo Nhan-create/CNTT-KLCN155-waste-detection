@@ -4,7 +4,7 @@ import numpy as np
 import pytest
 from PIL import Image
 
-from src.data.schema import CLASS_NAMES
+from src.detection.schema import DETECTION_CLASS_NAMES as CLASS_NAMES
 from src.detection.yolo import DetectionError, WasteDetector
 
 
@@ -25,7 +25,7 @@ class FakeTensor:
 class FakeBoxes:
     xyxy = FakeTensor([[10, 20, 90, 70], [-5, -2, 200, 200]])
     conf = FakeTensor([0.82, 0.94])
-    cls = FakeTensor([7, 5])
+    cls = FakeTensor([0, 2])
 
 
 class FakeResult:
@@ -35,6 +35,13 @@ class FakeResult:
 class FakeModel:
     def __init__(self) -> None:
         self.names = {index: name for index, name in enumerate(CLASS_NAMES)}
+        self.model = self
+        self.yaml = {"scale": "n", "yaml_file": "yolov8n.yaml"}
+        self.phase2_metadata = {
+            "backend": "yolov8n",
+            "trained": True,
+            "class_names": list(CLASS_NAMES),
+        }
 
     def predict(self, **kwargs):
         assert kwargs["source"].shape == (80, 100, 3)
@@ -54,6 +61,8 @@ def test_adapter_maps_and_clamps_every_box(tmp_path: Path) -> None:
     assert [row.class_id for row in result.detections] == ["metal", "plastic"]
     assert result.detections[0].box.x1 == 0
     assert result.detections[0].box.x2 == 100
+    assert result.detections[1].box.x1 == 10
+    assert result.detections[1].box.x2 == 90
 
 
 def test_adapter_rejects_semantically_wrong_label_order(tmp_path: Path) -> None:

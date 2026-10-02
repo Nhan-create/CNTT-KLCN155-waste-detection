@@ -99,7 +99,10 @@ def train_ssdlite(data_path: Path, config: dict[str, Any], run_directory: Path,
     # pycocotools must exist before the optional COCO download/model initialization.
     import pycocotools.cocoeval  # noqa: F401
 
-    model = build_ssdlite(pretrained=bool(config.get("pretrained", True))).to(device)
+    model = build_ssdlite(
+        pretrained=bool(config.get("pretrained", True)),
+        backbone_weights=config.get("backbone_weights"),
+    ).to(device)
     model.score_thresh = 0.001
     model.detections_per_img = 100
     optimizer = torch.optim.AdamW(model.parameters(), lr=float(args.get("lr0", 0.001)),
@@ -114,7 +117,12 @@ def train_ssdlite(data_path: Path, config: dict[str, Any], run_directory: Path,
     weights_directory = run_directory / "weights"
     weights_directory.mkdir(parents=True, exist_ok=False)
     best_path = weights_directory / "best.pt"
-    metadata = dict(metadata, architecture=ARCHITECTURE, background_index=0)
+    metadata = dict(
+        metadata,
+        architecture=ARCHITECTURE,
+        background_index=0,
+        backbone_weights=str(config.get("backbone_weights", "")),
+    )
     max_hours = args.get("max_hours")
     for epoch in range(1, epochs + 1):
         model.train()

@@ -13,10 +13,13 @@
 
 ### 1.1. Mục tiêu tổng thể
 Xây dựng một hệ thống học sâu hoàn chỉnh, nhẹ, có khả năng chạy trên thiết bị phổ thông/biên và máy chủ web, nhằm tự động phát hiện và phân loại rác thải sinh hoạt theo ảnh chụp thực tế. Hệ thống phát triển qua hai giai đoạn khoa học chặt chẽ:
-- **Giai đoạn A (Single-Object Classification):** Phân loại rác đơn thể 10 lớp bằng mạng tích chập nhẹ MobileNetV3-Large, giải quyết bài toán phân loại nhanh vật thể đơn lẻ trong ảnh cận cảnh.
-- **Giai đoạn B (Multi-Object Detection):** Phát hiện và phân loại đa rác đa đối tượng (ưu tiên 10 lớp thống nhất, có bảng ánh xạ đối chiếu sang 6 nhóm vật liệu của đề cương cũ) bằng bộ phát hiện đa đối tượng YOLOv8n (chính) và SSDLite320-MobileNetV3 (đối chứng), ứng dụng kỹ thuật Weighted Boxes Fusion (WBF) có điều kiện và Copy-Paste Augmentation.
+- **Giai đoạn A (Single-Object Classification):** Phân loại rác đơn thể 10 lớp bằng mạng tích chập nhẹ MobileNetV3-Large (F1 đạt 0.9559), làm cơ sở chuẩn bị đặc trưng backbone và đối sánh.
+- **Giai đoạn B (Multi-Object Detection - CHỐT THEO ĐỀ CƯƠNG):** Phát hiện và phân loại đa đối tượng rác thải theo đúng 6 nhóm chuẩn của đề cương (`plastic`, `paper`, `metal`, `glass`, `organic`, `hazardous`). Sử dụng **SSDLite320-MobileNetV3 làm mô hình CHÍNH** (kế thừa 258 tầng backbone từ bộ phân loại), **YOLOv8n làm mô hình ĐỐI CHỨNG**, kết hợp kỹ thuật tăng cường dữ liệu Albumentations + Copy-Paste và Weighted Boxes Fusion (WBF).
 
-### 1.2. Vấn đề cốt lõi cần giải quyết
+### 1.2. Quyết định định hướng của PM (Binding Decision)
+- **Taxonomy:** Tuân thủ 100% đề cương chính thức: chuẩn hóa 6 lớp rác phục vụ phân loại tại nguồn (`Nhựa`, `Giấy/bìa`, `Kim loại`, `Thủy tinh`, `Hữu cơ`, `Nguy hại`). Loại trừ hoàn toàn `clothes`, `shoes`, `trash` khỏi tập detection (không mở rộng 10 lớp đơn phương).
+- **Mô hình:** Khôi phục đúng vị trí đề cương: **SSDLite320-MobileNetV3 là mô hình CHÍNH**, **YOLOv8n là mô hình ĐỐI CHỨNG**.
+- **Kỹ thuật:** Triển khai nạp trực tiếp 258 tensor đặc trưng từ `best_model.pt` của bộ phân loại sang backbone SSDLite320. Sử dụng WBF để hợp nhất dự đoán và khảo sát trên tập Validation.
 1. **Khoảng cách giữa dữ liệu phòng thí nghiệm và thực tế:** Hai tập dữ liệu Kaggle hiện có (`VN Trash` và `Garbage Classification V2`) là ảnh studio đơn rác, nền sạch. Khi đưa vào bối cảnh thực tế (thùng rác công cộng, lòng đường, căn tin), mô hình bị sụt giảm độ chính xác do rác bị dính bẩn, biến dạng, che khuất một phần và nằm chồng lấn.
 2. **Nghịch lý chuyển giao kiến trúc:** Phân loại ảnh (Classification) không tự động định vị được vật thể (Detection) khi có nhiều rác trong một ảnh. Cần chuyển giao đặc trưng backbone một cách hợp lý và huấn luyện đầu dò detection chuyên biệt (với 168 keys tensor mới).
 3. **Tính trung thực khoa học và chống rò rỉ dữ liệu:** Đảm bảo 100% không rò rỉ dữ liệu giữa train/val/test do các góc chụp gần trùng; không dùng nhãn giả định (pseudo-label) để ngụy tạo độ chính xác thực tế; cố định tập test độc lập. Khắc phục nguy cơ pretraining overlap từ các checkpoint công khai như Ecovision bằng cách dùng ImageNet-1K chuẩn làm điểm bắt đầu huấn luyện chính thức.

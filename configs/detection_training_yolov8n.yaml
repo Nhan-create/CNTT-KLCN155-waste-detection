@@ -1,0 +1,19 @@
+# YOLOv8n - MÔ HÌNH ĐỐI CHỨNG (BENCHMARK DETECTOR) THEO ĐỀ CƯƠNG KHÓA LUẬN
+backend: yolov8n
+model: yolov8n.pt
+project: artifacts/detection
+name: waste-yolov8n
+
+train:
+  epochs: 120
+  imgsz: 320
+  batch: 16
+  workers: 4
+  patience: 30
+  optimizer: AdamW
+  lr0: 0.001
+  lrf: 0.01
+  weight_decay: 0.0005
+  seed: 42
+  deterministic: true
+  device: auto

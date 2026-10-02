@@ -16,11 +16,12 @@ from src.detection.yolo import DetectionError
 ARCHITECTURE = "ssdlite320_mobilenet_v3_large"
 
 
-def build_ssdlite(*, pretrained: bool = False) -> Any:
+def build_ssdlite(*, pretrained: bool = False, backbone_weights: Path | str | None = None) -> Any:
     """Reuse COCO backbone/regression weights and replace all classifier weights.
 
     Both model constructions use the same reduced-tail MobileNetV3 architecture.
     The default is download-free; only explicitly authorized training asks for COCO.
+    If backbone_weights is provided, feature extractor weights are loaded from the stage-1 classifier.
     """
     try:
         from torchvision.models.detection import (
@@ -41,6 +42,31 @@ def build_ssdlite(*, pretrained: bool = False) -> Any:
         missing, unexpected = model.load_state_dict(reusable, strict=False)
         if unexpected or any(not key.startswith("head.classification_head.") for key in missing):
             raise DetectionError("COCO checkpoint không khớp kiến trúc SSDLite")
+
+    if backbone_weights is not None:
+        import torch
+        bw_path = Path(backbone_weights)
+        if not bw_path.is_file():
+            raise DetectionError(f"Không tìm thấy checkpoint backbone classifier: {bw_path}")
+        ckpt = torch.load(bw_path, map_location="cpu", weights_only=False)
+        cls_sd = ckpt.get("state_dict", ckpt.get("model_state_dict", ckpt))
+        ssd_sd = model.state_dict()
+        transfer_dict = {}
+        for k, v in cls_sd.items():
+            if not k.startswith("features."):
+                continue
+            parts = k.split(".")
+            block_idx = int(parts[1])
+            rest = ".".join(parts[2:])
+            if block_idx <= 13:
+                target_k = f"backbone.features.0.{block_idx}.{rest}"
+            else:
+                target_k = f"backbone.features.1.{block_idx - 14}.{rest}"
+            if target_k in ssd_sd and ssd_sd[target_k].shape == v.shape:
+                transfer_dict[target_k] = v
+        missing, unexpected = model.load_state_dict(transfer_dict, strict=False)
+        if unexpected:
+            raise DetectionError(f"Unexpected keys while loading backbone weights: {unexpected}")
     return model
 
 
