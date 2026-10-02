@@ -1,9 +1,13 @@
 # HƯỚNG DẪN KIẾN TRÚC HỆ THỐNG VÀ LỘ TRÌNH TRIỂN KHAI TIẾP THEO
-## DỰ ÁN: CNTT-KLCN155
+## DỰ ÁN KHÓA LUẬN TỐT NGHIỆP: CNTT-KLCN155
 
-> **Tên đề tài:** *Xây dựng hệ thống phát hiện và phân loại đa đối tượng rác thải sinh hoạt trong ảnh chụp thực tế bằng mô hình học sâu nhẹ và kỹ thuật tăng cường dữ liệu*  
-> **Mã đề tài:** `CNTT-KLCN155`  
-> **Nhóm thực hiện:** Nhóm nghiên cứu CNTT-KLCN155  
+> **Tên đề tài chính thức:** *Xây dựng hệ thống phát hiện và phân loại đa đối tượng rác thải sinh hoạt trong ảnh chụp thực tế bằng mô hình học sâu nhẹ và kỹ thuật tăng cường dữ liệu*  
+> **Cơ sở đào tạo:** Khoa Công nghệ Thông tin – Trường Đại học Công Thương TP.HCM (HUIT)  
+> **Giảng viên hướng dẫn:** ThS. Huỳnh Thị Châu Lan (`lanhtc@huit.edu.vn`)  
+> **Nhóm sinh viên thực hiện:**
+> - Ngô Thanh Nhân (MSSV: 2001230595 — Nhóm trưởng / PM)
+> - Võ Gia Ninh (MSSV: 2001230547)
+> - Vũ Trường Vinh (MSSV: 2001231049)  
 > **Mã nguồn:** [https://github.com/Nhan-create/CNTT-KLCN155-waste-detection](https://github.com/Nhan-create/CNTT-KLCN155-waste-detection)
 
 ---
@@ -168,10 +172,10 @@ streamlit run src/ui/review_tool.py -- --manifest data/audit/real_detection_sour
 
 Nhóm nghiên cứu triển khai theo 7 bước tuần tự có tiêu chí nghiệm thu rõ ràng:
 
-### Bước 1: Gửi Tờ trình điều chỉnh đề cương cho Giảng viên hướng dẫn (GVHD)
-- **Hành động:** Sử dụng bản dự thảo tại Mục 12 của tài liệu `docs/plan/PROPOSAL_ARCHITECTURE_ALIGNMENT_REVIEW.md` để trình bày với GVHD trong buổi gặp tuần này.
+### Bước 1: Gửi Tờ trình điều chỉnh đề cương cho GVHD (ThS. Huỳnh Thị Châu Lan)
+- **Hành động:** Sử dụng bản dự thảo tại Mục 12 của tài liệu `docs/plan/PROPOSAL_ARCHITECTURE_ALIGNMENT_REVIEW.md` để trình bày với cô trong buổi gặp tuần này.
 - **Nội dung chính:** Xin mở rộng taxonomy detection từ 6 nhóm lên 10 nhóm chi tiết để phù hợp công năng tái chế đô thị, và bổ sung nguồn ảnh TACO kết hợp Review Tool nội bộ.
-- **Tiêu chí nghiệm thu:** Được GVHD thông qua định hướng (bằng email hoặc xác nhận trong sổ hướng dẫn).
+- **Tiêu chí nghiệm thu:** Được cô thông qua định hướng (bằng email hoặc xác nhận trong sổ hướng dẫn).
 
 ### Bước 2: Đồng bộ Taxonomy 10 lớp trong toàn bộ Mã nguồn Detection
 - **Hành động:**
@@ -184,7 +188,7 @@ Nhóm nghiên cứu triển khai theo 7 bước tuần tự có tiêu chí nghi�
 ### Bước 3: Thu thập và duyệt nhãn bổ sung dữ liệu thực tế ngoài bãi rác
 - **Hành động:**
   - Duyệt tiếp 103 ảnh TACO còn lại trong hàng đợi để lấy thêm mẫu thực tế.
-  - Nhóm sinh viên tổ chức chụp bổ sung khoảng 50–100 ảnh rác thực tế ngoài bãi tập kết / khuôn viên thực địa (đặc biệt tập trung vào các lớp đang thiếu mẫu: quần áo cũ `clothes`, pin `battery`, giày dép cũ `shoes`).
+  - Nhóm sinh viên tổ chức chụp bổ sung khoảng 50–100 ảnh rác thực tế ngoài bãi tập kết / khuôn viên HUIT (đặc biệt tập trung vào các lớp đang thiếu mẫu: quần áo cũ `clothes`, pin `battery`, giày dép cũ `shoes`).
   - Gán nhãn qua CVAT và thẩm định kiểm tra chéo bằng Review Tool nội bộ.
   - Chạy lại `scripts/build_detection_splits.py` để tạo tập Test thực tế độc lập có quy mô 30–50 ảnh.
 - **Tiêu chí nghiệm thu:** Cả 10 lớp đều có mẫu trong tập Test; lớp `clothes` gỡ bỏ trạng thái `BLOCKED`.
@@ -218,7 +222,7 @@ Nhóm nghiên cứu triển khai theo 7 bước tuần tự có tiêu chí nghi�
 ### Bước 7: Đóng gói Bàn giao, Hoàn thiện Báo cáo và Thiết kế Slide Bảo vệ
 - **Hành động:**
   - Tích hợp weights tốt nhất vào ứng dụng Web Streamlit.
-  - Viết toàn bộ Quyển báo cáo khóa luận theo chuẩn định dạng học thuật.
+  - Viết toàn bộ Quyển báo cáo khóa luận theo chuẩn định dạng trường HUIT.
   - Thiết kế bài thuyết trình Slide PowerPoint báo cáo tốt nghiệp.
   - Rà soát mã nguồn, cấu hình, requirements và đẩy phiên bản phát hành cuối cùng lên GitHub.
 
@@ -229,4 +233,4 @@ Nhóm nghiên cứu triển khai theo 7 bước tuần tự có tiêu chí nghi�
 Dự án được quản lý tại kho lưu trữ GitHub chính thức:  
 👉 **[https://github.com/Nhan-create/CNTT-KLCN155-waste-detection](https://github.com/Nhan-create/CNTT-KLCN155-waste-detection)**
 
-Mọi ý kiến đóng góp hoặc thắc mắc kỹ thuật vui lòng tạo Issue trên GitHub Repository.
+Mọi phản hồi kỹ thuật xin liên hệ Nhóm trưởng: **Ngô Thanh Nhân** (Email: `nhan.create@gmail.com`).
