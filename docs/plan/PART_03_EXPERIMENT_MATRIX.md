@@ -4,7 +4,7 @@
 - **Cơ quan:** Trường Đại học Công Thương TP. Hồ Chí Minh (HUIT) - Khoa Công nghệ Thông tin
 - **Người thực hiện:** Sinh viên Ngô Thanh Nhân (PM kiêm Lead)
 - **Kiến trúc sư kiểm tra:** Tech Lead & ML Engineer
-- **Phiên bản:** v1.0-draft-official
+- **Phiên bản:** v1.1-verified
 - **Mục tiêu:** Xây dựng ma trận thực nghiệm chuẩn tắc, đảm bảo tính công bằng khoa học, khả năng tái hiện và bám sát 100% đề cương khóa luận.
 
 ---
@@ -15,18 +15,18 @@ Ma trận bao gồm **2 cấu trúc mô hình** kết hợp với **4 chiến l�
 
 | Mã thí nghiệm (Exp ID) | Mô hình (Detector) | Vai trò trong nghiên cứu | Chiến lược Tăng cường (Augmentation) | Chi tiết kỹ thuật tăng cường |
 |:---:|:---|:---|:---|:---|
-| **EXP-SSD-01** | SSDLite320-MobileNetV3 | Mô hình chính (Primary) | Strategy 1: None (Baseline) | Không tăng cường, chỉ chuẩn hóa ảnh. |
-| **EXP-SSD-02** | SSDLite320-MobileNetV3 | Mô hình chính (Primary) | Strategy 2: Geometric | HorizontalFlip, ShiftScaleRotate, RandomAffine (đồng bộ Bbox). |
-| **EXP-SSD-03** | SSDLite320-MobileNetV3 | Mô hình chính (Primary) | Strategy 3: Photometric | ColorJitter (brightness, contrast, saturation), Gaussian/Motion Blur. |
-| **EXP-SSD-04** | SSDLite320-MobileNetV3 | Mô hình chính (Primary) | Strategy 4: Combined | Phối hợp Geometric + Photometric. |
-| **EXP-YOLO-01** | YOLOv8n | Mô hình đối chứng (Benchmark) | Strategy 1: None (Baseline) | Không tăng cường, tắt mosaic, mixup, autoaugment. |
-| **EXP-YOLO-02** | YOLOv8n | Mô hình đối chứng (Benchmark) | Strategy 2: Geometric | Lật ngang, scale, rotate, translate tương ứng. |
-| **EXP-YOLO-03** | YOLOv8n | Mô hình đối chứng (Benchmark) | Strategy 3: Photometric | HSV color jitter, blur quang học mô phỏng camera. |
-| **EXP-YOLO-04** | YOLOv8n | Mô hình đối chứng (Benchmark) | Strategy 4: Combined | Phối hợp Geometric + Photometric. |
+| **EXP-SSD-01** | SSDLite320-MobileNetV3 | Mô hình chính (Primary) | Strategy 1: None (Baseline) | Không tăng cường, chỉ chuẩn hóa ảnh RGB tensor [0, 1]. |
+| **EXP-SSD-02** | SSDLite320-MobileNetV3 | Mô hình chính (Primary) | Strategy 2: Geometric | HorizontalFlip, ShiftScaleRotate (Affine) đồng bộ Bbox và nhãn. |
+| **EXP-SSD-03** | SSDLite320-MobileNetV3 | Mô hình chính (Primary) | Strategy 3: Photometric | ColorJitter (brightness, contrast, saturation, hue), Gaussian/Motion Blur. |
+| **EXP-SSD-04** | SSDLite320-MobileNetV3 | Mô hình chính (Primary) | Strategy 4: Combined | Phối hợp Geometric + Photometric + Simple Copy-Paste (Ghiasi et al., 2021) từ DonorBank tập Train. |
+| **EXP-YOLO-01** | YOLOv8n | Mô hình đối chứng (Benchmark) | Strategy 1: None (Baseline) | Không tăng cường, tắt toàn bộ mosaic, mixup, autoaugment mặc định. |
+| **EXP-YOLO-02** | YOLOv8n | Mô hình đối chứng (Benchmark) | Strategy 2: Geometric | HorizontalFlip, ShiftScaleRotate qua pipeline Albumentations đồng nhất. |
+| **EXP-YOLO-03** | YOLOv8n | Mô hình đối chứng (Benchmark) | Strategy 3: Photometric | ColorJitter và Blur quang học mô phỏng camera thực tế. |
+| **EXP-YOLO-04** | YOLOv8n | Mô hình đối chứng (Benchmark) | Strategy 4: Combined | Phối hợp Geometric + Photometric + Simple Copy-Paste từ DonorBank tập Train. |
 
-> [!IMPORTANT]
-> **Về kỹ thuật Copy-Paste [5] (Ghiasi et al., 2021):**
-> Nhánh Copy-Paste chuẩn yêu cầu mặt nạ đối tượng (polygon segmentation mask). Trong giai đoạn hiện tại, khi chưa có nhãn polygon phân đoạn, nhánh Strategy 4 sử dụng tổ hợp Geometric + Photometric. Kỹ thuật Copy-Paste sẽ được đưa vào khảo sát mở rộng khi có dữ liệu mask thẩm định qua CVAT.
+> [!NOTE]
+> **Về kỹ thuật Simple Copy-Paste [5] (Ghiasi et al., 2021):**
+> Nhánh Copy-Paste đã được tích hợp thành công bằng cách khai thác 185 polygon segmentation masks chuẩn COCO từ 12 ảnh TACO thuộc tập `train`. Bộ nhớ `DonorBank` chứa 68 đối tượng foreground có mask phân đoạn chính xác. Quá trình dán đối tượng có cơ chế xử lý che khuất (Occlusion Handling): loại bỏ các box nền cũ nếu bị che khuất $\ge 80\%$ diện tích. Toàn bộ donor và background được cách ly 100% trong tập `train`, tuyệt đối không dùng mẫu từ `val` hoặc `test`.
 
 ---
 
@@ -34,18 +34,19 @@ Ma trận bao gồm **2 cấu trúc mô hình** kết hợp với **4 chiến l�
 
 Để đảm bảo kết luận khoa học có giá trị học thuật cao, hai mô hình được đặt trong điều kiện đánh giá nghiêm ngặt và đồng nhất:
 
-1. **Đồng nhất dữ liệu và phân chia tập:**
-   - Cả hai mô hình sử dụng chung tệp chỉ mục dữ liệu đã kiểm toán chống rò rỉ rác thải: [`configs/detection_dataset.yaml`](file:///D:/CNTT-KLCN155-waste-detection/configs/detection_dataset.yaml) và [`data/detection/manifest.jsonl`](file:///D:/CNTT-KLCN155-waste-detection/data/detection/manifest.jsonl).
-   - Tỷ lệ dữ liệu thật trong Validation và Test là 100% (không có ảnh synthetic trong tập đánh giá).
+1. **Đồng nhất dữ liệu và phân chia tập chống rò rỉ (Zero-Leakage Split):**
+   - Cả hai mô hình sử dụng chung tệp chỉ mục dữ liệu đã kiểm toán: [`configs/detection_dataset.yaml`](file:///D:/CNTT-KLCN155-waste-detection/configs/detection_dataset.yaml) và [`data/detection/manifest.jsonl`](file:///D:/CNTT-KLCN155-waste-detection/data/detection/manifest.jsonl).
+   - Tỷ lệ dữ liệu thật trong Validation và Test là 100% (không dùng ảnh synthetic trong tập đánh giá).
 2. **Cố định hạt giống ngẫu nhiên (Reproducibility Seed):**
    - Thiết lập `seed = 42` trên toàn bộ hệ thống (PyTorch, NumPy, Python standard random, CUDA deterministic ops).
 3. **Ngân sách huấn luyện và dừng sớm (Training Budget):**
    - Số epoch tối đa: **120 epochs**.
    - Cơ chế dừng sớm (Early Stopping): **Patience = 30 epochs** dựa trên chỉ số Validation mAP@0.5:0.95.
    - Batch size: 8 hoặc 16 (tùy thuộc giới hạn 4GB VRAM của card RTX 2050).
+   - **Lưu ý học thuật:** Không khẳng định chắc chắn mô hình sẽ đạt chất lượng cao chỉ vì huấn luyện 120 epochs; chất lượng thực tế phải được đo đạc khách quan và chứng minh bằng số liệu mAP, loss hội tụ, và ma trận nhầm lẫn.
 4. **Tiêu chí lựa chọn Checkpoint (Checkpoint Selection Rule):**
    - Checkpoint tối ưu (`best.pt`) được chọn duy nhất dựa trên giá trị **mAP@0.5:0.95 cao nhất trên tập VALIDATION**.
-   - **CẤM KỴ:** Tuyệt đối không dùng tập Test để chọn checkpoint hoặc theo dõi trong quá trình huấn luyện.
+   - **CẤM KỴ:** Tuyệt đối không dùng tập Test để chọn checkpoint, chọn augmentation, chọn threshold hay chọn siêu tham số WBF.
 
 ---
 
@@ -86,18 +87,20 @@ Phân tích độ bền vững của mô hình trên các điều kiện môi tr
 - **Kích thước mô hình trên đĩa:** Kích thước tệp trọng số (Megabytes).
 - **Tài nguyên tiêu thụ:** Dung lượng bộ nhớ đồ họa VRAM đỉnh (Peak CUDA Memory MB) và RAM CPU.
 
-### D. Phân tích lỗi (Error Analysis)
-- Trích xuất ma trận nhầm lẫn (Confusion Matrix).
-- Thống kê các trường hợp dự đoán sai lệch: Bỏ sót vật thể (False Negative), Nhận diện nhầm nền thành rác (False Positive), Nhầm lẫn giữa các nhóm vật liệu tương đồng (ví dụ: Giấy và Bìa carton, Nhựa trong và Thủy tinh).
-
 ---
 
-## 5. LỘ TRÌNH TRIỂN KHAI VÀ PHÂN CÔNG THỰC HIỆN
+## 5. ĐIỀU KIỆN TIÊN QUYẾT TRƯỚC KHI CHẠY TOÀN BỘ 8 THÍ NGHIỆM
 
-| Giai đoạn | Tuần thực hiện | Nội dung công việc chính | Kết quả đầu ra |
-|:---:|:---:|:---|:---|
-| **P1** | Tuần 5 | Hoàn thiện thẩm định 235 ảnh real chưa duyệt; tích hợp Albumentations vào data loader chính. | Dataset sạch 100%, 0 nhãn mơ hồ. |
-| **P2** | Tuần 6 | Chạy ma trận huấn luyện chính thức 8 thí nghiệm (EXP-SSD 1..4 và EXP-YOLO 1..4). | 8 bộ trọng số `best.pt` và log `history.json`. |
-| **P3** | Tuần 7 | Tổ chức đợt thu thập bổ sung ảnh thực địa TP.HCM cho các lớp thiếu (`battery`, `clothes`, `shoes`); gán nhãn qua CVAT. | 200–300 ảnh thực địa TP.HCM bổ sung vào Test Set. |
-| **P4** | Tuần 8 | Tinh chỉnh tham số WBF trên tập Validation; chạy đánh giá Final Test Set. | Bảng so sánh tổng hợp SSDLite vs YOLO vs WBF. |
-| **P5** | Tuần 9 | Hoàn thiện ứng dụng Web và hướng dẫn sử dụng; hoàn thiện báo cáo khóa luận. | Web app hoàn chỉnh, Báo cáo Word/PDF nộp GVHD. |
+Để tránh lãng phí thời gian tính toán và đảm bảo kết quả có giá trị khoa học, 8 thí nghiệm chính thức CHỈ ĐƯỢC BẤM NÚT CHẠY khi thỏa mãn đầy đủ các điều kiện tiên quyết sau:
+1. **Dữ liệu thật được hoàn thiện:** Thẩm định xong 235 ảnh ngoài split (xử lý dứt điểm các ảnh UNREVIEWED và NEEDS_RELABEL), và tổ chức thu thập bổ sung ảnh thực địa TP.HCM cho 3 lớp còn thiếu (`battery`, `clothes`, `shoes`).
+2. **Data Loader & Augmentation được kiểm chứng:** Đã tích hợp và kiểm chứng qua backward pass với loss hữu hạn trên cả 2 kiến trúc (đã HOÀN THÀNH tại commit hiện tại).
+3. **Đóng băng cấu hình và seed:** Toàn bộ configs huấn luyện cho 8 runs được đóng băng và lưu trữ có mã băm SHA-256.
+
+| Thứ tự ưu tiên | Hạng mục công việc | Trạng thái hiện tại | Phụ thuộc |
+|:---:|:---|:---:|:---|
+| 1 | Pipeline Augmentation 4 chiến lược + Copy-Paste | **PASS** | Đã kiểm chứng xong |
+| 2 | SSDLite & YOLO Data Loader backward verification | **PASS** | Đã kiểm chứng xong |
+| 3 | Khảo sát & trích xuất 68 polygon masks train TACO | **PASS** | Đã kiểm chứng xong |
+| 4 | Thẩm định 235 ảnh real ngoài split qua Review Tool | **PENDING** | Chờ PM phê duyệt phân loại |
+| 5 | Thu thập ảnh thực địa TP.HCM cho 3 lớp thiếu | **PENDING** | Chờ đợt chụp thực địa Tuần 6–7 |
+| 6 | Khởi chạy toàn bộ ma trận 8 thí nghiệm (120 epochs) | **READY ONCE DATA CLOSED** | Phụ thuộc mục 4 & 5 |

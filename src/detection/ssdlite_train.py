@@ -9,6 +9,8 @@ from typing import Any
 import numpy as np
 from PIL import Image
 
+from src.detection.augmentation import apply_augmentation
+from src.detection.copy_paste import DonorBank
 from src.detection.dataset import _label_path
 from src.detection.schema import DETECTION_CLASS_NAMES
 from src.detection.ssdlite import ARCHITECTURE, build_ssdlite, resolve_device, tensor_detections
@@ -17,36 +19,75 @@ from src.detection.types import BoundingBox, Detection
 
 
 class YoloBoxDataset:
-    """Consume the identical offline variant used by YOLO; no random transforms."""
+    """Consume reviewed bounding boxes and apply configured augmentation strategy on train split."""
 
-    def __init__(self, data_path: Path, split: str):
+    def __init__(
+        self,
+        data_path: Path,
+        split: str,
+        augmentation_strategy: str = "none",
+        donor_bank: DonorBank | None = None,
+    ):
         self.images, self.root = split_images(data_path, split)
+        self.split = split
+        self.strategy = augmentation_strategy.lower().strip()
+        self.donor_bank = donor_bank
 
     def __len__(self) -> int:
         return len(self.images)
 
     def __getitem__(self, index: int):
         import torch
-        from torchvision.transforms.functional import pil_to_tensor
 
         image_path = self.images[index]
         with Image.open(image_path) as opened:
             image = opened.convert("RGB")
-        width, height = image.size
-        boxes, labels = [], []
+        raw_boxes, raw_classes = [], []
         for line in _label_path(image_path, self.root).read_text(encoding="utf-8").splitlines():
             if not line.strip():
                 continue
             class_value, cx, cy, bw, bh = (float(value) for value in line.split())
-            boxes.append([(cx - bw / 2) * width, (cy - bh / 2) * height,
-                          (cx + bw / 2) * width, (cy + bh / 2) * height])
-            labels.append(int(class_value) + 1)  # zero is reserved for background
+            raw_boxes.append([cx, cy, bw, bh])
+            raw_classes.append(int(class_value))
+
+        # Apply data augmentation if in training split
+        if self.split == "train" and self.strategy != "none":
+            t_img, t_boxes, t_classes = apply_augmentation(
+                image,
+                raw_boxes,
+                raw_classes,
+                strategy=self.strategy,
+                donor_bank=self.donor_bank,
+            )
+        else:
+            t_img = np.array(image)
+            t_boxes = raw_boxes
+            t_classes = raw_classes
+
+        # Convert YOLO normalized cx, cy, bw, bh to pixel [x1, y1, x2, y2]
+        h, w = t_img.shape[:2]
+        boxes, labels = [], []
+        for b, c in zip(t_boxes, t_classes):
+            cx, cy, bw, bh = b
+            x1 = max(0.0, (cx - bw / 2.0) * w)
+            y1 = max(0.0, (cy - bh / 2.0) * h)
+            x2 = min(float(w), (cx + bw / 2.0) * w)
+            y2 = min(float(h), (cy + bh / 2.0) * h)
+            if x2 > x1 and y2 > y1:
+                boxes.append([x1, y1, x2, y2])
+                labels.append(int(c) + 1)  # zero is reserved for background in SSDLite
+
+        img_tensor = torch.from_numpy(t_img).permute(2, 0, 1).float() / 255.0
         box_tensor = torch.tensor(boxes, dtype=torch.float32).reshape(-1, 4)
-        return pil_to_tensor(image).float() / 255.0, {
+        return img_tensor, {
             "boxes": box_tensor,
             "labels": torch.tensor(labels, dtype=torch.int64),
             "image_id": torch.tensor(index, dtype=torch.int64),
-            "area": (box_tensor[:, 2] - box_tensor[:, 0]) * (box_tensor[:, 3] - box_tensor[:, 1]),
+            "area": (
+                (box_tensor[:, 2] - box_tensor[:, 0]) * (box_tensor[:, 3] - box_tensor[:, 1])
+                if len(boxes) > 0
+                else torch.zeros(0)
+            ),
             "iscrowd": torch.zeros(len(boxes), dtype=torch.int64),
         }
 
@@ -84,8 +125,12 @@ def train_ssdlite(data_path: Path, config: dict[str, Any], run_directory: Path,
     args = config["train"]
     device = resolve_device(str(args.get("device", "auto")))
     seed_everything(int(args.get("seed", 42)), bool(args.get("deterministic", True)))
-    train_data = YoloBoxDataset(data_path, "train")
-    val_data = YoloBoxDataset(data_path, "val")
+    aug_variant = str(args.get("augmentation_variant", config.get("augmentation_variant", metadata.get("augmentation_variant", "none"))))
+    donor_bank = None
+    if aug_variant.lower().strip() in ("combined", "copy_paste"):
+        donor_bank = DonorBank.from_dataset_root(".")
+    train_data = YoloBoxDataset(data_path, "train", augmentation_strategy=aug_variant, donor_bank=donor_bank)
+    val_data = YoloBoxDataset(data_path, "val", augmentation_strategy="none")
     batch_size = int(args.get("batch", 4))
     if batch_size <= 0 or not train_data or not val_data:
         raise ValueError("SSDLite requires positive batch size and nonempty train/val data")

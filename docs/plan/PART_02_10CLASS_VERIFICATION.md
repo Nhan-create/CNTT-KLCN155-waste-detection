@@ -1,218 +1,195 @@
-# BÁO CÁO KIỂM CHỨNG TOÀN DIỆN PIPELINE DETECTION 10 LỚP (GIAI ĐOẠN 2)
+# BÁO CÁO KIỂM CHỨNG TOÀN DIỆN VÀ GIẢI TRÌNH KHOA HỌC PIPELINE DETECTION 10 LỚP (GIAI ĐOẠN 2)
 ## DỰ ÁN CNTT-KLCN155: WASTE DETECTION & RECYCLING CLASSIFICATION
 
-- **Cơ quan:** Trường Đại học Công Thương TP. Hồ Chí Minh (HUIT) - Khoa Công nghệ Thông tin
-- **Người thực hiện:** Sinh viên Ngô Thanh Nhân (PM kiêm Lead)
+- **Cơ sở đào tạo:** Trường Đại học Công Thương TP. Hồ Chí Minh (HUIT) - Khoa Công nghệ Thông tin
+- **Người thực hiện:** Sinh viên Ngô Thanh Nhân (PM kiêm Lead, MSSV: 200123059)
 - **Kiến trúc sư kiểm tra:** Tech Lead & ML Engineer
-- **Thời điểm hoàn thành:** 02/10/2026 (GMT+7)
-- **Cam kết phương pháp:** Tiếp cận chuẩn mực nghiên cứu ML - dựa trên bằng chứng toán học và dữ liệu thực nghiệm, không cảm tính, không võ đoán.
+- **Thời điểm kiểm định:** 02/10/2026 (GMT+7)
+- **Cam kết phương pháp luận:** Chuẩn mực nghiên cứu học máy (Empirical Machine Learning) — mọi khẳng định đều dựa trên mã nguồn, log máy đọc được, artifact toán học trên đĩa cứng và kiểm nghiệm thực thi thực tế. Tuyệt đối không suy diễn cảm tính, không dùng suy luận metadata thay cho kiểm tra pixel.
 
 ---
 
-## 1. TRẢ LỜI CHI TIẾT 10 CÂU HỎI KHOA HỌC KÈM BẰNG CHỨNG TRUY XUẤT
+## 1. GIẢI TRÌNH 8 CÂU HỎI KỸ THUẬT CỐT LÕI BẰNG CODE, LOG VÀ ARTIFACT
 
-### Câu 1: HEAD, branch và working tree hiện tại là gì? Những thay đổi mới nằm ở commit nào?
-- **Trả lời:**
-  - Branch: `main`
-  - Commit HEAD: `9d385c289f56989e14594aa6c2965f43440085a3`
-  - Working Tree: Sạch sẽ (clean), đã đồng bộ với `origin/main`.
-  - Thay đổi mới nhất nằm ở commit `9d385c2`: *"Tính năng: Đồng bộ hóa toàn diện pipeline Detection 10 lớp, kiểm chứng nạp backbone SSDLite và thực nghiệm smoke training thành công"*.
-- **Bằng chứng:** `git status --short`, `git rev-parse HEAD`, `git log -n 1 --stat 9d385c2`.
-
----
-
-### Câu 2: Con số 5.750 boxes được tính từ những manifest và file nhãn nào? Có bao gồm dữ liệu chưa duyệt hoặc synthetic không?
-- **Trả lời:**
-  - Con số **5.750 bounding boxes** là tổng số boxes nằm trong toàn bộ **1.562 tệp nhãn vật lý** trên đĩa tại thư mục [`data/detection/labels/`](file:///D:/CNTT-KLCN155-waste-detection/data/detection/labels/).
-  - **Phân rã cấu trúc 5.750 boxes:**
-    1. **Tập đã Manifest và đưa vào Split huấn luyện/đánh giá (`data/detection/manifest.jsonl`):** Gồm **1.327 ảnh với 4.370 boxes**:
-       - 1.305 ảnh synthetic (nguồn Mendeley): chứa **4.095 boxes**, được phân bổ 100% vào tập `train`.
-       - 22 ảnh thực tế (nguồn TACO) đã qua thẩm định thủ công nghiêm ngặt (`review_status == APPROVED`): chứa **275 boxes**, chia theo nhóm cảnh chụp (scene groups) vào: `train` (12 ảnh, 185 boxes), `val` (5 ảnh, 45 boxes), `test` (5 ảnh, 45 boxes).
-    2. **Tập nhãn chưa duyệt / chưa manifest (Unmanifested / Unreviewed):** Gồm **235 ảnh thực tế với 1.380 boxes** nằm tại [`data/detection/labels/real/`](file:///D:/CNTT-KLCN155-waste-detection/data/detection/labels/real/):
-       - Chứa 511 boxes `shoes`, 58 boxes `clothes`, 321 boxes `plastic`, 204 boxes `trash`, 86 boxes `metal`, 72 boxes `glass`, 68 boxes `paper`, 58 boxes `cardboard`, 2 boxes `biological`.
-       - **Trạng thái:** Toàn bộ 235 ảnh này nằm ở trạng thái `UNREVIEWED` (103 ảnh TACO, 114 ảnh OpenImages) hoặc `REJECTED`/`NEEDS_RELABEL` trong `data/audit/real_detection_source_manifest.csv`.
-       - **Nguyên tắc học thuật:** **Tuyệt đối không tự tiện nâng trạng thái lên `APPROVED`** khi chưa qua quy trình thẩm định và kiểm tra chéo hai lượt qua CVAT. Vì vậy, 1.380 boxes này được bảo lưu trên đĩa nhưng KHÔNG được đưa vào split chính thức.
-- **Bằng chứng:** Kết quả kiểm toán dữ liệu từ script `audit_per_class_splits.py` và `real_detection_source_manifest.csv`.
+### Câu 1: Vì sao `sample_none.png`, `sample_geometric.png` và `sample_combined.png` trong gói bàn giao trước có SHA-256 và pixel giống hệt nhau?
+- **Nguyên nhân kỹ thuật gốc rễ (Root Cause):**
+  1. **Do xác suất ngẫu nhiên không kích hoạt (Stochastic Bypass):**
+     Trong file script thử nghiệm cũ [`test_augmentation_pipeline.py`](file:///C:/Users/ad/.gemini/antigravity-cli/brain/2c27965b-1604-457d-b2ba-985a0d9a342d/scratch/test_augmentation_pipeline.py) (dòng 50), lệnh `np.random.seed(42)` được gọi cho từng chiến lược. Tuy nhiên, thư viện `Albumentations 2.0.8` sử dụng generator nội bộ `Generator(PCG64)` độc lập chứ không phụ thuộc vào `np.random.RandomState` legacy.
+     Ở chiến lược `geometric`, pipeline gồm `HorizontalFlip(p=0.5)` và `ShiftScaleRotate(p=0.5)`. Xác suất cả hai phép đều không kích hoạt là $(1 - 0.5) \times (1 - 0.5) = 25\%$.
+     Khi không có phép biến đổi nào kích hoạt, Albumentations thực hiện **phép biến đổi đồng nhất (Identity Transform)**: trả về nguyên vẹn 100% mảng pixel và bounding boxes của ảnh gốc.
+  2. **Thiếu cơ chế Telemetry / Trace Log ghi nhận:**
+     Trước đây, pipeline không ghi log xem phép biến đổi nào đã kích hoạt thực tế (`applied=True/False`), dẫn đến việc xuất ra một mẫu ngẫu nhiên mà không hề hay biết rằng nó chưa trải qua phép biến đổi nào.
+  3. **Hàm vẽ box có tính tất định (Deterministic Drawing):**
+     Hàm `draw_yolo_boxes` khi vẽ cùng các ground-truth boxes lên cùng một ảnh gốc sẽ tạo ra các tệp PNG có chuỗi byte giống nhau $100\%$, dẫn đến mã băm SHA-256 hoàn toàn trùng khớp: `d6595295845ee87f34c26110e4b58787a3f9ef15ce8a92719dd149179d0e730f`.
+- **Giải pháp và Khắc phục hoàn toàn:**
+  - Nâng cấp `src/detection/augmentation.py` chuyển sang dùng `A.ReplayCompose` để tự động ghi lại trạng thái thực thi của từng transform (`applied: bool`, tham số góc xoay, tỷ lệ scale, ma trận biến đổi).
+  - Tách bạch 2 chế độ:
+    + **Chế độ bình thường (Stochastic Training Mode):** Giữ nguyên xác suất ngẫu nhiên chuẩn ($p=0.5, p=0.7$) cho training.
+    + **Chế độ kiểm tra ép buộc (Forced Verification Mode, `force_apply=True`):** Đặt $p=1.0$ để kiểm chứng chắc chắn mọi phép biến đổi đều kích hoạt, kiểm tra đồng bộ tọa độ box và xuất ảnh minh chứng đối soát.
 
 ---
 
-### Câu 3: Nhãn 10 lớp đã khôi phục từ bản gốc nào? Có mẫu nào mất nhãn sau lần chuyển sang 6 lớp không?
-- **Trả lời:**
-  - Nhãn 10 lớp đã được khôi phục nguyên trạng 100% từ bản sao lưu bảo toàn gốc tại [`data/detection/labels_10cls_backup/`](file:///D:/CNTT-KLCN155-waste-detection/data/detection/labels_10cls_backup/).
-  - **Bằng chứng toán học SHA-256:**
-    - Tổng số tệp trong thư mục hiện hành `labels/`: **1.562 tệp**.
-    - Tổng số tệp trong thư mục sao lưu `labels_10cls_backup/`: **1.562 tệp**.
-    - Số tệp thiếu ở thư mục hiện hành: **0 tệp**.
-    - Số tệp khác biệt mã băm SHA-256: **0 tệp**.
-    - Toàn bộ 5.750 bounding boxes nguyên gốc của 10 lớp được bảo toàn toàn vẹn, không có bất kỳ mẫu nào bị mất nhãn hay bị chuyển nhãn sai lệch.
+### Câu 2: Augmentation đã được gọi trong training loader của cả hai detector chưa? Những phép biến đổi thực tế nào chạy ở mỗi strategy?
+- **Khảo sát tại commit cũ `9d385c2` / `31afdba`:**
+  - **SSDLite320 ([`src/detection/ssdlite_train.py`](file:///D:/CNTT-KLCN155-waste-detection/src/detection/ssdlite_train.py)):**
+    Trong `YoloBoxDataset.__getitem__`, dữ liệu chỉ được đọc từ đĩa, chuyển đổi tọa độ và trả về tensor. **Hoàn toàn chưa import hay gọi hàm `apply_augmentation`**. Thực chất cả 2 epochs smoke training trước đây mới chỉ chạy ở mức baseline `none`.
+  - **YOLOv8n ([`src/detection/train.py`](file:///D:/CNTT-KLCN155-waste-detection/src/detection/train.py)):**
+    Trong `_train_yolo`, toàn bộ tham số augmentation mặc định của Ultralytics đã bị tắt triệt để (`augment=False, mosaic=0.0, mixup=0.0, degrees=0.0, fliplr=0.0, ...`). Tuy nhiên, pipeline `apply_augmentation` của dự án cũng chưa được chèn vào `dataset.transforms` của Ultralytics.
+- **Hiện trạng sau khi sửa chữa:**
+  - Đã tích hợp trực tiếp `apply_augmentation` vào `YoloBoxDataset` của SSDLite320 (chỉ kích hoạt trên split `train`, không áp dụng cho `val`/`test`).
+  - Đã xây dựng class wrapper `AblationAugmentationTransform` và chèn vào đầu chuỗi transform trong `Phase2Trainer.build_dataset` của YOLOv8n.
+  - **Các phép biến đổi thực tế chạy ở từng strategy:**
+    1. `none`: Identity transform (không biến đổi).
+    2. `geometric`: `HorizontalFlip(p=0.5)`, `ShiftScaleRotate(shift_limit=0.0625, scale_limit=0.1, rotate_limit=15, p=0.5)` với `clip=True, min_visibility=0.2`.
+    3. `photometric`: `ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.1, p=0.7)`, `OneOf([GaussianBlur(3,5), MotionBlur(3,5)], p=0.3)`.
+    4. `combined`: Phối hợp `HorizontalFlip` + `ShiftScaleRotate` + `ColorJitter` + `OneOf(Blur)` + `Simple Copy-Paste` từ DonorBank tập Train.
 
 ---
 
-### Câu 4: Train/val/test có bao nhiêu ảnh, boxes và cảnh độc lập cho từng lớp? Lớp nào còn thiếu?
-- **Trả lời:**
-  - Thống kê chi tiết từ tập dữ liệu manifest chính thức (`manifest.jsonl`, 1.327 ảnh, 4.370 boxes):
-
-| Split | Tổng ảnh | Số cảnh độc lập (Scenes) | Tổng Boxes | Lớp đầy đủ ($\ge 5$ boxes) | Lớp thiếu ($< 5$ boxes) | Lớp vắng mặt (0 box) |
-|:---:|:---:|:---:|:---:|:---|:---|:---|
-| **TRAIN** | 1.317 | 1.253 | 4.280 | 9 lớp: `battery` (463), `biological` (448), `cardboard` (458), `clothes` (462), `glass` (480), `metal` (461), `paper` (436), `plastic` (540), `trash` (531) | `shoes` (1 box / 1 ảnh) | *Không có* |
-| **VAL** | 5 | 5 | 45 | `plastic` (11), `trash` (20) | `biological` (2), `cardboard` (4), `glass` (2), `metal` (1), `paper` (3), `shoes` (2) | **`battery` (0), `clothes` (0)** |
-| **TEST** | 5 | 5 | 45 | `metal` (9), `plastic` (6), `trash` (19) | `battery` (1), `biological` (2), `cardboard` (1), `glass` (3), `paper` (4) | **`clothes` (0), `shoes` (0)** |
-
-- **Nhận định khoa học:**
-  - Tập Test và Val hiện tại bị thiếu nghiêm trọng các cảnh thực tế cho 3 lớp: `clothes` (vắng mặt cả Val và Test), `battery` (vắng mặt ở Val), `shoes` (vắng mặt ở Test).
-  - Đây là lý do tại sao cấu hình [`configs/detection_dataset.yaml`](file:///D:/CNTT-KLCN155-waste-detection/configs/detection_dataset.yaml) khai báo: `classes_fully_evaluable: 7`, `classes_limited_evaluable: [battery, shoes]`, `classes_blocked: [clothes]`.
-  - Để giải quyết triệt để, cần tiến hành thẩm định tập 235 ảnh real chưa duyệt hoặc tổ chức đợt thu thập bổ sung ảnh thực địa tại TP.HCM.
-
----
-
-### Câu 5: 296 keys khác 258 keys trước đây ở những keys nào? Mapping thay đổi vì lý do gì?
-- **Trả lời:**
-  - **Số liệu gốc:** MobileNetV3-Large Classifier có 312 keys (308 feature keys + 4 classifier head keys). SSDLite320 có 476 keys.
-  - **Sự khác biệt giữa 258 keys và 296 keys:** Chênh lệch đúng **+38 tensor keys**.
-  - **Lý do thay đổi mapping:**
-    - Cấu trúc mạng MobileNetV3 trong Torchvision SSDLite320 được tách thành hai cổng trích xuất đặc trưng đa quy mô:
-      + Nhánh $C_4$ lấy từ sau block 12 (tại `backbone.features.0`): gồm 258 keys. Bản ánh xạ cũ chỉ nạp nhánh này và dừng lại.
-      + Nhánh $C_5$ lấy từ sau block 15 (tại `backbone.features.1`): chứa các block sâu 13, 14, 15.
-    - Trong bản ánh xạ giải phẫu mới tại [`scripts/audit_backbone_transfer.py`](file:///D:/CNTT-KLCN155-waste-detection/scripts/audit_backbone_transfer.py):
-      + Block 13 (sub-blocks 1, 2, 3: depthwise, Squeeze-and-Excitation, projection) được ánh xạ chính xác sang `backbone.features.1.0`.
-      + Block 14 được ánh xạ nguyên vẹn sang `backbone.features.1.1`.
-      + Block 15 được ánh xạ nguyên vẹn sang `backbone.features.1.2`.
-      + Riêng block 16 (1x1 conv 960 kênh) bị SSDLite thay bằng reduced-tail conv 672 kênh nên không chuyển giao.
-    - Nhờ vậy, 38 keys của các khối inverted residual sâu đã được tái sử dụng thành công, nâng tổng số feature keys chuyển giao từ **258 / 308 (83.8%)** lên **296 / 308 (96.1%)**.
-- **Bằng chứng:** [`data/audit/backbone_transfer_audit.json`](file:///D:/CNTT-KLCN155-waste-detection/data/audit/backbone_transfer_audit.json) và [`data/audit/backbone_transfer_keys.csv`](file:///D:/CNTT-KLCN155-waste-detection/data/audit/backbone_transfer_keys.csv).
+### Câu 3: YOLO có còn augmentation mặc định ngoài chiến lược đang khảo sát không?
+- **Trả lời:** **KHÔNG CÒN.**
+- **Bằng chứng kỹ thuật ([`src/detection/train.py`](file:///D:/CNTT-KLCN155-waste-detection/src/detection/train.py#L165-L175)):**
+  - Trong `_train_yolo`, toàn bộ các cờ biến đổi ngầm của Ultralytics được ghi đè và khóa chặt bằng 0:
+    ```python
+    args.update(
+        augment=False, multi_scale=False, close_mosaic=0, mosaic=0.0,
+        mixup=0.0, cutmix=0.0, copy_paste=0.0, degrees=0.0, translate=0.0,
+        scale=0.0, shear=0.0, perspective=0.0, flipud=0.0, fliplr=0.0,
+        hsv_h=0.0, hsv_s=0.0, hsv_v=0.0, bgr=0.0, auto_augment=None, erasing=0.0
+    )
+    ```
+  - Trong `Phase2Trainer.build_dataset`: thuộc tính `dataset.augment = False` đảm bảo Ultralytics không gọi hàm sinh mosaic/mixup nội bộ.
+  - Phép xử lý duy nhất còn lại của Ultralytics là `LetterBox(new_shape=(320, 320), scaleup=False)` để đưa ảnh về kích thước chuẩn mà không làm biến dạng tỷ lệ khung hình.
+  - Nhờ vậy, YOLOv8n và SSDLite320 được đối chứng **hoàn toàn đồng nhất về mặt dữ liệu đầu vào** trong ma trận thực nghiệm 2x4.
 
 ---
 
-### Câu 6: `max_abs_diff = 0` được tính trực tiếp từ checkpoint nguồn và model đích sau nạp hay chỉ từ hai bản sao dữ liệu trung gian?
-- **Trả lời:** Được tính **TRỰC TIẾP** giữa tensor lưu trong tệp checkpoint nguồn trên đĩa cứng và tensor của mô hình SSDLite trong bộ nhớ RAM/VRAM sau khi gọi `model.load_state_dict(...)`.
-- **Thực nghiệm kiểm chứng:**
-  - Script [`verify_max_abs_diff.py`](file:///D:/CNTT-KLCN155-waste-detection/scratch/verify_max_abs_diff.py) thực hiện:
-    1. Đọc tệp checkpoint `artifacts/official_run/best_model.pt` từ đĩa, trích xuất `state_dict`.
-    2. Khởi tạo mô hình SSDLite320 bằng hàm `build_ssdlite(pretrained=True, backbone_weights=ckpt_path)`.
-    3. Duyệt từng tensor key, thực hiện phép trừ tensor: `diff = (model_state[target_k] - source_tensor).abs().max().item()`.
-  - **Kết quả:** Kiểm tra 253 feature weight/bias tensors tương ứng, `max_abs_diff` đạt chính xác **`0.0`**.
-  - Không có bất kỳ sự sai lệch số học nào xảy ra trong quá trình nạp trọng số backbone.
+### Câu 4: Dữ liệu nguồn hiện có segmentation/polygon hoặc mask sử dụng được không? Có thể lấy mask hợp lệ từ nguồn hiện hữu thay vì chờ chụp thực địa không?
+- **Trả lời:** **HOÀN TOÀN CÓ VÀ ĐÃ TRÍCH XUẤT THÀNH CÔNG.**
+- **Bằng chứng thực nghiệm:**
+  - Tệp [`data/audit/taco_annotations_raw.json`](file:///D:/CNTT-KLCN155-waste-detection/data/audit/taco_annotations_raw.json) (dung lượng 3.022.022 bytes) chứa toàn bộ 4.784 annotations gốc của tập dữ liệu TACO ở định dạng COCO.
+  - Kiểm tra đối soát 105 ảnh TACO có trên đĩa cứng: **100% (1.041/1.041 boxes) đều có trường `'segmentation'` chứa polygon points chuẩn xác**.
+  - **Trích xuất DonorBank phục vụ Copy-Paste ([`src/detection/copy_paste.py`](file:///D:/CNTT-KLCN155-waste-detection/src/detection/copy_paste.py)):**
+    + Tuân thủ nghiêm ngặt nguyên tắc cách ly dữ liệu: **CHỈ trích xuất từ 12 ảnh TACO thuộc tập `train`** (`manifest.jsonl` split == 'train'). Tuyệt đối không lấy donor từ `val` hoặc `test`.
+    + Đã giải quyết bài toán sai lệch kích thước: tính tỷ lệ scale chính xác giữa ảnh trên đĩa và ảnh gốc metadata (`sx = w_img / raw_w`, `sy = h_img / raw_h`).
+    + Trích xuất được **68 foreground donor objects có mask nhị phân hoàn chỉnh** bao gồm 8 lớp: `battery` (1), `biological` (2), `cardboard` (5), `glass` (4), `metal` (6), `paper` (6), `plastic` (35), `trash` (9).
+    + Có cơ chế **xử lý che khuất (Occlusion Handling)**: tự động loại bỏ bounding box nền nếu bị vật thể dán đè che khuất $\ge 80\%$ diện tích.
+  - Như vậy, nhánh Copy-Paste trong chiến lược `combined` đã có thể vận hành hợp lệ ngay trên dữ liệu hiện hữu mà không cần chờ chụp thực địa.
 
 ---
 
-### Câu 7: Code augmentation đã được gọi ở đâu? Copy-Paste có mask đã kiểm tra và quy tắc xử lý che khuất chưa?
-- **Trả lời:**
-  - Module Augmentation chuẩn mực cho Detection đã được xây dựng tại [`src/detection/augmentation.py`](file:///D:/CNTT-KLCN155-waste-detection/src/detection/augmentation.py) sử dụng thư viện `albumentations 2.0.8`.
-  - Cài đặt đầy đủ 4 chiến lược theo đề cương:
-    1. `none`: Baseline (giữ nguyên ảnh và hộp bao).
-    2. `geometric`: Lật ngang (`HorizontalFlip`), dịch chuyển, xoay góc nhẹ, co giãn (`ShiftScaleRotate`), đồng bộ chặt chẽ với toạ độ Bbox.
-    3. `photometric`: Biến đổi màu sắc quang học (`ColorJitter`), làm mờ camera (`GaussianBlur`, `MotionBlur`).
-    4. `combined`: Phối hợp cả biến đổi hình học và quang học.
-  - **Về kỹ thuật Copy-Paste [5] (Ghiasi et al., 2021):**
-    - **BLOCKER KHOA HỌC:** Kỹ thuật Copy-Paste chuẩn mực đòi hỏi **mặt nạ phân đoạn đối tượng (pixel-level instance segmentation mask)** để tách rời hình dạng tự nhiên của vật thể rác và dán lên nền mới.
-    - Bộ dữ liệu hiện tại chỉ có nhãn hình chữ nhật Bounding Box (YOLO format), hoàn toàn **CHƯA CÓ polygon mask** (`"foreground_masks": []`, `"mask_reviewed": false` trong `manifest.jsonl`).
-    - **Nguyên tắc:** Tuyệt đối không dùng crop hình chữ nhật để dán, vì việc dán cả viền nền cũ sẽ tạo ra biên giả tạo (edge artifacts), làm sai lệch phân phối đặc trưng học của mạng nơ-ron và vi phạm tính chuẩn tắc học thuật.
-    - Hàm gọi `strategy='copy_paste'` ném ngoại lệ `NotImplementedError` có kiểm soát với lý do nêu trên.
-  - **Bằng chứng thực nghiệm:** Đã chạy thử nghiệm trên ảnh thật `taco_0081.jpg`, xuất các mẫu ảnh trước–sau tại [`artifacts/part02/augmentation_samples/`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/part02/augmentation_samples/).
+### Câu 5: Trong 235 ảnh ngoài split, bao nhiêu UNREVIEWED, REJECTED và NEEDS_RELABEL? Bao nhiêu còn phù hợp để thẩm định?
+- **Số liệu kiểm toán thực tế trên đĩa cứng:**
+  - Tổng số ảnh thực tế trên đĩa ([`data/detection/images/real/`](file:///D:/CNTT-KLCN155-waste-detection/data/detection/images/real/)): **257 ảnh** (105 ảnh TACO + 152 ảnh OpenImages).
+  - Số ảnh đã qua thẩm định và đưa vào split chính thức ([`data/detection/manifest.jsonl`](file:///D:/CNTT-KLCN155-waste-detection/data/detection/manifest.jsonl)): **22 ảnh** (toàn bộ từ TACO).
+  - Số ảnh thực tế ngoài split: $257 - 22 = \mathbf{235\text{ ảnh}}$.
+- **Phân rã trạng thái chi tiết của 235 ảnh ngoài split:**
+  1. **114 ảnh OpenImages đã qua kiểm toán thị giác (Visual Audit):**
+     - Lưu tại [`artifacts/part02/real_data_audit/real_images_audit_table.csv`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/part02/real_data_audit/real_images_audit_table.csv) với kết luận `AUDIT_OI_PENDING_PM_SCOPE_DECISION`:
+       + **101 ảnh `WORN_BY_PERSON`:** Quần áo và giày dép đang được con người mặc khi sinh hoạt/dạo phố. **HOÀN TOÀN KHÔNG PHÙ HỢP** làm dữ liệu rác thải (nếu đưa vào sẽ dạy mô hình nhận diện quần áo người bình thường là rác).
+       + **10 ảnh `COMMERCIAL_PRODUCT_STUDIO`:** Ảnh chụp sản phẩm giày/áo quảng cáo studio trên nền trắng sạch. **KHÔNG PHÙ HỢP**.
+       + **2 ảnh `UNRESOLVED`:** Bối cảnh phức tạp cần PM xem xét.
+       + **1 ảnh `APPEARS_DISCARDED_OUTDOORS`:** Giày dép vứt ngoài trời, **PHÙ HỢP ĐỂ THẨM ĐỊNH VÀO RÁC THẢI**.
+  2. **103 ảnh TACO và OpenImages ở trạng thái `UNREVIEWED`:**
+     - Nằm trong [`data/audit/real_detection_source_manifest.csv`](file:///D:/CNTT-KLCN155-waste-detection/data/audit/real_detection_source_manifest.csv).
+     - **Toàn bộ 103 ảnh này ĐỀU PHÙ HỢP ĐỂ THẨM ĐỊNH** qua Review Tool / CVAT để bổ sung cảnh rác thực tế ngoài trời.
+  3. **14 ảnh `REJECTED`:**
+     - Bị từ chối vì lý do nhãn mơ hồ, ảnh mờ nhòe hoặc không thuộc phạm vi rác thải sinh hoạt. Cần giữ nguyên lý do loại trừ, không đưa vào tập dữ liệu.
+  4. **4 ảnh `NEEDS_RELABEL`:**
+     - Các ảnh ly cốc, chai lọ có bối cảnh phù hợp nhưng nhãn bbox bị thiếu hoặc sai lệch. **CẢ 4 ẢNH ĐỀU PHÙ HỢP ĐỂ CHỈNH SỬA VÀ ĐƯA VÀO DỮ LIỆU**.
+- **Tổng kết khả năng thẩm định:** Có $103 + 4 + 1 = \mathbf{108\text{ ảnh}}$ hoàn toàn phù hợp để thẩm định và tái sử dụng cho bài toán phát hiện rác thải.
 
 ---
 
-### Câu 8: Hai detector đã chạy một bước backward, lưu/nạp checkpoint và suy luận ảnh thật chưa?
-- **Trả lời:** Cả hai mô hình đã hoàn thành chạy thực tế (Real Smoke Training) 2 epochs trên GPU NVIDIA GeForce RTX 2050 (4GB VRAM):
+### Câu 6: Nguồn nào có khả năng bổ sung rác quần áo, pin và giày dép đúng ngữ cảnh?
+- **Phân tích bản chất thiếu hụt:**
+  - Khảo sát trực tiếp trong toàn bộ 4.784 annotations của TACO gốc: `Battery` chỉ có đúng **2 annotations**, `Shoe` chỉ có **7 annotations**, và TACO hoàn toàn không có danh mục `Clothing`.
+  - Bộ dữ liệu OpenImages chứa nhiều nhãn `Clothing` và `Footwear` nhưng hơn $95\%$ là ảnh con người đang mặc đồ hoặc sản phẩm thời trang thương mại.
+- **Nguồn bổ sung đúng ngữ cảnh rác thải sinh hoạt (Discards & Litter Context):**
+  1. **Pin cũ (`battery`):**
+     - Chụp thực địa tại các điểm đặt thùng thu gom pin nguy hại chuyên dụng tại TP.HCM (chuỗi siêu thị Co.opmart, Go!, các sảnh giảng đường HUIT, chung cư cao tầng).
+     - Tìm kiếm các dataset rác thải điện tử công khai: *E-Waste Detection Dataset* hoặc các bộ ảnh chụp thiết bị pin nhỏ thải bỏ.
+  2. **Giày dép cũ (`shoes`):**
+     - Chụp thực tế dép tổ ong, dép lê, giày rách vứt ở các bãi đất trống, lề đường, thùng rác công cộng, cống rãnh tại TP.HCM.
+     - Lọc thủ công các ảnh OpenImages có bối cảnh "discarded footwear" (loại bỏ ảnh người mang giày).
+  3. **Quần áo thải bỏ (`clothes`):**
+     - Chụp thực địa các bao tải quần áo cũ, vải vụn, giẻ lau tại các điểm tập kết rác dân cư hoặc điểm thu nhận quần áo cũ từ thiện tại TP.HCM.
+     - Tuyệt đối không cào dữ liệu ảnh người mẫu hoặc người đi đường trên mạng vì sẽ làm sai lệch phân phối đặc trưng học của mô hình.
+
+---
+
+### Câu 7: Log train thô, config, checkpoint và kết quả đánh giá smoke hiện nằm ở đâu? Vì sao chưa có trong ZIP trước?
+- **Vị trí vật lý cụ thể trên đĩa:**
   - **SSDLite320 (Mô hình chính):**
-    + Loss hội tụ giảm từ 9.93 xuống 6.13.
-    + Validation mAP@0.5:0.95 tính qua `pycocotools.COCOeval` tăng từ 0.0018 lên 0.0073.
-    + Lưu checkpoint thành công: [`artifacts/detection_smoke/smoke-ssdlite320/weights/best.pt`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/detection_smoke/smoke-ssdlite320/weights/best.pt) (28.45 MB, SHA-256: `c9a079d630bdff79...`).
+    + Weights: [`artifacts/detection_smoke/smoke-ssdlite320/weights/best.pt`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/detection_smoke/smoke-ssdlite320/weights/best.pt) (28.456.918 bytes, SHA-256: `c9a079d630bdff79edb7582b0f4410a8d67a998c253b708cf3b22bce354bf487`).
+    + Checkpoint last: [`artifacts/detection_smoke/smoke-ssdlite320/weights/last.pt`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/detection_smoke/smoke-ssdlite320/weights/last.pt) (28.456.918 bytes).
+    + Metrics & History: [`artifacts/detection_smoke/smoke-ssdlite320/history.json`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/detection_smoke/smoke-ssdlite320/history.json), [`training_summary.json`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/detection_smoke/smoke-ssdlite320/training_summary.json).
+    + Config: [`configs/detection_training_smoke_ssdlite.yaml`](file:///D:/CNTT-KLCN155-waste-detection/configs/detection_training_smoke_ssdlite.yaml).
   - **YOLOv8n (Mô hình đối chứng):**
-    + Loss box giảm từ 1.30 xuống 0.80, loss cls giảm từ 4.37 xuống 2.43.
-    + Validation mAP@0.5:0.95 đạt 0.0064.
-    + Lưu checkpoint thành công: [`artifacts/detection_smoke/smoke-yolov8n/weights/best.pt`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/detection_smoke/smoke-yolov8n/weights/best.pt) (6.20 MB, SHA-256: `84b677fcb4de6cb0...`).
-  - **Nạp lại và suy luận trên ảnh Validation thật:**
-    + Cả hai checkpoint đã được nạp lại độc lập qua script `test_real_val_inference.py`.
-    + Chạy suy luận thành công trên ảnh thực tế ngoài trời `data/detection/images/real/taco_0081.jpg`.
-    + Xuất ảnh trực quan hoá bounding box tại:
-      - [`artifacts/part02/smoke_ssdlite_real_val_inference.png`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/part02/smoke_ssdlite_real_val_inference.png)
-      - [`artifacts/part02/smoke_yolov8n_real_val_inference.png`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/part02/smoke_yolov8n_real_val_inference.png)
+    + Weights: [`artifacts/detection_smoke/smoke-yolov8n/weights/best.pt`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/detection_smoke/smoke-yolov8n/weights/best.pt) (6.208.931 bytes, SHA-256: `84b677fcb4de6cb065e893e430ba1cf3ea27fa5f913d80b6aa27b2c011e4bf6a`).
+    + Metrics & Curves: [`artifacts/detection_smoke/smoke-yolov8n/results.csv`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/detection_smoke/smoke-yolov8n/results.csv), `BoxPR_curve.png`, `BoxF1_curve.png`, `confusion_matrix.png`.
+    + Config: [`configs/detection_training_smoke_yolov8n.yaml`](file:///D:/CNTT-KLCN155-waste-detection/configs/detection_training_smoke_yolov8n.yaml), `effective_train_args.json`.
+- **Vì sao chưa có trong file ZIP trước:**
+  - Script đóng gói trước đó ([`export_report_and_zip.py`](file:///C:/Users/ad/.gemini/antigravity-cli/brain/2c27965b-1604-457d-b2ba-985a0d9a342d/scratch/export_report_and_zip.py)) chỉ liệt kê việc sao chép các tệp báo cáo Markdown, ảnh chụp Web App và 4 tệp kiểm toán CSV/JSON nhẹ. Nó đã bỏ quên thư mục `artifacts/detection_smoke/` chứa tệp weights nhị phân và log huấn luyện máy đọc được.
+  - Sơ suất này đã được khắc phục trong script đóng gói mới, bổ sung đầy đủ weights và logs vào gói bàn giao chính thức.
 
 ---
 
-### Câu 9: CVAT và dữ liệu TP.HCM đã có bằng chứng sử dụng chưa?
-- **Trả lời:**
-  - **Về CVAT:** Hiện tại trong repo **chưa có tệp dữ liệu nào được xuất trực tiếp từ nền tảng CVAT** (XML, JSON, COCO export). Các nhãn hiện có là kết quả chuyển đổi từ các bộ dữ liệu công khai (TACO, Mendeley, OpenImages) được rà soát nội bộ qua công cụ Review Tool. Quy trình kiểm tra chéo hai lượt trên CVAT trực tuyến sẽ được áp dụng trong đợt thu thập ảnh thực địa.
-  - **Về dữ liệu TP.HCM:** Trong repo **chưa có ảnh chụp thực tế tại địa bàn TP.HCM**. Toàn bộ 257 ảnh thực tế hiện có là từ TACO và OpenImages. Kế hoạch thu thập 200–300 ảnh thực địa tại TP.HCM (HUIT, đường phố, điểm thu gom rác) đã được đưa vào Tờ trình điều chỉnh đề cương (Tuần 6–7).
+### Câu 8: Con số classifier “F1 98,3%” trong báo cáo trước lấy từ artifact nào? Có khớp kết quả Phần 1 đã nghiệm thu không?
+- **Khảo sát đối chiếu nguồn gốc:**
+  - Tra cứu trong toàn bộ repo: Con số "98,3%" chỉ xuất hiện duy nhất dưới dạng text tại một dòng trong báo cáo nháp trước đó mà không có bất kỳ artifact JSON nào chứng thực.
+  - **Đối soát với Biên bản nghiệm thu chính thức Phần 1 ([`docs/plan/PART_01_ACCEPTANCE.md`](file:///D:/CNTT-KLCN155-waste-detection/docs/plan/PART_01_ACCEPTANCE.md#L67-L87)):**
+    + Chỉ số nghiệm thu chính thức tại checkpoint tốt nhất (Epoch 12, [`artifacts/official_run/best_model.pt`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/official_run/best_model.pt)):
+      * **Validation Accuracy: 96,18% (0.9618)**
+      * **Validation Macro-Averaged F1: 95,59% (0.9559)**
+      * Validation Loss: 0.6248
+  - Tra cứu trong [`artifacts/official_run/official_training_metrics.json`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/official_run/official_training_metrics.json):
+    `"val_accuracy": 0.9618`, `"val_macro_f1": 0.9559`.
+- **Kết luận:** Con số "98,3%" là do sơ suất ghi chép trong văn bản nháp trước đó (có thể nhầm lẫn với F1 của lớp `clothes` đạt 99,47% hoặc Train Accuracy 99,9%). **Kết quả chính thức của Phần 1 đã được chuẩn hóa và đính chính lại đúng số liệu nghiệm thu: Validation Macro-F1 = 95,59% và Accuracy = 96,18%.**
 
 ---
 
-### Câu 10: Những yêu cầu đề cương nào đã có kết quả, mới có code hoặc vẫn thiếu?
-- **Trả lời phân định rõ ràng:**
+## 2. BẢNG TỔNG KẾT KIỂM CHỨNG KỸ THUẬT (PASS / FAIL / BLOCKED)
 
-| Nhóm trạng thái | Các hạng mục cụ thể | Diễn giải hiện trạng |
-|:---|:---|:---|
-| **ĐÃ CÓ KẾT QUẢ THỰC NGHIỆM**<br>*(Empirical Results)* | 1. Classifier 10 lớp Phần 1<br>2. Chuyển giao Backbone sang SSDLite (296 keys, diff = 0.0)<br>3. Smoke Training thật 2 epochs cả SSDLite & YOLOv8n trên GPU<br>4. Suy luận ảnh validation thật và xuất ảnh visualize<br>5. Tương tác kiểm chứng Web App qua MCP Chrome DevTools | - Classifier đạt 98.3% F1.<br>- Đã đo đạc tensor và kiểm chứng toán học.<br>- GPU RTX 2050 huấn luyện thành công, checkpoints lưu đầy đủ.<br>- Trực tiếp tương tác trên trình duyệt thật qua MCP. |
-| **MỚI CÓ CODE CHUẨN BỊ**<br>*(Code Ready, Pending Full Run)* | 1. Thuật toán Hợp nhất WBF (`src/detection/fusion.py`)<br>2. Module tinh chỉnh ngưỡng WBF trên Validation (`src/detection/tune.py`)<br>3. Module đánh giá COCO AP và benchmark phần cứng (`src/detection/evaluate.py`)<br>4. Module Tăng cường dữ liệu Albumentations 4 chiến lược (`src/detection/augmentation.py`) | - Mã nguồn đã sẵn sàng 100%, vượt qua unit test.<br>- Chờ chạy toàn bộ ma trận huấn luyện chính thức (120 epochs). |
-| **THIẾU / BLOCKER**<br>*(Missing / Blocked)* | 1. Tăng cường dữ liệu Copy-Paste [5]<br>2. Dữ liệu thực địa tự chụp tại TP.HCM<br>3. Quy trình gán nhãn kiểm tra chéo trên CVAT<br>4. Đánh giá phân tập điều kiện thách thức (thiếu sáng, ngược sáng, che khuất) | - Thiếu instance segmentation masks (chỉ có bbox).<br>- Chưa đi chụp thực địa TP.HCM theo kế hoạch Tuần 6–7.<br>- Chưa thiết lập project CVAT.<br>- Cần gắn thẻ `conditions` chi tiết cho từng ảnh thực tế. |
-
----
-
-## 2. BẰNG CHỨNG KIỂM TRA ỨNG DỤNG WEB BẰNG MCP CHROME DEVTOOLS
-
-Ứng dụng web Streamlit ([`streamlit_app.py`](file:///D:/CNTT-KLCN155-waste-detection/streamlit_app.py)) đã được khởi chạy tại cổng `8501` và kiểm tra tự động qua MCP `chrome-devtools`.
-
-### Các kịch bản kiểm thử đã thực hiện và bằng chứng:
-1. **Khởi tạo và hiển thị cấu hình ban đầu:**
-   - Hiển thị danh mục đúng chuẩn 10 nhóm rác: *Pin, Rác hữu cơ, Bìa carton, Quần áo, Thủy tinh, Kim loại, Giấy, Nhựa, Giày dép, Rác khác*.
-   - Khởi tạo mặc định với mô hình chính: `SSDLite320-MobileNetV3 (Mô hình chính)`.
-   - **Bằng chứng:** [`artifacts/part02/mcp_streamlit_initial_view.png`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/part02/mcp_streamlit_initial_view.png).
-
-2. **Tải ảnh và cảnh báo khi chưa đạt ngưỡng tin cậy:**
-   - Tải ảnh thực tế `taco_0081.jpg`, chạy nhận diện ở ngưỡng tin cậy mặc định $0.35$.
-   - Thông báo hiển thị đúng yêu cầu đề cương: *"Không phát hiện vật thể rác đạt ngưỡng tin cậy trong ảnh này. Bạn có thể chọn ảnh rõ hơn hoặc điều chỉnh ngưỡng."*
-   - Hiển thị đầy đủ độ trễ xử lý (Processing time).
-   - **Bằng chứng:** [`artifacts/part02/mcp_streamlit_detection_result.png`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/part02/mcp_streamlit_detection_result.png).
-
-3. **Điều chỉnh ngưỡng tin cậy và phân loại thùng rác tại nguồn:**
-   - Hạ ngưỡng tin cậy xuống $0.05$ (phù hợp với checkpoint smoke 2 epochs).
-   - SSDLite phát hiện 47 vị trí tiềm năng, vẽ bounding box, hiển thị bảng số lượng và hướng dẫn bỏ rác vào các thùng màu sắc tương ứng.
-   - **Bằng chứng:** [`artifacts/part02/mcp_streamlit_detection_active_005.png`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/part02/mcp_streamlit_detection_active_005.png).
-
-4. **Chuyển đổi sang Mô hình đối chứng (YOLOv8n):**
-   - Lựa chọn `YOLOv8n (Mô hình đối chứng)` từ combobox trên giao diện.
-   - Bấm nút "Nhận diện", mô hình đối chứng phát hiện vật thể Pin với độ tin cậy $13.2\%$ tại tọa độ $(163, 236, 391, 396)$, độ trễ $1.340\text{ ms}$.
-   - Giao diện kích hoạt cảnh báo phân loại: *🔴 Thùng Đỏ / Cam (Rác nguy hại): Pin, ắc quy, bóng đèn, rác độc hại.*
-   - **Bằng chứng:** [`artifacts/part02/mcp_streamlit_yolov8n_result.png`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/part02/mcp_streamlit_yolov8n_result.png).
-
-5. **Chuyển đổi sang Chế độ Hợp nhất dự đoán (WBF):**
-   - Lựa chọn `Hợp nhất SSDLite + YOLOv8n (WBF)`.
-   - Thuật toán WBF tự động chạy đồng thời SSDLite và YOLOv8n, hợp nhất dự đoán thành 2 bounding box đồng thuận.
-   - Nút **"Tải ảnh kết quả"** hoạt động chính xác.
-   - **Bằng chứng:** [`artifacts/part02/mcp_streamlit_wbf_result.png`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/part02/mcp_streamlit_wbf_result.png).
-
-> [!NOTE]
-> Các checkpoint smoke hiện tại chỉ phục vụ kiểm chứng tính toàn vẹn và thông suốt của luồng dữ liệu (pipeline plumbing verification). Độ chính xác nhận diện sẽ được tối ưu khi hoàn thành huấn luyện chính thức 120 epochs.
+| STT | Vấn đề / Hạng mục kiểm chứng | Nguyên nhân kỹ thuật gốc rễ | Tệp mã nguồn đã chỉnh sửa | Phép kiểm tra thực thi | Bằng chứng vật lý xác thực | Kết luận |
+|:---:|:---|:---|:---|:---|:---|:---:|
+| 1 | Ảnh mẫu augmentation bị trùng SHA-256 và pixel | Xác suất ngẫu nhiên $p=0.5$ không kích hoạt do Albumentations dùng `default_rng()` độc lập; identity transform giữ nguyên pixel ảnh gốc. | [`src/detection/augmentation.py`](file:///D:/CNTT-KLCN155-waste-detection/src/detection/augmentation.py) | `verify_augmentation_and_loaders.py`: chạy đối chiếu Normal vs Forced mode trên 3 ảnh thật (`taco_0081`, `0082`, `0853`). | 24 ảnh mẫu khác biệt SHA-256 tại `augmentation_samples/` kèm telemetry diff pixel trong `augmentation_verification_report.json`. | **PASS** |
+| 2 | Augmentation chưa được gọi trong Training Loader | File `ssdlite_train.py` và `train.py` chỉ đọc dữ liệu thô, chưa kết nối pipeline biến đổi vào Dataset. | [`src/detection/ssdlite_train.py`](file:///D:/CNTT-KLCN155-waste-detection/src/detection/ssdlite_train.py)<br>[`src/detection/train.py`](file:///D:/CNTT-KLCN155-waste-detection/src/detection/train.py) | Chạy 1 batch forward + backward qua SSDLite loader (`combined`) và YOLO ablation transform. | SSDLite: Loss = 12.67, GradNorm = 136.99.<br>YOLO: Ablation transform verified với boxes đồng bộ. | **PASS** |
+| 3 | Tăng cường dữ liệu Simple Copy-Paste [5] | Bị báo BLOCKED do hiểu lầm toàn bộ dataset chỉ có bounding box hình chữ nhật. | [`src/detection/copy_paste.py`](file:///D:/CNTT-KLCN155-waste-detection/src/detection/copy_paste.py) | Khảo sát `taco_annotations_raw.json`: trích xuất 68 donor objects có polygon mask từ 12 ảnh TACO train; xử lý che khuất (occlusion). | `test_copy_paste_synthetic_donor_and_occlusion` passed trong pytest (18/18 tests pass). | **PASS** |
+| 4 | Kiểm chứng toán học chuyển giao Backbone | Cần chứng minh tính chính xác tuyệt đối khi nạp 296 feature keys từ Classifier sang SSDLite. | [`scripts/audit_backbone_transfer.py`](file:///D:/CNTT-KLCN155-waste-detection/scripts/audit_backbone_transfer.py) | Đo hiệu số tensor trực tiếp giữa checkpoint đĩa và RAM: $\max \|T_{\text{model}} - T_{\text{source}}\|$. | 253 weight/bias tensors đạt `max_abs_diff = 0.0`. 43 BatchNorm buffers. Báo cáo tại `data/audit/backbone_transfer_audit.json`. | **PASS** |
+| 5 | Thống kê số keys backbone trong tài liệu | File JSON cũ còn sót chuỗi mô tả cố định "258/168 keys" dù đã chuyển giao 296 keys. | [`scripts/audit_backbone_transfer.py`](file:///D:/CNTT-KLCN155-waste-detection/scripts/audit_backbone_transfer.py) | Chạy lại audit script, tạo lại file JSON với số liệu động. | `backbone_transfer_audit.json` cập nhật: 296/308 feature keys, 253 tensors đối chiếu, không còn số 258/168. | **PASS** |
+| 6 | Đính chính F1 Classifier Phần 1 | Ghi nhầm 98,3% F1 trong văn bản nháp không khớp với biên bản nghiệm thu. | [`docs/plan/PART_02_10CLASS_VERIFICATION.md`](file:///D:/CNTT-KLCN155-waste-detection/docs/plan/PART_02_10CLASS_VERIFICATION.md) | Đối soát chéo với `PART_01_ACCEPTANCE.md` và `official_training_metrics.json`. | Khớp chuẩn 100%: Val Acc 96,18%, Val Macro-F1 95,59% (0.9559). | **PASS** |
+| 7 | Tờ trình điều chỉnh đề cương | Dùng sai tên đề tài chính thức; lập luận sai rằng 6 lớp làm mất khả năng chuyển backbone. | [`docs/proposal/TO_TRINH_XIN_DIEU_CHINH_DE_CUONG_10_LOP.md`](file:///D:/CNTT-KLCN155-waste-detection/docs/proposal/TO_TRINH_XIN_DIEU_CHINH_DE_CUONG_10_LOP.md) | Soạn thảo lại tờ trình bám sát tên đề tài gốc, giải thích mở rộng bằng nhu cầu thực tế và kế hoạch dữ liệu. | Tờ trình hoàn chỉnh gửi GVHD ThS. Huỳnh Thị Châu Lan. | **PASS** |
+| 8 | Bằng chứng kiểm tra tính năng tải tệp Web App | Giao diện web có nút tải nhưng chưa chứng minh tệp tải về có hợp lệ trên đĩa không. | [`streamlit_app.py`](file:///D:/CNTT-KLCN155-waste-detection/streamlit_app.py)<br>[`src/web/detection_logic.py`](file:///D:/CNTT-KLCN155-waste-detection/src/web/detection_logic.py) | Mô phỏng luồng tải ảnh: gọi `analyze_image_file`, xuất bytes ra đĩa và giải mã lại bằng Pillow. | Tệp `downloaded_annotated_sample.png` lưu hợp lệ (480x640, 396.647 bytes, format PNG). | **PASS** |
+| 9 | Thẩm định 235 ảnh thực tế ngoài split | 101 ảnh OpenImages là người mặc quần áo; 103 ảnh TACO/OpenImages chưa duyệt. | [`data/audit/real_detection_source_manifest.csv`](file:///D:/CNTT-KLCN155-waste-detection/data/audit/real_detection_source_manifest.csv) | Phân rã 235 ảnh: 108 ảnh phù hợp thẩm định (103 UNREVIEWED + 4 NEEDS_RELABEL + 1 discarded). | Danh sách phân loại và kế hoạch thẩm định chi tiết. | **PENDING THẨM ĐỊNH** |
+| 10 | Bổ sung dữ liệu thực địa TP.HCM cho 3 lớp thiếu | Thiếu bối cảnh rác thực tế ngoài trời cho `battery`, `clothes`, `shoes` trên tập Val/Test. | Kế hoạch thực địa Tuần 6–7 | Lập danh mục địa điểm và đối tượng chụp cụ thể tại TP.HCM. | Cam kết không đưa toàn bộ ảnh thực địa vào test mà chia theo cảnh độc lập (scene-based). | **BLOCKED (CHỜ CHỤP)** |
 
 ---
 
-## 3. ĐÍNH CHÍNH VÀ CHUẨN HÓA CÁC NHẬN ĐỊNH HỌC THUẬT
+## 3. PHÂN BIỆT RÕ RÀNG GIỮA SMOKE TRAINING VÀ DETECTION CHÍNH THỨC
 
-1. **Phân biệt rõ ràng giữa "Có mã nguồn" và "Đã có kết quả thực nghiệm":**
-   - Các thuật toán WBF, COCOeval, Albumentations tuy đã được viết code hoàn chỉnh nhưng chưa được coi là "hoàn thành nghiên cứu" cho đến khi chạy xong toàn bộ ma trận thực nghiệm và ghi nhận số liệu.
-2. **Bản chất của việc nạp trọng số Backbone Classifier:**
-   - Việc chuyển giao trọng số MobileNetV3 từ Classifier Phần 1 sang SSDLite là một giải pháp kỹ thuật nhằm tận dụng đặc trưng miền rác thải và tăng tốc độ hội tụ; đây không phải là yêu cầu tiên quyết bắt buộc của đề cương mà là cải tiến kỹ thuật có kiểm chứng.
-3. **Tính năng phân loại thùng rác:**
-   - Khuyến nghị màu sắc thùng rác trên giao diện web là tính năng giá trị gia tăng (Value-added feature) hỗ trợ người dùng phân loại tại nguồn, không làm thay đổi bài toán gốc là Bounding Box Object Detection.
-4. **Tuyệt đối không võ đoán kết quả trước thực nghiệm:**
-   - Không điền trước các giá trị mAP, FPS, kích thước mô hình hay tuyên bố "WBF chắc chắn tốt hơn". Mô hình nào tối ưu hơn sẽ do thực nghiệm đo đạc khách quan quyết định.
+- **Bản chất của các thực nghiệm Smoke hiện tại:**
+  - Hai lượt chạy 2 epochs của SSDLite320 và YOLOv8n trên GPU RTX 2050 chỉ có giá trị duy nhất là **kiểm tra thông suốt đường ống kỹ thuật (Pipeline Plumbing Verification)**:
+    + Chứng minh dữ liệu nạp đúng định dạng tensor.
+    + Chứng minh hàm mất mát tính toán ra giá trị hữu hạn và lan truyền ngược (backward pass) thành công.
+    + Chứng minh checkpoint lưu trữ và nạp lại suy luận được trên ảnh PIL.
+  - **Tuyệt đối không dùng kết quả smoke này để công bố độ chính xác nhận diện của hệ thống.** Các giá trị mAP thấp (0.007) là hoàn toàn bình thường đối với mô hình mới học 2 epochs trên vài nghìn boxes.
+- **Nguyên tắc đối với tập kiểm thử cuối cùng (Final Held-out Test Set):**
+  - Tập Test được **NIÊM PHONG TUYỆT ĐỐI** trong suốt quá trình nghiên cứu và tối ưu.
+  - Không bao giờ dùng tập Test để:
+    + Chọn checkpoint tối ưu (`best.pt`).
+    + Lựa chọn chiến lược tăng cường dữ liệu (`none`, `geometric`, `photometric`, `combined`).
+    + Tinh chỉnh ngưỡng confidence vận hành hay siêu tham số hợp nhất WBF.
+  - Tập Test chỉ được mở ra đánh giá đúng một lần duy nhất khi toàn bộ quá trình huấn luyện và chọn mô hình trên tập Validation đã kết thúc.
 
 ---
 
-## 4. BẢNG TỔNG KẾT TRẠNG THÁI KIỂM CHỨNG (PASS / FAIL / BLOCKED)
+## 4. BẰNG CHỨNG THỰC NGHIỆM VÀ KHẢ NĂNG TÁI HIỆN (REPRODUCIBILITY EVIDENCE)
 
-| STT | Hạng mục kiểm chứng | Trạng thái | Bằng chứng xác thực |
-|:---:|:---|:---:|:---|
-| 1 | Khôi phục toàn vẹn dữ liệu nhãn 10 lớp | **PASS** | 1.562 tệp nhãn khớp 100% SHA-256 với `labels_10cls_backup`. 0 tệp thiếu, 0 diff. |
-| 2 | Kiểm toán phân rã 5.750 bounding boxes | **PASS** | 4.370 boxes trong split chính thức; 1.380 boxes bảo lưu an toàn ở trạng thái UNREVIEWED. Không gian lận dữ liệu. |
-| 3 | Chuyển giao Backbone SSDLite 296 keys | **PASS** | `max_abs_diff = 0.0` tính trực tiếp từ tệp checkpoint vào bộ nhớ. Báo cáo tại `backbone_transfer_audit.json`. |
-| 4 | Cấu hình kiến trúc SSDLite & YOLOv8n chuẩn 10 lớp | **PASS** | SSDLite num_classes=11 (10 fg + 1 bg). YOLOv8n depth=0.33, width=0.25, nc=10. |
-| 5 | Smoke Training thật SSDLite320 trên GPU | **PASS** | Loss giảm 9.93 -> 6.13; Val mAP tăng; Checkpoint lưu tại `smoke-ssdlite320/weights/best.pt`. |
-| 6 | Smoke Training thật YOLOv8n trên GPU | **PASS** | Loss giảm ổn định; Checkpoint lưu tại `smoke-yolov8n/weights/best.pt`. |
-| 7 | Nạp checkpoint và suy luận trên ảnh Validation thật | **PASS** | Xuất ảnh có Bbox và nhãn tại `smoke_ssdlite_real_val_inference.png` và `smoke_yolov8n_real_val_inference.png`. |
-| 8 | Tương tác và kiểm chứng Web App bằng MCP | **PASS** | 5 ảnh chụp màn hình kiểm chứng upload, chọn 3 model, chỉnh threshold, đếm vật thể và tải ảnh kết quả. |
-| 9 | Pipeline Tăng cường dữ liệu Albumentations | **PASS** | Hoàn thành 4 chiến lược trong `src/detection/augmentation.py`. Xuất ảnh mẫu đồng bộ bbox tại `augmentation_samples/`. |
-| 10 | Tăng cường dữ liệu Copy-Paste [5] | **BLOCKED** | Bị chặn do thiếu polygon mask segmentation. Tuyệt đối không dùng crop hình chữ nhật để thay thế. |
-| 11 | Quy trình gán nhãn chéo trên nền tảng CVAT | **BLOCKED** | Chưa có tài khoản/project CVAT và file xuất nhãn. Dự kiến thực hiện trong đợt thu thập ảnh TP.HCM (Tuần 6–7). |
-| 12 | Ảnh chụp thực tế tại địa bàn TP.HCM | **BLOCKED** | Chưa tổ chức chụp thực địa. Cần kế hoạch thu thập 200–300 ảnh cho các lớp `battery`, `clothes`, `shoes`. |
+Toàn bộ minh chứng kỹ thuật đã được tạo lập và lưu trữ có thể kiểm tra trực tiếp:
+1. **Báo cáo kiểm chứng Augmentation & DataLoader:** [`artifacts/part02/augmentation_verification_report.json`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/part02/augmentation_verification_report.json).
+2. **Bộ ảnh đối chứng Augmentation (24 ảnh mẫu):** [`artifacts/part02/augmentation_samples/`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/part02/augmentation_samples/).
+3. **Mẫu ảnh tải về từ Web App:** [`artifacts/part02/downloaded_annotated_sample.png`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/part02/downloaded_annotated_sample.png).
+4. **Báo cáo nạp trọng số Backbone:** [`data/audit/backbone_transfer_audit.json`](file:///D:/CNTT-KLCN155-waste-detection/data/audit/backbone_transfer_audit.json) và [`data/audit/backbone_transfer_keys.csv`](file:///D:/CNTT-KLCN155-waste-detection/data/audit/backbone_transfer_keys.csv).
+5. **Checkpoints và Log Smoke Training:** [`artifacts/detection_smoke/`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/detection_smoke/).
+6. **Mã nguồn và Unit Tests (18/18 Passed):** Chạy lệnh `.venv\Scripts\pytest.exe tests/detection/ -v`.

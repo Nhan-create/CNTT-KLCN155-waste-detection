@@ -115,6 +115,41 @@ def _best_f1_confidence(metrics: Any) -> dict[str, float]:
     return {}
 
 
+class AblationAugmentationTransform:
+    """Applies official Phase-2 augmentation ablation transforms within YOLO dataset pipeline."""
+
+    def __init__(self, strategy: str = "none", donor_bank: Any = None, seed: int | None = None):
+        self.strategy = strategy.lower().strip()
+        self.donor_bank = donor_bank
+        self.seed = seed
+
+    def __call__(self, labels: dict[str, Any]) -> dict[str, Any]:
+        if self.strategy == "none":
+            return labels
+        img = labels.get("img")
+        bboxes = labels.get("bboxes", [])
+        cls = labels.get("cls", [])
+        if img is None or len(bboxes) == 0:
+            return labels
+
+        boxes_list = [list(b) for b in bboxes]
+        cats_list = [int(c[0]) if hasattr(c, "__len__") else int(c) for c in cls]
+
+        from src.detection.augmentation import apply_augmentation
+        t_img, t_boxes, t_cats = apply_augmentation(
+            image=img,
+            boxes=boxes_list,
+            category_ids=cats_list,
+            strategy=self.strategy,
+            donor_bank=self.donor_bank,
+            seed=self.seed,
+        )
+        labels["img"] = t_img
+        labels["bboxes"] = np.array(t_boxes, dtype=np.float32).reshape(-1, 4)
+        labels["cls"] = np.array(t_cats, dtype=np.float32).reshape(-1, 1)
+        return labels
+
+
 def _make_yolo_trainer(metadata: dict[str, Any]):
     """Remove hidden augmentation and explicitly select checkpoints by val mAP."""
     from ultralytics.models.yolo.detect import DetectionTrainer
@@ -129,6 +164,13 @@ def _make_yolo_trainer(metadata: dict[str, Any]):
             dataset = super().build_dataset(img_path, mode=mode, batch=batch)
             dataset.augment = False
             dataset.transforms = dataset.build_transforms(self.args)
+            strategy = str(metadata.get("augmentation_variant", "none")).lower().strip()
+            if mode == "train" and strategy != "none":
+                from src.detection.copy_paste import DonorBank
+                donor_bank = DonorBank.from_dataset_root(".") if strategy in ("combined", "copy_paste") else None
+                ablation_transform = AblationAugmentationTransform(strategy=strategy, donor_bank=donor_bank)
+                if hasattr(dataset.transforms, "transforms") and isinstance(dataset.transforms.transforms, list):
+                    dataset.transforms.transforms.insert(0, ablation_transform)
             return dataset
 
         def validate(self):
