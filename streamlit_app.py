@@ -146,8 +146,6 @@ def main() -> None:
         confidence_threshold=confidence,
     )
     problem = detector_problem(settings)
-    if problem:
-        render_status(problem, "warning")
 
     uploaded_files = st.file_uploader(
         "Chọn một hoặc nhiều ảnh rác",
