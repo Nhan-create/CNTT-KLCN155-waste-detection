@@ -32,12 +32,14 @@ class YoloBoxDataset:
         self.split = split
         self.strategy = augmentation_strategy.lower().strip()
         self.donor_bank = donor_bank
+        self.telemetry_history: list[dict[str, Any]] = []
 
     def __len__(self) -> int:
         return len(self.images)
 
     def __getitem__(self, index: int):
         import torch
+        from src.detection.augmentation import apply_augmentation_with_telemetry
 
         image_path = self.images[index]
         with Image.open(image_path) as opened:
@@ -52,13 +54,15 @@ class YoloBoxDataset:
 
         # Apply data augmentation if in training split
         if self.split == "train" and self.strategy != "none":
-            t_img, t_boxes, t_classes = apply_augmentation(
+            t_img, t_boxes, t_classes, telem = apply_augmentation_with_telemetry(
                 image,
                 raw_boxes,
                 raw_classes,
                 strategy=self.strategy,
                 donor_bank=self.donor_bank,
             )
+            if len(self.telemetry_history) < 100:
+                self.telemetry_history.append(telem)
         else:
             t_img = np.array(image)
             t_boxes = raw_boxes
@@ -209,6 +213,8 @@ def train_ssdlite(data_path: Path, config: dict[str, Any], run_directory: Path,
             best_map, best_epoch = map_value, epoch
             torch.save(checkpoint, best_path)
         write_json(run_directory / "history.json", history)
+        if hasattr(train_data, "telemetry_history") and train_data.telemetry_history:
+            write_json(run_directory / "augmentation_telemetry.json", train_data.telemetry_history)
         print(f"epoch {epoch}/{epochs}: loss={row['loss']:.4f} val_mAP50:95={map_value:.4f}", flush=True)
         patience = int(args.get("patience", 30))
         if patience > 0 and epoch - best_epoch >= patience:

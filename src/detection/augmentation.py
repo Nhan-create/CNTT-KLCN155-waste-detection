@@ -222,6 +222,7 @@ def apply_augmentation_with_telemetry(
             donor_bank=donor_bank,
             p=1.0 if force_apply else 0.5,
             force_apply=force_apply,
+            seed=seed,
         )
         telemetry["copy_paste_telemetry"] = cp_telem
         if cp_telem.get("dropped_occluded_count", 0) > 0:

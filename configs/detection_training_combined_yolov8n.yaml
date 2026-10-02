@@ -1,0 +1,20 @@
+# YOLOv8n Combined Augmentation Training (1 epoch verification) - BENCHMARK DETECTOR
+backend: yolov8n
+model: yolov8n.pt
+project: artifacts/detection
+name: combined-yolov8n
+augmentation_variant: combined
+
+train:
+  epochs: 1
+  imgsz: 320
+  batch: 8
+  workers: 0
+  patience: 10
+  optimizer: AdamW
+  lr0: 0.001
+  lrf: 0.01
+  weight_decay: 0.0005
+  seed: 42
+  deterministic: true
+  device: auto

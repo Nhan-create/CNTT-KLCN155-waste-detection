@@ -5,7 +5,7 @@
 ### TỜ TRÌNH XIN ĐIỀU CHỈNH VÀ MỞ RỘNG TAXONOMY ĐỀ TÀI KHÓA LUẬN TỐT NGHIỆP
 
 - **Kính gửi:** ThS. Huỳnh Thị Châu Lan – Giảng viên hướng dẫn
-- **Sinh viên thực hiện:** Ngô Thanh Nhân (MSSV: 200123059)
+- **Sinh viên thực hiện:** Ngô Thanh Nhân (MSSV: 2001230595)
 - **Tên đề tài chính thức (theo Đề cương được duyệt):** *Xây dựng hệ thống phát hiện và phân loại đa đối tượng rác thải sinh hoạt trong ảnh chụp thực tế bằng mô hình học sâu nhẹ và kỹ thuật tăng cường dữ liệu*
 - **Mã đề tài:** CNTT-KLCN155
 - **Thời gian lập tờ trình:** Ngày 02 tháng 10 năm 2026

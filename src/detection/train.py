@@ -122,21 +122,31 @@ class AblationAugmentationTransform:
         self.strategy = strategy.lower().strip()
         self.donor_bank = donor_bank
         self.seed = seed
+        self.telemetry_history: list[dict[str, Any]] = []
 
     def __call__(self, labels: dict[str, Any]) -> dict[str, Any]:
         if self.strategy == "none":
             return labels
+
         img = labels.get("img")
-        bboxes = labels.get("bboxes", [])
-        cls = labels.get("cls", [])
-        if img is None or len(bboxes) == 0:
+        instances = labels.get("instances")
+
+        # Extract bboxes and class IDs from either Instances or raw bboxes dict key
+        if instances is not None and hasattr(instances, "bboxes"):
+            bboxes = instances.bboxes
+        else:
+            bboxes = labels.get("bboxes")
+
+        cls = labels.get("cls")
+
+        if img is None or bboxes is None or len(bboxes) == 0:
             return labels
 
         boxes_list = [list(b) for b in bboxes]
         cats_list = [int(c[0]) if hasattr(c, "__len__") else int(c) for c in cls]
 
-        from src.detection.augmentation import apply_augmentation
-        t_img, t_boxes, t_cats = apply_augmentation(
+        from src.detection.augmentation import apply_augmentation_with_telemetry
+        t_img, t_boxes, t_cats, telem = apply_augmentation_with_telemetry(
             image=img,
             boxes=boxes_list,
             category_ids=cats_list,
@@ -144,9 +154,20 @@ class AblationAugmentationTransform:
             donor_bank=self.donor_bank,
             seed=self.seed,
         )
+        if len(self.telemetry_history) < 100:
+            self.telemetry_history.append(telem)
+
+        new_boxes_arr = np.array(t_boxes, dtype=np.float32).reshape(-1, 4)
+        new_cats_arr = np.array(t_cats, dtype=np.float32).reshape(-1, 1)
+
         labels["img"] = t_img
-        labels["bboxes"] = np.array(t_boxes, dtype=np.float32).reshape(-1, 4)
-        labels["cls"] = np.array(t_cats, dtype=np.float32).reshape(-1, 1)
+        labels["cls"] = new_cats_arr
+        labels["bboxes"] = new_boxes_arr
+
+        if instances is not None:
+            from ultralytics.utils.instance import Instances
+            labels["instances"] = Instances(bboxes=new_boxes_arr, bbox_format="xywh", normalized=True)
+
         return labels
 
 
@@ -169,6 +190,7 @@ def _make_yolo_trainer(metadata: dict[str, Any]):
                 from src.detection.copy_paste import DonorBank
                 donor_bank = DonorBank.from_dataset_root(".") if strategy in ("combined", "copy_paste") else None
                 ablation_transform = AblationAugmentationTransform(strategy=strategy, donor_bank=donor_bank)
+                self.phase2_ablation_transform = ablation_transform
                 if hasattr(dataset.transforms, "transforms") and isinstance(dataset.transforms.transforms, list):
                     dataset.transforms.transforms.insert(0, ablation_transform)
             return dataset
@@ -224,6 +246,11 @@ def _train_yolo(data_path: Path, config: dict[str, Any], run_directory: Path,
     validation_metrics = best_model.val(data=str(data_path), split="val",
         imgsz=int(args.get("imgsz", 320)), device=args.get("device"), max_det=100,
         conf=0.001, plots=True, project=str(run_directory), name="validation", exist_ok=True)
+    ablation_telem = []
+    if hasattr(model.trainer, "phase2_ablation_transform"):
+        ablation_telem = getattr(model.trainer.phase2_ablation_transform, "telemetry_history", [])
+    if ablation_telem:
+        write_json(run_directory / "augmentation_telemetry.json", ablation_telem)
     write_json(run_directory / "training_summary.json", {
         **metadata, "trained": True, "best_checkpoint": str(best_path),
         "effective_train_args": args, "elapsed_seconds": time.monotonic() - started,
@@ -273,7 +300,7 @@ def train_detector(
     variant = variant_override or str(config.get("augmentation_variant", "none"))
     if variant not in {"none", "geometric", "photometric", "combined"}:
         raise ValueError("Unknown offline augmentation variant")
-    if payload.get("augmentation_variant", "none") != variant:
+    if "augmentation_variant" in payload and payload["augmentation_variant"] != variant:
         raise DetectionDatasetError("Requested augmentation variant does not match dataset YAML")
     config["augmentation_variant"] = variant
     project = Path(str(config.get("project", "artifacts/detection"))).resolve()

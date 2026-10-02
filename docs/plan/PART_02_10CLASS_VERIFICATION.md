@@ -121,12 +121,12 @@
 ### Câu 7: Log train thô, config, checkpoint và kết quả đánh giá smoke hiện nằm ở đâu? Vì sao chưa có trong ZIP trước?
 - **Vị trí vật lý cụ thể trên đĩa:**
   - **SSDLite320 (Mô hình chính):**
-    + Weights: [`artifacts/detection_smoke/smoke-ssdlite320/weights/best.pt`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/detection_smoke/smoke-ssdlite320/weights/best.pt) (28.456.918 bytes, SHA-256: `c9a079d630bdff79edb7582b0f4410a8d67a998c253b708cf3b22bce354bf487`).
+    + Weights: [`artifacts/detection_smoke/smoke-ssdlite320/weights/best.pt`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/detection_smoke/smoke-ssdlite320/weights/best.pt) (28.456.918 bytes, SHA-256: `c9a079d630bdff7919d476c960784af885662fd12fa28fee7c8fef03bd551c9b`).
     + Checkpoint last: [`artifacts/detection_smoke/smoke-ssdlite320/weights/last.pt`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/detection_smoke/smoke-ssdlite320/weights/last.pt) (28.456.918 bytes).
     + Metrics & History: [`artifacts/detection_smoke/smoke-ssdlite320/history.json`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/detection_smoke/smoke-ssdlite320/history.json), [`training_summary.json`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/detection_smoke/smoke-ssdlite320/training_summary.json).
     + Config: [`configs/detection_training_smoke_ssdlite.yaml`](file:///D:/CNTT-KLCN155-waste-detection/configs/detection_training_smoke_ssdlite.yaml).
   - **YOLOv8n (Mô hình đối chứng):**
-    + Weights: [`artifacts/detection_smoke/smoke-yolov8n/weights/best.pt`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/detection_smoke/smoke-yolov8n/weights/best.pt) (6.208.931 bytes, SHA-256: `84b677fcb4de6cb065e893e430ba1cf3ea27fa5f913d80b6aa27b2c011e4bf6a`).
+    + Weights: [`artifacts/detection_smoke/smoke-yolov8n/weights/best.pt`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/detection_smoke/smoke-yolov8n/weights/best.pt) (6.208.931 bytes, SHA-256: `84b677fcb4de6cb0725973aa7de21f0a594dfea57c20c875256f393fff2a06dd`).
     + Metrics & Curves: [`artifacts/detection_smoke/smoke-yolov8n/results.csv`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/detection_smoke/smoke-yolov8n/results.csv), `BoxPR_curve.png`, `BoxF1_curve.png`, `confusion_matrix.png`.
     + Config: [`configs/detection_training_smoke_yolov8n.yaml`](file:///D:/CNTT-KLCN155-waste-detection/configs/detection_training_smoke_yolov8n.yaml), `effective_train_args.json`.
 - **Vì sao chưa có trong file ZIP trước:**
