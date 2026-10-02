@@ -5,11 +5,6 @@
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-brightgreen.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-> **Khóa luận Cử nhân Công nghệ Thông tin (2026 – 2027)**  
-> **Trường Đại học Công Thương TP.HCM (HUIT)**  
-> **GVHD:** ThS. Huỳnh Thị Châu Lan  
-> **Sinh viên thực hiện:** Ngô Thanh Nhân (Nhóm trưởng / PM), Võ Gia Ninh, Vũ Trường Vinh  
-> 
 > 📖 **Xem hướng dẫn kiến trúc và các việc cần làm tiếp theo tại:** [**`ARCHITECTURE_AND_NEXT_STEPS.md`**](ARCHITECTURE_AND_NEXT_STEPS.md)  
 > 📋 **Xem báo cáo đối chiếu đề cương chi tiết tại:** [**`docs/plan/PROPOSAL_ARCHITECTURE_ALIGNMENT_REVIEW.md`**](docs/plan/PROPOSAL_ARCHITECTURE_ALIGNMENT_REVIEW.md)
 
