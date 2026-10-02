@@ -186,7 +186,7 @@ def parse_detection_settings(
 def detector_problem(settings: DetectionWebSettings) -> str | None:
     if not settings.model_path.is_file():
         return (
-            "Chưa có mô hình đã huấn luyện cho 6 nhóm rác tại cấu hình hiện tại. "
+            "Chưa có mô hình đã huấn luyện cho 10 nhóm rác tại cấu hình hiện tại. "
             "Chức năng nhận diện sẽ dùng được sau khi bổ sung trọng số phù hợp."
         )
     if settings.backend == "wbf" and (
