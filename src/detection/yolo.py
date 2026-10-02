@@ -39,8 +39,8 @@ def _ordered_names(values: Mapping[int, str] | Sequence[str]) -> tuple[str, ...]
     return tuple(str(value) for value in values)
 
 
-def validate_yolov8n_architecture(model: Any) -> None:
-    """Reject different YOLO generations even if their labels happen to match."""
+def validate_yolov8n_architecture(model: Any, expected_classes: int | None = None) -> None:
+    """Reject different YOLO generations and verify detection head classes."""
     network = getattr(model, "model", model)
     architecture = getattr(network, "yaml", {}) if isinstance(getattr(network, "yaml", None), dict) else {}
     filename = Path(str(architecture.get("yaml_file", ""))).stem.lower()
@@ -53,10 +53,49 @@ def validate_yolov8n_architecture(model: Any) -> None:
     if not (filename == "yolov8n" or (filename == "yolov8" and scale == "n") or (is_v8n_name and is_nano_scales) or is_nano_scales):
         raise DetectionError("Giai đoạn 2 yêu cầu đúng kiến trúc YOLOv8n")
 
+    if expected_classes is not None:
+        yaml_nc = architecture.get("nc")
+        if yaml_nc is not None and yaml_nc != expected_classes:
+            raise DetectionError(
+                f"Kiến trúc YOLOv8n có nc={yaml_nc}, yêu cầu chính xác {expected_classes} lớp rác"
+            )
+        net_model = getattr(network, "model", None)
+        if net_model is not None and hasattr(net_model, "__len__") and len(net_model) > 0:
+            try:
+                head = net_model[-1]
+                head_nc = getattr(head, "nc", None)
+                if head_nc is not None and head_nc != expected_classes:
+                    raise DetectionError(
+                        f"Detection head có nc={head_nc}, yêu cầu chính xác {expected_classes} lớp rác giai đoạn 2"
+                    )
+                cv3 = getattr(head, "cv3", None)
+                if cv3 is not None and hasattr(cv3, "__iter__"):
+                    for i, cv_branch in enumerate(cv3):
+                        out_conv = (
+                            cv_branch[2]
+                            if hasattr(cv_branch, "__getitem__") and len(cv_branch) > 2
+                            else getattr(cv_branch, "conv", cv_branch)
+                        )
+                        weight = getattr(out_conv, "weight", None)
+                        if weight is not None and weight.shape[0] != expected_classes:
+                            raise DetectionError(
+                                f"Detection head cv3[{i}] có {weight.shape[0]} output channels, yêu cầu chính xác {expected_classes} lớp"
+                            )
+            except (IndexError, TypeError):
+                pass
+
 
 def validate_yolo_metadata(model: Any) -> None:
-    validate_yolov8n_architecture(model)
-    metadata = getattr(getattr(model, "model", model), "phase2_metadata", {})
+    validate_yolov8n_architecture(model, expected_classes=len(CLASS_NAMES))
+    network = getattr(model, "model", model)
+    raw_names = getattr(model, "names", getattr(network, "names", None))
+    if raw_names is not None:
+        names = _ordered_names(raw_names)
+        if names != CLASS_NAMES:
+            raise DetectionError(
+                f"Sai thứ tự lớp detector: {names}; yêu cầu chính xác {CLASS_NAMES}"
+            )
+    metadata = getattr(network, "phase2_metadata", {})
     if (
         metadata.get("backend") != "yolov8n"
         or metadata.get("trained") is not True

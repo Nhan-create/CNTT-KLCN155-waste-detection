@@ -178,7 +178,21 @@ def _make_yolo_trainer(metadata: dict[str, Any]):
     class Phase2Trainer(DetectionTrainer):
         def get_model(self, cfg=None, weights=None, verbose=True):
             model = super().get_model(cfg=cfg, weights=weights, verbose=verbose)
-            model.phase2_metadata = dict(metadata, trained=True)
+            from src.detection.schema import DETECTION_CLASS_NAMES
+            head = model.model[-1]
+            head_nc = getattr(head, "nc", None)
+            if head_nc != len(DETECTION_CLASS_NAMES):
+                raise RuntimeError(
+                    f"YOLO trainer built model with {head_nc} classes, expected {len(DETECTION_CLASS_NAMES)}"
+                )
+            for i, cv in enumerate(getattr(head, "cv3", [])):
+                out_ch = cv[2].weight.shape[0]
+                if out_ch != len(DETECTION_CLASS_NAMES):
+                    raise RuntimeError(
+                        f"YOLO head cv3[{i}] has {out_ch} output channels, expected {len(DETECTION_CLASS_NAMES)}"
+                    )
+            model.names = {i: name for i, name in enumerate(DETECTION_CLASS_NAMES)}
+            model.phase2_metadata = dict(metadata, trained=True, class_names=list(DETECTION_CLASS_NAMES))
             return model
 
         def build_dataset(self, img_path, mode="train", batch=None):
@@ -195,6 +209,13 @@ def _make_yolo_trainer(metadata: dict[str, Any]):
                     dataset.transforms.transforms.insert(0, ablation_transform)
             return dataset
 
+        def save_model(self):
+            if hasattr(self, "model") and hasattr(self.model, "phase2_metadata"):
+                if hasattr(self, "ema") and self.ema is not None and hasattr(self.ema, "ema"):
+                    self.ema.ema.phase2_metadata = self.model.phase2_metadata
+                    self.ema.ema.names = self.model.names
+            return super().save_model()
+
         def validate(self):
             metrics = self.validator(self)
             if metrics is None:
@@ -203,7 +224,7 @@ def _make_yolo_trainer(metadata: dict[str, Any]):
             fitness = float(metrics["metrics/mAP50-95(B)"])
             if not np.isfinite(fitness):
                 raise RuntimeError("Non-finite YOLOv8n validation mAP")
-            if self.best_fitness is None or fitness > self.best_fitness:
+            if self.best_fitness is None or fitness >= self.best_fitness:
                 self.best_fitness = fitness
             return metrics, fitness
 
@@ -214,6 +235,8 @@ def _train_yolo(data_path: Path, config: dict[str, Any], run_directory: Path,
                 metadata: dict[str, Any]) -> Path:
     from ultralytics import YOLO
     from src.detection.yolo import validate_yolov8n_architecture, validate_yolo_metadata
+    from src.detection.schema import DETECTION_CLASS_NAMES
+    import torch
 
     model = YOLO(str(config.get("model", "yolov8n.pt")), task="detect")
     validate_yolov8n_architecture(model)
@@ -241,6 +264,20 @@ def _train_yolo(data_path: Path, config: dict[str, Any], run_directory: Path,
     best_path = Path(model.trainer.best)
     if not best_path.is_file():
         raise RuntimeError(f"Training completed without best detector: {best_path}")
+
+    # Inject official metadata contract directly into best.pt for flawless runtime reload
+    ckpt = torch.load(best_path, map_location="cpu")
+    yolo_meta = dict(metadata, trained=True, class_names=list(DETECTION_CLASS_NAMES), backend="yolov8n")
+    if "ema" in ckpt and ckpt["ema"] is not None:
+        ckpt["ema"].phase2_metadata = yolo_meta
+        ckpt["ema"].names = {i: name for i, name in enumerate(DETECTION_CLASS_NAMES)}
+    if "model" in ckpt and ckpt["model"] is not None:
+        ckpt["model"].phase2_metadata = yolo_meta
+        ckpt["model"].names = {i: name for i, name in enumerate(DETECTION_CLASS_NAMES)}
+    ckpt["phase2_metadata"] = yolo_meta
+    ckpt["names"] = {i: name for i, name in enumerate(DETECTION_CLASS_NAMES)}
+    torch.save(ckpt, best_path)
+
     best_model = YOLO(str(best_path), task="detect")
     validate_yolo_metadata(best_model)
     validation_metrics = best_model.val(data=str(data_path), split="val",
@@ -314,6 +351,7 @@ def train_detector(
     if run_directory.exists():
         raise ValueError(f"Run already exists; choose a new config name: {run_directory}")
     metadata = run_metadata(data_path, config)
+    metadata["augmentation_variant"] = variant
     metadata["dataset_report"] = asdict(report)
     run_directory.mkdir(parents=True)
     write_json(run_directory / "run_metadata.json", metadata)

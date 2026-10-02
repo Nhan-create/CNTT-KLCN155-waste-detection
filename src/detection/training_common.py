@@ -100,6 +100,18 @@ def run_metadata(data_path: Path, config: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _json_default(obj: Any) -> Any:
+    if isinstance(obj, np.ndarray):
+        return obj.tolist()
+    if isinstance(obj, (np.floating, np.float32, np.float64)):
+        return float(obj)
+    if isinstance(obj, (np.integer, np.int32, np.int64)):
+        return int(obj)
+    if isinstance(obj, Path):
+        return str(obj)
+    return str(obj)
+
+
 def write_json(path: Path, payload: Any) -> None:
-    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2, allow_nan=False) + "\n",
+    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2, allow_nan=False, default=_json_default) + "\n",
                     encoding="utf-8")

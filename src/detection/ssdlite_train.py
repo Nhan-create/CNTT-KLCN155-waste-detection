@@ -160,7 +160,7 @@ def train_ssdlite(data_path: Path, config: dict[str, Any], run_directory: Path,
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
         optimizer, T_max=epochs, eta_min=float(args.get("lr0", 0.001)) * float(args.get("lrf", 0.01)))
     use_amp = bool(args.get("amp", True)) and device.type == "cuda"
-    scaler = torch.cuda.amp.GradScaler(enabled=use_amp)
+    scaler = torch.amp.GradScaler("cuda", enabled=use_amp)
     best_map, best_epoch, history = -1.0, 0, []
     started = time.monotonic()
     weights_directory = run_directory / "weights"
@@ -185,7 +185,7 @@ def train_ssdlite(data_path: Path, config: dict[str, Any], run_directory: Path,
             images = [image.to(device) for image in images]
             targets = [{key: value.to(device) for key, value in target.items()} for target in targets]
             optimizer.zero_grad(set_to_none=True)
-            with torch.cuda.amp.autocast(enabled=use_amp):
+            with torch.amp.autocast("cuda", enabled=use_amp):
                 loss = sum(model(images, targets).values())
             if not bool(torch.isfinite(loss)):
                 raise RuntimeError(f"Non-finite SSDLite loss at epoch {epoch}")

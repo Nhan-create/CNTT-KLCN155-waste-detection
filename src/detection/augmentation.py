@@ -59,10 +59,10 @@ def get_detection_transform(strategy: str = "none", force_apply: bool = False) -
     elif strategy == "geometric":
         transforms = [
             A.HorizontalFlip(p=p_main),
-            A.ShiftScaleRotate(
-                shift_limit=0.0625,
-                scale_limit=0.1,
-                rotate_limit=15,
+            A.Affine(
+                scale=(0.9, 1.1),
+                translate_percent=(-0.0625, 0.0625),
+                rotate=(-15, 15),
                 border_mode=0,
                 p=p_main,
             ),
@@ -88,10 +88,10 @@ def get_detection_transform(strategy: str = "none", force_apply: bool = False) -
     elif strategy == "combined":
         transforms = [
             A.HorizontalFlip(p=p_main),
-            A.ShiftScaleRotate(
-                shift_limit=0.0625,
-                scale_limit=0.1,
-                rotate_limit=15,
+            A.Affine(
+                scale=(0.9, 1.1),
+                translate_percent=(-0.0625, 0.0625),
+                rotate=(-15, 15),
                 border_mode=0,
                 p=p_main,
             ),
@@ -161,9 +161,9 @@ def apply_augmentation_with_telemetry(
         np.random.seed(seed)
 
     if isinstance(image, Image.Image):
-        img_np = np.array(image.convert("RGB"))
+        img_np = np.ascontiguousarray(np.array(image.convert("RGB")))
     else:
-        img_np = np.asarray(image).copy()
+        img_np = np.ascontiguousarray(np.asarray(image).copy())
 
     orig_box_count = len(boxes)
     norm_strategy = strategy.lower().strip()
