@@ -1,24 +1,26 @@
-# Waste Detector — nhận diện nhiều vật thể rác
+# CNTT-KLCN155 — Hệ thống phát hiện và phân loại đa đối tượng rác thải sinh hoạt
 
-Hệ thống gồm pipeline classification MobileNetV3-Large trước đây và frontend object
-detection mới cho ảnh, camera, video và camera trực tiếp. Detection trả một bounding
-box, tên lớp và confidence cho từng vật thể bằng YOLO26.
+[![Architecture & Roadmap](https://img.shields.io/badge/Architecture%20%26%20Roadmap-View%20Guide-blue?style=for-the-badge)](ARCHITECTURE_AND_NEXT_STEPS.md)
+[![Alignment Review](https://img.shields.io/badge/Proposal%20Alignment-Reviewed-green?style=for-the-badge)](docs/plan/PROPOSAL_ARCHITECTURE_ALIGNMENT_REVIEW.md)
+[![Python 3.12](https://img.shields.io/badge/Python-3.12-brightgreen.svg)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-> Object detection cần dataset có bounding box. Dataset classification theo thư mục
-> không đủ để train detector. Quy trình annotate, train, đánh giá và export Mobile nằm
-> tại [docs/object-detection-training.md](docs/object-detection-training.md).
+> **Khóa luận Cử nhân Công nghệ Thông tin (2026 – 2027)**  
+> **Trường Đại học Công Thương TP.HCM (HUIT)**  
+> **GVHD:** ThS. Huỳnh Thị Châu Lan  
+> **Sinh viên thực hiện:** Ngô Thanh Nhân (Nhóm trưởng / PM), Võ Gia Ninh, Vũ Trường Vinh  
+> 
+> 📖 **Xem hướng dẫn kiến trúc và các việc cần làm tiếp theo tại:** [**`ARCHITECTURE_AND_NEXT_STEPS.md`**](ARCHITECTURE_AND_NEXT_STEPS.md)  
+> 📋 **Xem báo cáo đối chiếu đề cương chi tiết tại:** [**`docs/plan/PROPOSAL_ARCHITECTURE_ALIGNMENT_REVIEW.md`**](docs/plan/PROPOSAL_ARCHITECTURE_ALIGNMENT_REVIEW.md)
 
-Chạy validator và train detector:
+---
 
-```powershell
-python -m src.detection.dataset --data configs/detection_dataset.yaml
-python -m src.detection.train --data configs/detection_dataset.yaml --config configs/detection_training.yaml --device 0
-streamlit run streamlit_app.py
-```
+## Tổng quan dự án
 
-> Trạng thái quan trọng: repository không chứa dữ liệu hoặc checkpoint đã huấn luyện. Mã nguồn, notebook và kiểm thử đã sẵn sàng; `best.pt` chỉ xuất hiện sau khi chạy huấn luyện với hai dataset, nên README không công bố một độ chính xác chưa được đo.
+Dự án gồm hai giai đoạn nghiên cứu khoa học chặt chẽ:
+1. **Giai đoạn 1 (Đã hoàn thành):** Tiền xử lý, khử trùng 15.754 ảnh thành 14.829 ảnh sạch Split V2 (không rò rỉ cụm) và huấn luyện mô hình nhẹ **MobileNetV3-Large** phân loại rác đơn thể 10 lớp (đạt **Test Acc 96.13%**, **Macro-F1 0.9578**, tối ưu hóa ONNX Runtime đạt **7.40 ms/ảnh** trên CPU).
+2. **Giai đoạn 2 (Đang triển khai):** Phát hiện đa đối tượng rác thải thực tế bằng **SSDLite320-MobileNetV3 (mô hình chính)** kế thừa backbone và **YOLOv8n (mô hình đối chứng)**, kết hợp kỹ thuật tăng cường dữ liệu mở rộng (**Albumentations & Copy-Paste**) và hợp nhất dự đoán **Weighted Boxes Fusion (WBF)** trên tập Validation.
 
-## Tổng quan và kiến trúc
 
 Đây là bài toán **phân loại ảnh đơn nhãn, 10 lớp**: mỗi ảnh được biến đổi thành tensor RGB, MobileNetV3-Large tạo 10 logits, rồi Softmax đổi logits thành xác suất. Class ID có xác suất lớn nhất là top-1; giao diện đồng thời hiển thị top-3 và cảnh báo khi top-1 thấp hơn ngưỡng mặc định `0.55`.
 
