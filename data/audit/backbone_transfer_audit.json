@@ -1,5 +1,5 @@
 {
-  "audit_timestamp": "2026-10-01T15:31:40+0700",
+  "audit_timestamp": "2026-10-02T15:51:32+0700",
   "classifier": {
     "model_name": "mobilenet_v3_large",
     "total_keys": 312,
@@ -14,11 +14,11 @@
     "head_keys": 96
   },
   "transfer_audit": {
-    "matched_keys_count": 258,
+    "matched_keys_count": 296,
     "total_classifier_features": 308,
-    "compatibility_ratio": "258/308",
-    "unmapped_feature_keys_count": 50,
-    "keys_to_train_from_scratch": 222,
+    "compatibility_ratio": "296/308",
+    "unmapped_feature_keys_count": 12,
+    "keys_to_train_from_scratch": 184,
     "real_load_successful": true,
     "real_forward_pass_successful": true,
     "forward_pass_output_sample": {

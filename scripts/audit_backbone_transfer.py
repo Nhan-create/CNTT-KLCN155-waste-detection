@@ -58,8 +58,11 @@ def main() -> int:
     print(f"  - SSDLite Detection Head keys: {len(ssd_head_keys)}")
 
     # 3. Layer mapping algorithm
-    # MobileNetV3 features[0..13] -> SSDLite backbone.features.0.{i}
-    # MobileNetV3 features[14..16] -> SSDLite backbone.features.1.{i-14}
+    # MobileNetV3 features[0..12] -> SSDLite backbone.features.0.{b}
+    # MobileNetV3 features[13] (sub-blocks 1..3) -> SSDLite backbone.features.1.0.{sub_rest}
+    # MobileNetV3 features[14] -> SSDLite backbone.features.1.1
+    # MobileNetV3 features[15] -> SSDLite backbone.features.1.2
+    # Classifier features[16] (960-ch 1x1 conv) is replaced by SSDLite reduced-tail conv (features.1.3).
     records = []
     transfer_dict = {}
     matched_count = 0
@@ -68,13 +71,23 @@ def main() -> int:
 
     for k in cls_feature_keys:
         parts = k.split(".")
-        block_idx = int(parts[1])
+        b = int(parts[1])
         rest = ".".join(parts[2:])
 
-        if block_idx <= 13:
-            target_k = f"backbone.features.0.{block_idx}.{rest}"
+        if b <= 12:
+            target_k = f"backbone.features.0.{b}.{rest}"
+        elif b == 13:
+            if len(parts) > 3 and parts[2] == "block" and parts[3] in ("1", "2", "3"):
+                sub_rest = ".".join(parts[3:])
+                target_k = f"backbone.features.1.0.{sub_rest}"
+            else:
+                target_k = f"backbone.features.1.0 (unmapped_expand_block0)"
+        elif b == 14:
+            target_k = f"backbone.features.1.1.{rest}"
+        elif b == 15:
+            target_k = f"backbone.features.1.2.{rest}"
         else:
-            target_k = f"backbone.features.1.{block_idx - 14}.{rest}"
+            target_k = "backbone.features.1.3 (classifier_tail_replaced)"
 
         cls_shape = list(cls_state[k].shape)
         if target_k in ssd_state:
@@ -122,6 +135,46 @@ def main() -> int:
 
     # 4. Real Weight Transfer & Forward Pass Test
     print("\n[4] Real Weight Transfer and Forward Pass Execution:")
+    best_model_pt = Path(r"D:\CNTT-KLCN155-waste-detection\artifacts\official_run\best_model.pt")
+    real_weights_loaded = False
+    max_abs_diff = 0.0
+    if best_model_pt.is_file():
+        print(f"  - Loading real stage-1 weights from: {best_model_pt}")
+        real_ckpt = torch.load(best_model_pt, map_location="cpu", weights_only=False)
+        real_sd = real_ckpt.get("state_dict", real_ckpt.get("model_state_dict", real_ckpt))
+        real_transfer = {}
+        for k in cls_feature_keys:
+            if k not in real_sd:
+                continue
+            parts = k.split(".")
+            b = int(parts[1])
+            rest = ".".join(parts[2:])
+            if b <= 12:
+                target_k = f"backbone.features.0.{b}.{rest}"
+            elif b == 13:
+                if len(parts) > 3 and parts[2] == "block" and parts[3] in ("1", "2", "3"):
+                    sub_rest = ".".join(parts[3:])
+                    target_k = f"backbone.features.1.0.{sub_rest}"
+                else:
+                    continue
+            elif b == 14:
+                target_k = f"backbone.features.1.1.{rest}"
+            elif b == 15:
+                target_k = f"backbone.features.1.2.{rest}"
+            else:
+                continue
+            if target_k in ssd_state and ssd_state[target_k].shape == real_sd[k].shape:
+                real_transfer[target_k] = real_sd[k]
+        ssd_model.load_state_dict(real_transfer, strict=False)
+        for target_k, val in real_transfer.items():
+            diff = (ssd_model.state_dict()[target_k] - val).abs().max().item()
+            if diff > max_abs_diff:
+                max_abs_diff = diff
+        real_weights_loaded = True
+        print(f"  - Real transfer tensors: {len(real_transfer)}, max diff: {max_abs_diff}")
+    else:
+        ssd_model.load_state_dict(transfer_dict, strict=False)
+
     ssd_model.eval()
     
     # Load mapped weights

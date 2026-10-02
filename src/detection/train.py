@@ -39,6 +39,23 @@ def _resolved_dataset_file(data_path: Path, output_root: Path, run_name: str) ->
     resolved.pop("download", None)
     resolved.pop("test", None)
     output_root.mkdir(parents=True, exist_ok=True)
+    for split_key in ("train", "val"):
+        split_val = resolved.get(split_key)
+        if isinstance(split_val, str) and split_val.strip():
+            split_p = Path(split_val)
+            split_full = split_p if split_p.is_absolute() else root / split_p
+            if split_full.is_file() and split_full.suffix.lower() == ".txt":
+                lines = split_full.read_text(encoding="utf-8").splitlines()
+                abs_lines = []
+                for line in lines:
+                    line = line.strip()
+                    if not line:
+                        continue
+                    lp = Path(line)
+                    abs_lines.append(str((lp if lp.is_absolute() else root / lp).resolve()).replace("\\", "/"))
+                dest_split_file = output_root / f"{run_name}-{split_key}-abs.txt"
+                dest_split_file.write_text("\n".join(abs_lines) + "\n", encoding="utf-8")
+                resolved[split_key] = str(dest_split_file).replace("\\", "/")
     destination = output_root / f"{run_name}-resolved-dataset.yaml"
     destination.write_text(
         yaml.safe_dump(resolved, sort_keys=False, allow_unicode=True),

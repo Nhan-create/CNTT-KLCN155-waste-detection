@@ -1,4 +1,4 @@
-"""Six-class SSDLite320-MobileNetV3 detector, separate from stage-1 classification."""
+"""Ten-class SSDLite320-MobileNetV3 detector, initialized with stage-1 backbone weights."""
 
 from __future__ import annotations
 
@@ -56,12 +56,22 @@ def build_ssdlite(*, pretrained: bool = False, backbone_weights: Path | str | No
             if not k.startswith("features."):
                 continue
             parts = k.split(".")
-            block_idx = int(parts[1])
+            b = int(parts[1])
             rest = ".".join(parts[2:])
-            if block_idx <= 13:
-                target_k = f"backbone.features.0.{block_idx}.{rest}"
+            if b <= 12:
+                target_k = f"backbone.features.0.{b}.{rest}"
+            elif b == 13:
+                if len(parts) > 3 and parts[2] == "block" and parts[3] in ("1", "2", "3"):
+                    sub_rest = ".".join(parts[3:])
+                    target_k = f"backbone.features.1.0.{sub_rest}"
+                else:
+                    continue
+            elif b == 14:
+                target_k = f"backbone.features.1.1.{rest}"
+            elif b == 15:
+                target_k = f"backbone.features.1.2.{rest}"
             else:
-                target_k = f"backbone.features.1.{block_idx - 14}.{rest}"
+                continue
             if target_k in ssd_sd and ssd_sd[target_k].shape == v.shape:
                 transfer_dict[target_k] = v
         missing, unexpected = model.load_state_dict(transfer_dict, strict=False)

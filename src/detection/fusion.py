@@ -50,7 +50,7 @@ def fuse_detections(
         for detection in result.detections:
             index = detection.class_index
             if index >= len(DETECTION_CLASS_NAMES) or detection.class_id != DETECTION_CLASS_NAMES[index]:
-                raise ValueError("Fusion requires the six-class detection taxonomy")
+                raise ValueError(f"Fusion requires the {len(DETECTION_CLASS_NAMES)}-class detection taxonomy")
             box = detection.box
             if not (0 <= box.x1 < box.x2 <= width and 0 <= box.y1 < box.y2 <= height):
                 raise ValueError("Fusion box is outside its original image")

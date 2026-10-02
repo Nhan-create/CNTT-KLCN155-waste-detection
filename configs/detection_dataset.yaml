@@ -2,23 +2,28 @@ path: D:/CNTT-KLCN155-waste-detection/data/detection
 train: splits/train.txt
 val: splits/val.txt
 test: splits/test.txt
+manifest: manifest.jsonl
+nc: 10
 names:
-  0: plastic
-  1: paper
-  2: metal
-  3: glass
-  4: organic
-  5: hazardous
+  0: battery
+  1: biological
+  2: cardboard
+  3: clothes
+  4: glass
+  5: metal
+  6: paper
+  7: plastic
+  8: shoes
+  9: trash
 metadata:
-  version: v1.0-proposal-6class
-  classes_total: 6
-  classes:
-  - plastic
-  - paper
-  - metal
-  - glass
-  - organic
-  - hazardous
+  version: v1.0-leakage-free-10class
+  classes_total: 10
+  classes_fully_evaluable: 7
+  classes_limited_evaluable:
+  - battery
+  - shoes
+  classes_blocked:
+  - clothes
   total_images: 1327
   train_images: 1317
   val_images: 5

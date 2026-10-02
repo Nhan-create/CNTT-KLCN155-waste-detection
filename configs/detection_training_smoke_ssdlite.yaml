@@ -1,0 +1,24 @@
+# SSDLite320-MobileNetV3 Smoke Training (2 epochs) - PRIMARY DETECTOR
+backend: ssdlite
+model: ssdlite320_mobilenet_v3_large
+pretrained: true
+backbone_weights: artifacts/official_run/best_model.pt
+project: artifacts/detection_smoke
+name: smoke-ssdlite320
+
+train:
+  epochs: 2
+  imgsz: 320
+  batch: 16
+  workers: 2
+  patience: 10
+  optimizer: AdamW
+  lr0: 0.001
+  lrf: 0.01
+  weight_decay: 0.0005
+  clip_grad_norm: 10.0
+  freeze_bn: true
+  amp: true
+  seed: 42
+  deterministic: true
+  device: auto

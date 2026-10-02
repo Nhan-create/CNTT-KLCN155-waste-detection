@@ -103,12 +103,14 @@ def render_detection_result(output: ImageDetectionOutput, index: int) -> None:
             )
             detected_classes = {d.class_id for d in output.result.detections}
             st.markdown("**Hướng dẫn phân loại rác tại nguồn:**")
-            if "organic" in detected_classes:
-                st.info("🟢 **Thùng Xanh lá (Rác hữu cơ):** Thức ăn thừa, lá cây, phế phẩm nông sản.")
-            if detected_classes.intersection({"plastic", "paper", "metal", "glass"}):
-                st.success("🟡 **Thùng Vàng / Trắng (Rác tái chế):** Nhựa, giấy bìa, kim loại, thủy tinh.")
-            if "hazardous" in detected_classes:
-                st.error("🔴 **Thùng Đỏ / Cam (Rác nguy hại):** Pin, ắc quy, bóng đèn, hóa chất.")
+            if "biological" in detected_classes:
+                st.info("🟢 **Thùng Xanh lá (Rác hữu cơ):** Thức ăn thừa, rau củ quả, lá cây.")
+            if detected_classes.intersection({"plastic", "paper", "cardboard", "metal", "glass"}):
+                st.success("🟡 **Thùng Vàng / Trắng (Rác tái chế):** Nhựa, giấy, bìa carton, kim loại, thủy tinh.")
+            if "battery" in detected_classes:
+                st.error("🔴 **Thùng Đỏ / Cam (Rác nguy hại):** Pin, ắc quy, bóng đèn, rác độc hại.")
+            if detected_classes.intersection({"clothes", "shoes", "trash"}):
+                st.warning("⚪ **Thùng Xám / Thu gom riêng:** Quần áo cũ, giày dép (tái sử dụng/quyên góp), rác vô cơ khác.")
         else:
             render_status(
                 "Không phát hiện vật thể rác đạt ngưỡng tin cậy trong ảnh này. "
@@ -199,7 +201,7 @@ def main() -> None:
         except (ImportError, OSError, RuntimeError, ValueError, KeyError, pickle.UnpicklingError) as error:
             st.session_state["detection-results"] = []
             render_status(
-                "Không thể nạp mô hình nhận diện 6 nhóm rác. "
+                "Không thể nạp mô hình nhận diện 10 nhóm rác. "
                 "Vui lòng kiểm tra trọng số và cấu hình ứng dụng.",
                 "error",
             )

@@ -20,8 +20,17 @@ from src.detection.schema import DETECTION_CLASS_NAMES
 
 def split_images(data_path: Path, split: str) -> tuple[list[Path], Path]:
     payload, root = load_detection_dataset_yaml(data_path)
-    directory = _split_directory(payload, root, split)
-    return sorted(path for path in directory.rglob("*")
+    target = _split_directory(payload, root, split)
+    if target.is_file() and target.suffix.lower() == ".txt":
+        images = []
+        for line in target.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if not line:
+                continue
+            p = Path(line)
+            images.append((p if p.is_absolute() else root / p).resolve())
+        return sorted(images), root
+    return sorted(path for path in target.rglob("*")
                   if path.is_file() and path.suffix.lower() in VALID_IMAGE_EXTENSIONS), root
 
 

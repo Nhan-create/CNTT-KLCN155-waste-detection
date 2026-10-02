@@ -58,7 +58,7 @@ def test_adapter_maps_and_clamps_every_box(tmp_path: Path) -> None:
 
     result = detector.detect_pil(Image.new("RGB", (100, 80)))
 
-    assert [row.class_id for row in result.detections] == ["metal", "plastic"]
+    assert [row.class_id for row in result.detections] == ["cardboard", "battery"]
     assert result.detections[0].box.x1 == 0
     assert result.detections[0].box.x2 == 100
     assert result.detections[1].box.x1 == 10

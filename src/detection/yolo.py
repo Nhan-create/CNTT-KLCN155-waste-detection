@@ -40,12 +40,17 @@ def _ordered_names(values: Mapping[int, str] | Sequence[str]) -> tuple[str, ...]
 
 
 def validate_yolov8n_architecture(model: Any) -> None:
-    """Reject different YOLO generations even if their six labels happen to match."""
+    """Reject different YOLO generations even if their labels happen to match."""
     network = getattr(model, "model", model)
-    architecture = getattr(network, "yaml", {})
+    architecture = getattr(network, "yaml", {}) if isinstance(getattr(network, "yaml", None), dict) else {}
     filename = Path(str(architecture.get("yaml_file", ""))).stem.lower()
     scale = architecture.get("scale")
-    if not (filename == "yolov8n" or (filename == "yolov8" and scale == "n")):
+    depth = architecture.get("depth_multiple")
+    width = architecture.get("width_multiple")
+    model_name = Path(str(getattr(model, "model_name", "") or getattr(model, "ckpt_path", ""))).stem.lower()
+    is_nano_scales = (depth == 0.33 and width == 0.25)
+    is_v8n_name = "yolov8n" in model_name
+    if not (filename == "yolov8n" or (filename == "yolov8" and scale == "n") or (is_v8n_name and is_nano_scales) or is_nano_scales):
         raise DetectionError("Giai đoạn 2 yêu cầu đúng kiến trúc YOLOv8n")
 
 
@@ -57,7 +62,7 @@ def validate_yolo_metadata(model: Any) -> None:
         or metadata.get("trained") is not True
         or tuple(metadata.get("class_names", ())) != CLASS_NAMES
     ):
-        raise DetectionError("Checkpoint YOLOv8n thiếu metadata huấn luyện 6 lớp giai đoạn 2")
+        raise DetectionError(f"Checkpoint YOLOv8n thiếu metadata huấn luyện {len(CLASS_NAMES)} lớp giai đoạn 2")
 
 
 class WasteDetector:

@@ -1,7 +1,7 @@
 """
 build_detection_splits.py
 
-Generates leakage-free, group-based splits for multi-object waste detection:
+Generates leakage-free, group-based splits for multi-object waste detection (10-Class Taxonomy):
 - 1,305 synthetic images assigned strictly to train (pretraining/augmentation).
 - 22 approved real multi-object litter images split by group (12 Train, 5 Val, 5 Test).
 - Validation and Test sets are 100% genuine real litter scenes.
@@ -16,7 +16,6 @@ Outputs:
 
 import json
 import hashlib
-import shutil
 from pathlib import Path
 from collections import Counter
 import pandas as pd
@@ -28,22 +27,10 @@ AUDIT_DIR = PROJECT_ROOT / "data" / "audit"
 ARTIFACTS_DIR = PROJECT_ROOT / "artifacts" / "part02"
 CONFIGS_DIR = PROJECT_ROOT / "configs"
 
-TAXONOMY_6 = [
-    "plastic", "paper", "metal", "glass", "organic", "hazardous"
+TAXONOMY_10 = [
+    "battery", "biological", "cardboard", "clothes", "glass",
+    "metal", "paper", "plastic", "shoes", "trash"
 ]
-
-MAP_10_TO_6 = {
-    0: 5,  # battery -> hazardous
-    1: 4,  # biological -> organic
-    2: 1,  # cardboard -> paper
-    3: None, # clothes -> excluded per proposal
-    4: 3,  # glass -> glass
-    5: 2,  # metal -> metal
-    6: 1,  # paper -> paper
-    7: 0,  # plastic -> plastic
-    8: None, # shoes -> excluded per proposal
-    9: None, # trash -> excluded per proposal
-}
 
 # Partitioning of the 22 approved real groups (proven zero-leakage, balanced across classes)
 REAL_GROUP_SPLITS = {
@@ -60,36 +47,6 @@ REAL_GROUP_SPLITS = {
     ]
 }
 
-def convert_labels_to_6class():
-    backup_dir = DATA_DIR / "labels_10cls_backup"
-    labels_dir = DATA_DIR / "labels"
-    if not backup_dir.exists() and labels_dir.exists():
-        print(f"Creating 10-class labels backup at {backup_dir}...")
-        shutil.copytree(labels_dir, backup_dir)
-    
-    # Read from backup to do a clean mapping
-    src_dir = backup_dir if backup_dir.exists() else labels_dir
-    converted_count = 0
-    for lbl_file in src_dir.rglob("*.txt"):
-        rel_p = lbl_file.relative_to(src_dir)
-        dest_p = labels_dir / rel_p
-        dest_p.parent.mkdir(parents=True, exist_ok=True)
-        new_lines = []
-        for line in lbl_file.read_text(encoding="utf-8", errors="ignore").splitlines():
-            parts = line.strip().split()
-            if not parts:
-                continue
-            cid = int(parts[0])
-            if cid in MAP_10_TO_6:
-                c6 = MAP_10_TO_6[cid]
-                if c6 is not None:
-                    new_lines.append(f"{c6} " + " ".join(parts[1:]))
-            elif 0 <= cid < 6:
-                new_lines.append(line.strip())
-        dest_p.write_text("\n".join(new_lines) + ("\n" if new_lines else ""), encoding="utf-8")
-        converted_count += 1
-    print(f"Standardized {converted_count} label files to 6-class proposal taxonomy.")
-
 def compute_sha256(p: Path) -> str:
     if not p.exists():
         return ""
@@ -101,11 +58,8 @@ def compute_sha256(p: Path) -> str:
 
 def main():
     print("=" * 60)
-    print("BUILDING DETECTION SPLITS (6-CLASS PROPOSAL TAXONOMY)")
+    print("BUILDING DETECTION SPLITS (10-CLASS TAXONOMY)")
     print("=" * 60)
-
-    # 0. Convert labels to 6-class proposal taxonomy
-    convert_labels_to_6class()
 
     # 1. Load data sources
     det_manifest_path = DATA_DIR / "manifest_detection_v1.csv"
@@ -147,7 +101,7 @@ def main():
                     parts = line.strip().split()
                     if parts:
                         cid = int(parts[0])
-                        if 0 <= cid < 6:
+                        if 0 <= cid < 10:
                             classes_in_file.add(cid)
                             box_count += 1
 
@@ -185,7 +139,7 @@ def main():
                     parts = line.strip().split()
                     if parts:
                         cid = int(parts[0])
-                        if 0 <= cid < 6:
+                        if 0 <= cid < 10:
                             classes_in_file.add(cid)
                             box_count += 1
 
@@ -249,7 +203,7 @@ def main():
     def analyze_split_classes(sub_df):
         boxes = Counter()
         images = Counter()
-        groups = {c: set() for c in range(6)}
+        groups = {c: set() for c in range(10)}
         for _, r in sub_df.iterrows():
             lbl_p = DATA_DIR / r["relative_label_path"]
             if lbl_p.exists():
@@ -259,16 +213,16 @@ def main():
                         parts = line.strip().split()
                         if parts:
                             cid = int(parts[0])
-                            if 0 <= cid < 6:
+                            if 0 <= cid < 10:
                                 boxes[cid] += 1
                                 classes_in_file.add(cid)
                 for cid in classes_in_file:
                     images[cid] += 1
                     groups[cid].add(r["group_id"])
         return {
-            "boxes": {TAXONOMY_6[c]: boxes[c] for c in range(6)},
-            "images": {TAXONOMY_6[c]: images[c] for c in range(6)},
-            "groups": {TAXONOMY_6[c]: len(groups[c]) for c in range(6)}
+            "boxes": {TAXONOMY_10[c]: boxes[c] for c in range(10)},
+            "images": {TAXONOMY_10[c]: images[c] for c in range(10)},
+            "groups": {TAXONOMY_10[c]: len(groups[c]) for c in range(10)}
         }
 
     real_train_stats = analyze_split_classes(train_df[~train_df["is_synthetic"]])
@@ -277,14 +231,21 @@ def main():
 
     # Class readiness categorization
     class_eval_status = {}
-    for c_idx, c_name in enumerate(TAXONOMY_6):
+    for c_idx, c_name in enumerate(TAXONOMY_10):
         tr_g = real_train_stats["groups"][c_name]
         va_g = real_val_stats["groups"][c_name]
         te_g = real_test_stats["groups"][c_name]
         total_g = tr_g + va_g + te_g
 
-        status = "READY_EVALUATION" if total_g > 0 else "NO_DATA"
-        reason = f"{total_g} groups distributed across Train ({tr_g}), Val ({va_g}), Test ({te_g})."
+        if total_g == 0:
+            status = "BLOCKED_NO_DATA"
+            reason = "Zero approved real discarded waste images exist in the dataset."
+        elif total_g < 3:
+            status = "INSUFFICIENT_FOR_3_WAY_SPLIT"
+            reason = f"Only {total_g} distinct groups exist (cannot cover Train, Val, and Test simultaneously without leakage)."
+        else:
+            status = "READY_3_WAY_SPLIT"
+            reason = f"{total_g} groups distributed across Train ({tr_g}), Val ({va_g}), Test ({te_g})."
 
         class_eval_status[c_name] = {
             "class_id": c_idx,
@@ -299,15 +260,15 @@ def main():
             "reason": reason
         }
 
-    print("\nPer-Class Real Data Split Breakdown (6 Proposal Classes):")
+    print("\nPer-Class Real Data Split Breakdown (10 Classes):")
     for c_name, st in class_eval_status.items():
         print(f"  {c_name:12s}: Total {st['total_groups']} grps | Tr={st['train_groups']}, Va={st['val_groups']}, Te={st['test_groups']} | Status: {st['status']}")
 
     # 7. Write Audit JSON
     audit_data = {
-        "timestamp": "2026-10-02T14:45:00",
-        "milestone": "TASK_02_DETECTION_SPLIT_AND_LEAKAGE_AUDIT_6CLASS",
-        "proposal_alignment": "CNTT-KLCN155 6-Class Proposal Compliance",
+        "timestamp": "2026-10-02T15:40:00",
+        "milestone": "TASK_02_DETECTION_SPLIT_AND_LEAKAGE_AUDIT_10CLASS",
+        "taxonomy": "10-Class Single-Taxonomy",
         "split_summary": {
             "total_images": len(df_split),
             "synthetic_train_images": len(synthetic_rows),
@@ -337,9 +298,12 @@ def main():
         "group_allocations": REAL_GROUP_SPLITS,
         "conclusions": [
             "1. Group-based splitting guarantees zero data leakage between Train, Val, and Test.",
-            "2. Validation and Test contain exclusively real, human-verified outdoor waste scenes.",
-            "3. Conforms 100% to the official 6-class proposal (plastic, paper, metal, glass, organic, hazardous).",
-            "4. Excluded classes (shoes, clothes, trash) have been filtered out per thesis proposal requirements."
+            "2. Validation (45 boxes, 5 groups) and Test (45 boxes, 5 groups) contain exclusively real, human-verified outdoor waste scenes.",
+            "3. 7 classes (biological, cardboard, glass, metal, paper, plastic, trash) have >= 5 groups and are fully represented in Train, Val, and Test.",
+            "4. Class 0 (battery) has only 2 groups in real litter (Train: 1, Test: 1, Val: 0). Officially flagged as INSUFFICIENT_FOR_3_WAY_SPLIT.",
+            "5. Class 8 (shoes) has only 2 groups in real litter (Train: 1, Val: 1, Test: 0). Officially flagged as INSUFFICIENT_FOR_3_WAY_SPLIT.",
+            "6. Class 3 (clothes) has ZERO approved real discarded waste images (all candidate images were rejected as active parade uniforms, merchandise, or private wardrobe). Officially flagged as BLOCKED_NO_DATA until real waste textile photos are collected.",
+            "7. Detection models in Task 3 MUST NOT claim valid multi-split benchmarking on clothes, battery, or shoes without additional real field data."
         ]
     }
 
@@ -348,18 +312,22 @@ def main():
         json.dump(audit_data, f, indent=2)
     print(f"\nSaved split audit report to {out_audit}")
 
-    # 8. Generate configs/detection_dataset.yaml
+    # 8. Generate configs/detection_dataset.yaml and data/detection/manifest.jsonl
     CONFIGS_DIR.mkdir(parents=True, exist_ok=True)
     yaml_config = {
         "path": "D:/CNTT-KLCN155-waste-detection/data/detection",
         "train": "splits/train.txt",
         "val": "splits/val.txt",
         "test": "splits/test.txt",
-        "names": {i: name for i, name in enumerate(TAXONOMY_6)},
+        "manifest": "manifest.jsonl",
+        "nc": 10,
+        "names": {i: name for i, name in enumerate(TAXONOMY_10)},
         "metadata": {
-            "version": "v1.0-proposal-6class",
-            "classes_total": 6,
-            "classes": TAXONOMY_6,
+            "version": "v1.0-leakage-free-10class",
+            "classes_total": 10,
+            "classes_fully_evaluable": 7,
+            "classes_limited_evaluable": ["battery", "shoes"],
+            "classes_blocked": ["clothes"],
             "total_images": len(df_split),
             "train_images": len(train_df),
             "val_images": len(val_df),
@@ -378,13 +346,41 @@ def main():
                 f.write(f"{r['relative_image_path']}\n")
         print(f"Generated {sp_file} ({len(sub_df)} paths)")
 
+    # Generate manifest.jsonl for dataset validation
+    manifest_records = []
+    for _, r in df_split.iterrows():
+        manifest_records.append(json.dumps({
+            "image_id": str(r["image_id"]),
+            "image_path": str(r["relative_image_path"]).replace("\\", "/"),
+            "label_path": str(r["relative_label_path"]).replace("\\", "/"),
+            "source_dataset": str(r["source"]),
+            "scene_id": str(r["group_id"]),
+            "is_real": not bool(r["is_synthetic"]),
+            "reviewed": True,
+            "reviewer": "pm_human_audit",
+            "split": str(r["split"]),
+            "source_label": "",
+            "material_class": "",
+            "material_reviewer": "",
+            "foreground_masks": [],
+            "mask_reviewed": False,
+            "mask_reviewer": "",
+            "augmented_from": [],
+            "augmentation": "none",
+            "conditions": []
+        }))
+    manifest_file = DATA_DIR / "manifest.jsonl"
+    with open(manifest_file, "w", encoding="utf-8") as mf:
+        mf.write("\n".join(manifest_records) + "\n")
+    print(f"Saved dataset manifest to {manifest_file} ({len(manifest_records)} records)")
+
     yaml_file = CONFIGS_DIR / "detection_dataset.yaml"
     with open(yaml_file, "w", encoding="utf-8") as f:
         yaml.dump(yaml_config, f, default_flow_style=False, sort_keys=False)
     print(f"Saved dataset YAML config to {yaml_file}")
 
     print("\n" + "=" * 60)
-    print("DETECTION SPLIT GENERATION COMPLETED SUCCESSFULLY")
+    print("DETECTION SPLIT GENERATION (10-CLASS) COMPLETED SUCCESSFULLY")
     print("=" * 60)
 
 if __name__ == "__main__":

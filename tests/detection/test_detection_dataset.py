@@ -50,6 +50,6 @@ def test_validates_complete_yolo_dataset(tmp_path: Path) -> None:
 
     report = validate_detection_dataset(yaml_path)
 
-    assert report.images_by_split == {"train": 6, "val": 6, "test": 6}
-    assert report.boxes_by_split == {"train": 6, "val": 6, "test": 6}
+    assert report.images_by_split == {"train": len(CLASS_NAMES), "val": len(CLASS_NAMES), "test": len(CLASS_NAMES)}
+    assert report.boxes_by_split == {"train": len(CLASS_NAMES), "val": len(CLASS_NAMES), "test": len(CLASS_NAMES)}
     assert set(report.boxes_by_class) == set(CLASS_NAMES)

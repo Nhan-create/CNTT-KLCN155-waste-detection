@@ -52,7 +52,7 @@ def load_detection_dataset_yaml(path: Path) -> tuple[dict[str, object], Path]:
             f"Dataset class order is {names}; expected exactly {CLASS_NAMES}"
         )
     if "nc" in payload and payload["nc"] != len(CLASS_NAMES):
-        raise DetectionDatasetError("Dataset nc must be six")
+        raise DetectionDatasetError(f"Dataset nc must be {len(CLASS_NAMES)}")
     root_value = Path(str(payload.get("path", ".")))
     root = root_value if root_value.is_absolute() else path.parent / root_value
     return payload, root.resolve()
@@ -198,16 +198,26 @@ def validate_detection_dataset(path: Path, *, splits: tuple[str, ...] = SPLITS) 
     class_counts = {name: 0 for name in CLASS_NAMES}
     split_class_counts: dict[str, dict[str, int]] = {}
     for split in splits:
-        split_dir = _split_directory(payload, root, split)
-        if not split_dir.is_dir():
-            raise DetectionDatasetError(f"Missing {split} image directory: {split_dir}")
-        images = sorted(
-            path.resolve()
-            for path in split_dir.rglob("*")
-            if path.is_file() and path.suffix.lower() in VALID_IMAGE_EXTENSIONS
-        )
+        split_target = _split_directory(payload, root, split)
+        if split_target.is_file() and split_target.suffix.lower() == ".txt":
+            images = []
+            for line in split_target.read_text(encoding="utf-8").splitlines():
+                line = line.strip()
+                if not line:
+                    continue
+                p = Path(line)
+                images.append((p if p.is_absolute() else root / p).resolve())
+            images = sorted(images)
+        elif split_target.is_dir():
+            images = sorted(
+                path.resolve()
+                for path in split_target.rglob("*")
+                if path.is_file() and path.suffix.lower() in VALID_IMAGE_EXTENSIONS
+            )
+        else:
+            raise DetectionDatasetError(f"Missing {split} image directory or split file: {split_target}")
         if not images:
-            raise DetectionDatasetError(f"No images found in {split_dir}")
+            raise DetectionDatasetError(f"No images found in {split_target}")
         expected = {p for p, record in by_path.items() if record.split == split}
         if set(images) != expected:
             raise DetectionDatasetError(f"{split}: manifest and image directory differ (unlisted or missing images)")
@@ -236,8 +246,14 @@ def validate_detection_dataset(path: Path, *, splits: tuple[str, ...] = SPLITS) 
         boxes_by_split[split] = box_count
         empty_by_split[split] = empty_count
         split_class_counts[split] = current_class_counts
+        metadata = payload.get("metadata", {})
+        allowed_missing: set[str] = set()
+        if isinstance(metadata, dict):
+            allowed_missing.update(metadata.get("classes_blocked", []))
+            if split in ("val", "test"):
+                allowed_missing.update(metadata.get("classes_limited_evaluable", []))
         missing_classes = [
-            name for name, count in current_class_counts.items() if count == 0
+            name for name, count in current_class_counts.items() if count == 0 and name not in allowed_missing
         ]
         if missing_classes:
             raise DetectionDatasetError(

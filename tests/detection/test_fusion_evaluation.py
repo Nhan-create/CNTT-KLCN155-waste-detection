@@ -20,9 +20,9 @@ def test_wbf_weighted_coordinates_and_class_isolation():
     fused = fuse_detections((result(detection(x=10), detection(index=1)), result(detection(confidence=.6, x=12))),
                             weights=(2, 1), iou_threshold=.5)
     assert len(fused.detections) == 2
-    plastic = next(d for d in fused.detections if d.class_index == 0)
-    assert plastic.box.x1 == pytest.approx((10 * 1.8 + 12 * .6) / 2.4, abs=1e-5)
-    assert plastic.class_id == "plastic"
+    fused_first = next(d for d in fused.detections if d.class_index == 0)
+    assert fused_first.box.x1 == pytest.approx((10 * 1.8 + 12 * .6) / 2.4, abs=1e-5)
+    assert fused_first.class_id == DETECTION_CLASS_NAMES[0]
 
 
 def test_wbf_empty_output_threshold_and_invalid_shape():
@@ -40,7 +40,7 @@ def test_coco_perfect_absent_class_and_empty_predictions():
     truth = [[detection(confidence=1.0)]]
     perfect = coco_metrics([result(detection())], truth)
     assert perfect["map50_95"] == pytest.approx(1.0)
-    assert perfect["ap_by_class"]["hazardous"]["ap50_95"] is None
+    assert perfect["ap_by_class"][DETECTION_CLASS_NAMES[-1]]["ap50_95"] is None
     assert coco_metrics([result()], truth)["map50"] == 0.0
 
 
