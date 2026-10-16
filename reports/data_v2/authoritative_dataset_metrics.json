@@ -1,0 +1,172 @@
+{
+  "metadata": {
+    "measured_at_utc": "2026-10-11T18:38:26Z",
+    "reconciliation_valid": true,
+    "root_cause_explanation": "The previous discrepancy in Phase 4B.1 markdown report arose from an unverified manual draft table (which listed v2=5590, v3=4337, plastic=1902, biological=5). The real disk labels, CSV manifests, and split files have ALWAYS contained exactly 5,584 boxes for v2, 4,331 boxes for v3, and 1,253 excluded boxes. The mathematical identity (v2 = v3 + excluded) holds exactly: 5,584 = 4,331 + 1,253 across every single class."
+  },
+  "datasets": {
+    "real_v2": {
+      "version": "real_v2",
+      "total_images": 1996,
+      "total_boxes": 5584,
+      "split_images": {
+        "train": 1398,
+        "val": 299,
+        "test": 299
+      },
+      "split_boxes": {
+        "train": 3963,
+        "val": 901,
+        "test": 720
+      },
+      "manifest_sha256": {
+        "real_v2_split_manifest.csv": "14f54b7f71250f62884bc09bd618c537b4509755072b17fae84c72b2fa8bba90"
+      },
+      "class_distribution_overall": {
+        "battery": 2,
+        "biological": 6,
+        "cardboard": 244,
+        "clothes": 527,
+        "glass": 327,
+        "metal": 567,
+        "paper": 237,
+        "plastic": 2216,
+        "shoes": 295,
+        "trash": 1163
+      },
+      "class_distribution_by_split": {
+        "train": {
+          "battery": 1,
+          "biological": 3,
+          "cardboard": 169,
+          "clothes": 368,
+          "glass": 213,
+          "metal": 420,
+          "paper": 160,
+          "plastic": 1560,
+          "shoes": 215,
+          "trash": 854
+        },
+        "val": {
+          "battery": 0,
+          "biological": 2,
+          "cardboard": 39,
+          "clothes": 68,
+          "glass": 82,
+          "metal": 74,
+          "paper": 43,
+          "plastic": 382,
+          "shoes": 41,
+          "trash": 170
+        },
+        "test": {
+          "battery": 1,
+          "biological": 1,
+          "cardboard": 36,
+          "clothes": 91,
+          "glass": 32,
+          "metal": 73,
+          "paper": 34,
+          "plastic": 274,
+          "shoes": 39,
+          "trash": 139
+        }
+      }
+    },
+    "v3_candidate": {
+      "version": "v3.0-candidate-vetted",
+      "total_images": 1820,
+      "total_boxes": 4331,
+      "split_images": {
+        "train": 1277,
+        "val": 269,
+        "test": 274
+      },
+      "split_boxes": {
+        "train": 3052,
+        "val": 684,
+        "test": 595
+      },
+      "manifest_sha256": {
+        "candidate_image_manifest.csv": "a5d276baa3be017055681e64acd742982f7fdf06a8fa3d4413a07101dc415dd7",
+        "candidate_annotation_manifest.csv": "3dfb3cbb933d09c75ec7f5cacf6205380959a6dfc4517b3d920e2ff800452c3b"
+      },
+      "class_distribution_overall": {
+        "battery": 2,
+        "biological": 6,
+        "cardboard": 208,
+        "clothes": 437,
+        "glass": 205,
+        "metal": 470,
+        "paper": 195,
+        "plastic": 1890,
+        "shoes": 287,
+        "trash": 631
+      },
+      "class_distribution_by_split": {
+        "train": {
+          "battery": 1,
+          "biological": 3,
+          "cardboard": 143,
+          "clothes": 299,
+          "glass": 155,
+          "metal": 331,
+          "paper": 137,
+          "plastic": 1313,
+          "shoes": 207,
+          "trash": 463
+        },
+        "val": {
+          "battery": 0,
+          "biological": 2,
+          "cardboard": 30,
+          "clothes": 56,
+          "glass": 26,
+          "metal": 71,
+          "paper": 28,
+          "plastic": 335,
+          "shoes": 41,
+          "trash": 95
+        },
+        "test": {
+          "battery": 1,
+          "biological": 1,
+          "cardboard": 35,
+          "clothes": 82,
+          "glass": 24,
+          "metal": 68,
+          "paper": 30,
+          "plastic": 242,
+          "shoes": 39,
+          "trash": 73
+        }
+      }
+    },
+    "excluded_subset": {
+      "total_images": 176,
+      "total_boxes": 1253,
+      "split_images": {
+        "train": 121,
+        "val": 30,
+        "test": 25
+      },
+      "split_boxes": {
+        "train": 911,
+        "val": 217,
+        "test": 125
+      },
+      "class_distribution_overall": {
+        "battery": 0,
+        "biological": 0,
+        "cardboard": 36,
+        "clothes": 90,
+        "glass": 122,
+        "metal": 97,
+        "paper": 42,
+        "plastic": 326,
+        "shoes": 8,
+        "trash": 532
+      }
+    }
+  }
+}

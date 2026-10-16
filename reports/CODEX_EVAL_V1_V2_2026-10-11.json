@@ -1,0 +1,121 @@
+{
+  "protocol": "one-to-one greedy by descending confidence, same class, max IoU; confidence >= 0.25, IoU >= 0.50",
+  "metric_type": "operating-threshold precision/recall/F1; not AP or mAP",
+  "inputs": {
+    "reports/qa_acceptance/ground_truth_hinh_anh_rac.json": "f390f0f9440a977d0a0afe9e55b862562f1aafd3011ab18313e1772b18d470c0",
+    "reports/qa_acceptance/ground_truth_hinh_anh_rac_v2_proposed.json": "6acea648293d545a23bc0a94b8410abc656134bdd7506ee5789b79f577857ac0",
+    "reports/qa_acceptance/raw_predictions_after_quick_fix.json": "855a364bf6e7311ebadf4236597222fee74d8f172bec570065b70538e877bf19",
+    "reports/qa_acceptance/raw_predictions_before_quick_fix.json": "15edda0b1e7797c38290563fc0681b67b4d6968b4c2e615467d5deb593ae7c60",
+    "reports/qa_acceptance/raw_predictions_yolov8n_e1.json": "0ecc00b3757bd2052adfaa70959c8388d511c566ad1ed60a430fec39cbfec2f1"
+  },
+  "results": [
+    {
+      "pipeline": "SSDLite Before Quick Fix",
+      "gt_version": "v1_frozen",
+      "total_gt": 57,
+      "total_preds": 21,
+      "tp": 13,
+      "fp": 8,
+      "fn": 44,
+      "precision": 61.9,
+      "recall": 22.81,
+      "f1": 33.33
+    },
+    {
+      "pipeline": "SSDLite Before Quick Fix",
+      "gt_version": "v2_proposed_active",
+      "total_gt": 45,
+      "total_preds": 21,
+      "tp": 10,
+      "fp": 11,
+      "fn": 35,
+      "precision": 47.62,
+      "recall": 22.22,
+      "f1": 30.3
+    },
+    {
+      "pipeline": "SSDLite Before Quick Fix",
+      "gt_version": "v2_proposed_accepted",
+      "total_gt": 39,
+      "total_preds": 21,
+      "tp": 9,
+      "fp": 12,
+      "fn": 30,
+      "precision": 42.86,
+      "recall": 23.08,
+      "f1": 30.0
+    },
+    {
+      "pipeline": "SSDLite After Quick Fix",
+      "gt_version": "v1_frozen",
+      "total_gt": 57,
+      "total_preds": 11,
+      "tp": 8,
+      "fp": 3,
+      "fn": 49,
+      "precision": 72.73,
+      "recall": 14.04,
+      "f1": 23.53
+    },
+    {
+      "pipeline": "SSDLite After Quick Fix",
+      "gt_version": "v2_proposed_active",
+      "total_gt": 45,
+      "total_preds": 11,
+      "tp": 7,
+      "fp": 4,
+      "fn": 38,
+      "precision": 63.64,
+      "recall": 15.56,
+      "f1": 25.0
+    },
+    {
+      "pipeline": "SSDLite After Quick Fix",
+      "gt_version": "v2_proposed_accepted",
+      "total_gt": 39,
+      "total_preds": 11,
+      "tp": 6,
+      "fp": 5,
+      "fn": 33,
+      "precision": 54.55,
+      "recall": 15.38,
+      "f1": 24.0
+    },
+    {
+      "pipeline": "YOLOv8n E1",
+      "gt_version": "v1_frozen",
+      "total_gt": 57,
+      "total_preds": 32,
+      "tp": 5,
+      "fp": 27,
+      "fn": 52,
+      "precision": 15.62,
+      "recall": 8.77,
+      "f1": 11.24
+    },
+    {
+      "pipeline": "YOLOv8n E1",
+      "gt_version": "v2_proposed_active",
+      "total_gt": 45,
+      "total_preds": 32,
+      "tp": 5,
+      "fp": 27,
+      "fn": 40,
+      "precision": 15.62,
+      "recall": 11.11,
+      "f1": 12.99
+    },
+    {
+      "pipeline": "YOLOv8n E1",
+      "gt_version": "v2_proposed_accepted",
+      "total_gt": 39,
+      "total_preds": 32,
+      "tp": 5,
+      "fp": 27,
+      "fn": 34,
+      "precision": 15.62,
+      "recall": 12.82,
+      "f1": 14.08
+    }
+  ]
+}

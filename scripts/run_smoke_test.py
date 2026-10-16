@@ -51,8 +51,8 @@ CLASS_NAMES = [
     "trash",
 ]
 
-DATA_PROCESSED_ROOT = Path(r"D:\HK7\Đồ án khóa luận\Data\processed")
-OUTPUT_DIR = Path(r"D:\CNTT-KLCN155-waste-detection\artifacts\smoke_test")
+DATA_PROCESSED_ROOT = (Path(__import__("os").environ.get("WASTE_LEGACY_DATA_DIR", str(Path(__file__).resolve().parents[1] / "data" / "legacy_hk7"))) / "Data/processed")
+OUTPUT_DIR = (Path(__file__).resolve().parents[1] / "artifacts/smoke_test")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 

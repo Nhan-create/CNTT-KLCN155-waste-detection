@@ -1,0 +1,65 @@
+{
+  "phase": "4D.2_CORRECTION",
+  "title": "Phase 4D.2 Correction: 5 Proven Real Image Sources Evidence",
+  "total_files": 11,
+  "manifest_version": "1.0.0-proven-5-samples",
+  "staged_downloaded_images": 0,
+  "staged_downloaded_bytes": 0,
+  "files": [
+    {
+      "relative_path": "reports/FINAL_IMAGE_PROOF_AND_ACQUISITION_STATUS.md",
+      "sha256": "3083d43082649dccf77f8638986a72dc0082b4ae3645f0cea2259c8f841f5086",
+      "size_bytes": 9349
+    },
+    {
+      "relative_path": "reports/REAL_IMAGE_SOURCE_PROOF_5_SAMPLES.md",
+      "sha256": "bd369efeed0e94fbbedf246526c2323710c404c26468f5512710a2345b4d61f2",
+      "size_bytes": 22606
+    },
+    {
+      "relative_path": "data/acquisition_staging/manifests/verified_source_proof_5_samples.json",
+      "sha256": "7a35994e60d98968f297d2f17c4f3031258f9cfa66d8cce0a65e445439745705",
+      "size_bytes": 10813
+    },
+    {
+      "relative_path": "data/acquisition_staging/manifests/candidate_acquisition_manifest.json",
+      "sha256": "823145ac070350ed979e63285ed36d45a85b8063cc99665d32cac0d5555c5c94",
+      "size_bytes": 45469
+    },
+    {
+      "relative_path": "src/detection/export_train_manifest.py",
+      "sha256": "4ff3b39cd58597e75a0e5352dc92eb22e0757747888b80735fb78eec6a3319cc",
+      "size_bytes": 23264
+    },
+    {
+      "relative_path": "scripts/stage_whitelisted_pilot_images.py",
+      "sha256": "a1d24b1018c9e5147b9f12eec321858bb1b4ec24aa0fc42a0d61241baadb542f",
+      "size_bytes": 8478
+    },
+    {
+      "relative_path": "scripts/prepare_acquisition_pilot.py",
+      "sha256": "0bc3bfef02e865f2eb22ac7a90beafbe69bd3faf9624416ffc2576cf5d08638e",
+      "size_bytes": 5991
+    },
+    {
+      "relative_path": "tests/detection/test_train_command_smoke.py",
+      "sha256": "8abc8de359db96c88dc7b1fa9568cd994da1cbd3c60ad5b65faf50e2ac80b915",
+      "size_bytes": 14446
+    },
+    {
+      "relative_path": "tests/qa/test_split_contamination_safety.py",
+      "sha256": "8dd276af010c715c48c829f247ad557afcbda915c0eb14fb1b60f363d8eb1610",
+      "size_bytes": 13886
+    },
+    {
+      "relative_path": "tests/qa/test_pilot_dataset_v3.py",
+      "sha256": "7a496ec1cc04dc9a1baf2717e316448e370affd891c6b05bb3fdbe1ba558e007",
+      "size_bytes": 6377
+    },
+    {
+      "relative_path": "reports/data_v2/phase4d2_correction_raw_test.log",
+      "sha256": "7a964ab1428174b6382cfb0baf7320bc5067f4b53c37373c5f45de587ee4a3a2",
+      "size_bytes": 3409
+    }
+  ]
+}

@@ -1,0 +1,249 @@
+{
+  "schema_version": 2,
+  "backend": "yolov8n",
+  "class_names": [
+    "battery",
+    "biological",
+    "cardboard",
+    "clothes",
+    "glass",
+    "metal",
+    "paper",
+    "plastic",
+    "shoes",
+    "trash"
+  ],
+  "trained": true,
+  "created_utc": "2026-10-08T08:04:43.399730+00:00",
+  "dataset": "D:\\CNTT-KLCN155-waste-detection\\configs\\detection_dataset.yaml",
+  "dataset_fingerprint_train_val_sha256": "7d452da6a90d9ce248bafc5bf0a9638fd09334bb247b8ec909fdaabf9010ca16",
+  "augmentation_variant": "combined",
+  "online_augmentation": false,
+  "selection_split": "val",
+  "selection_metric": "map50_95",
+  "test_evaluated": false,
+  "seed": 42,
+  "config": {
+    "backend": "yolov8n",
+    "model": "yolov8n.pt",
+    "project": "artifacts/detection",
+    "name": "waste-yolov8n",
+    "train": {
+      "epochs": 120,
+      "imgsz": 320,
+      "batch": 16,
+      "workers": 4,
+      "patience": 30,
+      "optimizer": "AdamW",
+      "lr0": 0.001,
+      "lrf": 0.01,
+      "weight_decay": 0.0005,
+      "seed": 42,
+      "deterministic": true,
+      "device": "cuda"
+    },
+    "augmentation_variant": "combined"
+  },
+  "budget": {
+    "epochs": 120,
+    "batch": 16,
+    "imgsz": 320,
+    "patience": 30,
+    "max_hours": null
+  },
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "torch": "2.5.1+cu121",
+      "torchvision": "0.20.1+cu121",
+      "ultralytics": "8.4.171",
+      "numpy": "2.5.3",
+      "Pillow": "12.3.0",
+      "pycocotools": "2.0.11"
+    },
+    "torch_threads": 6,
+    "cuda_available": true,
+    "torch_cuda": "12.1",
+    "gpus": [
+      {
+        "name": "NVIDIA GeForce RTX 2050",
+        "memory_bytes": 4294443008
+      }
+    ]
+  },
+  "dataset_report": {
+    "images_by_split": {
+      "train": 1317,
+      "val": 5
+    },
+    "boxes_by_split": {
+      "train": 4280,
+      "val": 45
+    },
+    "boxes_by_class": {
+      "battery": 463,
+      "biological": 450,
+      "cardboard": 462,
+      "clothes": 462,
+      "glass": 482,
+      "metal": 462,
+      "paper": 439,
+      "plastic": 551,
+      "shoes": 3,
+      "trash": 551
+    },
+    "boxes_by_split_and_class": {
+      "train": {
+        "battery": 463,
+        "biological": 448,
+        "cardboard": 458,
+        "clothes": 462,
+        "glass": 480,
+        "metal": 461,
+        "paper": 436,
+        "plastic": 540,
+        "shoes": 1,
+        "trash": 531
+      },
+      "val": {
+        "battery": 0,
+        "biological": 2,
+        "cardboard": 4,
+        "clothes": 0,
+        "glass": 2,
+        "metal": 1,
+        "paper": 3,
+        "plastic": 11,
+        "shoes": 2,
+        "trash": 20
+      }
+    },
+    "empty_images_by_split": {
+      "train": 0,
+      "val": 0
+    }
+  },
+  "best_checkpoint": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\detection\\waste-yolov8n-combined-seed42\\weights\\best.pt",
+  "effective_train_args": {
+    "epochs": 120,
+    "imgsz": 320,
+    "batch": 16,
+    "workers": 4,
+    "patience": 30,
+    "optimizer": "AdamW",
+    "lr0": 0.001,
+    "lrf": 0.01,
+    "weight_decay": 0.0005,
+    "seed": 42,
+    "deterministic": true,
+    "device": "cuda",
+    "project": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\detection",
+    "name": "waste-yolov8n-combined-seed42",
+    "exist_ok": true,
+    "val": true,
+    "split": "val",
+    "max_det": 100,
+    "conf": 0.001,
+    "augment": false,
+    "multi_scale": false,
+    "close_mosaic": 0,
+    "mosaic": 0.0,
+    "mixup": 0.0,
+    "cutmix": 0.0,
+    "copy_paste": 0.0,
+    "degrees": 0.0,
+    "translate": 0.0,
+    "scale": 0.0,
+    "shear": 0.0,
+    "perspective": 0.0,
+    "flipud": 0.0,
+    "fliplr": 0.0,
+    "hsv_h": 0.0,
+    "hsv_s": 0.0,
+    "hsv_v": 0.0,
+    "bgr": 0.0,
+    "auto_augment": null,
+    "erasing": 0.0,
+    "amp": false
+  },
+  "elapsed_seconds": 846.0,
+  "epochs_completed": 67,
+  "validation_metrics": {
+    "overall": {
+      "metrics/precision(B)": 0.20122101148825558,
+      "metrics/recall(B)": 0.05397727272727273,
+      "metrics/mAP50(B)": 0.05251249016522423,
+      "metrics/mAP50-95(B)": 0.040137910601888274,
+      "fitness": 0.040137910601888274
+    },
+    "per_class": {
+      "battery": {
+        "map50_95": 0.040137910601888274
+      },
+      "biological": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "map50": 0.0,
+        "map50_95": 0.0
+      },
+      "cardboard": {
+        "precision": 0.4801482863301115,
+        "recall": 0.25,
+        "f1": 0.3288018990932952,
+        "map50": 0.37,
+        "map50_95": 0.302125
+      },
+      "clothes": {
+        "map50_95": 0.040137910601888274
+      },
+      "glass": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "map50": 0.0,
+        "map50_95": 0.0
+      },
+      "metal": {
+        "precision": 1.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "map50": 0.0,
+        "map50_95": 0.0
+      },
+      "paper": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "map50": 0.0,
+        "map50_95": 0.0
+      },
+      "plastic": {
+        "precision": 0.12961980557593314,
+        "recall": 0.18181818181818182,
+        "f1": 0.1513446549962371,
+        "map50": 0.05009992132179387,
+        "map50_95": 0.018978284815106217
+      },
+      "shoes": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "map50": 0.0,
+        "map50_95": 0.0
+      },
+      "trash": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "map50": 0.0,
+        "map50_95": 0.0
+      }
+    }
+  },
+  "recommended_threshold_from_val": {
+    "confidence": 0.04704704704704705,
+    "mean_f1": 0.07609674544126063
+  }
+}

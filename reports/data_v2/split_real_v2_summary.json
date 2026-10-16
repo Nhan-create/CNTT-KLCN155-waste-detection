@@ -1,0 +1,122 @@
+{
+  "stats": {
+    "train": {
+      "images": 1398,
+      "boxes": 3963,
+      "boxes_per_class": {
+        "battery": 1,
+        "biological": 3,
+        "cardboard": 169,
+        "clothes": 368,
+        "glass": 213,
+        "metal": 420,
+        "paper": 160,
+        "plastic": 1560,
+        "shoes": 215,
+        "trash": 854
+      },
+      "images_per_class": {
+        "battery": 1,
+        "biological": 3,
+        "cardboard": 126,
+        "clothes": 212,
+        "glass": 101,
+        "metal": 214,
+        "paper": 123,
+        "plastic": 791,
+        "shoes": 117,
+        "trash": 294
+      },
+      "images_per_source": {
+        "openimages_v7": 369,
+        "taco": 1029
+      }
+    },
+    "val": {
+      "images": 299,
+      "boxes": 902,
+      "boxes_per_class": {
+        "battery": 0,
+        "biological": 2,
+        "cardboard": 39,
+        "clothes": 69,
+        "glass": 82,
+        "metal": 74,
+        "paper": 43,
+        "plastic": 382,
+        "shoes": 41,
+        "trash": 170
+      },
+      "images_per_class": {
+        "battery": 0,
+        "biological": 1,
+        "cardboard": 31,
+        "clothes": 44,
+        "glass": 22,
+        "metal": 45,
+        "paper": 27,
+        "plastic": 173,
+        "shoes": 23,
+        "trash": 64
+      },
+      "images_per_source": {
+        "openimages_v7": 78,
+        "taco": 221
+      }
+    },
+    "test": {
+      "images": 299,
+      "boxes": 720,
+      "boxes_per_class": {
+        "battery": 1,
+        "biological": 1,
+        "cardboard": 36,
+        "clothes": 91,
+        "glass": 32,
+        "metal": 73,
+        "paper": 34,
+        "plastic": 274,
+        "shoes": 39,
+        "trash": 139
+      },
+      "images_per_class": {
+        "battery": 1,
+        "biological": 1,
+        "cardboard": 26,
+        "clothes": 45,
+        "glass": 22,
+        "metal": 43,
+        "paper": 28,
+        "plastic": 161,
+        "shoes": 23,
+        "trash": 63
+      },
+      "images_per_source": {
+        "openimages_v7": 78,
+        "taco": 221
+      }
+    }
+  },
+  "quarantine_reasons": {
+    "review_status_NEEDS_RELABEL": 4,
+    "review_status_REJECTED": 14,
+    "oi_human_present_in_use_object": 101,
+    "oi_groupof_or_depiction_box": 4,
+    "empty_label": 13,
+    "taco_orientation_mismatch": 10,
+    "exif_orientation_3": 1
+  },
+  "near_dup_pairs": 15,
+  "near_dup_pairs_cross_split": 0,
+  "agnostic_boxes": {
+    "train": 3972,
+    "test": 723,
+    "val": 906
+  },
+  "taco_ambiguous_boxes_added": 16,
+  "split_sha256": {
+    "train": "ad5992df37de58140e36a513c6e712b6b701af340b62566d0928750cabfc265c",
+    "val": "df316653b5fca6a762f71a94f412c9aeb67e17c3767da6b8cc2a21427ecebba9",
+    "test": "d4218618d8ef0db43ba319a757bc35a9d7a7be4e3d768fd89d55505ed017bd02"
+  }
+}

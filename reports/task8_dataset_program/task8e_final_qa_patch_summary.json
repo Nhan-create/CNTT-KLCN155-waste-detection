@@ -1,0 +1,2813 @@
+{
+  "pre_patch_real_waste_pass_images": 403,
+  "pre_patch_real_waste_pass_boxes": 672,
+  "post_patch_real_waste_pass_images": 348,
+  "post_patch_real_waste_pass_train_images": 332,
+  "post_patch_real_waste_pass_val_images": 16,
+  "post_patch_real_waste_pass_boxes": 628,
+  "qa_status_counts": {
+    "NEEDS_REVIEW": 76,
+    "REAL_WASTE_PASS": 348,
+    "REJECT": 423,
+    "KEEP_AUXILIARY": 399
+  },
+  "domain_counts": {
+    "ACTUAL_WASTE": 577,
+    "PRODUCT_STUDIO": 94,
+    "AMBIGUOUS_CONTEXT": 268,
+    "IN_USE": 307
+  },
+  "total_patched_records": 114,
+  "a1_task8e_1167": {
+    "candidate_id": "task8e_1167",
+    "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+    "source_name": "Wikimedia Commons Explicit Real-Waste Categories & Queries",
+    "source_image_id": "commons_11794497",
+    "source_split": "unspecified",
+    "provenance_tier": "VERIFIED_WIKIMEDIA_COMMONS_OPEN_LICENSE",
+    "title": "File:Recycle tes batteries.jpg",
+    "query_used": "Category:Electric_battery_recycling",
+    "original_url": "https://commons.wikimedia.org/wiki/File:Recycle_tes_batteries.jpg",
+    "author": "Alcide55",
+    "license": "CC BY-SA 3.0",
+    "attribution_required": true,
+    "image_path": "data/acquisition_staging/task8e_scale_real_waste/images/task8e_1167.jpg",
+    "label_path": "data/acquisition_staging/task8e_scale_real_waste/labels_real_waste_pass/task8e_1167.txt",
+    "overlay_path": "data/acquisition_staging/task8e_scale_real_waste/overlays/task8e_1167_overlay.jpg",
+    "sha256": "6cde6afdf274698bc1798ea364a6c066b80fe4bde60589c07a6699e829e4c224",
+    "dhash_hex": "46c68bcccecf4cc8",
+    "width": 1024,
+    "height": 768,
+    "primary_class_id": 0,
+    "primary_class_name": "battery",
+    "classes_present_ids": [
+      0
+    ],
+    "classes_present_names": [
+      "battery"
+    ],
+    "is_multiclass": false,
+    "bbox_count": 9,
+    "boxes": [
+      {
+        "class_id": 0,
+        "class_name": "battery",
+        "bbox_xyxy": [
+          10.2,
+          361.0,
+          419.8,
+          737.3
+        ],
+        "yolo_xywhn": [
+          0.21,
+          0.715,
+          0.4,
+          0.49
+        ],
+        "source_box_origin": "wikimedia_curated_tight_v8e_patch"
+      },
+      {
+        "class_id": 0,
+        "class_name": "battery",
+        "bbox_xyxy": [
+          471.0,
+          115.2,
+          604.2,
+          215.0
+        ],
+        "yolo_xywhn": [
+          0.525,
+          0.215,
+          0.13,
+          0.13
+        ],
+        "source_box_origin": "wikimedia_curated_tight_v8e_patch"
+      },
+      {
+        "class_id": 0,
+        "class_name": "battery",
+        "bbox_xyxy": [
+          481.3,
+          261.1,
+          614.4,
+          414.7
+        ],
+        "yolo_xywhn": [
+          0.535,
+          0.44,
+          0.13,
+          0.2
+        ],
+        "source_box_origin": "wikimedia_curated_tight_v8e_patch"
+      },
+      {
+        "class_id": 0,
+        "class_name": "battery",
+        "bbox_xyxy": [
+          665.6,
+          38.4,
+          768.0,
+          230.4
+        ],
+        "yolo_xywhn": [
+          0.7,
+          0.175,
+          0.1,
+          0.25
+        ],
+        "source_box_origin": "wikimedia_curated_tight_v8e_patch"
+      },
+      {
+        "class_id": 0,
+        "class_name": "battery",
+        "bbox_xyxy": [
+          675.8,
+          222.7,
+          778.2,
+          414.7
+        ],
+        "yolo_xywhn": [
+          0.71,
+          0.415,
+          0.1,
+          0.25
+        ],
+        "source_box_origin": "wikimedia_curated_tight_v8e_patch"
+      },
+      {
+        "class_id": 0,
+        "class_name": "battery",
+        "bbox_xyxy": [
+          778.2,
+          53.8,
+          901.1,
+          230.4
+        ],
+        "yolo_xywhn": [
+          0.82,
+          0.185,
+          0.12,
+          0.23
+        ],
+        "source_box_origin": "wikimedia_curated_tight_v8e_patch"
+      },
+      {
+        "class_id": 0,
+        "class_name": "battery",
+        "bbox_xyxy": [
+          798.7,
+          215.0,
+          921.6,
+          407.0
+        ],
+        "yolo_xywhn": [
+          0.84,
+          0.405,
+          0.12,
+          0.25
+        ],
+        "source_box_origin": "wikimedia_curated_tight_v8e_patch"
+      },
+      {
+        "class_id": 0,
+        "class_name": "battery",
+        "bbox_xyxy": [
+          460.8,
+          468.5,
+          696.3,
+          691.2
+        ],
+        "yolo_xywhn": [
+          0.565,
+          0.755,
+          0.23,
+          0.29
+        ],
+        "source_box_origin": "wikimedia_curated_tight_v8e_patch"
+      },
+      {
+        "class_id": 0,
+        "class_name": "battery",
+        "bbox_xyxy": [
+          788.5,
+          468.5,
+          921.6,
+          698.9
+        ],
+        "yolo_xywhn": [
+          0.835,
+          0.76,
+          0.13,
+          0.3
+        ],
+        "source_box_origin": "wikimedia_curated_tight_v8e_patch"
+      }
+    ],
+    "qa_status": "REAL_WASTE_PASS",
+    "domain_tag": "ACTUAL_WASTE",
+    "OBJECT_ANNOTATION_VALID": true,
+    "REAL_WASTE_CONTEXT_VERIFIED": true,
+    "APPROVED_FOR_TRAIN": false,
+    "scene_environment": "OUTDOOR",
+    "in_bin": false,
+    "small_tilted_dirty_occluded": true,
+    "camera_mode": "UNKNOWN",
+    "session_group": "sess_wiki8e_alcide55",
+    "specimen_group": "spec_commons_11794497",
+    "target_split": "TRAIN_REAL_WASTE_W8E",
+    "qa_reason": "Visually verified Wikimedia Commons real-waste image (Category:Electric_battery_recycling) with curated tight per-instance bounding boxes."
+  },
+  "a2_task8e_1226": {
+    "candidate_id": "task8e_1226",
+    "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+    "source_name": "Wikimedia Commons Explicit Real-Waste Categories & Queries",
+    "source_image_id": "commons_20326528",
+    "source_split": "unspecified",
+    "provenance_tier": "VERIFIED_WIKIMEDIA_COMMONS_OPEN_LICENSE",
+    "title": "File:Abandoned shoes donostia.JPG",
+    "query_used": "search:filetype:bitmap (abandoned shoe street OR discarded shoe litter OR lost shoe beach)",
+    "original_url": "https://commons.wikimedia.org/wiki/File:Abandoned_shoes_donostia.JPG",
+    "author": "Joxemai",
+    "license": "CC BY-SA 3.0",
+    "attribution_required": true,
+    "image_path": "data/acquisition_staging/task8e_scale_real_waste/images/task8e_1226.jpg",
+    "label_path": "data/acquisition_staging/task8e_scale_real_waste/labels_real_waste_pass/task8e_1226.txt",
+    "overlay_path": "data/acquisition_staging/task8e_scale_real_waste/overlays/task8e_1226_overlay.jpg",
+    "sha256": "076897b7eea7a95b14a01d483d17598154e816d550b4db90a42c26345b028111",
+    "dhash_hex": "e39b161d85c3f3f9",
+    "width": 768,
+    "height": 1024,
+    "primary_class_id": 8,
+    "primary_class_name": "shoes",
+    "classes_present_ids": [
+      8
+    ],
+    "classes_present_names": [
+      "shoes"
+    ],
+    "is_multiclass": false,
+    "bbox_count": 2,
+    "boxes": [
+      {
+        "class_id": 8,
+        "class_name": "shoes",
+        "bbox_xyxy": [
+          244.2,
+          681.0,
+          451.6,
+          786.4
+        ],
+        "yolo_xywhn": [
+          0.453,
+          0.7165,
+          0.27,
+          0.103
+        ],
+        "source_box_origin": "wikimedia_curated_tight_v8e_patch"
+      },
+      {
+        "class_id": 8,
+        "class_name": "shoes",
+        "bbox_xyxy": [
+          249.6,
+          803.8,
+          447.7,
+          917.5
+        ],
+        "yolo_xywhn": [
+          0.454,
+          0.8405,
+          0.258,
+          0.111
+        ],
+        "source_box_origin": "wikimedia_curated_tight_v8e_patch"
+      }
+    ],
+    "qa_status": "REAL_WASTE_PASS",
+    "domain_tag": "ACTUAL_WASTE",
+    "OBJECT_ANNOTATION_VALID": true,
+    "REAL_WASTE_CONTEXT_VERIFIED": true,
+    "APPROVED_FOR_TRAIN": false,
+    "scene_environment": "OUTDOOR",
+    "in_bin": false,
+    "small_tilted_dirty_occluded": true,
+    "camera_mode": "UNKNOWN",
+    "session_group": "sess_wiki8e_joxemai",
+    "specimen_group": "spec_commons_20326528",
+    "target_split": "VAL_REAL_WASTE_W8E",
+    "qa_reason": "Visually verified Wikimedia Commons real-waste image (search:filetype:bitmap (abandoned shoe street OR discarded shoe litter OR lost shoe beach)) with curated tight per-instance bounding boxes."
+  },
+  "a3_task8e_1152": {
+    "candidate_id": "task8e_1152",
+    "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+    "source_name": "Wikimedia Commons Explicit Real-Waste Categories & Queries",
+    "source_image_id": "commons_36645031",
+    "source_split": "unspecified",
+    "provenance_tier": "VERIFIED_WIKIMEDIA_COMMONS_OPEN_LICENSE",
+    "title": "File:NiCd accumulator with recycling pictograms.jpg",
+    "query_used": "Category:Electric_battery_recycling",
+    "original_url": "https://commons.wikimedia.org/wiki/File:NiCd_accumulator_with_recycling_pictograms.jpg",
+    "author": "LordOider",
+    "license": "CC0",
+    "attribution_required": false,
+    "image_path": "data/acquisition_staging/task8e_scale_real_waste/images/task8e_1152.jpg",
+    "label_path": "data/acquisition_staging/task8e_scale_real_waste/labels_auxiliary/task8e_1152.txt",
+    "overlay_path": "data/acquisition_staging/task8e_scale_real_waste/overlays/task8e_1152_overlay.jpg",
+    "sha256": "15e22b118b159e5b96c72b1bfe1681b3d9c938bcb3ea9f2156db13c23b161f42",
+    "dhash_hex": "2aaae8e8e8e8d4e8",
+    "width": 1024,
+    "height": 890,
+    "primary_class_id": 0,
+    "primary_class_name": "battery",
+    "classes_present_ids": [
+      0
+    ],
+    "classes_present_names": [
+      "battery"
+    ],
+    "is_multiclass": false,
+    "bbox_count": 1,
+    "boxes": [
+      {
+        "class_id": 0,
+        "class_name": "battery",
+        "bbox_xyxy": [
+          56.3,
+          33.8,
+          957.4,
+          856.2
+        ],
+        "yolo_xywhn": [
+          0.495,
+          0.5,
+          0.88,
+          0.924
+        ],
+        "source_box_origin": "wikimedia_curated_auxiliary_v8e_patch"
+      }
+    ],
+    "qa_status": "KEEP_AUXILIARY",
+    "domain_tag": "PRODUCT_STUDIO",
+    "OBJECT_ANNOTATION_VALID": true,
+    "REAL_WASTE_CONTEXT_VERIFIED": false,
+    "APPROVED_FOR_TRAIN": false,
+    "scene_environment": "OUTDOOR",
+    "in_bin": true,
+    "small_tilted_dirty_occluded": false,
+    "camera_mode": "UNKNOWN",
+    "session_group": "sess_wiki8e_lordoider",
+    "specimen_group": "spec_commons_36645031",
+    "target_split": "AUXILIARY_NON_WASTE_TRAIN_HOLD",
+    "qa_reason": "A3 Patch: Intact shrink-wrapped Ni-Cd battery pack photographed on white studio background without disposal/damage context; demoted to KEEP_AUXILIARY (PRODUCT_STUDIO)."
+  },
+  "all_diffs": [
+    {
+      "candidate_id": "task8e_0001",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "clothes"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Shynuaa street litter scene with coarse multi-item or ground-scatter group box (max_area=0.11, count=1); held in NEEDS_REVIEW per Part A4 instance-detection audit."
+    },
+    {
+      "candidate_id": "task8e_0006",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 2,
+      "before_classes": [
+        "cardboard"
+      ],
+      "after_classes": [
+        "cardboard",
+        "plastic"
+      ],
+      "comparison_image": null,
+      "qa_reason": "A4 Patch: Visually verified Shynuaa street litter scene with per-instance split bounding boxes and verified 10-class material taxonomy."
+    },
+    {
+      "candidate_id": "task8e_0020",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "cardboard"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Shynuaa street litter scene with coarse multi-item or ground-scatter group box (max_area=0.17, count=1); held in NEEDS_REVIEW per Part A4 instance-detection audit."
+    },
+    {
+      "candidate_id": "task8e_0036",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 2,
+      "after_bbox_count": 2,
+      "before_classes": [
+        "plastic",
+        "trash"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Shynuaa street litter scene with coarse multi-item or ground-scatter group box (max_area=0.46, count=2); held in NEEDS_REVIEW per Part A4 instance-detection audit."
+    },
+    {
+      "candidate_id": "task8e_0042",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 2,
+      "after_bbox_count": 2,
+      "before_classes": [
+        "cardboard",
+        "trash"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Shynuaa street litter scene with coarse multi-item or ground-scatter group box (max_area=0.36, count=2); held in NEEDS_REVIEW per Part A4 instance-detection audit."
+    },
+    {
+      "candidate_id": "task8e_0043",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "cardboard"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Shynuaa street litter scene with coarse multi-item or ground-scatter group box (max_area=0.54, count=1); held in NEEDS_REVIEW per Part A4 instance-detection audit."
+    },
+    {
+      "candidate_id": "task8e_0052",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 4,
+      "after_bbox_count": 4,
+      "before_classes": [
+        "cardboard",
+        "plastic",
+        "trash"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Shynuaa street litter scene with coarse multi-item or ground-scatter group box (max_area=0.14, count=4); held in NEEDS_REVIEW per Part A4 instance-detection audit."
+    },
+    {
+      "candidate_id": "task8e_0065",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 2,
+      "after_bbox_count": 2,
+      "before_classes": [
+        "cardboard",
+        "trash"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Shynuaa street litter scene with coarse multi-item or ground-scatter group box (max_area=0.20, count=2); held in NEEDS_REVIEW per Part A4 instance-detection audit."
+    },
+    {
+      "candidate_id": "task8e_0074",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 3,
+      "after_bbox_count": 3,
+      "before_classes": [
+        "cardboard",
+        "plastic",
+        "trash"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Shynuaa street litter scene with coarse multi-item or ground-scatter group box (max_area=0.12, count=3); held in NEEDS_REVIEW per Part A4 instance-detection audit."
+    },
+    {
+      "candidate_id": "task8e_0090",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "cardboard"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Shynuaa street litter scene with coarse multi-item or ground-scatter group box (max_area=0.40, count=1); held in NEEDS_REVIEW per Part A4 instance-detection audit."
+    },
+    {
+      "candidate_id": "task8e_0107",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 3,
+      "after_bbox_count": 3,
+      "before_classes": [
+        "cardboard",
+        "trash"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Shynuaa street litter scene with coarse multi-item or ground-scatter group box (max_area=0.33, count=3); held in NEEDS_REVIEW per Part A4 instance-detection audit."
+    },
+    {
+      "candidate_id": "task8e_0117",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 3,
+      "after_bbox_count": 3,
+      "before_classes": [
+        "cardboard",
+        "plastic"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Shynuaa street litter scene with coarse multi-item or ground-scatter group box (max_area=0.06, count=3); held in NEEDS_REVIEW per Part A4 instance-detection audit."
+    },
+    {
+      "candidate_id": "task8e_0124",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 3,
+      "after_bbox_count": 3,
+      "before_classes": [
+        "trash"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Shynuaa street litter scene with coarse multi-item or ground-scatter group box (max_area=0.36, count=3); held in NEEDS_REVIEW per Part A4 instance-detection audit."
+    },
+    {
+      "candidate_id": "task8e_0130",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 3,
+      "after_bbox_count": 3,
+      "before_classes": [
+        "plastic",
+        "trash"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Shynuaa street litter scene with coarse multi-item or ground-scatter group box (max_area=0.13, count=3); held in NEEDS_REVIEW per Part A4 instance-detection audit."
+    },
+    {
+      "candidate_id": "task8e_0131",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 3,
+      "after_bbox_count": 3,
+      "before_classes": [
+        "cardboard",
+        "plastic"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Shynuaa street litter scene with coarse multi-item or ground-scatter group box (max_area=0.06, count=3); held in NEEDS_REVIEW per Part A4 instance-detection audit."
+    },
+    {
+      "candidate_id": "task8e_0132",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 2,
+      "after_bbox_count": 2,
+      "before_classes": [
+        "cardboard",
+        "trash"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Shynuaa street litter scene with coarse multi-item or ground-scatter group box (max_area=0.41, count=2); held in NEEDS_REVIEW per Part A4 instance-detection audit."
+    },
+    {
+      "candidate_id": "task8e_0133",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "trash"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Shynuaa street litter scene with coarse multi-item or ground-scatter group box (max_area=0.49, count=1); held in NEEDS_REVIEW per Part A4 instance-detection audit."
+    },
+    {
+      "candidate_id": "task8e_0134",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "cardboard"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Shynuaa street litter scene with coarse multi-item or ground-scatter group box (max_area=0.43, count=1); held in NEEDS_REVIEW per Part A4 instance-detection audit."
+    },
+    {
+      "candidate_id": "task8e_0150",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 5,
+      "before_classes": [
+        "cardboard"
+      ],
+      "after_classes": [
+        "cardboard",
+        "metal",
+        "paper",
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "A4 Patch: Visually verified Shynuaa street litter scene with per-instance split bounding boxes and verified 10-class material taxonomy."
+    },
+    {
+      "candidate_id": "task8e_0167",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "metal"
+      ],
+      "after_classes": [
+        "plastic"
+      ],
+      "comparison_image": null,
+      "qa_reason": "A4 Patch: Visually verified Shynuaa street litter scene with per-instance split bounding boxes and verified 10-class material taxonomy."
+    },
+    {
+      "candidate_id": "task8e_0168",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "plastic"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Shynuaa street litter scene with coarse multi-item or ground-scatter group box (max_area=0.14, count=1); held in NEEDS_REVIEW per Part A4 instance-detection audit."
+    },
+    {
+      "candidate_id": "task8e_0188",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 2,
+      "after_bbox_count": 2,
+      "before_classes": [
+        "plastic",
+        "trash"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Shynuaa street litter scene with coarse multi-item or ground-scatter group box (max_area=0.07, count=2); held in NEEDS_REVIEW per Part A4 instance-detection audit."
+    },
+    {
+      "candidate_id": "task8e_0189",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 2,
+      "after_bbox_count": 2,
+      "before_classes": [
+        "paper"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Shynuaa street litter scene with coarse multi-item or ground-scatter group box (max_area=0.07, count=2); held in NEEDS_REVIEW per Part A4 instance-detection audit."
+    },
+    {
+      "candidate_id": "task8e_0190",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 3,
+      "after_bbox_count": 3,
+      "before_classes": [
+        "paper"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Shynuaa street litter scene with coarse multi-item or ground-scatter group box (max_area=0.05, count=3); held in NEEDS_REVIEW per Part A4 instance-detection audit."
+    },
+    {
+      "candidate_id": "task8e_0192",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 3,
+      "after_bbox_count": 3,
+      "before_classes": [
+        "paper",
+        "trash"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Shynuaa street litter scene with coarse multi-item or ground-scatter group box (max_area=0.06, count=3); held in NEEDS_REVIEW per Part A4 instance-detection audit."
+    },
+    {
+      "candidate_id": "task8e_0240",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 2,
+      "after_bbox_count": 2,
+      "before_classes": [
+        "paper",
+        "trash"
+      ],
+      "after_classes": [
+        "paper"
+      ],
+      "comparison_image": null,
+      "qa_reason": "A4 Patch: Visually verified Shynuaa street litter scene with per-instance split bounding boxes and verified 10-class material taxonomy."
+    },
+    {
+      "candidate_id": "task8e_0288",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "plastic"
+      ],
+      "after_classes": [
+        "plastic"
+      ],
+      "comparison_image": null,
+      "qa_reason": "A4 Patch: Visually verified Shynuaa street litter scene with per-instance split bounding boxes and verified 10-class material taxonomy."
+    },
+    {
+      "candidate_id": "task8e_0312",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 5,
+      "after_bbox_count": 5,
+      "before_classes": [
+        "plastic",
+        "trash"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Shynuaa street litter scene with coarse multi-item or ground-scatter group box (max_area=0.04, count=5); held in NEEDS_REVIEW per Part A4 instance-detection audit."
+    },
+    {
+      "candidate_id": "task8e_0313",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 2,
+      "after_bbox_count": 2,
+      "before_classes": [
+        "paper",
+        "plastic"
+      ],
+      "after_classes": [
+        "plastic"
+      ],
+      "comparison_image": null,
+      "qa_reason": "A4 Patch: Visually verified Shynuaa street litter scene with per-instance split bounding boxes and verified 10-class material taxonomy."
+    },
+    {
+      "candidate_id": "task8e_0325",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "trash"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Shynuaa street litter scene with coarse multi-item or ground-scatter group box (max_area=0.17, count=1); held in NEEDS_REVIEW per Part A4 instance-detection audit."
+    },
+    {
+      "candidate_id": "task8e_0334",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 2,
+      "after_bbox_count": 2,
+      "before_classes": [
+        "plastic",
+        "trash"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Shynuaa street litter scene with coarse multi-item or ground-scatter group box (max_area=0.12, count=2); held in NEEDS_REVIEW per Part A4 instance-detection audit."
+    },
+    {
+      "candidate_id": "task8e_0343",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 2,
+      "after_bbox_count": 2,
+      "before_classes": [
+        "cardboard",
+        "plastic"
+      ],
+      "after_classes": [
+        "plastic"
+      ],
+      "comparison_image": "data/acquisition_staging/task8e_scale_real_waste/qa_patch_before_after/task8e_0343_before_after.jpg",
+      "qa_reason": "A4 Patch: Visually verified Shynuaa street litter scene with per-instance split bounding boxes and verified 10-class material taxonomy."
+    },
+    {
+      "candidate_id": "task8e_0344",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 4,
+      "after_bbox_count": 4,
+      "before_classes": [
+        "plastic",
+        "trash"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Shynuaa street litter scene with coarse multi-item or ground-scatter group box (max_area=0.05, count=4); held in NEEDS_REVIEW per Part A4 instance-detection audit."
+    },
+    {
+      "candidate_id": "task8e_0365",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 3,
+      "before_classes": [
+        "plastic"
+      ],
+      "after_classes": [
+        "cardboard",
+        "metal",
+        "plastic"
+      ],
+      "comparison_image": "data/acquisition_staging/task8e_scale_real_waste/qa_patch_before_after/task8e_0365_before_after.jpg",
+      "qa_reason": "A4 Patch: Visually verified Shynuaa street litter scene with per-instance split bounding boxes and verified 10-class material taxonomy."
+    },
+    {
+      "candidate_id": "task8e_0385",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 3,
+      "after_bbox_count": 4,
+      "before_classes": [
+        "plastic",
+        "trash"
+      ],
+      "after_classes": [
+        "glass",
+        "metal",
+        "paper",
+        "plastic"
+      ],
+      "comparison_image": "data/acquisition_staging/task8e_scale_real_waste/qa_patch_before_after/task8e_0385_before_after.jpg",
+      "qa_reason": "A4 Patch: Visually verified Shynuaa street litter scene with per-instance split bounding boxes and verified 10-class material taxonomy."
+    },
+    {
+      "candidate_id": "task8e_0388",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 7,
+      "before_classes": [
+        "paper"
+      ],
+      "after_classes": [
+        "metal",
+        "plastic"
+      ],
+      "comparison_image": null,
+      "qa_reason": "A4 Patch: Visually verified Shynuaa street litter scene with per-instance split bounding boxes and verified 10-class material taxonomy."
+    },
+    {
+      "candidate_id": "task8e_0395",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 2,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "paper",
+        "plastic"
+      ],
+      "after_classes": [
+        "metal"
+      ],
+      "comparison_image": null,
+      "qa_reason": "A4 Patch: Visually verified Shynuaa street litter scene with per-instance split bounding boxes and verified 10-class material taxonomy."
+    },
+    {
+      "candidate_id": "task8e_0396",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "trash"
+      ],
+      "after_classes": [
+        "plastic"
+      ],
+      "comparison_image": null,
+      "qa_reason": "A4 Patch: Visually verified Shynuaa street litter scene with per-instance split bounding boxes and verified 10-class material taxonomy."
+    },
+    {
+      "candidate_id": "task8e_0402",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 2,
+      "before_classes": [
+        "metal"
+      ],
+      "after_classes": [
+        "metal",
+        "paper"
+      ],
+      "comparison_image": null,
+      "qa_reason": "A4 Patch: Visually verified Shynuaa street litter scene with per-instance split bounding boxes and verified 10-class material taxonomy."
+    },
+    {
+      "candidate_id": "task8e_0406",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 3,
+      "after_bbox_count": 3,
+      "before_classes": [
+        "metal",
+        "trash"
+      ],
+      "after_classes": [
+        "glass",
+        "metal"
+      ],
+      "comparison_image": "data/acquisition_staging/task8e_scale_real_waste/qa_patch_before_after/task8e_0406_before_after.jpg",
+      "qa_reason": "A4 Patch: Visually verified Shynuaa street litter scene with per-instance split bounding boxes and verified 10-class material taxonomy."
+    },
+    {
+      "candidate_id": "task8e_0408",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 3,
+      "after_bbox_count": 3,
+      "before_classes": [
+        "metal",
+        "trash"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Shynuaa street litter scene with coarse multi-item or ground-scatter group box (max_area=0.04, count=3); held in NEEDS_REVIEW per Part A4 instance-detection audit."
+    },
+    {
+      "candidate_id": "task8e_0409",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 3,
+      "after_bbox_count": 3,
+      "before_classes": [
+        "plastic",
+        "trash"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Shynuaa street litter scene with coarse multi-item or ground-scatter group box (max_area=0.13, count=3); held in NEEDS_REVIEW per Part A4 instance-detection audit."
+    },
+    {
+      "candidate_id": "task8e_0416",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 5,
+      "after_bbox_count": 5,
+      "before_classes": [
+        "paper",
+        "plastic",
+        "trash"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Shynuaa street litter scene with coarse multi-item or ground-scatter group box (max_area=0.04, count=5); held in NEEDS_REVIEW per Part A4 instance-detection audit."
+    },
+    {
+      "candidate_id": "task8e_0424",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 3,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "trash"
+      ],
+      "after_classes": [
+        "metal"
+      ],
+      "comparison_image": null,
+      "qa_reason": "A4 Patch: Visually verified Shynuaa street litter scene with per-instance split bounding boxes and verified 10-class material taxonomy."
+    },
+    {
+      "candidate_id": "task8e_0434",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 3,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "trash"
+      ],
+      "after_classes": [
+        "paper"
+      ],
+      "comparison_image": null,
+      "qa_reason": "A4 Patch: Visually verified Shynuaa street litter scene with per-instance split bounding boxes and verified 10-class material taxonomy."
+    },
+    {
+      "candidate_id": "task8e_0435",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "trash"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Shynuaa street litter scene with coarse multi-item or ground-scatter group box (max_area=0.15, count=1); held in NEEDS_REVIEW per Part A4 instance-detection audit."
+    },
+    {
+      "candidate_id": "task8e_0439",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REJECT",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "REJECTED",
+      "before_bbox_count": 1,
+      "after_bbox_count": 0,
+      "before_classes": [
+        "metal"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "A4 Patch: Same-specimen repeat of task8e_0438 window-ledge beverage can; rejected to enforce specimen independence."
+    },
+    {
+      "candidate_id": "task8e_0444",
+      "source_id": "SRC_8E_01_SHYNUAA_STREET_GARBAGE_TRAIN",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "metal"
+      ],
+      "after_classes": [
+        "glass"
+      ],
+      "comparison_image": "data/acquisition_staging/task8e_scale_real_waste/qa_patch_before_after/task8e_0444_before_after.jpg",
+      "qa_reason": "A4 Patch: Visually verified Shynuaa street litter scene with per-instance split bounding boxes and verified 10-class material taxonomy."
+    },
+    {
+      "candidate_id": "task8e_0502",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "VAL_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "battery"
+      ],
+      "after_classes": [
+        "battery"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (Category:Zinc-carbon batteries) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_0505",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "VAL_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 5,
+      "before_classes": [
+        "battery"
+      ],
+      "after_classes": [
+        "battery",
+        "cardboard"
+      ],
+      "comparison_image": "data/acquisition_staging/task8e_scale_real_waste/qa_patch_before_after/task8e_0505_before_after.jpg",
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (Category:Zinc-carbon batteries) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_0510",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "KEEP_AUXILIARY",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "PRODUCT_STUDIO",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "AUXILIARY_NON_WASTE_TRAIN_HOLD",
+      "before_bbox_count": 3,
+      "after_bbox_count": 3,
+      "before_classes": [
+        "battery"
+      ],
+      "after_classes": [
+        "battery"
+      ],
+      "comparison_image": "data/acquisition_staging/task8e_scale_real_waste/qa_patch_before_after/task8e_0510_before_after.jpg",
+      "qa_reason": "A4 Patch: Three intact vintage Soviet batteries on wooden tabletop composite without disposal/damage evidence; demoted to KEEP_AUXILIARY (PRODUCT_STUDIO)."
+    },
+    {
+      "candidate_id": "task8e_0523",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "battery"
+      ],
+      "after_classes": [
+        "battery"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Bulk waste pile / organic heap / diagram overlay / confetti scatter held in NEEDS_REVIEW per instance-detection policy."
+    },
+    {
+      "candidate_id": "task8e_0528",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "VAL_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "battery"
+      ],
+      "after_classes": [
+        "battery"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (Category:Lithium-ion batteries) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_0558",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 4,
+      "before_classes": [
+        "battery"
+      ],
+      "after_classes": [
+        "battery"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (Category:Lead-acid batteries) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_0566",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "KEEP_AUXILIARY",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "IN_USE",
+      "before_target_split": "VAL_REAL_WASTE_W8E",
+      "after_target_split": "AUXILIARY_NON_WASTE_TRAIN_HOLD",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "battery"
+      ],
+      "after_classes": [
+        "battery"
+      ],
+      "comparison_image": "data/acquisition_staging/task8e_scale_real_waste/qa_patch_before_after/task8e_0566_before_after.jpg",
+      "qa_reason": "A4 Patch: Fulmen 12V heavy-duty battery strapped inside active concrete-pump compartment; demoted to KEEP_AUXILIARY (IN_USE)."
+    },
+    {
+      "candidate_id": "task8e_0573",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 3,
+      "after_bbox_count": 3,
+      "before_classes": [
+        "battery"
+      ],
+      "after_classes": [
+        "battery"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (old rusty battery OR leaking battery filetype:bitmap) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_0711",
+      "source_id": "SRC_8E_03_OPENIMAGES_TRAIN_VAL_REAL_WASTE",
+      "source_split": "validation",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "KEEP_AUXILIARY",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "IN_USE",
+      "before_target_split": "VAL_REAL_WASTE_W8E",
+      "after_target_split": "AUXILIARY_NON_WASTE_VAL_HOLD",
+      "before_bbox_count": 5,
+      "after_bbox_count": 5,
+      "before_classes": [
+        "trash"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Valid Open Images V7 object ground-truth boxes in everyday/household or closed/empty-bin context; stored in KEEP_AUXILIARY."
+    },
+    {
+      "candidate_id": "task8e_0850",
+      "source_id": "SRC_8E_03_OPENIMAGES_TRAIN_VAL_REAL_WASTE",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 7,
+      "before_classes": [
+        "trash"
+      ],
+      "after_classes": [
+        "metal",
+        "plastic"
+      ],
+      "comparison_image": "data/acquisition_staging/task8e_scale_real_waste/qa_patch_before_after/task8e_0850_before_after.jpg",
+      "qa_reason": "Visually verified Open Images V7 (train) real-waste scene ('Richfield-Highpoint Trucking Terminal (COAF)') with tight per-instance object bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_0865",
+      "source_id": "SRC_8E_03_OPENIMAGES_TRAIN_VAL_REAL_WASTE",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 3,
+      "after_bbox_count": 3,
+      "before_classes": [
+        "trash"
+      ],
+      "after_classes": [
+        "cardboard",
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Visually verified Open Images V7 (train) real-waste scene ('Calçada ocupada') with tight per-instance object bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_0867",
+      "source_id": "SRC_8E_03_OPENIMAGES_TRAIN_VAL_REAL_WASTE",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "KEEP_AUXILIARY",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "IN_USE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "AUXILIARY_NON_WASTE_TRAIN_HOLD",
+      "before_bbox_count": 2,
+      "after_bbox_count": 2,
+      "before_classes": [
+        "trash"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Valid Open Images V7 object ground-truth boxes in everyday/household or closed/empty-bin context; stored in KEEP_AUXILIARY."
+    },
+    {
+      "candidate_id": "task8e_0880",
+      "source_id": "SRC_8E_03_OPENIMAGES_TRAIN_VAL_REAL_WASTE",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "KEEP_AUXILIARY",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "IN_USE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "AUXILIARY_NON_WASTE_TRAIN_HOLD",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "trash"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Valid Open Images V7 object ground-truth boxes in everyday/household or closed/empty-bin context; stored in KEEP_AUXILIARY."
+    },
+    {
+      "candidate_id": "task8e_0882",
+      "source_id": "SRC_8E_03_OPENIMAGES_TRAIN_VAL_REAL_WASTE",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 3,
+      "after_bbox_count": 2,
+      "before_classes": [
+        "trash"
+      ],
+      "after_classes": [
+        "plastic",
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Visually verified Open Images V7 (train) real-waste scene ('Rue Delhi Inde 2004') with tight per-instance object bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_0884",
+      "source_id": "SRC_8E_03_OPENIMAGES_TRAIN_VAL_REAL_WASTE",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 2,
+      "before_classes": [
+        "trash"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Visually verified Open Images V7 (train) real-waste scene ('Skip in road') with tight per-instance object bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_0885",
+      "source_id": "SRC_8E_03_OPENIMAGES_TRAIN_VAL_REAL_WASTE",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "KEEP_AUXILIARY",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "IN_USE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "AUXILIARY_NON_WASTE_TRAIN_HOLD",
+      "before_bbox_count": 2,
+      "after_bbox_count": 2,
+      "before_classes": [
+        "trash"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Valid Open Images V7 object ground-truth boxes in everyday/household or closed/empty-bin context; stored in KEEP_AUXILIARY."
+    },
+    {
+      "candidate_id": "task8e_0886",
+      "source_id": "SRC_8E_03_OPENIMAGES_TRAIN_VAL_REAL_WASTE",
+      "source_split": "train",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "KEEP_AUXILIARY",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "IN_USE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "AUXILIARY_NON_WASTE_TRAIN_HOLD",
+      "before_bbox_count": 7,
+      "after_bbox_count": 7,
+      "before_classes": [
+        "trash"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Valid Open Images V7 object ground-truth boxes in everyday/household or closed/empty-bin context; stored in KEEP_AUXILIARY."
+    },
+    {
+      "candidate_id": "task8e_0970",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 8,
+      "before_classes": [
+        "cardboard"
+      ],
+      "after_classes": [
+        "cardboard",
+        "trash"
+      ],
+      "comparison_image": "data/acquisition_staging/task8e_scale_real_waste/qa_patch_before_after/task8e_0970_before_after.jpg",
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (Category:Cardboard_boxes) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_0973",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "metal"
+      ],
+      "after_classes": [
+        "metal"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (Category:Aluminium_cans) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_0996",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "biological"
+      ],
+      "after_classes": [
+        "biological"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Bulk waste pile / organic heap / diagram overlay / confetti scatter held in NEEDS_REVIEW per instance-detection policy."
+    },
+    {
+      "candidate_id": "task8e_1000",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "KEEP_AUXILIARY",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "PRODUCT_STUDIO",
+      "before_target_split": "VAL_REAL_WASTE_W8E",
+      "after_target_split": "AUXILIARY_NON_WASTE_TRAIN_HOLD",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "metal"
+      ],
+      "after_classes": [
+        "metal"
+      ],
+      "comparison_image": "data/acquisition_staging/task8e_scale_real_waste/qa_patch_before_after/task8e_1000_before_after.jpg",
+      "qa_reason": "A4 Patch: Intact unopened Coca-Cola can photographed on black studio background; demoted to KEEP_AUXILIARY (PRODUCT_STUDIO)."
+    },
+    {
+      "candidate_id": "task8e_1003",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 2,
+      "before_classes": [
+        "shoes"
+      ],
+      "after_classes": [
+        "shoes"
+      ],
+      "comparison_image": "data/acquisition_staging/task8e_scale_real_waste/qa_patch_before_after/task8e_1003_before_after.jpg",
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (Category:Abandoned_shoes) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_1005",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REJECT",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "AMBIGUOUS_CONTEXT",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "REJECTED",
+      "before_bbox_count": 1,
+      "after_bbox_count": 0,
+      "before_classes": [
+        "biological"
+      ],
+      "after_classes": [
+        "biological"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Rejected Wikimedia image (same-specimen repeat, non-waste object, diagram, poster, person, animal, vehicle, or building)."
+    },
+    {
+      "candidate_id": "task8e_1015",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "KEEP_AUXILIARY",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "IN_USE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "AUXILIARY_NON_WASTE_TRAIN_HOLD",
+      "before_bbox_count": 2,
+      "after_bbox_count": 6,
+      "before_classes": [
+        "cardboard",
+        "plastic"
+      ],
+      "after_classes": [
+        "cardboard",
+        "paper"
+      ],
+      "comparison_image": "data/acquisition_staging/task8e_scale_real_waste/qa_patch_before_after/task8e_1015_before_after.jpg",
+      "qa_reason": "A4 Patch: Indoor stacked moving/gift boxes with ribbon beside wooden cabinet; demoted to KEEP_AUXILIARY (IN_USE) with per-instance boxes."
+    },
+    {
+      "candidate_id": "task8e_1022",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 2,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "paper",
+        "plastic"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Bulk waste pile / organic heap / diagram overlay / confetti scatter held in NEEDS_REVIEW per instance-detection policy."
+    },
+    {
+      "candidate_id": "task8e_1024",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 8,
+      "before_classes": [
+        "cardboard"
+      ],
+      "after_classes": [
+        "cardboard",
+        "trash"
+      ],
+      "comparison_image": "data/acquisition_staging/task8e_scale_real_waste/qa_patch_before_after/task8e_1024_before_after.jpg",
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (Category:Cardboard_boxes) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_1031",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "paper"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Bulk waste pile / organic heap / diagram overlay / confetti scatter held in NEEDS_REVIEW per instance-detection policy."
+    },
+    {
+      "candidate_id": "task8e_1039",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 2,
+      "before_classes": [
+        "shoes"
+      ],
+      "after_classes": [
+        "shoes"
+      ],
+      "comparison_image": "data/acquisition_staging/task8e_scale_real_waste/qa_patch_before_after/task8e_1039_before_after.jpg",
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (Category:Abandoned_shoes) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_1041",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "biological"
+      ],
+      "after_classes": [
+        "biological"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (Category:Food_waste) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_1049",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 2,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "paper",
+        "plastic"
+      ],
+      "after_classes": [
+        "trash"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (Category:Litter) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_1050",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "biological"
+      ],
+      "after_classes": [
+        "biological"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Bulk waste pile / organic heap / diagram overlay / confetti scatter held in NEEDS_REVIEW per instance-detection policy."
+    },
+    {
+      "candidate_id": "task8e_1051",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 7,
+      "before_classes": [
+        "cardboard"
+      ],
+      "after_classes": [
+        "cardboard",
+        "plastic",
+        "trash"
+      ],
+      "comparison_image": "data/acquisition_staging/task8e_scale_real_waste/qa_patch_before_after/task8e_1051_before_after.jpg",
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (Category:Cardboard_boxes) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_1060",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 7,
+      "before_classes": [
+        "cardboard"
+      ],
+      "after_classes": [
+        "cardboard",
+        "plastic"
+      ],
+      "comparison_image": "data/acquisition_staging/task8e_scale_real_waste/qa_patch_before_after/task8e_1060_before_after.jpg",
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (Category:Cardboard_boxes) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_1067",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "battery"
+      ],
+      "after_classes": [
+        "battery"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (Category:Leaked_electric_batteries) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_1073",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "biological"
+      ],
+      "after_classes": [
+        "biological"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (Category:Banana_peel) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_1077",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 2,
+      "after_bbox_count": 5,
+      "before_classes": [
+        "battery"
+      ],
+      "after_classes": [
+        "battery"
+      ],
+      "comparison_image": "data/acquisition_staging/task8e_scale_real_waste/qa_patch_before_after/task8e_1077_before_after.jpg",
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (Category:Leaked_electric_batteries) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_1078",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 2,
+      "before_classes": [
+        "biological"
+      ],
+      "after_classes": [
+        "biological"
+      ],
+      "comparison_image": "data/acquisition_staging/task8e_scale_real_waste/qa_patch_before_after/task8e_1078_before_after.jpg",
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (Category:Banana_peel) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_1082",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 2,
+      "after_bbox_count": 2,
+      "before_classes": [
+        "battery"
+      ],
+      "after_classes": [
+        "battery"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (Category:Leaked_electric_batteries) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_1083",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "VAL_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "biological"
+      ],
+      "after_classes": [
+        "biological"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Bulk waste pile / organic heap / diagram overlay / confetti scatter held in NEEDS_REVIEW per instance-detection policy."
+    },
+    {
+      "candidate_id": "task8e_1086",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "shoes"
+      ],
+      "after_classes": [
+        "shoes"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (Category:Abandoned_shoes) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_1087",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REJECT",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "AMBIGUOUS_CONTEXT",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "REJECTED",
+      "before_bbox_count": 2,
+      "after_bbox_count": 0,
+      "before_classes": [
+        "battery"
+      ],
+      "after_classes": [
+        "battery"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Rejected Wikimedia image (same-specimen repeat, non-waste object, diagram, poster, person, animal, vehicle, or building)."
+    },
+    {
+      "candidate_id": "task8e_1092",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "VAL_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "battery"
+      ],
+      "after_classes": [
+        "battery"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (Category:Leaked_electric_batteries) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_1102",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "battery"
+      ],
+      "after_classes": [
+        "battery"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (Category:Leaked_electric_batteries) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_1107",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 2,
+      "after_bbox_count": 3,
+      "before_classes": [
+        "battery"
+      ],
+      "after_classes": [
+        "battery"
+      ],
+      "comparison_image": "data/acquisition_staging/task8e_scale_real_waste/qa_patch_before_after/task8e_1107_before_after.jpg",
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (Category:Leaked_electric_batteries) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_1118",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "biological"
+      ],
+      "after_classes": [
+        "biological"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (Category:Banana_peel) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_1123",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "biological"
+      ],
+      "after_classes": [
+        "biological"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (Category:Banana_peel) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_1126",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "shoes"
+      ],
+      "after_classes": [
+        "shoes"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (Category:Abandoned_shoes) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_1131",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 2,
+      "before_classes": [
+        "shoes"
+      ],
+      "after_classes": [
+        "shoes"
+      ],
+      "comparison_image": "data/acquisition_staging/task8e_scale_real_waste/qa_patch_before_after/task8e_1131_before_after.jpg",
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (Category:Abandoned_shoes) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_1146",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 2,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "shoes"
+      ],
+      "after_classes": [
+        "shoes"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (Category:Abandoned_shoes) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_1148",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "biological"
+      ],
+      "after_classes": [
+        "biological"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Bulk waste pile / organic heap / diagram overlay / confetti scatter held in NEEDS_REVIEW per instance-detection policy."
+    },
+    {
+      "candidate_id": "task8e_1152",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "KEEP_AUXILIARY",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "PRODUCT_STUDIO",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "AUXILIARY_NON_WASTE_TRAIN_HOLD",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "battery"
+      ],
+      "after_classes": [
+        "battery"
+      ],
+      "comparison_image": "data/acquisition_staging/task8e_scale_real_waste/qa_patch_before_after/task8e_1152_before_after.jpg",
+      "qa_reason": "A3 Patch: Intact shrink-wrapped Ni-Cd battery pack photographed on white studio background without disposal/damage context; demoted to KEEP_AUXILIARY (PRODUCT_STUDIO)."
+    },
+    {
+      "candidate_id": "task8e_1153",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "VAL_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "biological"
+      ],
+      "after_classes": [
+        "biological"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (Category:Food_waste) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_1156",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "VAL_REAL_WASTE_W8E",
+      "after_target_split": "VAL_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 3,
+      "before_classes": [
+        "shoes"
+      ],
+      "after_classes": [
+        "plastic",
+        "shoes"
+      ],
+      "comparison_image": "data/acquisition_staging/task8e_scale_real_waste/qa_patch_before_after/task8e_1156_before_after.jpg",
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (Category:Abandoned_shoes) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_1158",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "biological"
+      ],
+      "after_classes": [
+        "biological"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Bulk waste pile / organic heap / diagram overlay / confetti scatter held in NEEDS_REVIEW per instance-detection policy."
+    },
+    {
+      "candidate_id": "task8e_1163",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "biological"
+      ],
+      "after_classes": [
+        "biological"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Bulk waste pile / organic heap / diagram overlay / confetti scatter held in NEEDS_REVIEW per instance-detection policy."
+    },
+    {
+      "candidate_id": "task8e_1167",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 9,
+      "before_classes": [
+        "battery"
+      ],
+      "after_classes": [
+        "battery"
+      ],
+      "comparison_image": "data/acquisition_staging/task8e_scale_real_waste/qa_patch_before_after/task8e_1167_before_after.jpg",
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (Category:Electric_battery_recycling) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_1168",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 2,
+      "before_classes": [
+        "biological"
+      ],
+      "after_classes": [
+        "biological",
+        "plastic"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (Category:Food_waste) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_1198",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "biological"
+      ],
+      "after_classes": [
+        "biological"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (search:filetype:bitmap (moldy bread OR rotten apple OR rotten orange OR decomposing fruit)) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_1208",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "VAL_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 2,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "biological"
+      ],
+      "after_classes": [
+        "biological"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Bulk waste pile / organic heap / diagram overlay / confetti scatter held in NEEDS_REVIEW per instance-detection policy."
+    },
+    {
+      "candidate_id": "task8e_1211",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 2,
+      "after_bbox_count": 4,
+      "before_classes": [
+        "shoes"
+      ],
+      "after_classes": [
+        "shoes"
+      ],
+      "comparison_image": "data/acquisition_staging/task8e_scale_real_waste/qa_patch_before_after/task8e_1211_before_after.jpg",
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (search:filetype:bitmap (abandoned shoe street OR discarded shoe litter OR lost shoe beach)) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_1213",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "biological"
+      ],
+      "after_classes": [
+        "biological"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Bulk waste pile / organic heap / diagram overlay / confetti scatter held in NEEDS_REVIEW per instance-detection policy."
+    },
+    {
+      "candidate_id": "task8e_1218",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "biological"
+      ],
+      "after_classes": [
+        "biological"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (search:filetype:bitmap (moldy bread OR rotten apple OR rotten orange OR decomposing fruit)) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_1221",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 2,
+      "before_classes": [
+        "shoes"
+      ],
+      "after_classes": [
+        "shoes"
+      ],
+      "comparison_image": "data/acquisition_staging/task8e_scale_real_waste/qa_patch_before_after/task8e_1221_before_after.jpg",
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (search:filetype:bitmap (abandoned shoe street OR discarded shoe litter OR lost shoe beach)) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_1223",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "NEEDS_REVIEW",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "MANUAL_REVIEW_QUEUE",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "biological"
+      ],
+      "after_classes": [
+        "biological"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Bulk waste pile / organic heap / diagram overlay / confetti scatter held in NEEDS_REVIEW per instance-detection policy."
+    },
+    {
+      "candidate_id": "task8e_1226",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "VAL_REAL_WASTE_W8E",
+      "after_target_split": "VAL_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 2,
+      "before_classes": [
+        "shoes"
+      ],
+      "after_classes": [
+        "shoes"
+      ],
+      "comparison_image": "data/acquisition_staging/task8e_scale_real_waste/qa_patch_before_after/task8e_1226_before_after.jpg",
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (search:filetype:bitmap (abandoned shoe street OR discarded shoe litter OR lost shoe beach)) with curated tight per-instance bounding boxes."
+    },
+    {
+      "candidate_id": "task8e_1228",
+      "source_id": "SRC_8E_02_WIKIMEDIA_REAL_WASTE_CATEGORIES",
+      "source_split": "unspecified",
+      "before_qa_status": "REAL_WASTE_PASS",
+      "after_qa_status": "REAL_WASTE_PASS",
+      "before_domain_tag": "ACTUAL_WASTE",
+      "after_domain_tag": "ACTUAL_WASTE",
+      "before_target_split": "TRAIN_REAL_WASTE_W8E",
+      "after_target_split": "TRAIN_REAL_WASTE_W8E",
+      "before_bbox_count": 1,
+      "after_bbox_count": 1,
+      "before_classes": [
+        "biological"
+      ],
+      "after_classes": [
+        "biological"
+      ],
+      "comparison_image": null,
+      "qa_reason": "Visually verified Wikimedia Commons real-waste image (search:filetype:bitmap (moldy bread OR rotten apple OR rotten orange OR decomposing fruit)) with curated tight per-instance bounding boxes."
+    }
+  ]
+}

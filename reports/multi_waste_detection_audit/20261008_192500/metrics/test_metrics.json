@@ -1,0 +1,86 @@
+{
+  "audit_version": "3.0.0",
+  "audit_date": "2026-10-08",
+  "dataset_split_lineage": {
+    "config_file": "configs/detection_dataset.yaml",
+    "split_manifest": "data/detection/splits/val.txt",
+    "train_images": 1317,
+    "train_boxes": 4280,
+    "synthetic_mendeley_train_images": 1305,
+    "real_taco_train_images": 12,
+    "synthetic_ratio_percent": 99.09,
+    "val_images": 5,
+    "val_boxes": 45,
+    "test_images": 5,
+    "test_boxes": 45,
+    "note": "Official Part 2 detection dataset split strictly has 5 images / 45 boxes for validation and 5 images for test. Historical references to '257 images' originated from classification dataset splits or earlier unmerged proposal manifests and do not represent the active detection validation set."
+  },
+  "single_detector_validation_yolov8n": {
+    "source_file": "metrics/yolov8n_training_summary.json",
+    "checkpoint": "artifacts/detection/waste-yolov8n-combined-seed42/weights/best.pt",
+    "checkpoint_sha256": "97f46ccaaa0a63c5934225d51ccd399c1c18eb3e1af8a63b9f14bec1aaa085c9",
+    "architecture": "yolov8n (Ultralytics 8.4.171)",
+    "input_size": 320,
+    "best_epoch": 67,
+    "overall": {
+      "precision": 0.2012,
+      "recall": 0.0540,
+      "mAP50": 0.0525,
+      "mAP50_95": 0.0401
+    },
+    "recommended_threshold_val": 0.0470,
+    "f1_curve_file": "metrics/yolov8n_BoxF1_curve.png",
+    "ui_default_threshold": 0.45,
+    "per_class_val_ap50": {
+      "battery": "N/A (0 val instances)",
+      "biological": 0.0,
+      "cardboard": 0.370,
+      "clothes": "N/A (0 val instances)",
+      "glass": 0.0,
+      "metal": 0.0,
+      "paper": 0.0,
+      "plastic": 0.0501,
+      "shoes": 0.0,
+      "trash": 0.0
+    }
+  },
+  "single_detector_validation_ssdlite320": {
+    "source_file": "metrics/ssdlite_training_summary.json",
+    "checkpoint": "artifacts/detection/waste-ssdlite320-mobilenetv3-combined-seed42/weights/best.pt",
+    "checkpoint_sha256": "584c5980eb4ebe3718da7b3e87a3c95edfee3d78f186def3e5feba32cf03dff1",
+    "architecture": "SSDLite320-MobileNetV3-Large (Torchvision 0.20.1+cu121)",
+    "input_size": 320,
+    "best_epoch": 29,
+    "best_val_map50_95": 0.0489,
+    "max_confidence_on_user_test_image": 0.374,
+    "ui_default_threshold": 0.45,
+    "detection_count_at_ui_default_045": 0
+  },
+  "wbf_ensemble_validation": {
+    "source_file": "metrics/selection_wbf_ensemble.json",
+    "validation_fingerprint": "420e1d0c7b9786016085d4a51ddbaec3efe21da96e99a6483de1ce738726a24b",
+    "evaluator": "pycocotools.COCOeval",
+    "parameters": {
+      "weights": [1.0, 1.0],
+      "iou_threshold": 0.55,
+      "fusion_input_threshold": 0.001,
+      "conf_type": "avg"
+    },
+    "macro_mAP50_active_8_classes": 0.1202,
+    "macro_mAP50_all_10_classes": 0.0961,
+    "mAP50_95": 0.0638,
+    "per_class_val_ap50": {
+      "battery": "N/A (0 val instances)",
+      "biological": 0.0,
+      "cardboard": 0.8625,
+      "clothes": "N/A (0 val instances)",
+      "glass": 0.0,
+      "metal": 0.0,
+      "paper": 0.0,
+      "plastic": 0.0990,
+      "shoes": 0.0,
+      "trash": 0.0
+    },
+    "averaging_policy_note": "Validation split contains 45 ground-truth boxes across 8 classes; 2 classes (battery, clothes) have 0 instances. Averaging over the 8 present classes yields mAP50 = (0.8625 + 0.0990) / 8 = 0.1202. Averaging over all 10 project classes treating absent classes as 0 yields mAP50 = (0.8625 + 0.0990) / 10 = 0.0961."
+  }
+}

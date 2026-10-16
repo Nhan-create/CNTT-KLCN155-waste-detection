@@ -21,15 +21,15 @@ from pathlib import Path
 import pandas as pd
 from PIL import Image
 
-RAW_GARBAGE_V2 = Path(r"D:\HK7\Đồ án khóa luận\Data\raw\garbage_v2")
-RAW_VN_TRASH = Path(r"D:\HK7\Đồ án khóa luận\Data\raw\vn_trash")
-STANDARDIZED_256 = Path(r"D:\HK7\Đồ án khóa luận\Data\Garbage Dataset\standardized_256")
-STANDARDIZED_384 = Path(r"D:\HK7\Đồ án khóa luận\Data\Garbage Dataset\standardized_384")
-PROCESSED_ROOT = Path(r"D:\HK7\Đồ án khóa luận\Data\processed")
-DATASET_INFO_CSV = Path(r"D:\HK7\Đồ án khóa luận\Data\metadata\dataset_info.csv")
-DETECTION_V1_ROOT = Path(r"C:\Users\ad\Downloads\Do-an-deeplearning\waste-classifier-mobilenetv3\data\detection\v1")
+RAW_GARBAGE_V2 = (Path(__import__("os").environ.get("WASTE_LEGACY_DATA_DIR", str(Path(__file__).resolve().parents[1] / "data" / "legacy_hk7"))) / "Data/raw/garbage_v2")
+RAW_VN_TRASH = (Path(__import__("os").environ.get("WASTE_LEGACY_DATA_DIR", str(Path(__file__).resolve().parents[1] / "data" / "legacy_hk7"))) / "Data/raw/vn_trash")
+STANDARDIZED_256 = (Path(__import__("os").environ.get("WASTE_LEGACY_DATA_DIR", str(Path(__file__).resolve().parents[1] / "data" / "legacy_hk7"))) / "Data/Garbage Dataset/standardized_256")
+STANDARDIZED_384 = (Path(__import__("os").environ.get("WASTE_LEGACY_DATA_DIR", str(Path(__file__).resolve().parents[1] / "data" / "legacy_hk7"))) / "Data/Garbage Dataset/standardized_384")
+PROCESSED_ROOT = (Path(__import__("os").environ.get("WASTE_LEGACY_DATA_DIR", str(Path(__file__).resolve().parents[1] / "data" / "legacy_hk7"))) / "Data/processed")
+DATASET_INFO_CSV = (Path(__import__("os").environ.get("WASTE_LEGACY_DATA_DIR", str(Path(__file__).resolve().parents[1] / "data" / "legacy_hk7"))) / "Data/metadata/dataset_info.csv")
+DETECTION_V1_ROOT = (Path.home() / "Downloads" / "Do-an-deeplearning/waste-classifier-mobilenetv3/data/detection/v1")
 
-OUTPUT_DIR = Path(r"D:\CNTT-KLCN155-waste-detection\data\audit")
+OUTPUT_DIR = (Path(__file__).resolve().parents[1] / "data/audit")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 VN_TRASH_MAPPING_10 = {
@@ -181,7 +181,7 @@ def main() -> None:
 
     # Match raw records with info_map
     for r in raw_records:
-        rel_key1 = os.path.relpath(r["raw_path"], r"D:\HK7\Đồ án khóa luận")
+        rel_key1 = os.path.relpath(r["raw_path"], str(PROCESSED_ROOT.parent.parent))
         info = info_map.get(rel_key1) or info_map.get(rel_key1.replace("/", "\\"))
         if not info:
             for k, v in info_map.items():

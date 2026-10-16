@@ -1,0 +1,15 @@
+execution_authorized: false
+base_checkpoint: artifacts/detection_v2/E1_yolov8n_10cls/weights/best.pt
+imgsz: 640
+batch: 4
+freeze: 10
+optimizer: AdamW
+lr0: 0.0002
+lrf: 0.01
+epochs: 20
+patience: 5
+rationale: 1. Keep imgsz=640 identical to E1 (RTX 2050 4GB only used 400.1 MB at imgsz=512,
+  batch=4, so imgsz=640 easily fits under 1 GB VRAM) to prevent resolution-shift degradation
+  on cardboard/shoes/metal. 2. Freeze backbone layers 0..9 (freeze=10) and lower lr0
+  from 0.001 to 0.0002 so existing 9-class feature extractors are preserved while
+  detection head adapts to multi-battery, 9V, button cell, Li-ion, and corroded batteries.

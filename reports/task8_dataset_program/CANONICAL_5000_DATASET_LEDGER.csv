@@ -1,0 +1,11 @@
+class_id,class_name,v2_frozen_train_images,tier1_clean_baseline_total_train_images,tier1a_clean_baseline_taco_verified_rw_train_images,tier1a_clean_baseline_taco_verified_rw_train_boxes,tier1b_clean_baseline_openimages_unverified_domain_train_images,tier1b_clean_baseline_openimages_unverified_domain_train_boxes,pre_task8_staged_rw_train,wave1_rw_train,wave2_rw_train,wave8d_rw_train,wave8e_pre_patch_rw_train,wave8e_post_patch_rw_train,wave8f_pre_correction_rw_train,wave8f_scarce_rw_train,tier3_pending_approval_rw_train_images,tier3_pending_approval_rw_train_boxes,tier2_verified_real_waste_cumulative_train_images,tier2_verified_real_waste_cumulative_train_boxes,tier2_verified_real_waste_unique_specimens,tier2_verified_real_waste_unique_sessions,separate_auxiliary_oi_baseline_and_v3_rf_train,verified_real_waste_val_total_images,gap_to_m1_500_from_verified_rw,gap_to_m2_1500_from_verified_rw,gap_to_m3_3000_from_verified_rw,gap_to_m4_5000_from_verified_rw,wave8g_large_scale_rw_train,wave8g_large_scale_rw_train_boxes,wave8g_large_scale_rw_val,wave8g_large_scale_rw_val_boxes,wave8h_scarce_scaling_rw_train,wave8h_scarce_scaling_rw_train_boxes,wave8h_scarce_scaling_rw_val,wave8h_scarce_scaling_rw_val_boxes
+0,battery,1,1,1,1,0,0,16,0,4,11,21,12,15,7,85,170,86,171,82,77,319,31,414,1414,2914,4914,1,3,1,2,34,51,8,9
+1,biological,3,3,3,3,0,0,6,20,9,14,23,14,35,8,116,143,119,146,112,89,132,29,381,1381,2881,4881,16,23,3,3,29,32,9,11
+2,cardboard,126,108,108,143,0,0,0,1,3,3,59,47,14,3,77,110,185,253,185,58,197,44,315,1315,2815,4815,20,23,0,0,0,0,0,0
+3,clothes,212,169,0,0,169,299,0,1,1,9,18,17,6,3,55,74,55,74,55,28,275,4,445,1445,2945,4945,3,4,0,0,21,38,3,5
+4,glass,101,89,54,104,35,51,0,6,2,3,10,10,10,5,57,61,111,165,111,49,193,32,389,1389,2889,4889,10,10,1,2,21,22,5,8
+5,metal,214,189,179,316,10,15,0,0,6,4,39,42,14,13,126,156,305,472,305,93,164,57,195,1195,2695,4695,57,78,2,2,4,6,1,2
+6,paper,123,111,110,136,1,1,1,3,0,5,41,35,50,12,91,114,201,250,200,71,198,47,299,1299,2799,4799,35,45,1,1,0,0,0,0
+7,plastic,791,732,731,1312,1,1,0,5,2,14,162,154,0,8,256,292,987,1604,986,161,27,177,0,513,2013,4013,71,76,2,2,2,2,0,0
+8,shoes,117,111,2,2,109,205,0,7,4,5,23,22,17,12,76,112,78,114,78,57,201,15,422,1422,2922,4922,3,3,1,1,23,30,4,4
+9,trash,294,233,233,463,0,0,0,2,5,11,125,99,0,1,128,192,361,655,360,96,49,72,139,1139,2639,4639,10,13,0,0,0,0,0,0

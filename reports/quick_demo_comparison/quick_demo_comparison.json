@@ -1,0 +1,3923 @@
+{
+  "timestamp_utc": "2026-10-12T02:50:00Z",
+  "task_name": "QUICK DEMO INFERENCE COMPARISON",
+  "threshold": 0.25,
+  "iou_nms_threshold": 0.55,
+  "target_image_17": {
+    "path": "D:\\Hinh_Anh_Rac\\images (17).jpg",
+    "size": {
+      "width": 547,
+      "height": 365
+    },
+    "ground_truth_review": {
+      "frozen_gt_total_objects": 11,
+      "frozen_gt_status": "1.0_FROZEN (Giữ nguyên tuyệt đối không chỉnh sửa)",
+      "operational_breakdown": {
+        "real_waste_objects_count": 9,
+        "real_waste_items": [
+          "img10_obj03 (metal): Hộp thiếc kim loại hình bông tuyết màu xanh trong thùng bên trái.",
+          "img10_obj04 (metal): Lon nước ngọt kim loại màu đỏ cắm ống hút đen.",
+          "img10_obj05 (glass): Chai thủy tinh màu xanh lá cây trong thùng bên trái.",
+          "img10_obj06 (glass): Cổ chai thủy tinh trong suốt nằm sau chai xanh lá cây.",
+          "img10_obj07 (plastic): Chai nhựa trong suốt cao có ngấn rãnh ở thùng đen bên trái.",
+          "img10_obj08 (plastic): Bình nhựa màu trắng đục nắp vặn nhọn ở thùng đen.",
+          "img10_obj09 (plastic): Chai nước khoáng nhựa trong suốt nắp xanh dương ở thùng đen.",
+          "img10_obj10 (plastic): Hộp/chai nhựa trong suốt miệng rộng phía ngoài cùng bên phải thùng đen.",
+          "img10_obj11 (metal): Lon nhôm kim loại bị ép bẹp ở mép thùng đen."
+        ],
+        "container_bins_count": 2,
+        "container_bins_items": [
+          "img10_obj01 (plastic): Thùng rác tái chế bằng nhựa trong suốt mờ bên trái có logo recycle.",
+          "img10_obj02 (plastic): Thùng rác tái chế bằng nhựa màu đen bên phải có logo recycle."
+        ],
+        "note": "2 thùng rác tái chế (img10_obj01 và img10_obj02) là thùng chứa đang hoạt động, không phải rác thải bỏ. Báo cáo đánh giá cả 2 góc nhìn minh bạch."
+      }
+    },
+    "modes_evaluation": {
+      "mode_1_ssdlite_raw": {
+        "mode_name": "SSDLite, không Tiling, không Two-Stage",
+        "model_name": "SSDLite v2 (E2_ssdlite320_10cls)",
+        "latency_ms": 47.2,
+        "num_boxes": 1,
+        "predictions": [
+          {
+            "class_id": "plastic",
+            "confidence": 0.2971,
+            "confidence_pct": "29.7%",
+            "bbox_xyxy": [
+              393.1,
+              53.8,
+              477.9,
+              182.4
+            ]
+          }
+        ],
+        "evaluation_frozen_gt11": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 10,
+          "precision": 1.0,
+          "recall": 0.0909,
+          "f1": 0.1667,
+          "matched_details": [
+            {
+              "pred": {
+                "class_id": "plastic",
+                "confidence": 0.2971,
+                "confidence_pct": "29.7%",
+                "bbox_xyxy": [
+                  393.1,
+                  53.8,
+                  477.9,
+                  182.4
+                ]
+              },
+              "gt": {
+                "object_id": "img10_obj09",
+                "class_name": "plastic",
+                "class_id": 7,
+                "bbox_xyxy": [
+                  400,
+                  45,
+                  470,
+                  200
+                ],
+                "reviewer": "Agent_D_QA",
+                "review_rationale": "Chai nước khoáng nhựa trong suốt nắp xanh dương ở thùng đen."
+              },
+              "iou": 0.706,
+              "status": "TP"
+            }
+          ],
+          "fn_objects": [
+            {
+              "object_id": "img10_obj01",
+              "class_name": "plastic",
+              "class_id": 7,
+              "bbox_xyxy": [
+                0,
+                162,
+                262,
+                365
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Thùng rác tái chế bằng nhựa trong suốt mờ bên trái có logo recycle."
+            },
+            {
+              "object_id": "img10_obj02",
+              "class_name": "plastic",
+              "class_id": 7,
+              "bbox_xyxy": [
+                250,
+                178,
+                535,
+                365
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Thùng rác tái chế bằng nhựa màu đen bên phải có logo recycle."
+            },
+            {
+              "object_id": "img10_obj03",
+              "class_name": "metal",
+              "class_id": 5,
+              "bbox_xyxy": [
+                0,
+                185,
+                115,
+                252
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Hộp thiếc kim loại hình bông tuyết màu xanh trong thùng bên trái."
+            },
+            {
+              "object_id": "img10_obj04",
+              "class_name": "metal",
+              "class_id": 5,
+              "bbox_xyxy": [
+                195,
+                218,
+                258,
+                250
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Lon nước ngọt kim loại màu đỏ cắm ống hút đen."
+            },
+            {
+              "object_id": "img10_obj05",
+              "class_name": "glass",
+              "class_id": 4,
+              "bbox_xyxy": [
+                68,
+                105,
+                150,
+                240
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Chai thủy tinh màu xanh lá cây trong thùng bên trái."
+            },
+            {
+              "object_id": "img10_obj06",
+              "class_name": "glass",
+              "class_id": 4,
+              "bbox_xyxy": [
+                41,
+                110,
+                86,
+                190
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Cổ chai thủy tinh trong suốt nằm sau chai xanh lá cây."
+            },
+            {
+              "object_id": "img10_obj07",
+              "class_name": "plastic",
+              "class_id": 7,
+              "bbox_xyxy": [
+                250,
+                18,
+                330,
+                205
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Chai nhựa trong suốt cao có ngấn rãnh ở thùng đen bên trái."
+            },
+            {
+              "object_id": "img10_obj08",
+              "class_name": "plastic",
+              "class_id": 7,
+              "bbox_xyxy": [
+                328,
+                52,
+                405,
+                200
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Bình nhựa màu trắng đục nắp vặn nhọn ở thùng đen."
+            },
+            {
+              "object_id": "img10_obj10",
+              "class_name": "plastic",
+              "class_id": 7,
+              "bbox_xyxy": [
+                425,
+                110,
+                510,
+                210
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Hộp/chai nhựa trong suốt miệng rộng phía ngoài cùng bên phải thùng đen."
+            },
+            {
+              "object_id": "img10_obj11",
+              "class_name": "metal",
+              "class_id": 5,
+              "bbox_xyxy": [
+                360,
+                175,
+                415,
+                210
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Lon nhôm kim loại bị ép bẹp ở mép thùng đen."
+            }
+          ],
+          "duplicate_boxes": []
+        },
+        "evaluation_waste_only_gt9": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 8,
+          "precision": 1.0,
+          "recall": 0.1111,
+          "f1": 0.2,
+          "matched_details": [
+            {
+              "pred": {
+                "class_id": "plastic",
+                "confidence": 0.2971,
+                "confidence_pct": "29.7%",
+                "bbox_xyxy": [
+                  393.1,
+                  53.8,
+                  477.9,
+                  182.4
+                ]
+              },
+              "gt": {
+                "object_id": "img10_obj09",
+                "class_name": "plastic",
+                "class_id": 7,
+                "bbox_xyxy": [
+                  400,
+                  45,
+                  470,
+                  200
+                ],
+                "reviewer": "Agent_D_QA",
+                "review_rationale": "Chai nước khoáng nhựa trong suốt nắp xanh dương ở thùng đen."
+              },
+              "iou": 0.706,
+              "status": "TP"
+            }
+          ],
+          "fn_objects": [
+            {
+              "object_id": "img10_obj03",
+              "class_name": "metal",
+              "class_id": 5,
+              "bbox_xyxy": [
+                0,
+                185,
+                115,
+                252
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Hộp thiếc kim loại hình bông tuyết màu xanh trong thùng bên trái."
+            },
+            {
+              "object_id": "img10_obj04",
+              "class_name": "metal",
+              "class_id": 5,
+              "bbox_xyxy": [
+                195,
+                218,
+                258,
+                250
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Lon nước ngọt kim loại màu đỏ cắm ống hút đen."
+            },
+            {
+              "object_id": "img10_obj05",
+              "class_name": "glass",
+              "class_id": 4,
+              "bbox_xyxy": [
+                68,
+                105,
+                150,
+                240
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Chai thủy tinh màu xanh lá cây trong thùng bên trái."
+            },
+            {
+              "object_id": "img10_obj06",
+              "class_name": "glass",
+              "class_id": 4,
+              "bbox_xyxy": [
+                41,
+                110,
+                86,
+                190
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Cổ chai thủy tinh trong suốt nằm sau chai xanh lá cây."
+            },
+            {
+              "object_id": "img10_obj07",
+              "class_name": "plastic",
+              "class_id": 7,
+              "bbox_xyxy": [
+                250,
+                18,
+                330,
+                205
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Chai nhựa trong suốt cao có ngấn rãnh ở thùng đen bên trái."
+            },
+            {
+              "object_id": "img10_obj08",
+              "class_name": "plastic",
+              "class_id": 7,
+              "bbox_xyxy": [
+                328,
+                52,
+                405,
+                200
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Bình nhựa màu trắng đục nắp vặn nhọn ở thùng đen."
+            },
+            {
+              "object_id": "img10_obj10",
+              "class_name": "plastic",
+              "class_id": 7,
+              "bbox_xyxy": [
+                425,
+                110,
+                510,
+                210
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Hộp/chai nhựa trong suốt miệng rộng phía ngoài cùng bên phải thùng đen."
+            },
+            {
+              "object_id": "img10_obj11",
+              "class_name": "metal",
+              "class_id": 5,
+              "bbox_xyxy": [
+                360,
+                175,
+                415,
+                210
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Lon nhôm kim loại bị ép bẹp ở mép thùng đen."
+            }
+          ],
+          "duplicate_boxes": []
+        },
+        "overlay_file": "img17_mode_1_ssdlite_raw.jpg"
+      },
+      "mode_2_yolov8n_raw": {
+        "mode_name": "YOLOv8n, không Tiling, không Two-Stage",
+        "model_name": "YOLOv8n v2 (E1_yolov8n_10cls)",
+        "latency_ms": 29.7,
+        "num_boxes": 5,
+        "predictions": [
+          {
+            "class_id": "shoes",
+            "confidence": 0.6543,
+            "confidence_pct": "65.4%",
+            "bbox_xyxy": [
+              91.5,
+              292.1,
+              160.5,
+              353.8
+            ]
+          },
+          {
+            "class_id": "plastic",
+            "confidence": 0.562,
+            "confidence_pct": "56.2%",
+            "bbox_xyxy": [
+              243.1,
+              17.7,
+              337.0,
+              210.0
+            ]
+          },
+          {
+            "class_id": "plastic",
+            "confidence": 0.3745,
+            "confidence_pct": "37.5%",
+            "bbox_xyxy": [
+              403.5,
+              46.3,
+              493.0,
+              206.7
+            ]
+          },
+          {
+            "class_id": "metal",
+            "confidence": 0.3074,
+            "confidence_pct": "30.7%",
+            "bbox_xyxy": [
+              351.9,
+              173.0,
+              426.5,
+              209.2
+            ]
+          },
+          {
+            "class_id": "plastic",
+            "confidence": 0.2768,
+            "confidence_pct": "27.7%",
+            "bbox_xyxy": [
+              0.1,
+              105.5,
+              274.5,
+              365.0
+            ]
+          }
+        ],
+        "evaluation_frozen_gt11": {
+          "tp": 4,
+          "fp": 1,
+          "fn": 7,
+          "precision": 0.8,
+          "recall": 0.3636,
+          "f1": 0.5,
+          "matched_details": [
+            {
+              "pred": {
+                "class_id": "shoes",
+                "confidence": 0.6543,
+                "confidence_pct": "65.4%",
+                "bbox_xyxy": [
+                  91.5,
+                  292.1,
+                  160.5,
+                  353.8
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "plastic",
+                "confidence": 0.562,
+                "confidence_pct": "56.2%",
+                "bbox_xyxy": [
+                  243.1,
+                  17.7,
+                  337.0,
+                  210.0
+                ]
+              },
+              "gt": {
+                "object_id": "img10_obj07",
+                "class_name": "plastic",
+                "class_id": 7,
+                "bbox_xyxy": [
+                  250,
+                  18,
+                  330,
+                  205
+                ],
+                "reviewer": "Agent_D_QA",
+                "review_rationale": "Chai nhựa trong suốt cao có ngấn rãnh ở thùng đen bên trái."
+              },
+              "iou": 0.828,
+              "status": "TP"
+            },
+            {
+              "pred": {
+                "class_id": "plastic",
+                "confidence": 0.3745,
+                "confidence_pct": "37.5%",
+                "bbox_xyxy": [
+                  403.5,
+                  46.3,
+                  493.0,
+                  206.7
+                ]
+              },
+              "gt": {
+                "object_id": "img10_obj09",
+                "class_name": "plastic",
+                "class_id": 7,
+                "bbox_xyxy": [
+                  400,
+                  45,
+                  470,
+                  200
+                ],
+                "reviewer": "Agent_D_QA",
+                "review_rationale": "Chai nước khoáng nhựa trong suốt nắp xanh dương ở thùng đen."
+              },
+              "iou": 0.682,
+              "status": "TP"
+            },
+            {
+              "pred": {
+                "class_id": "metal",
+                "confidence": 0.3074,
+                "confidence_pct": "30.7%",
+                "bbox_xyxy": [
+                  351.9,
+                  173.0,
+                  426.5,
+                  209.2
+                ]
+              },
+              "gt": {
+                "object_id": "img10_obj11",
+                "class_name": "metal",
+                "class_id": 5,
+                "bbox_xyxy": [
+                  360,
+                  175,
+                  415,
+                  210
+                ],
+                "reviewer": "Agent_D_QA",
+                "review_rationale": "Lon nhôm kim loại bị ép bẹp ở mép thùng đen."
+              },
+              "iou": 0.685,
+              "status": "TP"
+            },
+            {
+              "pred": {
+                "class_id": "plastic",
+                "confidence": 0.2768,
+                "confidence_pct": "27.7%",
+                "bbox_xyxy": [
+                  0.1,
+                  105.5,
+                  274.5,
+                  365.0
+                ]
+              },
+              "gt": {
+                "object_id": "img10_obj01",
+                "class_name": "plastic",
+                "class_id": 7,
+                "bbox_xyxy": [
+                  0,
+                  162,
+                  262,
+                  365
+                ],
+                "reviewer": "Agent_D_QA",
+                "review_rationale": "Thùng rác tái chế bằng nhựa trong suốt mờ bên trái có logo recycle."
+              },
+              "iou": 0.746,
+              "status": "TP"
+            }
+          ],
+          "fn_objects": [
+            {
+              "object_id": "img10_obj02",
+              "class_name": "plastic",
+              "class_id": 7,
+              "bbox_xyxy": [
+                250,
+                178,
+                535,
+                365
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Thùng rác tái chế bằng nhựa màu đen bên phải có logo recycle."
+            },
+            {
+              "object_id": "img10_obj03",
+              "class_name": "metal",
+              "class_id": 5,
+              "bbox_xyxy": [
+                0,
+                185,
+                115,
+                252
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Hộp thiếc kim loại hình bông tuyết màu xanh trong thùng bên trái."
+            },
+            {
+              "object_id": "img10_obj04",
+              "class_name": "metal",
+              "class_id": 5,
+              "bbox_xyxy": [
+                195,
+                218,
+                258,
+                250
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Lon nước ngọt kim loại màu đỏ cắm ống hút đen."
+            },
+            {
+              "object_id": "img10_obj05",
+              "class_name": "glass",
+              "class_id": 4,
+              "bbox_xyxy": [
+                68,
+                105,
+                150,
+                240
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Chai thủy tinh màu xanh lá cây trong thùng bên trái."
+            },
+            {
+              "object_id": "img10_obj06",
+              "class_name": "glass",
+              "class_id": 4,
+              "bbox_xyxy": [
+                41,
+                110,
+                86,
+                190
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Cổ chai thủy tinh trong suốt nằm sau chai xanh lá cây."
+            },
+            {
+              "object_id": "img10_obj08",
+              "class_name": "plastic",
+              "class_id": 7,
+              "bbox_xyxy": [
+                328,
+                52,
+                405,
+                200
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Bình nhựa màu trắng đục nắp vặn nhọn ở thùng đen."
+            },
+            {
+              "object_id": "img10_obj10",
+              "class_name": "plastic",
+              "class_id": 7,
+              "bbox_xyxy": [
+                425,
+                110,
+                510,
+                210
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Hộp/chai nhựa trong suốt miệng rộng phía ngoài cùng bên phải thùng đen."
+            }
+          ],
+          "duplicate_boxes": []
+        },
+        "evaluation_waste_only_gt9": {
+          "tp": 3,
+          "fp": 2,
+          "fn": 6,
+          "precision": 0.6,
+          "recall": 0.3333,
+          "f1": 0.4286,
+          "matched_details": [
+            {
+              "pred": {
+                "class_id": "shoes",
+                "confidence": 0.6543,
+                "confidence_pct": "65.4%",
+                "bbox_xyxy": [
+                  91.5,
+                  292.1,
+                  160.5,
+                  353.8
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "plastic",
+                "confidence": 0.562,
+                "confidence_pct": "56.2%",
+                "bbox_xyxy": [
+                  243.1,
+                  17.7,
+                  337.0,
+                  210.0
+                ]
+              },
+              "gt": {
+                "object_id": "img10_obj07",
+                "class_name": "plastic",
+                "class_id": 7,
+                "bbox_xyxy": [
+                  250,
+                  18,
+                  330,
+                  205
+                ],
+                "reviewer": "Agent_D_QA",
+                "review_rationale": "Chai nhựa trong suốt cao có ngấn rãnh ở thùng đen bên trái."
+              },
+              "iou": 0.828,
+              "status": "TP"
+            },
+            {
+              "pred": {
+                "class_id": "plastic",
+                "confidence": 0.3745,
+                "confidence_pct": "37.5%",
+                "bbox_xyxy": [
+                  403.5,
+                  46.3,
+                  493.0,
+                  206.7
+                ]
+              },
+              "gt": {
+                "object_id": "img10_obj09",
+                "class_name": "plastic",
+                "class_id": 7,
+                "bbox_xyxy": [
+                  400,
+                  45,
+                  470,
+                  200
+                ],
+                "reviewer": "Agent_D_QA",
+                "review_rationale": "Chai nước khoáng nhựa trong suốt nắp xanh dương ở thùng đen."
+              },
+              "iou": 0.682,
+              "status": "TP"
+            },
+            {
+              "pred": {
+                "class_id": "metal",
+                "confidence": 0.3074,
+                "confidence_pct": "30.7%",
+                "bbox_xyxy": [
+                  351.9,
+                  173.0,
+                  426.5,
+                  209.2
+                ]
+              },
+              "gt": {
+                "object_id": "img10_obj11",
+                "class_name": "metal",
+                "class_id": 5,
+                "bbox_xyxy": [
+                  360,
+                  175,
+                  415,
+                  210
+                ],
+                "reviewer": "Agent_D_QA",
+                "review_rationale": "Lon nhôm kim loại bị ép bẹp ở mép thùng đen."
+              },
+              "iou": 0.685,
+              "status": "TP"
+            },
+            {
+              "pred": {
+                "class_id": "plastic",
+                "confidence": 0.2768,
+                "confidence_pct": "27.7%",
+                "bbox_xyxy": [
+                  0.1,
+                  105.5,
+                  274.5,
+                  365.0
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            }
+          ],
+          "fn_objects": [
+            {
+              "object_id": "img10_obj03",
+              "class_name": "metal",
+              "class_id": 5,
+              "bbox_xyxy": [
+                0,
+                185,
+                115,
+                252
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Hộp thiếc kim loại hình bông tuyết màu xanh trong thùng bên trái."
+            },
+            {
+              "object_id": "img10_obj04",
+              "class_name": "metal",
+              "class_id": 5,
+              "bbox_xyxy": [
+                195,
+                218,
+                258,
+                250
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Lon nước ngọt kim loại màu đỏ cắm ống hút đen."
+            },
+            {
+              "object_id": "img10_obj05",
+              "class_name": "glass",
+              "class_id": 4,
+              "bbox_xyxy": [
+                68,
+                105,
+                150,
+                240
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Chai thủy tinh màu xanh lá cây trong thùng bên trái."
+            },
+            {
+              "object_id": "img10_obj06",
+              "class_name": "glass",
+              "class_id": 4,
+              "bbox_xyxy": [
+                41,
+                110,
+                86,
+                190
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Cổ chai thủy tinh trong suốt nằm sau chai xanh lá cây."
+            },
+            {
+              "object_id": "img10_obj08",
+              "class_name": "plastic",
+              "class_id": 7,
+              "bbox_xyxy": [
+                328,
+                52,
+                405,
+                200
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Bình nhựa màu trắng đục nắp vặn nhọn ở thùng đen."
+            },
+            {
+              "object_id": "img10_obj10",
+              "class_name": "plastic",
+              "class_id": 7,
+              "bbox_xyxy": [
+                425,
+                110,
+                510,
+                210
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Hộp/chai nhựa trong suốt miệng rộng phía ngoài cùng bên phải thùng đen."
+            }
+          ],
+          "duplicate_boxes": []
+        },
+        "overlay_file": "img17_mode_2_yolov8n_raw.jpg"
+      },
+      "mode_3_ssdlite_tiling400": {
+        "mode_name": "SSDLite, ép Tiling ở min_side=400, không Two-Stage",
+        "model_name": "SSDLite v2 (E2_ssdlite320_10cls)",
+        "latency_ms": 300.2,
+        "num_boxes": 11,
+        "predictions": [
+          {
+            "class_id": "clothes",
+            "confidence": 0.6211,
+            "confidence_pct": "62.1%",
+            "bbox_xyxy": [
+              384.4,
+              49.9,
+              513.8,
+              214.6
+            ]
+          },
+          {
+            "class_id": "clothes",
+            "confidence": 0.505,
+            "confidence_pct": "50.5%",
+            "bbox_xyxy": [
+              178.8,
+              163.1,
+              267.4,
+              360.6
+            ]
+          },
+          {
+            "class_id": "clothes",
+            "confidence": 0.5039,
+            "confidence_pct": "50.4%",
+            "bbox_xyxy": [
+              175.0,
+              122.2,
+              234.0,
+              218.5
+            ]
+          },
+          {
+            "class_id": "shoes",
+            "confidence": 0.482,
+            "confidence_pct": "48.2%",
+            "bbox_xyxy": [
+              353.6,
+              289.0,
+              424.7,
+              355.4
+            ]
+          },
+          {
+            "class_id": "clothes",
+            "confidence": 0.4537,
+            "confidence_pct": "45.4%",
+            "bbox_xyxy": [
+              357.6,
+              287.5,
+              423.1,
+              354.6
+            ]
+          },
+          {
+            "class_id": "plastic",
+            "confidence": 0.4477,
+            "confidence_pct": "44.8%",
+            "bbox_xyxy": [
+              259.9,
+              149.1,
+              376.4,
+              211.6
+            ]
+          },
+          {
+            "class_id": "plastic",
+            "confidence": 0.3749,
+            "confidence_pct": "37.5%",
+            "bbox_xyxy": [
+              3.6,
+              101.2,
+              160.1,
+              218.7
+            ]
+          },
+          {
+            "class_id": "shoes",
+            "confidence": 0.3624,
+            "confidence_pct": "36.2%",
+            "bbox_xyxy": [
+              6.8,
+              100.9,
+              197.4,
+              219.0
+            ]
+          },
+          {
+            "class_id": "clothes",
+            "confidence": 0.333,
+            "confidence_pct": "33.3%",
+            "bbox_xyxy": [
+              237.8,
+              21.3,
+              348.8,
+              212.0
+            ]
+          },
+          {
+            "class_id": "plastic",
+            "confidence": 0.2971,
+            "confidence_pct": "29.7%",
+            "bbox_xyxy": [
+              393.1,
+              53.8,
+              477.9,
+              182.4
+            ]
+          },
+          {
+            "class_id": "clothes",
+            "confidence": 0.2953,
+            "confidence_pct": "29.5%",
+            "bbox_xyxy": [
+              331.1,
+              60.2,
+              411.0,
+              209.2
+            ]
+          }
+        ],
+        "evaluation_frozen_gt11": {
+          "tp": 1,
+          "fp": 10,
+          "fn": 8,
+          "precision": 0.0909,
+          "recall": 0.0909,
+          "f1": 0.0909,
+          "matched_details": [
+            {
+              "pred": {
+                "class_id": "clothes",
+                "confidence": 0.6211,
+                "confidence_pct": "62.1%",
+                "bbox_xyxy": [
+                  384.4,
+                  49.9,
+                  513.8,
+                  214.6
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "clothes",
+                "confidence": 0.505,
+                "confidence_pct": "50.5%",
+                "bbox_xyxy": [
+                  178.8,
+                  163.1,
+                  267.4,
+                  360.6
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "clothes",
+                "confidence": 0.5039,
+                "confidence_pct": "50.4%",
+                "bbox_xyxy": [
+                  175.0,
+                  122.2,
+                  234.0,
+                  218.5
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "shoes",
+                "confidence": 0.482,
+                "confidence_pct": "48.2%",
+                "bbox_xyxy": [
+                  353.6,
+                  289.0,
+                  424.7,
+                  355.4
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "clothes",
+                "confidence": 0.4537,
+                "confidence_pct": "45.4%",
+                "bbox_xyxy": [
+                  357.6,
+                  287.5,
+                  423.1,
+                  354.6
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "plastic",
+                "confidence": 0.4477,
+                "confidence_pct": "44.8%",
+                "bbox_xyxy": [
+                  259.9,
+                  149.1,
+                  376.4,
+                  211.6
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "plastic",
+                "confidence": 0.3749,
+                "confidence_pct": "37.5%",
+                "bbox_xyxy": [
+                  3.6,
+                  101.2,
+                  160.1,
+                  218.7
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "shoes",
+                "confidence": 0.3624,
+                "confidence_pct": "36.2%",
+                "bbox_xyxy": [
+                  6.8,
+                  100.9,
+                  197.4,
+                  219.0
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "clothes",
+                "confidence": 0.333,
+                "confidence_pct": "33.3%",
+                "bbox_xyxy": [
+                  237.8,
+                  21.3,
+                  348.8,
+                  212.0
+                ]
+              },
+              "gt": {
+                "object_id": "img10_obj07",
+                "class_name": "plastic",
+                "class_id": 7,
+                "bbox_xyxy": [
+                  250,
+                  18,
+                  330,
+                  205
+                ],
+                "reviewer": "Agent_D_QA",
+                "review_rationale": "Chai nhựa trong suốt cao có ngấn rãnh ở thùng đen bên trái."
+              },
+              "iou": 0.686,
+              "status": "FP_CLASS_MISMATCH",
+              "note": "GT là plastic nhưng mô hình đoán là clothes"
+            },
+            {
+              "pred": {
+                "class_id": "plastic",
+                "confidence": 0.2971,
+                "confidence_pct": "29.7%",
+                "bbox_xyxy": [
+                  393.1,
+                  53.8,
+                  477.9,
+                  182.4
+                ]
+              },
+              "gt": {
+                "object_id": "img10_obj09",
+                "class_name": "plastic",
+                "class_id": 7,
+                "bbox_xyxy": [
+                  400,
+                  45,
+                  470,
+                  200
+                ],
+                "reviewer": "Agent_D_QA",
+                "review_rationale": "Chai nước khoáng nhựa trong suốt nắp xanh dương ở thùng đen."
+              },
+              "iou": 0.706,
+              "status": "TP"
+            },
+            {
+              "pred": {
+                "class_id": "clothes",
+                "confidence": 0.2953,
+                "confidence_pct": "29.5%",
+                "bbox_xyxy": [
+                  331.1,
+                  60.2,
+                  411.0,
+                  209.2
+                ]
+              },
+              "gt": {
+                "object_id": "img10_obj08",
+                "class_name": "plastic",
+                "class_id": 7,
+                "bbox_xyxy": [
+                  328,
+                  52,
+                  405,
+                  200
+                ],
+                "reviewer": "Agent_D_QA",
+                "review_rationale": "Bình nhựa màu trắng đục nắp vặn nhọn ở thùng đen."
+              },
+              "iou": 0.797,
+              "status": "FP_CLASS_MISMATCH",
+              "note": "GT là plastic nhưng mô hình đoán là clothes"
+            }
+          ],
+          "fn_objects": [
+            {
+              "object_id": "img10_obj01",
+              "class_name": "plastic",
+              "class_id": 7,
+              "bbox_xyxy": [
+                0,
+                162,
+                262,
+                365
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Thùng rác tái chế bằng nhựa trong suốt mờ bên trái có logo recycle."
+            },
+            {
+              "object_id": "img10_obj02",
+              "class_name": "plastic",
+              "class_id": 7,
+              "bbox_xyxy": [
+                250,
+                178,
+                535,
+                365
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Thùng rác tái chế bằng nhựa màu đen bên phải có logo recycle."
+            },
+            {
+              "object_id": "img10_obj03",
+              "class_name": "metal",
+              "class_id": 5,
+              "bbox_xyxy": [
+                0,
+                185,
+                115,
+                252
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Hộp thiếc kim loại hình bông tuyết màu xanh trong thùng bên trái."
+            },
+            {
+              "object_id": "img10_obj04",
+              "class_name": "metal",
+              "class_id": 5,
+              "bbox_xyxy": [
+                195,
+                218,
+                258,
+                250
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Lon nước ngọt kim loại màu đỏ cắm ống hút đen."
+            },
+            {
+              "object_id": "img10_obj05",
+              "class_name": "glass",
+              "class_id": 4,
+              "bbox_xyxy": [
+                68,
+                105,
+                150,
+                240
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Chai thủy tinh màu xanh lá cây trong thùng bên trái."
+            },
+            {
+              "object_id": "img10_obj06",
+              "class_name": "glass",
+              "class_id": 4,
+              "bbox_xyxy": [
+                41,
+                110,
+                86,
+                190
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Cổ chai thủy tinh trong suốt nằm sau chai xanh lá cây."
+            },
+            {
+              "object_id": "img10_obj10",
+              "class_name": "plastic",
+              "class_id": 7,
+              "bbox_xyxy": [
+                425,
+                110,
+                510,
+                210
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Hộp/chai nhựa trong suốt miệng rộng phía ngoài cùng bên phải thùng đen."
+            },
+            {
+              "object_id": "img10_obj11",
+              "class_name": "metal",
+              "class_id": 5,
+              "bbox_xyxy": [
+                360,
+                175,
+                415,
+                210
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Lon nhôm kim loại bị ép bẹp ở mép thùng đen."
+            }
+          ],
+          "duplicate_boxes": [
+            {
+              "box1": {
+                "class_id": "clothes",
+                "confidence": 0.6211,
+                "confidence_pct": "62.1%",
+                "bbox_xyxy": [
+                  384.4,
+                  49.9,
+                  513.8,
+                  214.6
+                ]
+              },
+              "box2": {
+                "class_id": "plastic",
+                "confidence": 0.2971,
+                "confidence_pct": "29.7%",
+                "bbox_xyxy": [
+                  393.1,
+                  53.8,
+                  477.9,
+                  182.4
+                ]
+              },
+              "iou": 0.512
+            },
+            {
+              "box1": {
+                "class_id": "shoes",
+                "confidence": 0.482,
+                "confidence_pct": "48.2%",
+                "bbox_xyxy": [
+                  353.6,
+                  289.0,
+                  424.7,
+                  355.4
+                ]
+              },
+              "box2": {
+                "class_id": "clothes",
+                "confidence": 0.4537,
+                "confidence_pct": "45.4%",
+                "bbox_xyxy": [
+                  357.6,
+                  287.5,
+                  423.1,
+                  354.6
+                ]
+              },
+              "iou": 0.892
+            },
+            {
+              "box1": {
+                "class_id": "plastic",
+                "confidence": 0.3749,
+                "confidence_pct": "37.5%",
+                "bbox_xyxy": [
+                  3.6,
+                  101.2,
+                  160.1,
+                  218.7
+                ]
+              },
+              "box2": {
+                "class_id": "shoes",
+                "confidence": 0.3624,
+                "confidence_pct": "36.2%",
+                "bbox_xyxy": [
+                  6.8,
+                  100.9,
+                  197.4,
+                  219.0
+                ]
+              },
+              "iou": 0.787
+            }
+          ]
+        },
+        "evaluation_waste_only_gt9": {
+          "tp": 1,
+          "fp": 10,
+          "fn": 6,
+          "precision": 0.0909,
+          "recall": 0.1111,
+          "f1": 0.1,
+          "matched_details": [
+            {
+              "pred": {
+                "class_id": "clothes",
+                "confidence": 0.6211,
+                "confidence_pct": "62.1%",
+                "bbox_xyxy": [
+                  384.4,
+                  49.9,
+                  513.8,
+                  214.6
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "clothes",
+                "confidence": 0.505,
+                "confidence_pct": "50.5%",
+                "bbox_xyxy": [
+                  178.8,
+                  163.1,
+                  267.4,
+                  360.6
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "clothes",
+                "confidence": 0.5039,
+                "confidence_pct": "50.4%",
+                "bbox_xyxy": [
+                  175.0,
+                  122.2,
+                  234.0,
+                  218.5
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "shoes",
+                "confidence": 0.482,
+                "confidence_pct": "48.2%",
+                "bbox_xyxy": [
+                  353.6,
+                  289.0,
+                  424.7,
+                  355.4
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "clothes",
+                "confidence": 0.4537,
+                "confidence_pct": "45.4%",
+                "bbox_xyxy": [
+                  357.6,
+                  287.5,
+                  423.1,
+                  354.6
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "plastic",
+                "confidence": 0.4477,
+                "confidence_pct": "44.8%",
+                "bbox_xyxy": [
+                  259.9,
+                  149.1,
+                  376.4,
+                  211.6
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "plastic",
+                "confidence": 0.3749,
+                "confidence_pct": "37.5%",
+                "bbox_xyxy": [
+                  3.6,
+                  101.2,
+                  160.1,
+                  218.7
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "shoes",
+                "confidence": 0.3624,
+                "confidence_pct": "36.2%",
+                "bbox_xyxy": [
+                  6.8,
+                  100.9,
+                  197.4,
+                  219.0
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "clothes",
+                "confidence": 0.333,
+                "confidence_pct": "33.3%",
+                "bbox_xyxy": [
+                  237.8,
+                  21.3,
+                  348.8,
+                  212.0
+                ]
+              },
+              "gt": {
+                "object_id": "img10_obj07",
+                "class_name": "plastic",
+                "class_id": 7,
+                "bbox_xyxy": [
+                  250,
+                  18,
+                  330,
+                  205
+                ],
+                "reviewer": "Agent_D_QA",
+                "review_rationale": "Chai nhựa trong suốt cao có ngấn rãnh ở thùng đen bên trái."
+              },
+              "iou": 0.686,
+              "status": "FP_CLASS_MISMATCH",
+              "note": "GT là plastic nhưng mô hình đoán là clothes"
+            },
+            {
+              "pred": {
+                "class_id": "plastic",
+                "confidence": 0.2971,
+                "confidence_pct": "29.7%",
+                "bbox_xyxy": [
+                  393.1,
+                  53.8,
+                  477.9,
+                  182.4
+                ]
+              },
+              "gt": {
+                "object_id": "img10_obj09",
+                "class_name": "plastic",
+                "class_id": 7,
+                "bbox_xyxy": [
+                  400,
+                  45,
+                  470,
+                  200
+                ],
+                "reviewer": "Agent_D_QA",
+                "review_rationale": "Chai nước khoáng nhựa trong suốt nắp xanh dương ở thùng đen."
+              },
+              "iou": 0.706,
+              "status": "TP"
+            },
+            {
+              "pred": {
+                "class_id": "clothes",
+                "confidence": 0.2953,
+                "confidence_pct": "29.5%",
+                "bbox_xyxy": [
+                  331.1,
+                  60.2,
+                  411.0,
+                  209.2
+                ]
+              },
+              "gt": {
+                "object_id": "img10_obj08",
+                "class_name": "plastic",
+                "class_id": 7,
+                "bbox_xyxy": [
+                  328,
+                  52,
+                  405,
+                  200
+                ],
+                "reviewer": "Agent_D_QA",
+                "review_rationale": "Bình nhựa màu trắng đục nắp vặn nhọn ở thùng đen."
+              },
+              "iou": 0.797,
+              "status": "FP_CLASS_MISMATCH",
+              "note": "GT là plastic nhưng mô hình đoán là clothes"
+            }
+          ],
+          "fn_objects": [
+            {
+              "object_id": "img10_obj03",
+              "class_name": "metal",
+              "class_id": 5,
+              "bbox_xyxy": [
+                0,
+                185,
+                115,
+                252
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Hộp thiếc kim loại hình bông tuyết màu xanh trong thùng bên trái."
+            },
+            {
+              "object_id": "img10_obj04",
+              "class_name": "metal",
+              "class_id": 5,
+              "bbox_xyxy": [
+                195,
+                218,
+                258,
+                250
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Lon nước ngọt kim loại màu đỏ cắm ống hút đen."
+            },
+            {
+              "object_id": "img10_obj05",
+              "class_name": "glass",
+              "class_id": 4,
+              "bbox_xyxy": [
+                68,
+                105,
+                150,
+                240
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Chai thủy tinh màu xanh lá cây trong thùng bên trái."
+            },
+            {
+              "object_id": "img10_obj06",
+              "class_name": "glass",
+              "class_id": 4,
+              "bbox_xyxy": [
+                41,
+                110,
+                86,
+                190
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Cổ chai thủy tinh trong suốt nằm sau chai xanh lá cây."
+            },
+            {
+              "object_id": "img10_obj10",
+              "class_name": "plastic",
+              "class_id": 7,
+              "bbox_xyxy": [
+                425,
+                110,
+                510,
+                210
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Hộp/chai nhựa trong suốt miệng rộng phía ngoài cùng bên phải thùng đen."
+            },
+            {
+              "object_id": "img10_obj11",
+              "class_name": "metal",
+              "class_id": 5,
+              "bbox_xyxy": [
+                360,
+                175,
+                415,
+                210
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Lon nhôm kim loại bị ép bẹp ở mép thùng đen."
+            }
+          ],
+          "duplicate_boxes": [
+            {
+              "box1": {
+                "class_id": "clothes",
+                "confidence": 0.6211,
+                "confidence_pct": "62.1%",
+                "bbox_xyxy": [
+                  384.4,
+                  49.9,
+                  513.8,
+                  214.6
+                ]
+              },
+              "box2": {
+                "class_id": "plastic",
+                "confidence": 0.2971,
+                "confidence_pct": "29.7%",
+                "bbox_xyxy": [
+                  393.1,
+                  53.8,
+                  477.9,
+                  182.4
+                ]
+              },
+              "iou": 0.512
+            },
+            {
+              "box1": {
+                "class_id": "shoes",
+                "confidence": 0.482,
+                "confidence_pct": "48.2%",
+                "bbox_xyxy": [
+                  353.6,
+                  289.0,
+                  424.7,
+                  355.4
+                ]
+              },
+              "box2": {
+                "class_id": "clothes",
+                "confidence": 0.4537,
+                "confidence_pct": "45.4%",
+                "bbox_xyxy": [
+                  357.6,
+                  287.5,
+                  423.1,
+                  354.6
+                ]
+              },
+              "iou": 0.892
+            },
+            {
+              "box1": {
+                "class_id": "plastic",
+                "confidence": 0.3749,
+                "confidence_pct": "37.5%",
+                "bbox_xyxy": [
+                  3.6,
+                  101.2,
+                  160.1,
+                  218.7
+                ]
+              },
+              "box2": {
+                "class_id": "shoes",
+                "confidence": 0.3624,
+                "confidence_pct": "36.2%",
+                "bbox_xyxy": [
+                  6.8,
+                  100.9,
+                  197.4,
+                  219.0
+                ]
+              },
+              "iou": 0.787
+            }
+          ]
+        },
+        "overlay_file": "img17_mode_3_ssdlite_tiling400.jpg"
+      },
+      "mode_4_yolov8n_tiling400": {
+        "mode_name": "YOLOv8n, ép Tiling ở min_side=400, không Two-Stage",
+        "model_name": "YOLOv8n v2 (E1_yolov8n_10cls)",
+        "latency_ms": 196.4,
+        "num_boxes": 16,
+        "predictions": [
+          {
+            "class_id": "glass",
+            "confidence": 0.6647,
+            "confidence_pct": "66.5%",
+            "bbox_xyxy": [
+              175.4,
+              148.0,
+              272.0,
+              364.6
+            ]
+          },
+          {
+            "class_id": "plastic",
+            "confidence": 0.6593,
+            "confidence_pct": "65.9%",
+            "bbox_xyxy": [
+              91.2,
+              286.5,
+              165.0,
+              357.0
+            ]
+          },
+          {
+            "class_id": "shoes",
+            "confidence": 0.6543,
+            "confidence_pct": "65.4%",
+            "bbox_xyxy": [
+              91.5,
+              292.1,
+              160.5,
+              353.8
+            ]
+          },
+          {
+            "class_id": "metal",
+            "confidence": 0.5775,
+            "confidence_pct": "57.8%",
+            "bbox_xyxy": [
+              351.5,
+              288.0,
+              425.2,
+              355.4
+            ]
+          },
+          {
+            "class_id": "glass",
+            "confidence": 0.5767,
+            "confidence_pct": "57.7%",
+            "bbox_xyxy": [
+              36.5,
+              99.8,
+              180.2,
+              218.9
+            ]
+          },
+          {
+            "class_id": "plastic",
+            "confidence": 0.562,
+            "confidence_pct": "56.2%",
+            "bbox_xyxy": [
+              243.1,
+              17.7,
+              337.0,
+              210.0
+            ]
+          },
+          {
+            "class_id": "metal",
+            "confidence": 0.5237,
+            "confidence_pct": "52.4%",
+            "bbox_xyxy": [
+              0.0,
+              178.9,
+              119.8,
+              219.0
+            ]
+          },
+          {
+            "class_id": "glass",
+            "confidence": 0.4231,
+            "confidence_pct": "42.3%",
+            "bbox_xyxy": [
+              32.3,
+              105.3,
+              119.7,
+              218.9
+            ]
+          },
+          {
+            "class_id": "glass",
+            "confidence": 0.41,
+            "confidence_pct": "41.0%",
+            "bbox_xyxy": [
+              138.3,
+              110.8,
+              218.9,
+              219.0
+            ]
+          },
+          {
+            "class_id": "plastic",
+            "confidence": 0.3745,
+            "confidence_pct": "37.5%",
+            "bbox_xyxy": [
+              403.5,
+              46.3,
+              493.0,
+              206.7
+            ]
+          },
+          {
+            "class_id": "glass",
+            "confidence": 0.3629,
+            "confidence_pct": "36.3%",
+            "bbox_xyxy": [
+              175.1,
+              113.9,
+              236.5,
+              219.0
+            ]
+          },
+          {
+            "class_id": "plastic",
+            "confidence": 0.3604,
+            "confidence_pct": "36.0%",
+            "bbox_xyxy": [
+              351.7,
+              287.9,
+              425.0,
+              356.1
+            ]
+          },
+          {
+            "class_id": "metal",
+            "confidence": 0.3074,
+            "confidence_pct": "30.7%",
+            "bbox_xyxy": [
+              351.9,
+              173.0,
+              426.5,
+              209.2
+            ]
+          },
+          {
+            "class_id": "plastic",
+            "confidence": 0.3022,
+            "confidence_pct": "30.2%",
+            "bbox_xyxy": [
+              328.0,
+              52.1,
+              405.8,
+              219.0
+            ]
+          },
+          {
+            "class_id": "glass",
+            "confidence": 0.2941,
+            "confidence_pct": "29.4%",
+            "bbox_xyxy": [
+              241.3,
+              20.3,
+              339.6,
+              219.0
+            ]
+          },
+          {
+            "class_id": "plastic",
+            "confidence": 0.2768,
+            "confidence_pct": "27.7%",
+            "bbox_xyxy": [
+              0.1,
+              105.5,
+              274.5,
+              365.0
+            ]
+          }
+        ],
+        "evaluation_frozen_gt11": {
+          "tp": 5,
+          "fp": 11,
+          "fn": 6,
+          "precision": 0.3125,
+          "recall": 0.4545,
+          "f1": 0.3704,
+          "matched_details": [
+            {
+              "pred": {
+                "class_id": "glass",
+                "confidence": 0.6647,
+                "confidence_pct": "66.5%",
+                "bbox_xyxy": [
+                  175.4,
+                  148.0,
+                  272.0,
+                  364.6
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "plastic",
+                "confidence": 0.6593,
+                "confidence_pct": "65.9%",
+                "bbox_xyxy": [
+                  91.2,
+                  286.5,
+                  165.0,
+                  357.0
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "shoes",
+                "confidence": 0.6543,
+                "confidence_pct": "65.4%",
+                "bbox_xyxy": [
+                  91.5,
+                  292.1,
+                  160.5,
+                  353.8
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "metal",
+                "confidence": 0.5775,
+                "confidence_pct": "57.8%",
+                "bbox_xyxy": [
+                  351.5,
+                  288.0,
+                  425.2,
+                  355.4
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "glass",
+                "confidence": 0.5767,
+                "confidence_pct": "57.7%",
+                "bbox_xyxy": [
+                  36.5,
+                  99.8,
+                  180.2,
+                  218.9
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "plastic",
+                "confidence": 0.562,
+                "confidence_pct": "56.2%",
+                "bbox_xyxy": [
+                  243.1,
+                  17.7,
+                  337.0,
+                  210.0
+                ]
+              },
+              "gt": {
+                "object_id": "img10_obj07",
+                "class_name": "plastic",
+                "class_id": 7,
+                "bbox_xyxy": [
+                  250,
+                  18,
+                  330,
+                  205
+                ],
+                "reviewer": "Agent_D_QA",
+                "review_rationale": "Chai nhựa trong suốt cao có ngấn rãnh ở thùng đen bên trái."
+              },
+              "iou": 0.828,
+              "status": "TP"
+            },
+            {
+              "pred": {
+                "class_id": "metal",
+                "confidence": 0.5237,
+                "confidence_pct": "52.4%",
+                "bbox_xyxy": [
+                  0.0,
+                  178.9,
+                  119.8,
+                  219.0
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "glass",
+                "confidence": 0.4231,
+                "confidence_pct": "42.3%",
+                "bbox_xyxy": [
+                  32.3,
+                  105.3,
+                  119.7,
+                  218.9
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "glass",
+                "confidence": 0.41,
+                "confidence_pct": "41.0%",
+                "bbox_xyxy": [
+                  138.3,
+                  110.8,
+                  218.9,
+                  219.0
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "plastic",
+                "confidence": 0.3745,
+                "confidence_pct": "37.5%",
+                "bbox_xyxy": [
+                  403.5,
+                  46.3,
+                  493.0,
+                  206.7
+                ]
+              },
+              "gt": {
+                "object_id": "img10_obj09",
+                "class_name": "plastic",
+                "class_id": 7,
+                "bbox_xyxy": [
+                  400,
+                  45,
+                  470,
+                  200
+                ],
+                "reviewer": "Agent_D_QA",
+                "review_rationale": "Chai nước khoáng nhựa trong suốt nắp xanh dương ở thùng đen."
+              },
+              "iou": 0.682,
+              "status": "TP"
+            },
+            {
+              "pred": {
+                "class_id": "glass",
+                "confidence": 0.3629,
+                "confidence_pct": "36.3%",
+                "bbox_xyxy": [
+                  175.1,
+                  113.9,
+                  236.5,
+                  219.0
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "plastic",
+                "confidence": 0.3604,
+                "confidence_pct": "36.0%",
+                "bbox_xyxy": [
+                  351.7,
+                  287.9,
+                  425.0,
+                  356.1
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "metal",
+                "confidence": 0.3074,
+                "confidence_pct": "30.7%",
+                "bbox_xyxy": [
+                  351.9,
+                  173.0,
+                  426.5,
+                  209.2
+                ]
+              },
+              "gt": {
+                "object_id": "img10_obj11",
+                "class_name": "metal",
+                "class_id": 5,
+                "bbox_xyxy": [
+                  360,
+                  175,
+                  415,
+                  210
+                ],
+                "reviewer": "Agent_D_QA",
+                "review_rationale": "Lon nhôm kim loại bị ép bẹp ở mép thùng đen."
+              },
+              "iou": 0.685,
+              "status": "TP"
+            },
+            {
+              "pred": {
+                "class_id": "plastic",
+                "confidence": 0.3022,
+                "confidence_pct": "30.2%",
+                "bbox_xyxy": [
+                  328.0,
+                  52.1,
+                  405.8,
+                  219.0
+                ]
+              },
+              "gt": {
+                "object_id": "img10_obj08",
+                "class_name": "plastic",
+                "class_id": 7,
+                "bbox_xyxy": [
+                  328,
+                  52,
+                  405,
+                  200
+                ],
+                "reviewer": "Agent_D_QA",
+                "review_rationale": "Bình nhựa màu trắng đục nắp vặn nhọn ở thùng đen."
+              },
+              "iou": 0.877,
+              "status": "TP"
+            },
+            {
+              "pred": {
+                "class_id": "glass",
+                "confidence": 0.2941,
+                "confidence_pct": "29.4%",
+                "bbox_xyxy": [
+                  241.3,
+                  20.3,
+                  339.6,
+                  219.0
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "plastic",
+                "confidence": 0.2768,
+                "confidence_pct": "27.7%",
+                "bbox_xyxy": [
+                  0.1,
+                  105.5,
+                  274.5,
+                  365.0
+                ]
+              },
+              "gt": {
+                "object_id": "img10_obj01",
+                "class_name": "plastic",
+                "class_id": 7,
+                "bbox_xyxy": [
+                  0,
+                  162,
+                  262,
+                  365
+                ],
+                "reviewer": "Agent_D_QA",
+                "review_rationale": "Thùng rác tái chế bằng nhựa trong suốt mờ bên trái có logo recycle."
+              },
+              "iou": 0.746,
+              "status": "TP"
+            }
+          ],
+          "fn_objects": [
+            {
+              "object_id": "img10_obj02",
+              "class_name": "plastic",
+              "class_id": 7,
+              "bbox_xyxy": [
+                250,
+                178,
+                535,
+                365
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Thùng rác tái chế bằng nhựa màu đen bên phải có logo recycle."
+            },
+            {
+              "object_id": "img10_obj03",
+              "class_name": "metal",
+              "class_id": 5,
+              "bbox_xyxy": [
+                0,
+                185,
+                115,
+                252
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Hộp thiếc kim loại hình bông tuyết màu xanh trong thùng bên trái."
+            },
+            {
+              "object_id": "img10_obj04",
+              "class_name": "metal",
+              "class_id": 5,
+              "bbox_xyxy": [
+                195,
+                218,
+                258,
+                250
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Lon nước ngọt kim loại màu đỏ cắm ống hút đen."
+            },
+            {
+              "object_id": "img10_obj05",
+              "class_name": "glass",
+              "class_id": 4,
+              "bbox_xyxy": [
+                68,
+                105,
+                150,
+                240
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Chai thủy tinh màu xanh lá cây trong thùng bên trái."
+            },
+            {
+              "object_id": "img10_obj06",
+              "class_name": "glass",
+              "class_id": 4,
+              "bbox_xyxy": [
+                41,
+                110,
+                86,
+                190
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Cổ chai thủy tinh trong suốt nằm sau chai xanh lá cây."
+            },
+            {
+              "object_id": "img10_obj10",
+              "class_name": "plastic",
+              "class_id": 7,
+              "bbox_xyxy": [
+                425,
+                110,
+                510,
+                210
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Hộp/chai nhựa trong suốt miệng rộng phía ngoài cùng bên phải thùng đen."
+            }
+          ],
+          "duplicate_boxes": [
+            {
+              "box1": {
+                "class_id": "plastic",
+                "confidence": 0.6593,
+                "confidence_pct": "65.9%",
+                "bbox_xyxy": [
+                  91.2,
+                  286.5,
+                  165.0,
+                  357.0
+                ]
+              },
+              "box2": {
+                "class_id": "shoes",
+                "confidence": 0.6543,
+                "confidence_pct": "65.4%",
+                "bbox_xyxy": [
+                  91.5,
+                  292.1,
+                  160.5,
+                  353.8
+                ]
+              },
+              "iou": 0.818
+            },
+            {
+              "box1": {
+                "class_id": "metal",
+                "confidence": 0.5775,
+                "confidence_pct": "57.8%",
+                "bbox_xyxy": [
+                  351.5,
+                  288.0,
+                  425.2,
+                  355.4
+                ]
+              },
+              "box2": {
+                "class_id": "plastic",
+                "confidence": 0.3604,
+                "confidence_pct": "36.0%",
+                "bbox_xyxy": [
+                  351.7,
+                  287.9,
+                  425.0,
+                  356.1
+                ]
+              },
+              "iou": 0.983
+            },
+            {
+              "box1": {
+                "class_id": "glass",
+                "confidence": 0.5767,
+                "confidence_pct": "57.7%",
+                "bbox_xyxy": [
+                  36.5,
+                  99.8,
+                  180.2,
+                  218.9
+                ]
+              },
+              "box2": {
+                "class_id": "glass",
+                "confidence": 0.4231,
+                "confidence_pct": "42.3%",
+                "bbox_xyxy": [
+                  32.3,
+                  105.3,
+                  119.7,
+                  218.9
+                ]
+              },
+              "iou": 0.537
+            },
+            {
+              "box1": {
+                "class_id": "plastic",
+                "confidence": 0.562,
+                "confidence_pct": "56.2%",
+                "bbox_xyxy": [
+                  243.1,
+                  17.7,
+                  337.0,
+                  210.0
+                ]
+              },
+              "box2": {
+                "class_id": "glass",
+                "confidence": 0.2941,
+                "confidence_pct": "29.4%",
+                "bbox_xyxy": [
+                  241.3,
+                  20.3,
+                  339.6,
+                  219.0
+                ]
+              },
+              "iou": 0.901
+            }
+          ]
+        },
+        "evaluation_waste_only_gt9": {
+          "tp": 4,
+          "fp": 12,
+          "fn": 5,
+          "precision": 0.25,
+          "recall": 0.4444,
+          "f1": 0.32,
+          "matched_details": [
+            {
+              "pred": {
+                "class_id": "glass",
+                "confidence": 0.6647,
+                "confidence_pct": "66.5%",
+                "bbox_xyxy": [
+                  175.4,
+                  148.0,
+                  272.0,
+                  364.6
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "plastic",
+                "confidence": 0.6593,
+                "confidence_pct": "65.9%",
+                "bbox_xyxy": [
+                  91.2,
+                  286.5,
+                  165.0,
+                  357.0
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "shoes",
+                "confidence": 0.6543,
+                "confidence_pct": "65.4%",
+                "bbox_xyxy": [
+                  91.5,
+                  292.1,
+                  160.5,
+                  353.8
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "metal",
+                "confidence": 0.5775,
+                "confidence_pct": "57.8%",
+                "bbox_xyxy": [
+                  351.5,
+                  288.0,
+                  425.2,
+                  355.4
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "glass",
+                "confidence": 0.5767,
+                "confidence_pct": "57.7%",
+                "bbox_xyxy": [
+                  36.5,
+                  99.8,
+                  180.2,
+                  218.9
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "plastic",
+                "confidence": 0.562,
+                "confidence_pct": "56.2%",
+                "bbox_xyxy": [
+                  243.1,
+                  17.7,
+                  337.0,
+                  210.0
+                ]
+              },
+              "gt": {
+                "object_id": "img10_obj07",
+                "class_name": "plastic",
+                "class_id": 7,
+                "bbox_xyxy": [
+                  250,
+                  18,
+                  330,
+                  205
+                ],
+                "reviewer": "Agent_D_QA",
+                "review_rationale": "Chai nhựa trong suốt cao có ngấn rãnh ở thùng đen bên trái."
+              },
+              "iou": 0.828,
+              "status": "TP"
+            },
+            {
+              "pred": {
+                "class_id": "metal",
+                "confidence": 0.5237,
+                "confidence_pct": "52.4%",
+                "bbox_xyxy": [
+                  0.0,
+                  178.9,
+                  119.8,
+                  219.0
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "glass",
+                "confidence": 0.4231,
+                "confidence_pct": "42.3%",
+                "bbox_xyxy": [
+                  32.3,
+                  105.3,
+                  119.7,
+                  218.9
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "glass",
+                "confidence": 0.41,
+                "confidence_pct": "41.0%",
+                "bbox_xyxy": [
+                  138.3,
+                  110.8,
+                  218.9,
+                  219.0
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "plastic",
+                "confidence": 0.3745,
+                "confidence_pct": "37.5%",
+                "bbox_xyxy": [
+                  403.5,
+                  46.3,
+                  493.0,
+                  206.7
+                ]
+              },
+              "gt": {
+                "object_id": "img10_obj09",
+                "class_name": "plastic",
+                "class_id": 7,
+                "bbox_xyxy": [
+                  400,
+                  45,
+                  470,
+                  200
+                ],
+                "reviewer": "Agent_D_QA",
+                "review_rationale": "Chai nước khoáng nhựa trong suốt nắp xanh dương ở thùng đen."
+              },
+              "iou": 0.682,
+              "status": "TP"
+            },
+            {
+              "pred": {
+                "class_id": "glass",
+                "confidence": 0.3629,
+                "confidence_pct": "36.3%",
+                "bbox_xyxy": [
+                  175.1,
+                  113.9,
+                  236.5,
+                  219.0
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "plastic",
+                "confidence": 0.3604,
+                "confidence_pct": "36.0%",
+                "bbox_xyxy": [
+                  351.7,
+                  287.9,
+                  425.0,
+                  356.1
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "metal",
+                "confidence": 0.3074,
+                "confidence_pct": "30.7%",
+                "bbox_xyxy": [
+                  351.9,
+                  173.0,
+                  426.5,
+                  209.2
+                ]
+              },
+              "gt": {
+                "object_id": "img10_obj11",
+                "class_name": "metal",
+                "class_id": 5,
+                "bbox_xyxy": [
+                  360,
+                  175,
+                  415,
+                  210
+                ],
+                "reviewer": "Agent_D_QA",
+                "review_rationale": "Lon nhôm kim loại bị ép bẹp ở mép thùng đen."
+              },
+              "iou": 0.685,
+              "status": "TP"
+            },
+            {
+              "pred": {
+                "class_id": "plastic",
+                "confidence": 0.3022,
+                "confidence_pct": "30.2%",
+                "bbox_xyxy": [
+                  328.0,
+                  52.1,
+                  405.8,
+                  219.0
+                ]
+              },
+              "gt": {
+                "object_id": "img10_obj08",
+                "class_name": "plastic",
+                "class_id": 7,
+                "bbox_xyxy": [
+                  328,
+                  52,
+                  405,
+                  200
+                ],
+                "reviewer": "Agent_D_QA",
+                "review_rationale": "Bình nhựa màu trắng đục nắp vặn nhọn ở thùng đen."
+              },
+              "iou": 0.877,
+              "status": "TP"
+            },
+            {
+              "pred": {
+                "class_id": "glass",
+                "confidence": 0.2941,
+                "confidence_pct": "29.4%",
+                "bbox_xyxy": [
+                  241.3,
+                  20.3,
+                  339.6,
+                  219.0
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            },
+            {
+              "pred": {
+                "class_id": "plastic",
+                "confidence": 0.2768,
+                "confidence_pct": "27.7%",
+                "bbox_xyxy": [
+                  0.1,
+                  105.5,
+                  274.5,
+                  365.0
+                ]
+              },
+              "gt": null,
+              "iou": 0.0,
+              "status": "FP_HALLUCINATION",
+              "note": "Không khớp với bất kỳ GT nào (IoU < 0.5)"
+            }
+          ],
+          "fn_objects": [
+            {
+              "object_id": "img10_obj03",
+              "class_name": "metal",
+              "class_id": 5,
+              "bbox_xyxy": [
+                0,
+                185,
+                115,
+                252
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Hộp thiếc kim loại hình bông tuyết màu xanh trong thùng bên trái."
+            },
+            {
+              "object_id": "img10_obj04",
+              "class_name": "metal",
+              "class_id": 5,
+              "bbox_xyxy": [
+                195,
+                218,
+                258,
+                250
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Lon nước ngọt kim loại màu đỏ cắm ống hút đen."
+            },
+            {
+              "object_id": "img10_obj05",
+              "class_name": "glass",
+              "class_id": 4,
+              "bbox_xyxy": [
+                68,
+                105,
+                150,
+                240
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Chai thủy tinh màu xanh lá cây trong thùng bên trái."
+            },
+            {
+              "object_id": "img10_obj06",
+              "class_name": "glass",
+              "class_id": 4,
+              "bbox_xyxy": [
+                41,
+                110,
+                86,
+                190
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Cổ chai thủy tinh trong suốt nằm sau chai xanh lá cây."
+            },
+            {
+              "object_id": "img10_obj10",
+              "class_name": "plastic",
+              "class_id": 7,
+              "bbox_xyxy": [
+                425,
+                110,
+                510,
+                210
+              ],
+              "reviewer": "Agent_D_QA",
+              "review_rationale": "Hộp/chai nhựa trong suốt miệng rộng phía ngoài cùng bên phải thùng đen."
+            }
+          ],
+          "duplicate_boxes": [
+            {
+              "box1": {
+                "class_id": "plastic",
+                "confidence": 0.6593,
+                "confidence_pct": "65.9%",
+                "bbox_xyxy": [
+                  91.2,
+                  286.5,
+                  165.0,
+                  357.0
+                ]
+              },
+              "box2": {
+                "class_id": "shoes",
+                "confidence": 0.6543,
+                "confidence_pct": "65.4%",
+                "bbox_xyxy": [
+                  91.5,
+                  292.1,
+                  160.5,
+                  353.8
+                ]
+              },
+              "iou": 0.818
+            },
+            {
+              "box1": {
+                "class_id": "metal",
+                "confidence": 0.5775,
+                "confidence_pct": "57.8%",
+                "bbox_xyxy": [
+                  351.5,
+                  288.0,
+                  425.2,
+                  355.4
+                ]
+              },
+              "box2": {
+                "class_id": "plastic",
+                "confidence": 0.3604,
+                "confidence_pct": "36.0%",
+                "bbox_xyxy": [
+                  351.7,
+                  287.9,
+                  425.0,
+                  356.1
+                ]
+              },
+              "iou": 0.983
+            },
+            {
+              "box1": {
+                "class_id": "glass",
+                "confidence": 0.5767,
+                "confidence_pct": "57.7%",
+                "bbox_xyxy": [
+                  36.5,
+                  99.8,
+                  180.2,
+                  218.9
+                ]
+              },
+              "box2": {
+                "class_id": "glass",
+                "confidence": 0.4231,
+                "confidence_pct": "42.3%",
+                "bbox_xyxy": [
+                  32.3,
+                  105.3,
+                  119.7,
+                  218.9
+                ]
+              },
+              "iou": 0.537
+            },
+            {
+              "box1": {
+                "class_id": "plastic",
+                "confidence": 0.562,
+                "confidence_pct": "56.2%",
+                "bbox_xyxy": [
+                  243.1,
+                  17.7,
+                  337.0,
+                  210.0
+                ]
+              },
+              "box2": {
+                "class_id": "glass",
+                "confidence": 0.2941,
+                "confidence_pct": "29.4%",
+                "bbox_xyxy": [
+                  241.3,
+                  20.3,
+                  339.6,
+                  219.0
+                ]
+              },
+              "iou": 0.901
+            }
+          ]
+        },
+        "overlay_file": "img17_mode_4_yolov8n_tiling400.jpg"
+      }
+    }
+  },
+  "cross_case_comparison": [
+    {
+      "case_id": "single_object",
+      "label_vn": "Một vật thể",
+      "description": "Ảnh 1 quả pin laptop nằm giữa khung hình (battery-sample.png)",
+      "expected_objects": "1 vật thể: 0: battery",
+      "image_size": "512x411",
+      "modes_data": {
+        "mode_1_ssdlite_raw": {
+          "num_boxes": 1,
+          "latency_ms": 45.3,
+          "predictions": [
+            {
+              "class_id": "shoes",
+              "confidence": 0.8225,
+              "confidence_pct": "82.3%",
+              "bbox_xyxy": [
+                12.8,
+                44.1,
+                493.7,
+                375.3
+              ]
+            }
+          ],
+          "overlay_file": "case_single_object_mode_1_ssdlite_raw.jpg"
+        },
+        "mode_2_yolov8n_raw": {
+          "num_boxes": 1,
+          "latency_ms": 154.1,
+          "predictions": [
+            {
+              "class_id": "shoes",
+              "confidence": 0.9184,
+              "confidence_pct": "91.8%",
+              "bbox_xyxy": [
+                7.4,
+                32.8,
+                512.0,
+                385.8
+              ]
+            }
+          ],
+          "overlay_file": "case_single_object_mode_2_yolov8n_raw.jpg"
+        },
+        "mode_3_ssdlite_tiling400": {
+          "num_boxes": 5,
+          "latency_ms": 377.2,
+          "predictions": [
+            {
+              "class_id": "shoes",
+              "confidence": 0.8225,
+              "confidence_pct": "82.3%",
+              "bbox_xyxy": [
+                12.8,
+                44.1,
+                493.7,
+                375.3
+              ]
+            },
+            {
+              "class_id": "clothes",
+              "confidence": 0.5786,
+              "confidence_pct": "57.9%",
+              "bbox_xyxy": [
+                268.6,
+                164.0,
+                360.1,
+                292.2
+              ]
+            },
+            {
+              "class_id": "clothes",
+              "confidence": 0.493,
+              "confidence_pct": "49.3%",
+              "bbox_xyxy": [
+                268.5,
+                22.7,
+                505.4,
+                229.9
+              ]
+            },
+            {
+              "class_id": "clothes",
+              "confidence": 0.3593,
+              "confidence_pct": "35.9%",
+              "bbox_xyxy": [
+                200.8,
+                165.4,
+                422.7,
+                397.1
+              ]
+            },
+            {
+              "class_id": "clothes",
+              "confidence": 0.2636,
+              "confidence_pct": "26.4%",
+              "bbox_xyxy": [
+                198.0,
+                164.8,
+                369.6,
+                313.7
+              ]
+            }
+          ],
+          "overlay_file": "case_single_object_mode_3_ssdlite_tiling400.jpg"
+        },
+        "mode_4_yolov8n_tiling400": {
+          "num_boxes": 3,
+          "latency_ms": 225.5,
+          "predictions": [
+            {
+              "class_id": "shoes",
+              "confidence": 0.9184,
+              "confidence_pct": "91.8%",
+              "bbox_xyxy": [
+                7.4,
+                32.8,
+                512.0,
+                385.8
+              ]
+            },
+            {
+              "class_id": "clothes",
+              "confidence": 0.5409,
+              "confidence_pct": "54.1%",
+              "bbox_xyxy": [
+                0.0,
+                0.4,
+                246.9,
+                204.6
+              ]
+            },
+            {
+              "class_id": "clothes",
+              "confidence": 0.2861,
+              "confidence_pct": "28.6%",
+              "bbox_xyxy": [
+                265.0,
+                164.2,
+                368.7,
+                312.3
+              ]
+            }
+          ],
+          "overlay_file": "case_single_object_mode_4_yolov8n_tiling400.jpg"
+        }
+      }
+    },
+    {
+      "case_id": "multi_objects",
+      "label_vn": "Nhiều vật thể cùng lúc",
+      "description": "Ảnh 2 thùng rác chứa 9 món chai lọ, lon kim loại (images (17).jpg)",
+      "expected_objects": "11 vật thể (GTv1) / 9 món rác rời",
+      "image_size": "547x365",
+      "modes_data": {
+        "mode_1_ssdlite_raw": {
+          "num_boxes": 1,
+          "latency_ms": 48.0,
+          "predictions": [
+            {
+              "class_id": "plastic",
+              "confidence": 0.2998,
+              "confidence_pct": "30.0%",
+              "bbox_xyxy": [
+                393.2,
+                53.7,
+                478.1,
+                182.4
+              ]
+            }
+          ],
+          "overlay_file": "case_multi_objects_mode_1_ssdlite_raw.jpg"
+        },
+        "mode_2_yolov8n_raw": {
+          "num_boxes": 5,
+          "latency_ms": 26.7,
+          "predictions": [
+            {
+              "class_id": "shoes",
+              "confidence": 0.6237,
+              "confidence_pct": "62.4%",
+              "bbox_xyxy": [
+                100.0,
+                291.6,
+                169.2,
+                354.4
+              ]
+            },
+            {
+              "class_id": "plastic",
+              "confidence": 0.5345,
+              "confidence_pct": "53.4%",
+              "bbox_xyxy": [
+                242.8,
+                17.7,
+                337.1,
+                210.2
+              ]
+            },
+            {
+              "class_id": "plastic",
+              "confidence": 0.4097,
+              "confidence_pct": "41.0%",
+              "bbox_xyxy": [
+                403.4,
+                46.2,
+                491.8,
+                206.5
+              ]
+            },
+            {
+              "class_id": "metal",
+              "confidence": 0.3339,
+              "confidence_pct": "33.4%",
+              "bbox_xyxy": [
+                351.9,
+                172.9,
+                425.6,
+                209.2
+              ]
+            },
+            {
+              "class_id": "plastic",
+              "confidence": 0.3319,
+              "confidence_pct": "33.2%",
+              "bbox_xyxy": [
+                0.1,
+                104.8,
+                274.6,
+                365.0
+              ]
+            }
+          ],
+          "overlay_file": "case_multi_objects_mode_2_yolov8n_raw.jpg"
+        },
+        "mode_3_ssdlite_tiling400": {
+          "num_boxes": 12,
+          "latency_ms": 365.0,
+          "predictions": [
+            {
+              "class_id": "clothes",
+              "confidence": 0.6021,
+              "confidence_pct": "60.2%",
+              "bbox_xyxy": [
+                384.5,
+                49.8,
+                513.6,
+                214.8
+              ]
+            },
+            {
+              "class_id": "clothes",
+              "confidence": 0.4999,
+              "confidence_pct": "50.0%",
+              "bbox_xyxy": [
+                178.9,
+                162.7,
+                267.4,
+                360.7
+              ]
+            },
+            {
+              "class_id": "clothes",
+              "confidence": 0.4655,
+              "confidence_pct": "46.5%",
+              "bbox_xyxy": [
+                175.0,
+                123.0,
+                231.3,
+                219.0
+              ]
+            },
+            {
+              "class_id": "plastic",
+              "confidence": 0.4558,
+              "confidence_pct": "45.6%",
+              "bbox_xyxy": [
+                259.9,
+                149.2,
+                375.8,
+                211.3
+              ]
+            },
+            {
+              "class_id": "clothes",
+              "confidence": 0.4507,
+              "confidence_pct": "45.1%",
+              "bbox_xyxy": [
+                357.5,
+                287.8,
+                423.0,
+                354.9
+              ]
+            },
+            {
+              "class_id": "shoes",
+              "confidence": 0.4392,
+              "confidence_pct": "43.9%",
+              "bbox_xyxy": [
+                353.5,
+                289.0,
+                424.7,
+                355.5
+              ]
+            },
+            {
+              "class_id": "plastic",
+              "confidence": 0.3936,
+              "confidence_pct": "39.4%",
+              "bbox_xyxy": [
+                3.9,
+                101.1,
+                160.3,
+                218.7
+              ]
+            },
+            {
+              "class_id": "shoes",
+              "confidence": 0.3679,
+              "confidence_pct": "36.8%",
+              "bbox_xyxy": [
+                6.9,
+                100.8,
+                198.1,
+                219.0
+              ]
+            },
+            {
+              "class_id": "clothes",
+              "confidence": 0.3153,
+              "confidence_pct": "31.5%",
+              "bbox_xyxy": [
+                236.5,
+                21.0,
+                348.5,
+                212.7
+              ]
+            },
+            {
+              "class_id": "plastic",
+              "confidence": 0.2998,
+              "confidence_pct": "30.0%",
+              "bbox_xyxy": [
+                393.2,
+                53.7,
+                478.1,
+                182.4
+              ]
+            },
+            {
+              "class_id": "clothes",
+              "confidence": 0.2741,
+              "confidence_pct": "27.4%",
+              "bbox_xyxy": [
+                331.0,
+                60.0,
+                411.3,
+                209.7
+              ]
+            },
+            {
+              "class_id": "shoes",
+              "confidence": 0.2534,
+              "confidence_pct": "25.3%",
+              "bbox_xyxy": [
+                234.1,
+                23.3,
+                353.1,
+                212.7
+              ]
+            }
+          ],
+          "overlay_file": "case_multi_objects_mode_3_ssdlite_tiling400.jpg"
+        },
+        "mode_4_yolov8n_tiling400": {
+          "num_boxes": 16,
+          "latency_ms": 322.9,
+          "predictions": [
+            {
+              "class_id": "metal",
+              "confidence": 0.6385,
+              "confidence_pct": "63.9%",
+              "bbox_xyxy": [
+                352.0,
+                288.1,
+                425.2,
+                355.5
+              ]
+            },
+            {
+              "class_id": "glass",
+              "confidence": 0.6319,
+              "confidence_pct": "63.2%",
+              "bbox_xyxy": [
+                175.3,
+                148.1,
+                272.4,
+                364.7
+              ]
+            },
+            {
+              "class_id": "shoes",
+              "confidence": 0.6237,
+              "confidence_pct": "62.4%",
+              "bbox_xyxy": [
+                100.0,
+                291.6,
+                169.2,
+                354.4
+              ]
+            },
+            {
+              "class_id": "plastic",
+              "confidence": 0.6036,
+              "confidence_pct": "60.4%",
+              "bbox_xyxy": [
+                90.7,
+                286.7,
+                165.1,
+                357.0
+              ]
+            },
+            {
+              "class_id": "glass",
+              "confidence": 0.5752,
+              "confidence_pct": "57.5%",
+              "bbox_xyxy": [
+                36.6,
+                99.8,
+                183.1,
+                218.9
+              ]
+            },
+            {
+              "class_id": "plastic",
+              "confidence": 0.5345,
+              "confidence_pct": "53.4%",
+              "bbox_xyxy": [
+                242.8,
+                17.7,
+                337.1,
+                210.2
+              ]
+            },
+            {
+              "class_id": "metal",
+              "confidence": 0.5083,
+              "confidence_pct": "50.8%",
+              "bbox_xyxy": [
+                0.0,
+                178.9,
+                119.6,
+                219.0
+              ]
+            },
+            {
+              "class_id": "glass",
+              "confidence": 0.4168,
+              "confidence_pct": "41.7%",
+              "bbox_xyxy": [
+                32.3,
+                105.3,
+                119.7,
+                218.9
+              ]
+            },
+            {
+              "class_id": "plastic",
+              "confidence": 0.4097,
+              "confidence_pct": "41.0%",
+              "bbox_xyxy": [
+                403.4,
+                46.2,
+                491.8,
+                206.5
+              ]
+            },
+            {
+              "class_id": "plastic",
+              "confidence": 0.34,
+              "confidence_pct": "34.0%",
+              "bbox_xyxy": [
+                352.2,
+                288.0,
+                425.0,
+                356.2
+              ]
+            },
+            {
+              "class_id": "glass",
+              "confidence": 0.338,
+              "confidence_pct": "33.8%",
+              "bbox_xyxy": [
+                136.9,
+                110.6,
+                218.9,
+                219.0
+              ]
+            },
+            {
+              "class_id": "metal",
+              "confidence": 0.3339,
+              "confidence_pct": "33.4%",
+              "bbox_xyxy": [
+                351.9,
+                172.9,
+                425.6,
+                209.2
+              ]
+            },
+            {
+              "class_id": "plastic",
+              "confidence": 0.3319,
+              "confidence_pct": "33.2%",
+              "bbox_xyxy": [
+                0.1,
+                104.8,
+                274.6,
+                365.0
+              ]
+            },
+            {
+              "class_id": "glass",
+              "confidence": 0.315,
+              "confidence_pct": "31.5%",
+              "bbox_xyxy": [
+                175.1,
+                113.4,
+                236.3,
+                219.0
+              ]
+            },
+            {
+              "class_id": "plastic",
+              "confidence": 0.3085,
+              "confidence_pct": "30.8%",
+              "bbox_xyxy": [
+                328.0,
+                52.0,
+                405.9,
+                219.0
+              ]
+            },
+            {
+              "class_id": "glass",
+              "confidence": 0.3078,
+              "confidence_pct": "30.8%",
+              "bbox_xyxy": [
+                241.5,
+                20.8,
+                339.8,
+                219.0
+              ]
+            }
+          ],
+          "overlay_file": "case_multi_objects_mode_4_yolov8n_tiling400.jpg"
+        }
+      }
+    },
+    {
+      "case_id": "small_far_objects",
+      "label_vn": "Vật thể nhỏ và xa",
+      "description": "Ảnh 3 chai nhựa vứt xa trên mặt đất sỏi đá (download (2).jpg)",
+      "expected_objects": "3 chai nhựa nhỏ nằm rải rác",
+      "image_size": "299x168",
+      "modes_data": {
+        "mode_1_ssdlite_raw": {
+          "num_boxes": 0,
+          "latency_ms": 56.6,
+          "predictions": [],
+          "overlay_file": "case_small_far_objects_mode_1_ssdlite_raw.jpg"
+        },
+        "mode_2_yolov8n_raw": {
+          "num_boxes": 0,
+          "latency_ms": 182.1,
+          "predictions": [],
+          "overlay_file": "case_small_far_objects_mode_2_yolov8n_raw.jpg"
+        },
+        "mode_3_ssdlite_tiling400": {
+          "num_boxes": 0,
+          "latency_ms": 61.8,
+          "predictions": [],
+          "overlay_file": "case_small_far_objects_mode_3_ssdlite_tiling400.jpg"
+        },
+        "mode_4_yolov8n_tiling400": {
+          "num_boxes": 0,
+          "latency_ms": 33.2,
+          "predictions": [],
+          "overlay_file": "case_small_far_objects_mode_4_yolov8n_tiling400.jpg"
+        }
+      }
+    },
+    {
+      "case_id": "no_waste",
+      "label_vn": "Ảnh nền không có rác (True Negative)",
+      "description": "Mặt đất công viên sạch, chỉ có cỏ và sỏi đá (taco_0170.jpg)",
+      "expected_objects": "0 vật thể (Không có rác)",
+      "image_size": "640x292",
+      "modes_data": {
+        "mode_1_ssdlite_raw": {
+          "num_boxes": 1,
+          "latency_ms": 71.2,
+          "predictions": [
+            {
+              "class_id": "clothes",
+              "confidence": 0.5684,
+              "confidence_pct": "56.8%",
+              "bbox_xyxy": [
+                1.7,
+                0.0,
+                623.2,
+                292.0
+              ]
+            }
+          ],
+          "overlay_file": "case_no_waste_mode_1_ssdlite_raw.jpg"
+        },
+        "mode_2_yolov8n_raw": {
+          "num_boxes": 1,
+          "latency_ms": 186.8,
+          "predictions": [
+            {
+              "class_id": "plastic",
+              "confidence": 0.3215,
+              "confidence_pct": "32.2%",
+              "bbox_xyxy": [
+                382.5,
+                100.5,
+                477.6,
+                204.4
+              ]
+            }
+          ],
+          "overlay_file": "case_no_waste_mode_2_yolov8n_raw.jpg"
+        },
+        "mode_3_ssdlite_tiling400": {
+          "num_boxes": 3,
+          "latency_ms": 561.8,
+          "predictions": [
+            {
+              "class_id": "shoes",
+              "confidence": 0.888,
+              "confidence_pct": "88.8%",
+              "bbox_xyxy": [
+                465.6,
+                124.5,
+                637.7,
+                277.2
+              ]
+            },
+            {
+              "class_id": "clothes",
+              "confidence": 0.5684,
+              "confidence_pct": "56.8%",
+              "bbox_xyxy": [
+                1.7,
+                0.0,
+                623.2,
+                292.0
+              ]
+            },
+            {
+              "class_id": "plastic",
+              "confidence": 0.2898,
+              "confidence_pct": "29.0%",
+              "bbox_xyxy": [
+                420.5,
+                144.3,
+                474.6,
+                204.7
+              ]
+            }
+          ],
+          "overlay_file": "case_no_waste_mode_3_ssdlite_tiling400.jpg"
+        },
+        "mode_4_yolov8n_tiling400": {
+          "num_boxes": 4,
+          "latency_ms": 320.0,
+          "predictions": [
+            {
+              "class_id": "clothes",
+              "confidence": 0.4455,
+              "confidence_pct": "44.6%",
+              "bbox_xyxy": [
+                465.5,
+                43.9,
+                639.7,
+                174.6
+              ]
+            },
+            {
+              "class_id": "shoes",
+              "confidence": 0.3713,
+              "confidence_pct": "37.1%",
+              "bbox_xyxy": [
+                420.4,
+                133.0,
+                595.0,
+                273.6
+              ]
+            },
+            {
+              "class_id": "plastic",
+              "confidence": 0.3215,
+              "confidence_pct": "32.2%",
+              "bbox_xyxy": [
+                382.5,
+                100.5,
+                477.6,
+                204.4
+              ]
+            },
+            {
+              "class_id": "shoes",
+              "confidence": 0.2613,
+              "confidence_pct": "26.1%",
+              "bbox_xyxy": [
+                465.1,
+                160.7,
+                563.8,
+                271.5
+              ]
+            }
+          ],
+          "overlay_file": "case_no_waste_mode_4_yolov8n_tiling400.jpg"
+        }
+      }
+    },
+    {
+      "case_id": "utility_box",
+      "label_vn": "Tủ điện dễ gây nhận nhầm (Hard Negative)",
+      "description": "Tủ điện kỹ thuật đô thị trên vỉa hè (scratch_utility_box_bottom_right.jpg)",
+      "expected_objects": "0 vật thể rác (Hạ tầng đô thị sạch)",
+      "image_size": "1031x773",
+      "modes_data": {
+        "mode_1_ssdlite_raw": {
+          "num_boxes": 1,
+          "latency_ms": 56.6,
+          "predictions": [
+            {
+              "class_id": "metal",
+              "confidence": 0.5541,
+              "confidence_pct": "55.4%",
+              "bbox_xyxy": [
+                288.9,
+                259.7,
+                413.4,
+                391.7
+              ]
+            }
+          ],
+          "overlay_file": "case_utility_box_mode_1_ssdlite_raw.jpg"
+        },
+        "mode_2_yolov8n_raw": {
+          "num_boxes": 2,
+          "latency_ms": 138.1,
+          "predictions": [
+            {
+              "class_id": "metal",
+              "confidence": 0.7025,
+              "confidence_pct": "70.3%",
+              "bbox_xyxy": [
+                716.4,
+                355.4,
+                821.6,
+                464.7
+              ]
+            },
+            {
+              "class_id": "metal",
+              "confidence": 0.5666,
+              "confidence_pct": "56.7%",
+              "bbox_xyxy": [
+                277.8,
+                253.6,
+                419.5,
+                405.2
+              ]
+            }
+          ],
+          "overlay_file": "case_utility_box_mode_2_yolov8n_raw.jpg"
+        },
+        "mode_3_ssdlite_tiling400": {
+          "num_boxes": 4,
+          "latency_ms": 328.9,
+          "predictions": [
+            {
+              "class_id": "metal",
+              "confidence": 0.6442,
+              "confidence_pct": "64.4%",
+              "bbox_xyxy": [
+                719.5,
+                358.9,
+                826.1,
+                466.3
+              ]
+            },
+            {
+              "class_id": "plastic",
+              "confidence": 0.6166,
+              "confidence_pct": "61.7%",
+              "bbox_xyxy": [
+                281.0,
+                262.6,
+                419.6,
+                396.8
+              ]
+            },
+            {
+              "class_id": "metal",
+              "confidence": 0.5541,
+              "confidence_pct": "55.4%",
+              "bbox_xyxy": [
+                288.9,
+                259.7,
+                413.4,
+                391.7
+              ]
+            },
+            {
+              "class_id": "plastic",
+              "confidence": 0.436,
+              "confidence_pct": "43.6%",
+              "bbox_xyxy": [
+                722.7,
+                356.5,
+                825.5,
+                462.4
+              ]
+            }
+          ],
+          "overlay_file": "case_utility_box_mode_3_ssdlite_tiling400.jpg"
+        },
+        "mode_4_yolov8n_tiling400": {
+          "num_boxes": 6,
+          "latency_ms": 181.5,
+          "predictions": [
+            {
+              "class_id": "plastic",
+              "confidence": 0.7123,
+              "confidence_pct": "71.2%",
+              "bbox_xyxy": [
+                710.3,
+                355.8,
+                824.6,
+                464.9
+              ]
+            },
+            {
+              "class_id": "metal",
+              "confidence": 0.7025,
+              "confidence_pct": "70.3%",
+              "bbox_xyxy": [
+                716.4,
+                355.4,
+                821.6,
+                464.7
+              ]
+            },
+            {
+              "class_id": "metal",
+              "confidence": 0.5666,
+              "confidence_pct": "56.7%",
+              "bbox_xyxy": [
+                277.8,
+                253.6,
+                419.5,
+                405.2
+              ]
+            },
+            {
+              "class_id": "plastic",
+              "confidence": 0.3939,
+              "confidence_pct": "39.4%",
+              "bbox_xyxy": [
+                276.5,
+                250.0,
+                417.4,
+                404.8
+              ]
+            },
+            {
+              "class_id": "plastic",
+              "confidence": 0.3926,
+              "confidence_pct": "39.3%",
+              "bbox_xyxy": [
+                200.6,
+                660.6,
+                257.4,
+                702.7
+              ]
+            },
+            {
+              "class_id": "plastic",
+              "confidence": 0.3406,
+              "confidence_pct": "34.1%",
+              "bbox_xyxy": [
+                391.0,
+                135.9,
+                421.3,
+                198.1
+              ]
+            }
+          ],
+          "overlay_file": "case_utility_box_mode_4_yolov8n_tiling400.jpg"
+        }
+      }
+    }
+  ]
+}

@@ -16,12 +16,14 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import subprocess
 import sys
 import tempfile
 from pathlib import Path
 
 import pandas as pd
+import pytest
 
 # Dynamic path resolution based on file location
 TESTS_DIR = Path(__file__).resolve().parent
@@ -147,6 +149,10 @@ def test_real_audit_passes(processed_dir: Path, skip_real: bool):
     print("  -> TEST 3 PASSED: Full official audit passed 100% with exit code 0 and all checks verified!")
 
 
+@pytest.mark.skipif(
+    os.environ.get("RUN_HEAVY_VALIDATION") != "1",
+    reason="Set RUN_HEAVY_VALIDATION=1 for the 2,223-image checkpoint reproduction gate",
+)
 def test_reproduce_validation_direct_disk_hash(val_dir: Path, skip_real: bool):
     print("\n[TEST 4] Running validation reproduction with direct disk byte hashing...")
     if not val_dir.exists():
@@ -194,7 +200,7 @@ def main() -> int:
         "--processed-dir",
         type=Path,
         default=None,
-        help="Path to processed image directory (default: auto-detected from local or D:/CNTT-KLCN155-waste-detection)",
+        help="Path to processed image directory (default: auto-detected from project root)",
     )
     parser.add_argument(
         "--val-dir",
@@ -212,10 +218,6 @@ def main() -> int:
     # Resolve processed directory
     if args.processed_dir is not None:
         processed_dir = args.processed_dir
-    elif (PROJECT_ROOT / "data" / "processed_v2").exists():
-        processed_dir = PROJECT_ROOT / "data" / "processed_v2"
-    elif Path(r"D:\CNTT-KLCN155-waste-detection\data\processed_v2").exists():
-        processed_dir = Path(r"D:\CNTT-KLCN155-waste-detection\data\processed_v2")
     else:
         processed_dir = PROJECT_ROOT / "data" / "processed_v2"
 

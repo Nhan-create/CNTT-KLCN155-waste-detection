@@ -39,6 +39,23 @@ def _ordered_names(values: Mapping[int, str] | Sequence[str]) -> tuple[str, ...]
     return tuple(str(value) for value in values)
 
 
+DEFAULT_IMAGE_SIZE = 640
+
+
+def _checkpoint_train_imgsz(model: Any) -> int | None:
+    """Return the square training imgsz stored by Ultralytics, if available."""
+    ckpt = getattr(model, "ckpt", None)
+    train_args = ckpt.get("train_args") if isinstance(ckpt, Mapping) else None
+    value = train_args.get("imgsz") if isinstance(train_args, Mapping) else None
+    if isinstance(value, (list, tuple)) and value:
+        value = max(value)
+    try:
+        size = int(value)
+    except (TypeError, ValueError):
+        return None
+    return size if size > 0 else None
+
+
 def validate_yolov8n_architecture(model: Any, expected_classes: int | None = None) -> None:
     """Reject different YOLO generations and verify detection head classes."""
     network = getattr(model, "model", model)
@@ -114,7 +131,7 @@ class WasteDetector:
         device: str = "auto",
         confidence_threshold: float = 0.35,
         iou_threshold: float = 0.55,
-        image_size: int = 640,
+        image_size: int | None = None,
         max_detections: int = 100,
         model_factory: Callable[[str], Any] | None = None,
     ) -> None:
@@ -122,7 +139,7 @@ class WasteDetector:
             raise ValueError("confidence_threshold must be between 0 and 1")
         if not 0.0 <= iou_threshold <= 1.0:
             raise ValueError("iou_threshold must be between 0 and 1")
-        if image_size <= 0:
+        if image_size is not None and image_size <= 0:
             raise ValueError("image_size must be positive")
         if max_detections <= 0:
             raise ValueError("max_detections must be positive")
@@ -134,6 +151,7 @@ class WasteDetector:
         self.max_detections = max_detections
         self._model_factory = model_factory or _load_ultralytics_model
         self._model: Any | None = None
+        self.train_image_size: int | None = None
 
     @property
     def is_loaded(self) -> bool:
@@ -151,6 +169,10 @@ class WasteDetector:
                 f"Sai thứ tự lớp detector: {names}; yêu cầu chính xác {CLASS_NAMES}"
             )
         validate_yolo_metadata(model)
+        self.train_image_size = _checkpoint_train_imgsz(model)
+        if self.image_size is None:
+            # Inference must match the training resolution (current runs: 320).
+            self.image_size = self.train_image_size or DEFAULT_IMAGE_SIZE
         self._model = model
         return model
 

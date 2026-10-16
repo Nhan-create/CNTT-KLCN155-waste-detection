@@ -66,7 +66,7 @@ def parse_yolo_label(label_path: Path):
 
 def main():
     project_root = Path(__file__).resolve().parent.parent
-    source_root = Path(r"D:\waste-training\dataset-v1")
+    source_root = (Path(__import__("os").environ.get("WASTE_TRAINING_DIR", str(Path(__file__).resolve().parents[1] / "data" / "external" / "waste-training"))) / "dataset-v1")
     target_root = project_root / "data" / "detection"
 
     print(f"[INFO] Source dataset: {source_root}")

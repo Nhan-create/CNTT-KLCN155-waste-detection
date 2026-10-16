@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "generated_by": "src.detection.export_train_manifest",
+    "source_manifest": "data\\detection_pilot_v3\\manifests\\pilot_image_manifest.json",
+    "source_total_images": 15,
+    "eligible_train_images_count": 3,
+    "blocked_images_count": 12,
+    "approval_ledger_provided": false,
+    "blocked_breakdown": {
+      "split_contamination": 2,
+      "unmapped_waste_leakage": 8,
+      "pending_approval": 2,
+      "invalid_approval_record": 0,
+      "unapproved_other": 0
+    }
+  },
+  "images": [
+    {
+      "filename": "taco_0841.jpg",
+      "width": 480,
+      "height": 640,
+      "sha256": "a9f0d4e12182944d1aeef73263bc3c3dc44cd97078a8e59d1f7aea3db7e0018a",
+      "phash": "e3a31c9c637b1aa4",
+      "category": "EXISTING_TRAIN",
+      "official_split": "train",
+      "boxes_count": 2,
+      "is_hard_negative": false,
+      "qa_notes": "Already part of official train split.",
+      "qa_approval_status": "VERIFIED_EXISTING_TRAIN"
+    },
+    {
+      "filename": "taco_0924.jpg",
+      "width": 640,
+      "height": 480,
+      "sha256": "c0b52d1dfe17431e9ff06081797349a7e94320f71829adef99eb40d6c449413e",
+      "phash": "fad3c55a48b02bc9",
+      "category": "EXISTING_TRAIN",
+      "official_split": "train",
+      "boxes_count": 4,
+      "is_hard_negative": false,
+      "qa_notes": "Already part of official train split.",
+      "qa_approval_status": "VERIFIED_EXISTING_TRAIN"
+    },
+    {
+      "filename": "taco_0456.jpg",
+      "width": 3120,
+      "height": 4160,
+      "sha256": "a0ca2b77106d6591482fbba67704631c73378b102850eaa51c3ffdebab63a307",
+      "phash": "b11c16e7b1524f47",
+      "category": "EXISTING_TRAIN",
+      "official_split": "train",
+      "boxes_count": 1,
+      "is_hard_negative": false,
+      "qa_notes": "Already part of official train split (1 battery).",
+      "qa_approval_status": "VERIFIED_EXISTING_TRAIN"
+    }
+  ]
+}

@@ -1,0 +1,817 @@
+{
+  "source": {
+    "path": "reports\\qa_acceptance\\baseline_results_yolov8n.json",
+    "format": "baseline_results",
+    "backend": "yolov8n",
+    "checkpoint_sha256": "97f46ccaaa0a63c5934225d51ccd399c1c18eb3e1af8a63b9f14bec1aaa085c9",
+    "stored_min_confidence": 0.2
+  },
+  "ground_truth": "D:\\CNTT-KLCN155-waste-detection\\reports\\qa_acceptance\\ground_truth_hinh_anh_rac.json",
+  "operating_confidence": 0.25,
+  "views": {
+    "all_27": {
+      "n_images": 27,
+      "n_gt_objects": 57,
+      "n_predictions_total": 33,
+      "missing_prediction_images": [],
+      "ignored_prediction_images_not_in_gt": [],
+      "ap": {
+        "per_class": {
+          "battery": {
+            "n_gt": 2,
+            "n_pred": 3,
+            "ap50": 0.0,
+            "ap75": 0.0,
+            "ap50_95": 0.0
+          },
+          "biological": {
+            "n_gt": 3,
+            "n_pred": 0,
+            "ap50": 0.0,
+            "ap75": 0.0,
+            "ap50_95": 0.0
+          },
+          "cardboard": {
+            "n_gt": 3,
+            "n_pred": 1,
+            "ap50": 0.0,
+            "ap75": 0.0,
+            "ap50_95": 0.0
+          },
+          "clothes": {
+            "n_gt": 8,
+            "n_pred": 5,
+            "ap50": 0.0,
+            "ap75": 0.0,
+            "ap50_95": 0.0
+          },
+          "glass": {
+            "n_gt": 11,
+            "n_pred": 10,
+            "ap50": 0.0,
+            "ap75": 0.0,
+            "ap50_95": 0.0
+          },
+          "metal": {
+            "n_gt": 4,
+            "n_pred": 0,
+            "ap50": 0.0,
+            "ap75": 0.0,
+            "ap50_95": 0.0
+          },
+          "paper": {
+            "n_gt": 2,
+            "n_pred": 1,
+            "ap50": 0.0,
+            "ap75": 0.0,
+            "ap50_95": 0.0
+          },
+          "plastic": {
+            "n_gt": 17,
+            "n_pred": 11,
+            "ap50": 0.0,
+            "ap75": 0.0,
+            "ap50_95": 0.0
+          },
+          "shoes": {
+            "n_gt": 6,
+            "n_pred": 0,
+            "ap50": 0.0,
+            "ap75": 0.0,
+            "ap50_95": 0.0
+          },
+          "trash": {
+            "n_gt": 1,
+            "n_pred": 2,
+            "ap50": 0.0,
+            "ap75": 0.0,
+            "ap50_95": 0.0
+          }
+        },
+        "mAP50": 0.0,
+        "mAP50_95": 0.0,
+        "classes_in_mean": 10,
+        "class_agnostic_AP50": 0.0,
+        "class_agnostic_AP50_95": 0.0
+      },
+      "operating_point": {
+        "class_aware": {
+          "confidence_threshold": 0.25,
+          "iou_threshold": 0.5,
+          "class_agnostic": false,
+          "tp": 0,
+          "fp": 28,
+          "fn": 57,
+          "n_gt": 57,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "class_agnostic": {
+          "confidence_threshold": 0.25,
+          "iou_threshold": 0.5,
+          "class_agnostic": true,
+          "tp": 0,
+          "fp": 28,
+          "fn": 57,
+          "n_gt": 57,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      },
+      "localization_class_analysis": {
+        "confidence_threshold": 0.25,
+        "iou_threshold": 0.5,
+        "matched_pairs": 0,
+        "correct_class_pairs": 0,
+        "class_accuracy_on_matched": 0.0,
+        "confusion_matrix": {
+          "labels": [
+            "battery",
+            "biological",
+            "cardboard",
+            "clothes",
+            "glass",
+            "metal",
+            "paper",
+            "plastic",
+            "shoes",
+            "trash",
+            "background"
+          ],
+          "rows": "ground_truth",
+          "cols": "prediction",
+          "matrix": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              3
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              3
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              8
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              11
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              4
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              17
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              6
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              2,
+              0,
+              0,
+              5,
+              9,
+              0,
+              1,
+              9,
+              0,
+              2,
+              0
+            ]
+          ]
+        }
+      },
+      "confidence_sweep": [
+        {
+          "confidence_threshold": 0.2,
+          "tp": 0,
+          "fp": 33,
+          "fn": 57,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "class_accuracy_on_matched": 0.0
+        },
+        {
+          "confidence_threshold": 0.25,
+          "tp": 0,
+          "fp": 28,
+          "fn": 57,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "class_accuracy_on_matched": 0.0
+        },
+        {
+          "confidence_threshold": 0.3,
+          "tp": 0,
+          "fp": 21,
+          "fn": 57,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "class_accuracy_on_matched": 0.0
+        },
+        {
+          "confidence_threshold": 0.35,
+          "tp": 0,
+          "fp": 17,
+          "fn": 57,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "class_accuracy_on_matched": 0.0
+        },
+        {
+          "confidence_threshold": 0.4,
+          "tp": 0,
+          "fp": 12,
+          "fn": 57,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "class_accuracy_on_matched": 0.0
+        },
+        {
+          "confidence_threshold": 0.45,
+          "tp": 0,
+          "fp": 5,
+          "fn": 57,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "class_accuracy_on_matched": 0.0
+        },
+        {
+          "confidence_threshold": 0.5,
+          "tp": 0,
+          "fp": 5,
+          "fn": 57,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "class_accuracy_on_matched": 0.0
+        }
+      ],
+      "practical_acceptance": {
+        "criteria": {
+          "min_recall_at_iou50": 0.6,
+          "min_precision_at_iou50": 0.6,
+          "min_class_accuracy_on_matched": 0.75
+        },
+        "checks": {
+          "recall_at_iou50": {
+            "actual": 0.0,
+            "target": ">= 0.6",
+            "passed": false
+          },
+          "precision_at_iou50": {
+            "actual": 0.0,
+            "target": ">= 0.6",
+            "passed": false
+          },
+          "class_accuracy_on_matched": {
+            "actual": 0.0,
+            "target": ">= 0.75",
+            "passed": false
+          },
+          "coverage_all_images_predicted": {
+            "actual": 27,
+            "target": 27,
+            "passed": true
+          }
+        },
+        "status": "FAIL"
+      },
+      "warnings": [
+        "Predictions only contain detections with confidence >= 0.2; AP is truncated (lower bound) and P/R/F1 are only valid for thresholds >= 0.2."
+      ],
+      "excluded_duplicates": []
+    },
+    "dedup_sha256": {
+      "n_images": 26,
+      "n_gt_objects": 56,
+      "n_predictions_total": 33,
+      "missing_prediction_images": [],
+      "ignored_prediction_images_not_in_gt": [
+        "images (7).jpg"
+      ],
+      "ap": {
+        "per_class": {
+          "battery": {
+            "n_gt": 2,
+            "n_pred": 3,
+            "ap50": 0.0,
+            "ap75": 0.0,
+            "ap50_95": 0.0
+          },
+          "biological": {
+            "n_gt": 3,
+            "n_pred": 0,
+            "ap50": 0.0,
+            "ap75": 0.0,
+            "ap50_95": 0.0
+          },
+          "cardboard": {
+            "n_gt": 3,
+            "n_pred": 1,
+            "ap50": 0.0,
+            "ap75": 0.0,
+            "ap50_95": 0.0
+          },
+          "clothes": {
+            "n_gt": 8,
+            "n_pred": 5,
+            "ap50": 0.0,
+            "ap75": 0.0,
+            "ap50_95": 0.0
+          },
+          "glass": {
+            "n_gt": 11,
+            "n_pred": 10,
+            "ap50": 0.0,
+            "ap75": 0.0,
+            "ap50_95": 0.0
+          },
+          "metal": {
+            "n_gt": 4,
+            "n_pred": 0,
+            "ap50": 0.0,
+            "ap75": 0.0,
+            "ap50_95": 0.0
+          },
+          "paper": {
+            "n_gt": 2,
+            "n_pred": 1,
+            "ap50": 0.0,
+            "ap75": 0.0,
+            "ap50_95": 0.0
+          },
+          "plastic": {
+            "n_gt": 16,
+            "n_pred": 11,
+            "ap50": 0.0,
+            "ap75": 0.0,
+            "ap50_95": 0.0
+          },
+          "shoes": {
+            "n_gt": 6,
+            "n_pred": 0,
+            "ap50": 0.0,
+            "ap75": 0.0,
+            "ap50_95": 0.0
+          },
+          "trash": {
+            "n_gt": 1,
+            "n_pred": 2,
+            "ap50": 0.0,
+            "ap75": 0.0,
+            "ap50_95": 0.0
+          }
+        },
+        "mAP50": 0.0,
+        "mAP50_95": 0.0,
+        "classes_in_mean": 10,
+        "class_agnostic_AP50": 0.0,
+        "class_agnostic_AP50_95": 0.0
+      },
+      "operating_point": {
+        "class_aware": {
+          "confidence_threshold": 0.25,
+          "iou_threshold": 0.5,
+          "class_agnostic": false,
+          "tp": 0,
+          "fp": 28,
+          "fn": 56,
+          "n_gt": 56,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "class_agnostic": {
+          "confidence_threshold": 0.25,
+          "iou_threshold": 0.5,
+          "class_agnostic": true,
+          "tp": 0,
+          "fp": 28,
+          "fn": 56,
+          "n_gt": 56,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      },
+      "localization_class_analysis": {
+        "confidence_threshold": 0.25,
+        "iou_threshold": 0.5,
+        "matched_pairs": 0,
+        "correct_class_pairs": 0,
+        "class_accuracy_on_matched": 0.0,
+        "confusion_matrix": {
+          "labels": [
+            "battery",
+            "biological",
+            "cardboard",
+            "clothes",
+            "glass",
+            "metal",
+            "paper",
+            "plastic",
+            "shoes",
+            "trash",
+            "background"
+          ],
+          "rows": "ground_truth",
+          "cols": "prediction",
+          "matrix": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              3
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              3
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              8
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              11
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              4
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              16
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              6
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              2,
+              0,
+              0,
+              5,
+              9,
+              0,
+              1,
+              9,
+              0,
+              2,
+              0
+            ]
+          ]
+        }
+      },
+      "confidence_sweep": [
+        {
+          "confidence_threshold": 0.2,
+          "tp": 0,
+          "fp": 33,
+          "fn": 56,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "class_accuracy_on_matched": 0.0
+        },
+        {
+          "confidence_threshold": 0.25,
+          "tp": 0,
+          "fp": 28,
+          "fn": 56,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "class_accuracy_on_matched": 0.0
+        },
+        {
+          "confidence_threshold": 0.3,
+          "tp": 0,
+          "fp": 21,
+          "fn": 56,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "class_accuracy_on_matched": 0.0
+        },
+        {
+          "confidence_threshold": 0.35,
+          "tp": 0,
+          "fp": 17,
+          "fn": 56,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "class_accuracy_on_matched": 0.0
+        },
+        {
+          "confidence_threshold": 0.4,
+          "tp": 0,
+          "fp": 12,
+          "fn": 56,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "class_accuracy_on_matched": 0.0
+        },
+        {
+          "confidence_threshold": 0.45,
+          "tp": 0,
+          "fp": 5,
+          "fn": 56,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "class_accuracy_on_matched": 0.0
+        },
+        {
+          "confidence_threshold": 0.5,
+          "tp": 0,
+          "fp": 5,
+          "fn": 56,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "class_accuracy_on_matched": 0.0
+        }
+      ],
+      "practical_acceptance": {
+        "criteria": {
+          "min_recall_at_iou50": 0.6,
+          "min_precision_at_iou50": 0.6,
+          "min_class_accuracy_on_matched": 0.75
+        },
+        "checks": {
+          "recall_at_iou50": {
+            "actual": 0.0,
+            "target": ">= 0.6",
+            "passed": false
+          },
+          "precision_at_iou50": {
+            "actual": 0.0,
+            "target": ">= 0.6",
+            "passed": false
+          },
+          "class_accuracy_on_matched": {
+            "actual": 0.0,
+            "target": ">= 0.75",
+            "passed": false
+          },
+          "coverage_all_images_predicted": {
+            "actual": 26,
+            "target": 26,
+            "passed": true
+          }
+        },
+        "status": "FAIL"
+      },
+      "warnings": [
+        "Predictions only contain detections with confidence >= 0.2; AP is truncated (lower bound) and P/R/F1 are only valid for thresholds >= 0.2."
+      ],
+      "excluded_duplicates": [
+        "images (7).jpg"
+      ]
+    }
+  },
+  "strict_dod_reference": {
+    "dod_status": "FAIL",
+    "acceptance_criteria": {
+      "coverage_target": "100%",
+      "coverage_actual": "100.00% (27/27)",
+      "coverage_passed": true,
+      "fn_target": 0,
+      "fn_actual": 56,
+      "fn_passed": false,
+      "fp_target": 0,
+      "fp_actual": 27,
+      "fp_passed": false,
+      "wrong_class_target": 0,
+      "wrong_class_actual": 1,
+      "wrong_class_passed": false,
+      "min_iou_target": ">= 0.75",
+      "iou_violations_count": 1,
+      "iou_passed": false,
+      "min_inter_gt_target": ">= 0.99",
+      "inter_gt_violations_count": 1,
+      "inter_gt_passed": false,
+      "invalid_boxes_count": 0,
+      "invalid_boxes_passed": true
+    },
+    "note": "Ideal criterion (unchanged). Computed on all manifest images."
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "file_counters": {
+    "mendeley_source_total_files": 2000,
+    "mendeley_source_unique_stems": 1869,
+    "mendeley_source_split_counts": {
+      "train": 1000,
+      "val": 1000
+    },
+    "mendeley_source_duplicate_stems_between_train_val": 131,
+    "dataset_v1_total_files": 1305,
+    "dataset_v1_unique_stems": 1305,
+    "dataset_v1_split_counts": {
+      "train": 918,
+      "val": 210,
+      "test": 177
+    },
+    "dataset_v1_duplicate_stems": 0,
+    "unit": "files"
+  },
+  "stem_matching_counters": {
+    "matched_stems": 1305,
+    "unmatched_mendeley_stems": 564,
+    "unmatched_v1_stems": 0,
+    "unit": "stems"
+  },
+  "box_matching_counters": {
+    "box_matched_count": 4095,
+    "box_unmatched_count": 0,
+    "unit": "boxes"
+  },
+  "class_distribution_matched": {
+    "mendeley_source_classes": {
+      "4": 476,
+      "1": 422,
+      "9": 455,
+      "5": 446,
+      "6": 462,
+      "3": 448,
+      "2": 452,
+      "8": 462,
+      "0": 472
+    },
+    "dataset_v1_target_classes": {
+      "4": 476,
+      "6": 422,
+      "9": 455,
+      "1": 446,
+      "0": 462,
+      "5": 448,
+      "2": 452,
+      "3": 462,
+      "7": 472
+    },
+    "unit": "boxes"
+  },
+  "source_target_pairs": [
+    {
+      "mendeley_source_class_id": 0,
+      "dataset_v1_target_class_id": 7,
+      "target_canonical_name": "plastic",
+      "box_count": 472,
+      "unit": "boxes",
+      "percentage_of_source_class": 100.0
+    },
+    {
+      "mendeley_source_class_id": 1,
+      "dataset_v1_target_class_id": 6,
+      "target_canonical_name": "paper",
+      "box_count": 422,
+      "unit": "boxes",
+      "percentage_of_source_class": 100.0
+    },
+    {
+      "mendeley_source_class_id": 2,
+      "dataset_v1_target_class_id": 2,
+      "target_canonical_name": "cardboard",
+      "box_count": 452,
+      "unit": "boxes",
+      "percentage_of_source_class": 100.0
+    },
+    {
+      "mendeley_source_class_id": 3,
+      "dataset_v1_target_class_id": 5,
+      "target_canonical_name": "metal",
+      "box_count": 448,
+      "unit": "boxes",
+      "percentage_of_source_class": 100.0
+    },
+    {
+      "mendeley_source_class_id": 4,
+      "dataset_v1_target_class_id": 4,
+      "target_canonical_name": "glass",
+      "box_count": 476,
+      "unit": "boxes",
+      "percentage_of_source_class": 100.0
+    },
+    {
+      "mendeley_source_class_id": 5,
+      "dataset_v1_target_class_id": 1,
+      "target_canonical_name": "biological",
+      "box_count": 446,
+      "unit": "boxes",
+      "percentage_of_source_class": 100.0
+    },
+    {
+      "mendeley_source_class_id": 6,
+      "dataset_v1_target_class_id": 0,
+      "target_canonical_name": "battery",
+      "box_count": 462,
+      "unit": "boxes",
+      "percentage_of_source_class": 100.0
+    },
+    {
+      "mendeley_source_class_id": 8,
+      "dataset_v1_target_class_id": 3,
+      "target_canonical_name": "clothes",
+      "box_count": 462,
+      "unit": "boxes",
+      "percentage_of_source_class": 100.0
+    },
+    {
+      "mendeley_source_class_id": 9,
+      "dataset_v1_target_class_id": 9,
+      "target_canonical_name": "trash",
+      "box_count": 455,
+      "unit": "boxes",
+      "percentage_of_source_class": 100.0
+    }
+  ],
+  "class_7_statistics": {
+    "mendeley_source_total_boxes": 699,
+    "mendeley_source_total_files_audited": 2000,
+    "mendeley_source_matched_subset_boxes": 0,
+    "mendeley_source_matched_subset_files": 1305,
+    "dataset_v1_target_c7_plastic_boxes": 472,
+    "dataset_v1_target_c7_origin": "Converted from Mendeley source Class 0 -> v1 Class 7 (plastic)",
+    "unit": "boxes",
+    "explanation": "In whole Mendeley source (2000 files), Class 7 has 699 boxes. None of the files containing Mendeley Class 7 were selected into the 1305 dataset-v1 matched files (0 boxes). The 472 boxes having target ID 7 in v1 originate from Mendeley source Class 0 mapped to plastic."
+  },
+  "quarantine_status": {
+    "policy": "DO_NOT_REMAP_WHOLE_CLASS",
+    "quarantined_classes": [
+      2,
+      4
+    ],
+    "total_quarantined_files": 640,
+    "total_quarantined_boxes": 928,
+    "manifest_file": "data/detection/labels/mendeley_quarantine_manifest.json"
+  }
+}

@@ -1,0 +1,203 @@
+{
+  "report_version": "TASK8I_UNCERTAIN_LICENSE_AND_DOMAIN_CASES_V1",
+  "part_a_11_photo_vs_observation_license_mismatch_cases": [
+    {
+      "candidate_id": "task8h_0072",
+      "inat_observation_id": 393573256,
+      "inat_photo_id": 721408118,
+      "primary_class_name": "biological",
+      "photo_license_code": "cc0",
+      "observation_license_code": "all-rights-reserved",
+      "photo_license_usable": true,
+      "pre_8i_status": "REAL_WASTE_PASS",
+      "pre_hotfix_8i_status": "REJECT",
+      "post_hotfix_8i_status": "KEEP_AUXILIARY",
+      "visual_and_domain_assessment": "NATURAL_ORCHARD_PLANT_DECAY_OBS_RESTRICTED",
+      "decision_rationale": "Task 8I Hotfix (Task 3): photo license 'cc0' permits image reuse (observation metadata 'all-rights-reserved' not redistributed), but visual context lacks disposal evidence -> routed to KEEP_AUXILIARY (not auto-rejected for obs license, not promoted to REAL_WASTE_PASS)."
+    },
+    {
+      "candidate_id": "task8h_0087",
+      "inat_observation_id": 381065135,
+      "inat_photo_id": 697219293,
+      "primary_class_name": "biological",
+      "photo_license_code": "cc-by",
+      "observation_license_code": "cc-by-nc",
+      "photo_license_usable": true,
+      "pre_8i_status": "REAL_WASTE_PASS",
+      "pre_hotfix_8i_status": "REJECT",
+      "post_hotfix_8i_status": "REJECT",
+      "visual_and_domain_assessment": "MACRO_MOLD_COLONY_CLOSEUP",
+      "decision_rationale": "Task 8I Hotfix (Task 3): photo license 'cc-by' is open (obs 'cc-by-nc'), but image is a frameless macro mold colony close-up without discrete waste boundary -> REJECT for visual QA."
+    },
+    {
+      "candidate_id": "task8h_0102",
+      "inat_observation_id": 341439711,
+      "inat_photo_id": 621573592,
+      "primary_class_name": "biological",
+      "photo_license_code": "cc-by-sa",
+      "observation_license_code": "cc-by-nc",
+      "photo_license_usable": true,
+      "pre_8i_status": "REAL_WASTE_PASS",
+      "pre_hotfix_8i_status": "REJECT",
+      "post_hotfix_8i_status": "KEEP_AUXILIARY",
+      "visual_and_domain_assessment": "ISOLATED_SPECIMEN_UNVERIFIED_DISPOSAL_OBS_RESTRICTED",
+      "decision_rationale": "Task 8I Hotfix (Task 3): photo license 'cc-by-sa' permits image reuse (observation metadata 'cc-by-nc' not redistributed), but visual context lacks disposal evidence -> routed to KEEP_AUXILIARY (not auto-rejected for obs license, not promoted to REAL_WASTE_PASS)."
+    },
+    {
+      "candidate_id": "task8h_0114",
+      "inat_observation_id": 385680403,
+      "inat_photo_id": 706092727,
+      "primary_class_name": "biological",
+      "photo_license_code": "cc-by",
+      "observation_license_code": "cc-by-nc",
+      "photo_license_usable": true,
+      "pre_8i_status": "REAL_WASTE_PASS",
+      "pre_hotfix_8i_status": "REJECT",
+      "post_hotfix_8i_status": "KEEP_AUXILIARY",
+      "visual_and_domain_assessment": "ISOLATED_SPECIMEN_UNVERIFIED_DISPOSAL_OBS_RESTRICTED",
+      "decision_rationale": "Task 8I Hotfix (Task 3): photo license 'cc-by' permits image reuse (observation metadata 'cc-by-nc' not redistributed), but visual context lacks disposal evidence -> routed to KEEP_AUXILIARY (not auto-rejected for obs license, not promoted to REAL_WASTE_PASS)."
+    },
+    {
+      "candidate_id": "task8h_0118",
+      "inat_observation_id": 381065874,
+      "inat_photo_id": 697221122,
+      "primary_class_name": "biological",
+      "photo_license_code": "cc-by",
+      "observation_license_code": "cc-by-nc",
+      "photo_license_usable": true,
+      "pre_8i_status": "REAL_WASTE_PASS",
+      "pre_hotfix_8i_status": "REJECT",
+      "post_hotfix_8i_status": "REJECT",
+      "visual_and_domain_assessment": "MACRO_MOLD_COLONY_CLOSEUP",
+      "decision_rationale": "Task 8I Hotfix (Task 3): photo license 'cc-by' is open (obs 'cc-by-nc'), but image is a frameless macro mold colony close-up without discrete waste boundary -> REJECT for visual QA."
+    },
+    {
+      "candidate_id": "task8h_0141",
+      "inat_observation_id": 206259626,
+      "inat_photo_id": 364791252,
+      "primary_class_name": "biological",
+      "photo_license_code": "cc-by",
+      "observation_license_code": "cc-by-nc",
+      "photo_license_usable": true,
+      "pre_8i_status": "REAL_WASTE_PASS",
+      "pre_hotfix_8i_status": "REJECT",
+      "post_hotfix_8i_status": "KEEP_AUXILIARY",
+      "visual_and_domain_assessment": "ISOLATED_SPECIMEN_UNVERIFIED_DISPOSAL_OBS_RESTRICTED",
+      "decision_rationale": "Task 8I Hotfix (Task 3): photo license 'cc-by' permits image reuse (observation metadata 'cc-by-nc' not redistributed), but visual context lacks disposal evidence -> routed to KEEP_AUXILIARY (not auto-rejected for obs license, not promoted to REAL_WASTE_PASS)."
+    },
+    {
+      "candidate_id": "task8h_0145",
+      "inat_observation_id": 65374647,
+      "inat_photo_id": 105210260,
+      "primary_class_name": "biological",
+      "photo_license_code": "cc-by",
+      "observation_license_code": "cc-by-nc",
+      "photo_license_usable": true,
+      "pre_8i_status": "REAL_WASTE_PASS",
+      "pre_hotfix_8i_status": "REJECT",
+      "post_hotfix_8i_status": "KEEP_AUXILIARY",
+      "visual_and_domain_assessment": "ISOLATED_SPECIMEN_UNVERIFIED_DISPOSAL_OBS_RESTRICTED",
+      "decision_rationale": "Task 8I Hotfix (Task 3): photo license 'cc-by' permits image reuse (observation metadata 'cc-by-nc' not redistributed), but visual context lacks disposal evidence -> routed to KEEP_AUXILIARY (not auto-rejected for obs license, not promoted to REAL_WASTE_PASS)."
+    },
+    {
+      "candidate_id": "task8h_0149",
+      "inat_observation_id": 191131338,
+      "inat_photo_id": 335224816,
+      "primary_class_name": "glass",
+      "photo_license_code": "cc-by",
+      "observation_license_code": "cc-by-nc",
+      "photo_license_usable": true,
+      "pre_8i_status": "REJECT",
+      "pre_hotfix_8i_status": "REJECT",
+      "post_hotfix_8i_status": "REJECT",
+      "visual_and_domain_assessment": "NON_WASTE_WILDLIFE_ON_BOTTLE_NECK",
+      "decision_rationale": "Task 8I Hotfix (Task 3): photo license 'cc-by' is open (obs 'cc-by-nc'), but image is a wildlife/insect macro shot on a bottle neck -> remains REJECT for visual context."
+    },
+    {
+      "candidate_id": "task8h_0151",
+      "inat_observation_id": 37766401,
+      "inat_photo_id": 59937445,
+      "primary_class_name": "glass",
+      "photo_license_code": "cc0",
+      "observation_license_code": "cc-by-nc",
+      "photo_license_usable": true,
+      "pre_8i_status": "REAL_WASTE_PASS",
+      "pre_hotfix_8i_status": "REJECT",
+      "post_hotfix_8i_status": "REJECT",
+      "visual_and_domain_assessment": "TAXONOMY_MISMATCH_PLASTIC_IN_GLASS_QUERY",
+      "decision_rationale": "Task 8I Hotfix (Task 3): photo license 'cc0' is open (obs 'cc-by-nc'), but image depicts a plastic water bottle mis-queried under 4:glass -> REJECT for taxonomy mismatch."
+    },
+    {
+      "candidate_id": "task8h_0152",
+      "inat_observation_id": 37765976,
+      "inat_photo_id": 59936631,
+      "primary_class_name": "glass",
+      "photo_license_code": "cc0",
+      "observation_license_code": "cc-by-nc",
+      "photo_license_usable": true,
+      "pre_8i_status": "REAL_WASTE_PASS",
+      "pre_hotfix_8i_status": "REJECT",
+      "post_hotfix_8i_status": "REJECT",
+      "visual_and_domain_assessment": "TAXONOMY_MISMATCH_PLASTIC_IN_GLASS_QUERY",
+      "decision_rationale": "Task 8I Hotfix (Task 3): photo license 'cc0' is open (obs 'cc-by-nc'), but image depicts a plastic water bottle mis-queried under 4:glass -> REJECT for taxonomy mismatch."
+    },
+    {
+      "candidate_id": "task8h_0155",
+      "inat_observation_id": 343390748,
+      "inat_photo_id": 625508924,
+      "primary_class_name": "glass",
+      "photo_license_code": "cc-by",
+      "observation_license_code": "all-rights-reserved",
+      "photo_license_usable": true,
+      "pre_8i_status": "REJECT",
+      "pre_hotfix_8i_status": "REJECT",
+      "post_hotfix_8i_status": "REJECT",
+      "visual_and_domain_assessment": "NON_WASTE_WILDLIFE_ON_BOTTLE_NECK",
+      "decision_rationale": "Task 8I Hotfix (Task 3): photo license 'cc-by' is open (obs 'all-rights-reserved'), but image is a wildlife/insect macro shot on a bottle neck -> remains REJECT for visual context."
+    }
+  ],
+  "part_b_handheld_and_borderline_domain_cases": [
+    {
+      "candidate_id": "task8h_0085",
+      "action_taken_in_hotfix": "DEMOTED_FROM_REAL_WASTE_PASS_TO_KEEP_AUXILIARY",
+      "reason": "Moldy lemon held in hand indoors; empty observation description; no trash bin or disposal context.",
+      "post_hotfix_status": "KEEP_AUXILIARY"
+    },
+    {
+      "candidate_id": "task8h_0092",
+      "action_taken_in_hotfix": "DEMOTED_FROM_REAL_WASTE_PASS_TO_KEEP_AUXILIARY",
+      "reason": "Moldy mandarin held in hand indoors; None observation description; no visual disposal proof.",
+      "post_hotfix_status": "KEEP_AUXILIARY"
+    },
+    {
+      "candidate_id": "task8h_0137",
+      "action_taken_in_hotfix": "DEMOTED_FROM_REAL_WASTE_PASS_TO_KEEP_AUXILIARY",
+      "reason": "Moldy mandarin held in hand; None observation description; no visual disposal proof.",
+      "post_hotfix_status": "KEEP_AUXILIARY"
+    },
+    {
+      "candidate_id": "task8h_0094",
+      "action_taken_in_hotfix": "FLAGGED_ON_DOMAIN_WATCHLIST_UNCHANGED_PER_SCOPE",
+      "reason": "Close-up of moldy tangerine held in fingers; unambiguous spoiled food specimen, flagged if PM prefers zero handheld shots in train.",
+      "post_hotfix_status": "REAL_WASTE_PASS (APPROVED_FOR_TRAIN=False)"
+    },
+    {
+      "candidate_id": "task8h_0101",
+      "action_taken_in_hotfix": "FLAGGED_ON_DOMAIN_WATCHLIST_UNCHANGED_PER_SCOPE",
+      "reason": "Cut half of spent moldy lemon held in hand over kitchen box ('This lemon lived a good life...'); flagged for PM visibility.",
+      "post_hotfix_status": "REAL_WASTE_PASS (APPROVED_FOR_TRAIN=False)"
+    },
+    {
+      "candidate_id": "task8h_0142",
+      "action_taken_in_hotfix": "FLAGGED_ON_DOMAIN_WATCHLIST_UNCHANGED_PER_SCOPE",
+      "reason": "Moldy citrus held over outdoor foliage/bin; flagged for PM visibility.",
+      "post_hotfix_status": "REAL_WASTE_PASS (APPROVED_FOR_TRAIN=False)"
+    },
+    {
+      "candidate_id": "task8h_0150",
+      "action_taken_in_hotfix": "FLAGGED_ON_DOMAIN_WATCHLIST_UNCHANGED_PER_SCOPE",
+      "reason": "Clear bottle base buried in forest litter; observer note mentions 'plastic drink bottle' though rim appears rigid.",
+      "post_hotfix_status": "REAL_WASTE_PASS (APPROVED_FOR_TRAIN=False)"
+    }
+  ]
+}

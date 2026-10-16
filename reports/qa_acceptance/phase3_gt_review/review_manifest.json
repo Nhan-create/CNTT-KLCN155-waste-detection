@@ -1,0 +1,814 @@
+{
+  "schema_version": "phase3_gt_review_v1",
+  "generated_at_utc": "2026-10-11T16:20:42.640386+00:00",
+  "decision_state": "PROPOSED_ONLY_NOT_FROZEN",
+  "scope": {
+    "active_disputed_objects": 6,
+    "zero_active_filenames": 10,
+    "zero_active_unique_content": 9,
+    "mixed_image_inactive_objects": 2
+  },
+  "source_artifacts": {
+    "reports/qa_acceptance/ground_truth_hinh_anh_rac.json": "f390f0f9440a977d0a0afe9e55b862562f1aafd3011ab18313e1772b18d470c0",
+    "reports/qa_acceptance/ground_truth_hinh_anh_rac_v2_proposed.json": "6acea648293d545a23bc0a94b8410abc656134bdd7506ee5789b79f577857ac0",
+    "reports/qa_acceptance/raw_predictions_before_quick_fix.json": "15edda0b1e7797c38290563fc0681b67b4d6968b4c2e615467d5deb593ae7c60",
+    "reports/qa_acceptance/raw_predictions_after_quick_fix.json": "855a364bf6e7311ebadf4236597222fee74d8f172bec570065b70538e877bf19",
+    "reports/qa_acceptance/raw_predictions_yolov8n_e1.json": "0ecc00b3757bd2052adfaa70959c8388d511c566ad1ed60a430fec39cbfec2f1"
+  },
+  "evaluation_protocol": {
+    "confidence_threshold": 0.25,
+    "iou_threshold": 0.5,
+    "matching": "one-to-one greedy by descending confidence, same class, maximum IoU",
+    "metric_type": "operating-threshold precision/recall/F1; not AP or mAP"
+  },
+  "proposed_policy": {
+    "main_task": "10-class discrete waste instance detection",
+    "excluded_image": "Remove both GT and predictions from the main metric. An excluded image contributes no TP, FP, or FN.",
+    "ignore_region": "For a mixed image with accepted objects and an ambiguous pile, keep accepted GT; predictions whose center falls inside an approved ignore region are neither TP nor FP. Ignore regions are never GT objects.",
+    "zero_active_pile": "Exclude from main instance evaluation unless exhaustive discrete-instance annotation is completed. Do not use as a hard negative.",
+    "utility_receptacle": "Quarantine. It may become a hard negative only after exhaustive whole-image review confirms no target waste.",
+    "pile_task": "If pile detection is a product goal, create a separate pile benchmark/task; do not silently map pile regions into the fixed 10-class instance benchmark."
+  },
+  "active_disputed_objects": [
+    {
+      "filename": "images (10).jpg",
+      "image_sha256": "9bbe2887e919cd3de4732902b64fa69bf305760f31d8d525b22b1b9274fae5ea",
+      "object_id": "img04_obj01",
+      "current_gt": {
+        "class_name": "clothes",
+        "class_id": 3,
+        "bbox_xyxy": [
+          0,
+          160,
+          640,
+          398
+        ],
+        "v2_status": "FLAGGED_OVERLAPPING_OBJECT",
+        "v2_action": "REFINE_BOUNDARY",
+        "is_active_for_instance_eval": true
+      },
+      "recommendation": {
+        "recommendation": "EXCLUDE_IMAGE_PENDING_INSTANCE_REANNOTATION",
+        "proposed_class_name": "clothes",
+        "proposed_class_id": 3,
+        "proposed_bbox_xyxy": null,
+        "rationale": "Hai box cùng class mô tả các phần chồng lấn của một đống quần áo; không có ranh giới instance độc lập đủ chắc chắn để đề xuất tọa độ mới.",
+        "approval_effect": "Exclude the whole image from the main instance benchmark until exhaustive reannotation."
+      },
+      "visuals": {
+        "original": "originals/01_images__10_.jpg",
+        "current_overlay": "overlays_current/01_images__10_.jpg.png",
+        "proposed_overlay": "overlays_proposed/01_images__10_.jpg.png"
+      },
+      "current_outcomes_at_conf_0_25_iou_0_50": {
+        "ssdlite_before_quick_fix": {
+          "status": "FN"
+        },
+        "ssdlite_after_quick_fix": {
+          "status": "FN"
+        },
+        "yolov8n_e1": {
+          "status": "FN"
+        }
+      },
+      "approval_required": true
+    },
+    {
+      "filename": "images (12).jpg",
+      "image_sha256": "fd8d64cacfaa53e7a855a911cef9c2224190fe086074f494418303e0423032cb",
+      "object_id": "img06_obj01",
+      "current_gt": {
+        "class_name": "cardboard",
+        "class_id": 2,
+        "bbox_xyxy": [
+          32,
+          36,
+          535,
+          519
+        ],
+        "v2_status": "FLAGGED_CONTAINER_NESTING",
+        "v2_action": "REFINE_BOUNDARY",
+        "is_active_for_instance_eval": true
+      },
+      "recommendation": {
+        "recommendation": "KEEP_AND_MARK_ACCEPTED",
+        "proposed_class_name": "cardboard",
+        "proposed_class_id": 2,
+        "proposed_bbox_xyxy": [
+          32,
+          36,
+          535,
+          519
+        ],
+        "rationale": "Cardboard container and paper contents are visibly distinct target materials; cross-class containment is not itself a duplicate annotation.",
+        "approval_effect": "No object-count or class-count change."
+      },
+      "visuals": {
+        "original": "originals/02_images__12_.jpg",
+        "current_overlay": "overlays_current/02_images__12_.jpg.png",
+        "proposed_overlay": "overlays_proposed/02_images__12_.jpg.png"
+      },
+      "current_outcomes_at_conf_0_25_iou_0_50": {
+        "ssdlite_before_quick_fix": {
+          "status": "FN"
+        },
+        "ssdlite_after_quick_fix": {
+          "status": "FN"
+        },
+        "yolov8n_e1": {
+          "status": "FN"
+        }
+      },
+      "approval_required": true
+    },
+    {
+      "filename": "OIP (1).webp",
+      "image_sha256": "f204c0dd962444571356f3249918bc0bb05dbd9c3137d63576de9e1f62296b27",
+      "object_id": "img20_obj01",
+      "current_gt": {
+        "class_name": "clothes",
+        "class_id": 3,
+        "bbox_xyxy": [
+          0,
+          95,
+          313,
+          237
+        ],
+        "v2_status": "FLAGGED_OVERLAPPING_OBJECT",
+        "v2_action": "REFINE_BOUNDARY",
+        "is_active_for_instance_eval": true
+      },
+      "recommendation": {
+        "recommendation": "EXCLUDE_IMAGE_PENDING_INSTANCE_REANNOTATION",
+        "proposed_class_name": "clothes",
+        "proposed_class_id": 3,
+        "proposed_bbox_xyxy": null,
+        "rationale": "Hai box cùng class mô tả các vùng chồng lấn của một bãi quần áo ở độ phân giải thấp; không thể xác nhận hai instance độc lập từ ảnh hiện tại.",
+        "approval_effect": "Exclude the whole image from the main instance benchmark until exhaustive reannotation."
+      },
+      "visuals": {
+        "original": "originals/03_OIP__1_.webp",
+        "current_overlay": "overlays_current/03_OIP__1_.webp.png",
+        "proposed_overlay": "overlays_proposed/03_OIP__1_.webp.png"
+      },
+      "current_outcomes_at_conf_0_25_iou_0_50": {
+        "ssdlite_before_quick_fix": {
+          "status": "FN"
+        },
+        "ssdlite_after_quick_fix": {
+          "status": "FN"
+        },
+        "yolov8n_e1": {
+          "status": "FN"
+        }
+      },
+      "approval_required": true
+    },
+    {
+      "filename": "Phan-Loai-Rac-Tai-Ng-01.jpg",
+      "image_sha256": "1d92405cc9f1aff260255150c95c8590247e98b836d68789fc10f05bfee30375",
+      "object_id": "img22_obj01",
+      "current_gt": {
+        "class_name": "plastic",
+        "class_id": 7,
+        "bbox_xyxy": [
+          230,
+          220,
+          460,
+          550
+        ],
+        "v2_status": "AMBIGUOUS_BAGGED_WASTE",
+        "v2_action": "STANDARDIZE_TAXONOMY",
+        "is_active_for_instance_eval": true
+      },
+      "recommendation": {
+        "recommendation": "RELABEL_TO_TRASH",
+        "proposed_class_name": "trash",
+        "proposed_class_id": 9,
+        "proposed_bbox_xyxy": [
+          230,
+          220,
+          460,
+          550
+        ],
+        "rationale": "Túi đang chứa rác hỗn hợp; quy tắc v2 hiện tại quy định bagged heterogeneous waste là trash.",
+        "approval_effect": "Move one GT instance from plastic to trash; total GT count is unchanged."
+      },
+      "visuals": {
+        "original": "originals/04_Phan-Loai-Rac-Tai-Ng-01.jpg",
+        "current_overlay": "overlays_current/04_Phan-Loai-Rac-Tai-Ng-01.jpg.png",
+        "proposed_overlay": "overlays_proposed/04_Phan-Loai-Rac-Tai-Ng-01.jpg.png"
+      },
+      "current_outcomes_at_conf_0_25_iou_0_50": {
+        "ssdlite_before_quick_fix": {
+          "status": "TP",
+          "pred_id": 1,
+          "prediction_class": "plastic",
+          "confidence": 0.608,
+          "iou": 0.665934
+        },
+        "ssdlite_after_quick_fix": {
+          "status": "TP",
+          "pred_id": 1,
+          "prediction_class": "plastic",
+          "confidence": 0.2883,
+          "iou": 0.665934
+        },
+        "yolov8n_e1": {
+          "status": "FN"
+        }
+      },
+      "approval_required": true
+    },
+    {
+      "filename": "Phan-Loai-Rac-Tai-Ng-01.jpg",
+      "image_sha256": "1d92405cc9f1aff260255150c95c8590247e98b836d68789fc10f05bfee30375",
+      "object_id": "img22_obj02",
+      "current_gt": {
+        "class_name": "plastic",
+        "class_id": 7,
+        "bbox_xyxy": [
+          340,
+          445,
+          675,
+          705
+        ],
+        "v2_status": "AMBIGUOUS_BAGGED_WASTE",
+        "v2_action": "STANDARDIZE_TAXONOMY",
+        "is_active_for_instance_eval": true
+      },
+      "recommendation": {
+        "recommendation": "RELABEL_TO_TRASH",
+        "proposed_class_name": "trash",
+        "proposed_class_id": 9,
+        "proposed_bbox_xyxy": [
+          340,
+          445,
+          675,
+          705
+        ],
+        "rationale": "Túi đang chứa rác hỗn hợp; quy tắc v2 hiện tại quy định bagged heterogeneous waste là trash.",
+        "approval_effect": "Move one GT instance from plastic to trash; total GT count is unchanged."
+      },
+      "visuals": {
+        "original": "originals/04_Phan-Loai-Rac-Tai-Ng-01.jpg",
+        "current_overlay": "overlays_current/04_Phan-Loai-Rac-Tai-Ng-01.jpg.png",
+        "proposed_overlay": "overlays_proposed/04_Phan-Loai-Rac-Tai-Ng-01.jpg.png"
+      },
+      "current_outcomes_at_conf_0_25_iou_0_50": {
+        "ssdlite_before_quick_fix": {
+          "status": "FN"
+        },
+        "ssdlite_after_quick_fix": {
+          "status": "FN"
+        },
+        "yolov8n_e1": {
+          "status": "FN"
+        }
+      },
+      "approval_required": true
+    },
+    {
+      "filename": "Phan-Loai-Rac-Tai-Ng-01.jpg",
+      "image_sha256": "1d92405cc9f1aff260255150c95c8590247e98b836d68789fc10f05bfee30375",
+      "object_id": "img22_obj04",
+      "current_gt": {
+        "class_name": "cardboard",
+        "class_id": 2,
+        "bbox_xyxy": [
+          680,
+          570,
+          765,
+          650
+        ],
+        "v2_status": "AMBIGUOUS_COMPOSITE_TAXONOMY",
+        "v2_action": "STANDARDIZE_TAXONOMY",
+        "is_active_for_instance_eval": true
+      },
+      "recommendation": {
+        "recommendation": "KEEP_CARDBOARD_AND_MARK_ACCEPTED",
+        "proposed_class_name": "cardboard",
+        "proposed_class_id": 2,
+        "proposed_bbox_xyxy": [
+          680,
+          570,
+          765,
+          650
+        ],
+        "rationale": "Với taxonomy 10 lớp cố định không có beverage_carton, cardboard là lớp gần nhất cho bao bì giấy/carton cứng đa lớp; không có bằng chứng để đổi sang class khác.",
+        "approval_effect": "No object-count or class-count change."
+      },
+      "visuals": {
+        "original": "originals/04_Phan-Loai-Rac-Tai-Ng-01.jpg",
+        "current_overlay": "overlays_current/04_Phan-Loai-Rac-Tai-Ng-01.jpg.png",
+        "proposed_overlay": "overlays_proposed/04_Phan-Loai-Rac-Tai-Ng-01.jpg.png"
+      },
+      "current_outcomes_at_conf_0_25_iou_0_50": {
+        "ssdlite_before_quick_fix": {
+          "status": "FN"
+        },
+        "ssdlite_after_quick_fix": {
+          "status": "FN"
+        },
+        "yolov8n_e1": {
+          "status": "FN"
+        }
+      },
+      "approval_required": true
+    }
+  ],
+  "zero_active_images": [
+    {
+      "filename": "images (13).jpg",
+      "image_sha256": "88b331d53c554a6eabcd700291dc4e0c2418798a3c45ff1ca6b2b00dc186fee7",
+      "width": 538,
+      "height": 371,
+      "inactive_objects": [
+        {
+          "object_id": "img07_obj01",
+          "class_name": "plastic",
+          "class_id": 7,
+          "bbox_xyxy": [
+            0,
+            0,
+            538,
+            371
+          ],
+          "v2_status": "FLAGGED_UNSEGREGATED_PILE"
+        }
+      ],
+      "recommendation": "EXCLUDE_IMAGE_FROM_MAIN_INSTANCE_EVALUATION",
+      "rationale": "The only v1 object is a pile/full-frame region. It is outside discrete-instance evaluation and the unannotated pile area makes the image an invalid hard negative.",
+      "predictions_ge_0_25_that_legacy_behavior_counts_as_fp": {
+        "ssdlite_before_quick_fix": 0,
+        "ssdlite_after_quick_fix": 0,
+        "yolov8n_e1": 2
+      },
+      "visuals": {
+        "original": "originals/05_images__13_.jpg",
+        "current_overlay": "overlays_current/05_images__13_.jpg.png",
+        "proposed_overlay": "overlays_proposed/05_images__13_.jpg.png"
+      },
+      "approval_required": true
+    },
+    {
+      "filename": "images (18).jpg",
+      "image_sha256": "a867386c7eff92da9eeeea8fc386de9c3b388174e4f39c6302ff92dc3531703d",
+      "width": 398,
+      "height": 502,
+      "inactive_objects": [
+        {
+          "object_id": "img11_obj01",
+          "class_name": "plastic",
+          "class_id": 7,
+          "bbox_xyxy": [
+            26,
+            12,
+            384,
+            495
+          ],
+          "v2_status": "QUARANTINED_UTILITY_RECEPTACLE"
+        }
+      ],
+      "recommendation": "QUARANTINE_PENDING_EXHAUSTIVE_NEGATIVE_REVIEW",
+      "rationale": "The annotated object is a receptacle. Do not count it as a target and do not count the image as a clean negative until a reviewer confirms that no target waste is present anywhere in the frame.",
+      "predictions_ge_0_25_that_legacy_behavior_counts_as_fp": {
+        "ssdlite_before_quick_fix": 1,
+        "ssdlite_after_quick_fix": 0,
+        "yolov8n_e1": 2
+      },
+      "visuals": {
+        "original": "originals/06_images__18_.jpg",
+        "current_overlay": "overlays_current/06_images__18_.jpg.png",
+        "proposed_overlay": "overlays_proposed/06_images__18_.jpg.png"
+      },
+      "approval_required": true
+    },
+    {
+      "filename": "images (19).jpg",
+      "image_sha256": "f24bc21e89b11e4356a9b51646242b450891c5fa3e1d89d2aa4861eba754471e",
+      "width": 597,
+      "height": 335,
+      "inactive_objects": [
+        {
+          "object_id": "img12_obj01",
+          "class_name": "biological",
+          "class_id": 1,
+          "bbox_xyxy": [
+            90,
+            0,
+            597,
+            335
+          ],
+          "v2_status": "FLAGGED_UNSEGREGATED_PILE"
+        }
+      ],
+      "recommendation": "EXCLUDE_IMAGE_FROM_MAIN_INSTANCE_EVALUATION",
+      "rationale": "The only v1 object is a pile/full-frame region. It is outside discrete-instance evaluation and the unannotated pile area makes the image an invalid hard negative.",
+      "predictions_ge_0_25_that_legacy_behavior_counts_as_fp": {
+        "ssdlite_before_quick_fix": 0,
+        "ssdlite_after_quick_fix": 0,
+        "yolov8n_e1": 1
+      },
+      "visuals": {
+        "original": "originals/07_images__19_.jpg",
+        "current_overlay": "overlays_current/07_images__19_.jpg.png",
+        "proposed_overlay": "overlays_proposed/07_images__19_.jpg.png"
+      },
+      "approval_required": true
+    },
+    {
+      "filename": "images (6).jpg",
+      "image_sha256": "2bfe68c5eda7a07a4c966fc023bfe241e4a9793f941c73defb3d28b9f264fff6",
+      "width": 318,
+      "height": 159,
+      "inactive_objects": [
+        {
+          "object_id": "img16_obj01",
+          "class_name": "biological",
+          "class_id": 1,
+          "bbox_xyxy": [
+            0,
+            0,
+            318,
+            159
+          ],
+          "v2_status": "FLAGGED_UNSEGREGATED_PILE"
+        }
+      ],
+      "recommendation": "EXCLUDE_IMAGE_FROM_MAIN_INSTANCE_EVALUATION",
+      "rationale": "The only v1 object is a pile/full-frame region. It is outside discrete-instance evaluation and the unannotated pile area makes the image an invalid hard negative.",
+      "predictions_ge_0_25_that_legacy_behavior_counts_as_fp": {
+        "ssdlite_before_quick_fix": 0,
+        "ssdlite_after_quick_fix": 0,
+        "yolov8n_e1": 0
+      },
+      "visuals": {
+        "original": "originals/08_images__6_.jpg",
+        "current_overlay": "overlays_current/08_images__6_.jpg.png",
+        "proposed_overlay": "overlays_proposed/08_images__6_.jpg.png"
+      },
+      "approval_required": true
+    },
+    {
+      "filename": "images (7).jpg",
+      "image_sha256": "88b331d53c554a6eabcd700291dc4e0c2418798a3c45ff1ca6b2b00dc186fee7",
+      "width": 538,
+      "height": 371,
+      "inactive_objects": [
+        {
+          "object_id": "img17_obj01",
+          "class_name": "plastic",
+          "class_id": 7,
+          "bbox_xyxy": [
+            0,
+            0,
+            538,
+            371
+          ],
+          "v2_status": "FLAGGED_UNSEGREGATED_PILE"
+        }
+      ],
+      "recommendation": "EXCLUDE_IMAGE_FROM_MAIN_INSTANCE_EVALUATION",
+      "rationale": "The only v1 object is a pile/full-frame region. It is outside discrete-instance evaluation and the unannotated pile area makes the image an invalid hard negative.",
+      "predictions_ge_0_25_that_legacy_behavior_counts_as_fp": {
+        "ssdlite_before_quick_fix": 0,
+        "ssdlite_after_quick_fix": 0,
+        "yolov8n_e1": 2
+      },
+      "visuals": {
+        "original": "originals/09_images__7_.jpg",
+        "current_overlay": "overlays_current/09_images__7_.jpg.png",
+        "proposed_overlay": "overlays_proposed/09_images__7_.jpg.png"
+      },
+      "approval_required": true
+    },
+    {
+      "filename": "images (8).jpg",
+      "image_sha256": "3e25e96f45d11019dbe446590b587ee7583afb606fd07b9014155f8b7eab7bbc",
+      "width": 426,
+      "height": 469,
+      "inactive_objects": [
+        {
+          "object_id": "img18_obj01",
+          "class_name": "plastic",
+          "class_id": 7,
+          "bbox_xyxy": [
+            12,
+            8,
+            412,
+            463
+          ],
+          "v2_status": "QUARANTINED_UTILITY_RECEPTACLE"
+        }
+      ],
+      "recommendation": "QUARANTINE_PENDING_EXHAUSTIVE_NEGATIVE_REVIEW",
+      "rationale": "The annotated object is a receptacle. Do not count it as a target and do not count the image as a clean negative until a reviewer confirms that no target waste is present anywhere in the frame.",
+      "predictions_ge_0_25_that_legacy_behavior_counts_as_fp": {
+        "ssdlite_before_quick_fix": 1,
+        "ssdlite_after_quick_fix": 0,
+        "yolov8n_e1": 1
+      },
+      "visuals": {
+        "original": "originals/10_images__8_.jpg",
+        "current_overlay": "overlays_current/10_images__8_.jpg.png",
+        "proposed_overlay": "overlays_proposed/10_images__8_.jpg.png"
+      },
+      "approval_required": true
+    },
+    {
+      "filename": "images (9).jpg",
+      "image_sha256": "79aed9312dc7b6c848bd0c3723ed43404567e3cda59106b3537463846c402a96",
+      "width": 515,
+      "height": 388,
+      "inactive_objects": [
+        {
+          "object_id": "img19_obj01",
+          "class_name": "cardboard",
+          "class_id": 2,
+          "bbox_xyxy": [
+            0,
+            0,
+            515,
+            388
+          ],
+          "v2_status": "FLAGGED_UNSEGREGATED_PILE"
+        }
+      ],
+      "recommendation": "EXCLUDE_IMAGE_FROM_MAIN_INSTANCE_EVALUATION",
+      "rationale": "The only v1 object is a pile/full-frame region. It is outside discrete-instance evaluation and the unannotated pile area makes the image an invalid hard negative.",
+      "predictions_ge_0_25_that_legacy_behavior_counts_as_fp": {
+        "ssdlite_before_quick_fix": 1,
+        "ssdlite_after_quick_fix": 1,
+        "yolov8n_e1": 0
+      },
+      "visuals": {
+        "original": "originals/11_images__9_.jpg",
+        "current_overlay": "overlays_current/11_images__9_.jpg.png",
+        "proposed_overlay": "overlays_proposed/11_images__9_.jpg.png"
+      },
+      "approval_required": true
+    },
+    {
+      "filename": "OIP.webp",
+      "image_sha256": "62eb47e2e9f5e066ae7e284ca1c13b1ced52034412e46eec2566964c9ecd8ecf",
+      "width": 274,
+      "height": 234,
+      "inactive_objects": [
+        {
+          "object_id": "img21_obj01",
+          "class_name": "clothes",
+          "class_id": 3,
+          "bbox_xyxy": [
+            0,
+            0,
+            274,
+            234
+          ],
+          "v2_status": "FLAGGED_UNSEGREGATED_PILE"
+        }
+      ],
+      "recommendation": "EXCLUDE_IMAGE_FROM_MAIN_INSTANCE_EVALUATION",
+      "rationale": "The only v1 object is a pile/full-frame region. It is outside discrete-instance evaluation and the unannotated pile area makes the image an invalid hard negative.",
+      "predictions_ge_0_25_that_legacy_behavior_counts_as_fp": {
+        "ssdlite_before_quick_fix": 0,
+        "ssdlite_after_quick_fix": 0,
+        "yolov8n_e1": 0
+      },
+      "visuals": {
+        "original": "originals/12_OIP.webp",
+        "current_overlay": "overlays_current/12_OIP.webp.png",
+        "proposed_overlay": "overlays_proposed/12_OIP.webp.png"
+      },
+      "approval_required": true
+    },
+    {
+      "filename": "photo-5-1642556540067542343380.webp",
+      "image_sha256": "73c8b455c00f5f1c3d8ce43e2d2949e8a26aa351060f5f7ffe0510a5cf0614e7",
+      "width": 620,
+      "height": 376,
+      "inactive_objects": [
+        {
+          "object_id": "img23_obj01",
+          "class_name": "clothes",
+          "class_id": 3,
+          "bbox_xyxy": [
+            0,
+            15,
+            620,
+            376
+          ],
+          "v2_status": "FLAGGED_UNSEGREGATED_PILE"
+        }
+      ],
+      "recommendation": "EXCLUDE_IMAGE_FROM_MAIN_INSTANCE_EVALUATION",
+      "rationale": "The only v1 object is a pile/full-frame region. It is outside discrete-instance evaluation and the unannotated pile area makes the image an invalid hard negative.",
+      "predictions_ge_0_25_that_legacy_behavior_counts_as_fp": {
+        "ssdlite_before_quick_fix": 0,
+        "ssdlite_after_quick_fix": 0,
+        "yolov8n_e1": 1
+      },
+      "visuals": {
+        "original": "originals/13_photo-5-1642556540067542343380.webp",
+        "current_overlay": "overlays_current/13_photo-5-1642556540067542343380.webp.png",
+        "proposed_overlay": "overlays_proposed/13_photo-5-1642556540067542343380.webp.png"
+      },
+      "approval_required": true
+    },
+    {
+      "filename": "rac-thai-huu-co-1.jpg",
+      "image_sha256": "63725ccb524387b443c28e9255a5eb2cf3cb2a1581e2f168e4ca9aff9caa0df2",
+      "width": 600,
+      "height": 410,
+      "inactive_objects": [
+        {
+          "object_id": "img26_obj01",
+          "class_name": "biological",
+          "class_id": 1,
+          "bbox_xyxy": [
+            0,
+            0,
+            600,
+            410
+          ],
+          "v2_status": "FLAGGED_UNSEGREGATED_PILE"
+        }
+      ],
+      "recommendation": "EXCLUDE_IMAGE_FROM_MAIN_INSTANCE_EVALUATION",
+      "rationale": "The only v1 object is a pile/full-frame region. It is outside discrete-instance evaluation and the unannotated pile area makes the image an invalid hard negative.",
+      "predictions_ge_0_25_that_legacy_behavior_counts_as_fp": {
+        "ssdlite_before_quick_fix": 0,
+        "ssdlite_after_quick_fix": 0,
+        "yolov8n_e1": 0
+      },
+      "visuals": {
+        "original": "originals/14_rac-thai-huu-co-1.jpg",
+        "current_overlay": "overlays_current/14_rac-thai-huu-co-1.jpg.png",
+        "proposed_overlay": "overlays_proposed/14_rac-thai-huu-co-1.jpg.png"
+      },
+      "approval_required": true
+    }
+  ],
+  "mixed_image_inactive_objects": [
+    {
+      "filename": "base64-1717231151649602366964.jpeg",
+      "image_sha256": "c38a8b2e3066a81d6327f16be0078f767b141d414bb0586f9b2ac83e4e06c0b5",
+      "object_id": "img01_obj07",
+      "current_gt": {
+        "class_name": "glass",
+        "class_id": 4,
+        "bbox_xyxy": [
+          0,
+          195,
+          2000,
+          1334
+        ],
+        "v2_status": "QUARANTINED_TEXTURE_CARPET",
+        "v2_action": "REMOVE_FROM_EVAL",
+        "is_active_for_instance_eval": false
+      },
+      "recommendation": "REMOVE_INVALID_TEXTURE_CARPET_GT_ONLY",
+      "rationale": "The 85.38% region describes a glass-fragment surface and overlaps four accepted discrete glass objects. Keep the image and its discrete GT; do not treat the area box as another instance.",
+      "visuals": {
+        "original": "originals/15_base64-1717231151649602366964.jpeg",
+        "current_overlay": "overlays_current/15_base64-1717231151649602366964.jpeg.png",
+        "proposed_overlay": "overlays_proposed/15_base64-1717231151649602366964.jpeg.png"
+      },
+      "approval_required": true
+    },
+    {
+      "filename": "download (2).jpg",
+      "image_sha256": "59268c01566d47a64f071eafb02f4d904952ed919c136bc01c51a73c2f08737e",
+      "object_id": "img03_obj03",
+      "current_gt": {
+        "class_name": "plastic",
+        "class_id": 7,
+        "bbox_xyxy": [
+          0,
+          0,
+          299,
+          168
+        ],
+        "v2_status": "QUARANTINED_FULL_CANVAS_DUPLICATE",
+        "v2_action": "REMOVE_FROM_EVAL",
+        "is_active_for_instance_eval": false
+      },
+      "recommendation": "REMOVE_DUPLICATE_FULL_CANVAS_GT_ONLY",
+      "rationale": "The full-canvas plastic box duplicates two accepted plastic bottles. Keep the image and the two discrete GT objects; do not score the canvas as a third instance.",
+      "visuals": {
+        "original": "originals/16_download__2_.jpg",
+        "current_overlay": "overlays_current/16_download__2_.jpg.png",
+        "proposed_overlay": "overlays_proposed/16_download__2_.jpg.png"
+      },
+      "approval_required": true
+    }
+  ],
+  "exact_duplicate_groups": [
+    {
+      "sha256": "88b331d53c554a6eabcd700291dc4e0c2418798a3c45ff1ca6b2b00dc186fee7",
+      "filenames": [
+        "images (13).jpg",
+        "images (7).jpg"
+      ],
+      "type": "EXACT_CONTENT_DUPLICATE"
+    }
+  ],
+  "metrics_simulation": {
+    "ssdlite_before_quick_fix": {
+      "legacy_v2_behavior_zero_active_as_negative": {
+        "total_gt": 45,
+        "total_predictions": 21,
+        "tp": 10,
+        "fp": 11,
+        "fn": 35,
+        "precision_pct": 47.62,
+        "recall_pct": 22.22,
+        "f1_pct": 30.3
+      },
+      "current_v2_with_explicit_zero_active_exclusion": {
+        "total_gt": 45,
+        "total_predictions": 18,
+        "tp": 10,
+        "fp": 8,
+        "fn": 35,
+        "precision_pct": 55.56,
+        "recall_pct": 22.22,
+        "f1_pct": 31.75
+      },
+      "recommended_if_all_decisions_approved": {
+        "total_gt": 41,
+        "total_predictions": 18,
+        "tp": 9,
+        "fp": 9,
+        "fn": 32,
+        "precision_pct": 50.0,
+        "recall_pct": 21.95,
+        "f1_pct": 30.51
+      }
+    },
+    "ssdlite_after_quick_fix": {
+      "legacy_v2_behavior_zero_active_as_negative": {
+        "total_gt": 45,
+        "total_predictions": 11,
+        "tp": 7,
+        "fp": 4,
+        "fn": 38,
+        "precision_pct": 63.64,
+        "recall_pct": 15.56,
+        "f1_pct": 25.0
+      },
+      "current_v2_with_explicit_zero_active_exclusion": {
+        "total_gt": 45,
+        "total_predictions": 10,
+        "tp": 7,
+        "fp": 3,
+        "fn": 38,
+        "precision_pct": 70.0,
+        "recall_pct": 15.56,
+        "f1_pct": 25.45
+      },
+      "recommended_if_all_decisions_approved": {
+        "total_gt": 41,
+        "total_predictions": 10,
+        "tp": 6,
+        "fp": 4,
+        "fn": 35,
+        "precision_pct": 60.0,
+        "recall_pct": 14.63,
+        "f1_pct": 23.53
+      }
+    },
+    "yolov8n_e1": {
+      "legacy_v2_behavior_zero_active_as_negative": {
+        "total_gt": 45,
+        "total_predictions": 32,
+        "tp": 5,
+        "fp": 27,
+        "fn": 40,
+        "precision_pct": 15.62,
+        "recall_pct": 11.11,
+        "f1_pct": 12.99
+      },
+      "current_v2_with_explicit_zero_active_exclusion": {
+        "total_gt": 45,
+        "total_predictions": 23,
+        "tp": 5,
+        "fp": 18,
+        "fn": 40,
+        "precision_pct": 21.74,
+        "recall_pct": 11.11,
+        "f1_pct": 14.71
+      },
+      "recommended_if_all_decisions_approved": {
+        "total_gt": 41,
+        "total_predictions": 23,
+        "tp": 5,
+        "fp": 18,
+        "fn": 36,
+        "precision_pct": 21.74,
+        "recall_pct": 12.2,
+        "f1_pct": 15.62
+      }
+    }
+  }
+}

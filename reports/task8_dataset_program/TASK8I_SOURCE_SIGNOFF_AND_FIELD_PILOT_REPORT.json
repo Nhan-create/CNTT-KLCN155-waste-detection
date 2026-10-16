@@ -1,0 +1,59 @@
+{
+  "report_version": "TASK8I_SOURCE_SIGNOFF_AND_FIELD_PILOT_REPORT_V2_FINAL_HOTFIX",
+  "approved_for_train": false,
+  "constraints_compliance": {
+    "e4_e5_trained": false,
+    "deployed": false,
+    "e1_e3_checkpoints_modified": false,
+    "frozen_test_299_modified": false,
+    "candidate_test_274_modified": false,
+    "external_holdout_27_modified": false,
+    "historical_audit_reopened": false,
+    "simulated_or_fabricated_field_images": 0
+  },
+  "task1_p0_field_importer_hotfix": {
+    "script_path": "scripts/field_capture_import_and_qa.py",
+    "tool_version": "TASK8I_FIELD_CAPTURE_IMPORT_QA_V2_P0_HOTFIX",
+    "default_qa_status_for_new_imports": "NEEDS_REVIEW",
+    "technical_validation_separated_from_context_verification": true,
+    "product_studio_and_in_use_blocked_from_real_waste_pass": true,
+    "unreviewed_actual_waste_held_at_needs_review": true,
+    "requires_human_reviewer_and_evidence_for_real_waste_context_verified": true,
+    "auto_cc_by_4_0_license_assignment_removed": true,
+    "approved_for_train_always_false": true,
+    "simulated_product_studio_example_json": "data/acquisition_staging/task8i_source_signoff_and_field_pilot/regression_examples/product_studio_held_at_needs_review_example.json"
+  },
+  "task1_inaturalist_signoff_summary": {
+    "total_inaturalist_audited": 107,
+    "pre_8i_real_waste_pass": 90,
+    "pre_hotfix_8i_manifest_real_waste_pass": 33,
+    "pre_hotfix_8i_manifest_real_waste_pass_train": 27,
+    "pre_hotfix_8i_manifest_real_waste_pass_val": 6,
+    "post_8i_verified_real_waste_pass": 30,
+    "post_8i_verified_real_waste_pass_train": 24,
+    "post_8i_verified_real_waste_pass_val": 6,
+    "demoted_to_keep_auxiliary_orchard_decay": 27,
+    "demoted_to_keep_auxiliary_handheld_unverified_disposal": 3,
+    "obs_license_restricted_routed_to_keep_auxiliary": 5,
+    "obs_license_restricted_kept_at_reject_visual_or_taxonomy": 6,
+    "rejected_due_to_macro_mold_or_duplicate": 21,
+    "pre_existing_keep_auxiliary": 2,
+    "pre_existing_reject": 13,
+    "bbox_tightened_records_count": 16,
+    "changed_records_total": 72,
+    "pm_inspection_contact_sheets": [
+      "data/acquisition_staging/task8i_source_signoff_and_field_pilot/contact_sheets/inat90_pm_audit_p1.jpg",
+      "data/acquisition_staging/task8i_source_signoff_and_field_pilot/contact_sheets/inat90_pm_audit_p2.jpg",
+      "data/acquisition_staging/task8i_source_signoff_and_field_pilot/contact_sheets/inat90_pm_audit_p3.jpg",
+      "data/acquisition_staging/task8i_source_signoff_and_field_pilot/contact_sheets/inat35_verified_real_waste_pass.jpg"
+    ]
+  },
+  "task3_four_dimensional_independence": {
+    "unique_images_verified_real_waste_train": 1808,
+    "per_class_image_appearances_verified_real_waste_train": 2488,
+    "unique_specimens_verified_real_waste_train": 1802,
+    "unique_sessions_verified_real_waste_train": 562,
+    "unique_images_clean_baseline_train": 1277,
+    "per_class_image_appearances_clean_baseline_train": 1746
+  }
+}

@@ -1,0 +1,1685 @@
+{
+  "wiki_bio_banana_peel_ground": {
+    "query_title": "File:Banana_peel_on_the_ground.jpg",
+    "api_response": {
+      "pageid": 63297374,
+      "ns": 6,
+      "title": "File:Banana peel on the ground.jpg",
+      "imagerepository": "local",
+      "imageinfo": [
+        {
+          "size": 4573954,
+          "width": 5184,
+          "height": 3456,
+          "url": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Banana_peel_on_the_ground.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:Banana_peel_on_the_ground.jpg",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=63297374",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2017-10-10 16:14:45",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "Banana peel on the ground",
+              "source": "mediawiki-metadata"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "Banana peel|Self-published work|Banana peeling",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "ImageDescription": {
+              "value": "This is a banana peel on the floor.",
+              "source": "commons-desc-page"
+            },
+            "DateTimeOriginal": {
+              "value": "2016-01-31 14:20:47",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+              "source": "commons-desc-page"
+            },
+            "Artist": {
+              "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Vladiator360&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Vladiator360 (page does not exist)\">Vladiator360</a>",
+              "source": "commons-desc-page"
+            },
+            "LicenseShortName": {
+              "value": "CC BY-SA 4.0",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Creative Commons Attribution-Share Alike 4.0",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "true",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseUrl": {
+              "value": "https://creativecommons.org/licenses/by-sa/4.0",
+              "source": "commons-desc-page"
+            },
+            "Copyrighted": {
+              "value": "True",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "cc-by-sa-4.0",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          },
+          "mime": "image/jpeg"
+        }
+      ]
+    }
+  },
+  "wiki_bio_apple_core_01": {
+    "query_title": "File:Apple_core.jpg",
+    "api_response": {
+      "pageid": 175192,
+      "ns": 6,
+      "title": "File:Apple core.jpg",
+      "imagerepository": "local",
+      "imageinfo": [
+        {
+          "size": 130620,
+          "width": 960,
+          "height": 1280,
+          "url": "https://upload.wikimedia.org/wikipedia/commons/4/48/Apple_core.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:Apple_core.jpg",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=175192",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2005-06-03 17:15:57",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "Apple core",
+              "source": "mediawiki-metadata"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "Taken with Sony Ericsson S700|Copyrighted free use|Files with no machine-readable author|Files with no machine-readable source|Media missing infobox template|Remains of food|Files in need of review (sources)|Unidentified Malus",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "LicenseShortName": {
+              "value": "Copyrighted free use",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Copyrighted free use",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "false",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Copyrighted": {
+              "value": "True",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            }
+          },
+          "mime": "image/jpeg"
+        }
+      ]
+    }
+  },
+  "wiki_bio_banana_peel_bucharest_02": {
+    "query_title": "File:Banana_peel.jpg",
+    "api_response": {
+      "pageid": 49531104,
+      "ns": 6,
+      "title": "File:Banana peel.jpg",
+      "imagerepository": "local",
+      "imageinfo": [
+        {
+          "size": 4604017,
+          "width": 3152,
+          "height": 2856,
+          "url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Banana_peel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:Banana_peel.jpg",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=49531104",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2016-06-17 19:51:33",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "Banana peel",
+              "source": "mediawiki-metadata"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "Taken with Sony ILCE-5000|Banana peel|Ferentari|Self-published work|Waste in Romania|Files with coordinates missing SDC location of creation|Romania photographs taken on 2016-05-28|May 2016 in Bucharest",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "GPSLatitude": {
+              "value": "44.391823",
+              "source": "commons-desc-page"
+            },
+            "GPSLongitude": {
+              "value": "26.081374",
+              "source": "commons-desc-page"
+            },
+            "GPSMapDatum": {
+              "value": "WGS-84",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "ImageDescription": {
+              "value": "Banana peel on street in Bucharest.",
+              "source": "commons-desc-page"
+            },
+            "DateTimeOriginal": {
+              "value": "Taken on 28 May 2016, 09:34:09",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+              "source": "commons-desc-page"
+            },
+            "Artist": {
+              "value": "<a href=\"//commons.wikimedia.org/wiki/User:Kulmalukko\" title=\"User:Kulmalukko\">Tiia Monto</a>",
+              "source": "commons-desc-page"
+            },
+            "LicenseShortName": {
+              "value": "CC BY-SA 4.0",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Creative Commons Attribution-Share Alike 4.0",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "true",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseUrl": {
+              "value": "https://creativecommons.org/licenses/by-sa/4.0",
+              "source": "commons-desc-page"
+            },
+            "Copyrighted": {
+              "value": "True",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "cc-by-sa-4.0",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          },
+          "mime": "image/jpeg"
+        }
+      ]
+    }
+  },
+  "wiki_bio_banana_peel_bus_stop_03": {
+    "query_title": "File:Banana_peel_on_seat.JPG",
+    "api_response": {
+      "pageid": 5264094,
+      "ns": 6,
+      "title": "File:Banana peel on seat.JPG",
+      "imagerepository": "local",
+      "imageinfo": [
+        {
+          "size": 2293236,
+          "width": 3264,
+          "height": 2448,
+          "url": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Banana_peel_on_seat.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:Banana_peel_on_seat.JPG",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=5264094",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2008-11-23 18:26:25",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "Banana peel on seat",
+              "source": "mediawiki-metadata"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "GFDL|Taken with Sony DSC-T70|Waste|Banana peel|License migration redundant|Self-published work|Wooden benches",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "ImageDescription": {
+              "value": "A banana peel lies on a seat at a bus stop, in London.",
+              "source": "commons-desc-page"
+            },
+            "DateTimeOriginal": {
+              "value": "2008-09",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+              "source": "commons-desc-page"
+            },
+            "Artist": {
+              "value": "<a href=\"//commons.wikimedia.org/wiki/User:Lemur12\" title=\"User:Lemur12\">Lemur12</a>",
+              "source": "commons-desc-page"
+            },
+            "LicenseShortName": {
+              "value": "CC BY-SA 3.0",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Creative Commons Attribution-Share Alike 3.0",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "true",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseUrl": {
+              "value": "https://creativecommons.org/licenses/by-sa/3.0",
+              "source": "commons-desc-page"
+            },
+            "Copyrighted": {
+              "value": "True",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "cc-by-sa-3.0",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          },
+          "mime": "image/jpeg"
+        }
+      ]
+    }
+  },
+  "wiki_bio_banana_peel_oak_hill_05": {
+    "query_title": "File:2019-02-07_13_32_24_A_single_Chiquita_banana_peel_in_the_Franklin_Farm_section_of_Oak_Hill,_Fairfax_County,_Virginia.jpg",
+    "api_response": {
+      "pageid": 77250026,
+      "ns": 6,
+      "title": "File:2019-02-07 13 32 24 A single Chiquita banana peel in the Franklin Farm section of Oak Hill, Fairfax County, Virginia.jpg",
+      "imagerepository": "local",
+      "imageinfo": [
+        {
+          "size": 2933165,
+          "width": 4032,
+          "height": 3024,
+          "url": "https://upload.wikimedia.org/wikipedia/commons/4/40/2019-02-07_13_32_24_A_single_Chiquita_banana_peel_in_the_Franklin_Farm_section_of_Oak_Hill%2C_Fairfax_County%2C_Virginia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:2019-02-07_13_32_24_A_single_Chiquita_banana_peel_in_the_Franklin_Farm_section_of_Oak_Hill,_Fairfax_County,_Virginia.jpg",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=77250026",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2019-03-13 12:02:13",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "2019-02-07 13 32 24 A single Chiquita banana peel in the Franklin Farm section of Oak Hill, Fairfax County, Virginia",
+              "source": "mediawiki-metadata"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "Chiquita Brands International|Banana peel|Self-published work|Files with coordinates missing SDC location of creation|February 2019 in Virginia|United States photographs taken on 2019-02-07|Food in Franklin Farm, Virginia|Famartin's 2019 photos|Famartin's February 2019 photos",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "GPSLatitude": {
+              "value": "38.911789",
+              "source": "commons-desc-page"
+            },
+            "GPSLongitude": {
+              "value": "-77.414047",
+              "source": "commons-desc-page"
+            },
+            "GPSMapDatum": {
+              "value": "WGS-84",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "ImageDescription": {
+              "value": "A single Chiquita banana peel in the Franklin Farm section of Oak Hill, Fairfax County, Virginia",
+              "source": "commons-desc-page"
+            },
+            "DateTimeOriginal": {
+              "value": "2019-02-07 13:32:24",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+              "source": "commons-desc-page"
+            },
+            "Artist": {
+              "value": "<a href=\"//commons.wikimedia.org/wiki/User:Famartin\" title=\"User:Famartin\">Famartin</a>",
+              "source": "commons-desc-page"
+            },
+            "LicenseShortName": {
+              "value": "CC BY-SA 4.0",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Creative Commons Attribution-Share Alike 4.0",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "true",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseUrl": {
+              "value": "https://creativecommons.org/licenses/by-sa/4.0",
+              "source": "commons-desc-page"
+            },
+            "Copyrighted": {
+              "value": "True",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "cc-by-sa-4.0",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          },
+          "mime": "image/jpeg"
+        }
+      ]
+    }
+  },
+  "wiki_bio_banana_peel_sidewalk_06": {
+    "query_title": "File:2020-03-15_01_55_05_A_single_banana_peel_in_the_Franklin_Farm_section_of_Oak_Hill,_Fairfax_County,_Virginia.jpg",
+    "api_response": {
+      "pageid": 88121957,
+      "ns": 6,
+      "title": "File:2020-03-15 01 55 05 A single banana peel in the Franklin Farm section of Oak Hill, Fairfax County, Virginia.jpg",
+      "imagerepository": "local",
+      "imageinfo": [
+        {
+          "size": 1208913,
+          "width": 4032,
+          "height": 3024,
+          "url": "https://upload.wikimedia.org/wikipedia/commons/4/4f/2020-03-15_01_55_05_A_single_banana_peel_in_the_Franklin_Farm_section_of_Oak_Hill%2C_Fairfax_County%2C_Virginia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:2020-03-15_01_55_05_A_single_banana_peel_in_the_Franklin_Farm_section_of_Oak_Hill,_Fairfax_County,_Virginia.jpg",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=88121957",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2020-03-15 12:41:20",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "2020-03-15 01 55 05 A single banana peel in the Franklin Farm section of Oak Hill, Fairfax County, Virginia",
+              "source": "mediawiki-metadata"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "Banana peel|Self-published work|Files with coordinates missing SDC location of creation|March 2020 in Virginia|United States photographs taken on 2020-03-15|Food in Franklin Farm, Virginia|Famartin's 2020 photos|Famartin's March 2020 photos",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "GPSLatitude": {
+              "value": "38.911942",
+              "source": "commons-desc-page"
+            },
+            "GPSLongitude": {
+              "value": "-77.413917",
+              "source": "commons-desc-page"
+            },
+            "GPSMapDatum": {
+              "value": "WGS-84",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "ImageDescription": {
+              "value": "A single banana peel in the Franklin Farm section of Oak Hill, Fairfax County, Virginia",
+              "source": "commons-desc-page"
+            },
+            "DateTimeOriginal": {
+              "value": "2020-03-15 01:55:05",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+              "source": "commons-desc-page"
+            },
+            "Artist": {
+              "value": "<a href=\"//commons.wikimedia.org/wiki/User:Famartin\" title=\"User:Famartin\">Famartin</a>",
+              "source": "commons-desc-page"
+            },
+            "LicenseShortName": {
+              "value": "CC BY-SA 4.0",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Creative Commons Attribution-Share Alike 4.0",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "true",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseUrl": {
+              "value": "https://creativecommons.org/licenses/by-sa/4.0",
+              "source": "commons-desc-page"
+            },
+            "Copyrighted": {
+              "value": "True",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "cc-by-sa-4.0",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          },
+          "mime": "image/jpeg"
+        }
+      ]
+    }
+  },
+  "wiki_bio_food_scraps_bin_09": {
+    "query_title": "File:Food_Scraps_and_Yard_Debris_Collection_in_Portland_2010_by_Tim_Jewett.JPG",
+    "api_response": {
+      "pageid": 11165171,
+      "ns": 6,
+      "title": "File:Food Scraps and Yard Debris Collection in Portland 2010 by Tim Jewett.JPG",
+      "imagerepository": "local",
+      "imageinfo": [
+        {
+          "size": 4057650,
+          "width": 2000,
+          "height": 3000,
+          "url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Food_Scraps_and_Yard_Debris_Collection_in_Portland_2010_by_Tim_Jewett.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:Food_Scraps_and_Yard_Debris_Collection_in_Portland_2010_by_Tim_Jewett.JPG",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=11165171",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2010-08-12 22:39:37",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "Food Scraps and Yard Debris Collection in Portland 2010 by Tim Jewett",
+              "source": "mediawiki-metadata"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "Taken with Canon EOS 5D|Composting|Remains of food",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "ImageDescription": {
+              "value": "A resident adds kitchen food scraps to yard debris in a roll cart as part of the community's source separated organics (SSO) collection program.",
+              "source": "commons-desc-page"
+            },
+            "DateTimeOriginal": {
+              "value": "2010-04-13",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "City of Portland Bureau of Planning and Sustainability",
+              "source": "commons-desc-page"
+            },
+            "Artist": {
+              "value": "Tim Jewett",
+              "source": "commons-desc-page"
+            },
+            "LicenseShortName": {
+              "value": "CC BY-SA 2.5",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Creative Commons Attribution-Share Alike 2.5",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "true",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseUrl": {
+              "value": "https://creativecommons.org/licenses/by-sa/2.5",
+              "source": "commons-desc-page"
+            },
+            "Copyrighted": {
+              "value": "True",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "cc-by-sa-2.5",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          },
+          "mime": "image/jpeg"
+        }
+      ]
+    }
+  },
+  "wiki_neg_junction_boxes": {
+    "query_title": "File:Junction_boxes_-_geograph.org.uk_-_580156.jpg",
+    "api_response": {
+      "pageid": 13119162,
+      "ns": 6,
+      "title": "File:Junction boxes - geograph.org.uk - 580156.jpg",
+      "imagerepository": "local",
+      "imageinfo": [
+        {
+          "size": 110051,
+          "width": 480,
+          "height": 640,
+          "url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Junction_boxes_-_geograph.org.uk_-_580156.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:Junction_boxes_-_geograph.org.uk_-_580156.jpg",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=13119162",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2011-02-06 14:11:38",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "Junction boxes - geograph.org.uk - 580156",
+              "source": "mediawiki-metadata"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "Taken with Fujifilm FinePix S5600|Images from Geograph Britain and Ireland|Information field template with formatting|Images by Thomas Nugent|Street furniture in Glasgow|Utility cabinets",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "GPSLatitude": {
+              "value": "55.877860",
+              "source": "commons-desc-page"
+            },
+            "GPSLongitude": {
+              "value": "-4.312600",
+              "source": "commons-desc-page"
+            },
+            "GPSMapDatum": {
+              "value": "WGS-84",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "ImageDescription": {
+              "value": "Junction boxes. Old and new junction boxes at the corner of Clarence Drive and Dudley Drive. See also <a href=\"//commons.wikimedia.org/wiki/File:Corporation_junction_box_-_geograph.org.uk_-_580159.jpg\" title=\"File:Corporation junction box - geograph.org.uk - 580159.jpg\">580159</a>.",
+              "source": "commons-desc-page"
+            },
+            "DateTimeOriginal": {
+              "value": "2007-10-07",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "From <a rel=\"nofollow\" class=\"external text\" href=\"https://www.geograph.org.uk/photo/580156\">geograph.org.uk</a>",
+              "source": "commons-desc-page"
+            },
+            "Artist": {
+              "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.geograph.org.uk/profile/4827\">Thomas Nugent</a>",
+              "source": "commons-desc-page"
+            },
+            "Attribution": {
+              "value": "Thomas Nugent",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseShortName": {
+              "value": "CC BY-SA 2.0",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Creative Commons Attribution-Share Alike 2.0",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "true",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseUrl": {
+              "value": "https://creativecommons.org/licenses/by-sa/2.0",
+              "source": "commons-desc-page"
+            },
+            "Copyrighted": {
+              "value": "True",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "cc-by-sa-2.0",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          },
+          "mime": "image/jpeg"
+        }
+      ]
+    }
+  },
+  "wiki_neg_street_cabinet_01": {
+    "query_title": "File:Street_cabinet.jpg",
+    "api_response": {
+      "pageid": 136748982,
+      "ns": 6,
+      "title": "File:Street cabinet.jpg",
+      "imagerepository": "local",
+      "imageinfo": [
+        {
+          "size": 519652,
+          "width": 627,
+          "height": 790,
+          "url": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Street_cabinet.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:Street_cabinet.jpg",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=136748982",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2023-09-01 10:26:34",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "Street cabinet",
+              "source": "mediawiki-metadata"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "CC-Zero|Coaxial cables|Self-published work|Utility cabinets",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "ImageDescription": {
+              "value": "Power Amplifier (PA) (Coaxial Power Amplifie). This smaller distribution amplifiers boost the signals to keep the power of the cable television signal at a level that the television can accept. The distribution line is then \"tapped\" into and used to connect the individual drops to customer homes.<sup id=\"cite_ref-1\" class=\"reference\"><a href=\"#cite_note-1\"><span class=\"cite-bracket\">[</span>1<span class=\"cite-bracket\">]</span></a></sup> Behind the pictured PA we find three Multitaps, which distribute the signal from the PA to a group of Subscriber Takeover Points (STP) connection points. The green coaxial cables connect the Multitaps in the street cabinet to the STP drops; the final customer connection point. A PA and one or more multitap(s) are often combined in a street cabinet.",
+              "source": "commons-desc-page"
+            },
+            "DateTimeOriginal": {
+              "value": "2023-09-01 14:05:09",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+              "source": "commons-desc-page"
+            },
+            "Artist": {
+              "value": "<a href=\"//commons.wikimedia.org/wiki/User:Francis_Flinch\" title=\"User:Francis Flinch\">Francis Flinch</a>",
+              "source": "commons-desc-page"
+            },
+            "LicenseShortName": {
+              "value": "CC0",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Creative Commons Zero, Public Domain Dedication",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "false",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseUrl": {
+              "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+              "source": "commons-desc-page"
+            },
+            "Copyrighted": {
+              "value": "True",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "cc0",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          },
+          "mime": "image/jpeg"
+        }
+      ]
+    }
+  },
+  "wiki_neg_stromkasten_bretagne_03": {
+    "query_title": "File:20120925_Stromkasten_Bretagne_DSC07740_PtrQs.jpg",
+    "api_response": {
+      "pageid": 102772272,
+      "ns": 6,
+      "title": "File:20120925 Stromkasten Bretagne DSC07740 PtrQs.jpg",
+      "imagerepository": "local",
+      "imageinfo": [
+        {
+          "size": 19590068,
+          "width": 3580,
+          "height": 5369,
+          "url": "https://upload.wikimedia.org/wikipedia/commons/e/e9/20120925_Stromkasten_Bretagne_DSC07740_PtrQs.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:20120925_Stromkasten_Bretagne_DSC07740_PtrQs.jpg",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=102772272",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2021-04-01 03:04:12",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "20120925 Stromkasten Bretagne DSC07740 PtrQs",
+              "source": "mediawiki-metadata"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "2012 in Bretagne|Energy in Bretagne|Taken with Sony DSLR-A900|Plozévet|Self-published work|Files with coordinates missing SDC location of creation|Files by User:PtrQs|Utility cabinets|Photographs taken with Minolta AF Zoom 28-70mm F2.8 G",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "GPSLatitude": {
+              "value": "47.974730",
+              "source": "commons-desc-page"
+            },
+            "GPSLongitude": {
+              "value": "-4.444240",
+              "source": "commons-desc-page"
+            },
+            "GPSMapDatum": {
+              "value": "WGS-84",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "ImageDescription": {
+              "value": "Outdoor Power distributor in Brittany",
+              "source": "commons-desc-page"
+            },
+            "DateTimeOriginal": {
+              "value": "2012-09-25 15:34:43",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+              "source": "commons-desc-page"
+            },
+            "Artist": {
+              "value": "<a href=\"//commons.wikimedia.org/wiki/User:PtrQs\" title=\"User:PtrQs\">PtrQs</a>",
+              "source": "commons-desc-page"
+            },
+            "LicenseShortName": {
+              "value": "CC BY 4.0",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Creative Commons Attribution 4.0",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "true",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Attribution": {
+              "value": "Photo by <a href=\"//commons.wikimedia.org/wiki/User:PtrQs\" title=\"User:PtrQs\">PtrQs</a>",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseUrl": {
+              "value": "https://creativecommons.org/licenses/by/4.0",
+              "source": "commons-desc-page"
+            },
+            "Copyrighted": {
+              "value": "True",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "cc-by-4.0",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          },
+          "mime": "image/jpeg"
+        }
+      ]
+    }
+  },
+  "wiki_neg_utility_box_corner_05": {
+    "query_title": "File:Utility_box_on_the_corner_of_Wesley_Street_and_Town_Street,_Beeston,_Leeds_(11th_August_2023).jpg",
+    "api_response": {
+      "pageid": 138310652,
+      "ns": 6,
+      "title": "File:Utility box on the corner of Wesley Street and Town Street, Beeston, Leeds (11th August 2023).jpg",
+      "imagerepository": "local",
+      "imageinfo": [
+        {
+          "size": 6131636,
+          "width": 5152,
+          "height": 3864,
+          "url": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Utility_box_on_the_corner_of_Wesley_Street_and_Town_Street%2C_Beeston%2C_Leeds_%2811th_August_2023%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:Utility_box_on_the_corner_of_Wesley_Street_and_Town_Street,_Beeston,_Leeds_(11th_August_2023).jpg",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=138310652",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2023-09-30 13:45:00",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "Utility box on the corner of Wesley Street and Town Street, Beeston, Leeds (11th August 2023)",
+              "source": "mediawiki-metadata"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "Self-published work|United Kingdom photographs taken on 2023-08-11|Utility cabinets|August 2023 in Leeds|Town Street, Beeston, Leeds|Wesley Street, Leeds|2023 in Beeston, Leeds",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "ImageDescription": {
+              "value": "Utility box on the corner of Wesley Street and Town Street, Beeston, Leeds, West Yorkshire.  Taken on the evening of Friday the 11th August 2023.",
+              "source": "commons-desc-page"
+            },
+            "DateTimeOriginal": {
+              "value": "2023-08-11 18:02:54",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+              "source": "commons-desc-page"
+            },
+            "Artist": {
+              "value": "<a href=\"//commons.wikimedia.org/wiki/User:Mtaylor848\" title=\"User:Mtaylor848\">Mtaylor848</a>",
+              "source": "commons-desc-page"
+            },
+            "LicenseShortName": {
+              "value": "CC BY-SA 4.0",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Creative Commons Attribution-Share Alike 4.0",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "true",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseUrl": {
+              "value": "https://creativecommons.org/licenses/by-sa/4.0",
+              "source": "commons-desc-page"
+            },
+            "Copyrighted": {
+              "value": "True",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "cc-by-sa-4.0",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          },
+          "mime": "image/jpeg"
+        }
+      ]
+    }
+  },
+  "wiki_neg_brick_wall_clean": {
+    "query_title": "File:Brick_wall_texture.jpg",
+    "api_response": {
+      "pageid": 24920417,
+      "ns": 6,
+      "title": "File:Brick wall texture.jpg",
+      "imagerepository": "local",
+      "imageinfo": [
+        {
+          "size": 1668359,
+          "width": 3264,
+          "height": 2448,
+          "url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Brick_wall_texture.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:Brick_wall_texture.jpg",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=24920417",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2013-03-01 06:19:30",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "Brick wall texture",
+              "source": "mediawiki-metadata"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "PD-author|Images uploaded by Fæ|Uploads by Fæ with linkrot|Public-domain-image.com|Public-domain-image.com (check needed)|Media needing category review as of 10 October 2013|Brick wall textures",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "ImageDescription": {
+              "value": "<br>\n<dl><dd>Image title: Brick wall texture</dd>\n<dd>Image from Public domain images website, <a rel=\"nofollow\" class=\"external free\" href=\"http://www.public-domain-image.com/full-image/textures-and-patterns-public-domain-images-pictures/wall-texture-public-domain-images-pictures/brick-wall-texture-pictures/brick-wall-texture.jpg.html\">http://www.public-domain-image.com/full-image/textures-and-patterns-public-domain-images-pictures/wall-texture-public-domain-images-pictures/brick-wall-texture-pictures/brick-wall-texture.jpg.html</a></dd></dl>",
+              "source": "commons-desc-page"
+            },
+            "DateTimeOriginal": {
+              "value": "<p>Not given\n</p>\n<ul><li>Transferred by <a href=\"//commons.wikimedia.org/wiki/User:F%C3%A6\" title=\"User:Fæ\">Fæ</a> on 2013-03-01</li></ul>",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<a rel=\"nofollow\" class=\"external free\" href=\"http://www.public-domain-image.com/public-domain-images-pictures-free-stock-photos/textures-and-patterns-public-domain-images-pictures/wall-texture-public-domain-images-pictures/brick-wall-texture-pictures/brick-wall-texture.jpg\">http://www.public-domain-image.com/public-domain-images-pictures-free-stock-photos/textures-and-patterns-public-domain-images-pictures/wall-texture-public-domain-images-pictures/brick-wall-texture-pictures/brick-wall-texture.jpg</a>",
+              "source": "commons-desc-page"
+            },
+            "Artist": {
+              "value": "Georges Grondin",
+              "source": "commons-desc-page"
+            },
+            "Permission": {
+              "value": "This file is in public domain, not copyrighted, no rights reserved, free for any use. You can use this picture for any use including commercial purposes without the prior written permission and without fee or obligation.",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseShortName": {
+              "value": "Public domain",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Public domain",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "false",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Copyrighted": {
+              "value": "False",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "pd",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          },
+          "mime": "image/jpeg"
+        }
+      ]
+    }
+  },
+  "wiki_neg_clean_asphalt_pavement": {
+    "query_title": "File:Asphalt_road_surface.jpg",
+    "api_response": {
+      "ns": 6,
+      "title": "File:Asphalt road surface.jpg",
+      "missing": "",
+      "imagerepository": ""
+    }
+  },
+  "wiki_neg_utility_box_leeds": {
+    "query_title": "File:Utility_box,_Wesley_Street,_Beeston,_Leeds_(11th_August_2023)_001.jpg",
+    "api_response": {
+      "pageid": 137739726,
+      "ns": 6,
+      "title": "File:Utility box, Wesley Street, Beeston, Leeds (11th August 2023) 001.jpg",
+      "imagerepository": "local",
+      "imageinfo": [
+        {
+          "size": 5736159,
+          "width": 5152,
+          "height": 3864,
+          "url": "https://upload.wikimedia.org/wikipedia/commons/1/13/Utility_box%2C_Wesley_Street%2C_Beeston%2C_Leeds_%2811th_August_2023%29_001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:Utility_box,_Wesley_Street,_Beeston,_Leeds_(11th_August_2023)_001.jpg",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=137739726",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2023-09-17 14:55:22",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "Utility box, Wesley Street, Beeston, Leeds (11th August 2023) 001",
+              "source": "mediawiki-metadata"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "Self-published work|United Kingdom photographs taken on 2023-08-11|Utility cabinets|August 2023 in Leeds|Wesley Street, Leeds|2023 in Beeston, Leeds",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "ImageDescription": {
+              "value": "Utility box, Wesley Street, Beeston, Leeds, West Yorkshire.  Taken on the evening of Friday the 11th August 2023.",
+              "source": "commons-desc-page"
+            },
+            "DateTimeOriginal": {
+              "value": "2023-08-11 17:19:44",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+              "source": "commons-desc-page"
+            },
+            "Artist": {
+              "value": "<a href=\"//commons.wikimedia.org/wiki/User:Mtaylor848\" title=\"User:Mtaylor848\">Mtaylor848</a>",
+              "source": "commons-desc-page"
+            },
+            "LicenseShortName": {
+              "value": "CC BY-SA 4.0",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Creative Commons Attribution-Share Alike 4.0",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "true",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseUrl": {
+              "value": "https://creativecommons.org/licenses/by-sa/4.0",
+              "source": "commons-desc-page"
+            },
+            "Copyrighted": {
+              "value": "True",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "cc-by-sa-4.0",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          },
+          "mime": "image/jpeg"
+        }
+      ]
+    }
+  },
+  "wiki_multi_banana_and_cup_01": {
+    "query_title": "File:Unbinned_litter_at_Sainsbury's,_Chingford,_London,_England_1.jpg",
+    "api_response": {
+      "pageid": 81193910,
+      "ns": 6,
+      "title": "File:Unbinned litter at Sainsbury's, Chingford, London, England 1.jpg",
+      "imagerepository": "local",
+      "imageinfo": [
+        {
+          "size": 14942093,
+          "width": 4923,
+          "height": 3692,
+          "url": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Unbinned_litter_at_Sainsbury%27s%2C_Chingford%2C_London%2C_England_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:Unbinned_litter_at_Sainsbury%27s,_Chingford,_London,_England_1.jpg",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=81193910",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2019-08-10 10:46:01",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "Unbinned litter at Sainsbury's, Chingford, London, England 1",
+              "source": "mediawiki-metadata"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "Banana peel|Paper cups|Self-published work|Summer in London|2019 in the London Borough of Waltham Forest|August 2019 in London|Summer 2019 in the United Kingdom|Sainsbury's, Low Hall, Chingford|London photographs taken on 2019-08-09|Acabashi photos: detritus|Files with coordinates missing SDC location of creation (51° N, 1° W)|Photographs of London by Acabashi|Litter in London|Sainsbury's products|London photos taken with Panasonic Lumix DMC-TZ90|Rubbish in the London Borough of Waltham Forest",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "GPSLatitude": {
+              "value": "51.603738",
+              "source": "commons-desc-page"
+            },
+            "GPSLongitude": {
+              "value": "-0.020549",
+              "source": "commons-desc-page"
+            },
+            "GPSMapDatum": {
+              "value": "WGS-84",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "ImageDescription": {
+              "value": "Thrown away banana skin and paper cup of coffee litter at <a href=\"https://en.wikipedia.org/wiki/Sainsbury%27s\" class=\"extiw\" title=\"en:Sainsbury's\">Sainsbury's</a> Low Hall supermarket, <a href=\"https://en.wikipedia.org/wiki/Chingford\" class=\"extiw\" title=\"en:Chingford\">Chingford</a>, London, England.<br><br><b>Mobile device view</b>: Wikimedia (at August 2019) makes it difficult to immediately view photo groups related to this image. To see its most relevant allied photos, click on <a href=\"//commons.wikimedia.org/wiki/Category:Sainsbury%27s,_Low_Hall,_Chingford\" title=\"Category:Sainsbury's, Low Hall, Chingford\"> Sainsbury's, Low Hall, Chingford</a>, and this uploaders's <a href=\"//commons.wikimedia.org/wiki/Category:Photos_by_Acabashi\" title=\"Category:Photos by Acabashi\">Acabashi Photos</a>. You can add a beta click-through 'categories' button to the very bottom of photo-pages you view by going to settings... three-bar icon top left.<br><b>Desktop view</b>: Wikimedia (at August 2019) makes it difficult to immediately view the helpful category links where you can find images related to this one in a variety of ways; for these go to the very bottom of the page.<br><br>This image is one of a series of date and/or subject allied consecutive photographs kept in progression or location by file name number and/or time marking. <br><b>Camera</b>: <a href=\"https://en.wikipedia.org/wiki/Lumix\" class=\"extiw\" title=\"en:Lumix\">Panasonic Lumix DMC-TZ90</a>.<br><b>Software</b>: File lens-corrected, optimized, perhaps cropped, with <a href=\"https://en.wikipedia.org/wiki/DxO_PhotoLab\" class=\"extiw\" title=\"en:DxO PhotoLab\">DxO PhotoLab 2 Elite</a>, and likely further optimized with <a href=\"https://en.wikipedia.org/wiki/Adobe_Photoshop#CS2\" class=\"extiw\" title=\"en:Adobe Photoshop\">Adobe Photoshop CS2</a>.",
+              "source": "commons-desc-page"
+            },
+            "DateTimeOriginal": {
+              "value": "2019-08-09 12:14:44",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+              "source": "commons-desc-page"
+            },
+            "Artist": {
+              "value": "<a href=\"//commons.wikimedia.org/wiki/User:Acabashi\" title=\"User:Acabashi\">Acabashi</a>",
+              "source": "commons-desc-page"
+            },
+            "LicenseShortName": {
+              "value": "CC BY-SA 4.0",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Creative Commons Attribution-Share Alike 4.0",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "true",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseUrl": {
+              "value": "https://creativecommons.org/licenses/by-sa/4.0",
+              "source": "commons-desc-page"
+            },
+            "Copyrighted": {
+              "value": "True",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "cc-by-sa-4.0",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          },
+          "mime": "image/jpeg"
+        }
+      ]
+    }
+  },
+  "wiki_multi_cans_and_bottles_pavement": {
+    "query_title": "File:Litter_in_the_street_-_geograph.org.uk_-_1746200.jpg",
+    "api_response": {
+      "ns": 6,
+      "title": "File:Litter in the street - geograph.org.uk - 1746200.jpg",
+      "missing": "",
+      "imagerepository": ""
+    }
+  },
+  "wiki_multi_cardboard_can_litter": {
+    "query_title": "File:Litter_on_grass_verge.jpg",
+    "api_response": {
+      "ns": 6,
+      "title": "File:Litter on grass verge.jpg",
+      "missing": "",
+      "imagerepository": ""
+    }
+  },
+  "wiki_multi_bottles_and_cans_curb": {
+    "query_title": "File:Litter_on_street_corner.jpg",
+    "api_response": {
+      "ns": 6,
+      "title": "File:Litter on street corner.jpg",
+      "missing": "",
+      "imagerepository": ""
+    }
+  },
+  "wiki_bio_street_food_remains": {
+    "query_title": "File:Street_Food_Remains_(188107205).jpeg",
+    "api_response": {
+      "pageid": 71591204,
+      "ns": 6,
+      "title": "File:Street Food Remains (188107205).jpeg",
+      "imagerepository": "local",
+      "imageinfo": [
+        {
+          "size": 294623,
+          "width": 2048,
+          "height": 1365,
+          "url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Street_Food_Remains_%28188107205%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:Street_Food_Remains_(188107205).jpeg",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=71591204",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2018-08-13 22:45:20",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "<div class=\"fn\">\nStreet Food Remains</div>",
+              "source": "commons-desc-page"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "Remains of food|Unidentified locations in Hong Kong|Files with coordinates missing SDC location of creation|Photos imported with import-500px|Expanded polystyrene bowls",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "GPSLatitude": {
+              "value": "22.396428",
+              "source": "commons-desc-page"
+            },
+            "GPSLongitude": {
+              "value": "114.109497",
+              "source": "commons-desc-page"
+            },
+            "GPSMapDatum": {
+              "value": "WGS-84",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Artist": {
+              "value": "<div class=\"fn value\">\n<a rel=\"nofollow\" class=\"external text\" href=\"https://500px.com/acurrie\">Andrew Currie</a></div>",
+              "source": "commons-desc-page"
+            },
+            "ImageDescription": {
+              "value": "<div class=\"description\">\n500px provided description: Street Food Remains []</div>",
+              "source": "commons-desc-page"
+            },
+            "DateTimeOriginal": {
+              "value": "12 November 2016, 12:26:49 (UTC)",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "Imported from <a rel=\"nofollow\" class=\"external text\" href=\"https://500px.com/photo/188107205/street-food-remains-by-andrew-currie\">500px</a> (<a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/201807id_/https://drscdn.500px.org/photo/188107205/m%3D2048/v2?webp=true&amp;sig=13cca4e0a16691d107f8188fa858848c7c67fef36825bf7b35fa23af508e736c\">archived version</a>) by <a rel=\"nofollow\" class=\"external text\" href=\"https://www.archiveteam.org/index.php?title=500px\">the Archive Team</a>. (<a href=\"https://iw.toolforge.org/import-500px/photo/188107205\" class=\"extiw\" title=\"toolforge:import-500px/photo/188107205\">detail page</a>)",
+              "source": "commons-desc-page"
+            },
+            "Permission": {
+              "value": "<div class=\"responsive-license-cc layouttemplate licensetpl\" dir=\"ltr\" lang=\"en\"><div class=\"rlicense-icons\"><span class=\"skin-invert\" typeof=\"mw:File\"><span title=\"w:en:Creative Commons\"><img alt=\"w:en:Creative Commons\" src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/CC_some_rights_reserved.svg/120px-CC_some_rights_reserved.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"90\" height=\"36\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/CC_some_rights_reserved.svg/250px-CC_some_rights_reserved.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"744\" data-file-height=\"300\"></span></span><br>\n<span class=\"skin-invert\" typeof=\"mw:File\"><span title=\"attribution\"><img alt=\"attribution\" src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Cc-by_new_white.svg/40px-Cc-by_new_white.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"24\" height=\"24\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Cc-by_new_white.svg/60px-Cc-by_new_white.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"64\" data-file-height=\"64\"></span></span> <span class=\"skin-invert\" typeof=\"mw:File\"><span title=\"share alike\"><img alt=\"share alike\" src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Cc-sa_white.svg/40px-Cc-sa_white.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"24\" height=\"24\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Cc-sa_white.svg/60px-Cc-sa_white.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"64\" data-file-height=\"64\"></span></span></div><div class=\"rlicense-text\"><div class=\"rlicense-declaration\">This file is licensed under the <a href=\"https://en.wikipedia.org/wiki/en:Creative_Commons\" class=\"extiw\" title=\"w:en:Creative Commons\">Creative Commons</a> <a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.en\" class=\"extiw\" title=\"creativecommons:by-sa/3.0/deed.en\">Attribution-Share Alike 3.0 Unported</a> license.</div><div class=\"rlicense-desc\" style=\"text-align:start;\" lang=\"en\">\n<dl><dd>You are free:\n<ul><li><b>to share</b> – to copy, distribute and transmit the work</li>\n<li><b>to remix</b> – to adapt the work</li></ul></dd>\n<dd>Under the following conditions:\n<ul><li><b>attribution</b> – You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.</li>\n<li><b>share alike</b> – If you remix, transform, or build upon the material, you must distribute your contributions under the <a href=\"https://creativecommons.org/share-your-work/licensing-considerations/compatible-licenses\" class=\"extiw\" title=\"ccorg:share-your-work/licensing-considerations/compatible-licenses\">same or compatible license</a> as the original.</li></ul></dd></dl></div><span class=\"licensetpl_link\" style=\"display:none;\">https://creativecommons.org/licenses/by-sa/3.0</span><span class=\"licensetpl_short\" style=\"display:none;\">CC BY-SA 3.0 </span><span class=\"licensetpl_long\" style=\"display:none;\">Creative Commons Attribution-Share Alike 3.0 </span><span class=\"licensetpl_link_req\" style=\"display:none;\">true</span><span class=\"licensetpl_attr_req\" style=\"display:none;\">true</span></div></div>",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseShortName": {
+              "value": "CC BY-SA 3.0",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Creative Commons Attribution-Share Alike 3.0",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "true",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseUrl": {
+              "value": "https://creativecommons.org/licenses/by-sa/3.0",
+              "source": "commons-desc-page"
+            },
+            "Copyrighted": {
+              "value": "True",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "cc-by-sa-3.0",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          },
+          "mime": "image/jpeg"
+        }
+      ]
+    }
+  },
+  "wiki_bat_corroded_screwdriver": {
+    "query_title": "File:Corroded_Screwdriver_Battery.jpg",
+    "api_response": {
+      "pageid": 79839029,
+      "ns": 6,
+      "title": "File:Corroded Screwdriver Battery.jpg",
+      "imagerepository": "local",
+      "imageinfo": [
+        {
+          "size": 536994,
+          "width": 949,
+          "height": 1600,
+          "url": "https://upload.wikimedia.org/wikipedia/commons/3/38/Corroded_Screwdriver_Battery.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:Corroded_Screwdriver_Battery.jpg",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79839029",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2019-06-21 07:14:03",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "Corroded Screwdriver Battery",
+              "source": "mediawiki-metadata"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "Electronic components|Corrosion|Self-published work",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "ImageDescription": {
+              "value": "Internal components from an old electric screwdriver showing charging connector, wiring and two rechargeable cells. One cell completely obscured by furring corrosion caused by internal chemicals leaking and reacting with air.",
+              "source": "commons-desc-page"
+            },
+            "DateTimeOriginal": {
+              "value": "2018-12-04 12:35:43",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+              "source": "commons-desc-page"
+            },
+            "Artist": {
+              "value": "<a href=\"//commons.wikimedia.org/wiki/User:Eoinho\" title=\"User:Eoinho\">Eoin</a>",
+              "source": "commons-desc-page"
+            },
+            "LicenseShortName": {
+              "value": "CC BY-SA 4.0",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Creative Commons Attribution-Share Alike 4.0",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "true",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseUrl": {
+              "value": "https://creativecommons.org/licenses/by-sa/4.0",
+              "source": "commons-desc-page"
+            },
+            "Copyrighted": {
+              "value": "True",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "cc-by-sa-4.0",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          },
+          "mime": "image/jpeg"
+        }
+      ]
+    }
+  },
+  "wiki_bat_leaking_alkaline": {
+    "query_title": "File:Leaking_alkaline_battery.jpg",
+    "api_response": {
+      "ns": 6,
+      "title": "File:Leaking alkaline battery.jpg",
+      "missing": "",
+      "imagerepository": ""
+    }
+  },
+  "wiki_bat_swollen_lipo": {
+    "query_title": "File:Puffed_Lithium_Polymer_Battery.jpg",
+    "api_response": {
+      "ns": 6,
+      "title": "File:Puffed Lithium Polymer Battery.jpg",
+      "missing": "",
+      "imagerepository": ""
+    }
+  },
+  "wiki_bat_old_car_battery_dumped": {
+    "query_title": "File:Old_car_battery_dumped.jpg",
+    "api_response": {
+      "ns": 6,
+      "title": "File:Old car battery dumped.jpg",
+      "missing": "",
+      "imagerepository": ""
+    }
+  },
+  "wiki_bat_assorted_recycle_bin": {
+    "query_title": "File:Battery_recycling_box.jpg",
+    "api_response": {
+      "ns": 6,
+      "title": "File:Battery recycling box.jpg",
+      "missing": "",
+      "imagerepository": ""
+    }
+  },
+  "wiki_bat_discarded_dry_cells_ground": {
+    "query_title": "File:Discarded_batteries_on_ground.jpg",
+    "api_response": {
+      "ns": 6,
+      "title": "File:Discarded batteries on ground.jpg",
+      "missing": "",
+      "imagerepository": ""
+    }
+  }
+}

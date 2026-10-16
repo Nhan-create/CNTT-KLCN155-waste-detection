@@ -7,7 +7,7 @@ from pathlib import Path
 import pandas as pd
 from collections import Counter
 
-PROJECT_ROOT = Path("D:/CNTT-KLCN155-waste-detection")
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = PROJECT_ROOT / "data" / "detection"
 AUDIT_DIR = PROJECT_ROOT / "data" / "audit"
 REAL_MANIFEST = AUDIT_DIR / "real_detection_source_manifest.csv"

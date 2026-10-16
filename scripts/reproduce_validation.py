@@ -37,8 +37,8 @@ DEFAULT_CHECKPOINT = PROJECT_ROOT / "artifacts" / "official_run" / "best_model.p
 DEFAULT_MANIFEST = PROJECT_ROOT / "data" / "audit" / "split_manifest_v2.csv"
 if (PROJECT_ROOT / "data" / "processed_v2" / "val").exists():
     DEFAULT_VAL_DIR = PROJECT_ROOT / "data" / "processed_v2" / "val"
-elif Path("D:/CNTT-KLCN155-waste-detection/data/processed_v2/val").exists():
-    DEFAULT_VAL_DIR = Path("D:/CNTT-KLCN155-waste-detection/data/processed_v2/val")
+elif (Path(__file__).resolve().parents[1] / "data/processed_v2/val").exists():
+    DEFAULT_VAL_DIR = (Path(__file__).resolve().parents[1] / "data/processed_v2/val")
 else:
     DEFAULT_VAL_DIR = PROJECT_ROOT / "data" / "processed_v2" / "val"
 DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "artifacts" / "official_run"

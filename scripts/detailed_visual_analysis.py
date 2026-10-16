@@ -15,8 +15,8 @@ import pandas as pd
 import numpy as np
 from PIL import Image
 
-BASE_DIR = Path(r"D:\HK7\Đồ án khóa luận")
-CANDIDATES_PATH = Path(r"D:\CNTT-KLCN155-waste-detection\data\audit\cross_split_phash_candidates.csv")
+BASE_DIR = Path(__import__("os").environ.get("WASTE_LEGACY_DATA_DIR", str(Path(__file__).resolve().parents[1] / "data" / "legacy_hk7")))
+CANDIDATES_PATH = (Path(__file__).resolve().parents[1] / "data/audit/cross_split_phash_candidates.csv")
 
 def analyze_image(img: Image.Image):
     arr = np.array(img.convert("RGB"))

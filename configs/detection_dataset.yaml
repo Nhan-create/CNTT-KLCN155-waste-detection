@@ -1,4 +1,4 @@
-path: D:/CNTT-KLCN155-waste-detection/data/detection
+path: ../data/detection
 train: splits/train.txt
 val: splits/val.txt
 test: splits/test.txt

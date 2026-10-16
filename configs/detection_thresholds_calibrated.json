@@ -1,0 +1,18 @@
+{
+  "per_class_thresholds": {
+    "battery": 0.20,
+    "biological": 0.25,
+    "cardboard": 0.25,
+    "clothes": 0.35,
+    "glass": 0.25,
+    "metal": 0.20,
+    "paper": 0.25,
+    "plastic": 0.22,
+    "shoes": 0.35,
+    "trash": 0.25
+  },
+  "metadata": {
+    "description": "Per-class operating confidence thresholds calibrated to suppress low-resolution texture hallucinations (clothes, shoes) while maintaining sensitivity for waste containers (metal, plastic, glass).",
+    "calibrated_for": "real_v2"
+  }
+}

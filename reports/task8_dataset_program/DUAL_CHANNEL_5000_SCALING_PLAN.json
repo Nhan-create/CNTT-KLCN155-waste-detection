@@ -1,0 +1,158 @@
+{
+  "plan_version": "TASK8I_DUAL_CHANNEL_5000_SCALING_PLAN_V1",
+  "exhausted_sources_blocked": [
+    "SRC_EXHAUSTED_01_SHYNUAA_STREET_GARBAGE",
+    "SRC_EXHAUSTED_02_TACO_OFFICIAL_BASELINE",
+    "SRC_EXHAUSTED_03_OPENIMAGES_GENERIC_KEYWORD_SLICES",
+    "SRC_EXHAUSTED_04_WIKIMEDIA_TOP_LEVEL_GENERAL_CATEGORIES"
+  ],
+  "mass_plastic_expansion_blocked": true,
+  "channels": {
+    "CHANNEL_A_PUBLIC_SPECIALIZED_DATASETS": {
+      "description": "Specialized academic/municipal datasets (Zenodo, Dryad, Data.gov, Figshare, Openverse verified field photography) with explicit CC0/CC-BY/CC-BY-SA provenance on both photo and record.",
+      "target_share_of_m1_500_gap": "35% - 45%",
+      "strict_filters": [
+        "Must verify both photo-level and observation/record-level license (reject CC-BY-NC and ARR)",
+        "Reject natural plant pathology / orchard rot on trees (keep only in KEEP_AUXILIARY)",
+        "Reject frameless macro close-ups and synthetic rotation clones"
+      ]
+    },
+    "CHANNEL_B_FIRST_PARTY_FIELD_CAPTURE": {
+      "description": "First-party smartphone field capture by project team/contributors using FIRST_PARTY_FIELD_CAPTURE_GUIDE and validated via scripts/field_capture_import_and_qa.py.",
+      "target_share_of_m1_500_gap": "55% - 65%",
+      "pilot_gate": "Execute 50-100 photo pilot batch first, measure QA pass rate (target >= 85%) and multi-class rate (target >= 40%) before full M1/M4 scaling."
+    }
+  },
+  "per_class_scaling_roadmap": [
+    {
+      "class_id": 0,
+      "class_name": "battery",
+      "post_8i_verified_rw_train_unique_images": 86,
+      "post_8i_verified_rw_train_unique_specimens": 82,
+      "post_8i_verified_rw_train_unique_sessions": 77,
+      "post_8i_verified_rw_val_images": 31,
+      "gap_to_m1_500": 414,
+      "gap_to_m4_5000": 4914,
+      "channel_a_target_for_m1": 166,
+      "channel_b_field_capture_target_for_m1": 248,
+      "estimated_field_sessions_to_m1": 6
+    },
+    {
+      "class_id": 1,
+      "class_name": "biological",
+      "post_8i_verified_rw_train_unique_images": 122,
+      "post_8i_verified_rw_train_unique_specimens": 115,
+      "post_8i_verified_rw_train_unique_sessions": 92,
+      "post_8i_verified_rw_val_images": 29,
+      "gap_to_m1_500": 378,
+      "gap_to_m4_5000": 4878,
+      "channel_a_target_for_m1": 151,
+      "channel_b_field_capture_target_for_m1": 227,
+      "estimated_field_sessions_to_m1": 6
+    },
+    {
+      "class_id": 2,
+      "class_name": "cardboard",
+      "post_8i_verified_rw_train_unique_images": 185,
+      "post_8i_verified_rw_train_unique_specimens": 185,
+      "post_8i_verified_rw_train_unique_sessions": 58,
+      "post_8i_verified_rw_val_images": 44,
+      "gap_to_m1_500": 315,
+      "gap_to_m4_5000": 4815,
+      "channel_a_target_for_m1": 126,
+      "channel_b_field_capture_target_for_m1": 189,
+      "estimated_field_sessions_to_m1": 5
+    },
+    {
+      "class_id": 3,
+      "class_name": "clothes",
+      "post_8i_verified_rw_train_unique_images": 55,
+      "post_8i_verified_rw_train_unique_specimens": 55,
+      "post_8i_verified_rw_train_unique_sessions": 28,
+      "post_8i_verified_rw_val_images": 4,
+      "gap_to_m1_500": 445,
+      "gap_to_m4_5000": 4945,
+      "channel_a_target_for_m1": 178,
+      "channel_b_field_capture_target_for_m1": 267,
+      "estimated_field_sessions_to_m1": 6
+    },
+    {
+      "class_id": 4,
+      "class_name": "glass",
+      "post_8i_verified_rw_train_unique_images": 111,
+      "post_8i_verified_rw_train_unique_specimens": 111,
+      "post_8i_verified_rw_train_unique_sessions": 49,
+      "post_8i_verified_rw_val_images": 32,
+      "gap_to_m1_500": 389,
+      "gap_to_m4_5000": 4889,
+      "channel_a_target_for_m1": 156,
+      "channel_b_field_capture_target_for_m1": 233,
+      "estimated_field_sessions_to_m1": 6
+    },
+    {
+      "class_id": 5,
+      "class_name": "metal",
+      "post_8i_verified_rw_train_unique_images": 305,
+      "post_8i_verified_rw_train_unique_specimens": 305,
+      "post_8i_verified_rw_train_unique_sessions": 93,
+      "post_8i_verified_rw_val_images": 57,
+      "gap_to_m1_500": 195,
+      "gap_to_m4_5000": 4695,
+      "channel_a_target_for_m1": 78,
+      "channel_b_field_capture_target_for_m1": 117,
+      "estimated_field_sessions_to_m1": 3
+    },
+    {
+      "class_id": 6,
+      "class_name": "paper",
+      "post_8i_verified_rw_train_unique_images": 201,
+      "post_8i_verified_rw_train_unique_specimens": 200,
+      "post_8i_verified_rw_train_unique_sessions": 71,
+      "post_8i_verified_rw_val_images": 47,
+      "gap_to_m1_500": 299,
+      "gap_to_m4_5000": 4799,
+      "channel_a_target_for_m1": 120,
+      "channel_b_field_capture_target_for_m1": 179,
+      "estimated_field_sessions_to_m1": 4
+    },
+    {
+      "class_id": 7,
+      "class_name": "plastic",
+      "post_8i_verified_rw_train_unique_images": 987,
+      "post_8i_verified_rw_train_unique_specimens": 986,
+      "post_8i_verified_rw_train_unique_sessions": 161,
+      "post_8i_verified_rw_val_images": 177,
+      "gap_to_m1_500": 0,
+      "gap_to_m4_5000": 4013,
+      "channel_a_target_for_m1": 0,
+      "channel_b_field_capture_target_for_m1": 0,
+      "estimated_field_sessions_to_m1": 0
+    },
+    {
+      "class_id": 8,
+      "class_name": "shoes",
+      "post_8i_verified_rw_train_unique_images": 78,
+      "post_8i_verified_rw_train_unique_specimens": 78,
+      "post_8i_verified_rw_train_unique_sessions": 57,
+      "post_8i_verified_rw_val_images": 15,
+      "gap_to_m1_500": 422,
+      "gap_to_m4_5000": 4922,
+      "channel_a_target_for_m1": 169,
+      "channel_b_field_capture_target_for_m1": 253,
+      "estimated_field_sessions_to_m1": 6
+    },
+    {
+      "class_id": 9,
+      "class_name": "trash",
+      "post_8i_verified_rw_train_unique_images": 361,
+      "post_8i_verified_rw_train_unique_specimens": 360,
+      "post_8i_verified_rw_train_unique_sessions": 96,
+      "post_8i_verified_rw_val_images": 72,
+      "gap_to_m1_500": 139,
+      "gap_to_m4_5000": 4639,
+      "channel_a_target_for_m1": 56,
+      "channel_b_field_capture_target_for_m1": 83,
+      "estimated_field_sessions_to_m1": 2
+    }
+  ]
+}

@@ -38,7 +38,10 @@ def _ordered_names(value: object) -> tuple[str, ...]:
     raise DetectionDatasetError("Dataset YAML 'names' must be a list or index mapping")
 
 
-def load_detection_dataset_yaml(path: Path) -> tuple[dict[str, object], Path]:
+def load_detection_dataset_yaml(
+    path: Path, *, allow_custom_names: bool = False
+) -> tuple[dict[str, object], Path]:
+    """Load a dataset YAML; the fixed 10-class order is enforced unless allow_custom_names."""
     path = Path(path)
     try:
         payload = yaml.safe_load(path.read_text(encoding="utf-8"))
@@ -47,12 +50,16 @@ def load_detection_dataset_yaml(path: Path) -> tuple[dict[str, object], Path]:
     if not isinstance(payload, dict):
         raise DetectionDatasetError("Dataset YAML root must be a mapping")
     names = _ordered_names(payload.get("names"))
-    if names != CLASS_NAMES:
-        raise DetectionDatasetError(
-            f"Dataset class order is {names}; expected exactly {CLASS_NAMES}"
-        )
-    if "nc" in payload and payload["nc"] != len(CLASS_NAMES):
-        raise DetectionDatasetError(f"Dataset nc must be {len(CLASS_NAMES)}")
+    if allow_custom_names:
+        if not names or ("nc" in payload and payload["nc"] != len(names)):
+            raise DetectionDatasetError("Dataset nc must equal the number of names")
+    else:
+        if names != CLASS_NAMES:
+            raise DetectionDatasetError(
+                f"Dataset class order is {names}; expected exactly {CLASS_NAMES}"
+            )
+        if "nc" in payload and payload["nc"] != len(CLASS_NAMES):
+            raise DetectionDatasetError(f"Dataset nc must be {len(CLASS_NAMES)}")
     root_value = Path(str(payload.get("path", ".")))
     root = root_value if root_value.is_absolute() else path.parent / root_value
     return payload, root.resolve()

@@ -5,6 +5,7 @@ import pytest
 from PIL import Image
 
 from src.detection.types import BoundingBox, Detection, DetectionResult
+from src.detection.visualization import DETECTION_CLASS_NAMES_VI
 from src.web.detection_logic import (
     DetectionMediaError,
     analyze_image_file,
@@ -28,6 +29,24 @@ class FakeDetector:
             image_width=image.width,
             image_height=image.height,
             inference_ms=12,
+        )
+
+
+class TenClassDetector:
+    def detect_pil(self, image: Image.Image) -> DetectionResult:
+        assert image.mode == "RGB"
+        classes = (
+            "battery", "biological", "cardboard", "clothes", "glass",
+            "metal", "paper", "plastic", "shoes", "trash",
+        )
+        return DetectionResult(
+            detections=tuple(
+                Detection(idx, name, 0.85, BoundingBox(idx * 5, 5, idx * 5 + 10, 20))
+                for idx, name in enumerate(classes)
+            ),
+            image_width=image.width,
+            image_height=image.height,
+            inference_ms=15,
         )
 
 
@@ -56,3 +75,39 @@ def test_annotated_output_counts_and_download_archive() -> None:
 def test_corrupt_upload_is_rejected_before_prediction() -> None:
     with pytest.raises(DetectionMediaError, match="Không thể đọc ảnh"):
         detect_image_bytes(b"not an image", DetectionService(FakeDetector()))
+
+
+def test_detect_image_bytes_handles_exif_orientation_tag() -> None:
+    # 200 x 100 image with EXIF orientation 6 (90 CW rotation -> transposed to 100 x 200)
+    raw = Image.new("RGB", (200, 100), "white")
+    exif = raw.getexif()
+    exif[0x0112] = 6
+
+    buffer = io.BytesIO()
+    raw.save(buffer, format="JPEG", exif=exif)
+
+    service = DetectionService(FakeDetector())
+    image, result = detect_image_bytes(buffer.getvalue(), service)
+
+    # Transposed image should have width=100, height=200
+    assert image.size == (100, 200)
+    assert result.image_width == 100
+    assert result.image_height == 200
+
+    output = analyze_image_file("phone_photo.jpg", buffer.getvalue(), service)
+    with Image.open(io.BytesIO(output.annotated_png)) as annotated:
+        assert annotated.size == (100, 200)
+
+
+def test_ten_classes_display_in_web_rows() -> None:
+    buffer = io.BytesIO()
+    Image.new("RGB", (100, 100), "white").save(buffer, format="PNG")
+    service = DetectionService(TenClassDetector())
+
+    output = analyze_image_file("multi_trash.png", buffer.getvalue(), service)
+    rows = detection_rows(output.result)
+    assert len(rows) == 10
+
+    labels = [row["Loại rác"] for row in rows]
+    expected_labels = list(DETECTION_CLASS_NAMES_VI)
+    assert labels == expected_labels

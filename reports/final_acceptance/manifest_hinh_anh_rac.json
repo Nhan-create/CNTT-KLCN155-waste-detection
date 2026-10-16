@@ -1,0 +1,795 @@
+{
+  "metadata": {
+    "root_directory": "D:\\Hinh_Anh_Rac",
+    "total_files_scanned": 27,
+    "valid_images_count": 27,
+    "corrupt_images_count": 0,
+    "generator": "Agent_D_QA",
+    "timestamp": "2026-10-09T03:00:00Z"
+  },
+  "files": [
+    {
+      "index": 1,
+      "filename": "base64-1717231151649602366964.jpeg",
+      "relative_path": "base64-1717231151649602366964.jpeg",
+      "absolute_path": "D:\\Hinh_Anh_Rac\\base64-1717231151649602366964.jpeg",
+      "file_extension": ".jpeg",
+      "size_bytes": 1095319,
+      "sha256": "c38a8b2e3066a81d6327f16be0078f767b141d414bb0586f9b2ac83e4e06c0b5",
+      "status": "VALID",
+      "pil_decode": {
+        "success": true,
+        "info": {
+          "width": 2000,
+          "height": 1334,
+          "format": "JPEG",
+          "mode": "RGB"
+        },
+        "error": null
+      },
+      "opencv_decode": {
+        "success": true,
+        "info": {
+          "height": 1334,
+          "width": 2000,
+          "channels": 3
+        },
+        "error": null
+      }
+    },
+    {
+      "index": 2,
+      "filename": "battery-sample.png",
+      "relative_path": "battery-sample.png",
+      "absolute_path": "D:\\Hinh_Anh_Rac\\battery-sample.png",
+      "file_extension": ".png",
+      "size_bytes": 109777,
+      "sha256": "34c2804090bfa8baa133495389af7a8bfad96c6ef7be162cd3c191ce705fc0ea",
+      "status": "VALID",
+      "pil_decode": {
+        "success": true,
+        "info": {
+          "width": 512,
+          "height": 411,
+          "format": "PNG",
+          "mode": "RGBA"
+        },
+        "error": null
+      },
+      "opencv_decode": {
+        "success": true,
+        "info": {
+          "height": 411,
+          "width": 512,
+          "channels": 3
+        },
+        "error": null
+      }
+    },
+    {
+      "index": 3,
+      "filename": "download (2).jpg",
+      "relative_path": "download (2).jpg",
+      "absolute_path": "D:\\Hinh_Anh_Rac\\download (2).jpg",
+      "file_extension": ".jpg",
+      "size_bytes": 16499,
+      "sha256": "59268c01566d47a64f071eafb02f4d904952ed919c136bc01c51a73c2f08737e",
+      "status": "VALID",
+      "pil_decode": {
+        "success": true,
+        "info": {
+          "width": 299,
+          "height": 168,
+          "format": "JPEG",
+          "mode": "RGB"
+        },
+        "error": null
+      },
+      "opencv_decode": {
+        "success": true,
+        "info": {
+          "height": 168,
+          "width": 299,
+          "channels": 3
+        },
+        "error": null
+      }
+    },
+    {
+      "index": 4,
+      "filename": "images (10).jpg",
+      "relative_path": "images (10).jpg",
+      "absolute_path": "D:\\Hinh_Anh_Rac\\images (10).jpg",
+      "file_extension": ".jpg",
+      "size_bytes": 71242,
+      "sha256": "9bbe2887e919cd3de4732902b64fa69bf305760f31d8d525b22b1b9274fae5ea",
+      "status": "VALID",
+      "pil_decode": {
+        "success": true,
+        "info": {
+          "width": 640,
+          "height": 398,
+          "format": "JPEG",
+          "mode": "RGB"
+        },
+        "error": null
+      },
+      "opencv_decode": {
+        "success": true,
+        "info": {
+          "height": 398,
+          "width": 640,
+          "channels": 3
+        },
+        "error": null
+      }
+    },
+    {
+      "index": 5,
+      "filename": "images (11).jpg",
+      "relative_path": "images (11).jpg",
+      "absolute_path": "D:\\Hinh_Anh_Rac\\images (11).jpg",
+      "file_extension": ".jpg",
+      "size_bytes": 53835,
+      "sha256": "9ba29e1c0816e9295d9854389d936dcab83778aea58b8ecfb38431689636a33b",
+      "status": "VALID",
+      "pil_decode": {
+        "success": true,
+        "info": {
+          "width": 684,
+          "height": 448,
+          "format": "JPEG",
+          "mode": "RGB"
+        },
+        "error": null
+      },
+      "opencv_decode": {
+        "success": true,
+        "info": {
+          "height": 448,
+          "width": 684,
+          "channels": 3
+        },
+        "error": null
+      }
+    },
+    {
+      "index": 6,
+      "filename": "images (12).jpg",
+      "relative_path": "images (12).jpg",
+      "absolute_path": "D:\\Hinh_Anh_Rac\\images (12).jpg",
+      "file_extension": ".jpg",
+      "size_bytes": 48562,
+      "sha256": "fd8d64cacfaa53e7a855a911cef9c2224190fe086074f494418303e0423032cb",
+      "status": "VALID",
+      "pil_decode": {
+        "success": true,
+        "info": {
+          "width": 554,
+          "height": 554,
+          "format": "JPEG",
+          "mode": "RGB"
+        },
+        "error": null
+      },
+      "opencv_decode": {
+        "success": true,
+        "info": {
+          "height": 554,
+          "width": 554,
+          "channels": 3
+        },
+        "error": null
+      }
+    },
+    {
+      "index": 7,
+      "filename": "images (13).jpg",
+      "relative_path": "images (13).jpg",
+      "absolute_path": "D:\\Hinh_Anh_Rac\\images (13).jpg",
+      "file_extension": ".jpg",
+      "size_bytes": 48757,
+      "sha256": "88b331d53c554a6eabcd700291dc4e0c2418798a3c45ff1ca6b2b00dc186fee7",
+      "status": "VALID",
+      "pil_decode": {
+        "success": true,
+        "info": {
+          "width": 538,
+          "height": 371,
+          "format": "JPEG",
+          "mode": "RGB"
+        },
+        "error": null
+      },
+      "opencv_decode": {
+        "success": true,
+        "info": {
+          "height": 371,
+          "width": 538,
+          "channels": 3
+        },
+        "error": null
+      }
+    },
+    {
+      "index": 8,
+      "filename": "images (14).jpg",
+      "relative_path": "images (14).jpg",
+      "absolute_path": "D:\\Hinh_Anh_Rac\\images (14).jpg",
+      "file_extension": ".jpg",
+      "size_bytes": 54211,
+      "sha256": "5fb3f5e581440f5b58f6e0a2e780fad5f7c5ca16b288e0a68d6e2ea4b496f767",
+      "status": "VALID",
+      "pil_decode": {
+        "success": true,
+        "info": {
+          "width": 547,
+          "height": 365,
+          "format": "JPEG",
+          "mode": "RGB"
+        },
+        "error": null
+      },
+      "opencv_decode": {
+        "success": true,
+        "info": {
+          "height": 365,
+          "width": 547,
+          "channels": 3
+        },
+        "error": null
+      }
+    },
+    {
+      "index": 9,
+      "filename": "images (15).jpg",
+      "relative_path": "images (15).jpg",
+      "absolute_path": "D:\\Hinh_Anh_Rac\\images (15).jpg",
+      "file_extension": ".jpg",
+      "size_bytes": 12033,
+      "sha256": "969a11f8b6be9e53728d66af0d76f331a251443419759f64ad8a1fb4de071820",
+      "status": "VALID",
+      "pil_decode": {
+        "success": true,
+        "info": {
+          "width": 259,
+          "height": 194,
+          "format": "JPEG",
+          "mode": "RGB"
+        },
+        "error": null
+      },
+      "opencv_decode": {
+        "success": true,
+        "info": {
+          "height": 194,
+          "width": 259,
+          "channels": 3
+        },
+        "error": null
+      }
+    },
+    {
+      "index": 10,
+      "filename": "images (17).jpg",
+      "relative_path": "images (17).jpg",
+      "absolute_path": "D:\\Hinh_Anh_Rac\\images (17).jpg",
+      "file_extension": ".jpg",
+      "size_bytes": 32053,
+      "sha256": "c1a77f0cbbf36c400669d7af088578803f533eaaff8f64cd7b35e68e0a71072a",
+      "status": "VALID",
+      "pil_decode": {
+        "success": true,
+        "info": {
+          "width": 547,
+          "height": 365,
+          "format": "JPEG",
+          "mode": "RGB"
+        },
+        "error": null
+      },
+      "opencv_decode": {
+        "success": true,
+        "info": {
+          "height": 365,
+          "width": 547,
+          "channels": 3
+        },
+        "error": null
+      }
+    },
+    {
+      "index": 11,
+      "filename": "images (18).jpg",
+      "relative_path": "images (18).jpg",
+      "absolute_path": "D:\\Hinh_Anh_Rac\\images (18).jpg",
+      "file_extension": ".jpg",
+      "size_bytes": 23749,
+      "sha256": "a867386c7eff92da9eeeea8fc386de9c3b388174e4f39c6302ff92dc3531703d",
+      "status": "VALID",
+      "pil_decode": {
+        "success": true,
+        "info": {
+          "width": 398,
+          "height": 502,
+          "format": "JPEG",
+          "mode": "RGB"
+        },
+        "error": null
+      },
+      "opencv_decode": {
+        "success": true,
+        "info": {
+          "height": 502,
+          "width": 398,
+          "channels": 3
+        },
+        "error": null
+      }
+    },
+    {
+      "index": 12,
+      "filename": "images (19).jpg",
+      "relative_path": "images (19).jpg",
+      "absolute_path": "D:\\Hinh_Anh_Rac\\images (19).jpg",
+      "file_extension": ".jpg",
+      "size_bytes": 56869,
+      "sha256": "f24bc21e89b11e4356a9b51646242b450891c5fa3e1d89d2aa4861eba754471e",
+      "status": "VALID",
+      "pil_decode": {
+        "success": true,
+        "info": {
+          "width": 597,
+          "height": 335,
+          "format": "JPEG",
+          "mode": "RGB"
+        },
+        "error": null
+      },
+      "opencv_decode": {
+        "success": true,
+        "info": {
+          "height": 335,
+          "width": 597,
+          "channels": 3
+        },
+        "error": null
+      }
+    },
+    {
+      "index": 13,
+      "filename": "images (3).jpg",
+      "relative_path": "images (3).jpg",
+      "absolute_path": "D:\\Hinh_Anh_Rac\\images (3).jpg",
+      "file_extension": ".jpg",
+      "size_bytes": 10127,
+      "sha256": "acb83eacc0a7faa5b726d27e9c69575cc48441ca4b5fdd7723bbed98bc5f2d95",
+      "status": "VALID",
+      "pil_decode": {
+        "success": true,
+        "info": {
+          "width": 276,
+          "height": 183,
+          "format": "JPEG",
+          "mode": "RGB"
+        },
+        "error": null
+      },
+      "opencv_decode": {
+        "success": true,
+        "info": {
+          "height": 183,
+          "width": 276,
+          "channels": 3
+        },
+        "error": null
+      }
+    },
+    {
+      "index": 14,
+      "filename": "images (4).jpg",
+      "relative_path": "images (4).jpg",
+      "absolute_path": "D:\\Hinh_Anh_Rac\\images (4).jpg",
+      "file_extension": ".jpg",
+      "size_bytes": 4911,
+      "sha256": "841b66627814ce537345eef827b64d3dbc4c27a840c7581904200b13f648a26b",
+      "status": "VALID",
+      "pil_decode": {
+        "success": true,
+        "info": {
+          "width": 225,
+          "height": 225,
+          "format": "JPEG",
+          "mode": "RGB"
+        },
+        "error": null
+      },
+      "opencv_decode": {
+        "success": true,
+        "info": {
+          "height": 225,
+          "width": 225,
+          "channels": 3
+        },
+        "error": null
+      }
+    },
+    {
+      "index": 15,
+      "filename": "images (5).jpg",
+      "relative_path": "images (5).jpg",
+      "absolute_path": "D:\\Hinh_Anh_Rac\\images (5).jpg",
+      "file_extension": ".jpg",
+      "size_bytes": 2412,
+      "sha256": "78b66b5709c007d1e5068f7ae710764d114a4ada0ff8e5b32ab53b3d97c0c6a5",
+      "status": "VALID",
+      "pil_decode": {
+        "success": true,
+        "info": {
+          "width": 225,
+          "height": 224,
+          "format": "JPEG",
+          "mode": "RGB"
+        },
+        "error": null
+      },
+      "opencv_decode": {
+        "success": true,
+        "info": {
+          "height": 224,
+          "width": 225,
+          "channels": 3
+        },
+        "error": null
+      }
+    },
+    {
+      "index": 16,
+      "filename": "images (6).jpg",
+      "relative_path": "images (6).jpg",
+      "absolute_path": "D:\\Hinh_Anh_Rac\\images (6).jpg",
+      "file_extension": ".jpg",
+      "size_bytes": 14978,
+      "sha256": "2bfe68c5eda7a07a4c966fc023bfe241e4a9793f941c73defb3d28b9f264fff6",
+      "status": "VALID",
+      "pil_decode": {
+        "success": true,
+        "info": {
+          "width": 318,
+          "height": 159,
+          "format": "JPEG",
+          "mode": "RGB"
+        },
+        "error": null
+      },
+      "opencv_decode": {
+        "success": true,
+        "info": {
+          "height": 159,
+          "width": 318,
+          "channels": 3
+        },
+        "error": null
+      }
+    },
+    {
+      "index": 17,
+      "filename": "images (7).jpg",
+      "relative_path": "images (7).jpg",
+      "absolute_path": "D:\\Hinh_Anh_Rac\\images (7).jpg",
+      "file_extension": ".jpg",
+      "size_bytes": 48757,
+      "sha256": "88b331d53c554a6eabcd700291dc4e0c2418798a3c45ff1ca6b2b00dc186fee7",
+      "status": "VALID",
+      "pil_decode": {
+        "success": true,
+        "info": {
+          "width": 538,
+          "height": 371,
+          "format": "JPEG",
+          "mode": "RGB"
+        },
+        "error": null
+      },
+      "opencv_decode": {
+        "success": true,
+        "info": {
+          "height": 371,
+          "width": 538,
+          "channels": 3
+        },
+        "error": null
+      }
+    },
+    {
+      "index": 18,
+      "filename": "images (8).jpg",
+      "relative_path": "images (8).jpg",
+      "absolute_path": "D:\\Hinh_Anh_Rac\\images (8).jpg",
+      "file_extension": ".jpg",
+      "size_bytes": 18580,
+      "sha256": "3e25e96f45d11019dbe446590b587ee7583afb606fd07b9014155f8b7eab7bbc",
+      "status": "VALID",
+      "pil_decode": {
+        "success": true,
+        "info": {
+          "width": 426,
+          "height": 469,
+          "format": "JPEG",
+          "mode": "RGB"
+        },
+        "error": null
+      },
+      "opencv_decode": {
+        "success": true,
+        "info": {
+          "height": 469,
+          "width": 426,
+          "channels": 3
+        },
+        "error": null
+      }
+    },
+    {
+      "index": 19,
+      "filename": "images (9).jpg",
+      "relative_path": "images (9).jpg",
+      "absolute_path": "D:\\Hinh_Anh_Rac\\images (9).jpg",
+      "file_extension": ".jpg",
+      "size_bytes": 19558,
+      "sha256": "79aed9312dc7b6c848bd0c3723ed43404567e3cda59106b3537463846c402a96",
+      "status": "VALID",
+      "pil_decode": {
+        "success": true,
+        "info": {
+          "width": 515,
+          "height": 388,
+          "format": "JPEG",
+          "mode": "RGB"
+        },
+        "error": null
+      },
+      "opencv_decode": {
+        "success": true,
+        "info": {
+          "height": 388,
+          "width": 515,
+          "channels": 3
+        },
+        "error": null
+      }
+    },
+    {
+      "index": 20,
+      "filename": "OIP (1).webp",
+      "relative_path": "OIP (1).webp",
+      "absolute_path": "D:\\Hinh_Anh_Rac\\OIP (1).webp",
+      "file_extension": ".webp",
+      "size_bytes": 22948,
+      "sha256": "f204c0dd962444571356f3249918bc0bb05dbd9c3137d63576de9e1f62296b27",
+      "status": "VALID",
+      "pil_decode": {
+        "success": true,
+        "info": {
+          "width": 313,
+          "height": 237,
+          "format": "WEBP",
+          "mode": "RGB"
+        },
+        "error": null
+      },
+      "opencv_decode": {
+        "success": true,
+        "info": {
+          "height": 237,
+          "width": 313,
+          "channels": 3
+        },
+        "error": null
+      }
+    },
+    {
+      "index": 21,
+      "filename": "OIP.webp",
+      "relative_path": "OIP.webp",
+      "absolute_path": "D:\\Hinh_Anh_Rac\\OIP.webp",
+      "file_extension": ".webp",
+      "size_bytes": 27626,
+      "sha256": "62eb47e2e9f5e066ae7e284ca1c13b1ced52034412e46eec2566964c9ecd8ecf",
+      "status": "VALID",
+      "pil_decode": {
+        "success": true,
+        "info": {
+          "width": 274,
+          "height": 234,
+          "format": "WEBP",
+          "mode": "RGB"
+        },
+        "error": null
+      },
+      "opencv_decode": {
+        "success": true,
+        "info": {
+          "height": 234,
+          "width": 274,
+          "channels": 3
+        },
+        "error": null
+      }
+    },
+    {
+      "index": 22,
+      "filename": "Phan-Loai-Rac-Tai-Ng-01.jpg",
+      "relative_path": "Phan-Loai-Rac-Tai-Ng-01.jpg",
+      "absolute_path": "D:\\Hinh_Anh_Rac\\Phan-Loai-Rac-Tai-Ng-01.jpg",
+      "file_extension": ".jpg",
+      "size_bytes": 176448,
+      "sha256": "1d92405cc9f1aff260255150c95c8590247e98b836d68789fc10f05bfee30375",
+      "status": "VALID",
+      "pil_decode": {
+        "success": true,
+        "info": {
+          "width": 960,
+          "height": 720,
+          "format": "JPEG",
+          "mode": "RGB"
+        },
+        "error": null
+      },
+      "opencv_decode": {
+        "success": true,
+        "info": {
+          "height": 720,
+          "width": 960,
+          "channels": 3
+        },
+        "error": null
+      }
+    },
+    {
+      "index": 23,
+      "filename": "photo-5-1642556540067542343380.webp",
+      "relative_path": "photo-5-1642556540067542343380.webp",
+      "absolute_path": "D:\\Hinh_Anh_Rac\\photo-5-1642556540067542343380.webp",
+      "file_extension": ".webp",
+      "size_bytes": 151653,
+      "sha256": "73c8b455c00f5f1c3d8ce43e2d2949e8a26aa351060f5f7ffe0510a5cf0614e7",
+      "status": "VALID",
+      "pil_decode": {
+        "success": true,
+        "info": {
+          "width": 620,
+          "height": 376,
+          "format": "JPEG",
+          "mode": "RGB"
+        },
+        "error": null
+      },
+      "opencv_decode": {
+        "success": true,
+        "info": {
+          "height": 376,
+          "width": 620,
+          "channels": 3
+        },
+        "error": null
+      }
+    },
+    {
+      "index": 24,
+      "filename": "pin_vuong_4f15ab32849e43a8abdaef2bf000463f.webp",
+      "relative_path": "pin_vuong_4f15ab32849e43a8abdaef2bf000463f.webp",
+      "absolute_path": "D:\\Hinh_Anh_Rac\\pin_vuong_4f15ab32849e43a8abdaef2bf000463f.webp",
+      "file_extension": ".webp",
+      "size_bytes": 29812,
+      "sha256": "247df500b4fda209d81bcaab37ea66f468fc82ab721a30caaba5de2ed10d702b",
+      "status": "VALID",
+      "pil_decode": {
+        "success": true,
+        "info": {
+          "width": 800,
+          "height": 800,
+          "format": "WEBP",
+          "mode": "RGB"
+        },
+        "error": null
+      },
+      "opencv_decode": {
+        "success": true,
+        "info": {
+          "height": 800,
+          "width": 800,
+          "channels": 3
+        },
+        "error": null
+      }
+    },
+    {
+      "index": 25,
+      "filename": "rac-1562828175-1562828212-3852-1562828313.webp",
+      "relative_path": "rac-1562828175-1562828212-3852-1562828313.webp",
+      "absolute_path": "D:\\Hinh_Anh_Rac\\rac-1562828175-1562828212-3852-1562828313.webp",
+      "file_extension": ".webp",
+      "size_bytes": 94744,
+      "sha256": "8cf8f55715db1dc53b815976a690bb6dbcef26cce9c2a74d7f6b3834b264b3cb",
+      "status": "VALID",
+      "pil_decode": {
+        "success": true,
+        "info": {
+          "width": 532,
+          "height": 299,
+          "format": "WEBP",
+          "mode": "RGB"
+        },
+        "error": null
+      },
+      "opencv_decode": {
+        "success": true,
+        "info": {
+          "height": 299,
+          "width": 532,
+          "channels": 3
+        },
+        "error": null
+      }
+    },
+    {
+      "index": 26,
+      "filename": "rac-thai-huu-co-1.jpg",
+      "relative_path": "rac-thai-huu-co-1.jpg",
+      "absolute_path": "D:\\Hinh_Anh_Rac\\rac-thai-huu-co-1.jpg",
+      "file_extension": ".jpg",
+      "size_bytes": 65222,
+      "sha256": "63725ccb524387b443c28e9255a5eb2cf3cb2a1581e2f168e4ca9aff9caa0df2",
+      "status": "VALID",
+      "pil_decode": {
+        "success": true,
+        "info": {
+          "width": 600,
+          "height": 410,
+          "format": "JPEG",
+          "mode": "RGB"
+        },
+        "error": null
+      },
+      "opencv_decode": {
+        "success": true,
+        "info": {
+          "height": 410,
+          "width": 600,
+          "channels": 3
+        },
+        "error": null
+      }
+    },
+    {
+      "index": 27,
+      "filename": "rac-thai-quan-ao-4.jpg",
+      "relative_path": "rac-thai-quan-ao-4.jpg",
+      "absolute_path": "D:\\Hinh_Anh_Rac\\rac-thai-quan-ao-4.jpg",
+      "file_extension": ".jpg",
+      "size_bytes": 99003,
+      "sha256": "4e35a45bb283422b1ada2c889eb36de629b66ff5b5438529e557da67d34d1945",
+      "status": "VALID",
+      "pil_decode": {
+        "success": true,
+        "info": {
+          "width": 600,
+          "height": 375,
+          "format": "JPEG",
+          "mode": "RGB"
+        },
+        "error": null
+      },
+      "opencv_decode": {
+        "success": true,
+        "info": {
+          "height": 375,
+          "width": 600,
+          "channels": 3
+        },
+        "error": null
+      }
+    }
+  ]
+}

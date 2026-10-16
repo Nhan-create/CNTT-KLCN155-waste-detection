@@ -8,7 +8,7 @@ from src.detection.fusion import FusionDetector
 def create_detector(
     backend: str, model_path: Path | str, *, secondary_model_path: Path | str | None = None,
     device: str = "auto", confidence_threshold: float = 0.35,
-    iou_threshold: float = 0.55, image_size: int = 640, max_detections: int = 100,
+    iou_threshold: float = 0.55, image_size: int | None = None, max_detections: int = 100,
     fusion_weights: tuple[float, float] = (1.0, 1.0), fusion_iou_threshold: float = 0.55,
     fusion_input_threshold: float | None = None,
 ):

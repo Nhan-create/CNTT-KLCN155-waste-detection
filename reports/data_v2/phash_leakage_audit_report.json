@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "execution_timestamp_utc": "2026-10-11T18:39:14Z",
+    "duration_seconds": 16.24,
+    "v3_candidate_images_tested": 1820,
+    "holdout_images_tested": 147,
+    "official_27_holdout_tested": 27,
+    "hamming_near_dup_threshold": 8,
+    "hamming_similarity_threshold": 12
+  },
+  "verdict": "VERIFIED_ZERO_LEAKAGE",
+  "cross_split_audit": {
+    "pairs_hamming_lte_8": 0,
+    "pairs_hamming_9_to_12": 8,
+    "exact_perceptual_duplicates_count": 0,
+    "suspicious_pairs": []
+  },
+  "holdout_leakage_audit": {
+    "official_27_benchmark_leaks_lte_8": 0,
+    "all_holdout_leaks_lte_8": 0,
+    "all_holdout_similar_9_to_12": 1,
+    "exact_holdout_duplicates_count": 0,
+    "suspicious_pairs": []
+  },
+  "conclusions": {
+    "holdout_isolation": "CONFIRMED: Zero exact duplicates (Hamming == 0) and zero near-duplicates with the 27 official Holdout benchmark images.",
+    "cross_split_isolation": "CONFIRMED: Stratified splits maintain independent perceptual content without cross-split leakage.",
+    "policy": "No splits were automatically deleted or mutated; all findings documented transparently."
+  }
+}

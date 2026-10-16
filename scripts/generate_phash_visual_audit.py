@@ -13,10 +13,10 @@ from PIL import Image, ImageDraw
 import numpy as np
 import pandas as pd
 
-PROJECT_ROOT = Path("D:/CNTT-KLCN155-waste-detection")
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DECISION_TABLE = PROJECT_ROOT / "data" / "audit" / "visual_audit_decision_table.csv"
 DEFAULT_VIS_DIR = PROJECT_ROOT / "data" / "audit" / "visual_phash_inspection"
-BASE_DATA_DIR = Path("D:/HK7/Đồ án khóa luận")
+BASE_DATA_DIR = Path(__import__("os").environ.get("WASTE_LEGACY_DATA_DIR", str(Path(__file__).resolve().parents[1] / "data" / "legacy_hk7")))
 
 
 def main() -> int:

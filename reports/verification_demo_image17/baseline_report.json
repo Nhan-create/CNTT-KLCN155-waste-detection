@@ -1,0 +1,575 @@
+{
+  "metadata": {
+    "generated_at_utc": "2026-10-12T02:38:59Z",
+    "evaluation_target": "D:\\Hinh_Anh_Rac\\images (17).jpg",
+    "image_dimensions": {
+      "width": 547,
+      "height": 365
+    },
+    "image_sha256": "c1a77f0cbbf36c400669d7af088578803f533eaaff8f64cd7b35e68e0a71072a",
+    "hardware_verification": {
+      "detected_gpu": "NVIDIA GeForce RTX 2050",
+      "cuda_available": true,
+      "vram_gb": 4.0,
+      "conclusion": "Hệ thống đang sử dụng card NVIDIA GeForce RTX 2050 (4GB VRAM), KHÔNG PHẢI RTX 3060."
+    }
+  },
+  "checkpoints": {
+    "ssdlite_v2_active": {
+      "path": "artifacts\\detection_v2\\E2_ssdlite320_10cls\\weights\\best.pt",
+      "sha256": "c9eb52efe6c5592340843d7678ae7d742eb2250d5ee9aaebbae620b8ebd465e7",
+      "size_bytes": 28459990,
+      "role": "Mô hình chính SSDLite v2 đang nạp trên UI"
+    },
+    "ssdlite_v1_legacy": {
+      "path": "artifacts/detection/waste-ssdlite320-mobilenetv3-combined-seed42/weights/best.pt",
+      "sha256": "584c5980eb4ebe3718da7b3e87a3c95edfee3d78f186def3e5feba32cf03dff1",
+      "size_bytes": 28456982,
+      "role": "Mô hình chính SSDLite v1 baseline (seed42)"
+    },
+    "yolov8n_v2_active": {
+      "path": "artifacts\\detection_v2\\E1_yolov8n_10cls\\weights\\best.pt",
+      "sha256": "7e986deed90ba4208f4662039c1e78b2d03ffb41a6e57e8235184db78aec32d8",
+      "size_bytes": 6228451,
+      "role": "Mô hình đối chứng YOLOv8n v2 đang nạp trên UI"
+    },
+    "yolov8n_v1_legacy": {
+      "path": "artifacts/detection/waste-yolov8n-combined-seed42/weights/best.pt",
+      "sha256": "97f46ccaaa0a63c5934225d51ccd399c1c18eb3e1af8a63b9f14bec1aaa085c9",
+      "size_bytes": 6217379,
+      "role": "Mô hình đối chứng YOLOv8n v1 baseline (seed42)"
+    },
+    "classifier_mobilenetv3": {
+      "path": "artifacts\\official_run\\best_model.pt",
+      "sha256": "c824fec4f3d1dffff946cd8ad7e2d4f121be33e684dda4e6af92b5bda343e424",
+      "size_bytes": 50929856,
+      "role": "Classifier MobileNetV3 thẩm định Two-Stage"
+    }
+  },
+  "qa_ground_truth_verification": {
+    "dataset_manifest": "reports/qa_acceptance/manifest_hinh_anh_rac.json",
+    "ground_truth_file": "reports/qa_acceptance/ground_truth_hinh_anh_rac.json",
+    "frozen_status": "1.0_FROZEN (Đóng băng độc lập bởi Agent_D_QA)",
+    "total_images_in_gt": 27,
+    "total_objects_in_gt": 57,
+    "is_exactly_27_images_57_gt": true,
+    "target_image_17_gt_objects_count": 11,
+    "target_image_17_gt_objects": [
+      {
+        "object_id": "img10_obj01",
+        "class_name": "plastic",
+        "class_id": 7,
+        "bbox_xyxy": [
+          0,
+          162,
+          262,
+          365
+        ],
+        "reviewer": "Agent_D_QA",
+        "review_rationale": "Thùng rác tái chế bằng nhựa trong suốt mờ bên trái có logo recycle."
+      },
+      {
+        "object_id": "img10_obj02",
+        "class_name": "plastic",
+        "class_id": 7,
+        "bbox_xyxy": [
+          250,
+          178,
+          535,
+          365
+        ],
+        "reviewer": "Agent_D_QA",
+        "review_rationale": "Thùng rác tái chế bằng nhựa màu đen bên phải có logo recycle."
+      },
+      {
+        "object_id": "img10_obj03",
+        "class_name": "metal",
+        "class_id": 5,
+        "bbox_xyxy": [
+          0,
+          185,
+          115,
+          252
+        ],
+        "reviewer": "Agent_D_QA",
+        "review_rationale": "Hộp thiếc kim loại hình bông tuyết màu xanh trong thùng bên trái."
+      },
+      {
+        "object_id": "img10_obj04",
+        "class_name": "metal",
+        "class_id": 5,
+        "bbox_xyxy": [
+          195,
+          218,
+          258,
+          250
+        ],
+        "reviewer": "Agent_D_QA",
+        "review_rationale": "Lon nước ngọt kim loại màu đỏ cắm ống hút đen."
+      },
+      {
+        "object_id": "img10_obj05",
+        "class_name": "glass",
+        "class_id": 4,
+        "bbox_xyxy": [
+          68,
+          105,
+          150,
+          240
+        ],
+        "reviewer": "Agent_D_QA",
+        "review_rationale": "Chai thủy tinh màu xanh lá cây trong thùng bên trái."
+      },
+      {
+        "object_id": "img10_obj06",
+        "class_name": "glass",
+        "class_id": 4,
+        "bbox_xyxy": [
+          41,
+          110,
+          86,
+          190
+        ],
+        "reviewer": "Agent_D_QA",
+        "review_rationale": "Cổ chai thủy tinh trong suốt nằm sau chai xanh lá cây."
+      },
+      {
+        "object_id": "img10_obj07",
+        "class_name": "plastic",
+        "class_id": 7,
+        "bbox_xyxy": [
+          250,
+          18,
+          330,
+          205
+        ],
+        "reviewer": "Agent_D_QA",
+        "review_rationale": "Chai nhựa trong suốt cao có ngấn rãnh ở thùng đen bên trái."
+      },
+      {
+        "object_id": "img10_obj08",
+        "class_name": "plastic",
+        "class_id": 7,
+        "bbox_xyxy": [
+          328,
+          52,
+          405,
+          200
+        ],
+        "reviewer": "Agent_D_QA",
+        "review_rationale": "Bình nhựa màu trắng đục nắp vặn nhọn ở thùng đen."
+      },
+      {
+        "object_id": "img10_obj09",
+        "class_name": "plastic",
+        "class_id": 7,
+        "bbox_xyxy": [
+          400,
+          45,
+          470,
+          200
+        ],
+        "reviewer": "Agent_D_QA",
+        "review_rationale": "Chai nước khoáng nhựa trong suốt nắp xanh dương ở thùng đen."
+      },
+      {
+        "object_id": "img10_obj10",
+        "class_name": "plastic",
+        "class_id": 7,
+        "bbox_xyxy": [
+          425,
+          110,
+          510,
+          210
+        ],
+        "reviewer": "Agent_D_QA",
+        "review_rationale": "Hộp/chai nhựa trong suốt miệng rộng phía ngoài cùng bên phải thùng đen."
+      },
+      {
+        "object_id": "img10_obj11",
+        "class_name": "metal",
+        "class_id": 5,
+        "bbox_xyxy": [
+          360,
+          175,
+          415,
+          210
+        ],
+        "reviewer": "Agent_D_QA",
+        "review_rationale": "Lon nhôm kim loại bị ép bẹp ở mép thùng đen."
+      }
+    ]
+  },
+  "baseline_metrics_reconciliation": {
+    "dataset_holdout_27_images_57_gt": {
+      "evaluator": "practical_metrics.py (COCO rule, IoU >= 0.50, Conf >= 0.25)",
+      "models": {
+        "ssdlite_v1_legacy": {
+          "mAP50": 0.0572,
+          "mAP50_95": 0.0057,
+          "precision": 0.08,
+          "recall": 0.035,
+          "f1": 0.049,
+          "tp": 2,
+          "fp": 23,
+          "fn": 55,
+          "latency_ms": 65.9,
+          "acceptance_status": "FAIL"
+        },
+        "ssdlite_v2_active_raw": {
+          "mAP50": 0.056,
+          "mAP50_95": 0.027,
+          "precision": 0.185,
+          "recall": 0.088,
+          "f1": 0.119,
+          "tp": 5,
+          "fp": 22,
+          "fn": 52,
+          "latency_ms": 62.4,
+          "acceptance_status": "FAIL"
+        },
+        "yolov8n_v1_legacy": {
+          "mAP50": 0.0004,
+          "mAP50_95": 0.0002,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 28,
+          "fn": 57,
+          "latency_ms": 48.2,
+          "acceptance_status": "FAIL (Box siêu nhỏ do train ảnh ghép 320)"
+        },
+        "yolov8n_v2_active": {
+          "mAP50": 0.0571,
+          "mAP50_95": 0.0289,
+          "precision": 0.156,
+          "recall": 0.088,
+          "f1": 0.112,
+          "tp": 5,
+          "fp": 27,
+          "fn": 52,
+          "latency_ms": 48.4,
+          "acceptance_status": "FAIL (Thiếu mẫu âm ngoài đường phố)"
+        }
+      }
+    },
+    "root_cause_of_discrepant_map_reports": [
+      {
+        "reported_number": "SSDLite mAP = 12.6% (loss 3.20, 36 epochs)",
+        "source": "artifacts/detection_v2/E2_ssdlite320_10cls/training_summary.json (best_val_map50_95 = 0.1264)",
+        "reality": "Đây là mAP50-95 trên tập validation 299 ảnh trong lúc huấn luyện E2, KHÔNG PHẢI trên tập holdout 27 ảnh D:\\Hinh_Anh_Rac (holdout chỉ đạt 5.60% mAP50 và 2.70% mAP50-95)."
+      },
+      {
+        "reported_number": "YOLOv8n mAP = 13.80%",
+        "source": "artifacts/detection_v2/E1_yolov8n_10cls/eval_val_test.json (test.map50_95 = 0.1380)",
+        "reality": "Đây là mAP50-95 trên tập test split 299 ảnh của dataset v2, KHÔNG PHẢI tập holdout 27 ảnh (trên holdout mAP50 là 5.71% và mAP50-95 là 2.89%). Báo cáo cũ đã đánh tráo tập dữ liệu và nhầm giữa mAP50 và mAP50-95."
+      },
+      {
+        "reported_number": "YOLOv8n TP=0, FP=28, FN=57 (P=0%, R=0%)",
+        "source": "reports/qa_acceptance/practical_metrics_baseline.json",
+        "reality": "Được đo trên YOLOv8n v1 legacy (waste-yolov8n-combined-seed42) vốn train trên ảnh ghép 320x320 nên chỉ bắt box nhỏ xíu 20px, không bắt được rác thật ở IoU >= 0.5."
+      }
+    ]
+  },
+  "root_cause_analysis_question_4_23_8_percent": {
+    "phenomenon": "Reviewer quan sát thấy độ tin cậy hiển thị 23.8% trên UI dù slider đặt 25%.",
+    "investigation_result": "Đã tìm thấy chính xác nguồn gốc lỗi tại streamlit_app.py dòng 231-255 và configs/detection_thresholds_calibrated.json.",
+    "mathematical_mechanism": [
+      "1. Điểm Stage 1 (SSDLite v2): Dự đoán box plastic tại vị trí chai nước khoáng với confidence = 0.2971 (29.71%).",
+      "2. Thẩm định Two-Stage (MobileNetV3): Classifier nhận diện crop là plastic với xác suất P = 0.8028 (80.28%).",
+      "3. Nhân xác suất Bayesian (product scoring): Score_final = 0.2971 * 0.8028 = 0.2385 (23.85% -> hiển thị 23.8%).",
+      "4. Lọc ngưỡng phân lớp ngầm: Dù thanh slider hiển thị 25% (0.25), file configs/detection_thresholds_calibrated.json quy định ngưỡng riêng cho plastic là 0.22 (22%).",
+      "5. Vì 0.2385 >= 0.22, PerClassThresholdDetector đã CHO PHÉP box này hiển thị, trong khi người dùng nhìn vào slider tưởng rằng ngưỡng sàn toàn hệ thống là 25%."
+    ],
+    "conclusion": "Không có lỗi làm tròn số học, mà do UI âm thầm nạp bảng ngưỡng hiệu chuẩn riêng từng lớp (per-class calibrated thresholds) làm hạ trần lớp plastic xuống 22% mà không thông báo trên giao diện."
+  },
+  "experiment_comparison_a_b_c": {
+    "config_A_ssdlite_tiling_twostage": {
+      "model": "SSDLite v2 (E2_ssdlite320_10cls)",
+      "tiling": "Bật (min_side_to_tile=800, bypassed do ảnh 547x365 <= 800)",
+      "two_stage": "Bật (MobileNetV3, product mode)",
+      "boxes_displayed_ui": 1,
+      "boxes_displayed_pure_025": 0,
+      "processing_time_ms": 72.1,
+      "detections": [
+        {
+          "class_id": "plastic",
+          "confidence": 0.2385,
+          "confidence_pct": "23.8%",
+          "bbox_xyxy": [
+            393.1,
+            53.8,
+            477.9,
+            182.4
+          ],
+          "matches_gt": "img10_obj09 (Chai nước khoáng nhựa trong suốt, GT IoU = 0.71)"
+        }
+      ],
+      "detailed_proposals_trace": [
+        {
+          "proposal_index": 1,
+          "stage1_class": "plastic",
+          "stage1_confidence": 0.2971,
+          "bbox_xyxy": [
+            393.1,
+            53.8,
+            477.9,
+            182.4
+          ],
+          "classifier_top3": [
+            [
+              "plastic",
+              0.8097
+            ],
+            [
+              "paper",
+              0.0302
+            ],
+            [
+              "clothes",
+              0.0298
+            ]
+          ],
+          "classifier_chosen_class": "plastic",
+          "classifier_chosen_prob": 0.8097,
+          "product_score": 0.2406,
+          "product_score_pct": "24.1%",
+          "calibrated_threshold": 0.22,
+          "passed_ui_calibrated": true,
+          "passed_pure_025": false,
+          "ui_retained": true
+        },
+        {
+          "proposal_index": 2,
+          "stage1_class": "glass",
+          "stage1_confidence": 0.2159,
+          "bbox_xyxy": [
+            100.1,
+            141.9,
+            164.3,
+            250.2
+          ],
+          "classifier_top3": [
+            [
+              "plastic",
+              0.8602
+            ],
+            [
+              "glass",
+              0.0642
+            ],
+            [
+              "cardboard",
+              0.0144
+            ]
+          ],
+          "classifier_chosen_class": "plastic",
+          "classifier_chosen_prob": 0.8602,
+          "product_score": 0.1857,
+          "product_score_pct": "18.6%",
+          "calibrated_threshold": 0.22,
+          "passed_ui_calibrated": false,
+          "passed_pure_025": false,
+          "ui_retained": false
+        },
+        {
+          "proposal_index": 3,
+          "stage1_class": "plastic",
+          "stage1_confidence": 0.1732,
+          "bbox_xyxy": [
+            329.9,
+            59.3,
+            400.0,
+            193.5
+          ],
+          "classifier_top3": [
+            [
+              "plastic",
+              0.7836
+            ],
+            [
+              "glass",
+              0.0596
+            ],
+            [
+              "metal",
+              0.0309
+            ]
+          ],
+          "classifier_chosen_class": "plastic",
+          "classifier_chosen_prob": 0.7836,
+          "product_score": 0.1357,
+          "product_score_pct": "13.6%",
+          "calibrated_threshold": 0.22,
+          "passed_ui_calibrated": false,
+          "passed_pure_025": false,
+          "ui_retained": false
+        },
+        {
+          "proposal_index": 4,
+          "stage1_class": "glass",
+          "stage1_confidence": 0.1699,
+          "bbox_xyxy": [
+            252.4,
+            20.8,
+            339.4,
+            210.2
+          ],
+          "classifier_top3": [
+            [
+              "plastic",
+              0.909
+            ],
+            [
+              "metal",
+              0.0232
+            ],
+            [
+              "paper",
+              0.012
+            ]
+          ],
+          "classifier_chosen_class": "plastic",
+          "classifier_chosen_prob": 0.909,
+          "product_score": 0.1545,
+          "product_score_pct": "15.4%",
+          "calibrated_threshold": 0.22,
+          "passed_ui_calibrated": false,
+          "passed_pure_025": false,
+          "ui_retained": false
+        },
+        {
+          "proposal_index": 5,
+          "stage1_class": "clothes",
+          "stage1_confidence": 0.156,
+          "bbox_xyxy": [
+            188.2,
+            222.8,
+            263.7,
+            360.9
+          ],
+          "classifier_top3": [
+            [
+              "plastic",
+              0.4318
+            ],
+            [
+              "metal",
+              0.3803
+            ],
+            [
+              "battery",
+              0.0463
+            ]
+          ],
+          "classifier_chosen_class": "plastic",
+          "classifier_chosen_prob": 0.4318,
+          "product_score": 0.0674,
+          "product_score_pct": "6.7%",
+          "calibrated_threshold": 0.22,
+          "passed_ui_calibrated": false,
+          "passed_pure_025": false,
+          "ui_retained": false
+        }
+      ]
+    },
+    "config_B_ssdlite_tiling_no_twostage": {
+      "model": "SSDLite v2 (E2_ssdlite320_10cls)",
+      "tiling": "Bật (bypassed do min_side_to_tile=800)",
+      "two_stage": "Tắt",
+      "confidence_threshold": 0.25,
+      "boxes_displayed": 1,
+      "processing_time_ms": 430.7,
+      "detections": [
+        {
+          "class_id": "plastic",
+          "confidence": 0.2971,
+          "confidence_pct": "29.7%",
+          "bbox_xyxy": [
+            393.1,
+            53.8,
+            477.9,
+            182.4
+          ]
+        }
+      ],
+      "note": "Chỉ có 1 box plastic (conf=29.7%) vượt qua ngưỡng 0.25. Toàn bộ các vật thể khác (lon nước ngọt, chai thủy tinh, hộp thiếc) có raw detector score < 0.25 nên bị loại bỏ hoàn toàn."
+    },
+    "config_C_yolov8n_tiling_no_twostage": {
+      "model": "YOLOv8n v2 (E1_yolov8n_10cls)",
+      "tiling": "Bật (bypassed do min_side_to_tile=800)",
+      "two_stage": "Tắt",
+      "confidence_threshold": 0.25,
+      "boxes_displayed": 5,
+      "processing_time_ms": 585.8,
+      "detections": [
+        {
+          "class_id": "shoes",
+          "confidence": 0.6543,
+          "confidence_pct": "65.4%",
+          "bbox_xyxy": [
+            91.5,
+            292.1,
+            160.5,
+            353.8
+          ]
+        },
+        {
+          "class_id": "plastic",
+          "confidence": 0.562,
+          "confidence_pct": "56.2%",
+          "bbox_xyxy": [
+            243.1,
+            17.7,
+            337.0,
+            210.0
+          ]
+        },
+        {
+          "class_id": "plastic",
+          "confidence": 0.3745,
+          "confidence_pct": "37.5%",
+          "bbox_xyxy": [
+            403.5,
+            46.3,
+            493.0,
+            206.7
+          ]
+        },
+        {
+          "class_id": "metal",
+          "confidence": 0.3074,
+          "confidence_pct": "30.7%",
+          "bbox_xyxy": [
+            351.9,
+            173.0,
+            426.5,
+            209.2
+          ]
+        },
+        {
+          "class_id": "plastic",
+          "confidence": 0.2768,
+          "confidence_pct": "27.7%",
+          "bbox_xyxy": [
+            0.1,
+            105.5,
+            274.5,
+            365.0
+          ]
+        }
+      ],
+      "note": "Phát hiện được 5 vật thể rác: 3 chai nhựa/thùng nhựa, 1 lon nhôm bị bẹp, và 1 lỗi nhận nhầm texture thùng rác thành shoes (conf=65.4%). Không bị bỏ sót nặng như SSDLite."
+    }
+  },
+  "webcam_mode_clarification": {
+    "rule": "Webcam chụp ảnh tĩnh không được báo là video detection thời gian thực.",
+    "current_implementation_status": [
+      "Tại streamlit_app.py (dòng 289 và 321), chức năng webcam sử dụng st.camera_input('Hoặc chụp ảnh từ webcam').",
+      "Thành phần st.camera_input chỉ thực hiện chụp một khung hình tĩnh (single frame photo capture) gửi lên server xử lý theo lô.",
+      "Hệ thống KHÔNG chạy pipeline video stream thời gian thực (WebRTC / live RTSP) trên màn hình này.",
+      "Cam kết: Mọi tài liệu và báo cáo không được gọi chức năng chụp ảnh từ webcam là 'nhận diện video thời gian thực'."
+    ]
+  }
+}

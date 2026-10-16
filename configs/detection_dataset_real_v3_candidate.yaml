@@ -1,0 +1,52 @@
+# Candidate Dataset Configuration for Waste Detection v3 (Phase 4A)
+# Target Architecture: SSDLite320-MobileNetV3 (Primary) & YOLOv8n (Comparator)
+# Note: Candidate configuration for review and trial preparation. Does not overwrite v2.
+
+version: "real_v3_candidate"
+description: "Waste detection dataset candidate v3 with balanced representation and hard-negatives"
+
+paths:
+  root: "data/detection"
+  images_dir: "data/detection/images/real"
+  labels_dir: "data/detection/labels/real"
+  splits_dir: "data/detection/splits_real_v3"
+  train_split: "data/detection/splits_real_v3/train.txt"
+  val_split: "data/detection/splits_real_v3/val.txt"
+  test_split: "data/detection/splits_real_v3/test.txt"
+
+taxonomy:
+  num_classes: 10
+  names:
+    0: "battery"
+    1: "biological"
+    2: "cardboard"
+    3: "clothes"
+    4: "glass"
+    5: "metal"
+    6: "paper"
+    7: "plastic"
+    8: "shoes"
+    9: "trash"
+
+# Model specific conventions:
+# - SSDLite320: Background = 0, Foreground = 1..10 (Target loader +1, Decoder -1)
+# - YOLOv8n: Foreground = 0..9 (Zero-indexed, background handled via objectness loss)
+
+quality_gates:
+  min_box_area_normalized: 0.0001
+  max_box_area_normalized: 0.95
+  max_duplicate_iou_same_class: 0.95
+  max_phash_hamming_to_holdout: 8
+  min_class_train_boxes: 50
+  target_negative_ratio_min: 0.05
+  target_negative_ratio_max: 0.15
+
+hard_negatives:
+  enabled: true
+  empty_label_file_format: "empty .txt (0 bytes)"
+  allowed_categories:
+    - "clean_sidewalk_and_road"
+    - "building_facades_and_brick_walls"
+    - "utility_boxes_and_transformers"
+    - "empty_public_trash_bins"
+    - "indoor_furniture_and_floors"

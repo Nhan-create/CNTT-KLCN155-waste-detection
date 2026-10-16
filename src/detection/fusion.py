@@ -70,15 +70,29 @@ def fuse_detections(
         iou_thr=iou_threshold, skip_box_thr=confidence_threshold,
         conf_type="avg", allows_overflow=False,
     )
-    fused = tuple(
-        Detection(
-            int(label), DETECTION_CLASS_NAMES[int(label)], min(1.0, float(score)),
-            BoundingBox(float(box[0]) * width, float(box[1]) * height,
-                        float(box[2]) * width, float(box[3]) * height),
+    fused_rows: list[Detection] = []
+    for box, score, label in zip(boxes, scores, labels, strict=True):
+        if score < output_threshold:
+            continue
+        raw_box = BoundingBox(
+            float(box[0]) * width,
+            float(box[1]) * height,
+            float(box[2]) * width,
+            float(box[3]) * height,
         )
-        for box, score, label in zip(boxes, scores, labels, strict=True)
-        if score >= output_threshold
-    )[:max_detections]
+        clipped = raw_box.clip(width, height)
+        if clipped is None:
+            continue
+        label_idx = int(label)
+        fused_rows.append(
+            Detection(
+                label_idx,
+                DETECTION_CLASS_NAMES[label_idx],
+                min(1.0, float(score)),
+                clipped,
+            )
+        )
+    fused = tuple(fused_rows[:max_detections])
     elapsed = (time.perf_counter() - started) * 1000
     if all(result.inference_ms is not None for result in results):
         elapsed += sum(result.inference_ms for result in results)
@@ -91,9 +105,52 @@ class FusionDetector:
         self.fusion_options = fusion_options
 
     def detect_pil(self, image: Image.Image) -> DetectionResult:
+        from PIL import ImageOps
+
+        prepared = ImageOps.exif_transpose(image).convert("RGB")
         started = time.perf_counter()
         result = fuse_detections(
-            [detector.detect_pil(image) for detector in self.detectors], **self.fusion_options,
+            [detector.detect_pil(prepared) for detector in self.detectors], **self.fusion_options,
         )
         return DetectionResult(result.detections, result.image_width, result.image_height,
                                (time.perf_counter() - started) * 1000)
+
+
+def box_iou(a: BoundingBox, b: BoundingBox) -> float:
+    ix1, iy1 = max(a.x1, b.x1), max(a.y1, b.y1)
+    ix2, iy2 = min(a.x2, b.x2), min(a.y2, b.y2)
+    inter = max(0.0, ix2 - ix1) * max(0.0, iy2 - iy1)
+    union = a.area + b.area - inter
+    return inter / union if union > 0 else 0.0
+
+
+def box_intersection_over_smaller(a: BoundingBox, b: BoundingBox) -> float:
+    ix1, iy1 = max(a.x1, b.x1), max(a.y1, b.y1)
+    ix2, iy2 = min(a.x2, b.x2), min(a.y2, b.y2)
+    inter = max(0.0, ix2 - ix1) * max(0.0, iy2 - iy1)
+    smaller = min(a.area, b.area)
+    return inter / smaller if smaller > 0 else 0.0
+
+
+def class_wise_nms(
+    detections: Sequence[Detection],
+    *,
+    iou_threshold: float = 0.5,
+    max_detections: int | None = None,
+) -> list[Detection]:
+    """Greedy NMS applied independently per ``class_index``; output sorted by confidence."""
+    if not 0.0 <= iou_threshold <= 1.0:
+        raise ValueError("iou_threshold must lie in [0, 1]")
+    ordered = sorted(detections, key=lambda d: (-d.confidence, d.class_index))
+    kept: list[Detection] = []
+    for candidate in ordered:
+        if all(
+            other.class_index != candidate.class_index
+            or box_iou(other.box, candidate.box) <= iou_threshold
+            for other in kept
+        ):
+            kept.append(candidate)
+            if max_detections is not None and len(kept) >= max_detections:
+                break
+    return kept
+

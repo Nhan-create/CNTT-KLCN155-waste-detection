@@ -1,0 +1,510 @@
+{
+  "predictions": {
+    "base64-1717231151649602366964.jpeg": [],
+    "battery-sample.png": [
+      {
+        "class_id": 8,
+        "confidence": 0.9188,
+        "bbox_xyxy": [
+          7.37,
+          31.2,
+          512.0,
+          386.34
+        ]
+      }
+    ],
+    "download (2).jpg": [],
+    "images (10).jpg": [
+      {
+        "class_id": 7,
+        "confidence": 0.2058,
+        "bbox_xyxy": [
+          505.87,
+          357.55,
+          532.46,
+          382.6
+        ]
+      }
+    ],
+    "images (11).jpg": [
+      {
+        "class_id": 7,
+        "confidence": 0.2218,
+        "bbox_xyxy": [
+          272.75,
+          175.7,
+          326.69,
+          224.53
+        ]
+      }
+    ],
+    "images (12).jpg": [
+      {
+        "class_id": 2,
+        "confidence": 0.2269,
+        "bbox_xyxy": [
+          17.57,
+          32.29,
+          469.4,
+          420.5
+        ]
+      },
+      {
+        "class_id": 2,
+        "confidence": 0.2249,
+        "bbox_xyxy": [
+          223.47,
+          189.69,
+          387.77,
+          288.43
+        ]
+      },
+      {
+        "class_id": 2,
+        "confidence": 0.2031,
+        "bbox_xyxy": [
+          193.16,
+          32.33,
+          524.77,
+          423.98
+        ]
+      }
+    ],
+    "images (13).jpg": [
+      {
+        "class_id": 5,
+        "confidence": 0.3441,
+        "bbox_xyxy": [
+          190.34,
+          36.06,
+          249.5,
+          101.01
+        ]
+      },
+      {
+        "class_id": 6,
+        "confidence": 0.2873,
+        "bbox_xyxy": [
+          256.91,
+          298.74,
+          377.82,
+          371.0
+        ]
+      }
+    ],
+    "images (14).jpg": [
+      {
+        "class_id": 3,
+        "confidence": 0.3741,
+        "bbox_xyxy": [
+          191.93,
+          140.9,
+          428.82,
+          297.95
+        ]
+      },
+      {
+        "class_id": 4,
+        "confidence": 0.3611,
+        "bbox_xyxy": [
+          192.98,
+          141.21,
+          431.55,
+          299.02
+        ]
+      },
+      {
+        "class_id": 5,
+        "confidence": 0.2851,
+        "bbox_xyxy": [
+          201.4,
+          122.29,
+          250.08,
+          177.4
+        ]
+      },
+      {
+        "class_id": 5,
+        "confidence": 0.2499,
+        "bbox_xyxy": [
+          366.42,
+          182.67,
+          461.48,
+          242.68
+        ]
+      },
+      {
+        "class_id": 4,
+        "confidence": 0.2189,
+        "bbox_xyxy": [
+          365.44,
+          181.92,
+          461.57,
+          243.19
+        ]
+      },
+      {
+        "class_id": 7,
+        "confidence": 0.2158,
+        "bbox_xyxy": [
+          365.55,
+          181.23,
+          461.62,
+          243.61
+        ]
+      }
+    ],
+    "images (15).jpg": [
+      {
+        "class_id": 8,
+        "confidence": 0.4931,
+        "bbox_xyxy": [
+          95.96,
+          89.97,
+          189.47,
+          157.55
+        ]
+      }
+    ],
+    "images (17).jpg": [
+      {
+        "class_id": 8,
+        "confidence": 0.6542,
+        "bbox_xyxy": [
+          91.47,
+          292.11,
+          160.54,
+          353.76
+        ]
+      },
+      {
+        "class_id": 7,
+        "confidence": 0.5626,
+        "bbox_xyxy": [
+          243.13,
+          17.71,
+          336.95,
+          209.98
+        ]
+      },
+      {
+        "class_id": 7,
+        "confidence": 0.3755,
+        "bbox_xyxy": [
+          403.52,
+          46.29,
+          492.99,
+          206.69
+        ]
+      },
+      {
+        "class_id": 5,
+        "confidence": 0.3079,
+        "bbox_xyxy": [
+          351.92,
+          173.03,
+          426.47,
+          209.15
+        ]
+      },
+      {
+        "class_id": 7,
+        "confidence": 0.2795,
+        "bbox_xyxy": [
+          0.08,
+          105.51,
+          274.49,
+          365.0
+        ]
+      },
+      {
+        "class_id": 7,
+        "confidence": 0.2076,
+        "bbox_xyxy": [
+          41.35,
+          101.35,
+          157.69,
+          241.9
+        ]
+      }
+    ],
+    "images (18).jpg": [
+      {
+        "class_id": 5,
+        "confidence": 0.7912,
+        "bbox_xyxy": [
+          20.94,
+          8.27,
+          360.88,
+          499.78
+        ]
+      },
+      {
+        "class_id": 3,
+        "confidence": 0.5429,
+        "bbox_xyxy": [
+          12.41,
+          8.66,
+          388.97,
+          501.0
+        ]
+      }
+    ],
+    "images (19).jpg": [
+      {
+        "class_id": 7,
+        "confidence": 0.5218,
+        "bbox_xyxy": [
+          484.38,
+          108.49,
+          546.3,
+          182.39
+        ]
+      }
+    ],
+    "images (3).jpg": [
+      {
+        "class_id": 3,
+        "confidence": 0.8144,
+        "bbox_xyxy": [
+          0.0,
+          11.91,
+          122.77,
+          173.47
+        ]
+      }
+    ],
+    "images (4).jpg": [],
+    "images (5).jpg": [
+      {
+        "class_id": 7,
+        "confidence": 0.5408,
+        "bbox_xyxy": [
+          89.26,
+          14.5,
+          134.95,
+          64.59
+        ]
+      },
+      {
+        "class_id": 8,
+        "confidence": 0.2255,
+        "bbox_xyxy": [
+          70.33,
+          19.79,
+          151.99,
+          222.54
+        ]
+      }
+    ],
+    "images (6).jpg": [],
+    "images (7).jpg": [
+      {
+        "class_id": 5,
+        "confidence": 0.3441,
+        "bbox_xyxy": [
+          190.34,
+          36.06,
+          249.5,
+          101.01
+        ]
+      },
+      {
+        "class_id": 6,
+        "confidence": 0.2873,
+        "bbox_xyxy": [
+          256.91,
+          298.74,
+          377.82,
+          371.0
+        ]
+      }
+    ],
+    "images (8).jpg": [
+      {
+        "class_id": 3,
+        "confidence": 0.7846,
+        "bbox_xyxy": [
+          18.7,
+          0.09,
+          423.19,
+          465.14
+        ]
+      }
+    ],
+    "images (9).jpg": [],
+    "OIP (1).webp": [],
+    "OIP.webp": [],
+    "Phan-Loai-Rac-Tai-Ng-01.jpg": [
+      {
+        "class_id": 3,
+        "confidence": 0.7881,
+        "bbox_xyxy": [
+          465.63,
+          22.33,
+          523.16,
+          130.11
+        ]
+      },
+      {
+        "class_id": 7,
+        "confidence": 0.7807,
+        "bbox_xyxy": [
+          334.35,
+          305.36,
+          669.71,
+          649.54
+        ]
+      },
+      {
+        "class_id": 7,
+        "confidence": 0.6671,
+        "bbox_xyxy": [
+          199.49,
+          152.11,
+          590.61,
+          475.99
+        ]
+      },
+      {
+        "class_id": 7,
+        "confidence": 0.5358,
+        "bbox_xyxy": [
+          619.59,
+          414.25,
+          763.87,
+          547.42
+        ]
+      },
+      {
+        "class_id": 6,
+        "confidence": 0.4678,
+        "bbox_xyxy": [
+          575.05,
+          561.11,
+          722.91,
+          708.57
+        ]
+      },
+      {
+        "class_id": 7,
+        "confidence": 0.4464,
+        "bbox_xyxy": [
+          518.89,
+          210.78,
+          574.17,
+          247.1
+        ]
+      },
+      {
+        "class_id": 9,
+        "confidence": 0.2327,
+        "bbox_xyxy": [
+          348.49,
+          668.36,
+          370.68,
+          690.48
+        ]
+      },
+      {
+        "class_id": 7,
+        "confidence": 0.2253,
+        "bbox_xyxy": [
+          664.63,
+          516.08,
+          732.91,
+          586.4
+        ]
+      },
+      {
+        "class_id": 7,
+        "confidence": 0.2135,
+        "bbox_xyxy": [
+          566.06,
+          412.23,
+          759.18,
+          712.69
+        ]
+      },
+      {
+        "class_id": 7,
+        "confidence": 0.2012,
+        "bbox_xyxy": [
+          277.29,
+          557.19,
+          362.34,
+          642.14
+        ]
+      }
+    ],
+    "photo-5-1642556540067542343380.webp": [
+      {
+        "class_id": 3,
+        "confidence": 0.3732,
+        "bbox_xyxy": [
+          129.45,
+          243.71,
+          232.52,
+          374.89
+        ]
+      }
+    ],
+    "pin_vuong_4f15ab32849e43a8abdaef2bf000463f.webp": [
+      {
+        "class_id": 5,
+        "confidence": 0.8827,
+        "bbox_xyxy": [
+          239.48,
+          128.65,
+          562.49,
+          514.69
+        ]
+      }
+    ],
+    "rac-1562828175-1562828212-3852-1562828313.webp": [
+      {
+        "class_id": 4,
+        "confidence": 0.4373,
+        "bbox_xyxy": [
+          469.24,
+          174.87,
+          531.74,
+          205.3
+        ]
+      },
+      {
+        "class_id": 4,
+        "confidence": 0.3998,
+        "bbox_xyxy": [
+          0.0,
+          133.46,
+          217.04,
+          299.0
+        ]
+      }
+    ],
+    "rac-thai-huu-co-1.jpg": [],
+    "rac-thai-quan-ao-4.jpg": [
+      {
+        "class_id": 7,
+        "confidence": 0.631,
+        "bbox_xyxy": [
+          101.02,
+          129.22,
+          424.52,
+          321.61
+        ]
+      },
+      {
+        "class_id": 7,
+        "confidence": 0.2503,
+        "bbox_xyxy": [
+          362.65,
+          338.74,
+          466.91,
+          375.0
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,524 @@
+{
+  "report_version": "TASK8F_FINAL_SAFETY_SIGN_OFF_V1",
+  "approved_for_train": false,
+  "pm_checklist_verification": {
+    "task1_nms_and_bbox_safety": {
+      "blind_nms_removed": true,
+      "agnostic_nms_disabled_in_extractor": true,
+      "duplicate_annotation_Pairs_remaining_all_748": 0,
+      "real_waste_pass_duplicate_pairs_remaining": 0,
+      "preserved_valid_same_class_high_iou_overlaps_in_aux_review": 9,
+      "preserved_valid_cross_class_overlaps_all_748": 13,
+      "preserved_real_waste_pass_multi_instance_overlaps": [
+        {
+          "candidate_id": "task8f_0024",
+          "class_name": "shoes",
+          "box_a_idx": 0,
+          "box_b_idx": 1,
+          "category": "NORMAL_DISTINCT_INSTANCES",
+          "keep_both": true,
+          "requires_visual_review": false,
+          "iou": 0.027618,
+          "max_edge_delta": 0.36,
+          "center_delta": 0.350036
+        },
+        {
+          "candidate_id": "task8f_0039",
+          "class_name": "shoes",
+          "box_a_idx": 0,
+          "box_b_idx": 1,
+          "category": "NORMAL_DISTINCT_INSTANCES",
+          "keep_both": true,
+          "requires_visual_review": false,
+          "iou": 0.13986,
+          "max_edge_delta": 0.44,
+          "center_delta": 0.41512
+        },
+        {
+          "candidate_id": "task8f_0063",
+          "class_name": "shoes",
+          "box_a_idx": 0,
+          "box_b_idx": 1,
+          "category": "NORMAL_DISTINCT_INSTANCES",
+          "keep_both": true,
+          "requires_visual_review": false,
+          "iou": 0.038158,
+          "max_edge_delta": 0.55,
+          "center_delta": 0.438463
+        },
+        {
+          "candidate_id": "task8f_0095",
+          "class_name": "biological",
+          "box_a_idx": 0,
+          "box_b_idx": 1,
+          "category": "NORMAL_DISTINCT_INSTANCES",
+          "keep_both": true,
+          "requires_visual_review": false,
+          "iou": 0.019386,
+          "max_edge_delta": 0.52,
+          "center_delta": 0.450389
+        },
+        {
+          "candidate_id": "task8f_0095",
+          "class_name": "biological",
+          "box_a_idx": 0,
+          "box_b_idx": 2,
+          "category": "NORMAL_DISTINCT_INSTANCES",
+          "keep_both": true,
+          "requires_visual_review": false,
+          "iou": 0.160226,
+          "max_edge_delta": 0.44,
+          "center_delta": 0.343001
+        },
+        {
+          "candidate_id": "task8f_0115",
+          "class_name": "shoes",
+          "box_a_idx": 0,
+          "box_b_idx": 1,
+          "category": "NORMAL_DISTINCT_INSTANCES",
+          "keep_both": true,
+          "requires_visual_review": false,
+          "iou": 0.089084,
+          "max_edge_delta": 0.44,
+          "center_delta": 0.427931
+        },
+        {
+          "candidate_id": "task8f_0131",
+          "class_name": "shoes",
+          "box_a_idx": 0,
+          "box_b_idx": 1,
+          "category": "NORMAL_DISTINCT_INSTANCES",
+          "keep_both": true,
+          "requires_visual_review": false,
+          "iou": 0.144157,
+          "max_edge_delta": 0.44,
+          "center_delta": 0.394271
+        },
+        {
+          "candidate_id": "task8f_0151",
+          "class_name": "shoes",
+          "box_a_idx": 0,
+          "box_b_idx": 1,
+          "category": "NORMAL_DISTINCT_INSTANCES",
+          "keep_both": true,
+          "requires_visual_review": false,
+          "iou": 0.085954,
+          "max_edge_delta": 0.43,
+          "center_delta": 0.43566
+        },
+        {
+          "candidate_id": "task8f_0165",
+          "class_name": "metal",
+          "box_a_idx": 0,
+          "box_b_idx": 1,
+          "category": "NORMAL_DISTINCT_INSTANCES",
+          "keep_both": true,
+          "requires_visual_review": false,
+          "iou": 0.016749,
+          "max_edge_delta": 0.3,
+          "center_delta": 0.367764
+        },
+        {
+          "candidate_id": "task8f_0199",
+          "class_name": "biological",
+          "box_a_idx": 0,
+          "box_b_idx": 1,
+          "category": "NORMAL_DISTINCT_INSTANCES",
+          "keep_both": true,
+          "requires_visual_review": false,
+          "iou": 0.026375,
+          "max_edge_delta": 0.64,
+          "center_delta": 0.521584
+        },
+        {
+          "candidate_id": "task8f_0199",
+          "class_name": "biological",
+          "box_a_idx": 1,
+          "box_b_idx": 2,
+          "category": "NORMAL_DISTINCT_INSTANCES",
+          "keep_both": true,
+          "requires_visual_review": false,
+          "iou": 0.0529,
+          "max_edge_delta": 0.34,
+          "center_delta": 0.309273
+        },
+        {
+          "candidate_id": "task8f_0285",
+          "class_name": "battery",
+          "box_a_idx": 0,
+          "box_b_idx": 1,
+          "category": "NORMAL_DISTINCT_INSTANCES",
+          "keep_both": true,
+          "requires_visual_review": false,
+          "iou": 0.366864,
+          "max_edge_delta": 0.18,
+          "center_delta": 0.159765
+        },
+        {
+          "candidate_id": "task8f_0285",
+          "class_name": "battery",
+          "box_a_idx": 0,
+          "box_b_idx": 2,
+          "category": "NORMAL_DISTINCT_INSTANCES",
+          "keep_both": true,
+          "requires_visual_review": false,
+          "iou": 0.06859,
+          "max_edge_delta": 0.34,
+          "center_delta": 0.300832
+        },
+        {
+          "candidate_id": "task8f_0285",
+          "class_name": "battery",
+          "box_a_idx": 1,
+          "box_b_idx": 2,
+          "category": "NORMAL_DISTINCT_INSTANCES",
+          "keep_both": true,
+          "requires_visual_review": false,
+          "iou": 0.354621,
+          "max_edge_delta": 0.16,
+          "center_delta": 0.141156
+        },
+        {
+          "candidate_id": "task8f_0285",
+          "class_name": "battery",
+          "box_a_idx": 1,
+          "box_b_idx": 3,
+          "category": "NORMAL_DISTINCT_INSTANCES",
+          "keep_both": true,
+          "requires_visual_review": false,
+          "iou": 0.104218,
+          "max_edge_delta": 0.27,
+          "center_delta": 0.237171
+        },
+        {
+          "candidate_id": "task8f_0285",
+          "class_name": "battery",
+          "box_a_idx": 2,
+          "box_b_idx": 3,
+          "category": "NORMAL_DISTINCT_INSTANCES",
+          "keep_both": true,
+          "requires_visual_review": false,
+          "iou": 0.438871,
+          "max_edge_delta": 0.11,
+          "center_delta": 0.097082
+        },
+        {
+          "candidate_id": "task8f_0288",
+          "class_name": "battery",
+          "box_a_idx": 0,
+          "box_b_idx": 1,
+          "category": "NORMAL_DISTINCT_INSTANCES",
+          "keep_both": true,
+          "requires_visual_review": false,
+          "iou": 0.106651,
+          "max_edge_delta": 0.36,
+          "center_delta": 0.326841
+        },
+        {
+          "candidate_id": "task8f_0641",
+          "class_name": "paper",
+          "box_a_idx": 0,
+          "box_b_idx": 1,
+          "category": "NORMAL_DISTINCT_INSTANCES",
+          "keep_both": true,
+          "requires_visual_review": false,
+          "iou": 0.030675,
+          "max_edge_delta": 0.11,
+          "center_delta": 0.113358
+        },
+        {
+          "candidate_id": "task8f_0716",
+          "class_name": "shoes",
+          "box_a_idx": 0,
+          "box_b_idx": 1,
+          "category": "NORMAL_DISTINCT_INSTANCES",
+          "keep_both": true,
+          "requires_visual_review": false,
+          "iou": 0.047506,
+          "max_edge_delta": 0.1,
+          "center_delta": 0.095525
+        }
+      ],
+      "aux_review_preserved_high_iou_pairs": [
+        {
+          "candidate_id": "task8f_0052",
+          "qa_status": "KEEP_AUXILIARY",
+          "source_id": "SRC_8F_02_WIKIMEDIA_SCARCE_REAL_WASTE",
+          "class_name": "glass",
+          "box_a_idx": 0,
+          "box_b_idx": 2,
+          "category": "VALID_SAME_CLASS_OVERLAP",
+          "keep_both": true,
+          "requires_visual_review": true,
+          "iou": 0.85807,
+          "max_edge_delta": 0.0596,
+          "center_delta": 0.034997
+        },
+        {
+          "candidate_id": "task8f_0409",
+          "qa_status": "KEEP_AUXILIARY",
+          "source_id": "SRC_8F_03_OPENIMAGES_SCARCE_CLASSES_TRAIN_VAL",
+          "class_name": "glass",
+          "box_a_idx": 0,
+          "box_b_idx": 1,
+          "category": "VALID_SAME_CLASS_OVERLAP",
+          "keep_both": true,
+          "requires_visual_review": true,
+          "iou": 0.900163,
+          "max_edge_delta": 0.093559,
+          "center_delta": 0.046779
+        },
+        {
+          "candidate_id": "task8f_0440",
+          "qa_status": "NEEDS_REVIEW",
+          "source_id": "SRC_8F_03_OPENIMAGES_SCARCE_CLASSES_TRAIN_VAL",
+          "class_name": "biological",
+          "box_a_idx": 5,
+          "box_b_idx": 10,
+          "category": "VALID_SAME_CLASS_OVERLAP",
+          "keep_both": true,
+          "requires_visual_review": true,
+          "iou": 0.750017,
+          "max_edge_delta": 0.035399,
+          "center_delta": 0.025031
+        },
+        {
+          "candidate_id": "task8f_0462",
+          "qa_status": "KEEP_AUXILIARY",
+          "source_id": "SRC_8F_03_OPENIMAGES_SCARCE_CLASSES_TRAIN_VAL",
+          "class_name": "glass",
+          "box_a_idx": 3,
+          "box_b_idx": 4,
+          "category": "VALID_SAME_CLASS_OVERLAP",
+          "keep_both": true,
+          "requires_visual_review": true,
+          "iou": 0.704153,
+          "max_edge_delta": 0.110417,
+          "center_delta": 0.034375
+        },
+        {
+          "candidate_id": "task8f_0472",
+          "qa_status": "KEEP_AUXILIARY",
+          "source_id": "SRC_8F_03_OPENIMAGES_SCARCE_CLASSES_TRAIN_VAL",
+          "class_name": "glass",
+          "box_a_idx": 1,
+          "box_b_idx": 4,
+          "category": "VALID_SAME_CLASS_OVERLAP",
+          "keep_both": true,
+          "requires_visual_review": true,
+          "iou": 0.713326,
+          "max_edge_delta": 0.18125,
+          "center_delta": 0.09084
+        },
+        {
+          "candidate_id": "task8f_0472",
+          "qa_status": "KEEP_AUXILIARY",
+          "source_id": "SRC_8F_03_OPENIMAGES_SCARCE_CLASSES_TRAIN_VAL",
+          "class_name": "glass",
+          "box_a_idx": 2,
+          "box_b_idx": 5,
+          "category": "VALID_SAME_CLASS_OVERLAP",
+          "keep_both": true,
+          "requires_visual_review": true,
+          "iou": 0.713617,
+          "max_edge_delta": 0.190626,
+          "center_delta": 0.090918
+        },
+        {
+          "candidate_id": "task8f_0492",
+          "qa_status": "NEEDS_REVIEW",
+          "source_id": "SRC_8F_03_OPENIMAGES_SCARCE_CLASSES_TRAIN_VAL",
+          "class_name": "glass",
+          "box_a_idx": 0,
+          "box_b_idx": 9,
+          "category": "VALID_SAME_CLASS_OVERLAP",
+          "keep_both": true,
+          "requires_visual_review": true,
+          "iou": 0.836722,
+          "max_edge_delta": 0.017188,
+          "center_delta": 0.005567
+        },
+        {
+          "candidate_id": "task8f_0493",
+          "qa_status": "KEEP_AUXILIARY",
+          "source_id": "SRC_8F_03_OPENIMAGES_SCARCE_CLASSES_TRAIN_VAL",
+          "class_name": "glass",
+          "box_a_idx": 1,
+          "box_b_idx": 3,
+          "category": "VALID_SAME_CLASS_OVERLAP",
+          "keep_both": true,
+          "requires_visual_review": true,
+          "iou": 0.726297,
+          "max_edge_delta": 0.22419,
+          "center_delta": 0.112117
+        },
+        {
+          "candidate_id": "task8f_0497",
+          "qa_status": "KEEP_AUXILIARY",
+          "source_id": "SRC_8F_03_OPENIMAGES_SCARCE_CLASSES_TRAIN_VAL",
+          "class_name": "glass",
+          "box_a_idx": 2,
+          "box_b_idx": 3,
+          "category": "VALID_SAME_CLASS_OVERLAP",
+          "keep_both": true,
+          "requires_visual_review": true,
+          "iou": 0.75296,
+          "max_edge_delta": 0.1906,
+          "center_delta": 0.094501
+        }
+      ],
+      "three_regression_cases": {
+        "case1_duplicate_single_object": {
+          "input_boxes": [
+            [
+              6,
+              0.19,
+              0.25,
+              0.61,
+              0.67
+            ],
+            [
+              6,
+              0.194,
+              0.252,
+              0.608,
+              0.668
+            ]
+          ],
+          "classification": {
+            "category": "DUPLICATE_ANNOTATION",
+            "keep_both": false,
+            "requires_visual_review": false,
+            "iou": 0.976327,
+            "max_edge_delta": 0.004,
+            "center_delta": 0.001
+          },
+          "deduplicated_box_count": 1
+        },
+        "case2_two_same_class_objects_strong_overlap": {
+          "input_boxes": [
+            [
+              2,
+              0.2,
+              0.2,
+              0.7,
+              0.7
+            ],
+            [
+              2,
+              0.26,
+              0.2,
+              0.76,
+              0.7
+            ]
+          ],
+          "classification": {
+            "category": "VALID_SAME_CLASS_OVERLAP",
+            "keep_both": true,
+            "requires_visual_review": true,
+            "iou": 0.785714,
+            "max_edge_delta": 0.06,
+            "center_delta": 0.06
+          },
+          "deduplicated_box_count": 2
+        },
+        "case3_two_different_class_objects_overlap": {
+          "input_boxes": [
+            [
+              2,
+              0.21,
+              0.03,
+              0.83,
+              0.94
+            ],
+            [
+              1,
+              0.39,
+              0.56,
+              0.54,
+              0.72
+            ]
+          ],
+          "classification": {
+            "category": "VALID_CROSS_CLASS_OVERLAP",
+            "keep_both": true,
+            "requires_visual_review": false,
+            "iou": 0.042538,
+            "max_edge_delta": 0.53,
+            "center_delta": 0.164469
+          },
+          "deduplicated_box_count": 2
+        },
+        "case3b_two_different_class_objects_high_iou_overlap": {
+          "input_boxes": [
+            [4, 0.2, 0.2, 0.7, 0.7],
+            [6, 0.21, 0.21, 0.69, 0.69]
+          ],
+          "classification": {
+            "category": "VALID_CROSS_CLASS_OVERLAP",
+            "keep_both": true,
+            "requires_visual_review": false,
+            "iou": 0.9216,
+            "max_edge_delta": 0.01,
+            "center_delta": 0.0
+          },
+          "deduplicated_box_count": 2
+        }
+      }
+    },
+    "task2_infer_material_class_from_title_safety": {
+      "candidate_only_proposal_enforced": true,
+      "can_auto_promote_qa_pass": false,
+      "can_auto_assert_actual_waste": false,
+      "scarce_and_conflict_classes_require_visual_qa": true,
+      "human_verified_annotations_protected": true,
+      "sample_proposal_audit": {
+        "proposed_class_id": 4,
+        "proposed_class_name": "glass",
+        "default_class_id": 6,
+        "is_candidate_only": true,
+        "title_changed_class": true,
+        "requires_visual_qa": true,
+        "can_auto_promote_qa_pass": false,
+        "can_auto_assert_actual_waste": false,
+        "human_verified_preserved": false
+      },
+      "sample_human_override_audit": {
+        "proposed_class_id": 6,
+        "proposed_class_name": "paper",
+        "default_class_id": 6,
+        "is_candidate_only": false,
+        "title_changed_class": false,
+        "requires_visual_qa": false,
+        "can_auto_promote_qa_pass": false,
+        "can_auto_assert_actual_waste": false,
+        "human_verified_preserved": true
+      }
+    },
+    "task3_final_dataset_and_idempotency": {
+      "total_candidates": 748,
+      "real_waste_pass_images": 86,
+      "real_waste_pass_boxes": 120,
+      "train_real_waste_w8f_images": 71,
+      "val_real_waste_w8f_images": 15,
+      "keep_auxiliary_images": 379,
+      "needs_review_images": 126,
+      "reject_images": 157,
+      "source_test_in_train_or_val": 0,
+      "train_val_session_overlap": 0,
+      "train_val_specimen_overlap": 0,
+      "approved_for_train": false,
+      "idempotency_verified": true,
+      "manifest_json_sha256_run1": "7a24e9344c8e410b70269ce42b8408d18016ce1f664f0cee36f5f91d8529bb85",
+      "manifest_json_sha256_run2": "7a24e9344c8e410b70269ce42b8408d18016ce1f664f0cee36f5f91d8529bb85",
+      "manifest_csv_sha256_run1": "8e11b1068791b551a726ae363c19be2197a82f84f4f3f87fca8f9fbed396b83d",
+      "manifest_csv_sha256_run2": "8e11b1068791b551a726ae363c19be2197a82f84f4f3f87fca8f9fbed396b83d"
+    },
+    "pytest_verification": {
+      "total_tests": 9,
+      "passed_tests": 9,
+      "stdout": "============================= test session starts =============================\nplatform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.6.0 -- D:\\CNTT-KLCN155-waste-detection\\.venv\\Scripts\\python.exe\ncachedir: .pytest_cache\nPyQt5 5.15.11 -- Qt runtime 5.15.2 -- Qt compiled 5.15.2\nrootdir: D:\\CNTT-KLCN155-waste-detection\nconfigfile: pytest.ini\nplugins: anyio-4.15.1, platformdirs-4.13.0, qt-4.5.0\ncollecting ... collected 9 items\n\ntests/detection/test_task8_manifest_report_consistency.py::test_wave1_manifest_labels_and_report_consistency PASSED [ 11%]\ntests/detection/test_task8_manifest_report_consistency.py::test_wave2_three_criteria_and_priority_reaudit PASSED [ 22%]\ntests/detection/test_task8_manifest_report_consistency.py::test_real_waste_validation_hygiene_and_zero_leakage PASSED [ 33%]\ntests/detection/test_task8_manifest_report_consistency.py::test_task8d_audited_manifest_and_mini_pack_consistency PASSED [ 44%]\ntests/detection/test_task8_manifest_report_consistency.py::test_task8e_final_qa_patch_and_regression_audit PASSED [ 55%]\ntests/detection/test_task8_manifest_report_consistency.py::test_part_b_three_tier_ledger_and_part_cd_task8f_expansion PASSED [ 66%]\ntests/detection/test_task8_manifest_report_consistency.py::test_task8f_semantic_qa_correction_and_regression_gates PASSED [ 77%]\ntests/detection/test_task8_manifest_report_consistency.py::test_task8f_final_safety_nms_and_overlap_three_regression_cases PASSED [ 88%]\ntests/detection/test_task8_manifest_report_consistency.py::test_task8f_final_safety_title_inference_and_idempotency PASSED [100%]\n\n============================== 9 passed in 4.46s =============================="
+    },
+    "controversial_and_borderline_needs_review_count": 126
+  }
+}

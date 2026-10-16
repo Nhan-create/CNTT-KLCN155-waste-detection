@@ -1,0 +1,218 @@
+{
+  "status": "PASSED",
+  "dataset_yaml": "D:\\CNTT-KLCN155-waste-detection\\data\\detection_v3_candidate\\yolo\\data.yaml",
+  "total_classes_declared": 10,
+  "total_classes_verified": 10,
+  "all_10_classes_verified": true,
+  "batches_audited_train": 195,
+  "total_boxes_audited_train": 3604,
+  "batches_audited_val": 5,
+  "total_boxes_audited_val": 41,
+  "classes_verification_table": [
+    {
+      "class_id": 0,
+      "class_name": "battery",
+      "first_observed_batch": 159,
+      "image_file": "taco_0499.jpg",
+      "batched_bbox_xywh": [
+        0.492,
+        0.7173,
+        0.0642,
+        0.2234
+      ],
+      "finite_verified": true
+    },
+    {
+      "class_id": 1,
+      "class_name": "biological",
+      "first_observed_batch": 194,
+      "image_file": "taco_0704.jpg",
+      "batched_bbox_xywh": [
+        0.9634,
+        0.0486,
+        0.0133,
+        0.0138
+      ],
+      "finite_verified": true
+    },
+    {
+      "class_id": 2,
+      "class_name": "cardboard",
+      "first_observed_batch": 79,
+      "image_file": "taco_0001.jpg",
+      "batched_bbox_xywh": [
+        0.5103,
+        0.3519,
+        0.8946,
+        0.7039
+      ],
+      "finite_verified": true
+    },
+    {
+      "class_id": 3,
+      "class_name": "clothes",
+      "first_observed_batch": 0,
+      "image_file": "oi_0010c714a5da358a.jpg",
+      "batched_bbox_xywh": [
+        0.8109,
+        0.0257,
+        0.0645,
+        0.0515
+      ],
+      "finite_verified": true
+    },
+    {
+      "class_id": 4,
+      "class_name": "glass",
+      "first_observed_batch": 10,
+      "image_file": "oi_19d8f27a8ca22742.jpg",
+      "batched_bbox_xywh": [
+        0.6009,
+        0.8332,
+        0.1698,
+        0.3336
+      ],
+      "finite_verified": true
+    },
+    {
+      "class_id": 5,
+      "class_name": "metal",
+      "first_observed_batch": 11,
+      "image_file": "oi_1b2caa903ca364a0.jpg",
+      "batched_bbox_xywh": [
+        0.9087,
+        0.1464,
+        0.1826,
+        0.2929
+      ],
+      "finite_verified": true
+    },
+    {
+      "class_id": 6,
+      "class_name": "paper",
+      "first_observed_batch": 46,
+      "image_file": "oi_85ccc93d1f941931.jpg",
+      "batched_bbox_xywh": [
+        0.0507,
+        0.2092,
+        0.1013,
+        0.1429
+      ],
+      "finite_verified": true
+    },
+    {
+      "class_id": 7,
+      "class_name": "plastic",
+      "first_observed_batch": 31,
+      "image_file": "oi_527bec033e8298a5.jpg",
+      "batched_bbox_xywh": [
+        0.2219,
+        0.7213,
+        0.4437,
+        0.5575
+      ],
+      "finite_verified": true
+    },
+    {
+      "class_id": 8,
+      "class_name": "shoes",
+      "first_observed_batch": 0,
+      "image_file": "oi_0118c9c3bb046cb1.jpg",
+      "batched_bbox_xywh": [
+        0.6926,
+        0.1807,
+        0.6148,
+        0.3614
+      ],
+      "finite_verified": true
+    },
+    {
+      "class_id": 9,
+      "class_name": "trash",
+      "first_observed_batch": 84,
+      "image_file": "taco_0030.jpg",
+      "batched_bbox_xywh": [
+        0.3943,
+        0.484,
+        0.013,
+        0.0369
+      ],
+      "finite_verified": true
+    }
+  ],
+  "sparse_classes_status": {
+    "battery": {
+      "class_id": 0,
+      "train_instances": 1,
+      "verified_in_loader": true,
+      "sample_image": "taco_0499.jpg",
+      "status": "CRITICAL_STARVATION_REQUIRING_EXPANSION"
+    },
+    "biological": {
+      "class_id": 1,
+      "train_instances": 3,
+      "verified_in_loader": true,
+      "sample_image": "taco_0704.jpg",
+      "status": "CRITICAL_STARVATION_REQUIRING_EXPANSION"
+    }
+  },
+  "multi_object_augmentation_sample": {
+    "batch_index": 0,
+    "batch_size": 4,
+    "num_boxes": 24,
+    "sample_images": [
+      "oi_0010c714a5da358a.jpg",
+      "oi_00aff25b6c86b521.jpg",
+      "oi_0118c9c3bb046cb1.jpg",
+      "oi_012d78d2d7de4e10.jpg"
+    ],
+    "boxes_preview": [
+      [
+        0.8108571767807007,
+        0.025725925341248512,
+        0.06449396908283234,
+        0.051451850682497025
+      ],
+      [
+        0.6832513809204102,
+        0.0906805619597435,
+        0.2920658588409424,
+        0.181361123919487
+      ],
+      [
+        0.4003995358943939,
+        0.08837734162807465,
+        0.2810091972351074,
+        0.1767546832561493
+      ],
+      [
+        0.22119803726673126,
+        0.025725925341248512,
+        0.06449403613805771,
+        0.051451850682497025
+      ],
+      [
+        0.11981258541345596,
+        0.0906805619597435,
+        0.23962517082691193,
+        0.181361123919487
+      ]
+    ],
+    "classes_preview": [
+      "clothes",
+      "clothes",
+      "clothes",
+      "clothes",
+      "clothes"
+    ]
+  },
+  "errors_count": 0,
+  "warnings_count": 0,
+  "errors": [],
+  "warnings": [],
+  "conclusions": {
+    "dataloader_ready": true,
+    "yolo_compatibility": "CONFIRMED: Ultralytics DataLoader correctly loads, normalizes, and augments all 10 classes without coordinate distortion or NaN/Inf errors.",
+    "data_expansion_necessity": "CONFIRMED: While DataLoader technically processes battery (taco_0456.jpg) and biological (taco_0704.jpg), their representation is too sparse (1 and 3 boxes) to train robust detectors without external data acquisition."
+  }
+}

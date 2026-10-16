@@ -1,0 +1,150 @@
+{
+  "metadata": {
+    "execution_timestamp_utc": "2026-10-12T02:00:00Z",
+    "pilot_directory": "D:\\CNTT-KLCN155-waste-detection\\data\\detection_pilot_v3",
+    "total_images": 15,
+    "total_boxes": 19,
+    "class_distribution": {
+      "battery": 2,
+      "biological": 5,
+      "cardboard": 0,
+      "clothes": 0,
+      "glass": 0,
+      "metal": 3,
+      "paper": 0,
+      "plastic": 9,
+      "shoes": 0,
+      "trash": 0
+    },
+    "image_classifications": {
+      "VERIFIED_TRUE_NEGATIVE": {
+        "count": 0,
+        "files": []
+      },
+      "UNMAPPED_OBJECT": {
+        "count": 8,
+        "files": [
+          "taco_0170.jpg",
+          "taco_0431.jpg",
+          "taco_0556.jpg",
+          "taco_0909.jpg",
+          "taco_0912.jpg",
+          "taco_0916.jpg",
+          "taco_0917.jpg",
+          "taco_0925.jpg"
+        ]
+      },
+      "REJECTED": {
+        "count": 8,
+        "files": [
+          "taco_0170.jpg",
+          "taco_0431.jpg",
+          "taco_0556.jpg",
+          "taco_0909.jpg",
+          "taco_0912.jpg",
+          "taco_0916.jpg",
+          "taco_0917.jpg",
+          "taco_0925.jpg"
+        ]
+      },
+      "PENDING_REVIEW": {
+        "count": 2,
+        "files": [
+          "taco_0072.jpg",
+          "taco_0092.jpg"
+        ]
+      },
+      "EXISTING_TEST": {
+        "count": 2,
+        "files": [
+          "taco_0068.jpg",
+          "taco_0082.jpg"
+        ]
+      },
+      "EXISTING_TRAIN": {
+        "count": 3,
+        "files": [
+          "taco_0456.jpg",
+          "taco_0841.jpg",
+          "taco_0924.jpg"
+        ]
+      }
+    },
+    "verified_true_negatives_count": 0,
+    "unmapped_waste_rejected_count": 8,
+    "official_test_split_images_count": 2,
+    "pending_user_approval_count": 2,
+    "official_holdout_images_checked": 27
+  },
+  "syntactic_audit": {
+    "passed": true,
+    "summary": "All bounding boxes conform to YOLO syntax, normalized [0, 1] range, and 0..9 taxonomy."
+  },
+  "semantic_audit": {
+    "passed": false,
+    "training_eligibility": "TRAINING_BLOCKED",
+    "block_reasons": [
+      "Contains 2 images from official TEST split (taco_0068.jpg, taco_0082.jpg): direct ingestion risks test contamination.",
+      "Contains 8 empty-label images containing unmapped Category 51 rope waste falsely masquerading as negatives. Genuinely verified true negatives = 0.",
+      "Contains 2 proposed biological re-annotations (taco_0072.jpg, taco_0092.jpg) pending user authorization."
+    ]
+  },
+  "verdict": "TRAINING_BLOCKED",
+  "gates": {
+    "format_and_decodability_gate": {
+      "tier": "syntactic",
+      "passed": true,
+      "violations": []
+    },
+    "geometry_gate": {
+      "tier": "syntactic",
+      "passed": true,
+      "violations": []
+    },
+    "taxonomy_gate": {
+      "tier": "syntactic",
+      "passed": true,
+      "violations": []
+    },
+    "intra_pilot_duplicate_gate": {
+      "tier": "syntactic",
+      "passed": true,
+      "violations": []
+    },
+    "holdout_leakage_gate": {
+      "tier": "syntactic",
+      "passed": true,
+      "violations": []
+    },
+    "semantic_negative_gate": {
+      "tier": "semantic",
+      "passed": false,
+      "violations": [
+        "taco_0170.jpg: 0-byte label does not represent a true negative. Physical content contains unmapped waste (Category 51 Rope & strings, status: REJECTED_AS_NEGATIVE_CONTAINS_ROPE_WASTE).",
+        "taco_0431.jpg: 0-byte label does not represent a true negative. Physical content contains unmapped waste (Category 51 Rope & strings, status: REJECTED_AS_NEGATIVE_CONTAINS_ROPE_WASTE).",
+        "taco_0556.jpg: 0-byte label does not represent a true negative. Physical content contains unmapped waste (Category 51 Rope & strings, status: REJECTED_AS_NEGATIVE_CONTAINS_ROPE_WASTE).",
+        "taco_0909.jpg: 0-byte label does not represent a true negative. Physical content contains unmapped waste (Category 51 Rope & strings, status: REJECTED_AS_NEGATIVE_CONTAINS_ROPE_WASTE).",
+        "taco_0912.jpg: 0-byte label does not represent a true negative. Physical content contains unmapped waste (Category 51 Rope & strings, status: REJECTED_AS_NEGATIVE_CONTAINS_ROPE_WASTE).",
+        "taco_0916.jpg: 0-byte label does not represent a true negative. Physical content contains unmapped waste (Category 51 Rope & strings, status: REJECTED_AS_NEGATIVE_CONTAINS_ROPE_WASTE).",
+        "taco_0917.jpg: 0-byte label does not represent a true negative. Physical content contains unmapped waste (Category 51 Rope & strings, status: REJECTED_AS_NEGATIVE_CONTAINS_ROPE_WASTE).",
+        "taco_0925.jpg: 0-byte label does not represent a true negative. Physical content contains unmapped waste (Category 51 Rope & strings, status: REJECTED_AS_NEGATIVE_CONTAINS_ROPE_WASTE)."
+      ]
+    },
+    "split_safety_gate": {
+      "tier": "split_safety",
+      "passed": false,
+      "violations": [
+        "taco_0068.jpg belongs to official TEST split: forbidden from train merge.",
+        "taco_0082.jpg belongs to official TEST split: forbidden from train merge."
+      ]
+    },
+    "approval_status_gate": {
+      "tier": "approval",
+      "passed": false,
+      "violations": [
+        "taco_0072.jpg is in QUARANTINED status (PROPOSED_PENDING_USER_APPROVAL): requires explicit user signoff.",
+        "taco_0092.jpg is in QUARANTINED status (PROPOSED_PENDING_USER_APPROVAL): requires explicit user signoff."
+      ]
+    }
+  }
+}

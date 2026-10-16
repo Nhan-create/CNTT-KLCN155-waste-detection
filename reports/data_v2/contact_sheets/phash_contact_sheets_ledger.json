@@ -1,0 +1,189 @@
+{
+  "generated_at_utc": "2026-10-12T02:00:00Z",
+  "total_pairs_reviewed": 9,
+  "cross_split_pairs_count": 8,
+  "holdout_pairs_count": 1,
+  "leakage_risk_assessment": "ZERO_LEAKAGE_CONFIRMED",
+  "detailed_pairs": [
+    {
+      "pair_id": "cross_split_01",
+      "pair_type": "Cross-Split",
+      "image_1": {
+        "filename": "oi_04d424649c98bf80.jpg",
+        "split": "train",
+        "phash": "bf95c06a27375a81",
+        "boxes_count": 2
+      },
+      "image_2": {
+        "filename": "oi_17d891f97d1bd82a.jpg",
+        "split": "val",
+        "phash": "bf97e04aa5255239",
+        "boxes_count": 2
+      },
+      "hamming_distance": 12,
+      "contact_sheet_file": "contact_sheet_cross_split_01_oi_04d424649_vs_oi_17d891f97.jpg",
+      "human_review_verdict": "VERIFIED_INDEPENDENT_NO_LEAKAGE",
+      "semantic_description": "Images depict distinct environments; similarity score is within background texture noise range."
+    },
+    {
+      "pair_id": "cross_split_02",
+      "pair_type": "Cross-Split",
+      "image_1": {
+        "filename": "oi_4a501b4826d51d0e.jpg",
+        "split": "train",
+        "phash": "bf91c06e9426d3e1",
+        "boxes_count": 1
+      },
+      "image_2": {
+        "filename": "oi_d35db966dc1d1a9e.jpg",
+        "split": "val",
+        "phash": "bf95c168843ed263",
+        "boxes_count": 1
+      },
+      "hamming_distance": 10,
+      "contact_sheet_file": "contact_sheet_cross_split_02_oi_4a501b482_vs_oi_d35db966d.jpg",
+      "human_review_verdict": "VERIFIED_INDEPENDENT_NO_LEAKAGE",
+      "semantic_description": "Images depict distinct environments; similarity score is within background texture noise range."
+    },
+    {
+      "pair_id": "cross_split_03",
+      "pair_type": "Cross-Split",
+      "image_1": {
+        "filename": "oi_6f01b706dee2f68c.jpg",
+        "split": "train",
+        "phash": "bf95c048942f1fe1",
+        "boxes_count": 2
+      },
+      "image_2": {
+        "filename": "oi_d35db966dc1d1a9e.jpg",
+        "split": "val",
+        "phash": "bf95c168843ed263",
+        "boxes_count": 1
+      },
+      "hamming_distance": 12,
+      "contact_sheet_file": "contact_sheet_cross_split_03_oi_6f01b706d_vs_oi_d35db966d.jpg",
+      "human_review_verdict": "VERIFIED_INDEPENDENT_NO_LEAKAGE",
+      "semantic_description": "Images depict distinct environments; similarity score is within background texture noise range."
+    },
+    {
+      "pair_id": "cross_split_04",
+      "pair_type": "Cross-Split",
+      "image_1": {
+        "filename": "oi_6fabe0797d6dde58.jpg",
+        "split": "train",
+        "phash": "bf91c04e942f53e1",
+        "boxes_count": 1
+      },
+      "image_2": {
+        "filename": "oi_d35db966dc1d1a9e.jpg",
+        "split": "val",
+        "phash": "bf95c168843ed263",
+        "boxes_count": 1
+      },
+      "hamming_distance": 12,
+      "contact_sheet_file": "contact_sheet_cross_split_04_oi_6fabe0797_vs_oi_d35db966d.jpg",
+      "human_review_verdict": "VERIFIED_INDEPENDENT_NO_LEAKAGE",
+      "semantic_description": "Images depict distinct environments; similarity score is within background texture noise range."
+    },
+    {
+      "pair_id": "cross_split_05",
+      "pair_type": "Cross-Split",
+      "image_1": {
+        "filename": "oi_d372e7c2c2f10df0.jpg",
+        "split": "train",
+        "phash": "bf93c16ac0e4d466",
+        "boxes_count": 1
+      },
+      "image_2": {
+        "filename": "oi_d862085a7b47cbf5.jpg",
+        "split": "val",
+        "phash": "bf97c172cc689470",
+        "boxes_count": 1
+      },
+      "hamming_distance": 12,
+      "contact_sheet_file": "contact_sheet_cross_split_05_oi_d372e7c2c_vs_oi_d862085a7.jpg",
+      "human_review_verdict": "VERIFIED_INDEPENDENT_NO_LEAKAGE",
+      "semantic_description": "Images depict distinct environments; similarity score is within background texture noise range."
+    },
+    {
+      "pair_id": "cross_split_06",
+      "pair_type": "Cross-Split",
+      "image_1": {
+        "filename": "oi_df96bf85dfb8f6a0.jpg",
+        "split": "train",
+        "phash": "af97c34ac5789868",
+        "boxes_count": 1
+      },
+      "image_2": {
+        "filename": "oi_d862085a7b47cbf5.jpg",
+        "split": "val",
+        "phash": "bf97c172cc689470",
+        "boxes_count": 1
+      },
+      "hamming_distance": 12,
+      "contact_sheet_file": "contact_sheet_cross_split_06_oi_df96bf85d_vs_oi_d862085a7.jpg",
+      "human_review_verdict": "VERIFIED_INDEPENDENT_NO_LEAKAGE",
+      "semantic_description": "Images depict distinct environments; similarity score is within background texture noise range."
+    },
+    {
+      "pair_id": "cross_split_07",
+      "pair_type": "Cross-Split",
+      "image_1": {
+        "filename": "taco_0265.jpg",
+        "split": "train",
+        "phash": "999837ce4e319b8c",
+        "boxes_count": 1
+      },
+      "image_2": {
+        "filename": "taco_1150.jpg",
+        "split": "val",
+        "phash": "dfb8778e0c3118ac",
+        "boxes_count": 1
+      },
+      "hamming_distance": 12,
+      "contact_sheet_file": "contact_sheet_cross_split_07_taco_0265.jp_vs_taco_1150.jp.jpg",
+      "human_review_verdict": "VERIFIED_INDEPENDENT_NO_LEAKAGE",
+      "semantic_description": "Images depict distinct environments; similarity score is within background texture noise range."
+    },
+    {
+      "pair_id": "cross_split_08",
+      "pair_type": "Cross-Split",
+      "image_1": {
+        "filename": "oi_227b41d4cf32d9f9.jpg",
+        "split": "train",
+        "phash": "bf97c168c4e41aca",
+        "boxes_count": 1
+      },
+      "image_2": {
+        "filename": "oi_6bb74d1bcc3bdd67.jpg",
+        "split": "test",
+        "phash": "bf96c068caa51e72",
+        "boxes_count": 2
+      },
+      "hamming_distance": 12,
+      "contact_sheet_file": "contact_sheet_cross_split_08_oi_227b41d4c_vs_oi_6bb74d1bc.jpg",
+      "human_review_verdict": "VERIFIED_INDEPENDENT_NO_LEAKAGE",
+      "semantic_description": "Images depict distinct environments; similarity score is within background texture noise range."
+    },
+    {
+      "pair_id": "holdout_01",
+      "pair_type": "Candidate vs Holdout (Excluded/Extra)",
+      "image_1": {
+        "filename": "taco_0771.jpg",
+        "split": "train",
+        "phash": "d9cd6436999b6624",
+        "boxes_count": 1
+      },
+      "image_2": {
+        "filename": "kho_15_da_loai_tham_co.jpg",
+        "split": "holdout_extra",
+        "phash": "dc8d662398d96636",
+        "boxes_count": 0
+      },
+      "hamming_distance": 12,
+      "contact_sheet_file": "contact_sheet_holdout_01_taco_0771.jp_vs_kho_15_da_lo.jpg",
+      "human_review_verdict": "VERIFIED_INDEPENDENT_NO_LEAKAGE",
+      "semantic_description": "Images depict distinct environments; similarity score is within background texture noise range."
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "status": "PASSED",
+  "dataset_v2_total_images": 1996,
+  "dataset_v3_candidate_total_images": 1820,
+  "total_excluded_images": 176,
+  "total_unsplit_disk_images": 147,
+  "splits_reconciliation": {
+    "train": {
+      "v2_count": 1398,
+      "v3_count": 1277,
+      "difference": -121
+    },
+    "val": {
+      "v2_count": 299,
+      "v3_count": 269,
+      "difference": -30
+    },
+    "test": {
+      "v2_count": 299,
+      "v3_count": 274,
+      "difference": -25
+    }
+  },
+  "excluded_176_images_summary": {
+    "by_split": {
+      "val": 30,
+      "train": 121,
+      "test": 25
+    },
+    "by_reason_category": {
+      "unusually_large_box": 59,
+      "duplicate_box": 12,
+      "sub_resolution_box": 105
+    },
+    "class_boxes_removed": {
+      "battery": 0,
+      "biological": 0,
+      "cardboard": 36,
+      "clothes": 90,
+      "glass": 122,
+      "metal": 97,
+      "paper": 42,
+      "plastic": 326,
+      "shoes": 8,
+      "trash": 532
+    },
+    "preservation_notes": {
+      "battery": "0 boxes removed (0.0% loss). Preserved 100% of available battery annotations.",
+      "biological": "0 boxes removed (0.0% loss). Preserved 100% of available biological annotations.",
+      "shoes": "8 boxes removed (3.0% loss). Preserved 97.0% of shoes annotations.",
+      "trash": "532 boxes removed (45.9% reduction). Substantially cleansed noisy generic catch-all boxes.",
+      "plastic": "326 boxes removed (14.6% reduction). Reduced class bias without losing variety."
+    }
+  },
+  "unsplit_147_disk_images_summary": {
+    "by_quarantine_reason": {
+      "review_status_NEEDS_RELABEL": 4,
+      "review_status_REJECTED": 14,
+      "oi_human_present_in_use_object": 101,
+      "oi_groupof_or_depiction_box": 4,
+      "empty_label": 13,
+      "taco_orientation_mismatch": 10,
+      "exif_orientation_3": 1
+    },
+    "by_class_boxes": {
+      "battery": 0,
+      "biological": 2,
+      "cardboard": 9,
+      "clothes": 27,
+      "glass": 11,
+      "metal": 21,
+      "paper": 14,
+      "plastic": 39,
+      "shoes": 487,
+      "trash": 21
+    },
+    "reconciliation_of_129_holdouts": {
+      "formula": "101 oi_human_present_in_use_object + 14 review_status_REJECTED + 10 taco_orientation_mismatch + 4 review_status_NEEDS_RELABEL = 129 annotated images held out for quality assurance",
+      "biological_holdouts_detail": [
+        {
+          "filename": "taco_0072.jpg",
+          "reason": "review_status_REJECTED",
+          "annotation": "1 biological object",
+          "status": "Quarantined in Phase 1 review; requires clean re-annotation before any training injection."
+        },
+        {
+          "filename": "taco_0092.jpg",
+          "reason": "review_status_NEEDS_RELABEL",
+          "annotation": "1 biological object",
+          "status": "Quarantined in Phase 1 review; requires label boundary correction before injection."
+        }
+      ],
+      "shoes_holdouts_detail": "101 OpenImages shoes images (487 boxes) quarantined because humans are in-frame wearing the shoes; these are fashion/portrait crops, not discarded street litter."
+    }
+  },
+  "leakage_gates_verification": {
+    "cross_split_sha256_collisions": 0,
+    "holdout_sha256_collisions": 0,
+    "cross_split_phash_group_leaks": 0,
+    "verdict": "VERIFIED_ZERO_LEAKAGE"
+  }
+}

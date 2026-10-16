@@ -1,0 +1,90 @@
+{
+  "policy": "NON_DESTRUCTIVE_PROPOSED_CHANGES. Source labels in data/detection/labels/real/ are 100% preserved untouched until explicit user signoff.",
+  "approval_status": "PROPOSED_PENDING_USER_APPROVAL",
+  "taco_0072": {
+    "image_filename": "taco_0072.jpg",
+    "dimensions_wh": [480, 640],
+    "before_quarantine_reason": "REJECTED_LOOSE_BOX (in initial v2 review)",
+    "before_yolo_labels": [
+      "7 0.434845 0.489737 0.615605 0.532782",
+      "1 0.487541 0.443474 0.431781 0.313419"
+    ],
+    "before_annotations": [
+      {
+        "class_id": 7,
+        "class_name": "plastic",
+        "bbox_norm": [0.434845, 0.489737, 0.615605, 0.532782],
+        "pixel_box_xyxy": [61.0, 142.9, 356.5, 483.9],
+        "area_norm": 0.327985
+      },
+      {
+        "class_id": 1,
+        "class_name": "biological",
+        "bbox_norm": [0.487541, 0.443474, 0.431781, 0.313419],
+        "pixel_box_xyxy": [130.4, 183.5, 337.6, 384.1],
+        "area_norm": 0.135329
+      }
+    ],
+    "proposed_yolo_labels": [
+      "7 0.428500 0.485000 0.585000 0.510000",
+      "1 0.478000 0.432000 0.385000 0.285000"
+    ],
+    "proposed_annotations": [
+      {
+        "class_id": 7,
+        "class_name": "plastic",
+        "bbox_norm": [0.4285, 0.4850, 0.5850, 0.5100],
+        "pixel_box_xyxy": [65.3, 147.2, 346.1, 473.6],
+        "area_norm": 0.29835,
+        "change_type": "TIGHTENED_BOUNDARY",
+        "rationale": "Tightened edges along transparent film folds, excluding background wall padding."
+      },
+      {
+        "class_id": 1,
+        "class_name": "biological",
+        "bbox_norm": [0.4780, 0.4320, 0.3850, 0.2850],
+        "pixel_box_xyxy": [137.0, 185.3, 321.8, 367.7],
+        "area_norm": 0.109725,
+        "change_type": "TIGHTENED_ORGANIC_CORE",
+        "rationale": "Tightened directly to organic baked food matter boundaries, reducing 18.9% excess area of enclosing film shadow."
+      }
+    ],
+    "qa_action_summary": "Tightly bounded baked food matter and plastic film wrapping independently. Reduced unnecessary empty/overlapping area.",
+    "qa_status": "PROPOSED_PENDING_USER_APPROVAL",
+    "overlay_comparison_file": "taco_0072_before_after_comparison.jpg"
+  },
+  "taco_0092": {
+    "image_filename": "taco_0092.jpg",
+    "dimensions_wh": [480, 640],
+    "before_quarantine_reason": "NEEDS_RELABEL_PADDING (in initial v2 review)",
+    "before_yolo_labels": [
+      "1 0.477124 0.654259 0.200980 0.237439"
+    ],
+    "before_annotations": [
+      {
+        "class_id": 1,
+        "class_name": "biological",
+        "bbox_norm": [0.477124, 0.654259, 0.200980, 0.237439],
+        "pixel_box_xyxy": [180.8, 342.7, 277.3, 494.7],
+        "area_norm": 0.047721
+      }
+    ],
+    "proposed_yolo_labels": [
+      "1 0.475000 0.648000 0.178000 0.215000"
+    ],
+    "proposed_annotations": [
+      {
+        "class_id": 1,
+        "class_name": "biological",
+        "bbox_norm": [0.4750, 0.6480, 0.1780, 0.2150],
+        "pixel_box_xyxy": [185.3, 345.9, 270.7, 483.5],
+        "area_norm": 0.03827,
+        "change_type": "ELIMINATED_BACKGROUND_PADDING",
+        "rationale": "Tightened bounding box to the physical apple core contour, eliminating 19.8% background padding."
+      }
+    ],
+    "qa_action_summary": "Tightened hand-held apple core box to eliminate surrounding padding. Requires user policy decision on hand-held litter.",
+    "qa_status": "PROPOSED_PENDING_USER_APPROVAL",
+    "overlay_comparison_file": "taco_0092_before_after_comparison.jpg"
+  }
+}

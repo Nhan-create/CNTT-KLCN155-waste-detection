@@ -48,6 +48,11 @@ env/
 /data/sources/
 /data/detection/
 /data/detection_sandbox/
+/data/detection_agnostic/
+/data/detection_pilot_v3/
+/data/detection_upgrade_v3_pilot/
+/data/detection_v3_candidate/
+/data/acquisition_staging/
 /data/audit/*_raw.json
 
 # Generated per-version metadata; keep the reviewed mapping source of truth.
@@ -64,6 +69,20 @@ env/
 *.tar.gz
 *.7z
 /outputs/
+/scratch_crops/
+/scratch_crops_large/
+/scratch_*.jpg
+/scratch_*.png
+/preview_screenshot*.png
+/sample_b64.txt
+/sample_test.jpg
+/test_*.jpg
+/test_*.png
+/index.html
+/reports/**/*.jpg
+/reports/**/*.jpeg
+/reports/**/*.png
+/reports/**/*.webp
 
 # Authentication material must stay outside the repository
 kaggle.json

@@ -22,11 +22,11 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-MANIFEST_V1_PATH = Path(r"D:\CNTT-KLCN155-waste-detection\data\audit\split_manifest.csv")
-DATASET_INFO_PATH = Path(r"D:\CNTT-KLCN155-waste-detection\data\metadata\dataset_info.csv")
-OUTPUT_MANIFEST_V2 = Path(r"D:\CNTT-KLCN155-waste-detection\data\audit\split_manifest_v2.csv")
-OUTPUT_PROCESSED_V2 = Path(r"D:\CNTT-KLCN155-waste-detection\data\processed_v2")
-AUDIT_DIR = Path(r"D:\CNTT-KLCN155-waste-detection\data\audit")
+MANIFEST_V1_PATH = (Path(__file__).resolve().parents[1] / "data/audit/split_manifest.csv")
+DATASET_INFO_PATH = (Path(__file__).resolve().parents[1] / "data/metadata/dataset_info.csv")
+OUTPUT_MANIFEST_V2 = (Path(__file__).resolve().parents[1] / "data/audit/split_manifest_v2.csv")
+OUTPUT_PROCESSED_V2 = (Path(__file__).resolve().parents[1] / "data/processed_v2")
+AUDIT_DIR = (Path(__file__).resolve().parents[1] / "data/audit")
 
 CLASS_NAMES = [
     "battery",
@@ -239,7 +239,7 @@ def main() -> int:
         for cls in CLASS_NAMES:
             (OUTPUT_PROCESSED_V2 / split / cls).mkdir(parents=True, exist_ok=True)
 
-    base_dir = Path(r"D:\HK7\Đồ án khóa luận")
+    base_dir = Path(__import__("os").environ.get("WASTE_LEGACY_DATA_DIR", str(Path(__file__).resolve().parents[1] / "data" / "legacy_hk7")))
     link_count = 0
     for _, row in output_df.iterrows():
         # Source physical path from existing Data/processed or raw

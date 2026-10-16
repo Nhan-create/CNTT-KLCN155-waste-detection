@@ -1,0 +1,156 @@
+path: ../data/detection_upgrade_v3_pilot
+train: splits/train.txt
+val: splits/val.txt
+test: splits/test.txt
+nc: 10
+names:
+  0: battery
+  1: biological
+  2: cardboard
+  3: clothes
+  4: glass
+  5: metal
+  6: paper
+  7: plastic
+  8: shoes
+  9: trash
+metadata:
+  version: v3.0-battery-extension-pilot
+  base_version: v2.0-real-only-no-mendeley
+  created_utc: '2026-10-13T19:08:00Z'
+  pilot_extension_policy: BATTERY_ONLY_EXTENSION_ON_V2_BASELINE
+  split_images:
+    train: 1398
+    val: 299
+    test: 299
+  split_boxes:
+    train: 3963
+    val: 901
+    test: 720
+  per_class_boxes:
+    train:
+      battery: 1
+      biological: 3
+      cardboard: 169
+      clothes: 368
+      glass: 213
+      metal: 420
+      paper: 160
+      plastic: 1560
+      shoes: 215
+      trash: 854
+    val:
+      battery: 0
+      biological: 2
+      cardboard: 39
+      clothes: 68
+      glass: 82
+      metal: 74
+      paper: 43
+      plastic: 382
+      shoes: 41
+      trash: 170
+    test:
+      battery: 1
+      biological: 1
+      cardboard: 36
+      clothes: 91
+      glass: 32
+      metal: 73
+      paper: 34
+      plastic: 274
+      shoes: 39
+      trash: 139
+  post_approval_projected_split_images:
+    train: 1509
+    val: 328
+    test: 299
+  post_approval_projected_split_boxes:
+    train: 4074
+    val: 930
+    test: 720
+  post_approval_projected_per_class_boxes:
+    train:
+      battery: 112
+      biological: 3
+      cardboard: 169
+      clothes: 368
+      glass: 213
+      metal: 420
+      paper: 160
+      plastic: 1560
+      shoes: 215
+      trash: 854
+    val:
+      battery: 29
+      biological: 2
+      cardboard: 39
+      clothes: 68
+      glass: 82
+      metal: 74
+      paper: 43
+      plastic: 382
+      shoes: 41
+      trash: 170
+    test:
+      battery: 1
+      biological: 1
+      cardboard: 36
+      clothes: 91
+      glass: 32
+      metal: 73
+      paper: 34
+      plastic: 274
+      shoes: 39
+      trash: 139
+  staged_new_candidates_other_classes: 0
+  additional_8_batch_a_mini01_status: EXCLUDED_FROM_PRIMARY_BATTERY_PILOT_PENDING_SEPARATE_PM_DECISION
+  roboflow_battery_qa_summary:
+    total_archive_files: 350
+    unique_base_groups: 140
+    augmented_variants_excluded: 210
+    technical_valid_base_images: 140
+    visual_qa_pass_reannotated_base_images: 140
+    visual_qa_pass_reannotated_boxes: 140
+    recommended_leak_free_train_battery_images: 111
+    recommended_leak_free_train_battery_boxes: 111
+    recommended_leak_free_valid_battery_images: 29
+    recommended_leak_free_valid_battery_boxes: 29
+    needs_reannotation_blocked_base_images: 0
+    needs_manual_review_count: 0
+    reject_count: 0
+    approved_for_train: 140
+  approved_for_train: 140
+  hardware_target: NVIDIA GeForce RTX 2050 (4095.5 MB VRAM)
+  proposed_pilot_training_params:
+    model_base: artifacts/detection_v2/E1_yolov8n_10cls/weights/best.pt
+    imgsz: 512
+    batch: 4
+    workers: 2
+    epochs: 25
+    patience: 5
+    optimizer: AdamW
+    lr0: 0.001
+    lrf: 0.01
+    amp: true
+    cache: false
+    project: artifacts/detection_v3_pilot
+    name: E3_yolov8n_pilot
+    training_executed: false
+  status: MATERIALIZED_USER_APPROVED_TASK6_PILOT
+  v2_baseline_split_images:
+    train: 1398
+    val: 299
+    test: 299
+  v2_baseline_split_boxes:
+    train: 3963
+    val: 901
+    test: 720
+  active_materialized_v3_split_images:
+    train: 1509
+    val: 328
+    test: 299
+  active_materialized_v3_split_boxes:
+    train: 4074
+    val: 930
+    test: 720

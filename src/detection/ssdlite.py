@@ -16,12 +16,14 @@ from src.detection.yolo import DetectionError
 ARCHITECTURE = "ssdlite320_mobilenet_v3_large"
 
 
-def build_ssdlite(*, pretrained: bool = False, backbone_weights: Path | str | None = None) -> Any:
+def build_ssdlite(*, pretrained: bool = False, backbone_weights: Path | str | None = None,
+                  num_classes: int | None = None) -> Any:
     """Reuse COCO backbone/regression weights and replace all classifier weights.
 
     Both model constructions use the same reduced-tail MobileNetV3 architecture.
     The default is download-free; only explicitly authorized training asks for COCO.
     If backbone_weights is provided, feature extractor weights are loaded from the stage-1 classifier.
+    ``num_classes`` counts foreground classes (default: the fixed 10); background is added.
     """
     try:
         from torchvision.models.detection import (
@@ -30,8 +32,11 @@ def build_ssdlite(*, pretrained: bool = False, backbone_weights: Path | str | No
         )
     except ImportError as error:
         raise DetectionError("Cần cài torch và torchvision để dùng SSDLite") from error
+    foreground = len(DETECTION_CLASS_NAMES) if num_classes is None else int(num_classes)
+    if foreground < 1:
+        raise ValueError("num_classes must be positive")
     model = ssdlite320_mobilenet_v3_large(
-        weights=None, weights_backbone=None, num_classes=len(DETECTION_CLASS_NAMES) + 1
+        weights=None, weights_backbone=None, num_classes=foreground + 1
     )
     if pretrained:
         state = SSDLite320_MobileNet_V3_Large_Weights.COCO_V1.get_state_dict(
@@ -95,7 +100,8 @@ def resolve_device(value: str) -> Any:
 
 def tensor_detections(output: dict[str, Any], width: int, height: int,
                       *, confidence_threshold: float = 0.0,
-                      max_detections: int = 100) -> DetectionResult:
+                      max_detections: int = 100,
+                      class_names: tuple[str, ...] | list[str] = DETECTION_CLASS_NAMES) -> DetectionResult:
     """Convert torchvision's 1-based foreground labels to shared 0-based IDs."""
     boxes = output["boxes"].detach().cpu().numpy()
     scores = output["scores"].detach().cpu().numpy()
@@ -106,7 +112,7 @@ def tensor_detections(output: dict[str, Any], width: int, height: int,
     for box_values, score, label in zip(boxes, scores, labels, strict=True):
         if not np.isfinite(score) or not np.all(np.isfinite(box_values)):
             raise DetectionError("SSDLite trả về tọa độ hoặc xác suất không hữu hạn")
-        if not 1 <= int(label) <= len(DETECTION_CLASS_NAMES) or label != int(label):
+        if not 1 <= int(label) <= len(class_names) or label != int(label):
             raise DetectionError(f"SSDLite trả về nhãn foreground không hợp lệ: {label}")
         if float(score) < confidence_threshold:
             continue
@@ -114,7 +120,7 @@ def tensor_detections(output: dict[str, Any], width: int, height: int,
         if box.width <= 0 or box.height <= 0:
             continue
         class_index = int(label) - 1
-        rows.append(Detection(class_index, DETECTION_CLASS_NAMES[class_index],
+        rows.append(Detection(class_index, class_names[class_index],
                               float(score), box.clamp(width, height)))
     rows.sort(key=lambda row: (-row.confidence, row.class_index))
     return DetectionResult(tuple(rows[:max_detections]), width, height)

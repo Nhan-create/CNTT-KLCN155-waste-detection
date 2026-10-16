@@ -23,7 +23,7 @@ import torch
 import torchvision.models as models
 from torchvision.models.detection import ssdlite320_mobilenet_v3_large
 
-OUTPUT_DIR = Path(r"D:\CNTT-KLCN155-waste-detection\data\audit")
+OUTPUT_DIR = (Path(__file__).resolve().parents[1] / "data/audit")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 
@@ -135,7 +135,7 @@ def main() -> int:
 
     # 4. Real Weight Transfer & Forward Pass Test
     print("\n[4] Real Weight Transfer and Forward Pass Execution:")
-    best_model_pt = Path(r"D:\CNTT-KLCN155-waste-detection\artifacts\official_run\best_model.pt")
+    best_model_pt = (Path(__file__).resolve().parents[1] / "artifacts/official_run/best_model.pt")
     real_weights_loaded = False
     max_abs_diff = 0.0
     if best_model_pt.is_file():

@@ -1,0 +1,39 @@
+{
+  "metadata": {
+    "generated_at_utc": "2026-10-12T02:00:00Z",
+    "policy": "RIGOROUS_HONESTY. Zero false novelty claims."
+  },
+  "statistics": {
+    "pilot_total_images": 15,
+    "pilot_total_boxes": 19,
+    "genuinely_new_external_images": 0,
+    "reused_existing_repository_images": 15,
+    "reused_images_breakdown": {
+      "existing_train_images": 3,
+      "existing_test_images": 2,
+      "quarantined_images_proposed_for_recovery": 2,
+      "rejected_empty_labels_unmapped_waste": 8
+    },
+    "box_accounting": {
+      "genuinely_new_boxes_created_from_scratch": 0,
+      "boxes_with_reannotated_refined_coordinates": 3,
+      "unchanged_reused_boxes": 16,
+      "total_boxes": 19
+    },
+    "train_addition_eligibility": {
+      "total_images_in_pilot": 15,
+      "images_eligible_for_train_addition": 2,
+      "eligible_filenames": [
+        "taco_0072.jpg",
+        "taco_0092.jpg"
+      ],
+      "eligible_status": "PROPOSED_PENDING_USER_APPROVAL",
+      "ineligible_breakdown": {
+        "already_in_train": 3,
+        "must_stay_in_test_to_prevent_leakage": 2,
+        "rejected_as_negatives_due_to_unmapped_waste": 8
+      },
+      "net_new_train_images_yield": 2
+    }
+  }
+}

@@ -1,0 +1,253 @@
+[
+  {
+    "case_id": "single_object",
+    "case_name": "Một vật thể",
+    "filename": "battery-sample.png",
+    "ssdlite": {
+      "latency_ms": 276.3,
+      "fps": 3.6,
+      "detections": [
+        {
+          "class": "shoes",
+          "vietnamese": "Giày dép",
+          "conf": 0.82,
+          "box": [
+            12.7,
+            44.1,
+            493.6,
+            375.4
+          ]
+        }
+      ],
+      "count": 1,
+      "image_rel": "task2_cases/single_object_ssdlite.jpg"
+    },
+    "yolov8n": {
+      "latency_ms": 129.8,
+      "fps": 7.7,
+      "detections": [
+        {
+          "class": "shoes",
+          "vietnamese": "Giày dép",
+          "conf": 0.919,
+          "box": [
+            7.4,
+            31.2,
+            512.0,
+            386.3
+          ]
+        }
+      ],
+      "count": 1,
+      "image_rel": "task2_cases/single_object_yolov8n.jpg"
+    },
+    "original_image_rel": "task2_cases/single_object_original.jpg"
+  },
+  {
+    "case_id": "multi_objects",
+    "case_name": "Nhiều vật thể cùng lúc",
+    "filename": "images (17).jpg",
+    "ssdlite": {
+      "latency_ms": 26.0,
+      "fps": 38.5,
+      "detections": [
+        {
+          "class": "plastic",
+          "vietnamese": "Nhựa",
+          "conf": 0.297,
+          "box": [
+            393.1,
+            53.8,
+            477.9,
+            182.4
+          ]
+        }
+      ],
+      "count": 1,
+      "image_rel": "task2_cases/multi_objects_ssdlite.jpg"
+    },
+    "yolov8n": {
+      "latency_ms": 18.0,
+      "fps": 55.5,
+      "detections": [
+        {
+          "class": "shoes",
+          "vietnamese": "Giày dép",
+          "conf": 0.654,
+          "box": [
+            91.5,
+            292.1,
+            160.5,
+            353.8
+          ]
+        },
+        {
+          "class": "plastic",
+          "vietnamese": "Nhựa",
+          "conf": 0.562,
+          "box": [
+            243.1,
+            17.7,
+            337.0,
+            210.0
+          ]
+        },
+        {
+          "class": "plastic",
+          "vietnamese": "Nhựa",
+          "conf": 0.375,
+          "box": [
+            403.5,
+            46.3,
+            493.0,
+            206.7
+          ]
+        },
+        {
+          "class": "metal",
+          "vietnamese": "Kim loại",
+          "conf": 0.307,
+          "box": [
+            351.9,
+            173.0,
+            426.5,
+            209.2
+          ]
+        },
+        {
+          "class": "plastic",
+          "vietnamese": "Nhựa",
+          "conf": 0.277,
+          "box": [
+            0.1,
+            105.5,
+            274.5,
+            365.0
+          ]
+        }
+      ],
+      "count": 5,
+      "image_rel": "task2_cases/multi_objects_yolov8n.jpg"
+    },
+    "original_image_rel": "task2_cases/multi_objects_original.jpg"
+  },
+  {
+    "case_id": "small_far_objects",
+    "case_name": "Vật thể nhỏ và xa",
+    "filename": "download (2).jpg",
+    "ssdlite": {
+      "latency_ms": 25.2,
+      "fps": 39.7,
+      "detections": [],
+      "count": 0,
+      "image_rel": "task2_cases/small_far_objects_ssdlite.jpg"
+    },
+    "yolov8n": {
+      "latency_ms": 16.1,
+      "fps": 61.9,
+      "detections": [],
+      "count": 0,
+      "image_rel": "task2_cases/small_far_objects_yolov8n.jpg"
+    },
+    "original_image_rel": "task2_cases/small_far_objects_original.jpg"
+  },
+  {
+    "case_id": "no_waste",
+    "case_name": "Ảnh không có rác",
+    "filename": "taco_0170.jpg",
+    "ssdlite": {
+      "latency_ms": 26.0,
+      "fps": 38.5,
+      "detections": [
+        {
+          "class": "clothes",
+          "vietnamese": "Quần áo cũ",
+          "conf": 0.572,
+          "box": [
+            1.7,
+            0.0,
+            623.3,
+            292.0
+          ]
+        }
+      ],
+      "count": 1,
+      "image_rel": "task2_cases/no_waste_ssdlite.jpg"
+    },
+    "yolov8n": {
+      "latency_ms": 17.5,
+      "fps": 57.3,
+      "detections": [
+        {
+          "class": "plastic",
+          "vietnamese": "Nhựa",
+          "conf": 0.265,
+          "box": [
+            382.3,
+            100.4,
+            477.6,
+            204.5
+          ]
+        }
+      ],
+      "count": 1,
+      "image_rel": "task2_cases/no_waste_yolov8n.jpg"
+    },
+    "original_image_rel": "task2_cases/no_waste_original.jpg"
+  },
+  {
+    "case_id": "utility_box",
+    "case_name": "Ảnh tủ điện dễ bị nhận nhầm",
+    "filename": "scratch_utility_box_bottom_right.jpg",
+    "ssdlite": {
+      "latency_ms": 37.9,
+      "fps": 26.4,
+      "detections": [
+        {
+          "class": "metal",
+          "vietnamese": "Kim loại",
+          "conf": 0.547,
+          "box": [
+            288.4,
+            259.8,
+            413.7,
+            391.1
+          ]
+        }
+      ],
+      "count": 1,
+      "image_rel": "task2_cases/utility_box_ssdlite.jpg"
+    },
+    "yolov8n": {
+      "latency_ms": 24.9,
+      "fps": 40.2,
+      "detections": [
+        {
+          "class": "metal",
+          "vietnamese": "Kim loại",
+          "conf": 0.726,
+          "box": [
+            716.4,
+            355.4,
+            821.4,
+            464.1
+          ]
+        },
+        {
+          "class": "metal",
+          "vietnamese": "Kim loại",
+          "conf": 0.589,
+          "box": [
+            277.7,
+            253.9,
+            419.5,
+            405.5
+          ]
+        }
+      ],
+      "count": 2,
+      "image_rel": "task2_cases/utility_box_yolov8n.jpg"
+    },
+    "original_image_rel": "task2_cases/utility_box_original.jpg"
+  }
+]

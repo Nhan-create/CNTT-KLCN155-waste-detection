@@ -1,0 +1,190 @@
+{
+  "report_version": "TASK8F_SCARCE_CLASS_EXPANSION_V2_SEMANTIC_QA_CORRECTED",
+  "approved_for_train": false,
+  "pre_correction_audit_trail": {
+    "pre_correction_real_waste_pass_images": 203,
+    "pre_correction_real_waste_pass_train": 161,
+    "pre_correction_real_waste_pass_val": 42,
+    "pre_correction_real_waste_pass_boxes": 407,
+    "pre_correction_high_iou_same_class_pairs": 33,
+    "pre_correction_high_iou_images": 23,
+    "post_correction_real_waste_pass_images": 86,
+    "post_correction_real_waste_pass_train": 71,
+    "post_correction_real_waste_pass_val": 15,
+    "post_correction_real_waste_pass_boxes": 120,
+    "post_correction_high_iou_same_class_pairs": 0,
+    "modified_records_count": 229
+  },
+  "pilots": [
+    {
+      "pilot_id": "PILOT_8F_01",
+      "source_name": "Shynuaa/Street-garbage (`yolo/valid` + remaining `yolo/train` First-Party 2025 Captures)",
+      "sample_size_inspected": 30,
+      "real_waste_rate_pct": 93.3,
+      "has_tight_instance_boxes": true,
+      "license_verified": "MIT (strictly filtered to first-party 2025 smartphone captures `2025*`/`IMG_2025*`)",
+      "split_integrity": "Preserves `yolo/valid` -> `VAL_REAL_WASTE_W8F` and `yolo/train` -> `TRAIN_REAL_WASTE_W8F` with zero capture-minute overlap.",
+      "decision": "EXPAND_APPROVED",
+      "notes": "Provides independent outdoor street-garbage validation (`yolo/valid`) and scarce-class train scenes (`cardboard`, `paper`, `metal`, `glass`, `biological`)."
+    },
+    {
+      "pilot_id": "PILOT_8F_02",
+      "source_name": "sharktide/recycling-in-common-context (HuggingFace / Roboflow Universe)",
+      "sample_size_inspected": 30,
+      "real_waste_rate_pct": 46.7,
+      "has_tight_instance_boxes": true,
+      "license_verified": "UNVERIFIED (Roboflow Universe user export without per-image author provenance)",
+      "split_integrity": "Contains Roboflow export splits without upstream capture session metadata.",
+      "decision": "STOPPED_AFTER_PILOT",
+      "notes": "Stopped after 30-image pilot per Part C provenance rules: repo tag says CC-BY-4.0, but README.dataset.txt shows an unattributed Roboflow Universe user export."
+    },
+    {
+      "pilot_id": "PILOT_8F_03",
+      "source_name": "viola77data/recycling-dataset (HuggingFace 11-Class Recycling)",
+      "sample_size_inspected": 30,
+      "real_waste_rate_pct": 53.3,
+      "has_tight_instance_boxes": false,
+      "license_verified": "UNVERIFIED (`annotations_creators: []`, crowdsourced web images without per-image attribution)",
+      "split_integrity": "Classification folders only; no detection bounding boxes.",
+      "decision": "STOPPED_AFTER_PILOT",
+      "notes": "Stopped after 30-image pilot: lacks per-image author provenance and bounding boxes."
+    },
+    {
+      "pilot_id": "PILOT_8F_04",
+      "source_name": "Wikimedia Commons Scarce-Class Real-Waste Categories & Bitmap Searches (8 Scarce Classes)",
+      "sample_size_inspected": 40,
+      "real_waste_rate_pct": 65.0,
+      "has_tight_instance_boxes": false,
+      "license_verified": "VERIFIED (CC0 / CC-BY / CC-BY-SA / Public Domain with per-image author & URL)",
+      "split_integrity": "Grouped by author/session (`sess_wiki8f_*`) before deterministic train/val split allocation.",
+      "decision": "EXPAND_APPROVED_WITH_INSTANCE_BOX_CURATION",
+      "notes": "Primary source for scarce classes `0: battery`, `1: biological`, `3: clothes`, `4: glass`, `5: metal`, `6: paper`, `2: cardboard`, `8: shoes`."
+    },
+    {
+      "pilot_id": "PILOT_8F_05",
+      "source_name": "Open Images V7 Scarce-Class `validation` & `train` Splits (Waste-Context Filtered)",
+      "sample_size_inspected": 40,
+      "real_waste_rate_pct": 52.5,
+      "has_tight_instance_boxes": true,
+      "license_verified": "VERIFIED (CC-BY 2.0 with original Flickr author & URL from official metadata)",
+      "split_integrity": "Strictly preserves `validation` -> `VAL_REAL_WASTE_W8F` and `train` -> `TRAIN_REAL_WASTE_W8F` (`0` from `test`).",
+      "decision": "EXPAND_APPROVED_SCARCE_CLASSES_ONLY",
+      "notes": "Targets only the 8 scarce classes (`0, 1, 2, 3, 4, 5, 6, 8`), excluding standalone `7: plastic` and standalone `9: trash`."
+    }
+  ],
+  "total_downloaded_candidates": 748,
+  "qa_status_counts": {
+    "KEEP_AUXILIARY": 379,
+    "REAL_WASTE_PASS": 86,
+    "NEEDS_REVIEW": 126,
+    "REJECT": 157
+  },
+  "domain_counts": {
+    "PRODUCT_STUDIO": 18,
+    "ACTUAL_WASTE": 182,
+    "AMBIGUOUS_CONTEXT": 184,
+    "IN_USE": 364
+  },
+  "split_counts": {
+    "AUXILIARY_NON_WASTE_TRAIN_HOLD": 267,
+    "TRAIN_REAL_WASTE_W8F": 71,
+    "MANUAL_REVIEW_QUEUE": 126,
+    "REJECTED": 157,
+    "VAL_REAL_WASTE_W8F": 15,
+    "AUXILIARY_NON_WASTE_VAL_HOLD": 112
+  },
+  "real_waste_pass_total_images": 86,
+  "real_waste_pass_train_images": 71,
+  "real_waste_pass_val_images": 15,
+  "real_waste_pass_total_boxes": 120,
+  "source_yield_breakdown": {
+    "SRC_8F_02_WIKIMEDIA_SCARCE_REAL_WASTE": {
+      "downloaded_candidates": 481,
+      "REAL_WASTE_PASS": 86,
+      "TRAIN_REAL_WASTE_W8F": 71,
+      "VAL_REAL_WASTE_W8F": 15,
+      "KEEP_AUXILIARY": 146,
+      "NEEDS_REVIEW": 94,
+      "REJECT": 155,
+      "yield_pct": 17.88
+    },
+    "SRC_8F_03_OPENIMAGES_SCARCE_CLASSES_TRAIN_VAL": {
+      "downloaded_candidates": 267,
+      "REAL_WASTE_PASS": 0,
+      "TRAIN_REAL_WASTE_W8F": 0,
+      "VAL_REAL_WASTE_W8F": 0,
+      "KEEP_AUXILIARY": 233,
+      "NEEDS_REVIEW": 32,
+      "REJECT": 2,
+      "yield_pct": 0.0
+    }
+  },
+  "per_class_real_waste_pass_images": {
+    "battery": 8,
+    "biological": 11,
+    "cardboard": 4,
+    "clothes": 4,
+    "glass": 7,
+    "metal": 17,
+    "paper": 13,
+    "plastic": 9,
+    "shoes": 13,
+    "trash": 1
+  },
+  "per_class_real_waste_pass_train_images": {
+    "battery": 7,
+    "biological": 8,
+    "cardboard": 3,
+    "clothes": 3,
+    "glass": 5,
+    "metal": 13,
+    "paper": 12,
+    "plastic": 8,
+    "shoes": 12,
+    "trash": 1
+  },
+  "per_class_real_waste_pass_val_images": {
+    "battery": 1,
+    "biological": 3,
+    "cardboard": 1,
+    "clothes": 1,
+    "glass": 2,
+    "metal": 4,
+    "paper": 1,
+    "plastic": 1,
+    "shoes": 1,
+    "trash": 0
+  },
+  "per_class_real_waste_pass_boxes": {
+    "battery": 16,
+    "biological": 18,
+    "cardboard": 4,
+    "clothes": 5,
+    "glass": 7,
+    "metal": 19,
+    "paper": 17,
+    "plastic": 9,
+    "shoes": 24,
+    "trash": 1
+  },
+  "per_class_real_waste_pass_val_boxes": {
+    "battery": 1,
+    "biological": 3,
+    "cardboard": 1,
+    "clothes": 2,
+    "glass": 2,
+    "metal": 6,
+    "paper": 1,
+    "plastic": 1,
+    "shoes": 2,
+    "trash": 0
+  },
+  "contact_sheets": [
+    "data/acquisition_staging/task8f_scarce_classes/contact_sheets/task8f_real_waste_pass_p1.jpg",
+    "data/acquisition_staging/task8f_scarce_classes/contact_sheets/task8f_real_waste_pass_p2.jpg",
+    "data/acquisition_staging/task8f_scarce_classes/contact_sheets/task8f_real_waste_pass_p3.jpg",
+    "data/acquisition_staging/task8f_scarce_classes/contact_sheets/task8f_val_real_waste.jpg",
+    "data/acquisition_staging/task8f_scarce_classes/contact_sheets/task8f_keep_auxiliary.jpg",
+    "data/acquisition_staging/task8f_scarce_classes/contact_sheets/task8f_semantic_qa_before_after.jpg"
+  ]
+}

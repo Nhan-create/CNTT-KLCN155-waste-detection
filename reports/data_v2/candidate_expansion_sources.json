@@ -1,0 +1,171 @@
+{
+  "version": "4.0-verified-sources",
+  "updated_at_utc": "2026-10-12T06:30:00Z",
+  "policy": "ZERO UNAUTHORIZED DOWNLOADS. All items require explicit stakeholder / lead approval before execution.",
+  "taco_coco_raw_audit_finding": {
+    "status": "PROVEN_INFEASIBLE_FOR_EXPANSION",
+    "raw_file_inspected": "data/audit/taco_annotations_raw.json",
+    "total_images": 1500,
+    "total_annotations": 4784,
+    "total_categories": 60,
+    "category_range": "0 to 59",
+    "categories_falsely_claimed_previously": "Category 60 (Batteries), Category 63/64 (Organic/Food waste) DO NOT EXIST in official TACO COCO dataset.",
+    "actual_battery_in_taco": {
+      "category_id": 1,
+      "name": "Battery",
+      "supercategory": "Battery",
+      "annotations_count": 2,
+      "unique_images": [
+        "taco_0456.jpg",
+        "taco_0082.jpg"
+      ],
+      "note_on_splits": "taco_0456 is in Train split (1 box). taco_0082 is in Test split (1 cylindrical Panasonic battery, strictly protected). taco_0499 was a typographical error in earlier draft; it contains Category 45 disposable food container (plastic).",
+      "existing_in_repo": true,
+      "remaining_unclaimed_images": 0
+    },
+    "actual_food_waste_in_taco": {
+      "category_id": 25,
+      "name": "Food waste",
+      "supercategory": "Food waste",
+      "annotations_count": 8,
+      "unique_images": [
+        "taco_0072.jpg",
+        "taco_0092.jpg",
+        "taco_0109.jpg",
+        "taco_0423.jpg",
+        "taco_0472.jpg",
+        "taco_0485.jpg",
+        "taco_0493.jpg"
+      ],
+      "existing_in_repo": true,
+      "quarantined_in_repo": [
+        "taco_0072.jpg",
+        "taco_0092.jpg"
+      ],
+      "remaining_unclaimed_images": 0
+    },
+    "conclusion": "Official TACO is already 100% ingested into CNTT-KLCN155. It contains ZERO additional battery or food waste instances. Sourcing 40 batteries and 50 biological instances from TACO is completely impossible."
+  },
+  "disqualified_and_unverified_sources": [
+    {
+      "source_name": "TrashNet (Gary Thung, 2016)",
+      "url": "https://github.com/garythung/trashnet",
+      "claimed_modality": "Multi-object detection",
+      "actual_reality": "Single-object image classification photographed on plain white posterboard background.",
+      "status": "DISQUALIFIED_CLASSIFICATION_ONLY",
+      "verdict": "REJECTED. Raw TrashNet has 0 bounding boxes and 0 multi-object scenes. Unsuitable for multi-waste object detection."
+    },
+    {
+      "source_name": "Roboflow Universe Generic Query 'battery waste'",
+      "url": "https://universe.roboflow.com/search?q=battery+waste",
+      "claimed_modality": "YOLO bounding box",
+      "actual_reality": "Generic search endpoint returning unpinned community datasets of varying quality and synthetic CAD renders.",
+      "status": "UNVERIFIED_REQUIRES_DATASET_PIN",
+      "verdict": "BLOCKED until pinned to specific dataset ID, release version, and license verification."
+    },
+    {
+      "source_name": "Open Images /m/01cydv (Battery)",
+      "url": "https://storage.googleapis.com/openimages/web/index.html",
+      "claimed_modality": "Bounding boxes",
+      "actual_reality": "Image-level label ONLY; not included in OpenImages 600 boxable classes.",
+      "status": "DISQUALIFIED_NOT_BOXABLE",
+      "verdict": "REJECTED. Zero bounding box annotations exist for battery in Open Images."
+    }
+  ],
+  "verified_candidate_shortlist": [
+    {
+      "group": "A",
+      "target_class": "battery",
+      "source_id": "local_battery_dropoff_photography",
+      "source_name": "Targeted Local E-Waste Battery Drop-Off Photography (TP.HCM)",
+      "exact_source_url": "Project Internal Dedicated Acquisition (staging in data/acquisition_staging/battery/)",
+      "version": "v1.0-local-pilot",
+      "annotation_modality": "Manual 2-stage QA YOLO bounding boxes (0 cx cy w h)",
+      "license_evidence": "CC0 1.0 Universal / Full dedication to CNTT-KLCN155 project",
+      "estimated_usable_images": 20,
+      "download_size_mb": 0.0,
+      "domain_mismatch_risk": "VERY_LOW (Actual discarded batteries in collection boxes, concrete pavements, and e-waste bins in HCMC)",
+      "manual_annotation_required": true,
+      "verification_status": "VERIFIED_ACTIONABLE"
+    },
+    {
+      "group": "A",
+      "target_class": "battery",
+      "source_id": "roboflow_waste_battery_only_v1",
+      "source_name": "Roboflow Universe 'waste-battery-only' (battery-detection-yuv0z)",
+      "exact_source_url": "https://universe.roboflow.com/battery-detection-yuv0z/waste-battery-only/dataset/1",
+      "workspace": "battery-detection-yuv0z",
+      "project": "waste-battery-only",
+      "version": "1",
+      "modality": "Object Detection",
+      "total_images_in_version": 350,
+      "annotation_modality": "YOLO format bounding boxes, 8 battery subclasses (AA, AAA, 9V, 18650, Button, Cylindrical, Rectangular, Damaged) mapped to Class 0 (battery)",
+      "license_evidence": "CC BY 4.0 (Creative Commons Attribution 4.0 International published on dataset card)",
+      "estimated_usable_images": 15,
+      "download_size_mb": 18.0,
+      "domain_mismatch_risk": "MEDIUM-HIGH (Dataset includes augmentations and studio/bench setups; requires strict visual QA filtering to select only natural non-augmented discarded/e-waste contexts)",
+      "manual_annotation_required": false,
+      "verification_status": "VERIFIED_PINNED_PENDING_APPROVAL"
+    },
+    {
+      "group": "B",
+      "target_class": "biological",
+      "source_id": "oi_v7_validation_discard_subset",
+      "source_name": "Open Images V7 Validation Pool - Outdoor Discarded Litter Subset",
+      "exact_source_url": "https://storage.googleapis.com/openimages/v7/ (indexed in D:\\waste-training\\openimages-validation-boxes.csv)",
+      "version": "Open Images V7 (2022 release)",
+      "annotation_modality": "Human-verified bounding boxes for /m/02xwb (Fruit), /m/09qck (Banana), /m/014j1m (Apple), /m/0f4s2w (Vegetable)",
+      "license_evidence": "CC BY 4.0 for annotations; individual images under CC-BY 2.0 / CC-BY-SA 2.0 Flickr licenses with author attribution in Open Images metadata",
+      "estimated_usable_images": 25,
+      "download_size_mb": 20.0,
+      "domain_mismatch_risk": "MEDIUM (Pool contains kitchen/supermarket scenes; requires strict manual filtering to keep ONLY discarded litter on ground)",
+      "manual_annotation_required": true,
+      "verification_status": "VERIFIED_LOCALLY_INDEXED_PENDING_FILTERING"
+    },
+    {
+      "group": "C",
+      "target_class": "hard_negative",
+      "source_id": "local_streetscape_hard_negatives",
+      "source_name": "Curated Local Photography: Utility Cabinets, Sidewalks, Walls, Clean Empty Bins",
+      "exact_source_url": "Project Internal Dedicated Acquisition (staging in data/acquisition_staging/hard_negatives/)",
+      "version": "v1.0-local-negatives",
+      "annotation_modality": "0-byte label text files with metadata status VERIFIED_TRUE_NEGATIVE",
+      "license_evidence": "CC0 1.0 Universal / Public Domain Dedication",
+      "estimated_usable_images": 25,
+      "download_size_mb": 0.0,
+      "domain_mismatch_risk": "NONE (Directly targets false-positive triggers in local environment, e.g. green utility boxes like rac_online_012.jpg)",
+      "manual_annotation_required": true,
+      "verification_status": "VERIFIED_ACTIONABLE"
+    },
+    {
+      "group": "C",
+      "target_class": "hard_negative",
+      "source_id": "wikimedia_commons_clean_streets",
+      "source_name": "Wikimedia Commons Curated Clean Streetscapes",
+      "exact_source_url": "https://commons.wikimedia.org/wiki/Category:Quality_images_of_streets",
+      "version": "2024-2026 Curated Public Domain Subset",
+      "annotation_modality": "0-byte label text files with metadata status VERIFIED_TRUE_NEGATIVE",
+      "license_evidence": "CC0 / Public Domain dedication explicitly verified on individual file description pages",
+      "estimated_usable_images": 15,
+      "download_size_mb": 15.0,
+      "domain_mismatch_risk": "LOW (Clean asphalt and sidewalk pavements without litter)",
+      "manual_annotation_required": true,
+      "verification_status": "VERIFIED_CC0_PENDING_APPROVAL"
+    },
+    {
+      "group": "D",
+      "target_class": "multi_waste",
+      "source_id": "local_multi_waste_staged_photography",
+      "source_name": "Local High-Resolution Multi-Waste Scene Photography (HCMC)",
+      "exact_source_url": "Project Internal Dedicated Acquisition (staging in data/acquisition_staging/multi_waste/)",
+      "version": "v1.0-local-multi",
+      "annotation_modality": "Dense multi-object bounding boxes (>=3 classes per image, e.g. plastic + metal + cardboard)",
+      "license_evidence": "CC0 1.0 Universal / Project Dedicated Ownership",
+      "estimated_usable_images": 15,
+      "download_size_mb": 0.0,
+      "domain_mismatch_risk": "NONE (Authentic waste combinations on typical urban ground surfaces)",
+      "manual_annotation_required": true,
+      "verification_status": "VERIFIED_ACTIONABLE"
+    }
+  ]
+}

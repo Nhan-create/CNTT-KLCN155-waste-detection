@@ -1,0 +1,2005 @@
+{
+  "backend": "yolov8n",
+  "model_path": "artifacts\\detection_v2\\E1_yolov8n_10cls\\weights\\best.pt",
+  "checkpoint_sha256": "7e986deed90ba4208f4662039c1e78b2d03ffb41a6e57e8235184db78aec32d8",
+  "confidence_threshold": 0.15,
+  "iou_threshold": 0.45,
+  "total_images": 27,
+  "total_gt_objects": 57,
+  "metrics": {
+    "true_positives": 9,
+    "false_negatives": 36,
+    "false_positives": 36,
+    "wrong_class": 12,
+    "box_dod_failures": 18,
+    "precision": 0.2,
+    "recall": 0.15789473684210525
+  },
+  "dod_compliance": {
+    "image_coverage_100pct": true,
+    "zero_fn": false,
+    "zero_wrong_class": false,
+    "zero_fp": false,
+    "zero_box_failures": false,
+    "overall_dod_passed": false
+  },
+  "cases": [
+    {
+      "filename": "base64-1717231151649602366964.jpeg",
+      "image_size": [
+        2000,
+        1334
+      ],
+      "inference_ms": 6685.361900003045,
+      "gt_count": 7,
+      "pred_count": 2,
+      "matching": {
+        "matched_pairs": [
+          {
+            "pred_index": 1,
+            "gt_object_id": "img01_obj01",
+            "gt_class_id": 4,
+            "gt_class_name": "glass",
+            "gt_bbox": [
+              180,
+              695,
+              825,
+              1115
+            ],
+            "pred_class_id": 7,
+            "pred_class_name": "plastic",
+            "pred_confidence": 0.16393926739692688,
+            "pred_bbox": [
+              77.77366638183594,
+              614.3038940429688,
+              818.8990478515625,
+              1160.09716796875
+            ],
+            "iou": 0.6592030540066287,
+            "gt_coverage": 0.9905411594597868,
+            "is_class_correct": false,
+            "meets_dod_box": false
+          }
+        ],
+        "false_negatives": [
+          {
+            "object_id": "img01_obj02",
+            "class_name": "glass",
+            "class_id": 4,
+            "bbox_xyxy": [
+              325,
+              615,
+              555,
+              810
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "H\u0169 th\u1ee7y tinh nh\u1ecf n\u1eafp v\u00e0ng n\u1eb1m ngay ph\u00eda tr\u00ean chai bia Saigon b\u00ean tr\u00e1i."
+          },
+          {
+            "object_id": "img01_obj03",
+            "class_name": "glass",
+            "class_id": 4,
+            "bbox_xyxy": [
+              1355,
+              370,
+              1845,
+              680
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "Chai bia Saigon th\u1ee9 hai b\u00ean ph\u1ea3i, th\u00e2n th\u1ee7y tinh v\u1ee1 \u0111u\u00f4i, c\u1ed5 h\u01b0\u1edbng g\u00f3c d\u01b0\u1edbi ph\u1ea3i c\u00f3 gi\u1ea5y b\u1ea1c."
+          },
+          {
+            "object_id": "img01_obj04",
+            "class_name": "glass",
+            "class_id": 4,
+            "bbox_xyxy": [
+              1115,
+              1010,
+              1410,
+              1334
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "Chai th\u1ee7y tinh trong su\u1ed1t n\u1eafp \u0111\u1ecf \u1edf ti\u1ec1n c\u1ea3nh s\u00e1t \u0111\u00e1y \u1ea3nh."
+          },
+          {
+            "object_id": "img01_obj05",
+            "class_name": "trash",
+            "class_id": 9,
+            "bbox_xyxy": [
+              1190,
+              810,
+              1585,
+              1120
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "Kh\u1ea9u trang y t\u1ebf m\u00e0u tr\u1eafng d\u00f9ng m\u1ed9t l\u1ea7n n\u1eb1m tr\u00ean m\u1ea3nh k\u00ednh."
+          },
+          {
+            "object_id": "img01_obj06",
+            "class_name": "clothes",
+            "class_id": 3,
+            "bbox_xyxy": [
+              0,
+              720,
+              150,
+              920
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "M\u1ea3nh v\u1ea3i v\u1ee5n/gi\u1ebb lau m\u00e0u x\u00e1m \u1edf g\u00f3c d\u01b0\u1edbi c\u00f9ng b\u00ean tr\u00e1i."
+          },
+          {
+            "object_id": "img01_obj07",
+            "class_name": "glass",
+            "class_id": 4,
+            "bbox_xyxy": [
+              0,
+              195,
+              2000,
+              1334
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "B\u00e3i ph\u1ebf li\u1ec7u m\u1ea3nh k\u00ednh v\u1ee1 m\u00e0u xanh d\u01b0\u01a1ng v\u00e0 \u0111en tr\u1ea3i r\u1ed9ng to\u00e0n b\u1ed9 m\u1eb7t \u0111\u1ea5t trung t\u00e2m."
+          }
+        ],
+        "false_positives": [
+          {
+            "class_id": 7,
+            "class_name": "plastic",
+            "confidence": 0.16604815423488617,
+            "bbox_xyxy": [
+              142.9307861328125,
+              770.4088134765625,
+              389.96795654296875,
+              995.5690307617188
+            ]
+          }
+        ],
+        "tp_count": 0,
+        "wrong_class_count": 1,
+        "fn_count": 6,
+        "fp_count": 1
+      },
+      "overlay_path": "reports\\qa_acceptance\\overlays_yolov8n\\base64-1717231151649602366964_eval_yolov8n.png"
+    },
+    {
+      "filename": "battery-sample.png",
+      "image_size": [
+        512,
+        411
+      ],
+      "inference_ms": 77.66049999918323,
+      "gt_count": 1,
+      "pred_count": 1,
+      "matching": {
+        "matched_pairs": [
+          {
+            "pred_index": 0,
+            "gt_object_id": "img02_obj01",
+            "gt_class_id": 0,
+            "gt_class_name": "battery",
+            "gt_bbox": [
+              14,
+              50,
+              503,
+              371
+            ],
+            "pred_class_id": 8,
+            "pred_class_name": "shoes",
+            "pred_confidence": 0.9187970757484436,
+            "pred_bbox": [
+              7.361767768859863,
+              31.189916610717773,
+              512.0,
+              386.3352966308594
+            ],
+            "iou": 0.8758456388230187,
+            "gt_coverage": 1.0,
+            "is_class_correct": false,
+            "meets_dod_box": true
+          }
+        ],
+        "false_negatives": [],
+        "false_positives": [],
+        "tp_count": 0,
+        "wrong_class_count": 1,
+        "fn_count": 0,
+        "fp_count": 0
+      },
+      "overlay_path": "reports\\qa_acceptance\\overlays_yolov8n\\battery-sample_eval_yolov8n.png"
+    },
+    {
+      "filename": "download (2).jpg",
+      "image_size": [
+        299,
+        168
+      ],
+      "inference_ms": 71.10929999907967,
+      "gt_count": 3,
+      "pred_count": 0,
+      "matching": {
+        "matched_pairs": [],
+        "false_negatives": [
+          {
+            "object_id": "img03_obj01",
+            "class_name": "plastic",
+            "class_id": 7,
+            "bbox_xyxy": [
+              112,
+              10,
+              168,
+              62
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "Chai nh\u1ef1a truy\u1ec1n d\u1ecbch y t\u1ebf m\u00e0u tr\u1eafng \u0111\u1ee5c \u1edf ph\u00eda tr\u00ean gi\u1eefa b\u00e3i r\u00e1c."
+          },
+          {
+            "object_id": "img03_obj02",
+            "class_name": "plastic",
+            "class_id": 7,
+            "bbox_xyxy": [
+              140,
+              50,
+              203,
+              112
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "Chai nh\u1ef1a truy\u1ec1n d\u1ecbch y t\u1ebf trong su\u1ed1t \u1edf trung t\u00e2m b\u00e3i r\u00e1c."
+          },
+          {
+            "object_id": "img03_obj03",
+            "class_name": "plastic",
+            "class_id": 7,
+            "bbox_xyxy": [
+              0,
+              0,
+              299,
+              168
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "\u0110\u1ed1ng r\u00e1c th\u1ea3i y t\u1ebf g\u1ed3m bao b\u00ec t\u00fai nh\u1ef1a v\u00e0 chai d\u1ecbch truy\u1ec1n v\u1ee9t b\u1eeba b\u00e3i tr\u00ean n\u1ec1n \u0111\u1ea5t."
+          }
+        ],
+        "false_positives": [],
+        "tp_count": 0,
+        "wrong_class_count": 0,
+        "fn_count": 3,
+        "fp_count": 0
+      },
+      "overlay_path": "reports\\qa_acceptance\\overlays_yolov8n\\download (2)_eval_yolov8n.png"
+    },
+    {
+      "filename": "images (10).jpg",
+      "image_size": [
+        640,
+        398
+      ],
+      "inference_ms": 66.9830999977421,
+      "gt_count": 2,
+      "pred_count": 1,
+      "matching": {
+        "matched_pairs": [],
+        "false_negatives": [
+          {
+            "object_id": "img04_obj01",
+            "class_name": "clothes",
+            "class_id": 3,
+            "bbox_xyxy": [
+              0,
+              160,
+              640,
+              398
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "\u0110\u1ed1ng r\u00e1c qu\u1ea7n \u00e1o ph\u1ebf th\u1ea3i th\u1eddi trang nhanh tr\u1ea3i d\u00e0i ti\u1ec1n c\u1ea3nh v\u00e0 s\u01b0\u1eddn ph\u1ea3i sa m\u1ea1c Atacama."
+          },
+          {
+            "object_id": "img04_obj02",
+            "class_name": "clothes",
+            "class_id": 3,
+            "bbox_xyxy": [
+              0,
+              120,
+              325,
+              295
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "G\u00f2 \u0111\u1ed3i qu\u1ea7n \u00e1o c\u0169 ph\u1ebf th\u1ea3i b\u00ean s\u01b0\u1eddn tr\u00e1i sa m\u1ea1c Atacama."
+          }
+        ],
+        "false_positives": [
+          {
+            "class_id": 7,
+            "class_name": "plastic",
+            "confidence": 0.20565226674079895,
+            "bbox_xyxy": [
+              505.86944580078125,
+              357.5458984375,
+              532.4603881835938,
+              382.597900390625
+            ]
+          }
+        ],
+        "tp_count": 0,
+        "wrong_class_count": 0,
+        "fn_count": 2,
+        "fp_count": 1
+      },
+      "overlay_path": "reports\\qa_acceptance\\overlays_yolov8n\\images (10)_eval_yolov8n.png"
+    },
+    {
+      "filename": "images (11).jpg",
+      "image_size": [
+        684,
+        448
+      ],
+      "inference_ms": 19.57129999937024,
+      "gt_count": 1,
+      "pred_count": 2,
+      "matching": {
+        "matched_pairs": [],
+        "false_negatives": [
+          {
+            "object_id": "img05_obj01",
+            "class_name": "metal",
+            "class_id": 5,
+            "bbox_xyxy": [
+              0,
+              140,
+              684,
+              448
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "\u0110\u1ed1ng ph\u1ebf li\u1ec7u linh ki\u1ec7n \u0111i\u1ec7n t\u1eed, khung kim lo\u1ea1i m\u00e1y gi\u1eb7t, v\u1ecf m\u00e1y vi t\u00ednh v\u00e0 d\u00e2y c\u00e1p e-waste."
+          }
+        ],
+        "false_positives": [
+          {
+            "class_id": 7,
+            "class_name": "plastic",
+            "confidence": 0.22142663598060608,
+            "bbox_xyxy": [
+              272.7384948730469,
+              175.70533752441406,
+              326.68499755859375,
+              224.5359344482422
+            ]
+          },
+          {
+            "class_id": 7,
+            "class_name": "plastic",
+            "confidence": 0.16442471742630005,
+            "bbox_xyxy": [
+              425.8053283691406,
+              302.5417175292969,
+              682.5255126953125,
+              448.0
+            ]
+          }
+        ],
+        "tp_count": 0,
+        "wrong_class_count": 0,
+        "fn_count": 1,
+        "fp_count": 2
+      },
+      "overlay_path": "reports\\qa_acceptance\\overlays_yolov8n\\images (11)_eval_yolov8n.png"
+    },
+    {
+      "filename": "images (12).jpg",
+      "image_size": [
+        554,
+        554
+      ],
+      "inference_ms": 71.40640000579879,
+      "gt_count": 2,
+      "pred_count": 3,
+      "matching": {
+        "matched_pairs": [
+          {
+            "pred_index": 0,
+            "gt_object_id": "img06_obj01",
+            "gt_class_id": 2,
+            "gt_class_name": "cardboard",
+            "gt_bbox": [
+              32,
+              36,
+              535,
+              519
+            ],
+            "pred_class_id": 2,
+            "pred_class_name": "cardboard",
+            "pred_confidence": 0.2263811081647873,
+            "pred_bbox": [
+              17.54692268371582,
+              32.28107833862305,
+              469.44189453125,
+              420.5452575683594
+            ],
+            "iou": 0.6723607569338521,
+            "gt_coverage": 0.6923930783979791,
+            "is_class_correct": true,
+            "meets_dod_box": false
+          }
+        ],
+        "false_negatives": [
+          {
+            "object_id": "img06_obj02",
+            "class_name": "paper",
+            "class_id": 6,
+            "bbox_xyxy": [
+              110,
+              90,
+              475,
+              445
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "\u0110\u1ed1ng gi\u1ea5y b\u00e1o, gi\u1ea5y v\u0103n ph\u00f2ng tr\u1eafng v\u1ee5n v\u00e0 v\u00f2 nh\u00e0u n\u1eb1m ph\u00eda tr\u00ean th\u00f9ng carton."
+          }
+        ],
+        "false_positives": [
+          {
+            "class_id": 2,
+            "class_name": "cardboard",
+            "confidence": 0.22515004873275757,
+            "bbox_xyxy": [
+              223.46865844726562,
+              189.68600463867188,
+              387.7646789550781,
+              288.432861328125
+            ]
+          },
+          {
+            "class_id": 2,
+            "class_name": "cardboard",
+            "confidence": 0.17465676367282867,
+            "bbox_xyxy": [
+              241.8214569091797,
+              374.47113037109375,
+              386.54071044921875,
+              460.8432312011719
+            ]
+          }
+        ],
+        "tp_count": 1,
+        "wrong_class_count": 0,
+        "fn_count": 1,
+        "fp_count": 2
+      },
+      "overlay_path": "reports\\qa_acceptance\\overlays_yolov8n\\images (12)_eval_yolov8n.png"
+    },
+    {
+      "filename": "images (13).jpg",
+      "image_size": [
+        538,
+        371
+      ],
+      "inference_ms": 18.425899994326755,
+      "gt_count": 1,
+      "pred_count": 3,
+      "matching": {
+        "matched_pairs": [],
+        "false_negatives": [
+          {
+            "object_id": "img07_obj01",
+            "class_name": "plastic",
+            "class_id": 7,
+            "bbox_xyxy": [
+              0,
+              0,
+              538,
+              371
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "\u0110\u1ed1ng chai nh\u1ef1a PET t\u00e1i ch\u1ebf trong su\u1ed1t c\u00e1c nh\u00e3n hi\u1ec7u n\u01b0\u1edbc gi\u1ea3i kh\u00e1t, d\u1ea7u \u0103n, h\u00f3a ch\u1ea5t."
+          }
+        ],
+        "false_positives": [
+          {
+            "class_id": 5,
+            "class_name": "metal",
+            "confidence": 0.3440115749835968,
+            "bbox_xyxy": [
+              190.3470458984375,
+              36.060943603515625,
+              249.499755859375,
+              101.00873565673828
+            ]
+          },
+          {
+            "class_id": 6,
+            "class_name": "paper",
+            "confidence": 0.2871149182319641,
+            "bbox_xyxy": [
+              256.9075927734375,
+              298.74517822265625,
+              377.8250732421875,
+              371.0
+            ]
+          },
+          {
+            "class_id": 5,
+            "class_name": "metal",
+            "confidence": 0.158725306391716,
+            "bbox_xyxy": [
+              0.0,
+              22.19099235534668,
+              52.3203010559082,
+              123.99200439453125
+            ]
+          }
+        ],
+        "tp_count": 0,
+        "wrong_class_count": 0,
+        "fn_count": 1,
+        "fp_count": 3
+      },
+      "overlay_path": "reports\\qa_acceptance\\overlays_yolov8n\\images (13)_eval_yolov8n.png"
+    },
+    {
+      "filename": "images (14).jpg",
+      "image_size": [
+        547,
+        365
+      ],
+      "inference_ms": 17.799699999159202,
+      "gt_count": 2,
+      "pred_count": 6,
+      "matching": {
+        "matched_pairs": [
+          {
+            "pred_index": 1,
+            "gt_object_id": "img08_obj02",
+            "gt_class_id": 8,
+            "gt_class_name": "shoes",
+            "gt_bbox": [
+              250,
+              0,
+              547,
+              365
+            ],
+            "pred_class_id": 4,
+            "pred_class_name": "glass",
+            "pred_confidence": 0.3609374463558197,
+            "pred_bbox": [
+              192.97842407226562,
+              141.21847534179688,
+              431.5171813964844,
+              299.01171875
+            ],
+            "iou": 0.2439654662803459,
+            "gt_coverage": 0.2642146099060599,
+            "is_class_correct": false,
+            "meets_dod_box": false
+          }
+        ],
+        "false_negatives": [
+          {
+            "object_id": "img08_obj01",
+            "class_name": "shoes",
+            "class_id": 8,
+            "bbox_xyxy": [
+              0,
+              0,
+              260,
+              365
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "\u0110\u1ed1ng gi\u00e0y d\u00e9p c\u0169 ph\u1ebf th\u1ea3i kh\u1ed5ng l\u1ed3 g\u00f3c b\u00ean tr\u00e1i nh\u00e0 x\u01b0\u1edfng."
+          }
+        ],
+        "false_positives": [
+          {
+            "class_id": 3,
+            "class_name": "clothes",
+            "confidence": 0.3743477761745453,
+            "bbox_xyxy": [
+              191.93084716796875,
+              140.9059600830078,
+              428.7685852050781,
+              297.9227294921875
+            ]
+          },
+          {
+            "class_id": 5,
+            "class_name": "metal",
+            "confidence": 0.2845055162906647,
+            "bbox_xyxy": [
+              201.39749145507812,
+              122.29002380371094,
+              250.1168212890625,
+              177.4040069580078
+            ]
+          },
+          {
+            "class_id": 5,
+            "class_name": "metal",
+            "confidence": 0.2499603033065796,
+            "bbox_xyxy": [
+              366.4183044433594,
+              182.67039489746094,
+              461.47686767578125,
+              242.68496704101562
+            ]
+          },
+          {
+            "class_id": 4,
+            "class_name": "glass",
+            "confidence": 0.21980538964271545,
+            "bbox_xyxy": [
+              365.4432678222656,
+              181.91903686523438,
+              461.5654602050781,
+              243.1920928955078
+            ]
+          },
+          {
+            "class_id": 7,
+            "class_name": "plastic",
+            "confidence": 0.2155308723449707,
+            "bbox_xyxy": [
+              365.54852294921875,
+              181.23431396484375,
+              461.61553955078125,
+              243.6083526611328
+            ]
+          }
+        ],
+        "tp_count": 0,
+        "wrong_class_count": 1,
+        "fn_count": 1,
+        "fp_count": 5
+      },
+      "overlay_path": "reports\\qa_acceptance\\overlays_yolov8n\\images (14)_eval_yolov8n.png"
+    },
+    {
+      "filename": "images (15).jpg",
+      "image_size": [
+        259,
+        194
+      ],
+      "inference_ms": 81.9822000048589,
+      "gt_count": 4,
+      "pred_count": 1,
+      "matching": {
+        "matched_pairs": [
+          {
+            "pred_index": 0,
+            "gt_object_id": "img09_03",
+            "gt_class_id": 8,
+            "gt_class_name": "shoes",
+            "gt_bbox": [
+              98,
+              92,
+              190,
+              160
+            ],
+            "pred_class_id": 8,
+            "pred_class_name": "shoes",
+            "pred_confidence": 0.4933859407901764,
+            "pred_bbox": [
+              95.95602416992188,
+              89.9654312133789,
+              189.48291015625,
+              157.5424346923828
+            ],
+            "iou": 0.9112129459174944,
+            "gt_coverage": 0.9584419220564482,
+            "is_class_correct": true,
+            "meets_dod_box": false
+          }
+        ],
+        "false_negatives": [
+          {
+            "object_id": "img09_01",
+            "class_name": "shoes",
+            "class_id": 8,
+            "bbox_xyxy": [
+              113,
+              17,
+              192,
+              68
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "\u0110\u00f4i d\u00e9p nh\u1ef1a t\u1ed5 ong m\u00e0u v\u00e0ng nh\u1ea1t tr\u00ean b\u1eadc thang tr\u00ean c\u00f9ng."
+          },
+          {
+            "object_id": "img09_02",
+            "class_name": "shoes",
+            "class_id": 8,
+            "bbox_xyxy": [
+              160,
+              84,
+              226,
+              148
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "\u0110\u00f4i d\u00e9p quai ngang sandal m\u00e0u be tr\u00ean b\u1eadc thang gi\u1eefa b\u00ean ph\u1ea3i."
+          },
+          {
+            "object_id": "img09_04",
+            "class_name": "shoes",
+            "class_id": 8,
+            "bbox_xyxy": [
+              15,
+              114,
+              110,
+              191
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "\u0110\u00f4i d\u00e9p x\u1ecf ng\u00f3n l\u00ea m\u00e0u x\u00e1m \u1edf b\u1eadc thang d\u01b0\u1edbi c\u00f9ng b\u00ean tr\u00e1i."
+          }
+        ],
+        "false_positives": [],
+        "tp_count": 1,
+        "wrong_class_count": 0,
+        "fn_count": 3,
+        "fp_count": 0
+      },
+      "overlay_path": "reports\\qa_acceptance\\overlays_yolov8n\\images (15)_eval_yolov8n.png"
+    },
+    {
+      "filename": "images (17).jpg",
+      "image_size": [
+        547,
+        365
+      ],
+      "inference_ms": 23.202899988973513,
+      "gt_count": 11,
+      "pred_count": 6,
+      "matching": {
+        "matched_pairs": [
+          {
+            "pred_index": 1,
+            "gt_object_id": "img10_obj07",
+            "gt_class_id": 7,
+            "gt_class_name": "plastic",
+            "gt_bbox": [
+              250,
+              18,
+              330,
+              205
+            ],
+            "pred_class_id": 7,
+            "pred_class_name": "plastic",
+            "pred_confidence": 0.5620427131652832,
+            "pred_bbox": [
+              243.13531494140625,
+              17.707103729248047,
+              336.9511413574219,
+              209.97862243652344
+            ],
+            "iou": 0.8293551164271785,
+            "gt_coverage": 1.0,
+            "is_class_correct": true,
+            "meets_dod_box": true
+          },
+          {
+            "pred_index": 4,
+            "gt_object_id": "img10_obj01",
+            "gt_class_id": 7,
+            "gt_class_name": "plastic",
+            "gt_bbox": [
+              0,
+              162,
+              262,
+              365
+            ],
+            "pred_class_id": 7,
+            "pred_class_name": "plastic",
+            "pred_confidence": 0.2768450677394867,
+            "pred_bbox": [
+              0.07884888350963593,
+              105.53788757324219,
+              274.49169921875,
+              365.0
+            ],
+            "iou": 0.7466044806870955,
+            "gt_coverage": 0.9996990500629404,
+            "is_class_correct": true,
+            "meets_dod_box": false
+          },
+          {
+            "pred_index": 3,
+            "gt_object_id": "img10_obj11",
+            "gt_class_id": 5,
+            "gt_class_name": "metal",
+            "gt_bbox": [
+              360,
+              175,
+              415,
+              210
+            ],
+            "pred_class_id": 5,
+            "pred_class_name": "metal",
+            "pred_confidence": 0.30741751194000244,
+            "pred_bbox": [
+              351.9150695800781,
+              173.02853393554688,
+              426.459716796875,
+              209.15338134765625
+            ],
+            "iou": 0.6856911981756995,
+            "gt_coverage": 0.9758108956473214,
+            "is_class_correct": true,
+            "meets_dod_box": false
+          },
+          {
+            "pred_index": 2,
+            "gt_object_id": "img10_obj09",
+            "gt_class_id": 7,
+            "gt_class_name": "plastic",
+            "gt_bbox": [
+              400,
+              45,
+              470,
+              200
+            ],
+            "pred_class_id": 7,
+            "pred_class_name": "plastic",
+            "pred_confidence": 0.37452125549316406,
+            "pred_bbox": [
+              403.5139465332031,
+              46.2830924987793,
+              492.9753723144531,
+              206.68173217773438
+            ],
+            "iou": 0.6822696019385837,
+            "gt_coverage": 0.9419382977766663,
+            "is_class_correct": true,
+            "meets_dod_box": false
+          },
+          {
+            "pred_index": 5,
+            "gt_object_id": "img10_obj05",
+            "gt_class_id": 4,
+            "gt_class_name": "glass",
+            "gt_bbox": [
+              68,
+              105,
+              150,
+              240
+            ],
+            "pred_class_id": 7,
+            "pred_class_name": "plastic",
+            "pred_confidence": 0.207365944981575,
+            "pred_bbox": [
+              41.365928649902344,
+              101.35039520263672,
+              157.6844940185547,
+              241.93234252929688
+            ],
+            "iou": 0.676969385270188,
+            "gt_coverage": 1.0,
+            "is_class_correct": false,
+            "meets_dod_box": false
+          }
+        ],
+        "false_negatives": [
+          {
+            "object_id": "img10_obj02",
+            "class_name": "plastic",
+            "class_id": 7,
+            "bbox_xyxy": [
+              250,
+              178,
+              535,
+              365
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "Th\u00f9ng r\u00e1c t\u00e1i ch\u1ebf b\u1eb1ng nh\u1ef1a m\u00e0u \u0111en b\u00ean ph\u1ea3i c\u00f3 logo recycle."
+          },
+          {
+            "object_id": "img10_obj03",
+            "class_name": "metal",
+            "class_id": 5,
+            "bbox_xyxy": [
+              0,
+              185,
+              115,
+              252
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "H\u1ed9p thi\u1ebfc kim lo\u1ea1i h\u00ecnh b\u00f4ng tuy\u1ebft m\u00e0u xanh trong th\u00f9ng b\u00ean tr\u00e1i."
+          },
+          {
+            "object_id": "img10_obj04",
+            "class_name": "metal",
+            "class_id": 5,
+            "bbox_xyxy": [
+              195,
+              218,
+              258,
+              250
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "Lon n\u01b0\u1edbc ng\u1ecdt kim lo\u1ea1i m\u00e0u \u0111\u1ecf c\u1eafm \u1ed1ng h\u00fat \u0111en."
+          },
+          {
+            "object_id": "img10_obj06",
+            "class_name": "glass",
+            "class_id": 4,
+            "bbox_xyxy": [
+              41,
+              110,
+              86,
+              190
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "C\u1ed5 chai th\u1ee7y tinh trong su\u1ed1t n\u1eb1m sau chai xanh l\u00e1 c\u00e2y."
+          },
+          {
+            "object_id": "img10_obj08",
+            "class_name": "plastic",
+            "class_id": 7,
+            "bbox_xyxy": [
+              328,
+              52,
+              405,
+              200
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "B\u00ecnh nh\u1ef1a m\u00e0u tr\u1eafng \u0111\u1ee5c n\u1eafp v\u1eb7n nh\u1ecdn \u1edf th\u00f9ng \u0111en."
+          },
+          {
+            "object_id": "img10_obj10",
+            "class_name": "plastic",
+            "class_id": 7,
+            "bbox_xyxy": [
+              425,
+              110,
+              510,
+              210
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "H\u1ed9p/chai nh\u1ef1a trong su\u1ed1t mi\u1ec7ng r\u1ed9ng ph\u00eda ngo\u00e0i c\u00f9ng b\u00ean ph\u1ea3i th\u00f9ng \u0111en."
+          }
+        ],
+        "false_positives": [
+          {
+            "class_id": 8,
+            "class_name": "shoes",
+            "confidence": 0.6543239951133728,
+            "bbox_xyxy": [
+              91.4754638671875,
+              292.1117248535156,
+              160.5296630859375,
+              353.75933837890625
+            ]
+          }
+        ],
+        "tp_count": 4,
+        "wrong_class_count": 1,
+        "fn_count": 6,
+        "fp_count": 1
+      },
+      "overlay_path": "reports\\qa_acceptance\\overlays_yolov8n\\images (17)_eval_yolov8n.png"
+    },
+    {
+      "filename": "images (18).jpg",
+      "image_size": [
+        398,
+        502
+      ],
+      "inference_ms": 81.66389999678358,
+      "gt_count": 1,
+      "pred_count": 2,
+      "matching": {
+        "matched_pairs": [
+          {
+            "pred_index": 1,
+            "gt_object_id": "img11_obj01",
+            "gt_class_id": 7,
+            "gt_class_name": "plastic",
+            "gt_bbox": [
+              26,
+              12,
+              384,
+              495
+            ],
+            "pred_class_id": 3,
+            "pred_class_name": "clothes",
+            "pred_confidence": 0.5440284013748169,
+            "pred_bbox": [
+              12.407979965209961,
+              8.651056289672852,
+              388.9932556152344,
+              500.9964599609375
+            ],
+            "iou": 0.9326032707807028,
+            "gt_coverage": 1.0,
+            "is_class_correct": false,
+            "meets_dod_box": true
+          }
+        ],
+        "false_negatives": [],
+        "false_positives": [
+          {
+            "class_id": 5,
+            "class_name": "metal",
+            "confidence": 0.7910516262054443,
+            "bbox_xyxy": [
+              20.916107177734375,
+              8.269209861755371,
+              360.8859558105469,
+              499.77935791015625
+            ]
+          }
+        ],
+        "tp_count": 0,
+        "wrong_class_count": 1,
+        "fn_count": 0,
+        "fp_count": 1
+      },
+      "overlay_path": "reports\\qa_acceptance\\overlays_yolov8n\\images (18)_eval_yolov8n.png"
+    },
+    {
+      "filename": "images (19).jpg",
+      "image_size": [
+        597,
+        335
+      ],
+      "inference_ms": 26.43280000484083,
+      "gt_count": 1,
+      "pred_count": 1,
+      "matching": {
+        "matched_pairs": [],
+        "false_negatives": [
+          {
+            "object_id": "img12_obj01",
+            "class_name": "biological",
+            "class_id": 1,
+            "bbox_xyxy": [
+              90,
+              0,
+              597,
+              335
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "\u0110\u1ed1ng r\u00e1c h\u1eefu c\u01a1 \u1ee7 ph\u00e2n compost g\u1ed3m v\u1ecf d\u01b0a h\u1ea5u, v\u1ecf tr\u1ee9ng, c\u00e0 chua th\u1ed1i, rau c\u1ee7 qu\u1ea3 tr\u00ean r\u01a1m r\u1ea1."
+          }
+        ],
+        "false_positives": [
+          {
+            "class_id": 7,
+            "class_name": "plastic",
+            "confidence": 0.5211238265037537,
+            "bbox_xyxy": [
+              484.3759460449219,
+              108.49097442626953,
+              546.3013916015625,
+              182.3920135498047
+            ]
+          }
+        ],
+        "tp_count": 0,
+        "wrong_class_count": 0,
+        "fn_count": 1,
+        "fp_count": 1
+      },
+      "overlay_path": "reports\\qa_acceptance\\overlays_yolov8n\\images (19)_eval_yolov8n.png"
+    },
+    {
+      "filename": "images (3).jpg",
+      "image_size": [
+        276,
+        183
+      ],
+      "inference_ms": 19.375300005776808,
+      "gt_count": 1,
+      "pred_count": 1,
+      "matching": {
+        "matched_pairs": [
+          {
+            "pred_index": 0,
+            "gt_object_id": "img13_obj01",
+            "gt_class_id": 4,
+            "gt_class_name": "glass",
+            "gt_bbox": [
+              49,
+              18,
+              120,
+              165
+            ],
+            "pred_class_id": 3,
+            "pred_class_name": "clothes",
+            "pred_confidence": 0.8141849637031555,
+            "pred_bbox": [
+              0.0,
+              11.9177827835083,
+              122.77175903320312,
+              173.45986938476562
+            ],
+            "iou": 0.5262492827098809,
+            "gt_coverage": 1.0,
+            "is_class_correct": false,
+            "meets_dod_box": false
+          }
+        ],
+        "false_negatives": [],
+        "false_positives": [],
+        "tp_count": 0,
+        "wrong_class_count": 1,
+        "fn_count": 0,
+        "fp_count": 0
+      },
+      "overlay_path": "reports\\qa_acceptance\\overlays_yolov8n\\images (3)_eval_yolov8n.png"
+    },
+    {
+      "filename": "images (4).jpg",
+      "image_size": [
+        225,
+        225
+      ],
+      "inference_ms": 20.8344999991823,
+      "gt_count": 1,
+      "pred_count": 0,
+      "matching": {
+        "matched_pairs": [],
+        "false_negatives": [
+          {
+            "object_id": "img14_obj01",
+            "class_name": "glass",
+            "class_id": 4,
+            "bbox_xyxy": [
+              37,
+              48,
+              185,
+              200
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "Chai th\u1ee7y tinh trong su\u1ed1t \u0111\u1ef1ng d\u1ea7u m\u00e0u h\u1ed5 ph\u00e1ch c\u00f3 v\u00f2i r\u00f3t kim lo\u1ea1i tr\u00ean n\u1ec1n tr\u1eafng."
+          }
+        ],
+        "false_positives": [],
+        "tp_count": 0,
+        "wrong_class_count": 0,
+        "fn_count": 1,
+        "fp_count": 0
+      },
+      "overlay_path": "reports\\qa_acceptance\\overlays_yolov8n\\images (4)_eval_yolov8n.png"
+    },
+    {
+      "filename": "images (5).jpg",
+      "image_size": [
+        225,
+        224
+      ],
+      "inference_ms": 15.215599996736273,
+      "gt_count": 1,
+      "pred_count": 2,
+      "matching": {
+        "matched_pairs": [
+          {
+            "pred_index": 1,
+            "gt_object_id": "img15_obj01",
+            "gt_class_id": 4,
+            "gt_class_name": "glass",
+            "gt_bbox": [
+              80,
+              15,
+              146,
+              224
+            ],
+            "pred_class_id": 8,
+            "pred_class_name": "shoes",
+            "pred_confidence": 0.2253521829843521,
+            "pred_bbox": [
+              70.33475494384766,
+              19.789188385009766,
+              151.99044799804688,
+              222.53372192382812
+            ],
+            "iou": 0.7886053438890172,
+            "gt_coverage": 0.9700695384632457,
+            "is_class_correct": false,
+            "meets_dod_box": false
+          }
+        ],
+        "false_negatives": [],
+        "false_positives": [
+          {
+            "class_id": 7,
+            "class_name": "plastic",
+            "confidence": 0.5408278107643127,
+            "bbox_xyxy": [
+              89.25785064697266,
+              14.5084228515625,
+              134.94650268554688,
+              64.59541320800781
+            ]
+          }
+        ],
+        "tp_count": 0,
+        "wrong_class_count": 1,
+        "fn_count": 0,
+        "fp_count": 1
+      },
+      "overlay_path": "reports\\qa_acceptance\\overlays_yolov8n\\images (5)_eval_yolov8n.png"
+    },
+    {
+      "filename": "images (6).jpg",
+      "image_size": [
+        318,
+        159
+      ],
+      "inference_ms": 80.7990999892354,
+      "gt_count": 1,
+      "pred_count": 0,
+      "matching": {
+        "matched_pairs": [],
+        "false_negatives": [
+          {
+            "object_id": "img16_obj01",
+            "class_name": "biological",
+            "class_id": 1,
+            "bbox_xyxy": [
+              0,
+              0,
+              318,
+              159
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "R\u00e1c th\u1ea3i h\u1eefu c\u01a1 sinh ho\u1ea1t g\u1ed3m v\u1ecf chu\u1ed1i, v\u1ecf cam, hoa h\u00e9o v\u00e0 l\u00e1 c\u00e2y m\u1ee5c n\u00e1t."
+          }
+        ],
+        "false_positives": [],
+        "tp_count": 0,
+        "wrong_class_count": 0,
+        "fn_count": 1,
+        "fp_count": 0
+      },
+      "overlay_path": "reports\\qa_acceptance\\overlays_yolov8n\\images (6)_eval_yolov8n.png"
+    },
+    {
+      "filename": "images (7).jpg",
+      "image_size": [
+        538,
+        371
+      ],
+      "inference_ms": 22.33150000392925,
+      "gt_count": 1,
+      "pred_count": 3,
+      "matching": {
+        "matched_pairs": [],
+        "false_negatives": [
+          {
+            "object_id": "img17_obj01",
+            "class_name": "plastic",
+            "class_id": 7,
+            "bbox_xyxy": [
+              0,
+              0,
+              538,
+              371
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "\u0110\u1ed1ng chai nh\u1ef1a PET t\u00e1i ch\u1ebf trong su\u1ed1t c\u00e1c nh\u00e3n hi\u1ec7u n\u01b0\u1edbc gi\u1ea3i kh\u00e1t, d\u1ea7u \u0103n, h\u00f3a ch\u1ea5t (file tr\u00f9ng v\u1edbi images (13))."
+          }
+        ],
+        "false_positives": [
+          {
+            "class_id": 5,
+            "class_name": "metal",
+            "confidence": 0.3440115749835968,
+            "bbox_xyxy": [
+              190.3470458984375,
+              36.060943603515625,
+              249.499755859375,
+              101.00873565673828
+            ]
+          },
+          {
+            "class_id": 6,
+            "class_name": "paper",
+            "confidence": 0.2871149182319641,
+            "bbox_xyxy": [
+              256.9075927734375,
+              298.74517822265625,
+              377.8250732421875,
+              371.0
+            ]
+          },
+          {
+            "class_id": 5,
+            "class_name": "metal",
+            "confidence": 0.158725306391716,
+            "bbox_xyxy": [
+              0.0,
+              22.19099235534668,
+              52.3203010559082,
+              123.99200439453125
+            ]
+          }
+        ],
+        "tp_count": 0,
+        "wrong_class_count": 0,
+        "fn_count": 1,
+        "fp_count": 3
+      },
+      "overlay_path": "reports\\qa_acceptance\\overlays_yolov8n\\images (7)_eval_yolov8n.png"
+    },
+    {
+      "filename": "images (8).jpg",
+      "image_size": [
+        426,
+        469
+      ],
+      "inference_ms": 82.54469999519642,
+      "gt_count": 1,
+      "pred_count": 1,
+      "matching": {
+        "matched_pairs": [
+          {
+            "pred_index": 0,
+            "gt_object_id": "img18_obj01",
+            "gt_class_id": 7,
+            "gt_class_name": "plastic",
+            "gt_bbox": [
+              12,
+              8,
+              412,
+              463
+            ],
+            "pred_class_id": 3,
+            "pred_class_name": "clothes",
+            "pred_confidence": 0.7842621803283691,
+            "pred_bbox": [
+              18.69620132446289,
+              0.09647684544324875,
+              423.1764221191406,
+              465.1340637207031
+            ],
+            "iou": 0.9362157978111253,
+            "gt_coverage": 0.9832594966888428,
+            "is_class_correct": false,
+            "meets_dod_box": false
+          }
+        ],
+        "false_negatives": [],
+        "false_positives": [],
+        "tp_count": 0,
+        "wrong_class_count": 1,
+        "fn_count": 0,
+        "fp_count": 0
+      },
+      "overlay_path": "reports\\qa_acceptance\\overlays_yolov8n\\images (8)_eval_yolov8n.png"
+    },
+    {
+      "filename": "images (9).jpg",
+      "image_size": [
+        515,
+        388
+      ],
+      "inference_ms": 62.73879999935161,
+      "gt_count": 1,
+      "pred_count": 0,
+      "matching": {
+        "matched_pairs": [],
+        "false_negatives": [
+          {
+            "object_id": "img19_obj01",
+            "class_name": "cardboard",
+            "class_id": 2,
+            "bbox_xyxy": [
+              0,
+              0,
+              515,
+              388
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "C\u00e1c m\u1ea3nh b\u00eca carton s\u00f3ng m\u00e0u n\u00e2u kraft b\u1ecb x\u00e9 r\u00e1ch l\u1ed9 r\u00f5 c\u1ea5u tr\u00fac l\u00f5i g\u1ee3n s\u00f3ng."
+          }
+        ],
+        "false_positives": [],
+        "tp_count": 0,
+        "wrong_class_count": 0,
+        "fn_count": 1,
+        "fp_count": 0
+      },
+      "overlay_path": "reports\\qa_acceptance\\overlays_yolov8n\\images (9)_eval_yolov8n.png"
+    },
+    {
+      "filename": "OIP (1).webp",
+      "image_size": [
+        313,
+        237
+      ],
+      "inference_ms": 15.461500006495044,
+      "gt_count": 2,
+      "pred_count": 0,
+      "matching": {
+        "matched_pairs": [],
+        "false_negatives": [
+          {
+            "object_id": "img20_obj01",
+            "class_name": "clothes",
+            "class_id": 3,
+            "bbox_xyxy": [
+              0,
+              95,
+              313,
+              237
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "\u0110\u1ed1ng r\u00e1c qu\u1ea7n \u00e1o ph\u1ebf th\u1ea3i th\u1eddi trang nhanh tr\u1ea3i d\u00e0i ti\u1ec1n c\u1ea3nh v\u00e0 s\u01b0\u1eddn ph\u1ea3i sa m\u1ea1c Atacama (\u1ea3nh thu nh\u1ecf)."
+          },
+          {
+            "object_id": "img20_obj02",
+            "class_name": "clothes",
+            "class_id": 3,
+            "bbox_xyxy": [
+              0,
+              70,
+              160,
+              175
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "G\u00f2 \u0111\u1ed3i qu\u1ea7n \u00e1o c\u0169 ph\u1ebf th\u1ea3i b\u00ean s\u01b0\u1eddn tr\u00e1i sa m\u1ea1c Atacama (\u1ea3nh thu nh\u1ecf)."
+          }
+        ],
+        "false_positives": [],
+        "tp_count": 0,
+        "wrong_class_count": 0,
+        "fn_count": 2,
+        "fp_count": 0
+      },
+      "overlay_path": "reports\\qa_acceptance\\overlays_yolov8n\\OIP (1)_eval_yolov8n.png"
+    },
+    {
+      "filename": "OIP.webp",
+      "image_size": [
+        274,
+        234
+      ],
+      "inference_ms": 63.27020000026096,
+      "gt_count": 1,
+      "pred_count": 0,
+      "matching": {
+        "matched_pairs": [],
+        "false_negatives": [
+          {
+            "object_id": "img21_obj01",
+            "class_name": "clothes",
+            "class_id": 3,
+            "bbox_xyxy": [
+              0,
+              0,
+              274,
+              234
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "C\u1eadn c\u1ea3nh \u0111\u1ed1ng qu\u1ea7n \u00e1o c\u0169 nhi\u1ec1u m\u00e0u s\u1eafc l\u1eabn l\u1ed9n (\u00e1o ph\u00f4ng, qu\u1ea7n jean, \u00e1o kho\u00e1c) ch\u1ea5t th\u00e0nh \u0111\u1ed1ng."
+          }
+        ],
+        "false_positives": [],
+        "tp_count": 0,
+        "wrong_class_count": 0,
+        "fn_count": 1,
+        "fp_count": 0
+      },
+      "overlay_path": "reports\\qa_acceptance\\overlays_yolov8n\\OIP_eval_yolov8n.png"
+    },
+    {
+      "filename": "Phan-Loai-Rac-Tai-Ng-01.jpg",
+      "image_size": [
+        960,
+        720
+      ],
+      "inference_ms": 23.639599996386096,
+      "gt_count": 6,
+      "pred_count": 13,
+      "matching": {
+        "matched_pairs": [
+          {
+            "pred_index": 4,
+            "gt_object_id": "img22_obj03",
+            "gt_class_id": 7,
+            "gt_class_name": "plastic",
+            "gt_bbox": [
+              590,
+              580,
+              755,
+              715
+            ],
+            "pred_class_id": 6,
+            "pred_class_name": "paper",
+            "pred_confidence": 0.4675292372703552,
+            "pred_bbox": [
+              575.04931640625,
+              561.1122436523438,
+              722.9161376953125,
+              708.566650390625
+            ],
+            "iou": 0.6331442189844744,
+            "gt_coverage": 0.7671642023050691,
+            "is_class_correct": false,
+            "meets_dod_box": false
+          },
+          {
+            "pred_index": 1,
+            "gt_object_id": "img22_obj02",
+            "gt_class_id": 7,
+            "gt_class_name": "plastic",
+            "gt_bbox": [
+              340,
+              445,
+              675,
+              705
+            ],
+            "pred_class_id": 7,
+            "pred_class_name": "plastic",
+            "pred_confidence": 0.7804679274559021,
+            "pred_bbox": [
+              334.3509521484375,
+              305.344970703125,
+              669.7010498046875,
+              649.536376953125
+            ],
+            "iou": 0.49919665011845393,
+            "gt_coverage": 0.7742348817989966,
+            "is_class_correct": true,
+            "meets_dod_box": false
+          },
+          {
+            "pred_index": 9,
+            "gt_object_id": "img22_obj06",
+            "gt_class_id": 6,
+            "gt_class_name": "paper",
+            "gt_bbox": [
+              285,
+              590,
+              375,
+              655
+            ],
+            "pred_class_id": 7,
+            "pred_class_name": "plastic",
+            "pred_confidence": 0.20149527490139008,
+            "pred_bbox": [
+              277.2880554199219,
+              557.1941528320312,
+              362.34136962890625,
+              642.1463012695312
+            ],
+            "iou": 0.4460174740517134,
+            "gt_coverage": 0.6894130532080547,
+            "is_class_correct": false,
+            "meets_dod_box": false
+          },
+          {
+            "pred_index": 2,
+            "gt_object_id": "img22_obj01",
+            "gt_class_id": 7,
+            "gt_class_name": "plastic",
+            "gt_bbox": [
+              230,
+              220,
+              460,
+              550
+            ],
+            "pred_class_id": 7,
+            "pred_class_name": "plastic",
+            "pred_confidence": 0.6666604280471802,
+            "pred_bbox": [
+              199.4908447265625,
+              152.1027069091797,
+              590.58447265625,
+              475.989990234375
+            ],
+            "iou": 0.40974772691495565,
+            "gt_coverage": 0.7757272431344697,
+            "is_class_correct": true,
+            "meets_dod_box": false
+          }
+        ],
+        "false_negatives": [
+          {
+            "object_id": "img22_obj04",
+            "class_name": "cardboard",
+            "class_id": 2,
+            "bbox_xyxy": [
+              680,
+              570,
+              765,
+              650
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "V\u1ecf h\u1ed9p/b\u1ecbch s\u1eefa TH true MILK b\u1eb1ng gi\u1ea5y/carton ph\u1ee9c h\u1ee3p n\u1eb1m c\u1ea1nh \u0111\u1ed1ng r\u00e1c."
+          },
+          {
+            "object_id": "img22_obj05",
+            "class_name": "plastic",
+            "class_id": 7,
+            "bbox_xyxy": [
+              680,
+              380,
+              710,
+              400
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "N\u1eafp chai nh\u1ef1a m\u00e0u v\u00e0ng n\u1eb1m tr\u00ean b\u1eadc tam c\u1ea5p b\u00ea t\u00f4ng."
+          }
+        ],
+        "false_positives": [
+          {
+            "class_id": 3,
+            "class_name": "clothes",
+            "confidence": 0.7881908416748047,
+            "bbox_xyxy": [
+              465.6296081542969,
+              22.32634735107422,
+              523.1668701171875,
+              130.1169891357422
+            ]
+          },
+          {
+            "class_id": 7,
+            "class_name": "plastic",
+            "confidence": 0.5350791811943054,
+            "bbox_xyxy": [
+              619.5964965820312,
+              414.24322509765625,
+              763.8662109375,
+              547.4224853515625
+            ]
+          },
+          {
+            "class_id": 7,
+            "class_name": "plastic",
+            "confidence": 0.4463813304901123,
+            "bbox_xyxy": [
+              518.8946533203125,
+              210.78106689453125,
+              574.1673583984375,
+              247.09564208984375
+            ]
+          },
+          {
+            "class_id": 9,
+            "class_name": "trash",
+            "confidence": 0.2328965812921524,
+            "bbox_xyxy": [
+              348.4931640625,
+              668.3633422851562,
+              370.681396484375,
+              690.4773559570312
+            ]
+          },
+          {
+            "class_id": 7,
+            "class_name": "plastic",
+            "confidence": 0.22550387680530548,
+            "bbox_xyxy": [
+              664.6261596679688,
+              516.07763671875,
+              732.910400390625,
+              586.4042358398438
+            ]
+          },
+          {
+            "class_id": 7,
+            "class_name": "plastic",
+            "confidence": 0.2137102335691452,
+            "bbox_xyxy": [
+              566.0698852539062,
+              412.230712890625,
+              759.16796875,
+              712.6787719726562
+            ]
+          },
+          {
+            "class_id": 2,
+            "class_name": "cardboard",
+            "confidence": 0.1848171353340149,
+            "bbox_xyxy": [
+              276.3404541015625,
+              556.23291015625,
+              363.2001953125,
+              642.1771240234375
+            ]
+          },
+          {
+            "class_id": 5,
+            "class_name": "metal",
+            "confidence": 0.1845523566007614,
+            "bbox_xyxy": [
+              664.8963012695312,
+              516.02294921875,
+              731.9385375976562,
+              585.0693359375
+            ]
+          },
+          {
+            "class_id": 7,
+            "class_name": "plastic",
+            "confidence": 0.16133959591388702,
+            "bbox_xyxy": [
+              312.5971984863281,
+              489.087890625,
+              349.0300598144531,
+              520.030517578125
+            ]
+          }
+        ],
+        "tp_count": 2,
+        "wrong_class_count": 2,
+        "fn_count": 2,
+        "fp_count": 9
+      },
+      "overlay_path": "reports\\qa_acceptance\\overlays_yolov8n\\Phan-Loai-Rac-Tai-Ng-01_eval_yolov8n.png"
+    },
+    {
+      "filename": "photo-5-1642556540067542343380.webp",
+      "image_size": [
+        620,
+        376
+      ],
+      "inference_ms": 21.087300003273413,
+      "gt_count": 1,
+      "pred_count": 3,
+      "matching": {
+        "matched_pairs": [],
+        "false_negatives": [
+          {
+            "object_id": "img23_obj01",
+            "class_name": "clothes",
+            "class_id": 3,
+            "bbox_xyxy": [
+              0,
+              15,
+              620,
+              376
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "Ng\u1ecdn n\u00fai r\u00e1c th\u1ea3i d\u1ec7t may th\u1eddi trang nhanh kh\u1ed5ng l\u1ed3 v\u1edbi h\u00e0ng ngh\u00ecn b\u1ed9 qu\u1ea7n \u00e1o c\u0169 \u1edf b\u00e3i r\u00e1c."
+          }
+        ],
+        "false_positives": [
+          {
+            "class_id": 3,
+            "class_name": "clothes",
+            "confidence": 0.3732081949710846,
+            "bbox_xyxy": [
+              129.4534149169922,
+              243.7018280029297,
+              232.52365112304688,
+              374.886962890625
+            ]
+          },
+          {
+            "class_id": 4,
+            "class_name": "glass",
+            "confidence": 0.16137999296188354,
+            "bbox_xyxy": [
+              314.0894470214844,
+              208.14537048339844,
+              398.30792236328125,
+              341.6817321777344
+            ]
+          },
+          {
+            "class_id": 3,
+            "class_name": "clothes",
+            "confidence": 0.15441808104515076,
+            "bbox_xyxy": [
+              321.10821533203125,
+              213.22061157226562,
+              389.7433776855469,
+              341.6297607421875
+            ]
+          }
+        ],
+        "tp_count": 0,
+        "wrong_class_count": 0,
+        "fn_count": 1,
+        "fp_count": 3
+      },
+      "overlay_path": "reports\\qa_acceptance\\overlays_yolov8n\\photo-5-1642556540067542343380_eval_yolov8n.png"
+    },
+    {
+      "filename": "pin_vuong_4f15ab32849e43a8abdaef2bf000463f.webp",
+      "image_size": [
+        800,
+        800
+      ],
+      "inference_ms": 23.524700009147637,
+      "gt_count": 1,
+      "pred_count": 1,
+      "matching": {
+        "matched_pairs": [
+          {
+            "pred_index": 0,
+            "gt_object_id": "img24_obj01",
+            "gt_class_id": 0,
+            "gt_class_name": "battery",
+            "gt_bbox": [
+              252,
+              120,
+              551,
+              676
+            ],
+            "pred_class_id": 5,
+            "pred_class_name": "metal",
+            "pred_confidence": 0.8827163577079773,
+            "pred_bbox": [
+              239.4795379638672,
+              128.64663696289062,
+              562.4880981445312,
+              514.6951904296875
+            ],
+            "iou": 0.6576656207593228,
+            "gt_coverage": 0.6943319306956778,
+            "is_class_correct": false,
+            "meets_dod_box": false
+          }
+        ],
+        "false_negatives": [],
+        "false_positives": [],
+        "tp_count": 0,
+        "wrong_class_count": 1,
+        "fn_count": 0,
+        "fp_count": 0
+      },
+      "overlay_path": "reports\\qa_acceptance\\overlays_yolov8n\\pin_vuong_4f15ab32849e43a8abdaef2bf000463f_eval_yolov8n.png"
+    },
+    {
+      "filename": "rac-1562828175-1562828212-3852-1562828313.webp",
+      "image_size": [
+        532,
+        299
+      ],
+      "inference_ms": 19.725799997104332,
+      "gt_count": 1,
+      "pred_count": 3,
+      "matching": {
+        "matched_pairs": [
+          {
+            "pred_index": 1,
+            "gt_object_id": "img25_obj01",
+            "gt_class_id": 4,
+            "gt_class_name": "glass",
+            "gt_bbox": [
+              0,
+              95,
+              532,
+              299
+            ],
+            "pred_class_id": 4,
+            "pred_class_name": "glass",
+            "pred_confidence": 0.397546648979187,
+            "pred_bbox": [
+              0.0,
+              133.45223999023438,
+              217.04161071777344,
+              299.0
+            ],
+            "iou": 0.3310735707212787,
+            "gt_coverage": 0.3310735707212787,
+            "is_class_correct": true,
+            "meets_dod_box": false
+          }
+        ],
+        "false_negatives": [],
+        "false_positives": [
+          {
+            "class_id": 4,
+            "class_name": "glass",
+            "confidence": 0.43704670667648315,
+            "bbox_xyxy": [
+              469.24560546875,
+              174.87380981445312,
+              531.7383422851562,
+              205.2972412109375
+            ]
+          },
+          {
+            "class_id": 7,
+            "class_name": "plastic",
+            "confidence": 0.16755814850330353,
+            "bbox_xyxy": [
+              469.0543212890625,
+              169.65902709960938,
+              532.0,
+              207.36912536621094
+            ]
+          }
+        ],
+        "tp_count": 1,
+        "wrong_class_count": 0,
+        "fn_count": 0,
+        "fp_count": 2
+      },
+      "overlay_path": "reports\\qa_acceptance\\overlays_yolov8n\\rac-1562828175-1562828212-3852-1562828313_eval_yolov8n.png"
+    },
+    {
+      "filename": "rac-thai-huu-co-1.jpg",
+      "image_size": [
+        600,
+        410
+      ],
+      "inference_ms": 17.443399992771447,
+      "gt_count": 1,
+      "pred_count": 0,
+      "matching": {
+        "matched_pairs": [],
+        "false_negatives": [
+          {
+            "object_id": "img26_obj01",
+            "class_name": "biological",
+            "class_id": 1,
+            "bbox_xyxy": [
+              0,
+              0,
+              600,
+              410
+            ],
+            "reviewer": "Agent_D_QA",
+            "review_rationale": "R\u00e1c th\u1ea3i h\u1eefu c\u01a1 t\u1eeb nh\u00e0 b\u1ebfp g\u1ed3m b\u1eafp ng\u00f4, \u1edbt chu\u00f4ng \u0111\u1ecf, b\u00e1nh m\u00ec, v\u1ecf cam m\u1ed1c, c\u00e0 chua \u1ee7ng ph\u00e2n h\u1ee7y."
+          }
+        ],
+        "false_positives": [],
+        "tp_count": 0,
+        "wrong_class_count": 0,
+        "fn_count": 1,
+        "fp_count": 0
+      },
+      "overlay_path": "reports\\qa_acceptance\\overlays_yolov8n\\rac-thai-huu-co-1_eval_yolov8n.png"
+    },
+    {
+      "filename": "rac-thai-quan-ao-4.jpg",
+      "image_size": [
+        600,
+        375
+      ],
+      "inference_ms": 19.980900004156865,
+      "gt_count": 1,
+      "pred_count": 2,
+      "matching": {
+        "matched_pairs": [
+          {
+            "pred_index": 0,
+            "gt_object_id": "img27_obj01",
+            "gt_class_id": 3,
+            "gt_class_name": "clothes",
+            "gt_bbox": [
+              100,
+              175,
+              590,
+              350
+            ],
+            "pred_class_id": 7,
+            "pred_class_name": "plastic",
+            "pred_confidence": 0.6306800246238708,
+            "pred_bbox": [
+              101.0234146118164,
+              129.21966552734375,
+              424.520263671875,
+              321.60919189453125
+            ],
+            "iou": 0.47163592682297517,
+            "gt_coverage": 0.553091680712797,
+            "is_class_correct": false,
+            "meets_dod_box": false
+          }
+        ],
+        "false_negatives": [],
+        "false_positives": [
+          {
+            "class_id": 7,
+            "class_name": "plastic",
+            "confidence": 0.24968907237052917,
+            "bbox_xyxy": [
+              362.6546630859375,
+              338.7377624511719,
+              466.9115295410156,
+              375.0
+            ]
+          }
+        ],
+        "tp_count": 0,
+        "wrong_class_count": 1,
+        "fn_count": 0,
+        "fp_count": 1
+      },
+      "overlay_path": "reports\\qa_acceptance\\overlays_yolov8n\\rac-thai-quan-ao-4_eval_yolov8n.png"
+    }
+  ]
+}

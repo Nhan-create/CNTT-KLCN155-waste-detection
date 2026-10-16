@@ -126,3 +126,32 @@ sources:
       # Material ambiguous
       "/m/04dr76w": { name: "Bottle", class_id: null, class_name: "ambiguous", status: "REQUIRES_REVIEW", note: "Material unknown: glass vs plastic vs metal" }
       "/m/025dyy": { name: "Box", class_id: null, class_name: "ambiguous", status: "REQUIRES_REVIEW", note: "Material unknown: cardboard vs wood vs plastic" }
+
+  mendeley:
+    version: "v1_synthetic"
+    status: "QUARANTINED"
+    policy: "DO_NOT_REMAP_WHOLE_CLASS"
+    note: "High intra-class noise and visual heterogeneity verified on crops. Whole-class text remapping prohibited. Requires instance-level audit or dataset quarantine."
+    category_mapping:
+      0: { name: "Class 0", original_v1_target: 7, class_name: "plastic", status: "NOISY_COMPOSITE", note: "Contains paper, napkins, film" }
+      1: { name: "Class 1", original_v1_target: 6, class_name: "paper", status: "NOISY_COMPOSITE", note: "Contains snack packaging, paper cups" }
+      2: { name: "Class 2", original_v1_target: 2, class_name: "cardboard", status: "QUARANTINED_MIXED_UNKNOWN", note: "Mixed: face masks, plastic net bags, cardboard. DO NOT remap whole class." }
+      3: { name: "Class 3", original_v1_target: 5, class_name: "metal", status: "NOISY_COMPOSITE", note: "Ropes, nylon nets" }
+      4: { name: "Class 4", original_v1_target: 4, class_name: "glass", status: "QUARANTINED_MIXED_UNKNOWN", note: "Mixed: pizza boxes, McDonald's paper bags, KitKat plastic, glass bottles. DO NOT remap whole class." }
+      5: { name: "Class 5", original_v1_target: 1, class_name: "biological", status: "NOISY_COMPOSITE", note: "Cigarette packs, lids" }
+      6: { name: "Class 6", original_v1_target: 0, class_name: "battery", status: "MISALIGNED", note: "Aluminum beverage cans wrongly assigned as battery" }
+      7: { name: "Class 7", original_v1_target: null, class_name: "omitted", status: "OMITTED_IN_V1", note: "699 boxes in full Mendeley (2000 files), 0 in matched subset (1305 files)" }
+      8: { name: "Class 8", original_v1_target: 3, class_name: "clothes", status: "MISALIGNED", note: "Organic branches/peels wrongly assigned as clothes" }
+      9: { name: "Class 9", original_v1_target: 9, class_name: "trash", status: "MIXED", note: "Shoes and miscellaneous debris" }
+
+  roboflow_battery:
+    version: "v1"
+    official_url: "https://universe.roboflow.com/battery-detection-yuv0z/waste-battery-only/dataset/1"
+    license: "CC BY 4.0"
+    annotation_type: "YOLOv8 [class_id, xc, yc, w, h]"
+    category_mapping:
+      0: { name: "Alkaline", class_id: 0, class_name: "battery", status: "CONFIRMED" }
+      1: { name: "Alkaline_jp", class_id: 0, class_name: "battery", status: "CONFIRMED" }
+      2: { name: "LR_Alkaline", class_id: 0, class_name: "battery", status: "CONFIRMED" }
+
+

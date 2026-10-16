@@ -45,8 +45,15 @@ SOURCE_LABEL_MAPPING = {
         "trash": "trash",
     },
     "vn_trash": {
-        "organic": "biological",
-        "medical": "battery",
+        "alu": "metal",
+        "carton": "cardboard",
+        "foam_box": "plastic",
+        "milk_box": "cardboard",
+        "other": "trash",
+        "pet": "plastic",
+        "paper": "paper",
+        "paper_cup": "paper",
+        "plastic_cup": "plastic",
     },
 }
 
@@ -65,7 +72,7 @@ def map_source_label(source_dataset: str, original_label: str, *, manual_class: 
         if manual_class and manual_class != automatic:
             raise DetectionDatasetError(f"Mapping for {source}/{label} must be {automatic}")
         return automatic
-    ambiguous = (source == "vn_trash" and label == "inorganic")
+    ambiguous = (source == "vn_trash" and label in ("inorganic", "medical", "organic"))
     if ambiguous and manual_class in CLASS_NAMES and reviewer.strip():
         return manual_class
     raise DetectionDatasetError(f"Exclude or manually review {source}/{label}; a material class and reviewer are required")

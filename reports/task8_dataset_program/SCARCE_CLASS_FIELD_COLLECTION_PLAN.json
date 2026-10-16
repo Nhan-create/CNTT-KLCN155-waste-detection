@@ -1,0 +1,127 @@
+{
+  "plan_version": "TASK8H_SCARCE_CLASS_FIELD_COLLECTION_PLAN_V1",
+  "simulated_or_fabricated_images": 0,
+  "status": "ACTIONABLE_FIELD_PROTOCOL_ONLY_NO_SIMULATED_CAPTURES",
+  "mandatory_self_collection_classes": [
+    "0: battery",
+    "3: clothes",
+    "8: shoes",
+    "1: biological",
+    "4: glass"
+  ],
+  "per_class_gaps_and_session_estimates": [
+    {
+      "class_id": 0,
+      "class_name": "battery",
+      "pre_8h_verified_rw_train": 52,
+      "wave8h_added_rw_train": 34,
+      "post_8h_verified_rw_train": 86,
+      "post_8h_verified_rw_val": 31,
+      "gap_to_m1_500": 414,
+      "gap_to_m4_5000": 4914,
+      "mandatory_self_collection_required": true,
+      "required_independent_specimens_for_m1_500": 414,
+      "estimated_field_sessions_for_m1_500": 11
+    },
+    {
+      "class_id": 3,
+      "class_name": "clothes",
+      "pre_8h_verified_rw_train": 34,
+      "wave8h_added_rw_train": 21,
+      "post_8h_verified_rw_train": 55,
+      "post_8h_verified_rw_val": 4,
+      "gap_to_m1_500": 445,
+      "gap_to_m4_5000": 4945,
+      "mandatory_self_collection_required": true,
+      "required_independent_specimens_for_m1_500": 445,
+      "estimated_field_sessions_for_m1_500": 12
+    },
+    {
+      "class_id": 8,
+      "class_name": "shoes",
+      "pre_8h_verified_rw_train": 55,
+      "wave8h_added_rw_train": 23,
+      "post_8h_verified_rw_train": 78,
+      "post_8h_verified_rw_val": 15,
+      "gap_to_m1_500": 422,
+      "gap_to_m4_5000": 4922,
+      "mandatory_self_collection_required": true,
+      "required_independent_specimens_for_m1_500": 422,
+      "estimated_field_sessions_for_m1_500": 11
+    },
+    {
+      "class_id": 1,
+      "class_name": "biological",
+      "pre_8h_verified_rw_train": 90,
+      "wave8h_added_rw_train": 76,
+      "post_8h_verified_rw_train": 166,
+      "post_8h_verified_rw_val": 40,
+      "gap_to_m1_500": 334,
+      "gap_to_m4_5000": 4834,
+      "mandatory_self_collection_required": true,
+      "required_independent_specimens_for_m1_500": 334,
+      "estimated_field_sessions_for_m1_500": 9
+    },
+    {
+      "class_id": 4,
+      "class_name": "glass",
+      "pre_8h_verified_rw_train": 90,
+      "wave8h_added_rw_train": 23,
+      "post_8h_verified_rw_train": 113,
+      "post_8h_verified_rw_val": 32,
+      "gap_to_m1_500": 387,
+      "gap_to_m4_5000": 4887,
+      "mandatory_self_collection_required": true,
+      "required_independent_specimens_for_m1_500": 387,
+      "estimated_field_sessions_for_m1_500": 10
+    }
+  ],
+  "collection_locations_and_contexts": {
+    "0_battery": "Điểm thu hồi pin thải tại siêu thị/chung cư/trường đại học, tiệm sửa chữa điện tử - đồng hồ - xe máy, gara ô tô (ắc quy chì 12V, pin tiểu AA/AAA/9V/cúc áo rỉ sét, pin Li-ion tháo rời), khay rác nguy hại hộ gia đình.",
+    "3_clothes": "Điểm tập kết rác sinh hoạt/rác cồng kềnh, thùng rác ký túc xá/khu trọ, chợ dân sinh cuối ngày (găng tay vải/cao su rách, tất/vớ cũ rách, giẻ lau dầu mỡ, áo quần rách bỏ trên nền bê tông/nhựa đường/đất).",
+    "8_shoes": "Điểm tập kết rác đầu ngõ, bãi đất trống/lề đường, khu thu gom phế liệu ký túc xá, bờ kênh/bãi biển (giày thể thao rách đế, dép lê/tông đứt quai, ủng cao su thủng, giày da bong keo nằm lẻ chiếc hoặc theo đôi hỏng).",
+    "1_biological": "Thùng rác hữu cơ nhà ăn sinh viên / căng-tin / quán cơm / chợ truyền thống (vỏ chuối, lõi táo, vỏ cam/bưởi, bánh mì mốc, rau củ héo thối, vỏ trứng, thức ăn thừa tại miệng thùng/nền đất).",
+    "4_glass": "Điểm thu gom ve chai/tái chế, thùng rác cạnh quán nước/nhà hàng, lề đường/bãi cỏ (chai bia/rượu/nước ngọt thủy tinh rỗng nằm nghiêng/vỡ, lọ thủy tinh gia vị bỏ đi, mảnh thủy tinh vỡ lớn)."
+  },
+  "camera_angles_and_lighting": {
+    "angles": [
+      "Oblique walk-by (30°-55°, distance 0.8m-2.0m): 50% of captures",
+      "Top-down bin/ground (70°-90°, distance 0.5m-1.2m): 35% of captures",
+      "Low-angle ground-level (10°-25°, distance 0.5m-1.5m): 15% of captures"
+    ],
+    "lighting": [
+      "Direct outdoor sunlight with hard shadows: 35%",
+      "Overcast / diffuse tree or building shade: 35%",
+      "Indoor fluorescent / LED bin-room lighting: 20%",
+      "Dusk / streetlamp low-light: 10%"
+    ]
+  },
+  "multiclass_co_occurrence_protocol": {
+    "target_multiclass_frame_rate_min": 0.4,
+    "objects_per_frame_range": "2 to 5 discrete waste items across 2 to 4 classes (strictly <= 6 items to avoid unannotatable dense heaps)",
+    "recommended_combinations": [
+      "0:battery + 5:metal + 7:plastic (spent AA/9V cells next to crushed cans and bottle caps)",
+      "3:clothes + 8:shoes + 2:cardboard (discarded glove/sock and worn shoe next to flattened carton)",
+      "1:biological + 4:glass + 6:paper (banana peel/apple core beside empty glass bottle and soiled napkin)"
+    ]
+  },
+  "session_yield_estimate": {
+    "session_duration_hours": 2.5,
+    "team_size": 2,
+    "independent_specimens_per_session": "35-50 physical specimens",
+    "raw_frames_per_session": "90-120 raw photos",
+    "qa_passed_independent_train_val_images_per_session": "35-50 verified REAL_WASTE_PASS images (1 primary train/val image per physical specimen)"
+  },
+  "instance_annotation_guidelines": [
+    "Use fixed 10-class IDs [0:battery, 1:biological, 2:cardboard, 3:clothes, 4:glass, 5:metal, 6:paper, 7:plastic, 8:shoes, 9:trash].",
+    "Draw tight bounding boxes around the visible perimeter of every discrete waste instance (margin <= 2%).",
+    "Annotate 100% of co-occurring waste items in the frame (including plastic/paper/metal appearing alongside scarce classes) so no unannotated waste acts as a false hard negative.",
+    "Preserve genuine physical overlaps (VALID_SAME_CLASS_OVERLAP and VALID_CROSS_CLASS_OVERLAP); never run blind NMS on ground truth.",
+    "Keep APPROVED_FOR_TRAIN = False until independent QA sign-off."
+  ],
+  "rights_safety_and_privacy": {
+    "license": "First-party project capture released under CC0-1.0 / CC-BY-4.0 with signed contributor IP release and SHA-256 manifest.",
+    "safety": "Mandatory cut-resistant nitrile/kevlar gloves and reacher tongs when handling corroded/leaking batteries (KOH/acid), shattered glass bottles, and decaying biological/textile waste; never puncture swollen Li-ion pouches.",
+    "privacy": "Zero human faces, zero vehicle license plates, zero personal mail/phone/address labels on discarded packaging; strip exact residential GPS coordinates from EXIF before release."
+  }
+}

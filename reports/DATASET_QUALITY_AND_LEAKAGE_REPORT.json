@@ -1,0 +1,85 @@
+{
+  "audit_timestamp": "2026-10-11T17:02:00Z",
+  "dataset_version": "splits_real_v2",
+  "total_images": 1996,
+  "split_sizes": {
+    "train": 1398,
+    "val": 299,
+    "test": 299
+  },
+  "total_boxes": 5584,
+  "boxes_per_split": {
+    "train": 3963,
+    "val": 901,
+    "test": 720
+  },
+  "empty_negative_images": {
+    "train": 0,
+    "val": 0,
+    "test": 0
+  },
+  "class_distribution_per_split": {
+    "train": {
+      "battery": 1,
+      "biological": 3,
+      "cardboard": 169,
+      "clothes": 368,
+      "glass": 213,
+      "metal": 420,
+      "paper": 160,
+      "plastic": 1560,
+      "shoes": 215,
+      "trash": 854
+    },
+    "val": {
+      "biological": 2,
+      "cardboard": 39,
+      "clothes": 68,
+      "glass": 82,
+      "metal": 74,
+      "paper": 43,
+      "plastic": 382,
+      "shoes": 41,
+      "trash": 170
+    },
+    "test": {
+      "battery": 1,
+      "biological": 1,
+      "cardboard": 36,
+      "clothes": 91,
+      "glass": 32,
+      "metal": 73,
+      "paper": 34,
+      "plastic": 274,
+      "shoes": 39,
+      "trash": 139
+    }
+  },
+  "leakage_verification": {
+    "exact_sha256_duplicates_count": 0,
+    "exact_sha256_duplicates": {},
+    "cross_split_sha256_leakage_count": 0,
+    "cross_split_sha256_leakage": [],
+    "cross_split_group_leakage_count": 0,
+    "cross_split_group_leakage": {},
+    "holdout_leakage_count": 0,
+    "holdout_leakage": [],
+    "leakage_verdict": "ZERO_LEAKAGE (Train, Val, Test, and Holdout are 100% strictly partitioned)"
+  },
+  "hard_negatives": {
+    "count": 0,
+    "percentage": 0.0,
+    "hypothesis_note": "Current dataset contains 0 negative images. Lack of negative images is a leading candidate hypothesis for false positives on urban background features (utility boxes, facades, signs), to be verified experimentally in Phase 4."
+  },
+  "open_images_provenance": {
+    "source_dataset": "Open Images V7 (Validation & Test splits)",
+    "license": "CC-BY 2.0 / CC-BY 4.0 (images under Flickr Creative Commons licenses; annotations by Google LLC under CC-BY 4.0)",
+    "total_oi_images_in_splits": 525,
+    "clothing_footwear_strata": {
+      "clothes_images": 57,
+      "shoes_images": 57,
+      "total": 114
+    },
+    "model_portrait_finding": "101 of the 114 Open Images contain models/humans wearing garments where the human body is not annotated, inducing background confusion. These remain quarantined from bulk deletion pending stakeholder approval."
+  }
+}

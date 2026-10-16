@@ -40,8 +40,8 @@ DEFAULT_CHECKPOINT = PROJECT_ROOT / "artifacts" / "official_run" / "best_model.p
 DEFAULT_MANIFEST = PROJECT_ROOT / "data" / "audit" / "split_manifest_v2.csv"
 if (PROJECT_ROOT / "data" / "processed_v2" / "test").exists():
     DEFAULT_TEST_DIR = PROJECT_ROOT / "data" / "processed_v2" / "test"
-elif Path(r"D:\CNTT-KLCN155-waste-detection\data\processed_v2\test").exists():
-    DEFAULT_TEST_DIR = Path(r"D:\CNTT-KLCN155-waste-detection\data\processed_v2\test")
+elif (Path(__file__).resolve().parents[1] / "data/processed_v2/test").exists():
+    DEFAULT_TEST_DIR = (Path(__file__).resolve().parents[1] / "data/processed_v2/test")
 else:
     DEFAULT_TEST_DIR = PROJECT_ROOT / "data" / "processed_v2" / "test"
 DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "artifacts" / "part02" / "gate_a"

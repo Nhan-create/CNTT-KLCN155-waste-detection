@@ -387,7 +387,7 @@ def main():
 
     # 2. Load OpenImages V7 Candidates
     oi_cfg = config["sources"]["openimages_v7"]
-    oi_boxes_csv = Path(r"D:\waste-training\openimages-validation-boxes.csv")
+    oi_boxes_csv = (Path(__import__("os").environ.get("WASTE_TRAINING_DIR", str(Path(__file__).resolve().parents[1] / "data" / "external" / "waste-training"))) / "openimages-validation-boxes.csv")
     oi_url_tpl = oi_cfg["s3_image_url_template"]
 
     # Candidate definitions

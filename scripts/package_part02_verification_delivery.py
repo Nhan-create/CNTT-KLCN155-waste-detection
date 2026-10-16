@@ -25,8 +25,8 @@ def compute_sha256(filepath: Path) -> str:
 
 
 def main():
-    project_root = Path(r"D:\CNTT-KLCN155-waste-detection")
-    downloads_root = Path(r"C:\Users\ad\Downloads")
+    project_root = Path(__file__).resolve().parents[1]
+    downloads_root = (Path.home() / "Downloads")
     export_dir = downloads_root / "Bao_Cao_Kiem_Chung_CNTT_KLCN155"
     zip_output_path = downloads_root / "Bao_Cao_Kiem_Chung_CNTT_KLCN155.zip"
 

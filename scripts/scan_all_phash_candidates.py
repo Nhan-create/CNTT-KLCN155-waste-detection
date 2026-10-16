@@ -22,10 +22,10 @@ import numpy as np
 import pandas as pd
 from PIL import Image
 
-PROJECT_ROOT = Path("D:/CNTT-KLCN155-waste-detection")
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = PROJECT_ROOT / "data" / "audit" / "split_manifest_v2.csv"
 DATASET_INFO_PATH = PROJECT_ROOT / "data" / "metadata" / "dataset_info.csv"
-BASE_DATA_DIR = Path("D:/HK7/Đồ án khóa luận")
+BASE_DATA_DIR = Path(__import__("os").environ.get("WASTE_LEGACY_DATA_DIR", str(Path(__file__).resolve().parents[1] / "data" / "legacy_hk7")))
 
 
 def hex_to_bits(hex_str: str) -> np.ndarray:

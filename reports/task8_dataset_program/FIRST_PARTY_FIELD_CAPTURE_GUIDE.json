@@ -1,0 +1,92 @@
+{
+  "guide_version": "TASK8I_FIRST_PARTY_FIELD_CAPTURE_OPERATIONAL_KIT_V1",
+  "real_field_photos_captured_to_date": 0,
+  "ai_or_synthetic_images_generated": 0,
+  "pilot_batch_target_images": "50-100 real smartphone photos legally captured by project team",
+  "priority_classes_ordered": [
+    {
+      "rank": 1,
+      "class_id": 3,
+      "class_name": "clothes",
+      "current_verified_rw_train": 55,
+      "gap_to_500": 445
+    },
+    {
+      "rank": 2,
+      "class_id": 8,
+      "class_name": "shoes",
+      "current_verified_rw_train": 78,
+      "gap_to_500": 422
+    },
+    {
+      "rank": 3,
+      "class_id": 0,
+      "class_name": "battery",
+      "current_verified_rw_train": 86,
+      "gap_to_500": 414
+    },
+    {
+      "rank": 4,
+      "class_id": 4,
+      "class_name": "glass",
+      "current_verified_rw_train": 113,
+      "gap_to_500": 387
+    },
+    {
+      "rank": 5,
+      "class_id": 1,
+      "class_name": "biological",
+      "current_verified_rw_train": 119,
+      "gap_to_500": 381
+    }
+  ],
+  "scene_and_context_checklist": [
+    "Household open trash bin / kitchen waste corner (concrete, tile, wet courtyard)",
+    "Residential alley collection point / street-side bin apron (asphalt, brick, sidewalk)",
+    "Student dormitory / campus recycling drop-off point",
+    "Outdoor park soil / grass / rain gutter / curb-side litter context",
+    "Garage / e-waste collection box / workbench with discarded batteries and mixed packaging"
+  ],
+  "per_class_object_checklist": {
+    "3_clothes": "Torn shirts, stained rags, discarded single gloves, old socks, worn fabric scraps, wet/soiled garments.",
+    "8_shoes": "Broken flip-flops, single abandoned sneakers, worn-out sandals, detached soles, muddy boots.",
+    "0_battery": "Spent AA/AAA/9V/C/D alkaline cells, corroded batteries, swollen Li-ion pouches, coin cells, old UPS/motorbike lead-acid batteries.",
+    "4_glass": "Empty glass beverage/sauce bottles, cosmetic glass jars, intact or safely boxed broken glass fragments in bins.",
+    "1_biological": "Fruit peels (banana, orange, mango), vegetable trimmings, eggshells, spoiled bread/rice, wilted leaves/food scraps."
+  },
+  "single_multi_object_multiclass_protocol": {
+    "single_object_ratio": "30% of shots (1 target scarce-class item on realistic waste background)",
+    "multi_object_same_class_ratio": "25% of shots (2-5 distinct items of the same scarce class, e.g., 3 spent batteries or 2 old shoes)",
+    "multiclass_co_occurrence_ratio": "45% of shots (target scarce item placed alongside 1-3 other waste classes such as plastic wrapper, metal can, paper, or organic peel)"
+  },
+  "specimen_and_session_id_rules": {
+    "specimen_id_format": "SPEC_<3LETTER_CLASS>_<YYYYMM>_<4DIGIT_SEQ> (e.g., SPEC_CLO_202610_0001)",
+    "session_id_format": "SESS_<YYYYMMDD>_<LOCATION_CODE> (e.g., SESS_20261016_HCM_Q7_ALLEY01)",
+    "independence_rule": "Up to 3 angles per physical specimen are permitted to support training, but all angles share the SAME specimen_id, count as 1 unique specimen, and are locked to the same split (never split across train and val)."
+  },
+  "distance_lighting_and_angle_specs": {
+    "distances_m": [
+      "0.5m (close context)",
+      "1.2m (standard handheld)",
+      "2.5m (wide bin/street context)"
+    ],
+    "camera_angles": [
+      "top-down 90 deg",
+      "oblique 45 deg",
+      "low street-level 15-25 deg"
+    ],
+    "lighting_conditions": [
+      "direct daylight",
+      "overcast/shade",
+      "indoor fluorescent/LED",
+      "evening streetlights"
+    ]
+  },
+  "ten_class_full_annotation_guide": {
+    "rule_1_annotate_every_visible_waste_item": "Every visible waste object in the frame belonging to ANY of the 10 canonical classes (0..9) MUST be annotated with its own tight bounding box.",
+    "rule_2_no_merged_boxes": "Never draw one group box over multiple adjacent items unless physically fused into an inseparable single mass.",
+    "rule_3_occlusion_handling": "Annotate partially occluded waste items if >= 25% of the item is visible and material identity is unambiguous.",
+    "rule_4_strict_class_ids": "0:battery, 1:biological, 2:cardboard, 3:clothes, 4:glass, 5:metal, 6:paper, 7:plastic, 8:shoes, 9:trash."
+  },
+  "reusable_import_and_qa_cli_tool": "scripts/field_capture_import_and_qa.py"
+}

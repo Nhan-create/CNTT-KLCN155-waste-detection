@@ -1,0 +1,80 @@
+{
+ "qa_yolo": {
+  "imgsz320_iou0.2": {
+   "tp": 2,
+   "wrong_class": 3,
+   "fn": 52,
+   "fp": 23,
+   "pred": 28,
+   "loc_hits": 5,
+   "median_pred_area_frac": 0.0081
+  },
+  "imgsz320_iou0.5": {
+   "tp": 1,
+   "wrong_class": 0,
+   "fn": 56,
+   "fp": 27,
+   "pred": 28,
+   "loc_hits": 1,
+   "median_pred_area_frac": 0.0081
+  },
+  "imgsz640_iou0.2": {
+   "tp": 0,
+   "wrong_class": 0,
+   "fn": 57,
+   "fp": 33,
+   "pred": 33,
+   "loc_hits": 0,
+   "median_pred_area_frac": 0.0018
+  },
+  "imgsz640_iou0.5": {
+   "tp": 0,
+   "wrong_class": 0,
+   "fn": 57,
+   "fp": 33,
+   "pred": 33,
+   "loc_hits": 0,
+   "median_pred_area_frac": 0.0018
+  }
+ },
+ "qa_ssdlite": {
+  "iou0.2": {
+   "tp": 1,
+   "wrong_class": 11,
+   "fn": 45,
+   "fp": 23,
+   "pred": 35,
+   "loc_hits": 12,
+   "median_pred_area_frac": 0.094
+  },
+  "iou0.5": {
+   "tp": 1,
+   "wrong_class": 6,
+   "fn": 50,
+   "fp": 28,
+   "pred": 35,
+   "loc_hits": 7,
+   "median_pred_area_frac": 0.094
+  }
+ },
+ "ssdlite_train_sanity": {
+  "images": [
+   "D:\\CNTT-KLCN155-waste-detection\\data\\detection\\images\\real\\taco_0082.jpg",
+   "D:\\CNTT-KLCN155-waste-detection\\data\\detection\\images\\real\\taco_0704.jpg",
+   "D:\\CNTT-KLCN155-waste-detection\\data\\detection\\images\\real\\taco_0853.jpg",
+   "D:\\CNTT-KLCN155-waste-detection\\data\\detection\\images\\real\\taco_0860.jpg",
+   "D:\\CNTT-KLCN155-waste-detection\\data\\detection\\images\\real\\taco_1488.jpg",
+   "D:\\CNTT-KLCN155-waste-detection\\data\\detection\\images\\real\\taco_0186.jpg",
+   "D:\\CNTT-KLCN155-waste-detection\\data\\detection\\images\\synthetic\\syn_syn_000000.jpg",
+   "D:\\CNTT-KLCN155-waste-detection\\data\\detection\\images\\synthetic\\syn_syn_000002.jpg",
+   "D:\\CNTT-KLCN155-waste-detection\\data\\detection\\images\\synthetic\\syn_syn_000003.jpg",
+   "D:\\CNTT-KLCN155-waste-detection\\data\\detection\\images\\synthetic\\syn_syn_000004.jpg",
+   "D:\\CNTT-KLCN155-waste-detection\\data\\detection\\images\\synthetic\\syn_syn_000005.jpg",
+   "D:\\CNTT-KLCN155-waste-detection\\data\\detection\\images\\synthetic\\syn_syn_000006.jpg"
+  ],
+  "gt": 80,
+  "loc_hits_iou0.5": 13,
+  "class_correct": 7,
+  "pred": 34
+ }
+}

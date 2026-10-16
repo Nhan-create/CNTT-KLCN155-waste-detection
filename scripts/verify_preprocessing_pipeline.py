@@ -22,9 +22,9 @@ import pandas as pd
 import torch
 from torchvision import datasets, transforms
 
-PROCESSED_V2_DIR = Path(r"D:\CNTT-KLCN155-waste-detection\data\processed_v2")
-MANIFEST_V2_PATH = Path(r"D:\CNTT-KLCN155-waste-detection\data\audit\split_manifest_v2.csv")
-OUTPUT_JSON = Path(r"D:\CNTT-KLCN155-waste-detection\data\audit\preprocessing_pipeline_verification.json")
+PROCESSED_V2_DIR = (Path(__file__).resolve().parents[1] / "data/processed_v2")
+MANIFEST_V2_PATH = (Path(__file__).resolve().parents[1] / "data/audit/split_manifest_v2.csv")
+OUTPUT_JSON = (Path(__file__).resolve().parents[1] / "data/audit/preprocessing_pipeline_verification.json")
 
 CLASS_NAMES = [
     "battery",

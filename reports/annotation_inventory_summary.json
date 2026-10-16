@@ -1,0 +1,62 @@
+{
+  "total_files": 1562,
+  "total_boxes": 5750,
+  "files_with_errors": 0,
+  "files_with_warnings": 1,
+  "boxes_by_class": {
+    "0": {
+      "name": "battery",
+      "count": 464
+    },
+    "1": {
+      "name": "biological",
+      "count": 454
+    },
+    "2": {
+      "name": "cardboard",
+      "count": 521
+    },
+    "3": {
+      "name": "clothes",
+      "count": 520
+    },
+    "4": {
+      "name": "glass",
+      "count": 557
+    },
+    "5": {
+      "name": "metal",
+      "count": 557
+    },
+    "6": {
+      "name": "paper",
+      "count": 511
+    },
+    "7": {
+      "name": "plastic",
+      "count": 878
+    },
+    "8": {
+      "name": "shoes",
+      "count": 514
+    },
+    "9": {
+      "name": "trash",
+      "count": 774
+    }
+  },
+  "by_source": {
+    "synthetic_mendeley": {
+      "files": 1305,
+      "boxes": 4095
+    },
+    "real_taco": {
+      "files": 105,
+      "boxes": 1049
+    },
+    "real_openimages": {
+      "files": 152,
+      "boxes": 606
+    }
+  }
+}

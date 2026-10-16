@@ -1,0 +1,11 @@
+class_id,class_key,baseline_v3_train_images,baseline_v3_val_images,frozen_test_images,previously_staged_qa_pass_train,previously_staged_qa_pass_val,wave1_new_qa_pass_train,wave1_new_qa_pass_val,wave1_new_qa_pass_total,current_valid_independent_train_images,current_valid_independent_val_images,current_valid_independent_total_excl_test,total_boxes_all_splits,wave1_boxes_added,num_data_sources,data_sources,estimated_independent_specimens_sessions,wave1_specimen_groups,wave1_multi_class_images,wave1_complex_bg_images,wave1_outdoor_images,wave1_dirty_or_damaged_images,hard_negatives_associated,wave1_qa_pass,wave1_needs_review,wave1_reject,missing_to_milestone_1_500_train,missing_to_milestone_2_1500_train,missing_to_milestone_3_3000_train,missing_to_milestone_4_5000_train
+0,0: battery,1,0,1,128,39,2,1,3,131,40,171,383,5,3,Roboflow waste-battery-only/1; TACO v0.1; Wikimedia Commons,170,2,0,0,0,3,6,3,0,3,369,1369,2869,4869
+1,1: biological,3,1,1,10,0,23,7,30,36,8,44,62,37,2,TACO v0.1; Wikimedia Commons,42,29,4,22,13,30,1,30,3,26,464,1464,2964,4964
+2,2: cardboard,108,24,25,0,0,13,4,17,121,28,149,235,27,3,Open Images V7; TACO v0.1; Wikimedia Commons,149,17,6,17,2,8,1,17,6,7,379,1379,2879,4879
+3,3: clothes,169,34,37,0,0,5,1,6,174,35,209,446,9,3,Open Images V7; TACO v0.1; Wikimedia Commons,209,6,0,5,0,2,1,6,1,3,326,1326,2826,4826
+4,4: glass,89,19,19,0,0,15,5,20,104,24,128,242,37,3,Open Images V7; TACO v0.1; Wikimedia Commons,128,20,3,19,8,10,1,20,5,11,396,1396,2896,4896
+5,5: metal,189,42,40,1,0,1,1,2,191,43,234,477,6,3,Open Images V7; TACO v0.1; Wikimedia Commons,234,2,1,1,0,1,1,2,2,2,309,1309,2809,4809
+6,6: paper,111,19,25,1,0,9,4,13,121,23,144,212,16,3,Open Images V7; TACO v0.1; Wikimedia Commons,142,12,8,11,5,6,1,13,3,17,379,1379,2879,4879
+7,7: plastic,732,159,150,1,0,10,5,15,743,164,907,1913,20,3,Open Images V7; TACO v0.1; Wikimedia Commons,907,14,10,15,6,10,1,15,1,3,0,757,2257,4257
+8,8: shoes,111,23,23,0,0,13,4,17,124,27,151,318,31,3,Open Images V7; TACO v0.1; Wikimedia Commons,151,17,0,16,6,12,1,17,5,12,376,1376,2876,4876
+9,9: trash,233,47,48,0,0,2,0,2,235,47,282,633,2,2,TACO v0.1; Wikimedia Commons,282,2,0,2,2,2,3,2,1,2,265,1265,2765,4765

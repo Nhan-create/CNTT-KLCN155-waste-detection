@@ -1,0 +1,172 @@
+{
+  "kho_01_don_loai_pin": {
+    "waste_type": "battery",
+    "query": "discarded battery ground",
+    "candidate": {
+      "title": "File:Memoirs and history of Capt. F. W. Alexander's Baltimore Battery of light artillery, U. S. V. (1912) (14762796065).jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/d/da/Memoirs_and_history_of_Capt._F._W._Alexander%27s_Baltimore_Battery_of_light_artillery%2C_U._S._V._%281912%29_%2814762796065%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2560,
+      "height": 1386,
+      "mime": "image/jpeg",
+      "size": 705972
+    }
+  },
+  "kho_02_don_loai_thuy_tinh": {
+    "waste_type": "glass",
+    "query": "broken bottle grass glass",
+    "candidate": {
+      "title": "File:Broken Glass - Keller Island - Maplewood, MN - panoramio.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Broken_Glass_-_Keller_Island_-_Maplewood%2C_MN_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 3069,
+      "height": 2192,
+      "mime": "image/jpeg",
+      "size": 3005165
+    }
+  },
+  "kho_03_don_loai_kim_loai": {
+    "waste_type": "metal",
+    "query": "crushed beverage can litter",
+    "candidate": {
+      "title": "File:Crushed McDonald's cup in tire track.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/8/83/Crushed_McDonald%27s_cup_in_tire_track.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 3008,
+      "height": 4016,
+      "mime": "image/jpeg",
+      "size": 4867462
+    }
+  },
+  "kho_04_don_loai_bia_carton": {
+    "waste_type": "cardboard",
+    "query": "discarded cardboard street",
+    "candidate": {
+      "title": "File:DIY means choosing the right tool for the purpose - a watchmaker's nightmare.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/DIY_means_choosing_the_right_tool_for_the_purpose_-_a_watchmaker%27s_nightmare.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 9504,
+      "height": 6336,
+      "mime": "image/jpeg",
+      "size": 17120236
+    }
+  },
+  "kho_05_don_loai_quan_ao": {
+    "waste_type": "clothes",
+    "query": "discarded clothes rubbish textile",
+    "candidate": {
+      "title": "File:Dumping for Charity.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/4/43/Dumping_for_Charity.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2236,
+      "height": 1176,
+      "mime": "image/jpeg",
+      "size": 577941
+    }
+  },
+  "kho_06_don_loai_giay_dep": {
+    "waste_type": "shoes",
+    "query": "discarded shoe beach mud",
+    "candidate": null
+  },
+  "kho_07_don_loai_nhua": {
+    "waste_type": "plastic",
+    "query": "plastic bottle litter sand",
+    "candidate": null
+  },
+  "kho_08_don_loai_giay": {
+    "waste_type": "paper",
+    "query": "discarded paper street pavement",
+    "candidate": null
+  },
+  "kho_09_don_loai_huu_co": {
+    "waste_type": "biological",
+    "query": "food waste compost apple peel",
+    "candidate": null
+  },
+  "kho_10_don_loai_pin_dien_tu": {
+    "waste_type": "battery/ewaste",
+    "query": "leaking battery corrosion cell",
+    "candidate": {
+      "title": "File:Corroded Screwdriver Battery.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/3/38/Corroded_Screwdriver_Battery.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 949,
+      "height": 1600,
+      "mime": "image/jpeg",
+      "size": 536994
+    }
+  },
+  "kho_11_da_loai_bai_bien": {
+    "waste_type": "mixed",
+    "query": "beach plastic bottles cans debris",
+    "candidate": {
+      "title": "File:Water Pollution with Trash Disposal of Waste at the Garbage Beach.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Water_Pollution_with_Trash_Disposal_of_Waste_at_the_Garbage_Beach.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 4600,
+      "height": 3064,
+      "mime": "image/jpeg",
+      "size": 19631780
+    }
+  },
+  "kho_12_da_loai_ranh_nuoc": {
+    "waste_type": "mixed",
+    "query": "gutter drainage litter rubbish",
+    "candidate": null
+  },
+  "kho_13_da_loai_bo_song": {
+    "waste_type": "mixed",
+    "query": "riverbank plastic litter waste",
+    "candidate": null
+  },
+  "kho_14_da_loai_bai_rac_tu_phat": {
+    "waste_type": "mixed",
+    "query": "fly tipping dumped rubbish roadside",
+    "candidate": {
+      "title": "File:Roadside flytip near West Dean - geograph.org.uk - 349481.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/3/32/Roadside_flytip_near_West_Dean_-_geograph.org.uk_-_349481.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 640,
+      "height": 427,
+      "mime": "image/jpeg",
+      "size": 70426
+    }
+  },
+  "kho_15_da_loai_tham_co": {
+    "waste_type": "mixed",
+    "query": "litter grass bottles cans park",
+    "candidate": null
+  },
+  "kho_16_da_loai_duong_mon": {
+    "waste_type": "mixed",
+    "query": "trail litter forest hiking rubbish",
+    "candidate": null
+  },
+  "kho_17_da_loai_phe_thai_hon_hop": {
+    "waste_type": "mixed",
+    "query": "waste heap plastic metal cardboard",
+    "candidate": null
+  },
+  "kho_18_da_loai_kenh_rach": {
+    "waste_type": "mixed",
+    "query": "floating garbage canal water plastic",
+    "candidate": null
+  },
+  "kho_19_da_loai_thung_rac_tran": {
+    "waste_type": "mixed",
+    "query": "overflowing litter bin rubbish street",
+    "candidate": {
+      "title": "File:Litter bin rubbish Tottenham, London, England 1.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Litter_bin_rubbish_Tottenham%2C_London%2C_England_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 3402,
+      "height": 2268,
+      "mime": "image/jpeg",
+      "size": 8609509
+    }
+  },
+  "kho_20_da_loai_goc_pho": {
+    "waste_type": "mixed",
+    "query": "rubbish dumped corner alley street",
+    "candidate": {
+      "title": "File:Alley redumped - Update 19 February 2009.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Alley_redumped_-_Update_19_February_2009.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2918,
+      "height": 2189,
+      "mime": "image/jpeg",
+      "size": 2430356
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "execution_timestamp_utc": "2026-10-11T18:40:22Z",
+    "device": "cuda:0",
+    "gpu_name": "NVIDIA GeForce RTX 2050",
+    "torch_version": "2.5.1+cu121",
+    "torchvision_version": "0.20.1+cu121"
+  },
+  "model_architecture": {
+    "name": "ssdlite320_mobilenet_v3_large",
+    "num_classes": 11,
+    "weights": null,
+    "weights_backbone": null,
+    "isolation_status": "EXPERIMENT_ONLY_NO_CHECKPOINT_UPDATED"
+  },
+  "batch_specification": {
+    "batch_size": 2,
+    "samples": [
+      {
+        "type": "positive_real",
+        "file": "oi_0010c714a5da358a.jpg",
+        "num_boxes": 3,
+        "labels": [
+          4,
+          4,
+          4
+        ]
+      },
+      {
+        "type": "artificial_hard_negative_canvas",
+        "description": "Zero-object canvas (zeros) used strictly to verify loss computation on empty targets; does NOT substitute for real background negative imagery.",
+        "num_boxes": 0
+      }
+    ]
+  },
+  "execution_telemetry": {
+    "forward_duration_seconds": 1.6773,
+    "backward_duration_seconds": 0.7957,
+    "total_step_duration_seconds": 2.473,
+    "losses": {
+      "bbox_regression": 3.002733,
+      "classification": 16.507156,
+      "total_loss": 19.50989
+    },
+    "finite_losses": true,
+    "finite_gradients": true,
+    "cuda_vram": {
+      "vram_allocated_mb": 20.39,
+      "vram_reserved_mb": 214.0,
+      "vram_peak_allocated_mb": 203.51,
+      "vram_device_total_mb": 4095.5
+    },
+    "system_ram_before": {
+      "total_gb": 15.31,
+      "used_gb": 15.0,
+      "available_mb": 313.5,
+      "used_percent": 98.0
+    },
+    "system_ram_after": {
+      "total_gb": 15.31,
+      "used_gb": 15.15,
+      "available_mb": 164.6,
+      "used_percent": 98.9
+    }
+  },
+  "hardware_safety_gate": {
+    "preflight_status": "SYSTEM_RAM_CRITICAL",
+    "preflight_reason": "Available system RAM is critically low: 416.4 MB (< 1200.0 MB required). RAM is 97.3% utilized.",
+    "local_multi_epoch_training_allowed": false,
+    "verdict": "VERIFIED_DRY_RUN_BUT_LOCAL_TRAINING_BLOCKED"
+  },
+  "scientific_scope_caveats": [
+    "Caveat 1: Batch=2 measurements CANNOT be linearly extrapolated to batch=8/16. PyTorch caching allocator reserves memory in discrete 2MB/20MB blocks; larger batches trigger different internal memory fragmentation and non-linear peak allocation.",
+    "Caveat 2: The artificial 0-object canvas tests SSDLite's mathematical handling of empty tensors without NaN/Inf, but does not provide visual false-positive penalization. True hard-negative background images (sidewalks, walls) must be acquired for effective feature discrimination.",
+    "Caveat 3: Because host system RAM is critically low (>95% used, <1.2GB free), multi-epoch local training is strictly BLOCKED by the Preflight Guard to prevent OS freeze."
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "audit_version": "3.0.0",
+  "run_id": "20261008_192500_v3",
+  "audit_timestamp": "2026-10-08T22:45:00+07:00",
+  "git": {
+    "commit": "176317b41554a323209bb5403b96f59c43b86566",
+    "author": "Nhan-create <nngo9154@gmail.com>",
+    "date": "Fri Oct 2 20:00:38 2026 +0700",
+    "message": "fix(detection): enforce 10-class YOLOv8n architecture and pixel-level candidate audit",
+    "branch": "main",
+    "status": " M configs/detection_dataset.yaml\n M data/audit/leakage_audit_report.json\n M src/detection/visualization.py\n M src/web/detection_logic.py\n M src/web/detection_settings.py\n M streamlit_app.py",
+    "patch_file": "source_snapshot/git_diff.patch",
+    "reconciliation_explanation": "Commit HEAD xac thuc la 176317b41554a323209bb5403b96f59c43b86566 (author: Nhan-create, Fri Oct 2 20:00:38 2026). Chuoi 5cbb531985934e6d420f5c1524340d02462eec4c trong ghi chep V1 cu la loi sao chep chuoi nham lan tu ban thao, hoan toan khong ton tai trong cay git log cua repository. Toan bo 6 tep modified trong working tree da duoc ket xuat day du vao source_snapshot/git_diff.patch."
+  },
+  "environment": {
+    "os": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.10",
+    "torch": "2.5.1+cu121",
+    "torchvision": "0.20.1+cu121",
+    "ultralytics": "8.4.171",
+    "ensemble_boxes": "1.0.9",
+    "cuda_available": true,
+    "cuda_version": "12.1",
+    "device_count": 1,
+    "device_name": "NVIDIA GeForce RTX 2050"
+  },
+  "runtime_checkpoints": {
+    "ssdlite_combined_seed42": {
+      "path": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\detection\\waste-ssdlite320-mobilenetv3-combined-seed42\\weights\\best.pt",
+      "size_bytes": 28456982,
+      "sha256": "584c5980eb4ebe3718da7b3e87a3c95edfee3d78f186def3e5feba32cf03dff1"
+    },
+    "yolov8n_combined_seed42": {
+      "path": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\detection\\waste-yolov8n-combined-seed42\\weights\\best.pt",
+      "size_bytes": 6217379,
+      "sha256": "97f46ccaaa0a63c5934225d51ccd399c1c18eb3e1af8a63b9f14bec1aaa085c9"
+    },
+    "ssdlite_baseline": {
+      "path": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\detection\\waste-ssdlite320-mobilenetv3\\weights\\best.pt",
+      "size_bytes": 28456918,
+      "sha256": "c9a079d630bdff7919d476c960784af885662fd12fa28fee7c8fef03bd551c9b"
+    },
+    "yolov8n_baseline": {
+      "path": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\detection\\waste-yolov8n\\weights\\best.pt",
+      "size_bytes": 6208931,
+      "sha256": "84b677fcb4de6cb0725973aa7de21f0a594dfea57c20c875256f393fff2a06dd"
+    },
+    "classifier_official": {
+      "path": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\official_run\\best_model.pt",
+      "size_bytes": 50929856,
+      "sha256": "c824fec4f3d1dffff946cd8ad7e2d4f121be33e684dda4e6af92b5bda343e424"
+    },
+    "pretrained_yolov8n": {
+      "path": "D:\\CNTT-KLCN155-waste-detection\\yolov8n.pt",
+      "size_bytes": 6549796,
+      "sha256": "f59b3d833e2ff32e194b5bb8e08d211dc7c5bdf144b90d2c8412c47ccfc83b36"
+    },
+    "selection_wbf_ensemble": {
+      "path": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\detection\\selection_wbf_ensemble.json",
+      "size_bytes": 49271,
+      "sha256": "cdab0c2025c2333ab402abdc2f4632a74ebad5b32c95989d1d18fe0a837b2de4"
+    }
+  },
+  "default_runtime_configuration": {
+    "default_backend_in_ui": "yolov8n",
+    "default_confidence_slider_in_ui": 0.45,
+    "slider_min_value": 0.1,
+    "slider_max_value": 1.0,
+    "slider_step": 0.05,
+    "default_image_size": 640,
+    "training_image_size": 320,
+    "class_names": [
+      "battery",
+      "biological",
+      "cardboard",
+      "clothes",
+      "glass",
+      "metal",
+      "paper",
+      "plastic",
+      "shoes",
+      "trash"
+    ]
+  },
+  "source_and_config_sha256": {
+    "streamlit_app.py": "a6d3ed1f093635ee809c95abe1f53e3168564515bb69bda08b2e00a53ebf96f1",
+    "src/web/detection_settings.py": "b29d53d7ed4d3587d45ec4980651c9b5f8915290e73e729b44d26c508eaad955",
+    "src/web/detection_logic.py": "255b776f9886227cc49075b70291f7b67bb04b16eb54c6437262b2c64e21f54b",
+    "src/web/detection_service.py": "74e032ce8130f13ada1ac8e44d09dd7f20edbaf6747bdb824f08b91fbddb82fe",
+    "src/detection/factory.py": "0125e5c280ea078b5fb8ffa07e92479bbaa5378b0ebe08c3dd1c4c433ec819a5",
+    "src/detection/fusion.py": "1bd460dfcbad5576776a232703aa1dabe11269ccd993a07f4b59c65548bec81c",
+    "src/detection/ssdlite.py": "725e8d726d31cd35216d4ca27d1f731cbda2db57ba48fee0687d7ff8a8fac7ec",
+    "src/detection/yolo.py": "c36574d0abd3b75398f935d97e7a0de8da9aae2a840d6e41236f3411adb179ea",
+    "configs/detection_dataset.yaml": "b61ae7e93e70ed3916757578eee2254350b77318337f4235212fb88e3eb33aa8",
+    "scripts/prepare_detection_dataset.py": "d733016a1316f1ac87e0700153cb0ec92433805c0809450b16a1e4ad9a2fe280"
+  },
+  "source_snapshot_sha256": {
+    "detection_dataset.yaml": "b61ae7e93e70ed3916757578eee2254350b77318337f4235212fb88e3eb33aa8",
+    "detection_logic.py": "255b776f9886227cc49075b70291f7b67bb04b16eb54c6437262b2c64e21f54b",
+    "detection_service.py": "74e032ce8130f13ada1ac8e44d09dd7f20edbaf6747bdb824f08b91fbddb82fe",
+    "detection_settings.py": "b29d53d7ed4d3587d45ec4980651c9b5f8915290e73e729b44d26c508eaad955",
+    "factory.py": "0125e5c280ea078b5fb8ffa07e92479bbaa5378b0ebe08c3dd1c4c433ec819a5",
+    "fusion.py": "1bd460dfcbad5576776a232703aa1dabe11269ccd993a07f4b59c65548bec81c",
+    "git_diff.patch": "dcd25fcaff7e5cc75db4c6cf0b33435571f23cda91bca019fa68210a3af58979",
+    "git_log.txt": "46e15c8e3b88beee42b55a5fb57cc62a52cab6f7d9c1fca8950cc1c10beb18f3",
+    "git_status.txt": "8ff15ae6daa1c572b809aca9e017548fb6de70edfa4e685bb668b54a277457f3",
+    "prepare_detection_dataset.py": "d733016a1316f1ac87e0700153cb0ec92433805c0809450b16a1e4ad9a2fe280",
+    "ssdlite.py": "725e8d726d31cd35216d4ca27d1f731cbda2db57ba48fee0687d7ff8a8fac7ec",
+    "streamlit_app.py": "a6d3ed1f093635ee809c95abe1f53e3168564515bb69bda08b2e00a53ebf96f1",
+    "yolo.py": "c36574d0abd3b75398f935d97e7a0de8da9aae2a840d6e41236f3411adb179ea"
+  },
+  "ui_checkpoint_binding_verification": {
+    "ssdlite_setting_code": "src/web/detection_settings.py:13-16 -> DEFAULT_SSDLITE_PATH = artifacts/detection/waste-ssdlite320-mobilenetv3-combined-seed42/weights/best.pt",
+    "yolo_setting_code": "src/web/detection_settings.py:17-19 -> DEFAULT_YOLO_PATH = artifacts/detection/waste-yolov8n-combined-seed42/weights/best.pt",
+    "streamlit_app_code": "streamlit_app.py:190-197 -> settings.model_path = DEFAULT_YOLO_PATH; settings.secondary_model_path = DEFAULT_SSDLITE_PATH",
+    "ensemble_selection_record": "artifacts/detection/selection_wbf_ensemble.json tro dung 2 checkpoint tren voi SHA-256 khop tuyet doi."
+  },
+  "ui_test_matrix_screenshots": {
+    "browser_yolo_conf045": {
+      "backend": "yolov8n",
+      "conf": 0.45,
+      "boxes_detected": 2,
+      "latency_ms": 1489,
+      "file": "images/browser_yolo_conf045.png"
+    },
+    "browser_yolo_conf020": {
+      "backend": "yolov8n",
+      "conf": 0.2,
+      "boxes_detected": 4,
+      "latency_ms": 1463,
+      "file": "images/browser_yolo_conf020.png"
+    },
+    "browser_ssdlite_conf045": {
+      "backend": "ssdlite320",
+      "conf": 0.45,
+      "boxes_detected": 0,
+      "latency_ms": 1738,
+      "file": "images/browser_ssdlite_conf045.png"
+    },
+    "browser_ssdlite_conf020": {
+      "backend": "ssdlite320",
+      "conf": 0.2,
+      "boxes_detected": 7,
+      "latency_ms": 2018,
+      "file": "images/browser_ssdlite_conf020.png"
+    },
+    "browser_wbf_conf045": {
+      "backend": "wbf_ensemble",
+      "conf": 0.45,
+      "boxes_detected": 0,
+      "latency_ms": 2587,
+      "file": "images/browser_wbf_conf045.png"
+    },
+    "browser_wbf_conf020": {
+      "backend": "wbf_ensemble",
+      "conf": 0.2,
+      "boxes_detected": 2,
+      "latency_ms": 2071,
+      "file": "images/browser_wbf_conf020.png"
+    }
+  }
+}

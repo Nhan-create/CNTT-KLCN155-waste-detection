@@ -1,0 +1,353 @@
+{
+  "report_version": "TASK8G_LARGE_SCALE_EXPANSION_REPORT_V1",
+  "approved_for_train": false,
+  "task0_regression_case3_fix": {
+    "status": "FIXED_AND_VERIFIED",
+    "case_3a_contained_cross_class": {
+      "candidate_id": "task8f_0694",
+      "boxes": [
+        "(2, 0.210, 0.030, 0.830, 0.940)",
+        "(1, 0.390, 0.560, 0.540, 0.720)"
+      ],
+      "exact_iou": 0.042538,
+      "category": "VALID_CROSS_CLASS_OVERLAP",
+      "keep_both": true
+    },
+    "case_3b_high_iou_cross_class": {
+      "boxes": [
+        "(4, 0.200, 0.200, 0.700, 0.700)",
+        "(6, 0.210, 0.210, 0.690, 0.690)"
+      ],
+      "exact_iou": 0.9216,
+      "category": "VALID_CROSS_CLASS_OVERLAP",
+      "keep_both": true
+    }
+  },
+  "task1_and_task2_acquisition_summary": {
+    "checkpoint_path": "data/acquisition_staging/task8g_large_scale_expansion/checkpoint_raw_candidates.json",
+    "total_new_unique_candidates_downloaded": 920,
+    "real_waste_pass_total_images": 171,
+    "real_waste_pass_train_images": 160,
+    "real_waste_pass_val_images": 11,
+    "real_waste_pass_total_boxes": 291,
+    "real_waste_pass_multiclass_images": 52,
+    "real_waste_pass_unique_specimens": 171,
+    "real_waste_pass_unique_sessions": 71,
+    "qa_status_counts": {
+      "REJECT": 116,
+      "KEEP_AUXILIARY": 526,
+      "NEEDS_REVIEW": 107,
+      "REAL_WASTE_PASS": 171
+    },
+    "domain_counts": {
+      "AMBIGUOUS_CONTEXT": 154,
+      "IN_USE": 505,
+      "PRODUCT_STUDIO": 30,
+      "ACTUAL_WASTE": 231
+    },
+    "split_counts": {
+      "REJECTED": 116,
+      "AUXILIARY_NON_WASTE_TRAIN_HOLD": 467,
+      "MANUAL_REVIEW_QUEUE": 107,
+      "TRAIN_REAL_WASTE_W8G": 160,
+      "VAL_REAL_WASTE_W8G": 11,
+      "AUXILIARY_NON_WASTE_VAL_HOLD": 59
+    },
+    "source_breakdown": {
+      "SRC_8G_01_SHYNUAA_REMAINING_FIRST_PARTY": {
+        "downloaded": 168,
+        "real_waste_pass": 137,
+        "real_waste_pass_train": 137,
+        "real_waste_pass_val": 0,
+        "real_waste_pass_boxes": 251,
+        "real_waste_pass_multiclass": 52,
+        "keep_auxiliary": 0,
+        "needs_review": 0,
+        "reject": 31,
+        "licenses": [
+          "MIT"
+        ]
+      },
+      "SRC_8G_02_WIKIMEDIA_LARGE_SCALE_REAL_WASTE": {
+        "downloaded": 425,
+        "real_waste_pass": 34,
+        "real_waste_pass_train": 23,
+        "real_waste_pass_val": 11,
+        "real_waste_pass_boxes": 40,
+        "real_waste_pass_multiclass": 0,
+        "keep_auxiliary": 247,
+        "needs_review": 68,
+        "reject": 76,
+        "licenses": [
+          "CC BY 2.0",
+          "CC BY 2.5",
+          "CC BY 3.0",
+          "CC BY 4.0",
+          "CC BY-SA 2.0",
+          "CC BY-SA 2.0 be",
+          "CC BY-SA 3.0",
+          "CC BY-SA 3.0 de",
+          "CC BY-SA 4.0",
+          "CC0",
+          "GFDL",
+          "Public domain"
+        ]
+      },
+      "SRC_8G_03_OPENIMAGES_SCARCE_AND_MULTICLASS": {
+        "downloaded": 327,
+        "real_waste_pass": 0,
+        "real_waste_pass_train": 0,
+        "real_waste_pass_val": 0,
+        "real_waste_pass_boxes": 0,
+        "real_waste_pass_multiclass": 0,
+        "keep_auxiliary": 279,
+        "needs_review": 39,
+        "reject": 9,
+        "licenses": [
+          "https://creativecommons.org/licenses/by/2.0/"
+        ]
+      }
+    },
+    "pilots": [
+      {
+        "pilot_id": "PILOT_8G_01",
+        "source_name": "Shynuaa/Street-garbage Remaining First-Party 2025 Captures (`yolo/valid` + `yolo/train`)",
+        "sample_size_inspected": 30,
+        "real_waste_rate_pct": 93.3,
+        "has_tight_instance_boxes": true,
+        "license_verified": "MIT (filtered strictly to first-party 2025 smartphone captures `2025*`/`IMG_2025*`)",
+        "split_integrity": "Preserves `yolo/valid` -> `VAL_REAL_WASTE_W8G` and `yolo/train` -> `TRAIN_REAL_WASTE_W8G` with zero capture-minute overlap with `yolo/test`.",
+        "decision": "EXPAND_APPROVED",
+        "notes": "Exhausts all remaining first-party 2025 street-litter captures with multi-object/multi-class annotations."
+      },
+      {
+        "pilot_id": "PILOT_8G_02",
+        "source_name": "dmedhi/garbage-image-classification-detection (HuggingFace / Roboflow Universe `student-utr07/garbage-classifier-oehkt`)",
+        "sample_size_inspected": 30,
+        "real_waste_rate_pct": 26.7,
+        "has_tight_instance_boxes": false,
+        "license_verified": "UNVERIFIED (Roboflow Universe user export without per-image author provenance)",
+        "split_integrity": "Contains full-frame `[0, 0, 640, 640]` classification boxes on single-object TrashNet studio images.",
+        "decision": "STOPPED_AFTER_PILOT",
+        "notes": "Stopped after 30-row pilot: rows 10 and 13 have `[0.0, 0.0, 640.0, 640.0]` full-frame boxes and isolated studio backgrounds."
+      },
+      {
+        "pilot_id": "PILOT_8G_03",
+        "source_name": "Akhila-9849/trash_detection (HuggingFace / Roboflow Universe `trash-detection-6r6qe`)",
+        "sample_size_inspected": 30,
+        "real_waste_rate_pct": 50.0,
+        "has_tight_instance_boxes": false,
+        "license_verified": "UNVERIFIED (Unattributed Roboflow compilation without per-image license metadata)",
+        "split_integrity": "Flat folder of `.jpg` files with zero bounding-box annotation files and no train/val/test split.",
+        "decision": "STOPPED_AFTER_PILOT",
+        "notes": "Stopped after 30-image pilot: missing bounding-box labels and unverified upstream provenance."
+      },
+      {
+        "pilot_id": "PILOT_8G_04",
+        "source_name": "Voxel51/food-waste-dataset (HuggingFace FiftyOne Meal Nutrition Dataset)",
+        "sample_size_inspected": 30,
+        "real_waste_rate_pct": 20.0,
+        "has_tight_instance_boxes": true,
+        "license_verified": "MIT (`annotations_creators: machine-generated`, lacks original photographer attribution)",
+        "split_integrity": "Before/after cafeteria meal plates on tables (`IN_USE` dining context rather than discarded waste).",
+        "decision": "STOPPED_AFTER_PILOT",
+        "notes": "Stopped after 30-image pilot: predominantly served cafeteria meals on trays (`IN_USE`) with machine-generated labels."
+      },
+      {
+        "pilot_id": "PILOT_8G_05",
+        "source_name": "Wikimedia Commons Large-Scale Scarce-Class & Multi-Class Real-Waste Categories (80+ Queries)",
+        "sample_size_inspected": 40,
+        "real_waste_rate_pct": 62.5,
+        "has_tight_instance_boxes": false,
+        "license_verified": "VERIFIED (CC0 / CC-BY / CC-BY-SA / Public Domain with per-image author & URL)",
+        "split_integrity": "Grouped by author/session (`sess_wiki8g_*`) before deterministic train/val split allocation.",
+        "decision": "EXPAND_APPROVED_WITH_VISUAL_QA_GATE",
+        "notes": "High-yield source for scarce classes `0: battery`, `1: biological`, `3: clothes`, `8: shoes`, `4: glass`, `2: cardboard`, `6: paper`, `5: metal` and multi-class street/beach litter."
+      },
+      {
+        "pilot_id": "PILOT_8G_06",
+        "source_name": "Open Images V7 Scarce-Class & Multi-Class `train` / `validation` Expansion (`0` from `test`)",
+        "sample_size_inspected": 40,
+        "real_waste_rate_pct": 47.5,
+        "has_tight_instance_boxes": true,
+        "license_verified": "VERIFIED (CC-BY 2.0 with original Flickr author & landing URL)",
+        "split_integrity": "Strictly preserves `validation` -> `VAL_REAL_WASTE_W8G` and `train` -> `TRAIN_REAL_WASTE_W8G` (`0` from `test`).",
+        "decision": "EXPAND_APPROVED_WITH_VISUAL_DOMAIN_GATE",
+        "notes": "Provides human-verified multi-instance and multi-class ground-truth bounding boxes across all 8 scarce classes."
+      }
+    ]
+  },
+  "task3_quality_control_metrics": {
+    "approved_for_train_all_false": true,
+    "zero_unannotated_waste_used_as_hard_negative": true,
+    "duplicate_annotation_pairs_remaining": 0,
+    "preserved_valid_same_class_overlap_pairs": 12,
+    "preserved_valid_cross_class_overlap_pairs": 157,
+    "records_with_label_corrections": 217,
+    "total_label_corrections": 317,
+    "label_correction_rate": 0.2359,
+    "actual_waste_domain_rate": 0.2511,
+    "real_waste_pass_rate": 0.1859,
+    "zero_train_val_session_leakage": true,
+    "zero_train_val_specimen_leakage": true,
+    "zero_source_test_in_train_or_val": true
+  },
+  "task4_milestone_tracking": {
+    "cumulative_verified_real_waste_unique_train_images": 1681,
+    "cumulative_verified_real_waste_unique_specimens": 1675,
+    "cumulative_verified_real_waste_unique_sessions": 457,
+    "cumulative_verified_real_waste_unique_val_images": 364,
+    "per_class_wave8g_and_milestone_progress": [
+      {
+        "class_id": 0,
+        "class_name": "battery",
+        "wave8g_pass_total_images": 2,
+        "wave8g_pass_train_images": 1,
+        "wave8g_pass_val_images": 1,
+        "wave8g_pass_total_boxes": 5,
+        "cumulative_verified_rw_train_images": 52,
+        "cumulative_verified_rw_train_boxes": 120,
+        "cumulative_unique_specimens": 48,
+        "cumulative_unique_sessions": 49,
+        "cumulative_verified_rw_val_images": 23,
+        "gap_to_m1_500": 448,
+        "gap_to_m4_5000": 4948
+      },
+      {
+        "class_id": 1,
+        "class_name": "biological",
+        "wave8g_pass_total_images": 19,
+        "wave8g_pass_train_images": 16,
+        "wave8g_pass_val_images": 3,
+        "wave8g_pass_total_boxes": 26,
+        "cumulative_verified_rw_train_images": 90,
+        "cumulative_verified_rw_train_boxes": 114,
+        "cumulative_unique_specimens": 83,
+        "cumulative_unique_sessions": 75,
+        "cumulative_verified_rw_val_images": 20,
+        "gap_to_m1_500": 410,
+        "gap_to_m4_5000": 4910
+      },
+      {
+        "class_id": 2,
+        "class_name": "cardboard",
+        "wave8g_pass_total_images": 20,
+        "wave8g_pass_train_images": 20,
+        "wave8g_pass_val_images": 0,
+        "wave8g_pass_total_boxes": 23,
+        "cumulative_verified_rw_train_images": 185,
+        "cumulative_verified_rw_train_boxes": 253,
+        "cumulative_unique_specimens": 185,
+        "cumulative_unique_sessions": 58,
+        "cumulative_verified_rw_val_images": 44,
+        "gap_to_m1_500": 315,
+        "gap_to_m4_5000": 4815
+      },
+      {
+        "class_id": 3,
+        "class_name": "clothes",
+        "wave8g_pass_total_images": 3,
+        "wave8g_pass_train_images": 3,
+        "wave8g_pass_val_images": 0,
+        "wave8g_pass_total_boxes": 4,
+        "cumulative_verified_rw_train_images": 34,
+        "cumulative_verified_rw_train_boxes": 36,
+        "cumulative_unique_specimens": 34,
+        "cumulative_unique_sessions": 19,
+        "cumulative_verified_rw_val_images": 1,
+        "gap_to_m1_500": 466,
+        "gap_to_m4_5000": 4966
+      },
+      {
+        "class_id": 4,
+        "class_name": "glass",
+        "wave8g_pass_total_images": 11,
+        "wave8g_pass_train_images": 10,
+        "wave8g_pass_val_images": 1,
+        "wave8g_pass_total_boxes": 12,
+        "cumulative_verified_rw_train_images": 90,
+        "cumulative_verified_rw_train_boxes": 143,
+        "cumulative_unique_specimens": 90,
+        "cumulative_unique_sessions": 35,
+        "cumulative_verified_rw_val_images": 27,
+        "gap_to_m1_500": 410,
+        "gap_to_m4_5000": 4910
+      },
+      {
+        "class_id": 5,
+        "class_name": "metal",
+        "wave8g_pass_total_images": 59,
+        "wave8g_pass_train_images": 57,
+        "wave8g_pass_val_images": 2,
+        "wave8g_pass_total_boxes": 80,
+        "cumulative_verified_rw_train_images": 301,
+        "cumulative_verified_rw_train_boxes": 466,
+        "cumulative_unique_specimens": 301,
+        "cumulative_unique_sessions": 89,
+        "cumulative_verified_rw_val_images": 56,
+        "gap_to_m1_500": 199,
+        "gap_to_m4_5000": 4699
+      },
+      {
+        "class_id": 6,
+        "class_name": "paper",
+        "wave8g_pass_total_images": 36,
+        "wave8g_pass_train_images": 35,
+        "wave8g_pass_val_images": 1,
+        "wave8g_pass_total_boxes": 46,
+        "cumulative_verified_rw_train_images": 201,
+        "cumulative_verified_rw_train_boxes": 250,
+        "cumulative_unique_specimens": 200,
+        "cumulative_unique_sessions": 71,
+        "cumulative_verified_rw_val_images": 47,
+        "gap_to_m1_500": 299,
+        "gap_to_m4_5000": 4799
+      },
+      {
+        "class_id": 7,
+        "class_name": "plastic",
+        "wave8g_pass_total_images": 73,
+        "wave8g_pass_train_images": 71,
+        "wave8g_pass_val_images": 2,
+        "wave8g_pass_total_boxes": 78,
+        "cumulative_verified_rw_train_images": 985,
+        "cumulative_verified_rw_train_boxes": 1602,
+        "cumulative_unique_specimens": 984,
+        "cumulative_unique_sessions": 159,
+        "cumulative_verified_rw_val_images": 177,
+        "gap_to_m1_500": 0,
+        "gap_to_m4_5000": 4015
+      },
+      {
+        "class_id": 8,
+        "class_name": "shoes",
+        "wave8g_pass_total_images": 4,
+        "wave8g_pass_train_images": 3,
+        "wave8g_pass_val_images": 1,
+        "wave8g_pass_total_boxes": 4,
+        "cumulative_verified_rw_train_images": 55,
+        "cumulative_verified_rw_train_boxes": 84,
+        "cumulative_unique_specimens": 55,
+        "cumulative_unique_sessions": 46,
+        "cumulative_verified_rw_val_images": 11,
+        "gap_to_m1_500": 445,
+        "gap_to_m4_5000": 4945
+      },
+      {
+        "class_id": 9,
+        "class_name": "trash",
+        "wave8g_pass_total_images": 10,
+        "wave8g_pass_train_images": 10,
+        "wave8g_pass_val_images": 0,
+        "wave8g_pass_total_boxes": 13,
+        "cumulative_verified_rw_train_images": 361,
+        "cumulative_verified_rw_train_boxes": 655,
+        "cumulative_unique_specimens": 360,
+        "cumulative_unique_sessions": 96,
+        "cumulative_verified_rw_val_images": 72,
+        "gap_to_m1_500": 139,
+        "gap_to_m4_5000": 4639
+      }
+    ]
+  }
+}

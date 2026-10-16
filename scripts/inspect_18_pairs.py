@@ -7,8 +7,8 @@ import numpy as np
 import pandas as pd
 from PIL import Image
 
-CANDIDATES_PATH = Path(r"D:\CNTT-KLCN155-waste-detection\data\audit\cross_split_phash_candidates.csv")
-BASE_DIR = Path(r"D:\HK7\Đồ án khóa luận")
+CANDIDATES_PATH = (Path(__file__).resolve().parents[1] / "data/audit/cross_split_phash_candidates.csv")
+BASE_DIR = Path(__import__("os").environ.get("WASTE_LEGACY_DATA_DIR", str(Path(__file__).resolve().parents[1] / "data" / "legacy_hk7")))
 
 def main():
     df = pd.read_csv(CANDIDATES_PATH)

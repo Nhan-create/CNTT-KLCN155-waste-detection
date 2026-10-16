@@ -1,0 +1,2010 @@
+{
+  "metadata": {
+    "total_images": 100,
+    "destination_directory": "D:\\Hinh_Anh_Rac",
+    "generated_at": "2026-10-11 20:40:38",
+    "security_protocol": "Multi-layer In-Memory Threat Scan (Magic Header, Executable Signatures, Polyglot/Script Injection) + Deterministic Image Sanitization + Avast Real-time Shield Active"
+  },
+  "images": [
+    {
+      "index": 1,
+      "filename": "rac_online_001.jpg",
+      "category": "battery",
+      "query": "electronic battery waste",
+      "source_title": "File:1.5V Lithium Battery Charger and Cable Back Picture.png",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/7/76/1.5V_Lithium_Battery_Charger_and_Cable_Back_Picture.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "53e5bf496220855679817c95f049e74761bd7ccdaab056f121a9a2b5c0e5d89d",
+      "final_sha256": "aa6105501c9d8e38406ff40538485607d4e92eaa5aca058f3a5d541d4b00c589",
+      "image_width": 3422,
+      "image_height": 1741,
+      "file_size_bytes": 910449,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "PNG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 2,
+      "filename": "rac_online_002.jpg",
+      "category": "battery",
+      "query": "electronic battery waste",
+      "source_title": "File:Discarica o Piattaforma Ecologica of Legnano (MI), Lombardy, Italy - 2021-02-26.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/0/04/Discarica_o_Piattaforma_Ecologica_of_Legnano_%28MI%29%2C_Lombardy%2C_Italy_-_2021-02-26.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "461972101e5320ffe6c074de64b707e2192cab67f5403650e744adbfcdd8933a",
+      "final_sha256": "d50cff17e7a1c21d1bae765c54771647d71a3487608a21d5691457d52f837515",
+      "image_width": 3750,
+      "image_height": 2598,
+      "file_size_bytes": 2172340,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 3,
+      "filename": "rac_online_003.jpg",
+      "category": "battery",
+      "query": "electronic battery waste",
+      "source_title": "File:E-AVFALL retur av elektriske produkter elektronikk lyspærer batterier lysstoffrør (E-waste return of electrical products batteries) Vi bryr oss om miljøet Avfallsdunk (waste bin) Spar (grocery store) Tjøme NORWAY 2026-08-15 IMG 994.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/E-AVFALL_retur_av_elektriske_produkter_elektronikk_lysp%C3%A6rer_batterier_lysstoffr%C3%B8r_%28E-waste_return_of_electrical_products_batteries%29_Vi_bryr_oss_om_milj%C3%B8et_Avfallsdunk_%28waste_bin%29_Spar_%28grocery_store%29_Tj%C3%B8me_NORWAY_2026-08-15_IMG_994.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "3563c921a0e1f9af57baa43c2495e7dc8d0d75512ec36dbb480d9fdeb4ad0065",
+      "final_sha256": "29376d3f167325bf393f00fa11fb501be76e2cb8b5329c62cace4545d72112d9",
+      "image_width": 3024,
+      "image_height": 4032,
+      "file_size_bytes": 2608875,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 4,
+      "filename": "rac_online_004.jpg",
+      "category": "battery",
+      "query": "electronic battery waste",
+      "source_title": "File:Extra Coop Supermarket, Amfi Shopping mall, Osøyro, Hordaland, Norway, 2018-03-22. Bottle reverse vending machine, etc. (Miljøstasjon, panteautomat, retur av flasker, batterier, lyspærer, svanemerket, etc.) A.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Extra_Coop_Supermarket%2C_Amfi_Shopping_mall%2C_Os%C3%B8yro%2C_Hordaland%2C_Norway%2C_2018-03-22._Bottle_reverse_vending_machine%2C_etc._%28Milj%C3%B8stasjon%2C_panteautomat%2C_retur_av_flasker%2C_batterier%2C_lysp%C3%A6rer%2C_svanemerket%2C_etc.%29_A.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "7808f54e73378bee6f243682533392b042e11c89f48673fd513e4905203198c6",
+      "final_sha256": "6248dc7e8d4dff488242e4955fd67475a11c7d2905688dd2ead73b22af6fa247",
+      "image_width": 4032,
+      "image_height": 3024,
+      "file_size_bytes": 1810380,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 5,
+      "filename": "rac_online_005.jpg",
+      "category": "battery",
+      "query": "electronic battery waste",
+      "source_title": "File:Extra Coop Supermarket, Amfi Shopping mall, Osøyro, Hordaland, Norway, 2018-03-22. Bottle reverse vending machine, etc. (Miljøstasjon, panteautomat, retur av flasker, batterier, lyspærer etc.) B.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Extra_Coop_Supermarket%2C_Amfi_Shopping_mall%2C_Os%C3%B8yro%2C_Hordaland%2C_Norway%2C_2018-03-22._Bottle_reverse_vending_machine%2C_etc._%28Milj%C3%B8stasjon%2C_panteautomat%2C_retur_av_flasker%2C_batterier%2C_lysp%C3%A6rer_etc.%29_B.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "dea57584bdd02321fae2387c2fff2a56a045dabc430414d93a9c24baca8ebb1e",
+      "final_sha256": "2e49b34c4a815ded55c45735806c274f10f53ad6ea180662af940a0b8e0eb644",
+      "image_width": 4032,
+      "image_height": 3024,
+      "file_size_bytes": 2166586,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 6,
+      "filename": "rac_online_006.jpg",
+      "category": "battery",
+      "query": "electronic battery waste",
+      "source_title": "File:Motorcycle batteries at a recycling station in Tuntorp, Brastad 1.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Motorcycle_batteries_at_a_recycling_station_in_Tuntorp%2C_Brastad_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "c6fc0196572f324e5c87c564dffad8439e6396fa33f4951e10cd72bb3ab95d80",
+      "final_sha256": "681776cec884011f9bfcb9042288bdab0e796fe1e23f51dc4d133efda0d8328a",
+      "image_width": 3648,
+      "image_height": 4856,
+      "file_size_bytes": 3956117,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 7,
+      "filename": "rac_online_007.jpg",
+      "category": "battery",
+      "query": "electronic battery waste",
+      "source_title": "File:Motorcycle batteries at a recycling station in Tuntorp, Brastad 2.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Motorcycle_batteries_at_a_recycling_station_in_Tuntorp%2C_Brastad_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "c94bbabe699737e6450bcb89f9d61affcbe68bb48a109bea76489410fd895f70",
+      "final_sha256": "26238f7a335d7a7c1b1f2cc2fa7947a8b5c13b513827768a562468e7126685d3",
+      "image_width": 5472,
+      "image_height": 3648,
+      "file_size_bytes": 4205900,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 8,
+      "filename": "rac_online_008.jpg",
+      "category": "battery",
+      "query": "electronic battery waste",
+      "source_title": "File:PANT flaskepant automat (bottle deposit-return machines) Tomra T-63HCp T-820 Røde Kors Brødskjæremaskin (bread slicer) vask (sink) avfall (bin) Retur lysrør batterier lyspærer småel. (E-waste) EXTRA Coop grocery store Tjøme NORW.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/2/2f/PANT_flaskepant_automat_%28bottle_deposit-return_machines%29_Tomra_T-63HCp_T-820_R%C3%B8de_Kors_Br%C3%B8dskj%C3%A6remaskin_%28bread_slicer%29_vask_%28sink%29_avfall_%28bin%29_Retur_lysr%C3%B8r_batterier_lysp%C3%A6rer_sm%C3%A5el._%28E-waste%29_EXTRA_Coop_grocery_store_Tj%C3%B8me_NORW.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "2177a26c3d4a3ae99f11117c293a8ee7e4de3962d7461cca2b7017f77e450d8b",
+      "final_sha256": "1e123ab0d11f704bafb4f68e660c0aff03c44ffb9065bc5e9b3498cf8c2ac23e",
+      "image_width": 4032,
+      "image_height": 3024,
+      "file_size_bytes": 2467268,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 9,
+      "filename": "rac_online_009.jpg",
+      "category": "battery",
+      "query": "electronic battery waste",
+      "source_title": "File:Waste collection point containers - Legnano (MI), Lombardy, Italy - 2021-02-26.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Waste_collection_point_containers_-_Legnano_%28MI%29%2C_Lombardy%2C_Italy_-_2021-02-26.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "b9f9b264a5011c54332b0b2c3f9a64219be778fa12966f870b35afbf13a5ec39",
+      "final_sha256": "6eb9a5c3a62fe16f31a0c92e04b909fdb1ae2dec2a055e66c39bc8a98844b9a5",
+      "image_width": 3906,
+      "image_height": 2604,
+      "file_size_bytes": 2266375,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 10,
+      "filename": "rac_online_010.jpg",
+      "category": "biological",
+      "query": "banana peel ground litter",
+      "source_title": "File:Bananas. (9884302313).jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/d/db/Bananas._%289884302313%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "1c437c478683f51276128416d85a23d208b42775eab561f8b0f285cce5f1814e",
+      "final_sha256": "9ec9163914833d29ac50656f9b9c156d4e45e0271d3b1bc4b10346c94c2f8cd6",
+      "image_width": 4000,
+      "image_height": 2248,
+      "file_size_bytes": 2596552,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 11,
+      "filename": "rac_online_011.jpg",
+      "category": "cardboard",
+      "query": "discarded cardboard box street",
+      "source_title": "File:Ukraine, Krym, Myrne - Заброшенная ферма WMID2079962.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Ukraine%2C_Krym%2C_Myrne_-_%D0%97%D0%B0%D0%B1%D1%80%D0%BE%D1%88%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F_%D1%84%D0%B5%D1%80%D0%BC%D0%B0_WMID2079962.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "d95c966b9b155f431d6f00c19e3114f95baffd9c84b3b9a380de7957dcddbf27",
+      "final_sha256": "4bdc63fc7300c86094439e8e6f334566beebf1a213cba1f76c75e739edb35dbe",
+      "image_width": 700,
+      "image_height": 466,
+      "file_size_bytes": 77444,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 12,
+      "filename": "rac_online_012.jpg",
+      "category": "cardboard",
+      "query": "dumped cardboard waste pavement",
+      "source_title": "File:A New Location for Dumping? (20253465879).jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/d/d6/A_New_Location_for_Dumping%3F_%2820253465879%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "5bfa1c6e1f69030c01889410cf5a1d3494cb1a9bba4a736b469e64e17ec5db44",
+      "final_sha256": "3022374ac1136c5ef2cb4bbbb14ca3dc343aca57829ddbfc6d66b397dec8c76e",
+      "image_width": 3000,
+      "image_height": 3000,
+      "file_size_bytes": 1567321,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 13,
+      "filename": "rac_online_013.jpg",
+      "category": "cardboard",
+      "query": "dumped cardboard waste pavement",
+      "source_title": "File:Dumped cardboard - Devon Close.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Dumped_cardboard_-_Devon_Close.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "be52361404b6d06fe372e7e66c49c4d39bfe94f42a77ff4a692af38d6d292aed",
+      "final_sha256": "34f56377bfc0dab2af39865143260ff9f9de22089d70144644136f1238bb66c8",
+      "image_width": 3750,
+      "image_height": 2813,
+      "file_size_bytes": 2894997,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 14,
+      "filename": "rac_online_014.jpg",
+      "category": "clothes",
+      "query": "clothing textile waste dumped",
+      "source_title": "File:Dumping for Charity.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/4/43/Dumping_for_Charity.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "69cbb2a8d7e006b5a49c769103e7cd8dfa81aa91e26eac74f801802a8054dca7",
+      "final_sha256": "9312c674be0ef3dc97cbd8ad69ea39dcaafef19ac06bddfc5fe876d3c6a88f8b",
+      "image_width": 2236,
+      "image_height": 1176,
+      "file_size_bytes": 596222,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 15,
+      "filename": "rac_online_015.jpg",
+      "category": "metal",
+      "query": "crushed beverage can litter street",
+      "source_title": "File:Crushed McDonald's cup in tire track.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/8/83/Crushed_McDonald%27s_cup_in_tire_track.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "bfbea092c989c8b8b4daaa9be8be05ace1929dae77e7ff28f5dc038ef36f0870",
+      "final_sha256": "2a98cac75b707d05eaf419c351a2361f66e16a34f60d8a646e254db89c81dc90",
+      "image_width": 3008,
+      "image_height": 4016,
+      "file_size_bytes": 3259585,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 16,
+      "filename": "rac_online_016.jpg",
+      "category": "plastic",
+      "query": "plastic bottle litter ground",
+      "source_title": "File:92015 Dollands Moor to Wembley 6B20 (6B41) eau minerale (15655219314).jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/9/97/92015_Dollands_Moor_to_Wembley_6B20_%286B41%29_eau_minerale_%2815655219314%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "94a85f724d5105a50246be41e2f6248e34e29ef5cf7c9e2490376c7ce1a8e0a9",
+      "final_sha256": "577878ea095d8ef68862b2052ccb98fed9d9b607a538e67258c1ac140656fec5",
+      "image_width": 3806,
+      "image_height": 2138,
+      "file_size_bytes": 1226130,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 17,
+      "filename": "rac_online_017.jpg",
+      "category": "plastic",
+      "query": "plastic bottle litter ground",
+      "source_title": "File:92015 Dollands Moor to Wembley 6B20 (6B41) eau minerale (16251696576).jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/0/05/92015_Dollands_Moor_to_Wembley_6B20_%286B41%29_eau_minerale_%2816251696576%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "5935497de8727623baa38a2d083ba52a42926a2d33a616238fa08e5f83579c95",
+      "final_sha256": "df5908be7856fd5372491d6200e5f8d143a6cde8527a581747ac5686a255f50c",
+      "image_width": 4448,
+      "image_height": 3336,
+      "file_size_bytes": 3354256,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 18,
+      "filename": "rac_online_018.jpg",
+      "category": "plastic",
+      "query": "plastic bottle litter ground",
+      "source_title": "File:92015 Dollands Moor to Wembley 6B20 (6B41) eau minerale (16276803372).jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/d/df/92015_Dollands_Moor_to_Wembley_6B20_%286B41%29_eau_minerale_%2816276803372%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "2f424204c9bad34def24c510508412003006c47fb722ce4ea232c31e5c67d02e",
+      "final_sha256": "8c2b45a1785e8123eb2a00c8e93803d61a3a3b5b934b18095e72945d6a3baa5a",
+      "image_width": 4665,
+      "image_height": 3502,
+      "file_size_bytes": 4859400,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 19,
+      "filename": "rac_online_019.jpg",
+      "category": "plastic",
+      "query": "plastic bottle litter ground",
+      "source_title": "File:92041 chilled bottled water 6B20 (15959773397).jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/c/ca/92041_chilled_bottled_water_6B20_%2815959773397%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "9fd47851a7a8045a643ce93f187359930ca59aee80656deb8f3baccb1bb2b69b",
+      "final_sha256": "52c0193d66cfd6e891b86a9a7e09d44e3fa340e1166bdbe2fde57f1dcbdbe464",
+      "image_width": 4896,
+      "image_height": 3672,
+      "file_size_bytes": 4635325,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 20,
+      "filename": "rac_online_020.jpg",
+      "category": "plastic",
+      "query": "plastic bottle litter ground",
+      "source_title": "File:Plastique à ciel ouvert.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Plastique_%C3%A0_ciel_ouvert.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "0ded097e3b550446feee8993cb6999378c5f84ab6e470c32e735334ee5ac54d3",
+      "final_sha256": "af4d8a19806017e51ee128a030a478e7a1939a7f5576c813385286b28af7a5a2",
+      "image_width": 3000,
+      "image_height": 4000,
+      "file_size_bytes": 5312178,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 21,
+      "filename": "rac_online_021.jpg",
+      "category": "plastic",
+      "query": "plastic bottle litter ground",
+      "source_title": "File:Ukraine, Krym, Shchebetovka - Родник у Киногородка WMID2949808.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Ukraine%2C_Krym%2C_Shchebetovka_-_%D0%A0%D0%BE%D0%B4%D0%BD%D0%B8%D0%BA_%D1%83_%D0%9A%D0%B8%D0%BD%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BA%D0%B0_WMID2949808.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "f63b22077ef840b88219b08271b7bb63803bbad1bd753e5b9c516bd9f5ce4f7d",
+      "final_sha256": "aa06373ca06bc6ddaa3af68db8836308976d4b448f21a7d9688127f838f1e051",
+      "image_width": 2592,
+      "image_height": 1944,
+      "file_size_bytes": 1383851,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 22,
+      "filename": "rac_online_022.jpg",
+      "category": "plastic",
+      "query": "plastic bottle litter ground",
+      "source_title": "File:Ukraine, Krym, Sudak - Родник Чобан Чокъракъ WMID8311192.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Ukraine%2C_Krym%2C_Sudak_-_%D0%A0%D0%BE%D0%B4%D0%BD%D0%B8%D0%BA_%D0%A7%D0%BE%D0%B1%D0%B0%D0%BD_%D0%A7%D0%BE%D0%BA%D1%8A%D1%80%D0%B0%D0%BA%D1%8A_WMID8311192.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "f2e03f3e1f37d5068f688b7ea4944f711e04b0efbcae9ce345b55d94e0b4cbf2",
+      "final_sha256": "33ceb2c4e22e4090b68eee9ae3b458db5d8df03f9a1657e209fa355abae0f641",
+      "image_width": 2016,
+      "image_height": 1512,
+      "file_size_bytes": 1563630,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 23,
+      "filename": "rac_online_023.jpg",
+      "category": "plastic",
+      "query": "discarded plastic bag litter",
+      "source_title": "File:Discarded Meijer plastic bag.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/1/19/Discarded_Meijer_plastic_bag.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "06e4b234d049d190d7a4789e8ab577aee46acd0e3a16495118485d38323f41a6",
+      "final_sha256": "6570023ef0afb1fc976677d6147f49756ce9ce65ce24e1c599f462479f3679b3",
+      "image_width": 3008,
+      "image_height": 4016,
+      "file_size_bytes": 2634948,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 24,
+      "filename": "rac_online_024.jpg",
+      "category": "plastic",
+      "query": "discarded plastic bag litter",
+      "source_title": "File:Don't throw me away - re-use me! - geograph.org.uk - 1482236.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Don%27t_throw_me_away_-_re-use_me%21_-_geograph.org.uk_-_1482236.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "9d536d7fb9c42d26076ad60997da44f53b4719019bdda985d62095dd0b436692",
+      "final_sha256": "68687801e0d5cec8b928ecf024d6d68e66e9cdcd8cdfb6afb14dd7bc48c7354d",
+      "image_width": 426,
+      "image_height": 640,
+      "file_size_bytes": 106205,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 25,
+      "filename": "rac_online_025.jpg",
+      "category": "plastic",
+      "query": "discarded plastic bag litter",
+      "source_title": "File:Walmart bag in leaf litter.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Walmart_bag_in_leaf_litter.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "817869cef1c7e034dcc17da7e84ab830a68bf6f5af6ec20811cc2c49b2c8c307",
+      "final_sha256": "c5b8a5f11be828cb3338119ae1ea42c70c94f9fdcca9879601c8a4ec8919fd59",
+      "image_width": 3008,
+      "image_height": 4016,
+      "file_size_bytes": 3125917,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 26,
+      "filename": "rac_online_026.jpg",
+      "category": "plastic",
+      "query": "plastic container waste street",
+      "source_title": "File:Burned plastic and metals waste container - via Umberto Cagni.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/3/37/Burned_plastic_and_metals_waste_container_-_via_Umberto_Cagni.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "d018f67e93e8b7cab36f2887167062aed618617306ee367713d0c558bf770e20",
+      "final_sha256": "a017763b83c2f4231e24198e8fc5d0dd42b580459d50c3833ecc86b727674e9f",
+      "image_width": 1907,
+      "image_height": 1222,
+      "file_size_bytes": 755631,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 27,
+      "filename": "rac_online_027.jpg",
+      "category": "plastic",
+      "query": "plastic container waste street",
+      "source_title": "File:Divided plastic waste container.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Divided_plastic_waste_container.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "42ae27700732ee4982fcb699cb7e8246d3b1adcc3d11700b601bedfd3a7efeb9",
+      "final_sha256": "d5c58c9d43819a31ed0d32afd7f97379ae84bb4f561263478962f799338036a9",
+      "image_width": 3008,
+      "image_height": 4016,
+      "file_size_bytes": 3420792,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 28,
+      "filename": "rac_online_028.jpg",
+      "category": "plastic",
+      "query": "plastic container waste street",
+      "source_title": "File:Dornbirn-Fire destroyed plastic waste paper container-01ASD.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Dornbirn-Fire_destroyed_plastic_waste_paper_container-01ASD.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "9eeb9217b7423e4d33145adc2e836405223fce87c9a8223b08036cfc95936ad9",
+      "final_sha256": "161bf4b6aafc8b3c76d40010c9821eb0961429cc67784899ebafe0ccd3f65e64",
+      "image_width": 4000,
+      "image_height": 3000,
+      "file_size_bytes": 4728534,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 29,
+      "filename": "rac_online_029.jpg",
+      "category": "plastic",
+      "query": "plastic container waste street",
+      "source_title": "File:Dornbirn-Fire destroyed plastic waste paper container-02ASD.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Dornbirn-Fire_destroyed_plastic_waste_paper_container-02ASD.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "b121029ba942a7be2453542b9fafde4a14467d69ca2d4f72bd311b5442115a27",
+      "final_sha256": "5ead3d25c77cbf2ddf5e3dc8aa35518bd54433d165059c072af06d89cc10043c",
+      "image_width": 4000,
+      "image_height": 3000,
+      "file_size_bytes": 5357605,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 30,
+      "filename": "rac_online_030.jpg",
+      "category": "plastic",
+      "query": "plastic container waste street",
+      "source_title": "File:Dornbirn-Fire destroyed plastic waste paper container-03ASD.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/3/32/Dornbirn-Fire_destroyed_plastic_waste_paper_container-03ASD.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "9e31cde95ba1db64065aab6152412e0af3963dd506768b63fd57999db3171104",
+      "final_sha256": "61d00990bcb7affb3b60c621dc6f732ec80eb6e5980094a552a000b6927ecde3",
+      "image_width": 4000,
+      "image_height": 3000,
+      "file_size_bytes": 4817393,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 31,
+      "filename": "rac_online_031.jpg",
+      "category": "plastic",
+      "query": "plastic container waste street",
+      "source_title": "File:Dornbirn-Plastic waste paper container-01ASD.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Dornbirn-Plastic_waste_paper_container-01ASD.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "78261fd1a86f97c5cb720c7eebed32de25d3c4c86ec9f52ff9c13824ff9ebe95",
+      "final_sha256": "5b606f16add07371936acd2b1953e7264df05985ef77996e43adfaa4e454b908",
+      "image_width": 4000,
+      "image_height": 3000,
+      "file_size_bytes": 3754587,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 32,
+      "filename": "rac_online_032.jpg",
+      "category": "plastic",
+      "query": "plastic container waste street",
+      "source_title": "File:Organic Waste Container in Málaga.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Organic_Waste_Container_in_M%C3%A1laga.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "62ace15ae6c6ba27464f9a4e77ff2587d8f6e76399ea9e8a3b41a05ec2cae619",
+      "final_sha256": "8815aaa3ab2349dccf4dd7a68d7be958570571b1e2d965efedf43ee9390d02af",
+      "image_width": 4000,
+      "image_height": 3000,
+      "file_size_bytes": 2332711,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 33,
+      "filename": "rac_online_033.jpg",
+      "category": "plastic",
+      "query": "plastic container waste street",
+      "source_title": "File:Plastic and metals waste container - via dell'Idroscalo.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/Plastic_and_metals_waste_container_-_via_dell%27Idroscalo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "50fa0d5ff54ef0b9c59c528d0cf85fa8f3414c8baf9a41597aa013cbbc334504",
+      "final_sha256": "cbf479987054e71b88718b6b05c9f7f2434a0894a66c93897d3396ae42c7d23d",
+      "image_width": 2598,
+      "image_height": 2425,
+      "file_size_bytes": 1542442,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 34,
+      "filename": "rac_online_034.jpg",
+      "category": "plastic",
+      "query": "plastic container waste street",
+      "source_title": "File:Plastic cap collection container - Los Cancajos.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Plastic_cap_collection_container_-_Los_Cancajos.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "0ed6d398eb56d0e195b565e8988ee105dea82e4d7bfda13e94cb2a047d02abb1",
+      "final_sha256": "b945604dc3db3ccc2045771a62945e158ceedc049165836dc87e783b8c58f370",
+      "image_width": 3921,
+      "image_height": 5882,
+      "file_size_bytes": 6630188,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 35,
+      "filename": "rac_online_035.jpg",
+      "category": "plastic",
+      "query": "plastic container waste street",
+      "source_title": "File:Plastic waste container, Vlora (PV010).jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Plastic_waste_container%2C_Vlora_%28PV010%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "fd98c37ca58f88eafc61482e9bc546cec3a00ff33e052dabc325c0d4f53afc85",
+      "final_sha256": "9c42dfb1536182d0786fa7893531ad9ffa430f5d76ebfc8aaa8d3d37707f65af",
+      "image_width": 4000,
+      "image_height": 3000,
+      "file_size_bytes": 3620005,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 36,
+      "filename": "rac_online_036.jpg",
+      "category": "plastic",
+      "query": "plastic container waste street",
+      "source_title": "File:Recycling container for plastic, Zagreb.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Recycling_container_for_plastic%2C_Zagreb.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "598ee6b4488674e25199e17da85eebc0062d4f7e63b3906b764a489fd5790d4d",
+      "final_sha256": "18adb20f41d43720dc2c547a3b0465d42f7f8e8203c670291cc607e131232d8f",
+      "image_width": 3060,
+      "image_height": 4080,
+      "file_size_bytes": 4376414,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 37,
+      "filename": "rac_online_037.jpg",
+      "category": "plastic",
+      "query": "plastic container waste street",
+      "source_title": "File:Textile Recycling Container and Waste Containers.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Textile_Recycling_Container_and_Waste_Containers.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "16c44cdfc34da594e934c4e47a084c458b2877afec268f9324a4cefd0570e253",
+      "final_sha256": "dd7477b897954e09f462319fa15d0a4fd1746c8f191e646181090219fd0bd177",
+      "image_width": 4000,
+      "image_height": 3000,
+      "file_size_bytes": 2635476,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 38,
+      "filename": "rac_online_038.jpg",
+      "category": "plastic",
+      "query": "plastic cup straw litter",
+      "source_title": "File:Zwerfvuil McDonalds I.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Zwerfvuil_McDonalds_I.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "275e4e99fba1441bd6364d64ee5c4a3e66282b90c2997764e7d6dcd52c5c452d",
+      "final_sha256": "fdd339ac329c831830cc72f77106efb1c90339f4fbc97434740421003559b19f",
+      "image_width": 3264,
+      "image_height": 2448,
+      "file_size_bytes": 2047033,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 39,
+      "filename": "rac_online_039.jpg",
+      "category": "trash",
+      "query": "overflowing litter bin street",
+      "source_title": "File:Commercial waste bins rubbish Lordship Lane Tottenham, London, England 3.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Commercial_waste_bins_rubbish_Lordship_Lane_Tottenham%2C_London%2C_England_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "fc074795453711e57f34c3d20c4b2bfb3f71d5177e78ecd9e4d4e21b2fe6f7bc",
+      "final_sha256": "131df799052d180e18bfa21e5e9d445307dab33b91246c82fde6c781ccd1db02",
+      "image_width": 3969,
+      "image_height": 2233,
+      "file_size_bytes": 2372497,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 40,
+      "filename": "rac_online_040.jpg",
+      "category": "trash",
+      "query": "overflowing litter bin street",
+      "source_title": "File:Impro-bin.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/1/12/Impro-bin.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "9d62d0343b2db44bf476e2479b8d8b69bb0577e1e0c711b506a52c61944fd93a",
+      "final_sha256": "9b3e4e037136fff04bb6f0388a49916aaf037e54cc0854b33824289ce3f1a396",
+      "image_width": 2900,
+      "image_height": 2400,
+      "file_size_bytes": 1636974,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 41,
+      "filename": "rac_online_041.jpg",
+      "category": "trash",
+      "query": "overflowing litter bin street",
+      "source_title": "File:Litter bin rubbish Lordship Lane Tottenham, London, England 1.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Litter_bin_rubbish_Lordship_Lane_Tottenham%2C_London%2C_England_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "772c7027a0e02f618fa05224aba24f0105757474e747629f18c02c93ef02ce08",
+      "final_sha256": "ddf1074e206737ccf487cb253c1ca58bc0c9ca75fdddf8c5acace6a0dee543a0",
+      "image_width": 4021,
+      "image_height": 3217,
+      "file_size_bytes": 3930641,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 42,
+      "filename": "rac_online_042.jpg",
+      "category": "trash",
+      "query": "overflowing litter bin street",
+      "source_title": "File:Litter bin rubbish Tottenham, London, England 1.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Litter_bin_rubbish_Tottenham%2C_London%2C_England_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "1dd1fcb79b3f3a3cbd3901532df7fce7dffd62a2c6e8f42feabdcef453fe1979",
+      "final_sha256": "2223543a82ba2bc40c542537cc9e9abb71c5c7f531b1a2507415730bf6482d1f",
+      "image_width": 3402,
+      "image_height": 2268,
+      "file_size_bytes": 2538239,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 43,
+      "filename": "rac_online_043.jpg",
+      "category": "trash",
+      "query": "overflowing litter bin street",
+      "source_title": "File:Overflowing Waste bins - Tottenham N15.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Overflowing_Waste_bins_-_Tottenham_N15.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "519447a3d8b8a0eb5b26047dc75d21ffb61b8953d2504965219373e252a70077",
+      "final_sha256": "8f7b8b8a11a7b53cabfb4be98e11038fc29f5e3a8cfc5a068e20b954477fbb9d",
+      "image_width": 4000,
+      "image_height": 3000,
+      "file_size_bytes": 2182635,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 44,
+      "filename": "rac_online_044.jpg",
+      "category": "trash",
+      "query": "overflowing litter bin street",
+      "source_title": "File:Overflowing bin, Mortonhall Park View - geograph.org.uk - 7601569.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/8/82/Overflowing_bin%2C_Mortonhall_Park_View_-_geograph.org.uk_-_7601569.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "7edfdff86fcf7f346b4617d4222083d5d66dfe8515001a4cd39318075cb5b470",
+      "final_sha256": "005dc6f658d8e8d257d6f72a2651bd89299780d44a2caf692a7918ba34362165",
+      "image_width": 4032,
+      "image_height": 3024,
+      "file_size_bytes": 3462598,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 45,
+      "filename": "rac_online_045.jpg",
+      "category": "trash",
+      "query": "overflowing litter bin street",
+      "source_title": "File:Overflowing bin - Dawlish Road N17 (41620889715).jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Overflowing_bin_-_Dawlish_Road_N17_%2841620889715%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "00dc89b8dddeafce21a6a02796b27c7f93c4de0d13ce4f0d8f41487e6fee2fba",
+      "final_sha256": "06af0a4b8ba34e02ce36e981525859fd7e3684794da89842884541f1314cf98e",
+      "image_width": 4000,
+      "image_height": 3000,
+      "file_size_bytes": 3032821,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 46,
+      "filename": "rac_online_046.jpg",
+      "category": "trash",
+      "query": "overflowing litter bin street",
+      "source_title": "File:Overflowing litter bin at Holdingham, Sleaford, Lincolnshire.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/7/76/Overflowing_litter_bin_at_Holdingham%2C_Sleaford%2C_Lincolnshire.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "7cf82edb5458c13fda5bbfdc95d68540c40b443287c1518974c73435f586f1da",
+      "final_sha256": "0fd2c04ea4348e9bdbe556d84ad51a18f4c9537f528ee73c29d7b538e533839f",
+      "image_width": 640,
+      "image_height": 427,
+      "file_size_bytes": 99520,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 47,
+      "filename": "rac_online_047.jpg",
+      "category": "trash",
+      "query": "overflowing litter bin street",
+      "source_title": "File:Overflowing wastebin - Car Park \"C\" Stoneleigh Road.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/2/27/Overflowing_wastebin_-_Car_Park_%22C%22_Stoneleigh_Road.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "b97d287e1cb039096e7920de453cdd2bdab4f19c782fcbb0639ea21bc390cf13",
+      "final_sha256": "c7acf724e2bd0ed79ef93c66ec67264910bd1bb204cf9a42e73ec32b0ff14dfb",
+      "image_width": 2499,
+      "image_height": 1875,
+      "file_size_bytes": 1198192,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 48,
+      "filename": "rac_online_048.jpg",
+      "category": "trash",
+      "query": "overflowing litter bin street",
+      "source_title": "File:Street litter bins at South Tottenham, London N15 (15637796308).jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/d/da/Street_litter_bins_at_South_Tottenham%2C_London_N15_%2815637796308%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "cabfe12f5f04175d43ebe366c4cc863e843da0b9fa1725dc39c74dcef6607023",
+      "final_sha256": "b44bde74cac05db09ececfb75306496b2481a68ecae1d3044d521aa674758c3b",
+      "image_width": 2850,
+      "image_height": 3300,
+      "file_size_bytes": 1763746,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 49,
+      "filename": "rac_online_049.jpg",
+      "category": "trash",
+      "query": "overflowing litter bin street",
+      "source_title": "File:Waste Bin in Car Park \"C\" Stoneleigh Road.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Waste_Bin_in_Car_Park_%22C%22_Stoneleigh_Road.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "aca9596824fd8c2d073cbdc2de5cc8ea14eef79cc3c6754e88bfc9fb6f6bc899",
+      "final_sha256": "dc5d9be16902d01254e6a177ca42b7869b6399d489a3adf54ba7e4ec6740760f",
+      "image_width": 2400,
+      "image_height": 1800,
+      "file_size_bytes": 1062763,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 50,
+      "filename": "rac_online_050.jpg",
+      "category": "trash",
+      "query": "overflowing litter bin street",
+      "source_title": "File:Wheelie bin enclosure dumped rubbish bags Lordship Lane Tottenham, London, England.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Wheelie_bin_enclosure_dumped_rubbish_bags_Lordship_Lane_Tottenham%2C_London%2C_England.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "1df7a4eb17ef46c62ab625004ee98654b74a278def18ff2f489223fa3ff30827",
+      "final_sha256": "f37101e747c411079b720ddf1c753af7b233e02ed966f1ea52ea9538398e46f1",
+      "image_width": 3489,
+      "image_height": 2246,
+      "file_size_bytes": 2318272,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 51,
+      "filename": "rac_online_051.jpg",
+      "category": "trash",
+      "query": "fly tipping illegal waste dump",
+      "source_title": "File:007 Beach pollution - household waste and construction rubble dumped illegally in Baracoa, Cuba.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/007_Beach_pollution_-_household_waste_and_construction_rubble_dumped_illegally_in_Baracoa%2C_Cuba.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "09efc891641aa802e04991f8a64dd1a7ab32b2e1bae11904748c18d472a3a5a1",
+      "final_sha256": "728e4666ebb59c09264bbeaca8da12d73d5d4b39c89985ded5ff8afff6fe8cdb",
+      "image_width": 3060,
+      "image_height": 2040,
+      "file_size_bytes": 2466210,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 52,
+      "filename": "rac_online_052.jpg",
+      "category": "trash",
+      "query": "fly tipping illegal waste dump",
+      "source_title": "File:Fly-tipping construction waste in Parco Alto Milanese - Busto Arsizio, Lombardy, Italy.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/3/31/Fly-tipping_construction_waste_in_Parco_Alto_Milanese_-_Busto_Arsizio%2C_Lombardy%2C_Italy.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "489da675a7c7a0c4fbc20125bf98479390319fe00886d20f89eb592a36276a5a",
+      "final_sha256": "b2d88feeb5a1d51fe13dd2c1f0b90ada6bd32d858f6304774c63f10e19340d71",
+      "image_width": 3743,
+      "image_height": 2808,
+      "file_size_bytes": 3792820,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 53,
+      "filename": "rac_online_053.jpg",
+      "category": "trash",
+      "query": "fly tipping illegal waste dump",
+      "source_title": "File:Fly tipping near High Beech, Essex.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Fly_tipping_near_High_Beech%2C_Essex.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "655c1b070e7ea5ad2ef484c017fcbbf34102e0a6eadb6d005234db3deed97857",
+      "final_sha256": "2c6406ad7ad38a0acab35418701e59e1acc7612a358dd06b086f36241db54d7d",
+      "image_width": 4080,
+      "image_height": 3072,
+      "file_size_bytes": 6471301,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 54,
+      "filename": "rac_online_054.jpg",
+      "category": "trash",
+      "query": "fly tipping illegal waste dump",
+      "source_title": "File:Fly tipping white goods in Parco Alto Milanese - Legnano (MI), Lombardy, Italy - 2021-09-18.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Fly_tipping_white_goods_in_Parco_Alto_Milanese_-_Legnano_%28MI%29%2C_Lombardy%2C_Italy_-_2021-09-18.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "8e4678209f04ec17a5c12123dcd933e4da56cb203d4bb65ce1f84fd972c320dc",
+      "final_sha256": "fd17ee9a01e06d01b061e958b0188efc7eca7a6ee4f72030dee6ee5e8b86b476",
+      "image_width": 3829,
+      "image_height": 2553,
+      "file_size_bytes": 3997290,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 55,
+      "filename": "rac_online_055.jpg",
+      "category": "trash",
+      "query": "fly tipping illegal waste dump",
+      "source_title": "File:Illegal dumping at Foxbar - geograph.org.uk - 214954.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/Illegal_dumping_at_Foxbar_-_geograph.org.uk_-_214954.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "f08f718eae9412cc461da4d09a057b9aee040ae3040f2bbee376ef2e967ebae2",
+      "final_sha256": "026ab8209291ca0dd8758f972e6b6932a8807223b63ce1d61c3c08349aed58bc",
+      "image_width": 640,
+      "image_height": 480,
+      "file_size_bytes": 131017,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 56,
+      "filename": "rac_online_056.jpg",
+      "category": "trash",
+      "query": "fly tipping illegal waste dump",
+      "source_title": "File:Illegal dumping in minamiyama rindou.JPG",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Illegal_dumping_in_minamiyama_rindou.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "ddb4ee86ee6e6de70fa93ce0626cc5d2cc24c6500c406669d4e26a90d9ac5574",
+      "final_sha256": "aecac7db92bf00026b8c3d2055247b8c4f629dc2fb0ec8376588492de12f933e",
+      "image_width": 1200,
+      "image_height": 1600,
+      "file_size_bytes": 949854,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 57,
+      "filename": "rac_online_057.jpg",
+      "category": "trash",
+      "query": "fly tipping illegal waste dump",
+      "source_title": "File:Illegal dumping near Swamp Creek in North Lynnwood.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/0/08/Illegal_dumping_near_Swamp_Creek_in_North_Lynnwood.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "3d3ffab0a304f7c89f8f67a48b83023ff13e235aa9fbfb2ed099d3258814565b",
+      "final_sha256": "2494db54c811e1d67768fa78812d9ac03d674b31777befc862b51ddf12dc6714",
+      "image_width": 4032,
+      "image_height": 3024,
+      "file_size_bytes": 6363695,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 58,
+      "filename": "rac_online_058.jpg",
+      "category": "trash",
+      "query": "fly tipping illegal waste dump",
+      "source_title": "File:Illegal waste dumping in Parco del Roccolo - Canegrate, Lombardy, Italy - 2021-04-22.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/1/12/Illegal_waste_dumping_in_Parco_del_Roccolo_-_Canegrate%2C_Lombardy%2C_Italy_-_2021-04-22.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "ee1efc93a53afa12cf64ba83be93a789c341404bd23086204e48c998744ada76",
+      "final_sha256": "0ff35199d659713dc9f3307461db1530d4263ff6963e6fd7c98d48d0fa46723b",
+      "image_width": 2912,
+      "image_height": 3883,
+      "file_size_bytes": 4658092,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 59,
+      "filename": "rac_online_059.jpg",
+      "category": "trash",
+      "query": "fly tipping illegal waste dump",
+      "source_title": "File:Milina Lafkos Fly-tipping 01.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Milina_Lafkos_Fly-tipping_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "efc44bbc2a89a1c16999e9ac794e43f916c65fa76537cfa2e50d568165f817d0",
+      "final_sha256": "c87a221845f03c8788f443bc7a355db485a945c67bc599e5369853adf723eae1",
+      "image_width": 4896,
+      "image_height": 3672,
+      "file_size_bytes": 5734232,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 60,
+      "filename": "rac_online_060.jpg",
+      "category": "trash",
+      "query": "fly tipping illegal waste dump",
+      "source_title": "File:Milina Lafkos Fly-tipping 02.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Milina_Lafkos_Fly-tipping_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "2dce80d33fed05dba677aa807f0d07177e9436a52129660bc747d9894dc55b81",
+      "final_sha256": "751ebf1d029a73b0538b69a057a72e270a496e04c05415d0d55c9639dde16dc1",
+      "image_width": 4896,
+      "image_height": 3672,
+      "file_size_bytes": 5102021,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 61,
+      "filename": "rac_online_061.jpg",
+      "category": "trash",
+      "query": "fly tipping illegal waste dump",
+      "source_title": "File:Milina Lafkos Fly-tipping 03.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Milina_Lafkos_Fly-tipping_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "83ddcbd831c5b9f291e445a1a891816100591c3b2572008fcacd3586b76ef1a3",
+      "final_sha256": "4623ecff122e36d7bc92b061d295bc92ef566f7847d41cb1b28a8a92bd84882b",
+      "image_width": 4896,
+      "image_height": 3672,
+      "file_size_bytes": 5865697,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 62,
+      "filename": "rac_online_062.jpg",
+      "category": "trash",
+      "query": "fly tipping illegal waste dump",
+      "source_title": "File:Scarico abusivo di rifiuti nel Parco Alto Milanese - Busto Arsizio, Lombardy, Italy - 2021-04-05.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Scarico_abusivo_di_rifiuti_nel_Parco_Alto_Milanese_-_Busto_Arsizio%2C_Lombardy%2C_Italy_-_2021-04-05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "54fc340b1136af34fea702458c64e0c15e76bc77835ab6d42e63a6ee2509a28a",
+      "final_sha256": "17a82a6a656a6c29095e9cfbf522abf0222b19a3df23f95216114258c94a6976",
+      "image_width": 3742,
+      "image_height": 2494,
+      "file_size_bytes": 3766253,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 63,
+      "filename": "rac_online_063.jpg",
+      "category": "battery",
+      "query": "electronic battery waste",
+      "source_title": "File:Obsolescence programmée 0002.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/5/56/Obsolescence_programm%C3%A9e_0002.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "83c199b1c19a6d723802b2503c9387e96ba19cb29f153d6fc3a786c2fe5d4bc9",
+      "final_sha256": "af7ac071555a99966c5ef2042339d157e1b62db9fd82bd6fca6fbde8c9d618a3",
+      "image_width": 2937,
+      "image_height": 2662,
+      "file_size_bytes": 1767638,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 64,
+      "filename": "rac_online_064.jpg",
+      "category": "cardboard",
+      "query": "flattened cardboard box litter",
+      "source_title": "File:Commercial waste bins rubbish Lordship Lane Tottenham, London, England 1.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Commercial_waste_bins_rubbish_Lordship_Lane_Tottenham%2C_London%2C_England_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "0d96572fe85c41a5272d32a535d304711f56ca1f39b7466ac03ce59775884c9a",
+      "final_sha256": "514125cebc4fb09944f69bbce58ba1546e3e49c3048fbcee3b3211df9c49ece6",
+      "image_width": 4608,
+      "image_height": 3456,
+      "file_size_bytes": 4085726,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 65,
+      "filename": "rac_online_065.jpg",
+      "category": "cardboard",
+      "query": "flattened cardboard box litter",
+      "source_title": "File:Commercial waste bins rubbish Lordship Lane Tottenham, London, England 2.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Commercial_waste_bins_rubbish_Lordship_Lane_Tottenham%2C_London%2C_England_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "7f6193c620439f834f5f242e151eff8ec7173687e77ea4450ce7c953a0643627",
+      "final_sha256": "832a2ef18ab9d76eb47b465c26466265fa834cfcf1ed106a398153ac25c2260f",
+      "image_width": 3854,
+      "image_height": 2266,
+      "file_size_bytes": 2454734,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 66,
+      "filename": "rac_online_066.jpg",
+      "category": "cardboard",
+      "query": "flattened cardboard box litter",
+      "source_title": "File:Commercial waste wheelie bins rubbish in The Avenue, Tottenham, London, England 1.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Commercial_waste_wheelie_bins_rubbish_in_The_Avenue%2C_Tottenham%2C_London%2C_England_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "0a619fca7b6a4b668f0c46bbe0a53856d22a8cbc27802848493f093c2a6fad4c",
+      "final_sha256": "ddda0135e3c01a1d468319942ccbd9062f8b46a573b4e92b407a4e970e5bf186",
+      "image_width": 2268,
+      "image_height": 3024,
+      "file_size_bytes": 2056513,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 67,
+      "filename": "rac_online_067.jpg",
+      "category": "cardboard",
+      "query": "flattened cardboard box litter",
+      "source_title": "File:Desire Seat & Bin?.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/0/05/Desire_Seat_%26_Bin%3F.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "65eb3f0bde5694637a44ea1c9906f937541e2434873d87bc94d9cd830ffb00e0",
+      "final_sha256": "9862b4e8ea8c9550249c3cf37c05db92411f1d0edf19867a9c13a91bd8625cd1",
+      "image_width": 1470,
+      "image_height": 1134,
+      "file_size_bytes": 467410,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 68,
+      "filename": "rac_online_068.jpg",
+      "category": "cardboard",
+      "query": "flattened cardboard box litter",
+      "source_title": "File:Litter in India.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/0/08/Litter_in_India.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "78a2b11f2736a1db6313752810fd673d5d43ed330b118024246485146f1d158a",
+      "final_sha256": "9160d26d4585d4408f8d3f85e64444ae5c7b10fe7010b96fa9eb9f0a19510b52",
+      "image_width": 2592,
+      "image_height": 1944,
+      "file_size_bytes": 1336788,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 69,
+      "filename": "rac_online_069.jpg",
+      "category": "cardboard",
+      "query": "flattened cardboard box litter",
+      "source_title": "File:Vagrant camp Bishopsgate London England 01.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/0/06/Vagrant_camp_Bishopsgate_London_England_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "71b300c298b817ad0a268356f92aedc902c552b9778d028a4412a27277781dcd",
+      "final_sha256": "5f0a55f12d46e175a3a5e7a34533fda5d873ec79c8390f51845c130741d07272",
+      "image_width": 4608,
+      "image_height": 3456,
+      "file_size_bytes": 1868179,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 70,
+      "filename": "rac_online_070.jpg",
+      "category": "cardboard",
+      "query": "pizza box waste litter street",
+      "source_title": "File:Look It's Fresh (35499050751).jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Look_It%27s_Fresh_%2835499050751%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "ca030a571ad220b95b913a6788559357f20386a9531c00ae620e82f423a2d541",
+      "final_sha256": "c8f1e50268caec5cc588bb0587cc07957b28c1b169635cd27303eb3bb41dfeb6",
+      "image_width": 3675,
+      "image_height": 3000,
+      "file_size_bytes": 2365428,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 71,
+      "filename": "rac_online_071.jpg",
+      "category": "clothes",
+      "query": "old rags clothes waste garbage",
+      "source_title": "File:Burns NPLD Event 2022 (52440179171).png",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/3/34/Burns_NPLD_Event_2022_%2852440179171%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "009e058d0ca0ad44c6d00a7301f6790370e67e8b70b2491accc35450de8a1fb2",
+      "final_sha256": "0381710f20050a23834a94f4bae5228872b1342bad7eb5c6fdf60ca1c8775962",
+      "image_width": 730,
+      "image_height": 514,
+      "file_size_bytes": 172777,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "PNG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 72,
+      "filename": "rac_online_072.jpg",
+      "category": "clothes",
+      "query": "used clothes discarded pavement",
+      "source_title": "File:\"Good Times\" - Bangkok.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/%22Good_Times%22_-_Bangkok.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "9332c471859c82bc90b3e6c892d1a6da87d0bd38fca01efb9ef60cac697a4d1a",
+      "final_sha256": "ff87c74e1e07e2c5e65e4dfcc9e3daf4ee5b03add259271fb6f922b42fb482eb",
+      "image_width": 4782,
+      "image_height": 3011,
+      "file_size_bytes": 4108189,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 73,
+      "filename": "rac_online_073.jpg",
+      "category": "glass",
+      "query": "broken glass pieces sidewalk",
+      "source_title": "File:Erica (Thorp) de Berry to Thorp family, 18 March 1918 (05d64c22-1695-4719-9f03-cb216c051ba5).jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Erica_%28Thorp%29_de_Berry_to_Thorp_family%2C_18_March_1918_%2805d64c22-1695-4719-9f03-cb216c051ba5%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "d77006517ad3ff38efe28e099ba99f228ba6bba0455461a0c2490b961d594c7f",
+      "final_sha256": "96c50fbfcbf0f54b888ea47df33bb37bbdf230eb996500e7d7f10fe41df2be57",
+      "image_width": 1745,
+      "image_height": 2542,
+      "file_size_bytes": 898644,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 74,
+      "filename": "rac_online_074.jpg",
+      "category": "glass",
+      "query": "broken glass pieces sidewalk",
+      "source_title": "File:Erica (Thorp) de Berry to Thorp family, 18 March 1918 (2d9a4bf1-02f8-41e2-99f5-86f50836ab2d).jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Erica_%28Thorp%29_de_Berry_to_Thorp_family%2C_18_March_1918_%282d9a4bf1-02f8-41e2-99f5-86f50836ab2d%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "7caa0aa98e964f476f2c01e7055256f523e25e6ea77a36dde3fd7e76387375ba",
+      "final_sha256": "1de0d75c1d958c82f6a5d2a36eedaf233140196d97bd9075b5cc8638e9027220",
+      "image_width": 1751,
+      "image_height": 2542,
+      "file_size_bytes": 886190,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 75,
+      "filename": "rac_online_075.jpg",
+      "category": "glass",
+      "query": "broken glass pieces sidewalk",
+      "source_title": "File:Erica (Thorp) de Berry to Thorp family, 18 March 1918 (43a3ddee-6d31-410d-a632-4de4168379f8).jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Erica_%28Thorp%29_de_Berry_to_Thorp_family%2C_18_March_1918_%2843a3ddee-6d31-410d-a632-4de4168379f8%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "29a7eb1e518f1e3bad044fa7f2a3cb71610f5d32c821ee20e40748e4b070506a",
+      "final_sha256": "4afd64f329a25d860a5c900a0957c4e7653db09d6d2c96fd3a3c13003a2c5905",
+      "image_width": 1697,
+      "image_height": 2540,
+      "file_size_bytes": 858180,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 76,
+      "filename": "rac_online_076.jpg",
+      "category": "glass",
+      "query": "broken glass pieces sidewalk",
+      "source_title": "File:Erica (Thorp) de Berry to Thorp family, 18 March 1918 (6f5d84bb-f9fe-48ad-a54f-71403c5d0038).jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/9/95/Erica_%28Thorp%29_de_Berry_to_Thorp_family%2C_18_March_1918_%286f5d84bb-f9fe-48ad-a54f-71403c5d0038%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "0d3ccdd3bac726a6d4ea14ec938a1d1f48b05542c310ced376d38ab5f7addb2f",
+      "final_sha256": "278f5eeed69f7a3be4e6ea39c3003afaf11e33487b96045f06cdec39fb2e7595",
+      "image_width": 1694,
+      "image_height": 2542,
+      "file_size_bytes": 905501,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 77,
+      "filename": "rac_online_077.jpg",
+      "category": "glass",
+      "query": "broken glass pieces sidewalk",
+      "source_title": "File:Erica (Thorp) de Berry to Thorp family, 18 March 1918 (6fac06ea-b14d-431f-92b1-8f309dd01db7).jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/8/86/Erica_%28Thorp%29_de_Berry_to_Thorp_family%2C_18_March_1918_%286fac06ea-b14d-431f-92b1-8f309dd01db7%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "617cda45befec11c8e359b91fb86760f503af237e43ce7efbe44aed95e956576",
+      "final_sha256": "56215dbcb4587267896dd5f81bedbbde5dbeca71af15ae2248acf0cf9b2707c7",
+      "image_width": 1714,
+      "image_height": 2542,
+      "file_size_bytes": 895991,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 78,
+      "filename": "rac_online_078.jpg",
+      "category": "glass",
+      "query": "broken glass pieces sidewalk",
+      "source_title": "File:Erica (Thorp) de Berry to Thorp family, 18 March 1918 (79acffa9-94fa-4027-a303-431f9aa4642b).jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/5/52/Erica_%28Thorp%29_de_Berry_to_Thorp_family%2C_18_March_1918_%2879acffa9-94fa-4027-a303-431f9aa4642b%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "ce05569dab85251ad95510f3c3faa835efe3d6330e0406f3e3da536d6cd5b935",
+      "final_sha256": "e66087e59b88c72fafb421e13c92103e52decb2353d3b5bd192412e7feda5ec1",
+      "image_width": 1673,
+      "image_height": 2532,
+      "file_size_bytes": 876020,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 79,
+      "filename": "rac_online_079.jpg",
+      "category": "glass",
+      "query": "broken glass pieces sidewalk",
+      "source_title": "File:Erica (Thorp) de Berry to Thorp family, 18 March 1918 (af3132f5-62be-4c00-bfb3-9ad726ecdeac).jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Erica_%28Thorp%29_de_Berry_to_Thorp_family%2C_18_March_1918_%28af3132f5-62be-4c00-bfb3-9ad726ecdeac%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "7a41ba93e83f15fab899f812175b427417cbe81c632680b24b8b036897ea51d1",
+      "final_sha256": "b13986872c9621a20b8c6128c27534001bb39e022800dd52544d0d09377a0733",
+      "image_width": 1700,
+      "image_height": 2542,
+      "file_size_bytes": 846754,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 80,
+      "filename": "rac_online_080.jpg",
+      "category": "glass",
+      "query": "broken glass pieces sidewalk",
+      "source_title": "File:Erica (Thorp) de Berry to Thorp family, 18 March 1918 (e3b65234-f182-4aff-93d6-b4bc8f619445).jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Erica_%28Thorp%29_de_Berry_to_Thorp_family%2C_18_March_1918_%28e3b65234-f182-4aff-93d6-b4bc8f619445%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "9ce0f9d99cdd73918b63a5a9940cf863dddac34b302515cadcedcf2166ec0958",
+      "final_sha256": "d29f0ac76a0008f19b83006bcea5f73d6a7103729ab9e3be353de224a13672df",
+      "image_width": 1714,
+      "image_height": 2542,
+      "file_size_bytes": 891120,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 81,
+      "filename": "rac_online_081.jpg",
+      "category": "glass",
+      "query": "broken glass pieces sidewalk",
+      "source_title": "File:Erica (Thorp) de Berry to Thorp family, 18 March 1918 (ef251d16-5bab-45f2-9dcf-93b1bfd61f39).jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Erica_%28Thorp%29_de_Berry_to_Thorp_family%2C_18_March_1918_%28ef251d16-5bab-45f2-9dcf-93b1bfd61f39%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "042d18623ab2542fe315c6108be71268b67d3538a1dd9750f1fd3c87d231788c",
+      "final_sha256": "aec4f492a7855d977188315521095b996a0e477466730076f4c8cbb405cab5cc",
+      "image_width": 1711,
+      "image_height": 2542,
+      "file_size_bytes": 858926,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 82,
+      "filename": "rac_online_082.jpg",
+      "category": "glass",
+      "query": "broken glass pieces sidewalk",
+      "source_title": "File:Erica (Thorp) de Berry to Thorp family, 18 March 1918 (f940f1a7-d335-474f-8d64-ca9b149ab333).jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Erica_%28Thorp%29_de_Berry_to_Thorp_family%2C_18_March_1918_%28f940f1a7-d335-474f-8d64-ca9b149ab333%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "bbed622dbf438820a34f6208e78a6094b354e466710139dd4e996085b20c40df",
+      "final_sha256": "6ca559e1ce943e12b8b8a0cf950a8d6f1423425fd8c297b2b2ce66d64b869320",
+      "image_width": 1705,
+      "image_height": 2542,
+      "file_size_bytes": 907388,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 83,
+      "filename": "rac_online_083.jpg",
+      "category": "glass",
+      "query": "broken glass pieces sidewalk",
+      "source_title": "File:Shoppers gathered by sidewalk produce outside the Theodore Prieshoff Grocery, 1929 East Grand Avenue, near the Grand Avenue water tower.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Shoppers_gathered_by_sidewalk_produce_outside_the_Theodore_Prieshoff_Grocery%2C_1929_East_Grand_Avenue%2C_near_the_Grand_Avenue_water_tower.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "80e055df9df2c0325d2c84f30e1754883d49e350474522fb4e1b92abdec263ba",
+      "final_sha256": "3a26f5b7d5a725cb7af7d5da793dac344c5e87bf82310f33d6454f4272d9398c",
+      "image_width": 5985,
+      "image_height": 4837,
+      "file_size_bytes": 5471203,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 84,
+      "filename": "rac_online_084.jpg",
+      "category": "plastic",
+      "query": "plastic container waste street",
+      "source_title": "File:Biala-Podlaska-sorted-waste-container~19c06klv.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Biala-Podlaska-sorted-waste-container~19c06klv.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "732d53f300c8679ce78a8c5e250cc7b6ba0b6b8d8133bc9e82fa53a33bf4b2b1",
+      "final_sha256": "16794dbf5b55841a1e9d4f30a8cd78da6288811fb25a2e9ca242ee67bbb86122",
+      "image_width": 1832,
+      "image_height": 1832,
+      "file_size_bytes": 412582,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 85,
+      "filename": "rac_online_085.jpg",
+      "category": "plastic",
+      "query": "plastic container waste street",
+      "source_title": "File:Plastic Recycling Container in Pintor de la Fuente Grima Street.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Plastic_Recycling_Container_in_Pintor_de_la_Fuente_Grima_Street.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "965795f87de18632a9ff67ed4b4b337c54f1e0df7ddbb717a1fef6899408a37e",
+      "final_sha256": "472a9eded91192313f31f9b6174df289d9a135f288df531c7892d1f4bcd2f544",
+      "image_width": 4000,
+      "image_height": 3000,
+      "file_size_bytes": 1923065,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 86,
+      "filename": "rac_online_086.jpg",
+      "category": "plastic",
+      "query": "plastic container waste street",
+      "source_title": "File:Plastic container.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Plastic_container.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "46a1d24aeca62a8b88e71b03cd6816872e5745d92f02d2fb3f07da748aeb868b",
+      "final_sha256": "31b77f72b00e369bdd1a84e46d02cfe22eba8ae2c3678a77890a2a715f22f2b9",
+      "image_width": 2304,
+      "image_height": 4096,
+      "file_size_bytes": 1650856,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 87,
+      "filename": "rac_online_087.jpg",
+      "category": "plastic",
+      "query": "plastic waste beach ocean pollution",
+      "source_title": "File:004 Beach pollution in Tenerife - Atlantic Ocean beach plastic garbage debris.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/7/78/004_Beach_pollution_in_Tenerife_-_Atlantic_Ocean_beach_plastic_garbage_debris.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "7d2ce2564d582bd12ecf108ccb3da4fb7d94938dba3e4c41fa2bb5280bd3b8bd",
+      "final_sha256": "a5d2fc8525f0864dab9f03125784c8cb9ef1073ebce8e6297719bd993ef03c1b",
+      "image_width": 3030,
+      "image_height": 2020,
+      "file_size_bytes": 2882611,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 88,
+      "filename": "rac_online_088.jpg",
+      "category": "plastic",
+      "query": "plastic waste beach ocean pollution",
+      "source_title": "File:Bali garbage emergency.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Bali_garbage_emergency.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "8e25b4eada745e11ec997ce975cd4427a9fd45a25d33579caeb42f8cd68dc76a",
+      "final_sha256": "1b6ae84d2a0382d8fa6ca0bcd19dd375f917a8d2343e042f4758daabe194c817",
+      "image_width": 1536,
+      "image_height": 1024,
+      "file_size_bytes": 465193,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 89,
+      "filename": "rac_online_089.jpg",
+      "category": "plastic",
+      "query": "plastic waste beach ocean pollution",
+      "source_title": "File:Déchets rejetés par la mer sur une plage hawaïenne (Ifremer 00409-52080).jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/D%C3%A9chets_rejet%C3%A9s_par_la_mer_sur_une_plage_hawa%C3%AFenne_%28Ifremer_00409-52080%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "8c88607286f1eecbd86a6111de26f8b9e0e81d50189a7ba994c9483f83810282",
+      "final_sha256": "e869ea264ab62e6384fc6ec13fd2b38570b4441dd8568efefa15d72f0f4f4347",
+      "image_width": 4928,
+      "image_height": 3264,
+      "file_size_bytes": 2425508,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 90,
+      "filename": "rac_online_090.jpg",
+      "category": "plastic",
+      "query": "plastic waste beach ocean pollution",
+      "source_title": "File:Fish1968 - Flickr - NOAA Photo Library.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/4/45/Fish1968_-_Flickr_-_NOAA_Photo_Library.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "9cb1031f6d62a0b4237eed5199a541f7f303e7c62627470e182621367ac99bc0",
+      "final_sha256": "d6a8982e37f7f713786c34461d4aa17834e5baa8f50fe0e9755d886380b69927",
+      "image_width": 3072,
+      "image_height": 2304,
+      "file_size_bytes": 1766944,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 91,
+      "filename": "rac_online_091.jpg",
+      "category": "plastic",
+      "query": "plastic waste beach ocean pollution",
+      "source_title": "File:Human Putting The Most Plastic Waste Into The Oceans.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Human_Putting_The_Most_Plastic_Waste_Into_The_Oceans.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "510eb0d61dd12f8b529824cec706203af59588feca3a6759bdd98329ce7570e2",
+      "final_sha256": "d85bff2c7618f53f2260992bff21fb38f5a433c2e261e15a9edd79430d652ecf",
+      "image_width": 3264,
+      "image_height": 2176,
+      "file_size_bytes": 1243592,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 92,
+      "filename": "rac_online_092.jpg",
+      "category": "plastic",
+      "query": "plastic waste beach ocean pollution",
+      "source_title": "File:Micro-plastiques sur la plage de Famara aux Canaries (Ifremer 00377-48871 - 208).jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/6/67/Micro-plastiques_sur_la_plage_de_Famara_aux_Canaries_%28Ifremer_00377-48871_-_208%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "a6f105075d38d4f07c6c3588e355721d8115e66ea1b2f81bd2d4fa3f2d1b1053",
+      "final_sha256": "010d5c6d8338aa2204d2c446418efca8e6d80dddd54c91a28887c56c711f9a2f",
+      "image_width": 2128,
+      "image_height": 1138,
+      "file_size_bytes": 575618,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 93,
+      "filename": "rac_online_093.jpg",
+      "category": "plastic",
+      "query": "plastic waste beach ocean pollution",
+      "source_title": "File:PMNM - Laysan Albatross And Debris (28250723916).jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/PMNM_-_Laysan_Albatross_And_Debris_%2828250723916%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "10b8d91b2f08d9c9ea88b293b78a369aa3ee5700f87891d801ac51997b830d6c",
+      "final_sha256": "cfa958d1e7e3310e0907bf69849ee3b6bb7e9b9bbd25f33de4130d400f1e0365",
+      "image_width": 1600,
+      "image_height": 1026,
+      "file_size_bytes": 233421,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 94,
+      "filename": "rac_online_094.jpg",
+      "category": "plastic",
+      "query": "plastic waste beach ocean pollution",
+      "source_title": "File:Waste cocobeach india.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/9/92/Waste_cocobeach_india.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "3640edd989700d9237262e346be40cdbdf18344c662b04137eb50220a4eefc3d",
+      "final_sha256": "4ecdf876f52b297f12048c903bd1486eac11ffec31a4fa897be9525cefec86df",
+      "image_width": 1600,
+      "image_height": 1200,
+      "file_size_bytes": 711267,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 95,
+      "filename": "rac_online_095.jpg",
+      "category": "plastic",
+      "query": "plastic waste beach ocean pollution",
+      "source_title": "File:Water Pollution with Trash Disposal of Waste at the Garbage Beach.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Water_Pollution_with_Trash_Disposal_of_Waste_at_the_Garbage_Beach.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "62d4608849e89db1d7360b93c5a971f77d17f896b3a72f0d99bc920bbadb9dbd",
+      "final_sha256": "3244b66bf84c164519c8876622c37e350129a4df85215bf5e8c1c0fe24174ea5",
+      "image_width": 4600,
+      "image_height": 3064,
+      "file_size_bytes": 4466414,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 96,
+      "filename": "rac_online_096.jpg",
+      "category": "plastic",
+      "query": "discarded plastic water bottle grass",
+      "source_title": "File:My own creative arts 23.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/My_own_creative_arts_23.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "291e91e633174cd8f4a8f6b6c013bc1fbd8689348fe71ab326b78d2a5f465f49",
+      "final_sha256": "716523c8dec2704c778308bff49c8b1796941dbf3cc964dc0a1cf6b22fa04e95",
+      "image_width": 2448,
+      "image_height": 3264,
+      "file_size_bytes": 1765501,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 97,
+      "filename": "rac_online_097.jpg",
+      "category": "plastic",
+      "query": "discarded plastic water bottle grass",
+      "source_title": "File:Nature’s Silent Struggle.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/4/45/Nature%E2%80%99s_Silent_Struggle.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "5d49039d885e95bef1a7863b96920e3134c11ea52c4a10dd4daf89f0248dc013",
+      "final_sha256": "a184ce082bf33a21fb79136b1e60dcf00bb728f9712ab052e514ac72fa0cfac6",
+      "image_width": 4064,
+      "image_height": 3048,
+      "file_size_bytes": 3118814,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 98,
+      "filename": "rac_online_098.jpg",
+      "category": "trash",
+      "query": "overflowing litter bin street",
+      "source_title": "File:\"This needs to be emptyed\".jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/e/e8/%22This_needs_to_be_emptyed%22.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "3aefd4f93bf2affe8135652cc2a10f222201d37940bee0a1afca2332923b9b48",
+      "final_sha256": "8746a2187b96418f3255676d0cab3e4bdddf71714701eee041597024487e7083",
+      "image_width": 3000,
+      "image_height": 4000,
+      "file_size_bytes": 3305876,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 99,
+      "filename": "rac_online_099.jpg",
+      "category": "trash",
+      "query": "overflowing litter bin street",
+      "source_title": "File:The single remaining exception?.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/1/14/The_single_remaining_exception%3F.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "81cf262a1c27252461d16ed50da7e7ba45dfb4b84d9b9db59ae5063a828f72a2",
+      "final_sha256": "f4223388ce445b1ae8d605229165da273a5939ebcb670e9beee1adfb00e39f50",
+      "image_width": 2500,
+      "image_height": 2500,
+      "file_size_bytes": 1225635,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    },
+    {
+      "index": 100,
+      "filename": "rac_online_100.jpg",
+      "category": "trash",
+      "query": "fly tipping illegal waste dump",
+      "source_title": "File:Illegal dumping on public lands in the Medford District.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Illegal_dumping_on_public_lands_in_the_Medford_District.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "raw_sha256": "5031a847d5db7161cc7b0bc0a937dc1436ef2a5c2228b1ad57505a78c2db79e5",
+      "final_sha256": "24a424ccf254cd33ff4d0dc7ca9b5e5ba43be246936fba437382c69c444ef8c0",
+      "image_width": 1280,
+      "image_height": 960,
+      "file_size_bytes": 463312,
+      "security_scan": {
+        "status": "PASSED",
+        "format_detected": "JPEG",
+        "executable_signatures_found": false,
+        "malicious_scripts_found": false,
+        "sanitized_by_reencode": true
+      }
+    }
+  ]
+}

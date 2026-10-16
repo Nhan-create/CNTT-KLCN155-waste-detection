@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Any
 
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageOps
 
 from src.detection.augmentation import apply_augmentation
 from src.detection.copy_paste import DonorBank
@@ -16,6 +16,33 @@ from src.detection.schema import DETECTION_CLASS_NAMES
 from src.detection.ssdlite import ARCHITECTURE, build_ssdlite, resolve_device, tensor_detections
 from src.detection.training_common import seed_everything, split_images, write_json
 from src.detection.types import BoundingBox, Detection
+
+
+SSD_FILL_RGB = (124, 116, 104)  # ImageNet mean, as in torchvision's SSD reference recipe
+
+
+def dataset_class_names(data_path: Path) -> tuple[str, ...]:
+    """Class names declared by the dataset YAML (10-class or custom, e.g. 1-class agnostic)."""
+    from src.detection.dataset import _ordered_names, load_detection_dataset_yaml
+
+    payload, _ = load_detection_dataset_yaml(Path(data_path), allow_custom_names=True)
+    return _ordered_names(payload["names"])
+
+
+def build_ssd_augmentation(*, photometric: bool = True, zoom_out_max: float = 2.5):
+    """SSD recipe on tv_tensors: boxes are transformed together with pixels."""
+    from torchvision.transforms import v2
+
+    steps = []
+    if photometric:
+        steps.append(v2.RandomApply([v2.ColorJitter(0.2, 0.2, 0.2, 0.05)], p=0.7))
+    steps += [
+        v2.RandomZoomOut(fill=SSD_FILL_RGB, side_range=(1.0, zoom_out_max), p=0.5),
+        v2.RandomIoUCrop(),
+        v2.RandomHorizontalFlip(p=0.5),
+        v2.SanitizeBoundingBoxes(min_size=1.0),
+    ]
+    return v2.Compose(steps)
 
 
 class YoloBoxDataset:
@@ -28,11 +55,13 @@ class YoloBoxDataset:
         augmentation_strategy: str = "none",
         donor_bank: DonorBank | None = None,
     ):
-        self.images, self.root = split_images(data_path, split)
+        self.images, self.root = split_images(data_path, split, allow_custom_names=True)
+        self.class_names = dataset_class_names(data_path)
         self.split = split
         self.strategy = augmentation_strategy.lower().strip()
         self.donor_bank = donor_bank
         self.telemetry_history: list[dict[str, Any]] = []
+        self._ssd_augment = build_ssd_augmentation() if self.strategy == "ssd" else None
 
     def __len__(self) -> int:
         return len(self.images)
@@ -43,17 +72,30 @@ class YoloBoxDataset:
 
         image_path = self.images[index]
         with Image.open(image_path) as opened:
-            image = opened.convert("RGB")
+            # Labels follow the displayed (EXIF-corrected) frame, as in Ultralytics/inference.
+            transposed = ImageOps.exif_transpose(opened)
+            # Cap max dimension to 640 to prevent massive memory spikes on 4000x3000 images during SSD augmentation
+            max_dim = max(transposed.width, transposed.height)
+            if max_dim > 640:
+                scale = 640.0 / max_dim
+                new_w = max(1, round(transposed.width * scale))
+                new_h = max(1, round(transposed.height * scale))
+                image = transposed.resize((new_w, new_h), Image.Resampling.BILINEAR).convert("RGB")
+            else:
+                image = transposed.convert("RGB")
+            del transposed
         raw_boxes, raw_classes = [], []
         for line in _label_path(image_path, self.root).read_text(encoding="utf-8").splitlines():
             if not line.strip():
                 continue
             class_value, cx, cy, bw, bh = (float(value) for value in line.split())
+            if not 0 <= int(class_value) < len(self.class_names):
+                raise ValueError(f"{image_path}: class {int(class_value)} outside dataset names")
             raw_boxes.append([cx, cy, bw, bh])
             raw_classes.append(int(class_value))
 
         # Apply data augmentation if in training split
-        if self.split == "train" and self.strategy != "none":
+        if self.split == "train" and self.strategy not in ("none", "ssd"):
             t_img, t_boxes, t_classes, telem = apply_augmentation_with_telemetry(
                 image,
                 raw_boxes,
@@ -81,18 +123,27 @@ class YoloBoxDataset:
                 boxes.append([x1, y1, x2, y2])
                 labels.append(int(c) + 1)  # zero is reserved for background in SSDLite
 
-        img_tensor = torch.from_numpy(t_img).permute(2, 0, 1).float() / 255.0
+        image_uint8 = torch.from_numpy(np.ascontiguousarray(t_img)).permute(2, 0, 1)
         box_tensor = torch.tensor(boxes, dtype=torch.float32).reshape(-1, 4)
+        label_tensor = torch.tensor(labels, dtype=torch.int64)
+        if self.split == "train" and self._ssd_augment is not None and len(boxes) > 0:
+            from torchvision import tv_tensors
+
+            sample = self._ssd_augment({
+                "image": tv_tensors.Image(image_uint8),
+                "boxes": tv_tensors.BoundingBoxes(box_tensor, format="XYXY", canvas_size=(h, w)),
+                "labels": label_tensor,
+            })
+            image_uint8 = sample["image"].as_subclass(torch.Tensor)
+            box_tensor = sample["boxes"].as_subclass(torch.Tensor).reshape(-1, 4)
+            label_tensor = sample["labels"]
+        img_tensor = image_uint8.float() / 255.0
         return img_tensor, {
             "boxes": box_tensor,
-            "labels": torch.tensor(labels, dtype=torch.int64),
+            "labels": label_tensor,
             "image_id": torch.tensor(index, dtype=torch.int64),
-            "area": (
-                (box_tensor[:, 2] - box_tensor[:, 0]) * (box_tensor[:, 3] - box_tensor[:, 1])
-                if len(boxes) > 0
-                else torch.zeros(0)
-            ),
-            "iscrowd": torch.zeros(len(boxes), dtype=torch.int64),
+            "area": (box_tensor[:, 2] - box_tensor[:, 0]) * (box_tensor[:, 3] - box_tensor[:, 1]),
+            "iscrowd": torch.zeros(len(box_tensor), dtype=torch.int64),
         }
 
 
@@ -122,12 +173,20 @@ def evaluate_validation(model, loader, device) -> dict[str, Any]:
 
 
 def train_ssdlite(data_path: Path, config: dict[str, Any], run_directory: Path,
-                  metadata: dict[str, Any]) -> Path:
+                  metadata: dict[str, Any], resume: bool = False) -> Path:
+    import json
     import torch
     from torch.utils.data import DataLoader
+    from src.detection.preflight_guard import enforce_preflight_guard
 
     args = config["train"]
     device = resolve_device(str(args.get("device", "auto")))
+
+    # Mandatory Preflight hardware safety guard (Zero bypass allowed)
+    min_free_ram = float(args.get("min_free_ram_mb", 1200.0))
+    min_free_vram = float(args.get("min_free_vram_mb", 500.0))
+    enforce_preflight_guard(min_free_ram_mb=min_free_ram, min_free_vram_mb=min_free_vram, device=device.type)
+
     seed_everything(int(args.get("seed", 42)), bool(args.get("deterministic", True)))
     aug_variant = str(args.get("augmentation_variant", config.get("augmentation_variant", metadata.get("augmentation_variant", "none"))))
     donor_bank = None
@@ -161,11 +220,35 @@ def train_ssdlite(data_path: Path, config: dict[str, Any], run_directory: Path,
         optimizer, T_max=epochs, eta_min=float(args.get("lr0", 0.001)) * float(args.get("lrf", 0.01)))
     use_amp = bool(args.get("amp", True)) and device.type == "cuda"
     scaler = torch.amp.GradScaler("cuda", enabled=use_amp)
-    best_map, best_epoch, history = -1.0, 0, []
-    started = time.monotonic()
     weights_directory = run_directory / "weights"
-    weights_directory.mkdir(parents=True, exist_ok=False)
+    weights_directory.mkdir(parents=True, exist_ok=True)
     best_path = weights_directory / "best.pt"
+    last_path = weights_directory / "last.pt"
+
+    start_epoch = 1
+    best_map, best_epoch, history = -1.0, 0, []
+    if resume and last_path.is_file():
+        checkpoint = torch.load(last_path, map_location=device, weights_only=False)
+        model.load_state_dict(checkpoint["model_state_dict"])
+        if "optimizer_state_dict" in checkpoint:
+            optimizer.load_state_dict(checkpoint["optimizer_state_dict"])
+        if "scheduler_state_dict" in checkpoint:
+            scheduler.load_state_dict(checkpoint["scheduler_state_dict"])
+        start_epoch = int(checkpoint.get("epoch", 0)) + 1
+        history_file = run_directory / "history.json"
+        if history_file.is_file():
+            try:
+                history = json.loads(history_file.read_text(encoding="utf-8"))
+                for row in history:
+                    v_map = float(row.get("validation", {}).get("map50_95", -1.0))
+                    if v_map > best_map:
+                        best_map = v_map
+                        best_epoch = int(row.get("epoch", 0))
+            except Exception:
+                pass
+        print(f"Resuming SSDLite from epoch {start_epoch} (best_epoch={best_epoch}, best_map={best_map:.4f})", flush=True)
+
+    started = time.monotonic()
     metadata = dict(
         metadata,
         architecture=ARCHITECTURE,
@@ -173,7 +256,7 @@ def train_ssdlite(data_path: Path, config: dict[str, Any], run_directory: Path,
         backbone_weights=str(config.get("backbone_weights", "")),
     )
     max_hours = args.get("max_hours")
-    for epoch in range(1, epochs + 1):
+    for epoch in range(start_epoch, epochs + 1):
         model.train()
         if args.get("freeze_bn", True):
             # Pooled 1x1 features cannot estimate BN statistics in single-item microbatches.
@@ -216,6 +299,10 @@ def train_ssdlite(data_path: Path, config: dict[str, Any], run_directory: Path,
         if hasattr(train_data, "telemetry_history") and train_data.telemetry_history:
             write_json(run_directory / "augmentation_telemetry.json", train_data.telemetry_history)
         print(f"epoch {epoch}/{epochs}: loss={row['loss']:.4f} val_mAP50:95={map_value:.4f}", flush=True)
+        import gc
+        gc.collect()
+        if device.type == "cuda":
+            torch.cuda.empty_cache()
         patience = int(args.get("patience", 30))
         if patience > 0 and epoch - best_epoch >= patience:
             break

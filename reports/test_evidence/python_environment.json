@@ -1,0 +1,16 @@
+{
+  "sys_executable": "D:\\CNTT-KLCN155-waste-detection\\.venv\\Scripts\\python.exe",
+  "python_version": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "os_name": "nt",
+  "cuda_available": true,
+  "cuda_version": "12.1",
+  "device_name": "NVIDIA GeForce RTX 2050",
+  "device_count": 1,
+  "pytorch_version": "2.5.1+cu121",
+  "torchvision_version": "0.20.1+cu121",
+  "ultralytics_version": "8.4.171",
+  "imagehash_version": "4.3.2",
+  "pyqt5_version": "5.15.11",
+  "working_directory": "D:\\CNTT-KLCN155-waste-detection"
+}

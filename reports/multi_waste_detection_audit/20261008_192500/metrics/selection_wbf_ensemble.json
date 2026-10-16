@@ -1,0 +1,2109 @@
+{
+  "schema_version": 1,
+  "selected_on": "val",
+  "backend": "wbf",
+  "validation_fingerprint": "420e1d0c7b9786016085d4a51ddbaec3efe21da96e99a6483de1ce738726a24b",
+  "models": {
+    "primary": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\detection\\waste-ssdlite320-mobilenetv3-combined-seed42\\weights\\best.pt",
+    "secondary": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\detection\\waste-yolov8n-combined-seed42\\weights\\best.pt"
+  },
+  "model_hashes": {
+    "primary": "584c5980eb4ebe3718da7b3e87a3c95edfee3d78f186def3e5feba32cf03dff1",
+    "secondary": "97f46ccaaa0a63c5934225d51ccd399c1c18eb3e1af8a63b9f14bec1aaa085c9"
+  },
+  "objective": "COCO mAP@0.5:0.95",
+  "ap_score_floor": 0.001,
+  "matching_iou": 0.5,
+  "detector_options": {
+    "image_size": 320,
+    "max_detections": 100,
+    "iou_threshold": 0.65,
+    "fusion_iou_threshold": 0.55,
+    "fusion_weights": [
+      1.0,
+      1.0
+    ],
+    "fusion_input_threshold": 0.001
+  },
+  "operating_confidence": 0.1,
+  "operating_objective": "micro F1 on validation at fixed matching IoU",
+  "best_validation_metrics": {
+    "map50_95": 0.06383388338833884,
+    "map50": 0.1201870187018702,
+    "ap_by_class": {
+      "battery": {
+        "ap50_95": null,
+        "ap50": null,
+        "instances": 0
+      },
+      "biological": {
+        "ap50_95": 0.0,
+        "ap50": 0.0,
+        "instances": 2
+      },
+      "cardboard": {
+        "ap50_95": 0.47106710671067104,
+        "ap50": 0.8624862486248623,
+        "instances": 4
+      },
+      "clothes": {
+        "ap50_95": null,
+        "ap50": null,
+        "instances": 0
+      },
+      "glass": {
+        "ap50_95": 0.0,
+        "ap50": 0.0,
+        "instances": 2
+      },
+      "metal": {
+        "ap50_95": 0.0,
+        "ap50": 0.0,
+        "instances": 1
+      },
+      "paper": {
+        "ap50_95": 0.0,
+        "ap50": 0.0,
+        "instances": 3
+      },
+      "plastic": {
+        "ap50_95": 0.03960396039603959,
+        "ap50": 0.09900990099009897,
+        "instances": 11
+      },
+      "shoes": {
+        "ap50_95": 0.0,
+        "ap50": 0.0,
+        "instances": 2
+      },
+      "trash": {
+        "ap50_95": 0.0,
+        "ap50": 0.0,
+        "instances": 20
+      }
+    },
+    "protocol": {
+      "implementation": "pycocotools.COCOeval",
+      "iou": "0.50:0.05:0.95",
+      "recall_points": 101,
+      "max_detections": 100,
+      "area": "all",
+      "iscrowd": 0
+    }
+  },
+  "grid": {
+    "ap_score_floor": 0.001,
+    "image_size": 320,
+    "nms_iou_grid": [
+      0.45,
+      0.55,
+      0.65
+    ],
+    "fusion_iou_grid": [
+      0.45,
+      0.55,
+      0.65
+    ],
+    "fusion_weights_grid": [
+      [
+        1.0,
+        1.0
+      ],
+      [
+        2.0,
+        1.0
+      ],
+      [
+        1.0,
+        2.0
+      ]
+    ],
+    "fusion_input_confidence_grid": [
+      0.001,
+      0.01,
+      0.05
+    ],
+    "operating_confidence_grid": [
+      0.1,
+      0.2,
+      0.3,
+      0.35,
+      0.4,
+      0.5,
+      0.6,
+      0.7
+    ],
+    "matching_iou": 0.5
+  },
+  "trials": [
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.45,
+        "fusion_iou_threshold": 0.45,
+        "fusion_weights": [
+          1.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.001
+      },
+      "map50_95": 0.06016619519094766,
+      "map50": 0.10555162659123055
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.45,
+        "fusion_iou_threshold": 0.45,
+        "fusion_weights": [
+          1.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.01
+      },
+      "map50_95": 0.06016619519094766,
+      "map50": 0.10555162659123055
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.45,
+        "fusion_iou_threshold": 0.45,
+        "fusion_weights": [
+          1.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.05
+      },
+      "map50_95": 0.06016619519094766,
+      "map50": 0.10555162659123055
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.45,
+        "fusion_iou_threshold": 0.45,
+        "fusion_weights": [
+          2.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.001
+      },
+      "map50_95": 0.06016619519094766,
+      "map50": 0.10555162659123055
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.45,
+        "fusion_iou_threshold": 0.45,
+        "fusion_weights": [
+          2.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.01
+      },
+      "map50_95": 0.06016619519094766,
+      "map50": 0.10555162659123055
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.45,
+        "fusion_iou_threshold": 0.45,
+        "fusion_weights": [
+          2.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.05
+      },
+      "map50_95": 0.06016619519094766,
+      "map50": 0.10555162659123055
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.45,
+        "fusion_iou_threshold": 0.45,
+        "fusion_weights": [
+          1.0,
+          2.0
+        ],
+        "fusion_input_threshold": 0.001
+      },
+      "map50_95": 0.06016619519094766,
+      "map50": 0.10555162659123055
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.45,
+        "fusion_iou_threshold": 0.45,
+        "fusion_weights": [
+          1.0,
+          2.0
+        ],
+        "fusion_input_threshold": 0.01
+      },
+      "map50_95": 0.06016619519094766,
+      "map50": 0.10555162659123055
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.45,
+        "fusion_iou_threshold": 0.45,
+        "fusion_weights": [
+          1.0,
+          2.0
+        ],
+        "fusion_input_threshold": 0.05
+      },
+      "map50_95": 0.06016619519094766,
+      "map50": 0.10555162659123055
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.45,
+        "fusion_iou_threshold": 0.55,
+        "fusion_weights": [
+          1.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.001
+      },
+      "map50_95": 0.06016619519094766,
+      "map50": 0.10555162659123055
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.45,
+        "fusion_iou_threshold": 0.55,
+        "fusion_weights": [
+          1.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.01
+      },
+      "map50_95": 0.06016619519094766,
+      "map50": 0.10555162659123055
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.45,
+        "fusion_iou_threshold": 0.55,
+        "fusion_weights": [
+          1.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.05
+      },
+      "map50_95": 0.06016619519094766,
+      "map50": 0.10555162659123055
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.45,
+        "fusion_iou_threshold": 0.55,
+        "fusion_weights": [
+          2.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.001
+      },
+      "map50_95": 0.06016619519094766,
+      "map50": 0.10555162659123055
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.45,
+        "fusion_iou_threshold": 0.55,
+        "fusion_weights": [
+          2.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.01
+      },
+      "map50_95": 0.06016619519094766,
+      "map50": 0.10555162659123055
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.45,
+        "fusion_iou_threshold": 0.55,
+        "fusion_weights": [
+          2.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.05
+      },
+      "map50_95": 0.06016619519094766,
+      "map50": 0.10555162659123055
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.45,
+        "fusion_iou_threshold": 0.55,
+        "fusion_weights": [
+          1.0,
+          2.0
+        ],
+        "fusion_input_threshold": 0.001
+      },
+      "map50_95": 0.06016619519094766,
+      "map50": 0.10555162659123055
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.45,
+        "fusion_iou_threshold": 0.55,
+        "fusion_weights": [
+          1.0,
+          2.0
+        ],
+        "fusion_input_threshold": 0.01
+      },
+      "map50_95": 0.06016619519094766,
+      "map50": 0.10555162659123055
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.45,
+        "fusion_iou_threshold": 0.55,
+        "fusion_weights": [
+          1.0,
+          2.0
+        ],
+        "fusion_input_threshold": 0.05
+      },
+      "map50_95": 0.06016619519094766,
+      "map50": 0.10555162659123055
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.45,
+        "fusion_iou_threshold": 0.65,
+        "fusion_weights": [
+          1.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.001
+      },
+      "map50_95": 0.06016619519094766,
+      "map50": 0.10555162659123055
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.45,
+        "fusion_iou_threshold": 0.65,
+        "fusion_weights": [
+          1.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.01
+      },
+      "map50_95": 0.06016619519094766,
+      "map50": 0.10555162659123055
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.45,
+        "fusion_iou_threshold": 0.65,
+        "fusion_weights": [
+          1.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.05
+      },
+      "map50_95": 0.06016619519094766,
+      "map50": 0.10555162659123055
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.45,
+        "fusion_iou_threshold": 0.65,
+        "fusion_weights": [
+          2.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.001
+      },
+      "map50_95": 0.06016619519094766,
+      "map50": 0.10555162659123055
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.45,
+        "fusion_iou_threshold": 0.65,
+        "fusion_weights": [
+          2.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.01
+      },
+      "map50_95": 0.06016619519094766,
+      "map50": 0.10555162659123055
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.45,
+        "fusion_iou_threshold": 0.65,
+        "fusion_weights": [
+          2.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.05
+      },
+      "map50_95": 0.06016619519094766,
+      "map50": 0.10555162659123055
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.45,
+        "fusion_iou_threshold": 0.65,
+        "fusion_weights": [
+          1.0,
+          2.0
+        ],
+        "fusion_input_threshold": 0.001
+      },
+      "map50_95": 0.06016619519094766,
+      "map50": 0.10555162659123055
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.45,
+        "fusion_iou_threshold": 0.65,
+        "fusion_weights": [
+          1.0,
+          2.0
+        ],
+        "fusion_input_threshold": 0.01
+      },
+      "map50_95": 0.06016619519094766,
+      "map50": 0.10555162659123055
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.45,
+        "fusion_iou_threshold": 0.65,
+        "fusion_weights": [
+          1.0,
+          2.0
+        ],
+        "fusion_input_threshold": 0.05
+      },
+      "map50_95": 0.06016619519094766,
+      "map50": 0.10555162659123055
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.55,
+        "fusion_iou_threshold": 0.45,
+        "fusion_weights": [
+          1.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.001
+      },
+      "map50_95": 0.04977015558698727,
+      "map50": 0.11638083451202262
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.55,
+        "fusion_iou_threshold": 0.45,
+        "fusion_weights": [
+          1.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.01
+      },
+      "map50_95": 0.04977015558698727,
+      "map50": 0.11638083451202262
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.55,
+        "fusion_iou_threshold": 0.45,
+        "fusion_weights": [
+          1.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.05
+      },
+      "map50_95": 0.0448019801980198,
+      "map50": 0.10798267326732673
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.55,
+        "fusion_iou_threshold": 0.45,
+        "fusion_weights": [
+          2.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.001
+      },
+      "map50_95": 0.04822312588401697,
+      "map50": 0.10864568599717113
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.55,
+        "fusion_iou_threshold": 0.45,
+        "fusion_weights": [
+          2.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.01
+      },
+      "map50_95": 0.04822312588401697,
+      "map50": 0.10864568599717113
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.55,
+        "fusion_iou_threshold": 0.45,
+        "fusion_weights": [
+          2.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.05
+      },
+      "map50_95": 0.0448019801980198,
+      "map50": 0.10798267326732673
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.55,
+        "fusion_iou_threshold": 0.45,
+        "fusion_weights": [
+          1.0,
+          2.0
+        ],
+        "fusion_input_threshold": 0.001
+      },
+      "map50_95": 0.04977015558698727,
+      "map50": 0.11638083451202262
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.55,
+        "fusion_iou_threshold": 0.45,
+        "fusion_weights": [
+          1.0,
+          2.0
+        ],
+        "fusion_input_threshold": 0.01
+      },
+      "map50_95": 0.04977015558698727,
+      "map50": 0.11638083451202262
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.55,
+        "fusion_iou_threshold": 0.45,
+        "fusion_weights": [
+          1.0,
+          2.0
+        ],
+        "fusion_input_threshold": 0.05
+      },
+      "map50_95": 0.0448019801980198,
+      "map50": 0.10798267326732673
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.55,
+        "fusion_iou_threshold": 0.55,
+        "fusion_weights": [
+          1.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.001
+      },
+      "map50_95": 0.04888417413169888,
+      "map50": 0.08649614961496149
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.55,
+        "fusion_iou_threshold": 0.55,
+        "fusion_weights": [
+          1.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.01
+      },
+      "map50_95": 0.04888417413169888,
+      "map50": 0.08649614961496149
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.55,
+        "fusion_iou_threshold": 0.55,
+        "fusion_weights": [
+          1.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.05
+      },
+      "map50_95": 0.04888417413169888,
+      "map50": 0.08649614961496149
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.55,
+        "fusion_iou_threshold": 0.55,
+        "fusion_weights": [
+          2.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.001
+      },
+      "map50_95": 0.04888417413169888,
+      "map50": 0.08649614961496149
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.55,
+        "fusion_iou_threshold": 0.55,
+        "fusion_weights": [
+          2.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.01
+      },
+      "map50_95": 0.04888417413169888,
+      "map50": 0.08649614961496149
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.55,
+        "fusion_iou_threshold": 0.55,
+        "fusion_weights": [
+          2.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.05
+      },
+      "map50_95": 0.04888417413169888,
+      "map50": 0.08649614961496149
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.55,
+        "fusion_iou_threshold": 0.55,
+        "fusion_weights": [
+          1.0,
+          2.0
+        ],
+        "fusion_input_threshold": 0.001
+      },
+      "map50_95": 0.04888417413169888,
+      "map50": 0.08649614961496149
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.55,
+        "fusion_iou_threshold": 0.55,
+        "fusion_weights": [
+          1.0,
+          2.0
+        ],
+        "fusion_input_threshold": 0.01
+      },
+      "map50_95": 0.04888417413169888,
+      "map50": 0.08649614961496149
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.55,
+        "fusion_iou_threshold": 0.55,
+        "fusion_weights": [
+          1.0,
+          2.0
+        ],
+        "fusion_input_threshold": 0.05
+      },
+      "map50_95": 0.04888417413169888,
+      "map50": 0.08649614961496149
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.55,
+        "fusion_iou_threshold": 0.65,
+        "fusion_weights": [
+          1.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.001
+      },
+      "map50_95": 0.04888417413169888,
+      "map50": 0.08649614961496149
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.55,
+        "fusion_iou_threshold": 0.65,
+        "fusion_weights": [
+          1.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.01
+      },
+      "map50_95": 0.04888417413169888,
+      "map50": 0.08649614961496149
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.55,
+        "fusion_iou_threshold": 0.65,
+        "fusion_weights": [
+          1.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.05
+      },
+      "map50_95": 0.04888417413169888,
+      "map50": 0.08649614961496149
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.55,
+        "fusion_iou_threshold": 0.65,
+        "fusion_weights": [
+          2.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.001
+      },
+      "map50_95": 0.04888417413169888,
+      "map50": 0.08649614961496149
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.55,
+        "fusion_iou_threshold": 0.65,
+        "fusion_weights": [
+          2.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.01
+      },
+      "map50_95": 0.04888417413169888,
+      "map50": 0.08649614961496149
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.55,
+        "fusion_iou_threshold": 0.65,
+        "fusion_weights": [
+          2.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.05
+      },
+      "map50_95": 0.04888417413169888,
+      "map50": 0.08649614961496149
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.55,
+        "fusion_iou_threshold": 0.65,
+        "fusion_weights": [
+          1.0,
+          2.0
+        ],
+        "fusion_input_threshold": 0.001
+      },
+      "map50_95": 0.04888417413169888,
+      "map50": 0.08649614961496149
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.55,
+        "fusion_iou_threshold": 0.65,
+        "fusion_weights": [
+          1.0,
+          2.0
+        ],
+        "fusion_input_threshold": 0.01
+      },
+      "map50_95": 0.04888417413169888,
+      "map50": 0.08649614961496149
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.55,
+        "fusion_iou_threshold": 0.65,
+        "fusion_weights": [
+          1.0,
+          2.0
+        ],
+        "fusion_input_threshold": 0.05
+      },
+      "map50_95": 0.04888417413169888,
+      "map50": 0.08649614961496149
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.65,
+        "fusion_iou_threshold": 0.45,
+        "fusion_weights": [
+          1.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.001
+      },
+      "map50_95": 0.05286421499292786,
+      "map50": 0.1241159830268741
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.65,
+        "fusion_iou_threshold": 0.45,
+        "fusion_weights": [
+          1.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.01
+      },
+      "map50_95": 0.05286421499292786,
+      "map50": 0.1241159830268741
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.65,
+        "fusion_iou_threshold": 0.45,
+        "fusion_weights": [
+          1.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.05
+      },
+      "map50_95": 0.04727722772277228,
+      "map50": 0.11417079207920793
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.65,
+        "fusion_iou_threshold": 0.45,
+        "fusion_weights": [
+          2.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.001
+      },
+      "map50_95": 0.055958274398868454,
+      "map50": 0.1241159830268741
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.65,
+        "fusion_iou_threshold": 0.45,
+        "fusion_weights": [
+          2.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.01
+      },
+      "map50_95": 0.055958274398868454,
+      "map50": 0.1241159830268741
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.65,
+        "fusion_iou_threshold": 0.45,
+        "fusion_weights": [
+          2.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.05
+      },
+      "map50_95": 0.04727722772277228,
+      "map50": 0.11417079207920793
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.65,
+        "fusion_iou_threshold": 0.45,
+        "fusion_weights": [
+          1.0,
+          2.0
+        ],
+        "fusion_input_threshold": 0.001
+      },
+      "map50_95": 0.05286421499292786,
+      "map50": 0.1241159830268741
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.65,
+        "fusion_iou_threshold": 0.45,
+        "fusion_weights": [
+          1.0,
+          2.0
+        ],
+        "fusion_input_threshold": 0.01
+      },
+      "map50_95": 0.05286421499292786,
+      "map50": 0.1241159830268741
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.65,
+        "fusion_iou_threshold": 0.45,
+        "fusion_weights": [
+          1.0,
+          2.0
+        ],
+        "fusion_input_threshold": 0.05
+      },
+      "map50_95": 0.04727722772277228,
+      "map50": 0.11417079207920793
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.65,
+        "fusion_iou_threshold": 0.55,
+        "fusion_weights": [
+          1.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.001
+      },
+      "map50_95": 0.06383388338833884,
+      "map50": 0.1201870187018702
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.65,
+        "fusion_iou_threshold": 0.55,
+        "fusion_weights": [
+          1.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.01
+      },
+      "map50_95": 0.06383388338833884,
+      "map50": 0.1201870187018702
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.65,
+        "fusion_iou_threshold": 0.55,
+        "fusion_weights": [
+          1.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.05
+      },
+      "map50_95": 0.06328382838283828,
+      "map50": 0.1188118811881188
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.65,
+        "fusion_iou_threshold": 0.55,
+        "fusion_weights": [
+          2.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.001
+      },
+      "map50_95": 0.06383388338833884,
+      "map50": 0.1201870187018702
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.65,
+        "fusion_iou_threshold": 0.55,
+        "fusion_weights": [
+          2.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.01
+      },
+      "map50_95": 0.06383388338833884,
+      "map50": 0.1201870187018702
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.65,
+        "fusion_iou_threshold": 0.55,
+        "fusion_weights": [
+          2.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.05
+      },
+      "map50_95": 0.06328382838283828,
+      "map50": 0.1188118811881188
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.65,
+        "fusion_iou_threshold": 0.55,
+        "fusion_weights": [
+          1.0,
+          2.0
+        ],
+        "fusion_input_threshold": 0.001
+      },
+      "map50_95": 0.06383388338833884,
+      "map50": 0.1201870187018702
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.65,
+        "fusion_iou_threshold": 0.55,
+        "fusion_weights": [
+          1.0,
+          2.0
+        ],
+        "fusion_input_threshold": 0.01
+      },
+      "map50_95": 0.06383388338833884,
+      "map50": 0.1201870187018702
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.65,
+        "fusion_iou_threshold": 0.55,
+        "fusion_weights": [
+          1.0,
+          2.0
+        ],
+        "fusion_input_threshold": 0.05
+      },
+      "map50_95": 0.06328382838283828,
+      "map50": 0.1188118811881188
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.65,
+        "fusion_iou_threshold": 0.65,
+        "fusion_weights": [
+          1.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.001
+      },
+      "map50_95": 0.04888417413169888,
+      "map50": 0.08649614961496149
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.65,
+        "fusion_iou_threshold": 0.65,
+        "fusion_weights": [
+          1.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.01
+      },
+      "map50_95": 0.04888417413169888,
+      "map50": 0.08649614961496149
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.65,
+        "fusion_iou_threshold": 0.65,
+        "fusion_weights": [
+          1.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.05
+      },
+      "map50_95": 0.04888417413169888,
+      "map50": 0.08649614961496149
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.65,
+        "fusion_iou_threshold": 0.65,
+        "fusion_weights": [
+          2.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.001
+      },
+      "map50_95": 0.04888417413169888,
+      "map50": 0.08649614961496149
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.65,
+        "fusion_iou_threshold": 0.65,
+        "fusion_weights": [
+          2.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.01
+      },
+      "map50_95": 0.04888417413169888,
+      "map50": 0.08649614961496149
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.65,
+        "fusion_iou_threshold": 0.65,
+        "fusion_weights": [
+          2.0,
+          1.0
+        ],
+        "fusion_input_threshold": 0.05
+      },
+      "map50_95": 0.04888417413169888,
+      "map50": 0.08649614961496149
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.65,
+        "fusion_iou_threshold": 0.65,
+        "fusion_weights": [
+          1.0,
+          2.0
+        ],
+        "fusion_input_threshold": 0.001
+      },
+      "map50_95": 0.04900491791339413,
+      "map50": 0.08649614961496149
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.65,
+        "fusion_iou_threshold": 0.65,
+        "fusion_weights": [
+          1.0,
+          2.0
+        ],
+        "fusion_input_threshold": 0.01
+      },
+      "map50_95": 0.04900491791339413,
+      "map50": 0.08649614961496149
+    },
+    {
+      "detector_options": {
+        "image_size": 320,
+        "max_detections": 100,
+        "iou_threshold": 0.65,
+        "fusion_iou_threshold": 0.65,
+        "fusion_weights": [
+          1.0,
+          2.0
+        ],
+        "fusion_input_threshold": 0.05
+      },
+      "map50_95": 0.04888417413169888,
+      "map50": 0.08649614961496149
+    }
+  ],
+  "operating_trials": [
+    {
+      "confidence": 0.1,
+      "matching_iou": 0.5,
+      "micro": {
+        "tp": 3,
+        "fp": 25,
+        "fn": 42,
+        "precision": 0.10714285714285714,
+        "recall": 0.06666666666666667,
+        "f1": 0.0821917808219178
+      },
+      "per_class": {
+        "battery": {
+          "tp": 0,
+          "fp": 5,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "biological": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "cardboard": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 2,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        },
+        "clothes": {
+          "tp": 0,
+          "fp": 2,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "glass": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "metal": {
+          "tp": 0,
+          "fp": 2,
+          "fn": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "paper": {
+          "tp": 0,
+          "fp": 6,
+          "fn": 3,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "plastic": {
+          "tp": 1,
+          "fp": 6,
+          "fn": 10,
+          "precision": 0.14285714285714285,
+          "recall": 0.09090909090909091,
+          "f1": 0.1111111111111111
+        },
+        "shoes": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "trash": {
+          "tp": 0,
+          "fp": 2,
+          "fn": 20,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      }
+    },
+    {
+      "confidence": 0.2,
+      "matching_iou": 0.5,
+      "micro": {
+        "tp": 1,
+        "fp": 6,
+        "fn": 44,
+        "precision": 0.14285714285714285,
+        "recall": 0.022222222222222223,
+        "f1": 0.038461538461538464
+      },
+      "per_class": {
+        "battery": {
+          "tp": 0,
+          "fp": 2,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "biological": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "cardboard": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "clothes": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "glass": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "metal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "paper": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 3,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "plastic": {
+          "tp": 1,
+          "fp": 1,
+          "fn": 10,
+          "precision": 0.5,
+          "recall": 0.09090909090909091,
+          "f1": 0.15384615384615385
+        },
+        "shoes": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "trash": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 20,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      }
+    },
+    {
+      "confidence": 0.3,
+      "matching_iou": 0.5,
+      "micro": {
+        "tp": 1,
+        "fp": 3,
+        "fn": 44,
+        "precision": 0.25,
+        "recall": 0.022222222222222223,
+        "f1": 0.04081632653061224
+      },
+      "per_class": {
+        "battery": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "biological": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "cardboard": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "clothes": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "glass": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "metal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "paper": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 3,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "plastic": {
+          "tp": 1,
+          "fp": 1,
+          "fn": 10,
+          "precision": 0.5,
+          "recall": 0.09090909090909091,
+          "f1": 0.15384615384615385
+        },
+        "shoes": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "trash": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 20,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      }
+    },
+    {
+      "confidence": 0.35,
+      "matching_iou": 0.5,
+      "micro": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 45,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "per_class": {
+        "battery": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "biological": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "cardboard": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "clothes": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "glass": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "metal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "paper": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 3,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "plastic": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 11,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "shoes": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "trash": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 20,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      }
+    },
+    {
+      "confidence": 0.4,
+      "matching_iou": 0.5,
+      "micro": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 45,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "per_class": {
+        "battery": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "biological": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "cardboard": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "clothes": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "glass": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "metal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "paper": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "plastic": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 11,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "shoes": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "trash": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 20,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      }
+    },
+    {
+      "confidence": 0.5,
+      "matching_iou": 0.5,
+      "micro": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 45,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "per_class": {
+        "battery": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "biological": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "cardboard": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "clothes": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "glass": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "metal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "paper": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "plastic": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 11,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "shoes": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "trash": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 20,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      }
+    },
+    {
+      "confidence": 0.6,
+      "matching_iou": 0.5,
+      "micro": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 45,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "per_class": {
+        "battery": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "biological": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "cardboard": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "clothes": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "glass": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "metal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "paper": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "plastic": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 11,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "shoes": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "trash": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 20,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      }
+    },
+    {
+      "confidence": 0.7,
+      "matching_iou": 0.5,
+      "micro": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 45,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "per_class": {
+        "battery": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "biological": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "cardboard": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "clothes": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "glass": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "metal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "paper": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "plastic": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 11,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "shoes": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "trash": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 20,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      }
+    }
+  ]
+}

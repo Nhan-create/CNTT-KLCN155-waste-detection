@@ -1,0 +1,113 @@
+--- before/compare_eval_v1_vs_v2.py
++++ after/compare_eval_v1_vs_v2.py
+@@ -1,15 +1,10 @@
+-import sys
+-sys.stdout.reconfigure(encoding='utf-8')
++import argparse
++import hashlib
+ import json
+ from pathlib import Path
+ 
+-# Load raw predictions
+-raw_before = json.load(open('reports/qa_acceptance/raw_predictions_before_quick_fix.json', encoding='utf-8'))
+-raw_after = json.load(open('reports/qa_acceptance/raw_predictions_after_quick_fix.json', encoding='utf-8'))
+-raw_yolo = json.load(open('reports/qa_acceptance/raw_predictions_yolov8n_e1.json', encoding='utf-8'))
+-
+-gt_v1 = json.load(open('reports/qa_acceptance/ground_truth_hinh_anh_rac.json', encoding='utf-8'))
+-gt_v2 = json.load(open('reports/qa_acceptance/ground_truth_hinh_anh_rac_v2_proposed.json', encoding='utf-8'))
++ROOT = Path(__file__).resolve().parents[1]
++QA_DIR = ROOT / 'reports' / 'qa_acceptance'
+ 
+ def compute_iou(boxA, boxB):
+     xA = max(boxA[0], boxB[0])
+@@ -64,18 +59,16 @@
+             for idx, g in enumerate(gt_objs):
+                 if idx in matched_gt:
+                     continue
++                if class_aware and p_cls != g['class_id']:
++                    continue
+                 iou = compute_iou(p_box, g['bbox_xyxy'])
+                 if iou > best_iou:
+                     best_iou = iou
+                     best_gt_idx = idx
+ 
+             if best_iou >= iou_thresh and best_gt_idx >= 0:
+-                g_cls = gt_objs[best_gt_idx]['class_id']
+-                if not class_aware or p_cls == g_cls:
+-                    tp += 1
+-                    matched_gt.add(best_gt_idx)
+-                else:
+-                    fp += 1
++                tp += 1
++                matched_gt.add(best_gt_idx)
+             else:
+                 fp += 1
+ 
+@@ -95,23 +88,49 @@
+         'f1': round(f1 * 100, 2)
+     }
+ 
+-pipelines = [
+-    ('SSDLite Before Quick Fix', raw_before, 0.25),
+-    ('SSDLite After Quick Fix', raw_after, 0.25),
+-    ('YOLOv8n E1', raw_yolo, 0.25)
+-]
++def main():
++    parser = argparse.ArgumentParser(description='Compare thresholded detection counts on GT versions')
++    parser.add_argument('--output', type=Path, help='Write machine-readable results to this JSON file')
++    args = parser.parse_args()
+ 
+-print("=== COMPARATIVE EVALUATION: GT V1 (FROZEN 57 OBJS) vs GT V2 (PROPOSED 45 ACTIVE OBJS) ===")
+-print(f"{'Pipeline':26s} | {'GT Version':15s} | {'GT':4s} | {'Pred':4s} | {'TP':3s} | {'FP':3s} | {'FN':3s} | {'Prec %':7s} | {'Rec %':7s} | {'F1 %':7s}")
+-print("-" * 105)
++    inputs = {
++        'SSDLite Before Quick Fix': QA_DIR / 'raw_predictions_before_quick_fix.json',
++        'SSDLite After Quick Fix': QA_DIR / 'raw_predictions_after_quick_fix.json',
++        'YOLOv8n E1': QA_DIR / 'raw_predictions_yolov8n_e1.json',
++    }
++    gt_paths = {
++        'v1_frozen': QA_DIR / 'ground_truth_hinh_anh_rac.json',
++        'v2_proposed_active': QA_DIR / 'ground_truth_hinh_anh_rac_v2_proposed.json',
++        'v2_proposed_accepted': QA_DIR / 'ground_truth_hinh_anh_rac_v2_proposed.json',
++    }
++    loaded = {path: json.loads(path.read_text(encoding='utf-8')) for path in set(inputs.values()) | set(gt_paths.values())}
++    rows = []
++    for pipeline, raw_path in inputs.items():
++        for gt_version, gt_path in gt_paths.items():
++            result = evaluate_pipeline(
++                loaded[raw_path], loaded[gt_path], conf_thresh=0.25, iou_thresh=0.5,
++                class_aware=True,
++                v2_filter='discrete_only' if gt_version == 'v2_proposed_accepted' else 'all_active',
++            )
++            rows.append({'pipeline': pipeline, 'gt_version': gt_version, **result})
+ 
+-for name, raw, conf in pipelines:
+-    res_v1 = evaluate_pipeline(raw, gt_v1, conf_thresh=conf, iou_thresh=0.5, class_aware=True)
+-    print(f"{name:26s} | {'v1 (Frozen)':15s} | {res_v1['total_gt']:4d} | {res_v1['total_preds']:4d} | {res_v1['tp']:3d} | {res_v1['fp']:3d} | {res_v1['fn']:3d} | {res_v1['precision']:6.2f}% | {res_v1['recall']:6.2f}% | {res_v1['f1']:6.2f}%")
+-    
+-    res_v2 = evaluate_pipeline(raw, gt_v2, conf_thresh=conf, iou_thresh=0.5, class_aware=True, v2_filter='all_active')
+-    print(f"{name:26s} | {'v2 (Proposed 45)':15s} | {res_v2['total_gt']:4d} | {res_v2['total_preds']:4d} | {res_v2['tp']:3d} | {res_v2['fp']:3d} | {res_v2['fn']:3d} | {res_v2['precision']:6.2f}% | {res_v2['recall']:6.2f}% | {res_v2['f1']:6.2f}%")
+-    
+-    res_v2_disc = evaluate_pipeline(raw, gt_v2, conf_thresh=conf, iou_thresh=0.5, class_aware=True, v2_filter='discrete_only')
+-    print(f"{name:26s} | {'v2 (Discrete 39)':15s} | {res_v2_disc['total_gt']:4d} | {res_v2_disc['total_preds']:4d} | {res_v2_disc['tp']:3d} | {res_v2_disc['fp']:3d} | {res_v2_disc['fn']:3d} | {res_v2_disc['precision']:6.2f}% | {res_v2_disc['recall']:6.2f}% | {res_v2_disc['f1']:6.2f}%")
+-    print("-" * 105)
++    print('Pipeline | GT version | GT | Pred | TP | FP | FN | Precision % | Recall % | F1 %')
++    for row in rows:
++        print(f"{row['pipeline']} | {row['gt_version']} | {row['total_gt']} | {row['total_preds']} | "
++              f"{row['tp']} | {row['fp']} | {row['fn']} | {row['precision']:.2f} | "
++              f"{row['recall']:.2f} | {row['f1']:.2f}")
++
++    if args.output:
++        paths = sorted(set(inputs.values()) | set(gt_paths.values()))
++        artifact = {
++            'protocol': 'one-to-one greedy by descending confidence, same class, max IoU; confidence >= 0.25, IoU >= 0.50',
++            'metric_type': 'operating-threshold precision/recall/F1; not AP or mAP',
++            'inputs': {path.relative_to(ROOT).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest() for path in paths},
++            'results': rows,
++        }
++        args.output.parent.mkdir(parents=True, exist_ok=True)
++        args.output.write_text(json.dumps(artifact, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
++
++
++if __name__ == '__main__':
++    main()

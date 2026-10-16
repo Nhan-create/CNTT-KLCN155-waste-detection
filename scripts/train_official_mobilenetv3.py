@@ -56,8 +56,8 @@ CLASS_NAMES = [
     "trash",
 ]
 
-DATA_PROCESSED_V2 = Path(r"D:\CNTT-KLCN155-waste-detection\data\processed_v2")
-OUTPUT_DIR = Path(r"D:\CNTT-KLCN155-waste-detection\artifacts\official_run")
+DATA_PROCESSED_V2 = (Path(__file__).resolve().parents[1] / "data/processed_v2")
+OUTPUT_DIR = (Path(__file__).resolve().parents[1] / "artifacts/official_run")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 

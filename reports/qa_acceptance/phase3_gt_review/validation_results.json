@@ -1,0 +1,15 @@
+{
+  "generated_at_utc": "2026-10-11T16:20:42.640386+00:00",
+  "status": "PASS",
+  "checks": {
+    "v1_unchanged_sha256": "f390f0f9440a977d0a0afe9e55b862562f1aafd3011ab18313e1772b18d470c0",
+    "v2_unchanged_sha256": "6acea648293d545a23bc0a94b8410abc656134bdd7506ee5789b79f577857ac0",
+    "active_disputed_count": 6,
+    "zero_active_filename_count": 10,
+    "zero_active_unique_sha256_count": 9,
+    "mixed_image_inactive_object_count": 2,
+    "all_source_image_hashes_match_v2": true,
+    "all_visual_artifacts_exist": true,
+    "gt_files_written": false
+  }
+}

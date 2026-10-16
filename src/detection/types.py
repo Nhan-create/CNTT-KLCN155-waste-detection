@@ -31,6 +31,30 @@ class BoundingBox:
     def area(self) -> float:
         return max(0.0, self.width) * max(0.0, self.height)
 
+    def is_valid(self, image_width: int | None = None, image_height: int | None = None) -> bool:
+        """Check if box has strictly positive dimensions and fits within bounds."""
+        if not (self.x2 > self.x1 and self.y2 > self.y1):
+            return False
+        if image_width is not None and not (0.0 <= self.x1 < self.x2 <= float(image_width)):
+            return False
+        if image_height is not None and not (0.0 <= self.y1 < self.y2 <= float(image_height)):
+            return False
+        return True
+
+    def clip(self, image_width: int, image_height: int) -> BoundingBox | None:
+        """Clip box strictly to [0, W] and [0, H]. Return None if box is empty, inverted, or outside."""
+        if image_width <= 0 or image_height <= 0:
+            raise ValueError("image dimensions must be positive")
+        if self.x1 >= self.x2 or self.y1 >= self.y2:
+            return None
+        x1 = max(0.0, min(self.x1, float(image_width)))
+        y1 = max(0.0, min(self.y1, float(image_height)))
+        x2 = max(0.0, min(self.x2, float(image_width)))
+        y2 = max(0.0, min(self.y2, float(image_height)))
+        if x2 <= x1 or y2 <= y1:
+            return None
+        return BoundingBox(x1, y1, x2, y2)
+
     def clamp(self, image_width: int, image_height: int) -> BoundingBox:
         if image_width <= 0 or image_height <= 0:
             raise ValueError("image dimensions must be positive")

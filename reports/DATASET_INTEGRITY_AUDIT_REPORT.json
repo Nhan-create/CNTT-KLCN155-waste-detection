@@ -1,0 +1,22 @@
+{
+  "total_images": 1996,
+  "total_boxes": 5584,
+  "unreadable_images_count": 0,
+  "missing_labels_count": 0,
+  "empty_labels_count": 0,
+  "malformed_lines_count": 0,
+  "invalid_class_ids_count": 0,
+  "zero_or_negative_dims_count": 0,
+  "out_of_bounds_count": 0,
+  "duplicate_boxes_count": 0,
+  "cross_split_leakage_count": 0,
+  "unreadable_images": [],
+  "missing_labels": [],
+  "empty_labels": [],
+  "malformed_format_lines": [],
+  "invalid_class_ids": [],
+  "zero_or_negative_dim_boxes": [],
+  "out_of_bounds_boxes": [],
+  "duplicate_boxes_in_image": [],
+  "cross_split_leakages": []
+}

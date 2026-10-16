@@ -20,11 +20,11 @@ import pandas as pd
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-PROJECT_ROOT = Path("D:/CNTT-KLCN155-waste-detection")
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 AUDIT_DIR = PROJECT_ROOT / "data" / "audit"
 VIS_DIR = AUDIT_DIR / "visual_phash_inspection"
 VIS_DIR.mkdir(parents=True, exist_ok=True)
-BASE_DIR = Path("D:/HK7/Đồ án khóa luận")
+BASE_DIR = Path(__import__("os").environ.get("WASTE_LEGACY_DATA_DIR", str(Path(__file__).resolve().parents[1] / "data" / "legacy_hk7")))
 
 INSPECTOR = "Antigravity Tech Lead & ML Engineer"
 TIMESTAMP = "2026-10-02T00:05:00+07:00"

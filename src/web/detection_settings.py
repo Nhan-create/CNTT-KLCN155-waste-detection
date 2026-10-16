@@ -10,12 +10,26 @@ from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
 from pathlib import Path
 
-DEFAULT_SSDLITE_PATH = Path(
-    "artifacts/detection/waste-ssdlite320-mobilenetv3/weights/best.pt"
+DEFAULT_SSDLITE_V2_PATH = Path(
+    "artifacts/detection_v2/E2_ssdlite320_10cls/weights/best.pt"
 )
-DEFAULT_YOLO_PATH = Path("artifacts/detection/waste-yolov8n/weights/best.pt")
-DEFAULT_DETECTOR_PATH = DEFAULT_SSDLITE_PATH
-DETECTION_BACKENDS = ("ssdlite", "yolov8n", "wbf")
+DEFAULT_SSDLITE_PATH = (
+    DEFAULT_SSDLITE_V2_PATH
+    if DEFAULT_SSDLITE_V2_PATH.exists()
+    else Path("artifacts/detection/waste-ssdlite320-mobilenetv3-combined-seed42/weights/best.pt")
+)
+DEFAULT_YOLO_V2_PATH = Path(
+    "artifacts/detection_v2/E1_yolov8n_10cls/weights/best.pt"
+)
+DEFAULT_YOLO_PATH = (
+    DEFAULT_YOLO_V2_PATH
+    if DEFAULT_YOLO_V2_PATH.exists()
+    else Path("artifacts/detection/waste-yolov8n-combined-seed42/weights/best.pt")
+)
+DEFAULT_DETECTOR_PATH = DEFAULT_YOLO_PATH
+DETECTION_BACKENDS = ("yolov8n", "ssdlite", "wbf")
+DEFAULT_CLASSIFIER_PATH = Path("artifacts/official_run/best_model.pt")
+DEFAULT_THRESHOLDS_PATH = Path("configs/detection_thresholds.json")
 
 
 @dataclass(frozen=True)
@@ -24,9 +38,10 @@ class DetectionWebSettings:
     backend: str = "ssdlite"
     secondary_model_path: Path | None = None
     device: str = "auto"
-    confidence_threshold: float = 0.35
+    confidence_threshold: float = 0.45
     iou_threshold: float = 0.55
-    image_size: int = 640
+    # None -> detector reads imgsz from the checkpoint (YOLO train_args; SSDLite fixed 320).
+    image_size: int | None = None
     max_detections: int = 100
     fusion_weights: tuple[float, float] = (1.0, 1.0)
     fusion_iou_threshold: float = 0.55
@@ -36,6 +51,64 @@ class DetectionWebSettings:
     live_inference_fps: float = 5.0
     tracker_iou_threshold: float = 0.30
     tracker_max_missed: int = 1
+    # Optional per-class operating thresholds as sorted (class_id, threshold) pairs
+    # (tuple keeps the frozen settings hashable); missing classes use confidence_threshold.
+    per_class_thresholds: tuple[tuple[str, float], ...] = ()
+    thresholds_path: Path | None = None
+    enable_tiling: bool = False
+    tile_size: int = 640
+    tile_overlap: float = 0.2
+    tiling_min_side: int = 400
+    enable_two_stage: bool = False
+    classifier_path: Path = DEFAULT_CLASSIFIER_PATH
+    two_stage_padding: float = 0.10
+    # Stage-1 proposal threshold when two-stage is on; the final filter is applied
+    # to det_score * cls_prob with the (per-class) operating threshold.
+    two_stage_proposal_threshold: float = 0.08
+    two_stage_scoring_mode: str = "product"
+    two_stage_blend_weight: float = 0.65
+    two_stage_min_proposal_gate: float = 0.12
+
+
+def class_threshold(settings: DetectionWebSettings, class_id: str) -> float:
+    for name, value in settings.per_class_thresholds:
+        if name == class_id:
+            return value
+    return settings.confidence_threshold
+
+
+def detector_input_threshold(settings: DetectionWebSettings) -> float:
+    """Lowest score the raw detector must keep so later filters can still apply."""
+    values = [settings.confidence_threshold, *(v for _, v in settings.per_class_thresholds)]
+    if settings.enable_two_stage:
+        values.append(settings.two_stage_proposal_threshold)
+    return min(values)
+
+
+def load_per_class_thresholds(path: Path) -> tuple[tuple[str, float], ...]:
+    """Read ``{"per_class_thresholds": {class_id: thr}}`` or a flat ``{class_id: thr}`` JSON."""
+    from src.detection.schema import DETECTION_CLASS_NAMES
+
+    try:
+        payload = json.loads(Path(path).read_text(encoding="utf-8"))
+    except (OSError, ValueError) as error:
+        raise ValueError(f"Invalid per-class thresholds file {path}: {error}") from error
+    if isinstance(payload, dict) and "per_class_thresholds" in payload:
+        payload = payload["per_class_thresholds"]
+    if not isinstance(payload, dict):
+        raise ValueError("per-class thresholds must be a JSON object")
+    pairs = []
+    for name, value in payload.items():
+        if name not in DETECTION_CLASS_NAMES:
+            raise ValueError(f"Unknown class in per-class thresholds: {name}")
+        if isinstance(value, bool) or not isinstance(value, (int, float)):
+            raise ValueError(f"Threshold for {name} must be a number")
+        value = float(value)
+        if not (math.isfinite(value) and 0.0 <= value <= 1.0):
+            raise ValueError(f"Threshold for {name} must be within [0, 1]")
+        pairs.append((name, value))
+    return tuple(sorted(pairs))
+
 
 
 def validate_detection_settings(settings: DetectionWebSettings) -> None:
@@ -45,7 +118,9 @@ def validate_detection_settings(settings: DetectionWebSettings) -> None:
         raise ValueError("confidence_threshold must be between 0 and 1")
     if not 0.0 <= settings.iou_threshold <= 1.0:
         raise ValueError("iou_threshold must be between 0 and 1")
-    if settings.image_size <= 0 or settings.image_size % 32 != 0:
+    if settings.image_size is not None and (
+        settings.image_size <= 0 or settings.image_size % 32 != 0
+    ):
         raise ValueError("image_size must be a positive multiple of 32")
     if settings.max_detections <= 0:
         raise ValueError("max_detections must be positive")
@@ -65,6 +140,23 @@ def validate_detection_settings(settings: DetectionWebSettings) -> None:
         raise ValueError("tracker_iou_threshold must be between 0 and 1")
     if settings.tracker_max_missed < 0:
         raise ValueError("tracker_max_missed must be non-negative")
+    for name, value in settings.per_class_thresholds:
+        if not (math.isfinite(value) and 0.0 <= value <= 1.0):
+            raise ValueError(f"per-class threshold for {name} must be between 0 and 1")
+    if settings.tile_size <= 0 or settings.tiling_min_side <= 0:
+        raise ValueError("tile_size and tiling_min_side must be positive")
+    if not 0.0 <= settings.tile_overlap < 1.0:
+        raise ValueError("tile_overlap must lie in [0, 1)")
+    if not (math.isfinite(settings.two_stage_padding) and 0.0 <= settings.two_stage_padding <= 1.0):
+        raise ValueError("two_stage_padding must lie in [0, 1]")
+    if not 0.0 <= settings.two_stage_proposal_threshold <= 1.0:
+        raise ValueError("two_stage_proposal_threshold must be between 0 and 1")
+    if settings.two_stage_scoring_mode not in ("product", "blend"):
+        raise ValueError("two_stage_scoring_mode must be 'product' or 'blend'")
+    if not (math.isfinite(settings.two_stage_blend_weight) and 0.0 <= settings.two_stage_blend_weight <= 1.0):
+        raise ValueError("two_stage_blend_weight must lie in [0, 1]")
+    if not (math.isfinite(settings.two_stage_min_proposal_gate) and 0.0 <= settings.two_stage_min_proposal_gate <= 1.0):
+        raise ValueError("two_stage_min_proposal_gate must lie in [0, 1]")
 
 
 def _read_selection(path: Path) -> dict:
@@ -135,16 +227,48 @@ def parse_detection_settings(
     parser.add_argument("--device", default="auto")
     parser.add_argument(
         "--confidence-threshold", type=float,
-        default=selection["operating_confidence"] if selection else 0.35,
+        default=selection["operating_confidence"] if selection else 0.45,
     )
     parser.add_argument("--iou-threshold", type=float, default=options.get("iou_threshold", 0.55))
-    parser.add_argument("--image-size", type=int, default=options.get("image_size", 640))
+    parser.add_argument(
+        "--image-size", type=int,
+        default=options.get("image_size", environ.get("WASTE_DETECTOR_IMAGE_SIZE")),
+    )
     parser.add_argument("--max-detections", type=int, default=options.get("max_detections", 100))
     parser.add_argument("--video-sample-fps", type=float, default=3.0)
     parser.add_argument("--live-inference-fps", type=float, default=5.0)
     parser.add_argument("--tracker-iou-threshold", type=float, default=0.30)
     parser.add_argument("--tracker-max-missed", type=int, default=1)
+    parser.add_argument("--thresholds", type=Path, default=environ.get("WASTE_DETECTOR_THRESHOLDS"))
+    parser.add_argument(
+        "--enable-tiling", action="store_true",
+        default=environ.get("WASTE_ENABLE_TILING", "").lower() in ("1", "true", "yes"),
+    )
+    parser.add_argument(
+        "--enable-two-stage", action="store_true",
+        default=environ.get("WASTE_ENABLE_TWO_STAGE", "").lower() in ("1", "true", "yes"),
+    )
+    parser.add_argument(
+        "--two-stage-scoring-mode",
+        choices=["product", "blend"],
+        default=environ.get("WASTE_TWO_STAGE_SCORING_MODE", "product"),
+    )
+    parser.add_argument(
+        "--two-stage-proposal-threshold",
+        type=float,
+        default=float(environ.get("WASTE_TWO_STAGE_PROPOSAL_THRESHOLD", 0.08)),
+    )
+    parser.add_argument(
+        "--two-stage-min-proposal-gate",
+        type=float,
+        default=float(environ.get("WASTE_TWO_STAGE_MIN_PROPOSAL_GATE", 0.12)),
+    )
+    parser.add_argument("--classifier", type=Path, default=environ.get("WASTE_CLASSIFIER"))
     values, _ = parser.parse_known_args(list(argv))
+    thresholds_path = values.thresholds
+    if thresholds_path is None and DEFAULT_THRESHOLDS_PATH.is_file():
+        thresholds_path = DEFAULT_THRESHOLDS_PATH
+    per_class = load_per_class_thresholds(thresholds_path) if thresholds_path else ()
     model_path = values.detector
     if model_path is None and environ.get("WASTE_DETECTOR"):
         model_path = Path(environ["WASTE_DETECTOR"])
@@ -178,6 +302,14 @@ def parse_detection_settings(
         live_inference_fps=values.live_inference_fps,
         tracker_iou_threshold=values.tracker_iou_threshold,
         tracker_max_missed=values.tracker_max_missed,
+        per_class_thresholds=per_class,
+        thresholds_path=thresholds_path,
+        enable_tiling=bool(values.enable_tiling),
+        enable_two_stage=bool(values.enable_two_stage),
+        classifier_path=values.classifier or DEFAULT_CLASSIFIER_PATH,
+        two_stage_scoring_mode=values.two_stage_scoring_mode,
+        two_stage_proposal_threshold=values.two_stage_proposal_threshold,
+        two_stage_min_proposal_gate=values.two_stage_min_proposal_gate,
     )
     validate_detection_settings(settings)
     return settings

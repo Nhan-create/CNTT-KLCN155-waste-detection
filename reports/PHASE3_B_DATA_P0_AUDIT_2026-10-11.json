@@ -1,0 +1,701 @@
+{
+  "scope": "Phase 3B data P0 provenance; no GT, mapping, OI label, split, or raw image mutation",
+  "taco": {
+    "official_cache": "data/audit/taco_annotations_raw.json",
+    "official_cache_sha256": "ac1ec605c9e1fcda767970de3457c69b4a43b62c02aca8c4c80f51d1b5ae8449",
+    "converter": "scripts/collect_real_detection_v2.py::coco_to_yolo",
+    "cases": [
+      {
+        "image_id": 112,
+        "annotation_id": 387,
+        "label_line": 12,
+        "class_id": 7,
+        "before_line": "7 0.398125 0.128564 0.092250 0.258224",
+        "before_label_sha256": "1921d73b34f75abb5da777be0fe29cd311d61c52bb02aa2fb239df316dc68aa7",
+        "source_file": "batch_10/000011.jpg",
+        "source_category_id": 36,
+        "source_category_name": "Plastic film",
+        "source_bbox_xywh": [
+          1408.0,
+          -1.0,
+          369.0,
+          471.0
+        ],
+        "source_segmentation_has_negative_y": true,
+        "source_image_size": [
+          4000,
+          1824
+        ],
+        "stored_image_size": [
+          640,
+          292
+        ],
+        "clipped_bbox_xywh": [
+          1408.0,
+          0.0,
+          369.0,
+          470.0
+        ],
+        "expected_yolo": [
+          0.398125,
+          0.128838,
+          0.09225,
+          0.257675
+        ],
+        "before_bounds_xyxy": [
+          0.352,
+          -0.000548,
+          0.44425,
+          0.257676
+        ],
+        "after_line": "7 0.398125 0.128838 0.092250 0.257675",
+        "after_bounds_xyxy": [
+          0.352,
+          5e-07,
+          0.44425,
+          0.2576755
+        ],
+        "after_matches_converter_6dp": true,
+        "after_label_sha256": "77065a5dff7d83ffc7c1d0d17f6b1ec03b690d655b7ba7ccccd86c04b2dec526",
+        "image_sha256": "11bcec65e44e72799d47e33f030cbaabd3ac49dba8a0341406a92c41b452d55d"
+      },
+      {
+        "image_id": 457,
+        "annotation_id": 1621,
+        "label_line": 5,
+        "class_id": 6,
+        "before_line": "6 0.334936 0.057933 0.157692 0.116346",
+        "before_label_sha256": "06acb9489e3f5becf1ba15876caa7d09b43543c38b12df1db72f7e914adf2e43",
+        "source_file": "batch_13/000056.jpg",
+        "source_category_id": 33,
+        "source_category_name": "Normal paper",
+        "source_bbox_xywh": [
+          799.0,
+          -1.0,
+          492.0,
+          484.0
+        ],
+        "source_segmentation_has_negative_y": true,
+        "source_image_size": [
+          3120,
+          4160
+        ],
+        "stored_image_size": [
+          3120,
+          4160
+        ],
+        "clipped_bbox_xywh": [
+          799.0,
+          0.0,
+          492.0,
+          483.0
+        ],
+        "expected_yolo": [
+          0.334936,
+          0.058053,
+          0.157692,
+          0.116106
+        ],
+        "before_bounds_xyxy": [
+          0.25609,
+          -0.00024,
+          0.413782,
+          0.116106
+        ],
+        "after_line": "6 0.334936 0.058053 0.157692 0.116106",
+        "after_bounds_xyxy": [
+          0.25609,
+          0.0,
+          0.413782,
+          0.116106
+        ],
+        "after_matches_converter_6dp": true,
+        "after_label_sha256": "554e51cf3576bfc14ec4cfad0f097ebabaf5181fef70a78e5a320b9518d95aa1",
+        "image_sha256": "50a05741219c17cdbb535b653c8da26e6eb126c867151e4005ea5bb83b80fff1"
+      }
+    ]
+  },
+  "remaining_taco_mirrors": [
+    {
+      "path": "data/detection/labels_10cls_backup/real/taco_0112.txt",
+      "line": 12,
+      "value": "7 0.398125 0.128564 0.092250 0.258224",
+      "bounds_xyxy": [
+        0.352,
+        -0.000548,
+        0.44425,
+        0.257676
+      ],
+      "out_of_bounds": true,
+      "split": "train",
+      "kind": "backup",
+      "consumer": null,
+      "evidence": "No repository config or code reference found."
+    },
+    {
+      "path": "data/detection/labels_10cls_backup/real/taco_0457.txt",
+      "line": 5,
+      "value": "6 0.334936 0.057933 0.157692 0.116346",
+      "bounds_xyxy": [
+        0.25609,
+        -0.00024,
+        0.413782,
+        0.116106
+      ],
+      "out_of_bounds": true,
+      "split": "test",
+      "kind": "backup",
+      "consumer": null,
+      "evidence": "No repository config or code reference found."
+    },
+    {
+      "path": "data/detection/labels_agnostic/real/taco_0112.txt",
+      "line": 12,
+      "value": "0 0.398125 0.128838 0.092250 0.257675",
+      "bounds_xyxy": [
+        0.352,
+        5e-07,
+        0.44425,
+        0.2576755
+      ],
+      "out_of_bounds": false,
+      "split": "train",
+      "kind": "agnostic_generator_source",
+      "consumer": "scripts/build_real_v2_splits.py and tests/detection/test_split_real_v2.py",
+      "evidence": "Generated one-class source mirror; copied into data/detection_agnostic."
+    },
+    {
+      "path": "data/detection/labels_agnostic/real/taco_0457.txt",
+      "line": 5,
+      "value": "0 0.334936 0.058053 0.157692 0.116106",
+      "bounds_xyxy": [
+        0.25609,
+        0.0,
+        0.413782,
+        0.116106
+      ],
+      "out_of_bounds": false,
+      "split": "test",
+      "kind": "agnostic_generator_source",
+      "consumer": "scripts/build_real_v2_splits.py and tests/detection/test_split_real_v2.py",
+      "evidence": "Generated one-class source mirror; copied into data/detection_agnostic."
+    },
+    {
+      "path": "data/detection_agnostic/labels/real/taco_0112.txt",
+      "line": 12,
+      "value": "0 0.398125 0.128838 0.092250 0.257675",
+      "bounds_xyxy": [
+        0.352,
+        5e-07,
+        0.44425,
+        0.2576755
+      ],
+      "out_of_bounds": false,
+      "split": "train",
+      "kind": "active_agnostic_dataset",
+      "consumer": "configs/detection_dataset_real_v2_agnostic.yaml",
+      "evidence": "Ultralytics resolves /images/ paths to this /labels/ tree."
+    },
+    {
+      "path": "data/detection_agnostic/labels/real/taco_0457.txt",
+      "line": 5,
+      "value": "0 0.334936 0.058053 0.157692 0.116106",
+      "bounds_xyxy": [
+        0.25609,
+        0.0,
+        0.413782,
+        0.116106
+      ],
+      "out_of_bounds": false,
+      "split": "test",
+      "kind": "active_agnostic_dataset",
+      "consumer": "configs/detection_dataset_real_v2_agnostic.yaml",
+      "evidence": "Ultralytics resolves /images/ paths to this /labels/ tree."
+    }
+  ],
+  "openimages": {
+    "source_boxes_csv": "D:\\waste-training\\openimages-validation-boxes.csv",
+    "source_boxes_sha256": "b15b65dde524eeba93f47739b5f150e9a89372e2fc29fada4eddfb8c0a8c8942",
+    "source_classes_csv": "D:\\waste-training\\openimages-boxable-classes.csv",
+    "source_classes_sha256": "1839e0e7e84130ae281f7f67413768601b031581c0c42e7fc17527b8e2a99aa9",
+    "v2_manifest": "data/detection/real_v2_source_manifest.csv",
+    "v2_manifest_sha256": "d5ae0dd4de456ec8ec0016f944dcb429658ed300b2c93546ba4a81063706717d",
+    "v2_manifest_fields": [
+      "filename",
+      "source",
+      "source_image_id",
+      "source_file",
+      "url",
+      "status",
+      "num_boxes",
+      "num_ambiguous"
+    ],
+    "license_attribution_status": "BLOCKED: the v2 manifest records a generic URL but has no per-image license or attribution fields.",
+    "active_images_by_split": {
+      "train": 369,
+      "val": 78,
+      "test": 78
+    },
+    "missing_v2_provenance": [
+      {
+        "image_id": "19c5c4dae0da0f77",
+        "split": "train",
+        "image_sha256": "6ea9370ccadce679c7ff7e1a2178cd9b01a6281e727062f57dd3206f9bd8d0d3",
+        "label_sha256": "510367eaf41aa44cc1fdbd3d04f8a32cc676f6a1a3a47f0a2a8636e122a47352",
+        "source_box_matches": [
+          {
+            "class_id": 8,
+            "label_yolo": [
+              0.509375,
+              0.46041667,
+              0.428125,
+              0.92083335
+            ],
+            "source_mid": "/m/01b638",
+            "source_display_name": "Boot",
+            "source_yolo": [
+              0.5093749999999999,
+              0.460416675,
+              0.428125,
+              0.92083335
+            ],
+            "max_abs_coordinate_delta": 5.000000025123796e-09,
+            "exact_to_8dp": true,
+            "mapping_config_entry": null
+          }
+        ],
+        "finding": "Source rows can be coordinate-matched, but the MIDs are absent from the approved mapping and the image is absent from the v2 provenance manifest.",
+        "action": "BLOCK_AND_REVIEW; do not infer approval from coordinate match."
+      },
+      {
+        "image_id": "2e62e7ce1ce182b5",
+        "split": "train",
+        "image_sha256": "ab0db17ab0362a9ac1dd5ce4638000a629d764ad3fcc2892672e3ae795be3281",
+        "label_sha256": "e4e3cf464f8db93d086037c7a3956646e2bd3851937c1e59bc81f8dae57f6748",
+        "source_box_matches": [
+          {
+            "class_id": 8,
+            "label_yolo": [
+              0.48164465,
+              0.5254989,
+              0.71953011,
+              0.81596453
+            ],
+            "source_mid": "/m/01b638",
+            "source_display_name": "Boot",
+            "source_yolo": [
+              0.48164464500000004,
+              0.525498895,
+              0.71953011,
+              0.81596453
+            ],
+            "max_abs_coordinate_delta": 4.999999969612645e-09,
+            "exact_to_8dp": true,
+            "mapping_config_entry": null
+          },
+          {
+            "class_id": 8,
+            "label_yolo": [
+              0.6674009,
+              0.45343682,
+              0.5389134,
+              0.68070956
+            ],
+            "source_mid": "/m/01b638",
+            "source_display_name": "Boot",
+            "source_yolo": [
+              0.6674009,
+              0.45343682,
+              0.5389134,
+              0.68070956
+            ],
+            "max_abs_coordinate_delta": 0.0,
+            "exact_to_8dp": true,
+            "mapping_config_entry": null
+          }
+        ],
+        "finding": "Source rows can be coordinate-matched, but the MIDs are absent from the approved mapping and the image is absent from the v2 provenance manifest.",
+        "action": "BLOCK_AND_REVIEW; do not infer approval from coordinate match."
+      },
+      {
+        "image_id": "48fe726552b07707",
+        "split": "train",
+        "image_sha256": "55dd430edcc22e7b9ed769698d979e8be0f30a689893773b49f57e4c34e78800",
+        "label_sha256": "763c8a3f40a9eea90c28452349d9e652152dcf184f517dde7d15730121328e70",
+        "source_box_matches": [
+          {
+            "class_id": 8,
+            "label_yolo": [
+              0.49909748,
+              0.49458484,
+              0.65162455,
+              0.67509024
+            ],
+            "source_mid": "/m/06k2mb",
+            "source_display_name": "High heels",
+            "source_yolo": [
+              0.499097475,
+              0.49458483999999997,
+              0.65162455,
+              0.67509024
+            ],
+            "max_abs_coordinate_delta": 4.999999969612645e-09,
+            "exact_to_8dp": true,
+            "mapping_config_entry": null
+          }
+        ],
+        "finding": "Source rows can be coordinate-matched, but the MIDs are absent from the approved mapping and the image is absent from the v2 provenance manifest.",
+        "action": "BLOCK_AND_REVIEW; do not infer approval from coordinate match."
+      },
+      {
+        "image_id": "57f0572aa1a3cba5",
+        "split": "train",
+        "image_sha256": "a5a6a512513e7379281513f9a4acd47a111869bb949e22771563f695ac4067b4",
+        "label_sha256": "44fefbbbf0dfc3ed5434fcb1725a02de33d444805ec00a5c174aadcc9d0dfadf",
+        "source_box_matches": [
+          {
+            "class_id": 8,
+            "label_yolo": [
+              0.39734121,
+              0.46578366,
+              0.69128509,
+              0.91390728
+            ],
+            "source_mid": "/m/01b638",
+            "source_display_name": "Boot",
+            "source_yolo": [
+              0.39734121499999997,
+              0.465783661,
+              0.69128509,
+              0.9139072779999999
+            ],
+            "max_abs_coordinate_delta": 4.999999969612645e-09,
+            "exact_to_8dp": true,
+            "mapping_config_entry": null
+          },
+          {
+            "class_id": 8,
+            "label_yolo": [
+              0.76440175,
+              0.5187638,
+              0.4711965,
+              0.9580574
+            ],
+            "source_mid": "/m/01b638",
+            "source_display_name": "Boot",
+            "source_yolo": [
+              0.76440175,
+              0.5187638,
+              0.4711965,
+              0.9580574
+            ],
+            "max_abs_coordinate_delta": 0.0,
+            "exact_to_8dp": true,
+            "mapping_config_entry": null
+          }
+        ],
+        "finding": "Source rows can be coordinate-matched, but the MIDs are absent from the approved mapping and the image is absent from the v2 provenance manifest.",
+        "action": "BLOCK_AND_REVIEW; do not infer approval from coordinate match."
+      }
+    ],
+    "active_count_mismatches": [
+      {
+        "image_id": "004dd2ac922baf98",
+        "split": "test",
+        "stored_box_count": 1,
+        "current_config_mapped_source_box_count": 3,
+        "mapped_source_mids": [
+          "/m/01n4qj",
+          "/m/0fly7",
+          "/m/032b3c"
+        ],
+        "stored_box_source_matches": [
+          {
+            "class_id": 3,
+            "source_mid": "/m/01n4qj",
+            "source_display_name": "Shirt",
+            "max_abs_coordinate_delta": 4.999999999588667e-07,
+            "mapping_status": "REQUIRES_REVIEW"
+          }
+        ],
+        "finding": "Count differs under the current mapping; hierarchy duplicates or a provisional ambiguous material decision are present.",
+        "action": "OBJECT_LEVEL_REVIEW; do not add, remove, or relabel boxes automatically."
+      },
+      {
+        "image_id": "17135174fbbf3301",
+        "split": "train",
+        "stored_box_count": 2,
+        "current_config_mapped_source_box_count": 1,
+        "mapped_source_mids": [
+          "/m/09tvcd"
+        ],
+        "stored_box_source_matches": [
+          {
+            "class_id": 4,
+            "source_mid": "/m/04dr76w",
+            "source_display_name": "Bottle",
+            "max_abs_coordinate_delta": 3.800000000220294e-07,
+            "mapping_status": "REQUIRES_REVIEW"
+          },
+          {
+            "class_id": 4,
+            "source_mid": "/m/09tvcd",
+            "source_display_name": "Wine glass",
+            "max_abs_coordinate_delta": 3.799999999110071e-07,
+            "mapping_status": "CONFIRMED"
+          }
+        ],
+        "finding": "Count differs under the current mapping; hierarchy duplicates or a provisional ambiguous material decision are present.",
+        "action": "OBJECT_LEVEL_REVIEW; do not add, remove, or relabel boxes automatically."
+      },
+      {
+        "image_id": "1a04c113301b09f8",
+        "split": "train",
+        "stored_box_count": 3,
+        "current_config_mapped_source_box_count": 2,
+        "mapped_source_mids": [
+          "/m/09tvcd",
+          "/m/09tvcd"
+        ],
+        "stored_box_source_matches": [
+          {
+            "class_id": 4,
+            "source_mid": "/m/04dr76w",
+            "source_display_name": "Bottle",
+            "max_abs_coordinate_delta": 4.6499999994953356e-07,
+            "mapping_status": "REQUIRES_REVIEW"
+          },
+          {
+            "class_id": 4,
+            "source_mid": "/m/09tvcd",
+            "source_display_name": "Wine glass",
+            "max_abs_coordinate_delta": 4.4000000010147033e-07,
+            "mapping_status": "CONFIRMED"
+          },
+          {
+            "class_id": 4,
+            "source_mid": "/m/09tvcd",
+            "source_display_name": "Wine glass",
+            "max_abs_coordinate_delta": 3.749999999969056e-07,
+            "mapping_status": "CONFIRMED"
+          }
+        ],
+        "finding": "Count differs under the current mapping; hierarchy duplicates or a provisional ambiguous material decision are present.",
+        "action": "OBJECT_LEVEL_REVIEW; do not add, remove, or relabel boxes automatically."
+      },
+      {
+        "image_id": "1a94b67907646757",
+        "split": "val",
+        "stored_box_count": 2,
+        "current_config_mapped_source_box_count": 3,
+        "mapped_source_mids": [
+          "/m/09j2d",
+          "/m/01xygc",
+          "/m/032b3c"
+        ],
+        "stored_box_source_matches": [
+          {
+            "class_id": 3,
+            "source_mid": "/m/09j2d",
+            "source_display_name": "Clothing",
+            "max_abs_coordinate_delta": 4.6000000003543207e-07,
+            "mapping_status": "REQUIRES_REVIEW"
+          },
+          {
+            "class_id": 3,
+            "source_mid": "/m/01xygc",
+            "source_display_name": "Coat",
+            "max_abs_coordinate_delta": 4.835000000369405e-07,
+            "mapping_status": "REQUIRES_REVIEW"
+          }
+        ],
+        "finding": "Count differs under the current mapping; hierarchy duplicates or a provisional ambiguous material decision are present.",
+        "action": "OBJECT_LEVEL_REVIEW; do not add, remove, or relabel boxes automatically."
+      },
+      {
+        "image_id": "48a211ad0792aa28",
+        "split": "train",
+        "stored_box_count": 2,
+        "current_config_mapped_source_box_count": 3,
+        "mapped_source_mids": [
+          "/m/01n4qj",
+          "/m/01xygc",
+          "/m/032b3c"
+        ],
+        "stored_box_source_matches": [
+          {
+            "class_id": 3,
+            "source_mid": "/m/01n4qj",
+            "source_display_name": "Shirt",
+            "max_abs_coordinate_delta": 3.499999999823089e-07,
+            "mapping_status": "REQUIRES_REVIEW"
+          },
+          {
+            "class_id": 3,
+            "source_mid": "/m/01xygc",
+            "source_display_name": "Coat",
+            "max_abs_coordinate_delta": 4.999999999588667e-07,
+            "mapping_status": "REQUIRES_REVIEW"
+          }
+        ],
+        "finding": "Count differs under the current mapping; hierarchy duplicates or a provisional ambiguous material decision are present.",
+        "action": "OBJECT_LEVEL_REVIEW; do not add, remove, or relabel boxes automatically."
+      }
+    ],
+    "mapping_review": {
+      "confirmed_non_null_mids": {
+        "/m/02jnhm": {
+          "name": "Tin can",
+          "class_id": 5,
+          "class_name": "metal",
+          "status": "CONFIRMED"
+        },
+        "/m/09tvcd": {
+          "name": "Wine glass",
+          "class_id": 4,
+          "class_name": "glass",
+          "status": "CONFIRMED"
+        },
+        "/m/05gqfk": {
+          "name": "Plastic bag",
+          "class_id": 7,
+          "class_name": "plastic",
+          "status": "CONFIRMED"
+        },
+        "/m/02w3r3": {
+          "name": "Paper towel",
+          "class_id": 6,
+          "class_name": "paper",
+          "status": "CONFIRMED"
+        },
+        "/m/09gtd": {
+          "name": "Toilet paper",
+          "class_id": 6,
+          "class_name": "paper",
+          "status": "CONFIRMED"
+        }
+      },
+      "requires_review_non_null_mids": {
+        "/m/09j5n": {
+          "name": "Footwear",
+          "class_id": 8,
+          "class_name": "shoes",
+          "status": "REQUIRES_REVIEW",
+          "note": "Check worn vs discarded"
+        },
+        "/m/09j2d": {
+          "name": "Clothing",
+          "class_id": 3,
+          "class_name": "clothes",
+          "status": "REQUIRES_REVIEW",
+          "note": "Check worn vs discarded"
+        },
+        "/m/01n4qj": {
+          "name": "Shirt",
+          "class_id": 3,
+          "class_name": "clothes",
+          "status": "REQUIRES_REVIEW",
+          "note": "Check worn vs discarded"
+        },
+        "/m/07mhn": {
+          "name": "Trousers",
+          "class_id": 3,
+          "class_name": "clothes",
+          "status": "REQUIRES_REVIEW",
+          "note": "Check worn vs discarded"
+        },
+        "/m/0174k2": {
+          "name": "Suit",
+          "class_id": 3,
+          "class_name": "clothes",
+          "status": "REQUIRES_REVIEW",
+          "note": "Check worn vs discarded"
+        },
+        "/m/032b3c": {
+          "name": "Jacket",
+          "class_id": 3,
+          "class_name": "clothes",
+          "status": "REQUIRES_REVIEW",
+          "note": "Check worn vs discarded"
+        },
+        "/m/01d40f": {
+          "name": "Dress",
+          "class_id": 3,
+          "class_name": "clothes",
+          "status": "REQUIRES_REVIEW",
+          "note": "Check worn vs discarded"
+        },
+        "/m/0fly7": {
+          "name": "Jeans",
+          "class_id": 3,
+          "class_name": "clothes",
+          "status": "REQUIRES_REVIEW",
+          "note": "Check worn vs discarded"
+        },
+        "/m/01xygc": {
+          "name": "Coat",
+          "class_id": 3,
+          "class_name": "clothes",
+          "status": "REQUIRES_REVIEW",
+          "note": "Check worn vs discarded"
+        }
+      },
+      "collector_behavior": "collect_real_detection_v2.py selects every non-null class_id; status is not checked.",
+      "active_openimages_boxes_by_split": {
+        "train": {
+          "3": 368,
+          "4": 52,
+          "5": 17,
+          "6": 1,
+          "7": 1,
+          "8": 211
+        },
+        "val": {
+          "3": 69,
+          "4": 12,
+          "5": 3,
+          "6": 2,
+          "7": 1,
+          "8": 39
+        },
+        "test": {
+          "3": 91,
+          "4": 11,
+          "5": 4,
+          "6": 2,
+          "7": 1,
+          "8": 38
+        }
+      },
+      "active_openimages_images_by_split_and_class": {
+        "train": {
+          "3": 212,
+          "4": 36,
+          "5": 12,
+          "6": 1,
+          "7": 1,
+          "8": 113
+        },
+        "val": {
+          "3": 44,
+          "4": 8,
+          "5": 2,
+          "6": 1,
+          "7": 1,
+          "8": 22
+        },
+        "test": {
+          "3": 45,
+          "4": 8,
+          "5": 2,
+          "6": 1,
+          "7": 1,
+          "8": 22
+        }
+      },
+      "clothes_boxes_class_3": 528,
+      "shoes_boxes_class_8": 288,
+      "status": "BLOCKED_PENDING_SCOPE_AND_OBJECT_REVIEW"
+    }
+  }
+}

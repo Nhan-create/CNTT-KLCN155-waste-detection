@@ -1,0 +1,110 @@
+{
+  "phase": "4D.2",
+  "title": "Phase 4D.2 Real Data Shortlist & Pre-Acquisition Safety Evidence",
+  "total_files": 20,
+  "manifest_version": "2.0.0-real-source-identified",
+  "staged_downloaded_images": 0,
+  "staged_downloaded_bytes": 0,
+  "files": [
+    {
+      "relative_path": "reports/PHASE4D2_REAL_IMAGE_SHORTLIST.md",
+      "sha256": "60cde59f8a7acbb71042fef25c8cc2c0208785beb37c94ce00a65715b9ccdd57",
+      "size_bytes": 17647
+    },
+    {
+      "relative_path": "reports/PHASE4D1_FINAL_SAFETY_PATCH_AND_EXECUTION_READINESS.md",
+      "sha256": "3314f2993b522ede0593181116374bad1ee2ff67672f0a39bc7f55ce3329da2a",
+      "size_bytes": 13719
+    },
+    {
+      "relative_path": "src/detection/export_train_manifest.py",
+      "sha256": "0f8525bd45c3e9108280d75a49225401c33d97ab3e09c6edc989211331e2ce62",
+      "size_bytes": 20518
+    },
+    {
+      "relative_path": "scripts/train_detection_v2.py",
+      "sha256": "7e62c1e9710239107a231e62a85807db4aa0a68176ebb7604f4df21f8673f778",
+      "size_bytes": 26902
+    },
+    {
+      "relative_path": "scripts/prepare_acquisition_pilot.py",
+      "sha256": "724693db372565d9078bb033fad8666fcb63f82a21d4c198001b75378881044a",
+      "size_bytes": 5561
+    },
+    {
+      "relative_path": "src/detection/preflight_guard.py",
+      "sha256": "23c4104662459d2702ad1ebb3e12309297b34ba654d4df990a91c55f9aa0fa06",
+      "size_bytes": 7008
+    },
+    {
+      "relative_path": "src/detection/ssdlite_train.py",
+      "sha256": "4b696d03e20e4e0c87a0869a0b0d161d90e3565ab481a3f35af923c9cf9fe440",
+      "size_bytes": 15277
+    },
+    {
+      "relative_path": "scripts/validate_pilot_quality_gates.py",
+      "sha256": "ec9ba3ce469724aedcf5e09641cc18fbaaeb1b9248b4b83dd00cafa11d1264b8",
+      "size_bytes": 15410
+    },
+    {
+      "relative_path": "tests/detection/test_train_command_smoke.py",
+      "sha256": "e153296509be78559dc5fc92f6b8271da9477efa3a8db09de82da72346ec0a62",
+      "size_bytes": 8598
+    },
+    {
+      "relative_path": "tests/qa/test_split_contamination_safety.py",
+      "sha256": "8dd276af010c715c48c829f247ad557afcbda915c0eb14fb1b60f363d8eb1610",
+      "size_bytes": 13886
+    },
+    {
+      "relative_path": "tests/qa/test_pilot_dataset_v3.py",
+      "sha256": "7a496ec1cc04dc9a1baf2717e316448e370affd891c6b05bb3fdbe1ba558e007",
+      "size_bytes": 6377
+    },
+    {
+      "relative_path": "tests/detection/test_preflight_guard_integration.py",
+      "sha256": "d49c765fff186a564698118179ca0a01d8ae89fef537e6487237cba29ea23306",
+      "size_bytes": 9116
+    },
+    {
+      "relative_path": "reports/data_v2/pytest_targeted.log",
+      "sha256": "048494a15f058b660048d4d9ebc4b124e33b175bf94d365160ec655790b083b0",
+      "size_bytes": 26252
+    },
+    {
+      "relative_path": "reports/data_v2/real_data_acquisition_plan.md",
+      "sha256": "91ad88f77e6998e6290542c4d95af886aab946404e6b561a9cf62a44f3d64ea9",
+      "size_bytes": 12785
+    },
+    {
+      "relative_path": "reports/data_v2/candidate_expansion_sources.json",
+      "sha256": "7242bae248dc7b1ce27875989e18f9896abb82eb139e684f12bf12b1c0174ab2",
+      "size_bytes": 9023
+    },
+    {
+      "relative_path": "reports/data_v2/candidate_expansion_sources.md",
+      "sha256": "e417b099b94b8a24f5bbfcdaa1b3efc634d4fd191ea90437d7c65bc2d0c86f97",
+      "size_bytes": 4425
+    },
+    {
+      "relative_path": "reports/data_v2/pilot_quality_gates_report.json",
+      "sha256": "9860a4604889abca4f3cab2140413f9ccf2db5c7bbf4ac30938ce40b9b67a141",
+      "size_bytes": 5527
+    },
+    {
+      "relative_path": "reports/data_v2/pilot_train_eligible_manifest.json",
+      "sha256": "44980c6f93d107d0b8630cfe822bcf8226e13b78f76d00ef83c31820c3473734",
+      "size_bytes": 1934
+    },
+    {
+      "relative_path": "data/acquisition_staging/manifests/candidate_acquisition_manifest.json",
+      "sha256": "4f7fcae243dc6fc40c0903197a0b34894b2b386185a128c68d928964ca06c40f",
+      "size_bytes": 34036
+    },
+    {
+      "relative_path": "data/acquisition_staging/README.md",
+      "sha256": "c4992595de35b6168f3e99b4128ffb82f505dd914f9a7c82f3894e27e53ef578",
+      "size_bytes": 1251
+    }
+  ]
+}

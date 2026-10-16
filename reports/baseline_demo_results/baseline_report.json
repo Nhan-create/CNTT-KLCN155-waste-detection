@@ -1,0 +1,2470 @@
+{
+  "ssdlite": {
+    "model_key": "ssdlite",
+    "display_name": "SSDLite320-MobileNetV3 (Mô hình chính)",
+    "checkpoint_path": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\detection_v2\\E2_ssdlite320_10cls\\weights\\best.pt",
+    "checkpoint_size_mb": 27.14,
+    "latency": {
+      "gpu_mean_ms": 33.35,
+      "gpu_min_ms": 26.34,
+      "gpu_max_ms": 63.41,
+      "gpu_fps": 30.0,
+      "cpu_sample_mean_ms": 51.6,
+      "cpu_fps": 19.4
+    },
+    "overall_metrics_conf025_iou050": {
+      "total_gt_objects": 57,
+      "true_positives": 5,
+      "false_positives": 22,
+      "false_negatives": 52,
+      "precision": 18.52,
+      "recall": 8.77,
+      "f1": 11.9
+    },
+    "class_agnostic_conf025_iou050": {
+      "tp": 14,
+      "fp": 13,
+      "fn": 43,
+      "precision": 51.85,
+      "recall": 24.56,
+      "f1": 33.33
+    },
+    "coco_map": {
+      "mAP50": 4.25,
+      "mAP50_95": 2.39,
+      "class_agnostic_AP50": 29.5
+    },
+    "localization_accuracy": {
+      "matched_pairs": 14,
+      "correct_class_pairs": 3,
+      "class_accuracy": 21.43
+    },
+    "strict_dod": {
+      "status": "FAIL",
+      "passed": false,
+      "acceptance_criteria": {
+        "coverage_target": "100%",
+        "coverage_actual": "100.00% (27/27)",
+        "coverage_passed": true,
+        "fn_target": 0,
+        "fn_actual": 42,
+        "fn_passed": false,
+        "fp_target": 0,
+        "fp_actual": 12,
+        "fp_passed": false,
+        "wrong_class_target": 0,
+        "wrong_class_actual": 9,
+        "wrong_class_passed": false,
+        "min_iou_target": ">= 0.75",
+        "iou_violations_count": 6,
+        "iou_passed": false,
+        "min_inter_gt_target": ">= 0.99",
+        "inter_gt_violations_count": 13,
+        "inter_gt_passed": false,
+        "invalid_boxes_count": 0,
+        "invalid_boxes_passed": true
+      },
+      "overall_statistics": {
+        "total_manifest_images": 27,
+        "evaluated_images": 27,
+        "missing_images_count": 0,
+        "total_gt_objects": 57,
+        "total_pred_objects": 27,
+        "total_matched_pairs": 15,
+        "mean_iou_matched": 0.7745614290237427,
+        "mean_inter_gt_matched": 0.8619324207305908
+      }
+    },
+    "per_class_metrics": {
+      "battery": {
+        "class_id": 0,
+        "vietnamese": "Pin / Ắc quy",
+        "n_gt": 2,
+        "tp": 0,
+        "fp": 0,
+        "fn": 2,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "biological": {
+        "class_id": 1,
+        "vietnamese": "Rác sinh học / Hữu cơ",
+        "n_gt": 3,
+        "tp": 0,
+        "fp": 0,
+        "fn": 3,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "cardboard": {
+        "class_id": 2,
+        "vietnamese": "Bìa carton",
+        "n_gt": 3,
+        "tp": 0,
+        "fp": 0,
+        "fn": 3,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "clothes": {
+        "class_id": 3,
+        "vietnamese": "Quần áo cũ",
+        "n_gt": 8,
+        "tp": 0,
+        "fp": 5,
+        "fn": 8,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "glass": {
+        "class_id": 4,
+        "vietnamese": "Thủy tinh",
+        "n_gt": 11,
+        "tp": 1,
+        "fp": 0,
+        "fn": 10,
+        "precision": 1.0,
+        "recall": 0.0909,
+        "f1": 0.1667,
+        "ap50": 0.1181,
+        "ap50_95": 0.0843
+      },
+      "metal": {
+        "class_id": 5,
+        "vietnamese": "Kim loại",
+        "n_gt": 4,
+        "tp": 0,
+        "fp": 6,
+        "fn": 4,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "ap50": 0.0092,
+        "ap50_95": 0.0083
+      },
+      "paper": {
+        "class_id": 6,
+        "vietnamese": "Giấy",
+        "n_gt": 2,
+        "tp": 0,
+        "fp": 0,
+        "fn": 2,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "plastic": {
+        "class_id": 7,
+        "vietnamese": "Nhựa",
+        "n_gt": 17,
+        "tp": 2,
+        "fp": 7,
+        "fn": 15,
+        "precision": 0.2222,
+        "recall": 0.1176,
+        "f1": 0.1538,
+        "ap50": 0.0952,
+        "ap50_95": 0.0424
+      },
+      "shoes": {
+        "class_id": 8,
+        "vietnamese": "Giày dép",
+        "n_gt": 6,
+        "tp": 2,
+        "fp": 4,
+        "fn": 4,
+        "precision": 0.3333,
+        "recall": 0.3333,
+        "f1": 0.3333,
+        "ap50": 0.2029,
+        "ap50_95": 0.1042
+      },
+      "trash": {
+        "class_id": 9,
+        "vietnamese": "Rác khác",
+        "n_gt": 1,
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      }
+    },
+    "false_negatives_count": 52,
+    "false_positives_count": 22,
+    "false_negatives_sample": [
+      {
+        "filename": "base64-1717231151649602366964.jpeg",
+        "gt_object_id": "gt_0",
+        "class_id": 4,
+        "class_name": "glass",
+        "gt_bbox": [
+          180.0,
+          695.0,
+          825.0,
+          1115.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "base64-1717231151649602366964.jpeg",
+        "gt_object_id": "gt_1",
+        "class_id": 4,
+        "class_name": "glass",
+        "gt_bbox": [
+          325.0,
+          615.0,
+          555.0,
+          810.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "base64-1717231151649602366964.jpeg",
+        "gt_object_id": "gt_2",
+        "class_id": 4,
+        "class_name": "glass",
+        "gt_bbox": [
+          1355.0,
+          370.0,
+          1845.0,
+          680.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "base64-1717231151649602366964.jpeg",
+        "gt_object_id": "gt_3",
+        "class_id": 4,
+        "class_name": "glass",
+        "gt_bbox": [
+          1115.0,
+          1010.0,
+          1410.0,
+          1334.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "base64-1717231151649602366964.jpeg",
+        "gt_object_id": "gt_4",
+        "class_id": 9,
+        "class_name": "trash",
+        "gt_bbox": [
+          1190.0,
+          810.0,
+          1585.0,
+          1120.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "base64-1717231151649602366964.jpeg",
+        "gt_object_id": "gt_5",
+        "class_id": 3,
+        "class_name": "clothes",
+        "gt_bbox": [
+          0.0,
+          720.0,
+          150.0,
+          920.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "base64-1717231151649602366964.jpeg",
+        "gt_object_id": "gt_6",
+        "class_id": 4,
+        "class_name": "glass",
+        "gt_bbox": [
+          0.0,
+          195.0,
+          2000.0,
+          1334.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "battery-sample.png",
+        "gt_object_id": "gt_0",
+        "class_id": 0,
+        "class_name": "battery",
+        "gt_bbox": [
+          14.0,
+          50.0,
+          503.0,
+          371.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "download (2).jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 7,
+        "class_name": "plastic",
+        "gt_bbox": [
+          112.0,
+          10.0,
+          168.0,
+          62.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "download (2).jpg",
+        "gt_object_id": "gt_1",
+        "class_id": 7,
+        "class_name": "plastic",
+        "gt_bbox": [
+          140.0,
+          50.0,
+          203.0,
+          112.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "download (2).jpg",
+        "gt_object_id": "gt_2",
+        "class_id": 7,
+        "class_name": "plastic",
+        "gt_bbox": [
+          0.0,
+          0.0,
+          299.0,
+          168.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (10).jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 3,
+        "class_name": "clothes",
+        "gt_bbox": [
+          0.0,
+          160.0,
+          640.0,
+          398.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (10).jpg",
+        "gt_object_id": "gt_1",
+        "class_id": 3,
+        "class_name": "clothes",
+        "gt_bbox": [
+          0.0,
+          120.0,
+          325.0,
+          295.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (11).jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 5,
+        "class_name": "metal",
+        "gt_bbox": [
+          0.0,
+          140.0,
+          684.0,
+          448.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (12).jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 2,
+        "class_name": "cardboard",
+        "gt_bbox": [
+          32.0,
+          36.0,
+          535.0,
+          519.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (12).jpg",
+        "gt_object_id": "gt_1",
+        "class_id": 6,
+        "class_name": "paper",
+        "gt_bbox": [
+          110.0,
+          90.0,
+          475.0,
+          445.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (13).jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 7,
+        "class_name": "plastic",
+        "gt_bbox": [
+          0.0,
+          0.0,
+          538.0,
+          371.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (14).jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 8,
+        "class_name": "shoes",
+        "gt_bbox": [
+          0.0,
+          0.0,
+          260.0,
+          365.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (14).jpg",
+        "gt_object_id": "gt_1",
+        "class_id": 8,
+        "class_name": "shoes",
+        "gt_bbox": [
+          250.0,
+          0.0,
+          547.0,
+          365.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (15).jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 8,
+        "class_name": "shoes",
+        "gt_bbox": [
+          113.0,
+          17.0,
+          192.0,
+          68.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (15).jpg",
+        "gt_object_id": "gt_1",
+        "class_id": 8,
+        "class_name": "shoes",
+        "gt_bbox": [
+          160.0,
+          84.0,
+          226.0,
+          148.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (17).jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 7,
+        "class_name": "plastic",
+        "gt_bbox": [
+          0.0,
+          162.0,
+          262.0,
+          365.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (17).jpg",
+        "gt_object_id": "gt_1",
+        "class_id": 7,
+        "class_name": "plastic",
+        "gt_bbox": [
+          250.0,
+          178.0,
+          535.0,
+          365.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (17).jpg",
+        "gt_object_id": "gt_2",
+        "class_id": 5,
+        "class_name": "metal",
+        "gt_bbox": [
+          0.0,
+          185.0,
+          115.0,
+          252.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (17).jpg",
+        "gt_object_id": "gt_3",
+        "class_id": 5,
+        "class_name": "metal",
+        "gt_bbox": [
+          195.0,
+          218.0,
+          258.0,
+          250.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (17).jpg",
+        "gt_object_id": "gt_4",
+        "class_id": 4,
+        "class_name": "glass",
+        "gt_bbox": [
+          68.0,
+          105.0,
+          150.0,
+          240.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (17).jpg",
+        "gt_object_id": "gt_5",
+        "class_id": 4,
+        "class_name": "glass",
+        "gt_bbox": [
+          41.0,
+          110.0,
+          86.0,
+          190.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (17).jpg",
+        "gt_object_id": "gt_6",
+        "class_id": 7,
+        "class_name": "plastic",
+        "gt_bbox": [
+          250.0,
+          18.0,
+          330.0,
+          205.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (17).jpg",
+        "gt_object_id": "gt_7",
+        "class_id": 7,
+        "class_name": "plastic",
+        "gt_bbox": [
+          328.0,
+          52.0,
+          405.0,
+          200.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (17).jpg",
+        "gt_object_id": "gt_9",
+        "class_id": 7,
+        "class_name": "plastic",
+        "gt_bbox": [
+          425.0,
+          110.0,
+          510.0,
+          210.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (17).jpg",
+        "gt_object_id": "gt_10",
+        "class_id": 5,
+        "class_name": "metal",
+        "gt_bbox": [
+          360.0,
+          175.0,
+          415.0,
+          210.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (18).jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 7,
+        "class_name": "plastic",
+        "gt_bbox": [
+          26.0,
+          12.0,
+          384.0,
+          495.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (19).jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 1,
+        "class_name": "biological",
+        "gt_bbox": [
+          90.0,
+          0.0,
+          597.0,
+          335.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (3).jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 4,
+        "class_name": "glass",
+        "gt_bbox": [
+          49.0,
+          18.0,
+          120.0,
+          165.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (4).jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 4,
+        "class_name": "glass",
+        "gt_bbox": [
+          37.0,
+          48.0,
+          185.0,
+          200.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (6).jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 1,
+        "class_name": "biological",
+        "gt_bbox": [
+          0.0,
+          0.0,
+          318.0,
+          159.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (7).jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 7,
+        "class_name": "plastic",
+        "gt_bbox": [
+          0.0,
+          0.0,
+          538.0,
+          371.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (9).jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 2,
+        "class_name": "cardboard",
+        "gt_bbox": [
+          0.0,
+          0.0,
+          515.0,
+          388.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "OIP (1).webp",
+        "gt_object_id": "gt_0",
+        "class_id": 3,
+        "class_name": "clothes",
+        "gt_bbox": [
+          0.0,
+          95.0,
+          313.0,
+          237.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "OIP (1).webp",
+        "gt_object_id": "gt_1",
+        "class_id": 3,
+        "class_name": "clothes",
+        "gt_bbox": [
+          0.0,
+          70.0,
+          160.0,
+          175.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "OIP.webp",
+        "gt_object_id": "gt_0",
+        "class_id": 3,
+        "class_name": "clothes",
+        "gt_bbox": [
+          0.0,
+          0.0,
+          274.0,
+          234.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "Phan-Loai-Rac-Tai-Ng-01.jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 7,
+        "class_name": "plastic",
+        "gt_bbox": [
+          230.0,
+          220.0,
+          460.0,
+          550.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "Phan-Loai-Rac-Tai-Ng-01.jpg",
+        "gt_object_id": "gt_1",
+        "class_id": 7,
+        "class_name": "plastic",
+        "gt_bbox": [
+          340.0,
+          445.0,
+          675.0,
+          705.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "Phan-Loai-Rac-Tai-Ng-01.jpg",
+        "gt_object_id": "gt_2",
+        "class_id": 7,
+        "class_name": "plastic",
+        "gt_bbox": [
+          590.0,
+          580.0,
+          755.0,
+          715.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "Phan-Loai-Rac-Tai-Ng-01.jpg",
+        "gt_object_id": "gt_3",
+        "class_id": 2,
+        "class_name": "cardboard",
+        "gt_bbox": [
+          680.0,
+          570.0,
+          765.0,
+          650.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "Phan-Loai-Rac-Tai-Ng-01.jpg",
+        "gt_object_id": "gt_4",
+        "class_id": 7,
+        "class_name": "plastic",
+        "gt_bbox": [
+          680.0,
+          380.0,
+          710.0,
+          400.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "Phan-Loai-Rac-Tai-Ng-01.jpg",
+        "gt_object_id": "gt_5",
+        "class_id": 6,
+        "class_name": "paper",
+        "gt_bbox": [
+          285.0,
+          590.0,
+          375.0,
+          655.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "photo-5-1642556540067542343380.webp",
+        "gt_object_id": "gt_0",
+        "class_id": 3,
+        "class_name": "clothes",
+        "gt_bbox": [
+          0.0,
+          15.0,
+          620.0,
+          376.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "pin_vuong_4f15ab32849e43a8abdaef2bf000463f.webp",
+        "gt_object_id": "gt_0",
+        "class_id": 0,
+        "class_name": "battery",
+        "gt_bbox": [
+          252.0,
+          120.0,
+          551.0,
+          676.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "rac-1562828175-1562828212-3852-1562828313.webp",
+        "gt_object_id": "gt_0",
+        "class_id": 4,
+        "class_name": "glass",
+        "gt_bbox": [
+          0.0,
+          95.0,
+          532.0,
+          299.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "rac-thai-huu-co-1.jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 1,
+        "class_name": "biological",
+        "gt_bbox": [
+          0.0,
+          0.0,
+          600.0,
+          410.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "rac-thai-quan-ao-4.jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 3,
+        "class_name": "clothes",
+        "gt_bbox": [
+          100.0,
+          175.0,
+          590.0,
+          350.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      }
+    ],
+    "false_positives_sample": [
+      {
+        "filename": "battery-sample.png",
+        "predicted_class": "shoes",
+        "confidence": 0.8197,
+        "pred_bbox": [
+          12.69,
+          44.11,
+          493.58,
+          375.35
+        ],
+        "overlapping_gt_class": "battery",
+        "overlapping_iou": 0.948,
+        "error_type": "Wrong class confusion"
+      },
+      {
+        "filename": "images (12).jpg",
+        "predicted_class": "shoes",
+        "confidence": 0.4297,
+        "pred_bbox": [
+          58.42,
+          45.95,
+          529.19,
+          456.87
+        ],
+        "overlapping_gt_class": "cardboard",
+        "overlapping_iou": 0.796,
+        "error_type": "Wrong class confusion"
+      },
+      {
+        "filename": "images (12).jpg",
+        "predicted_class": "shoes",
+        "confidence": 0.4029,
+        "pred_bbox": [
+          87.88,
+          391.46,
+          399.29,
+          517.56
+        ],
+        "overlapping_gt_class": "cardboard",
+        "overlapping_iou": 0.162,
+        "error_type": "Background hallucination"
+      },
+      {
+        "filename": "images (12).jpg",
+        "predicted_class": "clothes",
+        "confidence": 0.2861,
+        "pred_bbox": [
+          353.23,
+          59.14,
+          499.29,
+          220.12
+        ],
+        "overlapping_gt_class": "paper",
+        "overlapping_iou": 0.115,
+        "error_type": "Background hallucination"
+      },
+      {
+        "filename": "images (12).jpg",
+        "predicted_class": "clothes",
+        "confidence": 0.2753,
+        "pred_bbox": [
+          58.42,
+          45.95,
+          529.19,
+          456.87
+        ],
+        "overlapping_gt_class": "cardboard",
+        "overlapping_iou": 0.796,
+        "error_type": "Wrong class confusion"
+      },
+      {
+        "filename": "images (14).jpg",
+        "predicted_class": "metal",
+        "confidence": 0.3316,
+        "pred_bbox": [
+          364.94,
+          184.38,
+          459.99,
+          247.83
+        ],
+        "overlapping_gt_class": null,
+        "overlapping_iou": 0.0,
+        "error_type": "Background hallucination"
+      },
+      {
+        "filename": "images (18).jpg",
+        "predicted_class": "clothes",
+        "confidence": 0.3872,
+        "pred_bbox": [
+          27.11,
+          12.97,
+          383.3,
+          497.61
+        ],
+        "overlapping_gt_class": "plastic",
+        "overlapping_iou": 0.988,
+        "error_type": "Wrong class confusion"
+      },
+      {
+        "filename": "images (3).jpg",
+        "predicted_class": "plastic",
+        "confidence": 0.9105,
+        "pred_bbox": [
+          52.61,
+          17.66,
+          124.88,
+          172.65
+        ],
+        "overlapping_gt_class": "glass",
+        "overlapping_iou": 0.844,
+        "error_type": "Wrong class confusion"
+      },
+      {
+        "filename": "images (3).jpg",
+        "predicted_class": "plastic",
+        "confidence": 0.4109,
+        "pred_bbox": [
+          166.26,
+          111.24,
+          247.98,
+          137.55
+        ],
+        "overlapping_gt_class": null,
+        "overlapping_iou": 0.0,
+        "error_type": "Background hallucination"
+      },
+      {
+        "filename": "images (4).jpg",
+        "predicted_class": "plastic",
+        "confidence": 0.6615,
+        "pred_bbox": [
+          57.28,
+          47.7,
+          168.34,
+          192.82
+        ],
+        "overlapping_gt_class": "glass",
+        "overlapping_iou": 0.714,
+        "error_type": "Wrong class confusion"
+      },
+      {
+        "filename": "images (4).jpg",
+        "predicted_class": "metal",
+        "confidence": 0.5451,
+        "pred_bbox": [
+          62.27,
+          38.85,
+          171.59,
+          192.8
+        ],
+        "overlapping_gt_class": "glass",
+        "overlapping_iou": 0.674,
+        "error_type": "Wrong class confusion"
+      },
+      {
+        "filename": "images (5).jpg",
+        "predicted_class": "metal",
+        "confidence": 0.4875,
+        "pred_bbox": [
+          91.57,
+          21.37,
+          133.53,
+          65.31
+        ],
+        "overlapping_gt_class": "glass",
+        "overlapping_iou": 0.134,
+        "error_type": "Background hallucination"
+      },
+      {
+        "filename": "images (5).jpg",
+        "predicted_class": "plastic",
+        "confidence": 0.3676,
+        "pred_bbox": [
+          92.01,
+          21.63,
+          136.98,
+          65.06
+        ],
+        "overlapping_gt_class": "glass",
+        "overlapping_iou": 0.142,
+        "error_type": "Background hallucination"
+      },
+      {
+        "filename": "images (5).jpg",
+        "predicted_class": "metal",
+        "confidence": 0.2598,
+        "pred_bbox": [
+          81.17,
+          13.86,
+          146.71,
+          223.63
+        ],
+        "overlapping_gt_class": "glass",
+        "overlapping_iou": 0.965,
+        "error_type": "Wrong class confusion"
+      },
+      {
+        "filename": "images (8).jpg",
+        "predicted_class": "metal",
+        "confidence": 0.4707,
+        "pred_bbox": [
+          25.26,
+          9.4,
+          414.9,
+          461.31
+        ],
+        "overlapping_gt_class": "plastic",
+        "overlapping_iou": 0.953,
+        "error_type": "Wrong class confusion"
+      },
+      {
+        "filename": "images (8).jpg",
+        "predicted_class": "clothes",
+        "confidence": 0.3322,
+        "pred_bbox": [
+          18.01,
+          8.12,
+          410.19,
+          465.0
+        ],
+        "overlapping_gt_class": "plastic",
+        "overlapping_iou": 0.976,
+        "error_type": "Wrong class confusion"
+      },
+      {
+        "filename": "images (9).jpg",
+        "predicted_class": "shoes",
+        "confidence": 0.8595,
+        "pred_bbox": [
+          5.02,
+          4.08,
+          472.65,
+          340.27
+        ],
+        "overlapping_gt_class": "cardboard",
+        "overlapping_iou": 0.787,
+        "error_type": "Wrong class confusion"
+      },
+      {
+        "filename": "Phan-Loai-Rac-Tai-Ng-01.jpg",
+        "predicted_class": "plastic",
+        "confidence": 0.2691,
+        "pred_bbox": [
+          290.66,
+          185.11,
+          641.11,
+          673.14
+        ],
+        "overlapping_gt_class": "plastic",
+        "overlapping_iou": 0.363,
+        "error_type": "Background hallucination"
+      },
+      {
+        "filename": "photo-5-1642556540067542343380.webp",
+        "predicted_class": "plastic",
+        "confidence": 0.3167,
+        "pred_bbox": [
+          320.26,
+          211.05,
+          394.23,
+          343.55
+        ],
+        "overlapping_gt_class": null,
+        "overlapping_iou": 0.0,
+        "error_type": "Background hallucination"
+      },
+      {
+        "filename": "pin_vuong_4f15ab32849e43a8abdaef2bf000463f.webp",
+        "predicted_class": "metal",
+        "confidence": 0.6365,
+        "pred_bbox": [
+          251.49,
+          91.35,
+          556.11,
+          575.95
+        ],
+        "overlapping_gt_class": "battery",
+        "overlapping_iou": 0.768,
+        "error_type": "Wrong class confusion"
+      },
+      {
+        "filename": "pin_vuong_4f15ab32849e43a8abdaef2bf000463f.webp",
+        "predicted_class": "clothes",
+        "confidence": 0.3434,
+        "pred_bbox": [
+          242.68,
+          106.77,
+          553.17,
+          556.24
+        ],
+        "overlapping_gt_class": "battery",
+        "overlapping_iou": 0.744,
+        "error_type": "Wrong class confusion"
+      },
+      {
+        "filename": "rac-thai-quan-ao-4.jpg",
+        "predicted_class": "plastic",
+        "confidence": 0.3521,
+        "pred_bbox": [
+          96.58,
+          121.38,
+          554.38,
+          325.85
+        ],
+        "overlapping_gt_class": "clothes",
+        "overlapping_iou": 0.619,
+        "error_type": "Wrong class confusion"
+      }
+    ]
+  },
+  "yolov8n": {
+    "model_key": "yolov8n",
+    "display_name": "YOLOv8n (Mô hình đối chứng)",
+    "checkpoint_path": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\detection_v2\\E1_yolov8n_10cls\\weights\\best.pt",
+    "checkpoint_size_mb": 5.94,
+    "latency": {
+      "gpu_mean_ms": 34.43,
+      "gpu_min_ms": 11.76,
+      "gpu_max_ms": 82.51,
+      "gpu_fps": 29.0,
+      "cpu_sample_mean_ms": 74.76,
+      "cpu_fps": 13.4
+    },
+    "overall_metrics_conf025_iou050": {
+      "total_gt_objects": 57,
+      "true_positives": 5,
+      "false_positives": 27,
+      "false_negatives": 52,
+      "precision": 15.62,
+      "recall": 8.77,
+      "f1": 11.24
+    },
+    "class_agnostic_conf025_iou050": {
+      "tp": 11,
+      "fp": 21,
+      "fn": 46,
+      "precision": 34.38,
+      "recall": 19.3,
+      "f1": 24.72
+    },
+    "coco_map": {
+      "mAP50": 5.6,
+      "mAP50_95": 2.7,
+      "class_agnostic_AP50": 19.7
+    },
+    "localization_accuracy": {
+      "matched_pairs": 11,
+      "correct_class_pairs": 5,
+      "class_accuracy": 45.45
+    },
+    "strict_dod": {
+      "status": "FAIL",
+      "passed": false,
+      "acceptance_criteria": {
+        "coverage_target": "100%",
+        "coverage_actual": "100.00% (27/27)",
+        "coverage_passed": true,
+        "fn_target": 0,
+        "fn_actual": 41,
+        "fn_passed": false,
+        "fp_target": 0,
+        "fp_actual": 16,
+        "fp_passed": false,
+        "wrong_class_target": 0,
+        "wrong_class_actual": 8,
+        "wrong_class_passed": false,
+        "min_iou_target": ">= 0.75",
+        "iou_violations_count": 11,
+        "iou_passed": false,
+        "min_inter_gt_target": ">= 0.99",
+        "inter_gt_violations_count": 11,
+        "inter_gt_passed": false,
+        "invalid_boxes_count": 0,
+        "invalid_boxes_passed": true
+      },
+      "overall_statistics": {
+        "total_manifest_images": 27,
+        "evaluated_images": 27,
+        "missing_images_count": 0,
+        "total_gt_objects": 57,
+        "total_pred_objects": 32,
+        "total_matched_pairs": 16,
+        "mean_iou_matched": 0.618969427421689,
+        "mean_inter_gt_matched": 0.7760022105649114
+      }
+    },
+    "per_class_metrics": {
+      "battery": {
+        "class_id": 0,
+        "vietnamese": "Pin / Ắc quy",
+        "n_gt": 2,
+        "tp": 0,
+        "fp": 0,
+        "fn": 2,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "biological": {
+        "class_id": 1,
+        "vietnamese": "Rác sinh học / Hữu cơ",
+        "n_gt": 3,
+        "tp": 0,
+        "fp": 0,
+        "fn": 3,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "cardboard": {
+        "class_id": 2,
+        "vietnamese": "Bìa carton",
+        "n_gt": 3,
+        "tp": 0,
+        "fp": 0,
+        "fn": 3,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "ap50": 0.3366,
+        "ap50_95": 0.1347
+      },
+      "clothes": {
+        "class_id": 3,
+        "vietnamese": "Quần áo cũ",
+        "n_gt": 8,
+        "tp": 0,
+        "fp": 6,
+        "fn": 8,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "glass": {
+        "class_id": 4,
+        "vietnamese": "Thủy tinh",
+        "n_gt": 11,
+        "tp": 0,
+        "fp": 3,
+        "fn": 11,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "ap50": 0.003,
+        "ap50_95": 0.0018
+      },
+      "metal": {
+        "class_id": 5,
+        "vietnamese": "Kim loại",
+        "n_gt": 4,
+        "tp": 1,
+        "fp": 6,
+        "fn": 3,
+        "precision": 0.1429,
+        "recall": 0.25,
+        "f1": 0.1818,
+        "ap50": 0.0515,
+        "ap50_95": 0.0206
+      },
+      "paper": {
+        "class_id": 6,
+        "vietnamese": "Giấy",
+        "n_gt": 2,
+        "tp": 0,
+        "fp": 3,
+        "fn": 2,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      },
+      "plastic": {
+        "class_id": 7,
+        "vietnamese": "Nhựa",
+        "n_gt": 17,
+        "tp": 3,
+        "fp": 7,
+        "fn": 14,
+        "precision": 0.3,
+        "recall": 0.1765,
+        "f1": 0.2222,
+        "ap50": 0.0671,
+        "ap50_95": 0.0355
+      },
+      "shoes": {
+        "class_id": 8,
+        "vietnamese": "Giày dép",
+        "n_gt": 6,
+        "tp": 1,
+        "fp": 2,
+        "fn": 5,
+        "precision": 0.3333,
+        "recall": 0.1667,
+        "f1": 0.2222,
+        "ap50": 0.1015,
+        "ap50_95": 0.0778
+      },
+      "trash": {
+        "class_id": 9,
+        "vietnamese": "Rác khác",
+        "n_gt": 1,
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "ap50": 0.0,
+        "ap50_95": 0.0
+      }
+    },
+    "false_negatives_count": 52,
+    "false_positives_count": 27,
+    "false_negatives_sample": [
+      {
+        "filename": "base64-1717231151649602366964.jpeg",
+        "gt_object_id": "gt_0",
+        "class_id": 4,
+        "class_name": "glass",
+        "gt_bbox": [
+          180.0,
+          695.0,
+          825.0,
+          1115.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "base64-1717231151649602366964.jpeg",
+        "gt_object_id": "gt_1",
+        "class_id": 4,
+        "class_name": "glass",
+        "gt_bbox": [
+          325.0,
+          615.0,
+          555.0,
+          810.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "base64-1717231151649602366964.jpeg",
+        "gt_object_id": "gt_2",
+        "class_id": 4,
+        "class_name": "glass",
+        "gt_bbox": [
+          1355.0,
+          370.0,
+          1845.0,
+          680.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "base64-1717231151649602366964.jpeg",
+        "gt_object_id": "gt_3",
+        "class_id": 4,
+        "class_name": "glass",
+        "gt_bbox": [
+          1115.0,
+          1010.0,
+          1410.0,
+          1334.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "base64-1717231151649602366964.jpeg",
+        "gt_object_id": "gt_4",
+        "class_id": 9,
+        "class_name": "trash",
+        "gt_bbox": [
+          1190.0,
+          810.0,
+          1585.0,
+          1120.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "base64-1717231151649602366964.jpeg",
+        "gt_object_id": "gt_5",
+        "class_id": 3,
+        "class_name": "clothes",
+        "gt_bbox": [
+          0.0,
+          720.0,
+          150.0,
+          920.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "base64-1717231151649602366964.jpeg",
+        "gt_object_id": "gt_6",
+        "class_id": 4,
+        "class_name": "glass",
+        "gt_bbox": [
+          0.0,
+          195.0,
+          2000.0,
+          1334.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "battery-sample.png",
+        "gt_object_id": "gt_0",
+        "class_id": 0,
+        "class_name": "battery",
+        "gt_bbox": [
+          14.0,
+          50.0,
+          503.0,
+          371.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "download (2).jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 7,
+        "class_name": "plastic",
+        "gt_bbox": [
+          112.0,
+          10.0,
+          168.0,
+          62.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "download (2).jpg",
+        "gt_object_id": "gt_1",
+        "class_id": 7,
+        "class_name": "plastic",
+        "gt_bbox": [
+          140.0,
+          50.0,
+          203.0,
+          112.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "download (2).jpg",
+        "gt_object_id": "gt_2",
+        "class_id": 7,
+        "class_name": "plastic",
+        "gt_bbox": [
+          0.0,
+          0.0,
+          299.0,
+          168.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (10).jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 3,
+        "class_name": "clothes",
+        "gt_bbox": [
+          0.0,
+          160.0,
+          640.0,
+          398.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (10).jpg",
+        "gt_object_id": "gt_1",
+        "class_id": 3,
+        "class_name": "clothes",
+        "gt_bbox": [
+          0.0,
+          120.0,
+          325.0,
+          295.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (11).jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 5,
+        "class_name": "metal",
+        "gt_bbox": [
+          0.0,
+          140.0,
+          684.0,
+          448.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (12).jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 2,
+        "class_name": "cardboard",
+        "gt_bbox": [
+          32.0,
+          36.0,
+          535.0,
+          519.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (12).jpg",
+        "gt_object_id": "gt_1",
+        "class_id": 6,
+        "class_name": "paper",
+        "gt_bbox": [
+          110.0,
+          90.0,
+          475.0,
+          445.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (13).jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 7,
+        "class_name": "plastic",
+        "gt_bbox": [
+          0.0,
+          0.0,
+          538.0,
+          371.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (14).jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 8,
+        "class_name": "shoes",
+        "gt_bbox": [
+          0.0,
+          0.0,
+          260.0,
+          365.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (14).jpg",
+        "gt_object_id": "gt_1",
+        "class_id": 8,
+        "class_name": "shoes",
+        "gt_bbox": [
+          250.0,
+          0.0,
+          547.0,
+          365.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (15).jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 8,
+        "class_name": "shoes",
+        "gt_bbox": [
+          113.0,
+          17.0,
+          192.0,
+          68.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (15).jpg",
+        "gt_object_id": "gt_1",
+        "class_id": 8,
+        "class_name": "shoes",
+        "gt_bbox": [
+          160.0,
+          84.0,
+          226.0,
+          148.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (15).jpg",
+        "gt_object_id": "gt_3",
+        "class_id": 8,
+        "class_name": "shoes",
+        "gt_bbox": [
+          15.0,
+          114.0,
+          110.0,
+          191.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (17).jpg",
+        "gt_object_id": "gt_1",
+        "class_id": 7,
+        "class_name": "plastic",
+        "gt_bbox": [
+          250.0,
+          178.0,
+          535.0,
+          365.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (17).jpg",
+        "gt_object_id": "gt_2",
+        "class_id": 5,
+        "class_name": "metal",
+        "gt_bbox": [
+          0.0,
+          185.0,
+          115.0,
+          252.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (17).jpg",
+        "gt_object_id": "gt_3",
+        "class_id": 5,
+        "class_name": "metal",
+        "gt_bbox": [
+          195.0,
+          218.0,
+          258.0,
+          250.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (17).jpg",
+        "gt_object_id": "gt_4",
+        "class_id": 4,
+        "class_name": "glass",
+        "gt_bbox": [
+          68.0,
+          105.0,
+          150.0,
+          240.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (17).jpg",
+        "gt_object_id": "gt_5",
+        "class_id": 4,
+        "class_name": "glass",
+        "gt_bbox": [
+          41.0,
+          110.0,
+          86.0,
+          190.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (17).jpg",
+        "gt_object_id": "gt_7",
+        "class_id": 7,
+        "class_name": "plastic",
+        "gt_bbox": [
+          328.0,
+          52.0,
+          405.0,
+          200.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (17).jpg",
+        "gt_object_id": "gt_9",
+        "class_id": 7,
+        "class_name": "plastic",
+        "gt_bbox": [
+          425.0,
+          110.0,
+          510.0,
+          210.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (18).jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 7,
+        "class_name": "plastic",
+        "gt_bbox": [
+          26.0,
+          12.0,
+          384.0,
+          495.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (19).jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 1,
+        "class_name": "biological",
+        "gt_bbox": [
+          90.0,
+          0.0,
+          597.0,
+          335.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (3).jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 4,
+        "class_name": "glass",
+        "gt_bbox": [
+          49.0,
+          18.0,
+          120.0,
+          165.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (4).jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 4,
+        "class_name": "glass",
+        "gt_bbox": [
+          37.0,
+          48.0,
+          185.0,
+          200.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (5).jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 4,
+        "class_name": "glass",
+        "gt_bbox": [
+          80.0,
+          15.0,
+          146.0,
+          224.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (6).jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 1,
+        "class_name": "biological",
+        "gt_bbox": [
+          0.0,
+          0.0,
+          318.0,
+          159.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (7).jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 7,
+        "class_name": "plastic",
+        "gt_bbox": [
+          0.0,
+          0.0,
+          538.0,
+          371.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (8).jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 7,
+        "class_name": "plastic",
+        "gt_bbox": [
+          12.0,
+          8.0,
+          412.0,
+          463.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "images (9).jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 2,
+        "class_name": "cardboard",
+        "gt_bbox": [
+          0.0,
+          0.0,
+          515.0,
+          388.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "OIP (1).webp",
+        "gt_object_id": "gt_0",
+        "class_id": 3,
+        "class_name": "clothes",
+        "gt_bbox": [
+          0.0,
+          95.0,
+          313.0,
+          237.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "OIP (1).webp",
+        "gt_object_id": "gt_1",
+        "class_id": 3,
+        "class_name": "clothes",
+        "gt_bbox": [
+          0.0,
+          70.0,
+          160.0,
+          175.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "OIP.webp",
+        "gt_object_id": "gt_0",
+        "class_id": 3,
+        "class_name": "clothes",
+        "gt_bbox": [
+          0.0,
+          0.0,
+          274.0,
+          234.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "Phan-Loai-Rac-Tai-Ng-01.jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 7,
+        "class_name": "plastic",
+        "gt_bbox": [
+          230.0,
+          220.0,
+          460.0,
+          550.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "Phan-Loai-Rac-Tai-Ng-01.jpg",
+        "gt_object_id": "gt_1",
+        "class_id": 7,
+        "class_name": "plastic",
+        "gt_bbox": [
+          340.0,
+          445.0,
+          675.0,
+          705.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "Phan-Loai-Rac-Tai-Ng-01.jpg",
+        "gt_object_id": "gt_2",
+        "class_id": 7,
+        "class_name": "plastic",
+        "gt_bbox": [
+          590.0,
+          580.0,
+          755.0,
+          715.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "Phan-Loai-Rac-Tai-Ng-01.jpg",
+        "gt_object_id": "gt_3",
+        "class_id": 2,
+        "class_name": "cardboard",
+        "gt_bbox": [
+          680.0,
+          570.0,
+          765.0,
+          650.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "Phan-Loai-Rac-Tai-Ng-01.jpg",
+        "gt_object_id": "gt_4",
+        "class_id": 7,
+        "class_name": "plastic",
+        "gt_bbox": [
+          680.0,
+          380.0,
+          710.0,
+          400.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "Phan-Loai-Rac-Tai-Ng-01.jpg",
+        "gt_object_id": "gt_5",
+        "class_id": 6,
+        "class_name": "paper",
+        "gt_bbox": [
+          285.0,
+          590.0,
+          375.0,
+          655.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "photo-5-1642556540067542343380.webp",
+        "gt_object_id": "gt_0",
+        "class_id": 3,
+        "class_name": "clothes",
+        "gt_bbox": [
+          0.0,
+          15.0,
+          620.0,
+          376.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "pin_vuong_4f15ab32849e43a8abdaef2bf000463f.webp",
+        "gt_object_id": "gt_0",
+        "class_id": 0,
+        "class_name": "battery",
+        "gt_bbox": [
+          252.0,
+          120.0,
+          551.0,
+          676.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "rac-1562828175-1562828212-3852-1562828313.webp",
+        "gt_object_id": "gt_0",
+        "class_id": 4,
+        "class_name": "glass",
+        "gt_bbox": [
+          0.0,
+          95.0,
+          532.0,
+          299.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "rac-thai-huu-co-1.jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 1,
+        "class_name": "biological",
+        "gt_bbox": [
+          0.0,
+          0.0,
+          600.0,
+          410.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      },
+      {
+        "filename": "rac-thai-quan-ao-4.jpg",
+        "gt_object_id": "gt_0",
+        "class_id": 3,
+        "class_name": "clothes",
+        "gt_bbox": [
+          100.0,
+          175.0,
+          590.0,
+          350.0
+        ],
+        "reason": "Missed by detector (no matching pred box with same class and IoU>=0.50)"
+      }
+    ],
+    "false_positives_sample": [
+      {
+        "filename": "battery-sample.png",
+        "predicted_class": "shoes",
+        "confidence": 0.9188,
+        "pred_bbox": [
+          7.36,
+          31.19,
+          512.0,
+          386.34
+        ],
+        "overlapping_gt_class": "battery",
+        "overlapping_iou": 0.876,
+        "error_type": "Wrong class confusion"
+      },
+      {
+        "filename": "images (13).jpg",
+        "predicted_class": "metal",
+        "confidence": 0.344,
+        "pred_bbox": [
+          190.35,
+          36.06,
+          249.5,
+          101.01
+        ],
+        "overlapping_gt_class": null,
+        "overlapping_iou": 0.0,
+        "error_type": "Background hallucination"
+      },
+      {
+        "filename": "images (13).jpg",
+        "predicted_class": "paper",
+        "confidence": 0.2871,
+        "pred_bbox": [
+          256.91,
+          298.75,
+          377.83,
+          371.0
+        ],
+        "overlapping_gt_class": null,
+        "overlapping_iou": 0.0,
+        "error_type": "Background hallucination"
+      },
+      {
+        "filename": "images (14).jpg",
+        "predicted_class": "clothes",
+        "confidence": 0.3743,
+        "pred_bbox": [
+          191.93,
+          140.91,
+          428.77,
+          297.92
+        ],
+        "overlapping_gt_class": "shoes",
+        "overlapping_iou": 0.239,
+        "error_type": "Background hallucination"
+      },
+      {
+        "filename": "images (14).jpg",
+        "predicted_class": "glass",
+        "confidence": 0.3609,
+        "pred_bbox": [
+          192.98,
+          141.22,
+          431.52,
+          299.01
+        ],
+        "overlapping_gt_class": "shoes",
+        "overlapping_iou": 0.244,
+        "error_type": "Background hallucination"
+      },
+      {
+        "filename": "images (14).jpg",
+        "predicted_class": "metal",
+        "confidence": 0.2845,
+        "pred_bbox": [
+          201.4,
+          122.29,
+          250.12,
+          177.4
+        ],
+        "overlapping_gt_class": null,
+        "overlapping_iou": 0.0,
+        "error_type": "Background hallucination"
+      },
+      {
+        "filename": "images (14).jpg",
+        "predicted_class": "metal",
+        "confidence": 0.25,
+        "pred_bbox": [
+          366.42,
+          182.67,
+          461.48,
+          242.68
+        ],
+        "overlapping_gt_class": null,
+        "overlapping_iou": 0.0,
+        "error_type": "Background hallucination"
+      },
+      {
+        "filename": "images (17).jpg",
+        "predicted_class": "shoes",
+        "confidence": 0.6543,
+        "pred_bbox": [
+          91.48,
+          292.11,
+          160.53,
+          353.76
+        ],
+        "overlapping_gt_class": null,
+        "overlapping_iou": 0.0,
+        "error_type": "Background hallucination"
+      },
+      {
+        "filename": "images (18).jpg",
+        "predicted_class": "metal",
+        "confidence": 0.7911,
+        "pred_bbox": [
+          20.92,
+          8.27,
+          360.89,
+          499.78
+        ],
+        "overlapping_gt_class": "plastic",
+        "overlapping_iou": 0.907,
+        "error_type": "Wrong class confusion"
+      },
+      {
+        "filename": "images (18).jpg",
+        "predicted_class": "clothes",
+        "confidence": 0.544,
+        "pred_bbox": [
+          12.41,
+          8.65,
+          388.99,
+          501.0
+        ],
+        "overlapping_gt_class": "plastic",
+        "overlapping_iou": 0.933,
+        "error_type": "Wrong class confusion"
+      },
+      {
+        "filename": "images (19).jpg",
+        "predicted_class": "plastic",
+        "confidence": 0.5211,
+        "pred_bbox": [
+          484.38,
+          108.49,
+          546.3,
+          182.39
+        ],
+        "overlapping_gt_class": null,
+        "overlapping_iou": 0.0,
+        "error_type": "Background hallucination"
+      },
+      {
+        "filename": "images (3).jpg",
+        "predicted_class": "clothes",
+        "confidence": 0.8142,
+        "pred_bbox": [
+          0.0,
+          11.92,
+          122.77,
+          173.46
+        ],
+        "overlapping_gt_class": "glass",
+        "overlapping_iou": 0.526,
+        "error_type": "Wrong class confusion"
+      },
+      {
+        "filename": "images (5).jpg",
+        "predicted_class": "plastic",
+        "confidence": 0.5408,
+        "pred_bbox": [
+          89.26,
+          14.51,
+          134.95,
+          64.6
+        ],
+        "overlapping_gt_class": "glass",
+        "overlapping_iou": 0.164,
+        "error_type": "Background hallucination"
+      },
+      {
+        "filename": "images (7).jpg",
+        "predicted_class": "metal",
+        "confidence": 0.344,
+        "pred_bbox": [
+          190.35,
+          36.06,
+          249.5,
+          101.01
+        ],
+        "overlapping_gt_class": null,
+        "overlapping_iou": 0.0,
+        "error_type": "Background hallucination"
+      },
+      {
+        "filename": "images (7).jpg",
+        "predicted_class": "paper",
+        "confidence": 0.2871,
+        "pred_bbox": [
+          256.91,
+          298.75,
+          377.83,
+          371.0
+        ],
+        "overlapping_gt_class": null,
+        "overlapping_iou": 0.0,
+        "error_type": "Background hallucination"
+      },
+      {
+        "filename": "images (8).jpg",
+        "predicted_class": "clothes",
+        "confidence": 0.7843,
+        "pred_bbox": [
+          18.7,
+          0.1,
+          423.18,
+          465.13
+        ],
+        "overlapping_gt_class": "plastic",
+        "overlapping_iou": 0.936,
+        "error_type": "Wrong class confusion"
+      },
+      {
+        "filename": "Phan-Loai-Rac-Tai-Ng-01.jpg",
+        "predicted_class": "clothes",
+        "confidence": 0.7882,
+        "pred_bbox": [
+          465.63,
+          22.33,
+          523.17,
+          130.12
+        ],
+        "overlapping_gt_class": null,
+        "overlapping_iou": 0.0,
+        "error_type": "Background hallucination"
+      },
+      {
+        "filename": "Phan-Loai-Rac-Tai-Ng-01.jpg",
+        "predicted_class": "plastic",
+        "confidence": 0.7805,
+        "pred_bbox": [
+          334.35,
+          305.34,
+          669.7,
+          649.54
+        ],
+        "overlapping_gt_class": "plastic",
+        "overlapping_iou": 0.499,
+        "error_type": "Background hallucination"
+      },
+      {
+        "filename": "Phan-Loai-Rac-Tai-Ng-01.jpg",
+        "predicted_class": "plastic",
+        "confidence": 0.6667,
+        "pred_bbox": [
+          199.49,
+          152.1,
+          590.58,
+          475.99
+        ],
+        "overlapping_gt_class": "plastic",
+        "overlapping_iou": 0.41,
+        "error_type": "Background hallucination"
+      },
+      {
+        "filename": "Phan-Loai-Rac-Tai-Ng-01.jpg",
+        "predicted_class": "plastic",
+        "confidence": 0.5351,
+        "pred_bbox": [
+          619.6,
+          414.24,
+          763.87,
+          547.42
+        ],
+        "overlapping_gt_class": null,
+        "overlapping_iou": 0.0,
+        "error_type": "Background hallucination"
+      },
+      {
+        "filename": "Phan-Loai-Rac-Tai-Ng-01.jpg",
+        "predicted_class": "paper",
+        "confidence": 0.4675,
+        "pred_bbox": [
+          575.05,
+          561.11,
+          722.92,
+          708.57
+        ],
+        "overlapping_gt_class": "plastic",
+        "overlapping_iou": 0.633,
+        "error_type": "Wrong class confusion"
+      },
+      {
+        "filename": "Phan-Loai-Rac-Tai-Ng-01.jpg",
+        "predicted_class": "plastic",
+        "confidence": 0.4464,
+        "pred_bbox": [
+          518.89,
+          210.78,
+          574.17,
+          247.1
+        ],
+        "overlapping_gt_class": null,
+        "overlapping_iou": 0.0,
+        "error_type": "Background hallucination"
+      },
+      {
+        "filename": "photo-5-1642556540067542343380.webp",
+        "predicted_class": "clothes",
+        "confidence": 0.3732,
+        "pred_bbox": [
+          129.45,
+          243.7,
+          232.52,
+          374.89
+        ],
+        "overlapping_gt_class": null,
+        "overlapping_iou": 0.0,
+        "error_type": "Background hallucination"
+      },
+      {
+        "filename": "pin_vuong_4f15ab32849e43a8abdaef2bf000463f.webp",
+        "predicted_class": "metal",
+        "confidence": 0.8827,
+        "pred_bbox": [
+          239.48,
+          128.65,
+          562.49,
+          514.7
+        ],
+        "overlapping_gt_class": "battery",
+        "overlapping_iou": 0.658,
+        "error_type": "Wrong class confusion"
+      },
+      {
+        "filename": "rac-1562828175-1562828212-3852-1562828313.webp",
+        "predicted_class": "glass",
+        "confidence": 0.437,
+        "pred_bbox": [
+          469.25,
+          174.87,
+          531.74,
+          205.3
+        ],
+        "overlapping_gt_class": null,
+        "overlapping_iou": 0.0,
+        "error_type": "Background hallucination"
+      },
+      {
+        "filename": "rac-1562828175-1562828212-3852-1562828313.webp",
+        "predicted_class": "glass",
+        "confidence": 0.3975,
+        "pred_bbox": [
+          0.0,
+          133.45,
+          217.04,
+          299.0
+        ],
+        "overlapping_gt_class": "glass",
+        "overlapping_iou": 0.331,
+        "error_type": "Background hallucination"
+      },
+      {
+        "filename": "rac-thai-quan-ao-4.jpg",
+        "predicted_class": "plastic",
+        "confidence": 0.6307,
+        "pred_bbox": [
+          101.02,
+          129.22,
+          424.52,
+          321.61
+        ],
+        "overlapping_gt_class": "clothes",
+        "overlapping_iou": 0.472,
+        "error_type": "Background hallucination"
+      }
+    ]
+  }
+}

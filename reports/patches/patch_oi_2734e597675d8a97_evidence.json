@@ -1,0 +1,66 @@
+{
+  "patch_target": "oi_2734e597675d8a97 duplicate bounding box removal",
+  "image_sha256": "be1d1ed75cb7ae89994956272a680e1c60ce918d47e1d5c4b2539fa73b92c9c0",
+  "manifest_field_clarification": "real_v2_split_manifest.csv column 7 is IMAGE sha256 (invariant be1d1ed75cb7ae89994956272a680e1c60ce918d47e1d5c4b2539fa73b92c9c0); column 8 is num_boxes (2 -> 1).",
+  "files": {
+    "labels/real/oi_2734e597675d8a97.txt": {
+      "boxes_before": 2,
+      "boxes_after": 1,
+      "hashes_before": {
+        "sha256_lf": "31fe2448370220394385b4c2c367740000b5b287be3b56f1d0b55004ede7efb6",
+        "sha256_crlf": "846dce83eea2f5a4a2b82ab049fad1a71425cb62cee7d83db24034d2893ea167"
+      },
+      "hashes_after": {
+        "sha256_lf": "d3c88be1e81cd6dd08ad2eb7f569fca0b66df73401bb136060619283a65f3a39",
+        "sha256_crlf": "ce34d49fd17aa36d23fa185ffc7c5b7db806f9f91b79d59bc6c580499c0d5964"
+      },
+      "disk_raw_bytes_sha256": "ce34d49fd17aa36d23fa185ffc7c5b7db806f9f91b79d59bc6c580499c0d5964",
+      "content_before": [
+        "3 0.500000 0.500000 1.000000 1.000000",
+        "3 0.500000 0.500000 1.000000 1.000000"
+      ],
+      "content_after": [
+        "3 0.500000 0.500000 1.000000 1.000000"
+      ]
+    },
+    "labels_agnostic/real/oi_2734e597675d8a97.txt": {
+      "boxes_before": 2,
+      "boxes_after": 1,
+      "hashes_before": {
+        "sha256_lf": "2cb8353b3525b04fe62adb31e9ab83c98b5f8795a2a9cd77f06dc81ea2e3f3a3",
+        "sha256_crlf": "5e8363c24ef514aee08b129bae3796fb5ffb7921d2008cbdda0f81270d944e60"
+      },
+      "hashes_after": {
+        "sha256_lf": "7031367e09bd925ee6334f042a2b50ec959cf27dca2f7dd55ceb643b8b1f164c",
+        "sha256_crlf": "d27ad4be94d852c39a51c0e19a3231607def13e0b7ef18575ccfe4af99d30237"
+      },
+      "disk_raw_bytes_sha256": "d27ad4be94d852c39a51c0e19a3231607def13e0b7ef18575ccfe4af99d30237"
+    },
+    "detection_agnostic/labels/real/oi_2734e597675d8a97.txt": {
+      "boxes_before": 2,
+      "boxes_after": 1,
+      "hashes_before": {
+        "sha256_lf": "2cb8353b3525b04fe62adb31e9ab83c98b5f8795a2a9cd77f06dc81ea2e3f3a3",
+        "sha256_crlf": "5e8363c24ef514aee08b129bae3796fb5ffb7921d2008cbdda0f81270d944e60"
+      },
+      "hashes_after": {
+        "sha256_lf": "7031367e09bd925ee6334f042a2b50ec959cf27dca2f7dd55ceb643b8b1f164c",
+        "sha256_crlf": "d27ad4be94d852c39a51c0e19a3231607def13e0b7ef18575ccfe4af99d30237"
+      },
+      "disk_raw_bytes_sha256": "d27ad4be94d852c39a51c0e19a3231607def13e0b7ef18575ccfe4af99d30237"
+    },
+    "real_v2_source_manifest.csv": {
+      "line_before": "oi_2734e597675d8a97.jpg,openimages_v7,2734e597675d8a97,validation,https://open-images-dataset.s3.amazonaws.com/validation/2734e597675d8a97.jpg,new,2,0",
+      "line_after": "oi_2734e597675d8a97.jpg,openimages_v7,2734e597675d8a97,validation,https://open-images-dataset.s3.amazonaws.com/validation/2734e597675d8a97.jpg,new,1,0",
+      "num_boxes_before": 2,
+      "num_boxes_after": 1
+    },
+    "real_v2_split_manifest.csv": {
+      "line_before": "oi_2734e597675d8a97.jpg,val,openimages_v7,g00102,openimages_v7|clothes,858c1d6d695a3e65,be1d1ed75cb7ae89994956272a680e1c60ce918d47e1d5c4b2539fa73b92c9c0,2,clothes",
+      "line_after": "oi_2734e597675d8a97.jpg,val,openimages_v7,g00102,openimages_v7|clothes,858c1d6d695a3e65,be1d1ed75cb7ae89994956272a680e1c60ce918d47e1d5c4b2539fa73b92c9c0,1,clothes",
+      "num_boxes_before": 2,
+      "num_boxes_after": 1,
+      "image_sha256_verified": "be1d1ed75cb7ae89994956272a680e1c60ce918d47e1d5c4b2539fa73b92c9c0"
+    }
+  }
+}

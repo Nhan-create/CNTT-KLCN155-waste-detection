@@ -37,8 +37,8 @@ DEFAULT_DATASET_INFO = PROJECT_ROOT / "data" / "metadata" / "dataset_info.csv"
 DEFAULT_DECISION_TABLE = PROJECT_ROOT / "data" / "audit" / "visual_audit_decision_table.csv"
 if (PROJECT_ROOT / "data" / "processed_v2").exists():
     DEFAULT_PROCESSED_DIR = PROJECT_ROOT / "data" / "processed_v2"
-elif Path("D:/CNTT-KLCN155-waste-detection/data/processed_v2").exists():
-    DEFAULT_PROCESSED_DIR = Path("D:/CNTT-KLCN155-waste-detection/data/processed_v2")
+elif (Path(__file__).resolve().parents[1] / "data/processed_v2").exists():
+    DEFAULT_PROCESSED_DIR = (Path(__file__).resolve().parents[1] / "data/processed_v2")
 else:
     DEFAULT_PROCESSED_DIR = PROJECT_ROOT / "data" / "processed_v2"
 DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "data" / "audit"

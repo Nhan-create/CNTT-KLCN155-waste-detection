@@ -1,0 +1,49 @@
+{
+  "delta_version": "TASK8I_FINAL_HOTFIX_MANIFEST_AND_LEDGER_DELTA_V1",
+  "inaturalist_107_manifest_delta": {
+    "pre_hotfix_real_waste_pass_total": 33,
+    "pre_hotfix_real_waste_pass_train": 27,
+    "pre_hotfix_real_waste_pass_val": 6,
+    "pre_hotfix_keep_auxiliary": 29,
+    "pre_hotfix_reject": 45,
+    "post_hotfix_real_waste_pass_total": 30,
+    "post_hotfix_real_waste_pass_train": 24,
+    "post_hotfix_real_waste_pass_val": 6,
+    "post_hotfix_keep_auxiliary": 37,
+    "post_hotfix_reject": 40,
+    "delta_real_waste_pass_total": -3,
+    "delta_real_waste_pass_train": -3,
+    "delta_real_waste_pass_val": 0,
+    "delta_keep_auxiliary": 8,
+    "delta_reject": -5,
+    "records_changed_in_hotfix": {
+      "task2_handheld_demoted_from_pass_to_keep_auxiliary": [
+        "task8h_0085",
+        "task8h_0092",
+        "task8h_0137"
+      ],
+      "task3_obs_license_restricted_moved_from_reject_to_keep_auxiliary": [
+        "task8h_0072",
+        "task8h_0102",
+        "task8h_0114",
+        "task8h_0141",
+        "task8h_0145"
+      ]
+    }
+  },
+  "wave8h_qa_manifest_delta": {
+    "pre_hotfix_real_waste_pass_total": 158,
+    "pre_hotfix_real_waste_pass_train": 130,
+    "pre_hotfix_real_waste_pass_val": 28,
+    "post_hotfix_real_waste_pass_total": 155,
+    "post_hotfix_real_waste_pass_train": 127,
+    "post_hotfix_real_waste_pass_val": 28
+  },
+  "ledger_v6_delta": {
+    "pre_hotfix_unique_verified_rw_train_images": 1811,
+    "post_hotfix_unique_verified_rw_train_images": 1808,
+    "pre_hotfix_biological_verified_rw_train_images": 122,
+    "post_hotfix_biological_verified_rw_train_images": 119,
+    "other_9_classes_verified_rw_train_delta": 0
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "dataset_version": "real_v2_to_v3_transition",
+  "total_images": {
+    "train": 1398,
+    "val": 299,
+    "test": 299,
+    "total": 1996
+  },
+  "image_sources_by_split": {
+    "train": {
+      "openimages_v7": 369,
+      "taco": 1029
+    },
+    "val": {
+      "openimages_v7": 78,
+      "taco": 221
+    },
+    "test": {
+      "openimages_v7": 78,
+      "taco": 221
+    }
+  },
+  "total_boxes": {
+    "train": 3963,
+    "val": 901,
+    "test": 720,
+    "grand_total": 5584
+  },
+  "class_gap_analysis": [
+    {
+      "class_id": 0,
+      "class_name": "battery",
+      "train_boxes": 1,
+      "val_boxes": 0,
+      "test_boxes": 1,
+      "total_boxes": 2,
+      "train_percent": 0.03,
+      "sources": {
+        "taco": 2
+      },
+      "priority": "P0 (Critical)",
+      "gap_description": "Chỉ có 1 box trong tập train (0.03%), 0 box trong val. Hoàn toàn đói nhãn. Mô hình không thể học đặc trưng nhận diện pin, nhầm lẫn sang shoes/metal."
+    },
+    {
+      "class_id": 1,
+      "class_name": "biological",
+      "train_boxes": 3,
+      "val_boxes": 2,
+      "test_boxes": 1,
+      "total_boxes": 6,
+      "train_percent": 0.08,
+      "sources": {
+        "taco": 6
+      },
+      "priority": "P0 (Critical)",
+      "gap_description": "Chỉ có 3 box trong tập train (0.08%), 2 box trong val. Đói nhãn nghiêm trọng. Dễ nhầm với nền đất đá hoặc trash."
+    },
+    {
+      "class_id": 2,
+      "class_name": "cardboard",
+      "train_boxes": 169,
+      "val_boxes": 39,
+      "test_boxes": 36,
+      "total_boxes": 244,
+      "train_percent": 4.26,
+      "sources": {
+        "taco": 244
+      },
+      "priority": "P1 (High)",
+      "gap_description": "169 train boxes (4.26%). Thiếu các góc nhìn bìa carton đa dạng, vỏ hộp bị gập, ướt, rách."
+    },
+    {
+      "class_id": 3,
+      "class_name": "clothes",
+      "train_boxes": 368,
+      "val_boxes": 68,
+      "test_boxes": 91,
+      "total_boxes": 527,
+      "train_percent": 9.29,
+      "sources": {
+        "openimages_v7": 527
+      },
+      "priority": "P1 (High)",
+      "gap_description": "368 train boxes (9.29%). 100% từ Open Images người mặc quần áo thời trang, không phải quần áo rác vứt ngoài đường."
+    },
+    {
+      "class_id": 4,
+      "class_name": "glass",
+      "train_boxes": 213,
+      "val_boxes": 82,
+      "test_boxes": 32,
+      "total_boxes": 327,
+      "train_percent": 5.37,
+      "sources": {
+        "openimages_v7": 75,
+        "taco": 252
+      },
+      "priority": "P1 (High)",
+      "gap_description": "213 train boxes (5.37%). Thiếu chai thủy tinh vỡ, mảnh vỡ và chai trong suốt trên nền phức tạp."
+    },
+    {
+      "class_id": 5,
+      "class_name": "metal",
+      "train_boxes": 420,
+      "val_boxes": 74,
+      "test_boxes": 73,
+      "total_boxes": 567,
+      "train_percent": 10.6,
+      "sources": {
+        "openimages_v7": 24,
+        "taco": 543
+      },
+      "priority": "P1 (High)",
+      "gap_description": "420 train boxes (10.60%). Chủ yếu là lon nước ngọt; thiếu kim loại rỉ sét, nắp hộp đồ hộp, phế liệu sắc nhọn."
+    },
+    {
+      "class_id": 6,
+      "class_name": "paper",
+      "train_boxes": 160,
+      "val_boxes": 43,
+      "test_boxes": 34,
+      "total_boxes": 237,
+      "train_percent": 4.04,
+      "sources": {
+        "openimages_v7": 5,
+        "taco": 232
+      },
+      "priority": "P1 (High)",
+      "gap_description": "160 train boxes (4.04%). Thiếu giấy báo vò nát, khăn giấy bẩn, biên lai nhăn nheo."
+    },
+    {
+      "class_id": 7,
+      "class_name": "plastic",
+      "train_boxes": 1560,
+      "val_boxes": 382,
+      "test_boxes": 274,
+      "total_boxes": 2216,
+      "train_percent": 39.36,
+      "sources": {
+        "openimages_v7": 3,
+        "taco": 2213
+      },
+      "priority": "P2 (Dominant)",
+      "gap_description": "1,560 train boxes (39.36%). Chiếm tỷ trọng áp đảo gần 40%, gây thiên vị phân loại (bias) lên tất cả các vật thể khác."
+    },
+    {
+      "class_id": 8,
+      "class_name": "shoes",
+      "train_boxes": 215,
+      "val_boxes": 41,
+      "test_boxes": 39,
+      "total_boxes": 295,
+      "train_percent": 5.43,
+      "sources": {
+        "openimages_v7": 288,
+        "taco": 7
+      },
+      "priority": "P1 (High)",
+      "gap_description": "215 train boxes (5.43%). Nguồn Open Images người đang đi giày/giày thời trang; thiếu giày cũ nát, rách đế, dép lê một chiếc trên đường."
+    },
+    {
+      "class_id": 9,
+      "class_name": "trash",
+      "train_boxes": 854,
+      "val_boxes": 170,
+      "test_boxes": 139,
+      "total_boxes": 1163,
+      "train_percent": 21.55,
+      "sources": {
+        "taco": 1163
+      },
+      "priority": "P2 (Dominant)",
+      "gap_description": "854 train boxes (21.55%). Chiếm 21.55%, thường là nhãn gom chung (catch-all) gây nhiễu cho các lớp vật liệu cụ thể."
+    }
+  ],
+  "hard_negative_specification": {
+    "current_negative_images_in_train": 0,
+    "current_negative_ratio": "0.0%",
+    "target_negative_ratio": "5.0% - 10.0%",
+    "target_negative_count": "75 - 150 images",
+    "problem_statement": "Tập train hiện tại có 0 ảnh negative. Mọi ảnh đều có ít nhất 1 box rác. Do đó mô hình luôn dự đoán rác trên mọi khung hình, gây False Positive trầm trọng trên tường, biển quảng cáo, tủ điện, vỉa hè.",
+    "candidate_categories": [
+      {
+        "category": "clean_sidewalk_and_road",
+        "vietnamese_name": "Vỉa hè và lòng đường sạch",
+        "recommended_count": 30,
+        "rationale": "Giảm FP nhận diện vết nứt, bóng râm đường phố thành rác",
+        "license_requirement": "CC-BY hoặc Public Domain / Tự chụp"
+      },
+      {
+        "category": "building_facades_and_brick_walls",
+        "vietnamese_name": "Tường gạch và mặt tiền tòa nhà",
+        "recommended_count": 30,
+        "rationale": "Khắc phục triệt để lỗi SSDLite/YOLO nhận diện biển hiệu/tòa nhà thành cardboard/paper",
+        "license_requirement": "CC-BY hoặc Public Domain / Tự chụp"
+      },
+      {
+        "category": "utility_boxes_and_transformers",
+        "vietnamese_name": "Tủ điện kỹ thuật màu xanh và hộp cáp",
+        "recommended_count": 25,
+        "rationale": "Khắc phục lỗi tủ điện màu xanh bị nhận nhầm thành bìa carton 48%",
+        "license_requirement": "CC-BY hoặc Public Domain / Tự chụp"
+      },
+      {
+        "category": "empty_public_trash_bins",
+        "vietnamese_name": "Thùng rác công cộng sạch và giỏ rác rỗng",
+        "recommended_count": 25,
+        "rationale": "Khắc phục việc mô hình nhận diện bản thân chiếc thùng rác thành rác plastic cần thu gom",
+        "license_requirement": "CC-BY hoặc Public Domain / Tự chụp"
+      },
+      {
+        "category": "indoor_furniture_and_floors",
+        "vietnamese_name": "Sàn nhà, bàn ghế và nội thất sạch",
+        "recommended_count": 20,
+        "rationale": "Dạy mô hình nhận biết không gian sinh hoạt sạch không có rác",
+        "license_requirement": "CC-BY hoặc Public Domain / Tự chụp"
+      }
+    ],
+    "download_policy": "TUYỆT ĐỐI KHÔNG TỰ Ý DOWNLOAD DỮ LIỆU NGOÀI LỚN KHI CHƯA ĐƯỢC PHÊ DUYỆT. Thiết kế sẵn danh mục và schema để tích hợp khi được chấp thuận."
+  }
+}

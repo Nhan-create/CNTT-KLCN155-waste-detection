@@ -6,7 +6,7 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 
-BASE_DIR = Path(r"D:\HK7\Đồ án khóa luận")
+BASE_DIR = Path(__import__("os").environ.get("WASTE_LEGACY_DATA_DIR", str(Path(__file__).resolve().parents[1] / "data" / "legacy_hk7")))
 
 pairs_to_check = [
     (1, "data/raw/garbage_v2/metal/metal_155.jpg", "data/raw/vn_trash/Alu/train_AluCan94.jpg"),

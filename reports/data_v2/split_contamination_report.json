@@ -1,0 +1,153 @@
+{
+  "metadata": {
+    "execution_timestamp_utc": "2026-10-12T02:00:00Z",
+    "total_pilot_images": 15,
+    "summary_counts": {
+      "EXISTING_TRAIN": 3,
+      "EXISTING_VAL": 0,
+      "EXISTING_TEST": 2,
+      "QUARANTINED": 2,
+      "GENUINELY_NEW": 0,
+      "HOLDOUT": 0,
+      "EMPTY_LABEL_UNMAPPED_WASTE": 8
+    },
+    "policy": "KEEP_PILOT_ISOLATED. Zero automatic merging into official train/val/test splits."
+  },
+  "audit_table": [
+    {
+      "filename": "taco_0072.jpg",
+      "category": "QUARANTINED",
+      "v2_split": "NONE",
+      "v3_split": "NONE",
+      "is_official_holdout_27": false,
+      "is_any_holdout_file": false,
+      "qa_action_ruling": "PENDING_APPROVAL: Excluded from official splits. Re-annotated in pilot; requires user approval before train ingestion."
+    },
+    {
+      "filename": "taco_0092.jpg",
+      "category": "QUARANTINED",
+      "v2_split": "NONE",
+      "v3_split": "NONE",
+      "is_official_holdout_27": false,
+      "is_any_holdout_file": false,
+      "qa_action_ruling": "PENDING_APPROVAL: Excluded from official splits. Re-annotated in pilot; requires user approval before train ingestion."
+    },
+    {
+      "filename": "taco_0068.jpg",
+      "category": "EXISTING_TEST",
+      "v2_split": "test",
+      "v3_split": "test",
+      "is_official_holdout_27": false,
+      "is_any_holdout_file": false,
+      "qa_action_ruling": "CRITICAL_RISK: Image already belongs to TEST split. Merging to TRAIN would cause test-set contamination!"
+    },
+    {
+      "filename": "taco_0841.jpg",
+      "category": "EXISTING_TRAIN",
+      "v2_split": "train",
+      "v3_split": "train",
+      "is_official_holdout_27": false,
+      "is_any_holdout_file": false,
+      "qa_action_ruling": "REDUNDANT: Image is already part of official train split. Does not add new data."
+    },
+    {
+      "filename": "taco_0924.jpg",
+      "category": "EXISTING_TRAIN",
+      "v2_split": "train",
+      "v3_split": "train",
+      "is_official_holdout_27": false,
+      "is_any_holdout_file": false,
+      "qa_action_ruling": "REDUNDANT: Image is already part of official train split. Does not add new data."
+    },
+    {
+      "filename": "taco_0456.jpg",
+      "category": "EXISTING_TRAIN",
+      "v2_split": "train",
+      "v3_split": "train",
+      "is_official_holdout_27": false,
+      "is_any_holdout_file": false,
+      "qa_action_ruling": "REDUNDANT: Image is already part of official train split. Does not add new data."
+    },
+    {
+      "filename": "taco_0082.jpg",
+      "category": "EXISTING_TEST",
+      "v2_split": "test",
+      "v3_split": "test",
+      "is_official_holdout_27": false,
+      "is_any_holdout_file": false,
+      "qa_action_ruling": "CRITICAL_RISK: Image already belongs to TEST split. Merging to TRAIN would cause test-set contamination!"
+    },
+    {
+      "filename": "taco_0170.jpg",
+      "category": "EMPTY_LABEL_UNMAPPED_WASTE",
+      "v2_split": "NONE",
+      "v3_split": "NONE",
+      "is_official_holdout_27": false,
+      "is_any_holdout_file": false,
+      "qa_action_ruling": "REJECTED_AS_NEGATIVE: TACO image with 0-byte label due to unmapped Rope & strings. Contains visible waste."
+    },
+    {
+      "filename": "taco_0431.jpg",
+      "category": "EMPTY_LABEL_UNMAPPED_WASTE",
+      "v2_split": "NONE",
+      "v3_split": "NONE",
+      "is_official_holdout_27": false,
+      "is_any_holdout_file": false,
+      "qa_action_ruling": "REJECTED_AS_NEGATIVE: TACO image with 0-byte label due to unmapped Rope & strings. Contains visible waste."
+    },
+    {
+      "filename": "taco_0556.jpg",
+      "category": "EMPTY_LABEL_UNMAPPED_WASTE",
+      "v2_split": "NONE",
+      "v3_split": "NONE",
+      "is_official_holdout_27": false,
+      "is_any_holdout_file": false,
+      "qa_action_ruling": "REJECTED_AS_NEGATIVE: TACO image with 0-byte label due to unmapped Rope & strings. Contains visible waste."
+    },
+    {
+      "filename": "taco_0909.jpg",
+      "category": "EMPTY_LABEL_UNMAPPED_WASTE",
+      "v2_split": "NONE",
+      "v3_split": "NONE",
+      "is_official_holdout_27": false,
+      "is_any_holdout_file": false,
+      "qa_action_ruling": "REJECTED_AS_NEGATIVE: TACO image with 0-byte label due to unmapped Rope & strings. Contains visible waste."
+    },
+    {
+      "filename": "taco_0912.jpg",
+      "category": "EMPTY_LABEL_UNMAPPED_WASTE",
+      "v2_split": "NONE",
+      "v3_split": "NONE",
+      "is_official_holdout_27": false,
+      "is_any_holdout_file": false,
+      "qa_action_ruling": "REJECTED_AS_NEGATIVE: TACO image with 0-byte label due to unmapped Rope & strings. Contains visible waste."
+    },
+    {
+      "filename": "taco_0916.jpg",
+      "category": "EMPTY_LABEL_UNMAPPED_WASTE",
+      "v2_split": "NONE",
+      "v3_split": "NONE",
+      "is_official_holdout_27": false,
+      "is_any_holdout_file": false,
+      "qa_action_ruling": "REJECTED_AS_NEGATIVE: TACO image with 0-byte label due to unmapped Rope & strings. Contains visible waste."
+    },
+    {
+      "filename": "taco_0917.jpg",
+      "category": "EMPTY_LABEL_UNMAPPED_WASTE",
+      "v2_split": "NONE",
+      "v3_split": "NONE",
+      "is_official_holdout_27": false,
+      "is_any_holdout_file": false,
+      "qa_action_ruling": "REJECTED_AS_NEGATIVE: TACO image with 0-byte label due to unmapped Rope & strings. Contains visible waste."
+    },
+    {
+      "filename": "taco_0925.jpg",
+      "category": "EMPTY_LABEL_UNMAPPED_WASTE",
+      "v2_split": "NONE",
+      "v3_split": "NONE",
+      "is_official_holdout_27": false,
+      "is_any_holdout_file": false,
+      "qa_action_ruling": "REJECTED_AS_NEGATIVE: TACO image with 0-byte label due to unmapped Rope & strings. Contains visible waste."
+    }
+  ]
+}

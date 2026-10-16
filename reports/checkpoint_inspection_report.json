@@ -1,0 +1,902 @@
+[
+  {
+    "name": "SSDLite320-MobileNetV3 (combined-seed42)",
+    "role": "Primary candidate model (combined augmentation, seed 42)",
+    "backend": "ssdlite",
+    "path": "artifacts\\detection\\waste-ssdlite320-mobilenetv3-combined-seed42\\weights\\best.pt",
+    "exists": true,
+    "size_bytes": 28456982,
+    "sha256": "584c5980eb4ebe3718da7b3e87a3c95edfee3d78f186def3e5feba32cf03dff1",
+    "pytorch_keys": [
+      "metadata",
+      "epoch",
+      "model_state_dict",
+      "optimizer_state_dict",
+      "scheduler_state_dict",
+      "validation"
+    ],
+    "architecture": "ssdlite320_mobilenet_v3_large",
+    "metadata_backend": "ssdlite",
+    "class_names": [
+      "battery",
+      "biological",
+      "cardboard",
+      "clothes",
+      "glass",
+      "metal",
+      "paper",
+      "plastic",
+      "shoes",
+      "trash"
+    ],
+    "background_index": 0,
+    "trained": true,
+    "epoch": 29,
+    "training_args": null,
+    "head_shapes": {
+      "head.classification_head.module_list.0.0.0.weight": [
+        672,
+        1,
+        3,
+        3
+      ],
+      "head.classification_head.module_list.0.0.1.weight": [
+        672
+      ],
+      "head.classification_head.module_list.0.1.weight": [
+        66,
+        672,
+        1,
+        1
+      ],
+      "head.classification_head.module_list.1.0.0.weight": [
+        480,
+        1,
+        3,
+        3
+      ],
+      "head.classification_head.module_list.1.0.1.weight": [
+        480
+      ],
+      "head.classification_head.module_list.1.1.weight": [
+        66,
+        480,
+        1,
+        1
+      ],
+      "head.classification_head.module_list.2.0.0.weight": [
+        512,
+        1,
+        3,
+        3
+      ],
+      "head.classification_head.module_list.2.0.1.weight": [
+        512
+      ],
+      "head.classification_head.module_list.2.1.weight": [
+        66,
+        512,
+        1,
+        1
+      ],
+      "head.classification_head.module_list.3.0.0.weight": [
+        256,
+        1,
+        3,
+        3
+      ],
+      "head.classification_head.module_list.3.0.1.weight": [
+        256
+      ],
+      "head.classification_head.module_list.3.1.weight": [
+        66,
+        256,
+        1,
+        1
+      ],
+      "head.classification_head.module_list.4.0.0.weight": [
+        256,
+        1,
+        3,
+        3
+      ],
+      "head.classification_head.module_list.4.0.1.weight": [
+        256
+      ],
+      "head.classification_head.module_list.4.1.weight": [
+        66,
+        256,
+        1,
+        1
+      ],
+      "head.classification_head.module_list.5.0.0.weight": [
+        128,
+        1,
+        3,
+        3
+      ],
+      "head.classification_head.module_list.5.0.1.weight": [
+        128
+      ],
+      "head.classification_head.module_list.5.1.weight": [
+        66,
+        128,
+        1,
+        1
+      ]
+    },
+    "missing_metadata_fields": [
+      "training_args"
+    ],
+    "product_load_success": true,
+    "product_load_message": "Successfully loaded SSDLite model on cpu: SSD",
+    "semantic_label_provenance": {
+      "status": "UNVERIFIED_OR_ERRONEOUS",
+      "reason": "Trained on data containing 1305 synthetic images from Mendeley (dataset-v1) where class semantics were systematically misaligned (e.g. cans->battery, organic->clothes, ropes->metal). Requires dataset cleanup and retraining in subsequent task.",
+      "requires_retraining": true
+    }
+  },
+  {
+    "name": "YOLOv8n (combined-seed42)",
+    "role": "Secondary comparison detector (combined augmentation, seed 42)",
+    "backend": "yolov8n",
+    "path": "artifacts\\detection\\waste-yolov8n-combined-seed42\\weights\\best.pt",
+    "exists": true,
+    "size_bytes": 6217379,
+    "sha256": "97f46ccaaa0a63c5934225d51ccd399c1c18eb3e1af8a63b9f14bec1aaa085c9",
+    "pytorch_keys": [
+      "date",
+      "version",
+      "license",
+      "docs",
+      "epoch",
+      "best_fitness",
+      "model",
+      "ema",
+      "updates",
+      "modelopt",
+      "optimizer",
+      "scaler",
+      "train_args",
+      "train_metrics",
+      "train_results",
+      "git",
+      "phase2_metadata",
+      "names"
+    ],
+    "architecture": "yolov8n",
+    "yaml_nc": 10,
+    "model_names": {
+      "0": "battery",
+      "1": "biological",
+      "2": "cardboard",
+      "3": "clothes",
+      "4": "glass",
+      "5": "metal",
+      "6": "paper",
+      "7": "plastic",
+      "8": "shoes",
+      "9": "trash"
+    },
+    "epoch": -1,
+    "phase2_metadata": {
+      "schema_version": 2,
+      "backend": "yolov8n",
+      "class_names": [
+        "battery",
+        "biological",
+        "cardboard",
+        "clothes",
+        "glass",
+        "metal",
+        "paper",
+        "plastic",
+        "shoes",
+        "trash"
+      ],
+      "trained": true,
+      "created_utc": "2026-10-08T08:04:43.399730+00:00",
+      "dataset": "D:\\CNTT-KLCN155-waste-detection\\configs\\detection_dataset.yaml",
+      "dataset_fingerprint_train_val_sha256": "7d452da6a90d9ce248bafc5bf0a9638fd09334bb247b8ec909fdaabf9010ca16",
+      "augmentation_variant": "combined",
+      "online_augmentation": false,
+      "selection_split": "val",
+      "selection_metric": "map50_95",
+      "test_evaluated": false,
+      "seed": 42,
+      "config": {
+        "backend": "yolov8n",
+        "model": "yolov8n.pt",
+        "project": "artifacts/detection",
+        "name": "waste-yolov8n",
+        "train": {
+          "epochs": 120,
+          "imgsz": 320,
+          "batch": 16,
+          "workers": 4,
+          "patience": 30,
+          "optimizer": "AdamW",
+          "lr0": 0.001,
+          "lrf": 0.01,
+          "weight_decay": 0.0005,
+          "seed": 42,
+          "deterministic": true,
+          "device": "cuda"
+        },
+        "augmentation_variant": "combined"
+      },
+      "budget": {
+        "epochs": 120,
+        "batch": 16,
+        "imgsz": 320,
+        "patience": 30,
+        "max_hours": null
+      },
+      "environment": {
+        "python": "3.12.10",
+        "platform": "Windows-11-10.0.26200-SP0",
+        "packages": {
+          "torch": "2.5.1+cu121",
+          "torchvision": "0.20.1+cu121",
+          "ultralytics": "8.4.171",
+          "numpy": "2.5.3",
+          "Pillow": "12.3.0",
+          "pycocotools": "2.0.11"
+        },
+        "torch_threads": 6,
+        "cuda_available": true,
+        "torch_cuda": "12.1",
+        "gpus": [
+          {
+            "name": "NVIDIA GeForce RTX 2050",
+            "memory_bytes": 4294443008
+          }
+        ]
+      },
+      "dataset_report": {
+        "images_by_split": {
+          "train": 1317,
+          "val": 5
+        },
+        "boxes_by_split": {
+          "train": 4280,
+          "val": 45
+        },
+        "boxes_by_class": {
+          "battery": 463,
+          "biological": 450,
+          "cardboard": 462,
+          "clothes": 462,
+          "glass": 482,
+          "metal": 462,
+          "paper": 439,
+          "plastic": 551,
+          "shoes": 3,
+          "trash": 551
+        },
+        "boxes_by_split_and_class": {
+          "train": {
+            "battery": 463,
+            "biological": 448,
+            "cardboard": 458,
+            "clothes": 462,
+            "glass": 480,
+            "metal": 461,
+            "paper": 436,
+            "plastic": 540,
+            "shoes": 1,
+            "trash": 531
+          },
+          "val": {
+            "battery": 0,
+            "biological": 2,
+            "cardboard": 4,
+            "clothes": 0,
+            "glass": 2,
+            "metal": 1,
+            "paper": 3,
+            "plastic": 11,
+            "shoes": 2,
+            "trash": 20
+          }
+        },
+        "empty_images_by_split": {
+          "train": 0,
+          "val": 0
+        }
+      }
+    },
+    "train_args": {
+      "task": "detect",
+      "mode": "train",
+      "model": "yolov8n.pt",
+      "data": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\detection\\waste-yolov8n-combined-seed42\\train-val-resolved-dataset.yaml",
+      "epochs": 120,
+      "time": null,
+      "patience": 30,
+      "batch": 16,
+      "imgsz": 320,
+      "save": true,
+      "save_period": -1,
+      "cache": false,
+      "device": "0",
+      "workers": 4,
+      "project": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\detection",
+      "name": "waste-yolov8n-combined-seed42",
+      "exist_ok": true,
+      "pretrained": true,
+      "cls_remap": true,
+      "optimizer": "AdamW",
+      "verbose": true,
+      "seed": 42,
+      "deterministic": true,
+      "single_cls": false,
+      "rect": false,
+      "cos_lr": false,
+      "close_mosaic": 0,
+      "resume": false,
+      "amp": false,
+      "fraction": 1.0,
+      "profile": false,
+      "freeze": null,
+      "multi_scale": false,
+      "compile": false,
+      "channels_last": null,
+      "overlap_mask": true,
+      "mask_ratio": 4,
+      "dropout": 0.0,
+      "val": true,
+      "split": "val",
+      "save_json": false,
+      "conf": 0.001,
+      "iou": 0.7,
+      "max_det": 100,
+      "quantize": null,
+      "dnn": false,
+      "plots": true,
+      "nms": null,
+      "source": null,
+      "vid_stride": 1,
+      "stream_buffer": false,
+      "visualize": false,
+      "augment": false,
+      "agnostic_nms": false,
+      "classes": null,
+      "retina_masks": false,
+      "embed": null,
+      "show": false,
+      "save_frames": false,
+      "save_txt": false,
+      "save_conf": false,
+      "save_crop": false,
+      "show_labels": true,
+      "show_conf": true,
+      "show_boxes": true,
+      "line_width": null,
+      "format": "torchscript",
+      "optimize": false,
+      "dynamic": false,
+      "simplify": true,
+      "opset": null,
+      "workspace": null,
+      "lr0": 0.001,
+      "lrf": 0.01,
+      "momentum": 0.937,
+      "weight_decay": 0.0005,
+      "warmup_epochs": 3.0,
+      "warmup_momentum": 0.8,
+      "warmup_bias_lr": 0.1,
+      "distill_model": null,
+      "dis": 6.0,
+      "box": 7.5,
+      "cls": 0.5,
+      "cls_pw": 0.0,
+      "dfl": 1.5,
+      "pose": 12.0,
+      "kobj": 1.0,
+      "rle": 1.0,
+      "angle": 1.0,
+      "dlog": 1.0,
+      "dgrad": 0.5,
+      "dlam": 1.0,
+      "nbs": 64,
+      "hsv_h": 0.0,
+      "hsv_s": 0.0,
+      "hsv_v": 0.0,
+      "degrees": 0.0,
+      "translate": 0.0,
+      "scale": 0.0,
+      "shear": 0.0,
+      "perspective": 0.0,
+      "flipud": 0.0,
+      "fliplr": 0.0,
+      "bgr": 0.0,
+      "mosaic": 0.0,
+      "mixup": 0.0,
+      "cutmix": 0.0,
+      "copy_paste": 0.0,
+      "copy_paste_mode": "flip",
+      "auto_augment": null,
+      "erasing": 0.0,
+      "cfg": null,
+      "tracker": "tracktrack.yaml"
+    },
+    "head_shapes": [
+      [
+        10,
+        64,
+        1,
+        1
+      ],
+      [
+        10,
+        64,
+        1,
+        1
+      ],
+      [
+        10,
+        64,
+        1,
+        1
+      ]
+    ],
+    "missing_metadata_fields": [],
+    "product_load_success": true,
+    "product_load_message": "Successfully loaded YOLO model on cpu: YOLO",
+    "semantic_label_provenance": {
+      "status": "UNVERIFIED_OR_ERRONEOUS",
+      "reason": "Trained on data containing 1305 synthetic images from Mendeley (dataset-v1) where class semantics were systematically misaligned (e.g. cans->battery, organic->clothes, ropes->metal). Requires dataset cleanup and retraining in subsequent task.",
+      "requires_retraining": true
+    }
+  },
+  {
+    "name": "SSDLite320-MobileNetV3 (smoke)",
+    "role": "Baseline/smoke SSDLite detector",
+    "backend": "ssdlite",
+    "path": "artifacts\\detection\\waste-ssdlite320-mobilenetv3\\weights\\best.pt",
+    "exists": true,
+    "size_bytes": 28456918,
+    "sha256": "c9a079d630bdff7919d476c960784af885662fd12fa28fee7c8fef03bd551c9b",
+    "pytorch_keys": [
+      "metadata",
+      "epoch",
+      "model_state_dict",
+      "optimizer_state_dict",
+      "scheduler_state_dict",
+      "validation"
+    ],
+    "architecture": "ssdlite320_mobilenet_v3_large",
+    "metadata_backend": "ssdlite",
+    "class_names": [
+      "battery",
+      "biological",
+      "cardboard",
+      "clothes",
+      "glass",
+      "metal",
+      "paper",
+      "plastic",
+      "shoes",
+      "trash"
+    ],
+    "background_index": 0,
+    "trained": true,
+    "epoch": 2,
+    "training_args": null,
+    "head_shapes": {
+      "head.classification_head.module_list.0.0.0.weight": [
+        672,
+        1,
+        3,
+        3
+      ],
+      "head.classification_head.module_list.0.0.1.weight": [
+        672
+      ],
+      "head.classification_head.module_list.0.1.weight": [
+        66,
+        672,
+        1,
+        1
+      ],
+      "head.classification_head.module_list.1.0.0.weight": [
+        480,
+        1,
+        3,
+        3
+      ],
+      "head.classification_head.module_list.1.0.1.weight": [
+        480
+      ],
+      "head.classification_head.module_list.1.1.weight": [
+        66,
+        480,
+        1,
+        1
+      ],
+      "head.classification_head.module_list.2.0.0.weight": [
+        512,
+        1,
+        3,
+        3
+      ],
+      "head.classification_head.module_list.2.0.1.weight": [
+        512
+      ],
+      "head.classification_head.module_list.2.1.weight": [
+        66,
+        512,
+        1,
+        1
+      ],
+      "head.classification_head.module_list.3.0.0.weight": [
+        256,
+        1,
+        3,
+        3
+      ],
+      "head.classification_head.module_list.3.0.1.weight": [
+        256
+      ],
+      "head.classification_head.module_list.3.1.weight": [
+        66,
+        256,
+        1,
+        1
+      ],
+      "head.classification_head.module_list.4.0.0.weight": [
+        256,
+        1,
+        3,
+        3
+      ],
+      "head.classification_head.module_list.4.0.1.weight": [
+        256
+      ],
+      "head.classification_head.module_list.4.1.weight": [
+        66,
+        256,
+        1,
+        1
+      ],
+      "head.classification_head.module_list.5.0.0.weight": [
+        128,
+        1,
+        3,
+        3
+      ],
+      "head.classification_head.module_list.5.0.1.weight": [
+        128
+      ],
+      "head.classification_head.module_list.5.1.weight": [
+        66,
+        128,
+        1,
+        1
+      ]
+    },
+    "missing_metadata_fields": [
+      "training_args"
+    ],
+    "product_load_success": true,
+    "product_load_message": "Successfully loaded SSDLite model on cpu: SSD",
+    "semantic_label_provenance": {
+      "status": "UNVERIFIED_OR_ERRONEOUS",
+      "reason": "Trained on data containing 1305 synthetic images from Mendeley (dataset-v1) where class semantics were systematically misaligned (e.g. cans->battery, organic->clothes, ropes->metal). Requires dataset cleanup and retraining in subsequent task.",
+      "requires_retraining": true
+    }
+  },
+  {
+    "name": "YOLOv8n (smoke)",
+    "role": "Baseline/smoke YOLOv8n detector",
+    "backend": "yolov8n",
+    "path": "artifacts\\detection\\waste-yolov8n\\weights\\best.pt",
+    "exists": true,
+    "size_bytes": 6208931,
+    "sha256": "84b677fcb4de6cb0725973aa7de21f0a594dfea57c20c875256f393fff2a06dd",
+    "pytorch_keys": [
+      "date",
+      "version",
+      "license",
+      "docs",
+      "epoch",
+      "best_fitness",
+      "model",
+      "ema",
+      "updates",
+      "modelopt",
+      "optimizer",
+      "scaler",
+      "train_args",
+      "train_metrics",
+      "train_results",
+      "git"
+    ],
+    "architecture": "yolov8n",
+    "yaml_nc": 10,
+    "model_names": {
+      "0": "battery",
+      "1": "biological",
+      "2": "cardboard",
+      "3": "clothes",
+      "4": "glass",
+      "5": "metal",
+      "6": "paper",
+      "7": "plastic",
+      "8": "shoes",
+      "9": "trash"
+    },
+    "epoch": -1,
+    "phase2_metadata": {
+      "schema_version": 2,
+      "backend": "yolov8n",
+      "class_names": [
+        "battery",
+        "biological",
+        "cardboard",
+        "clothes",
+        "glass",
+        "metal",
+        "paper",
+        "plastic",
+        "shoes",
+        "trash"
+      ],
+      "trained": true,
+      "created_utc": "2026-10-02T09:05:50.651241+00:00",
+      "dataset": "D:\\CNTT-KLCN155-waste-detection\\configs\\detection_dataset.yaml",
+      "dataset_fingerprint_train_val_sha256": "7d452da6a90d9ce248bafc5bf0a9638fd09334bb247b8ec909fdaabf9010ca16",
+      "augmentation_variant": "none",
+      "online_augmentation": false,
+      "selection_split": "val",
+      "selection_metric": "map50_95",
+      "test_evaluated": false,
+      "seed": 42,
+      "config": {
+        "backend": "yolov8n",
+        "model": "yolov8n.pt",
+        "project": "artifacts/detection_smoke",
+        "name": "smoke-yolov8n",
+        "train": {
+          "epochs": 2,
+          "imgsz": 320,
+          "batch": 16,
+          "workers": 2,
+          "patience": 10,
+          "optimizer": "AdamW",
+          "lr0": 0.001,
+          "lrf": 0.01,
+          "weight_decay": 0.0005,
+          "seed": 42,
+          "deterministic": true,
+          "device": "auto"
+        },
+        "augmentation_variant": "none"
+      },
+      "budget": {
+        "epochs": 2,
+        "batch": 16,
+        "imgsz": 320,
+        "patience": 10,
+        "max_hours": null
+      },
+      "environment": {
+        "python": "3.12.10",
+        "platform": "Windows-11-10.0.26200-SP0",
+        "packages": {
+          "torch": "2.5.1+cu121",
+          "torchvision": "0.20.1+cu121",
+          "ultralytics": "8.4.171",
+          "numpy": "2.5.3",
+          "Pillow": "12.3.0",
+          "pycocotools": "2.0.11"
+        },
+        "torch_threads": 6,
+        "cuda_available": true,
+        "torch_cuda": "12.1",
+        "gpus": [
+          {
+            "name": "NVIDIA GeForce RTX 2050",
+            "memory_bytes": 4294443008
+          }
+        ]
+      },
+      "dataset_report": {
+        "images_by_split": {
+          "train": 1317,
+          "val": 5
+        },
+        "boxes_by_split": {
+          "train": 4280,
+          "val": 45
+        },
+        "boxes_by_class": {
+          "battery": 463,
+          "biological": 450,
+          "cardboard": 462,
+          "clothes": 462,
+          "glass": 482,
+          "metal": 462,
+          "paper": 439,
+          "plastic": 551,
+          "shoes": 3,
+          "trash": 551
+        },
+        "boxes_by_split_and_class": {
+          "train": {
+            "battery": 463,
+            "biological": 448,
+            "cardboard": 458,
+            "clothes": 462,
+            "glass": 480,
+            "metal": 461,
+            "paper": 436,
+            "plastic": 540,
+            "shoes": 1,
+            "trash": 531
+          },
+          "val": {
+            "battery": 0,
+            "biological": 2,
+            "cardboard": 4,
+            "clothes": 0,
+            "glass": 2,
+            "metal": 1,
+            "paper": 3,
+            "plastic": 11,
+            "shoes": 2,
+            "trash": 20
+          }
+        },
+        "empty_images_by_split": {
+          "train": 0,
+          "val": 0
+        }
+      }
+    },
+    "train_args": {
+      "task": "detect",
+      "mode": "train",
+      "model": "yolov8n.pt",
+      "data": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\detection_smoke\\smoke-yolov8n\\train-val-resolved-dataset.yaml",
+      "epochs": 2,
+      "time": null,
+      "patience": 10,
+      "batch": 16,
+      "imgsz": 320,
+      "save": true,
+      "save_period": -1,
+      "cache": false,
+      "device": "",
+      "workers": 2,
+      "project": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\detection_smoke",
+      "name": "smoke-yolov8n",
+      "exist_ok": true,
+      "pretrained": true,
+      "cls_remap": true,
+      "optimizer": "AdamW",
+      "verbose": true,
+      "seed": 42,
+      "deterministic": true,
+      "single_cls": false,
+      "rect": false,
+      "cos_lr": false,
+      "close_mosaic": 0,
+      "resume": false,
+      "amp": false,
+      "fraction": 1.0,
+      "profile": false,
+      "freeze": null,
+      "multi_scale": false,
+      "compile": false,
+      "channels_last": null,
+      "overlap_mask": true,
+      "mask_ratio": 4,
+      "dropout": 0.0,
+      "val": true,
+      "split": "val",
+      "save_json": false,
+      "conf": 0.001,
+      "iou": 0.7,
+      "max_det": 100,
+      "quantize": null,
+      "dnn": false,
+      "plots": true,
+      "nms": null,
+      "source": null,
+      "vid_stride": 1,
+      "stream_buffer": false,
+      "visualize": false,
+      "augment": false,
+      "agnostic_nms": false,
+      "classes": null,
+      "retina_masks": false,
+      "embed": null,
+      "show": false,
+      "save_frames": false,
+      "save_txt": false,
+      "save_conf": false,
+      "save_crop": false,
+      "show_labels": true,
+      "show_conf": true,
+      "show_boxes": true,
+      "line_width": null,
+      "format": "torchscript",
+      "optimize": false,
+      "dynamic": false,
+      "simplify": true,
+      "opset": null,
+      "workspace": null,
+      "lr0": 0.001,
+      "lrf": 0.01,
+      "momentum": 0.937,
+      "weight_decay": 0.0005,
+      "warmup_epochs": 3.0,
+      "warmup_momentum": 0.8,
+      "warmup_bias_lr": 0.1,
+      "distill_model": null,
+      "dis": 6.0,
+      "box": 7.5,
+      "cls": 0.5,
+      "cls_pw": 0.0,
+      "dfl": 1.5,
+      "pose": 12.0,
+      "kobj": 1.0,
+      "rle": 1.0,
+      "angle": 1.0,
+      "dlog": 1.0,
+      "dgrad": 0.5,
+      "dlam": 1.0,
+      "nbs": 64,
+      "hsv_h": 0.0,
+      "hsv_s": 0.0,
+      "hsv_v": 0.0,
+      "degrees": 0.0,
+      "translate": 0.0,
+      "scale": 0.0,
+      "shear": 0.0,
+      "perspective": 0.0,
+      "flipud": 0.0,
+      "fliplr": 0.0,
+      "bgr": 0.0,
+      "mosaic": 0.0,
+      "mixup": 0.0,
+      "cutmix": 0.0,
+      "copy_paste": 0.0,
+      "copy_paste_mode": "flip",
+      "auto_augment": null,
+      "erasing": 0.0,
+      "cfg": null,
+      "tracker": "tracktrack.yaml"
+    },
+    "head_shapes": [
+      [
+        10,
+        64,
+        1,
+        1
+      ],
+      [
+        10,
+        64,
+        1,
+        1
+      ],
+      [
+        10,
+        64,
+        1,
+        1
+      ]
+    ],
+    "missing_metadata_fields": [],
+    "product_load_success": true,
+    "product_load_message": "Successfully loaded YOLO model on cpu: YOLO",
+    "semantic_label_provenance": {
+      "status": "UNVERIFIED_OR_ERRONEOUS",
+      "reason": "Trained on data containing 1305 synthetic images from Mendeley (dataset-v1) where class semantics were systematically misaligned (e.g. cans->battery, organic->clothes, ropes->metal). Requires dataset cleanup and retraining in subsequent task.",
+      "requires_retraining": true
+    }
+  }
+]

@@ -96,7 +96,7 @@ def main():
         "ssd_extra_pyramid_keys_to_train": len(ssd_extra_keys),
         "mapping_ratio": f"{mapped_count}/{len([k for k in cls_state if k.startswith('features.')])}",
     }
-    with open("D:/CNTT-KLCN155-waste-detection/data/audit/backbone_transfer_audit.json", "w") as f:
+    with open(Path(__file__).resolve().parents[1] / "data/audit/backbone_transfer_audit.json", "w") as f:
         json.dump(report, f, indent=2)
     print("\nSaved report to D:/CNTT-KLCN155-waste-detection/data/audit/backbone_transfer_audit.json")
 

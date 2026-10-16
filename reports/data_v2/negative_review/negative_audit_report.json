@@ -1,0 +1,224 @@
+{
+  "metadata": {
+    "execution_timestamp_utc": "2026-10-12T02:00:00Z",
+    "total_candidates_audited": 8,
+    "candidates_confirmed_true_negative": 0,
+    "candidates_rejected_due_to_unmapped_waste": 8,
+    "root_cause": "Category 51 (Rope & strings) has class_id: null in detection_source_mapping.yaml",
+    "policy": "Never declare an image with visible unlabelled litter as a hard-negative ground truth."
+  },
+  "audited_images": [
+    {
+      "image_filename": "taco_0170.jpg",
+      "taco_image_id": 170,
+      "taco_file_name": "batch_10/000069.jpg",
+      "disk_label_size_bytes": 0,
+      "disk_label_status": "EMPTY_LABEL",
+      "raw_coco_annotations_count": 1,
+      "raw_coco_annotations": [
+        {
+          "annotation_id": 578,
+          "category_id": 51,
+          "category_name": "Rope & strings",
+          "supercategory": "Rope & strings",
+          "bbox_pixels": [
+            108.0,
+            138.8,
+            23.4,
+            20.0
+          ]
+        }
+      ],
+      "true_negative_status": "REJECTED_NOT_A_TRUE_NEGATIVE",
+      "qa_finding": "The label file on disk is 0-byte solely because Category 51 ('Rope & strings') was assigned class_id: null in detection_source_mapping.yaml. The physical image clearly depicts discarded waste ropes/strings. Using this image as a 0-object negative would train the model to ignore visible waste.",
+      "action_taken": "Quarantined / Excluded from hard negatives pool."
+    },
+    {
+      "image_filename": "taco_0431.jpg",
+      "taco_image_id": 431,
+      "taco_file_name": "batch_13/000030.jpg",
+      "disk_label_size_bytes": 0,
+      "disk_label_status": "EMPTY_LABEL",
+      "raw_coco_annotations_count": 1,
+      "raw_coco_annotations": [
+        {
+          "annotation_id": 1551,
+          "category_id": 51,
+          "category_name": "Rope & strings",
+          "supercategory": "Rope & strings",
+          "bbox_pixels": [
+            559.0,
+            1871.0,
+            2034.0,
+            1391.0
+          ]
+        }
+      ],
+      "true_negative_status": "REJECTED_NOT_A_TRUE_NEGATIVE",
+      "qa_finding": "The label file on disk is 0-byte solely because Category 51 ('Rope & strings') was assigned class_id: null in detection_source_mapping.yaml. The physical image clearly depicts discarded waste ropes/strings. Using this image as a 0-object negative would train the model to ignore visible waste.",
+      "action_taken": "Quarantined / Excluded from hard negatives pool."
+    },
+    {
+      "image_filename": "taco_0556.jpg",
+      "taco_image_id": 556,
+      "taco_file_name": "batch_14/000055.jpg",
+      "disk_label_size_bytes": 0,
+      "disk_label_status": "EMPTY_LABEL",
+      "raw_coco_annotations_count": 1,
+      "raw_coco_annotations": [
+        {
+          "annotation_id": 1786,
+          "category_id": 51,
+          "category_name": "Rope & strings",
+          "supercategory": "Rope & strings",
+          "bbox_pixels": [
+            244.1,
+            182.2,
+            360.6,
+            927.0
+          ]
+        }
+      ],
+      "true_negative_status": "REJECTED_NOT_A_TRUE_NEGATIVE",
+      "qa_finding": "The label file on disk is 0-byte solely because Category 51 ('Rope & strings') was assigned class_id: null in detection_source_mapping.yaml. The physical image clearly depicts discarded waste ropes/strings. Using this image as a 0-object negative would train the model to ignore visible waste.",
+      "action_taken": "Quarantined / Excluded from hard negatives pool."
+    },
+    {
+      "image_filename": "taco_0909.jpg",
+      "taco_image_id": 909,
+      "taco_file_name": "batch_4/000037.JPG",
+      "disk_label_size_bytes": 0,
+      "disk_label_status": "EMPTY_LABEL",
+      "raw_coco_annotations_count": 1,
+      "raw_coco_annotations": [
+        {
+          "annotation_id": 2817,
+          "category_id": 51,
+          "category_name": "Rope & strings",
+          "supercategory": "Rope & strings",
+          "bbox_pixels": [
+            156.7,
+            355.1,
+            15.7,
+            8.6
+          ]
+        }
+      ],
+      "true_negative_status": "REJECTED_NOT_A_TRUE_NEGATIVE",
+      "qa_finding": "The label file on disk is 0-byte solely because Category 51 ('Rope & strings') was assigned class_id: null in detection_source_mapping.yaml. The physical image clearly depicts discarded waste ropes/strings. Using this image as a 0-object negative would train the model to ignore visible waste.",
+      "action_taken": "Quarantined / Excluded from hard negatives pool."
+    },
+    {
+      "image_filename": "taco_0912.jpg",
+      "taco_image_id": 912,
+      "taco_file_name": "batch_4/000041.JPG",
+      "disk_label_size_bytes": 0,
+      "disk_label_status": "EMPTY_LABEL",
+      "raw_coco_annotations_count": 1,
+      "raw_coco_annotations": [
+        {
+          "annotation_id": 2820,
+          "category_id": 51,
+          "category_name": "Rope & strings",
+          "supercategory": "Rope & strings",
+          "bbox_pixels": [
+            172.4,
+            168.2,
+            51.2,
+            79.8
+          ]
+        }
+      ],
+      "true_negative_status": "REJECTED_NOT_A_TRUE_NEGATIVE",
+      "qa_finding": "The label file on disk is 0-byte solely because Category 51 ('Rope & strings') was assigned class_id: null in detection_source_mapping.yaml. The physical image clearly depicts discarded waste ropes/strings. Using this image as a 0-object negative would train the model to ignore visible waste.",
+      "action_taken": "Quarantined / Excluded from hard negatives pool."
+    },
+    {
+      "image_filename": "taco_0916.jpg",
+      "taco_image_id": 916,
+      "taco_file_name": "batch_4/000046.JPG",
+      "disk_label_size_bytes": 0,
+      "disk_label_status": "EMPTY_LABEL",
+      "raw_coco_annotations_count": 2,
+      "raw_coco_annotations": [
+        {
+          "annotation_id": 2826,
+          "category_id": 51,
+          "category_name": "Rope & strings",
+          "supercategory": "Rope & strings",
+          "bbox_pixels": [
+            195.1,
+            321.4,
+            173.9,
+            62.0
+          ]
+        },
+        {
+          "annotation_id": 2827,
+          "category_id": 51,
+          "category_name": "Rope & strings",
+          "supercategory": "Rope & strings",
+          "bbox_pixels": [
+            74.7,
+            223.7,
+            118.8,
+            63.9
+          ]
+        }
+      ],
+      "true_negative_status": "REJECTED_NOT_A_TRUE_NEGATIVE",
+      "qa_finding": "The label file on disk is 0-byte solely because Category 51 ('Rope & strings') was assigned class_id: null in detection_source_mapping.yaml. The physical image clearly depicts discarded waste ropes/strings. Using this image as a 0-object negative would train the model to ignore visible waste.",
+      "action_taken": "Quarantined / Excluded from hard negatives pool."
+    },
+    {
+      "image_filename": "taco_0917.jpg",
+      "taco_image_id": 917,
+      "taco_file_name": "batch_4/000047.JPG",
+      "disk_label_size_bytes": 0,
+      "disk_label_status": "EMPTY_LABEL",
+      "raw_coco_annotations_count": 1,
+      "raw_coco_annotations": [
+        {
+          "annotation_id": 2828,
+          "category_id": 51,
+          "category_name": "Rope & strings",
+          "supercategory": "Rope & strings",
+          "bbox_pixels": [
+            16.9,
+            384.5,
+            462.7,
+            145.1
+          ]
+        }
+      ],
+      "true_negative_status": "REJECTED_NOT_A_TRUE_NEGATIVE",
+      "qa_finding": "The label file on disk is 0-byte solely because Category 51 ('Rope & strings') was assigned class_id: null in detection_source_mapping.yaml. The physical image clearly depicts discarded waste ropes/strings. Using this image as a 0-object negative would train the model to ignore visible waste.",
+      "action_taken": "Quarantined / Excluded from hard negatives pool."
+    },
+    {
+      "image_filename": "taco_0925.jpg",
+      "taco_image_id": 925,
+      "taco_file_name": "batch_4/000055.JPG",
+      "disk_label_size_bytes": 0,
+      "disk_label_status": "EMPTY_LABEL",
+      "raw_coco_annotations_count": 1,
+      "raw_coco_annotations": [
+        {
+          "annotation_id": 2839,
+          "category_id": 51,
+          "category_name": "Rope & strings",
+          "supercategory": "Rope & strings",
+          "bbox_pixels": [
+            221.4,
+            180.2,
+            82.9,
+            246.7
+          ]
+        }
+      ],
+      "true_negative_status": "REJECTED_NOT_A_TRUE_NEGATIVE",
+      "qa_finding": "The label file on disk is 0-byte solely because Category 51 ('Rope & strings') was assigned class_id: null in detection_source_mapping.yaml. The physical image clearly depicts discarded waste ropes/strings. Using this image as a 0-object negative would train the model to ignore visible waste.",
+      "action_taken": "Quarantined / Excluded from hard negatives pool."
+    }
+  ]
+}

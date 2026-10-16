@@ -1,0 +1,439 @@
+[
+  {
+    "sample_stem": "syn_syn_000000",
+    "source_image_sha256": "e3b82d71cdf9322fe76e37456fa550cfd21321987628d3f91dd8dec4ddca2c2c",
+    "box_index": 0,
+    "raw_class_id": 4,
+    "mendeley_category": "glass",
+    "project_assigned_class": "glass",
+    "alignment_status": "MATCH",
+    "bbox_yolo_normalized": [
+      0.184375,
+      0.7375,
+      0.090625,
+      0.125
+    ],
+    "bbox_pixel_xyxy": [
+      89,
+      432,
+      147,
+      512
+    ],
+    "crop_file": "data_provenance/crops/crop_syn_syn_000000_box0_cid4.jpg",
+    "crop_sha256": "7dfd88511cc658b7164837bbf917c7afad6c1013f5f9af56e3c23c84a7cf8a93"
+  },
+  {
+    "sample_stem": "syn_syn_000000",
+    "source_image_sha256": "e3b82d71cdf9322fe76e37456fa550cfd21321987628d3f91dd8dec4ddca2c2c",
+    "box_index": 1,
+    "raw_class_id": 6,
+    "mendeley_category": "battery waste",
+    "project_assigned_class": "paper",
+    "alignment_status": "SCRAMBLED",
+    "bbox_yolo_normalized": [
+      0.910156,
+      0.705469,
+      0.076563,
+      0.070312
+    ],
+    "bbox_pixel_xyxy": [
+      557,
+      429,
+      607,
+      474
+    ],
+    "crop_file": "data_provenance/crops/crop_syn_syn_000000_box1_cid6.jpg",
+    "crop_sha256": "1f078dfba34c1bab40e5aed8046afeefe92d09b984806a72887510f0551cbc3d"
+  },
+  {
+    "sample_stem": "syn_syn_000000",
+    "source_image_sha256": "e3b82d71cdf9322fe76e37456fa550cfd21321987628d3f91dd8dec4ddca2c2c",
+    "box_index": 2,
+    "raw_class_id": 9,
+    "mendeley_category": "other waste",
+    "project_assigned_class": "trash",
+    "alignment_status": "MATCH",
+    "bbox_yolo_normalized": [
+      0.615625,
+      0.348438,
+      0.14375,
+      0.253125
+    ],
+    "bbox_pixel_xyxy": [
+      348,
+      142,
+      440,
+      304
+    ],
+    "crop_file": "data_provenance/crops/crop_syn_syn_000000_box2_cid9.jpg",
+    "crop_sha256": "3c5030ed99206a53d03183fc35d93bad36447f6462b925368f28fa8e0544e448"
+  },
+  {
+    "sample_stem": "syn_syn_000000",
+    "source_image_sha256": "e3b82d71cdf9322fe76e37456fa550cfd21321987628d3f91dd8dec4ddca2c2c",
+    "box_index": 3,
+    "raw_class_id": 1,
+    "mendeley_category": "paper",
+    "project_assigned_class": "biological",
+    "alignment_status": "SCRAMBLED",
+    "bbox_yolo_normalized": [
+      0.109375,
+      0.765625,
+      0.08125,
+      0.0625
+    ],
+    "bbox_pixel_xyxy": [
+      44,
+      470,
+      96,
+      510
+    ],
+    "crop_file": "data_provenance/crops/crop_syn_syn_000000_box3_cid1.jpg",
+    "crop_sha256": "0fcbb272343b5e16ebb70fb2cf72a114209ede9545e2ef56056a5bd97645714e"
+  },
+  {
+    "sample_stem": "syn_syn_000000",
+    "source_image_sha256": "e3b82d71cdf9322fe76e37456fa550cfd21321987628d3f91dd8dec4ddca2c2c",
+    "box_index": 4,
+    "raw_class_id": 0,
+    "mendeley_category": "plastic",
+    "project_assigned_class": "battery",
+    "alignment_status": "SCRAMBLED",
+    "bbox_yolo_normalized": [
+      0.435156,
+      0.30625,
+      0.564063,
+      0.503125
+    ],
+    "bbox_pixel_xyxy": [
+      97,
+      35,
+      459,
+      357
+    ],
+    "crop_file": "data_provenance/crops/crop_syn_syn_000000_box4_cid0.jpg",
+    "crop_sha256": "ce33a4447ca43bdf224b3550af149f6338f0d7e90641400311ff55cc10db2ea7"
+  },
+  {
+    "sample_stem": "syn_syn_000000",
+    "source_image_sha256": "e3b82d71cdf9322fe76e37456fa550cfd21321987628d3f91dd8dec4ddca2c2c",
+    "box_index": 5,
+    "raw_class_id": 5,
+    "mendeley_category": "organic waste",
+    "project_assigned_class": "metal",
+    "alignment_status": "SCRAMBLED",
+    "bbox_yolo_normalized": [
+      0.816406,
+      0.628906,
+      0.182812,
+      0.242188
+    ],
+    "bbox_pixel_xyxy": [
+      464,
+      324,
+      580,
+      480
+    ],
+    "crop_file": "data_provenance/crops/crop_syn_syn_000000_box5_cid5.jpg",
+    "crop_sha256": "c7374fa21f3cfd839e3a59fff8e4994cd6435ee732b22d48fd71c80143dfc5d9"
+  },
+  {
+    "sample_stem": "syn_syn_000003",
+    "source_image_sha256": "e3be3bb319aa63b909479946d555749ba94d3eafd5b2380d8151943fd9899371",
+    "box_index": 0,
+    "raw_class_id": 2,
+    "mendeley_category": "cardboard",
+    "project_assigned_class": "cardboard",
+    "alignment_status": "MATCH",
+    "bbox_yolo_normalized": [
+      0.863281,
+      0.121094,
+      0.164062,
+      0.182812
+    ],
+    "bbox_pixel_xyxy": [
+      500,
+      19,
+      604,
+      136
+    ],
+    "crop_file": "data_provenance/crops/crop_syn_syn_000003_box0_cid2.jpg",
+    "crop_sha256": "f0bf38f3712ce002e3e6d40894e460600f61ca85fabebfe838560cfc0b71794e"
+  },
+  {
+    "sample_stem": "syn_syn_000003",
+    "source_image_sha256": "e3be3bb319aa63b909479946d555749ba94d3eafd5b2380d8151943fd9899371",
+    "box_index": 1,
+    "raw_class_id": 1,
+    "mendeley_category": "paper",
+    "project_assigned_class": "biological",
+    "alignment_status": "SCRAMBLED",
+    "bbox_yolo_normalized": [
+      0.203125,
+      0.221094,
+      0.15625,
+      0.170313
+    ],
+    "bbox_pixel_xyxy": [
+      80,
+      87,
+      180,
+      196
+    ],
+    "crop_file": "data_provenance/crops/crop_syn_syn_000003_box1_cid1.jpg",
+    "crop_sha256": "06269e873790c18fae9b2a84945f057b686341bb4692e41ab620ca87e9769ad3"
+  },
+  {
+    "sample_stem": "syn_syn_000003",
+    "source_image_sha256": "e3be3bb319aa63b909479946d555749ba94d3eafd5b2380d8151943fd9899371",
+    "box_index": 2,
+    "raw_class_id": 6,
+    "mendeley_category": "battery waste",
+    "project_assigned_class": "paper",
+    "alignment_status": "SCRAMBLED",
+    "bbox_yolo_normalized": [
+      0.377344,
+      0.334375,
+      0.492188,
+      0.246875
+    ],
+    "bbox_pixel_xyxy": [
+      84,
+      134,
+      399,
+      293
+    ],
+    "crop_file": "data_provenance/crops/crop_syn_syn_000003_box2_cid6.jpg",
+    "crop_sha256": "3cb72b9fb1df6c9f65a13db1bd8c963985dc955ea9fb690f8e942002a34d1bd2"
+  },
+  {
+    "sample_stem": "syn_syn_000004",
+    "source_image_sha256": "8a14bd209fc78725485448705eb483a63c9261a872502b5ac1bb78bc0c3a6708",
+    "box_index": 0,
+    "raw_class_id": 1,
+    "mendeley_category": "paper",
+    "project_assigned_class": "biological",
+    "alignment_status": "SCRAMBLED",
+    "bbox_yolo_normalized": [
+      0.042969,
+      0.951562,
+      0.020313,
+      0.021875
+    ],
+    "bbox_pixel_xyxy": [
+      21,
+      601,
+      34,
+      615
+    ],
+    "crop_file": "data_provenance/crops/crop_syn_syn_000004_box0_cid1.jpg",
+    "crop_sha256": "23861f6604c0ba429285d2b90fc2c4f230a95b7e0fa141638cad49c49ecbc046"
+  },
+  {
+    "sample_stem": "syn_syn_000004",
+    "source_image_sha256": "8a14bd209fc78725485448705eb483a63c9261a872502b5ac1bb78bc0c3a6708",
+    "box_index": 1,
+    "raw_class_id": 9,
+    "mendeley_category": "other waste",
+    "project_assigned_class": "trash",
+    "alignment_status": "MATCH",
+    "bbox_yolo_normalized": [
+      0.08125,
+      0.805469,
+      0.0625,
+      0.235937
+    ],
+    "bbox_pixel_xyxy": [
+      32,
+      440,
+      72,
+      591
+    ],
+    "crop_file": "data_provenance/crops/crop_syn_syn_000004_box1_cid9.jpg",
+    "crop_sha256": "d5701dc4a344264e2b5da80beeefa4bbe943cae49b3fd04ce6f1527b11254a23"
+  },
+  {
+    "sample_stem": "syn_syn_000004",
+    "source_image_sha256": "8a14bd209fc78725485448705eb483a63c9261a872502b5ac1bb78bc0c3a6708",
+    "box_index": 2,
+    "raw_class_id": 3,
+    "mendeley_category": "metal",
+    "project_assigned_class": "clothes",
+    "alignment_status": "SCRAMBLED",
+    "bbox_yolo_normalized": [
+      0.803906,
+      0.4625,
+      0.095312,
+      0.15
+    ],
+    "bbox_pixel_xyxy": [
+      484,
+      248,
+      544,
+      344
+    ],
+    "crop_file": "data_provenance/crops/crop_syn_syn_000004_box2_cid3.jpg",
+    "crop_sha256": "9795ac42bd03c867e1d9381add51af8fe4ea6afbf5e3b917bcd62bb5294aa17e"
+  },
+  {
+    "sample_stem": "syn_syn_000004",
+    "source_image_sha256": "8a14bd209fc78725485448705eb483a63c9261a872502b5ac1bb78bc0c3a6708",
+    "box_index": 3,
+    "raw_class_id": 0,
+    "mendeley_category": "plastic",
+    "project_assigned_class": "battery",
+    "alignment_status": "SCRAMBLED",
+    "bbox_yolo_normalized": [
+      0.279687,
+      0.252344,
+      0.475,
+      0.192188
+    ],
+    "bbox_pixel_xyxy": [
+      26,
+      100,
+      330,
+      223
+    ],
+    "crop_file": "data_provenance/crops/crop_syn_syn_000004_box3_cid0.jpg",
+    "crop_sha256": "2befea8740ffb724c7cd5c5c1a06e8f35c88ad242a066a98a5dc5d9d6463ec03"
+  },
+  {
+    "sample_stem": "syn_syn_000010",
+    "source_image_sha256": "71d0bdbad5a1fd64908b98f494a9c01ef39a7d57e997ba9c8bb0dc025f06fead",
+    "box_index": 0,
+    "raw_class_id": 3,
+    "mendeley_category": "metal",
+    "project_assigned_class": "clothes",
+    "alignment_status": "SCRAMBLED",
+    "bbox_yolo_normalized": [
+      0.384375,
+      0.146875,
+      0.346875,
+      0.234375
+    ],
+    "bbox_pixel_xyxy": [
+      135,
+      19,
+      357,
+      169
+    ],
+    "crop_file": "data_provenance/crops/crop_syn_syn_000010_box0_cid3.jpg",
+    "crop_sha256": "99452641f3144843c9ec8042430a521f5d5c95e8620c8a907c1e697e681b5f64"
+  },
+  {
+    "sample_stem": "syn_syn_000010",
+    "source_image_sha256": "71d0bdbad5a1fd64908b98f494a9c01ef39a7d57e997ba9c8bb0dc025f06fead",
+    "box_index": 1,
+    "raw_class_id": 0,
+    "mendeley_category": "plastic",
+    "project_assigned_class": "battery",
+    "alignment_status": "SCRAMBLED",
+    "bbox_yolo_normalized": [
+      0.513281,
+      0.632812,
+      0.410938,
+      0.34375
+    ],
+    "bbox_pixel_xyxy": [
+      196,
+      294,
+      460,
+      514
+    ],
+    "crop_file": "data_provenance/crops/crop_syn_syn_000010_box1_cid0.jpg",
+    "crop_sha256": "43998e18720d3bb803689492f27eb0ce12077319f6c87425a7ec6c2719219711"
+  },
+  {
+    "sample_stem": "syn_syn_000010",
+    "source_image_sha256": "71d0bdbad5a1fd64908b98f494a9c01ef39a7d57e997ba9c8bb0dc025f06fead",
+    "box_index": 2,
+    "raw_class_id": 7,
+    "mendeley_category": "e-waste",
+    "project_assigned_class": "plastic",
+    "alignment_status": "SCRAMBLED",
+    "bbox_yolo_normalized": [
+      0.446094,
+      0.4875,
+      0.579688,
+      0.684375
+    ],
+    "bbox_pixel_xyxy": [
+      100,
+      93,
+      471,
+      531
+    ],
+    "crop_file": "data_provenance/crops/crop_syn_syn_000010_box2_cid7.jpg",
+    "crop_sha256": "a0e2b8ad16cf3cfd3aba06991b88ce9c453cf6fb5b6de737ad63ca43e37dc8a5"
+  },
+  {
+    "sample_stem": "syn_syn_000010",
+    "source_image_sha256": "71d0bdbad5a1fd64908b98f494a9c01ef39a7d57e997ba9c8bb0dc025f06fead",
+    "box_index": 3,
+    "raw_class_id": 1,
+    "mendeley_category": "paper",
+    "project_assigned_class": "biological",
+    "alignment_status": "SCRAMBLED",
+    "bbox_yolo_normalized": [
+      0.360156,
+      0.723437,
+      0.226562,
+      0.140625
+    ],
+    "bbox_pixel_xyxy": [
+      157,
+      417,
+      302,
+      507
+    ],
+    "crop_file": "data_provenance/crops/crop_syn_syn_000010_box3_cid1.jpg",
+    "crop_sha256": "c0dce44fa0e6ec0e46520d194d2f664765052fa97d92da9cd5faeb76f8bfbb90"
+  },
+  {
+    "sample_stem": "syn_syn_000010",
+    "source_image_sha256": "71d0bdbad5a1fd64908b98f494a9c01ef39a7d57e997ba9c8bb0dc025f06fead",
+    "box_index": 4,
+    "raw_class_id": 4,
+    "mendeley_category": "glass",
+    "project_assigned_class": "glass",
+    "alignment_status": "MATCH",
+    "bbox_yolo_normalized": [
+      0.439063,
+      0.523438,
+      0.6,
+      0.565625
+    ],
+    "bbox_pixel_xyxy": [
+      89,
+      154,
+      473,
+      516
+    ],
+    "crop_file": "data_provenance/crops/crop_syn_syn_000010_box4_cid4.jpg",
+    "crop_sha256": "43e729d68713b8264601026d8da9acc89aec179777fd7ce6880790d53a5d5c5b"
+  },
+  {
+    "sample_stem": "syn_syn_000010",
+    "source_image_sha256": "71d0bdbad5a1fd64908b98f494a9c01ef39a7d57e997ba9c8bb0dc025f06fead",
+    "box_index": 5,
+    "raw_class_id": 7,
+    "mendeley_category": "e-waste",
+    "project_assigned_class": "plastic",
+    "alignment_status": "SCRAMBLED",
+    "bbox_yolo_normalized": [
+      0.763281,
+      0.7375,
+      0.039062,
+      0.0625
+    ],
+    "bbox_pixel_xyxy": [
+      476,
+      452,
+      500,
+      492
+    ],
+    "crop_file": "data_provenance/crops/crop_syn_syn_000010_box5_cid7.jpg",
+    "crop_sha256": "7be73a8c4f9cda14b27769e82e53e96f502d9a2386dbd015f9bec57b98d381a9"
+  }
+]

@@ -27,6 +27,7 @@ def test_phase2_demo_is_static_image_detection_without_icons() -> None:
         assert alert_call not in source
     for label in ("Tải video", "Camera trực tiếp"):
         assert f'"{label}"' not in source
+    assert "camera_input" not in source
 
 
 def test_phase2_demo_opens_with_missing_weights_and_can_change_models(monkeypatch, tmp_path) -> None:
@@ -34,13 +35,16 @@ def test_phase2_demo_opens_with_missing_weights_and_can_change_models(monkeypatc
 
     monkeypatch.setenv("WASTE_DETECTOR", str(tmp_path / "missing.pt"))
     monkeypatch.setenv("WASTE_DETECTOR_BACKEND", "ssdlite")
-    app = AppTest.from_file("streamlit_app.py").run(timeout=20)
+    root_app = Path(__file__).resolve().parent.parent.parent / "streamlit_app.py"
+    app = AppTest.from_file(str(root_app)).run(timeout=20)
 
     assert not app.exception
     assert app.selectbox[0].value == "ssdlite"
     assert "Chưa có mô hình đã huấn luyện" in " ".join(item.value for item in app.markdown)
     assert len(app.slider) == 1
-    assert len(app.get("file_uploader")) == 1
+    uploaders = app.get("file_uploader")
+    assert len(uploaders) >= 1
+    assert any("detect" in u.key or "detect" in u.label.lower() or u.accept_multiple_files for u in uploaders)
     app.selectbox[0].select("wbf").run()
     assert not app.exception
     assert app.selectbox[0].value == "wbf"

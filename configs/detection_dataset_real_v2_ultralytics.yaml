@@ -1,0 +1,42 @@
+path: ../data/detection
+train: splits_real_v2/train_ultra.txt
+val: splits_real_v2/val_ultra.txt
+test: splits_real_v2/test_ultra.txt
+nc: 10
+names:
+  0: battery
+  1: biological
+  2: cardboard
+  3: clothes
+  4: glass
+  5: metal
+  6: paper
+  7: plastic
+  8: shoes
+  9: trash
+metadata:
+  version: v2.0-real-only-no-mendeley
+  created_utc: '2026-10-11T03:18:43Z'
+  seed: 42
+  generator: scripts/build_real_v2_splits.py
+  sources:
+  - taco
+  - openimages_v7
+  synthetic_or_mendeley_images: 0
+  phash_near_dup_threshold: 8
+  stratification: source + rarest class present; pHash near-duplicate groups kept
+    in one split
+  total_images: 1996
+  train_images: 1398
+  val_images: 299
+  test_images: 299
+  train_boxes: 3963
+  val_boxes: 902
+  test_boxes: 720
+  quarantined_images: 147
+  split_sha256:
+    train: b0a3e59c9a04470726453715f1d342fca75ea9aeb7da088bd377786f81bc0f65
+    val: 1fd7e4905676381a99905a77e9512818f6549fd1784dd0938f7d5db5d1d70d8f
+    test: bbea49ac6a3c1e8b6cb8e89e84ba5e50a85e084efc33f6ab653ca64a0e3247b2
+  note: Same image sets as detection_dataset_real_v2.yaml; lines start with './' so
+    Ultralytics resolves them relative to the list file.

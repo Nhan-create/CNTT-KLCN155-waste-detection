@@ -1,0 +1,102 @@
+[
+  {
+    "backend": "ssdlite",
+    "model_path": "artifacts\\detection\\waste-ssdlite320-mobilenetv3-combined-seed42\\weights\\best.pt",
+    "device": "cpu",
+    "image_size": 320,
+    "confidence_threshold": 0.2,
+    "iou_threshold": 0.5,
+    "total_images": 3,
+    "avg_latency_ms": 381.19,
+    "fps": 2.62,
+    "results": [
+      {
+        "image": "base64-1717231151649602366964.jpeg",
+        "error": "'DetectionResult' object has no attribute 'width'"
+      },
+      {
+        "image": "battery-sample.png",
+        "error": "'DetectionResult' object has no attribute 'width'"
+      },
+      {
+        "image": "download (2).jpg",
+        "error": "'DetectionResult' object has no attribute 'width'"
+      }
+    ]
+  },
+  {
+    "backend": "ssdlite",
+    "model_path": "artifacts\\detection\\waste-ssdlite320-mobilenetv3-combined-seed42\\weights\\best.pt",
+    "device": "cuda:0",
+    "image_size": 320,
+    "confidence_threshold": 0.2,
+    "iou_threshold": 0.5,
+    "total_images": 3,
+    "avg_latency_ms": 296.94,
+    "fps": 3.37,
+    "results": [
+      {
+        "image": "base64-1717231151649602366964.jpeg",
+        "error": "'DetectionResult' object has no attribute 'width'"
+      },
+      {
+        "image": "battery-sample.png",
+        "error": "'DetectionResult' object has no attribute 'width'"
+      },
+      {
+        "image": "download (2).jpg",
+        "error": "'DetectionResult' object has no attribute 'width'"
+      }
+    ]
+  },
+  {
+    "backend": "yolov8n",
+    "model_path": "artifacts\\detection\\waste-yolov8n-combined-seed42\\weights\\best.pt",
+    "device": "cpu",
+    "image_size": 640,
+    "confidence_threshold": 0.2,
+    "iou_threshold": 0.5,
+    "total_images": 3,
+    "avg_latency_ms": 3350.08,
+    "fps": 0.3,
+    "results": [
+      {
+        "image": "base64-1717231151649602366964.jpeg",
+        "error": "'DetectionResult' object has no attribute 'width'"
+      },
+      {
+        "image": "battery-sample.png",
+        "error": "'DetectionResult' object has no attribute 'width'"
+      },
+      {
+        "image": "download (2).jpg",
+        "error": "'DetectionResult' object has no attribute 'width'"
+      }
+    ]
+  },
+  {
+    "backend": "yolov8n",
+    "model_path": "artifacts\\detection\\waste-yolov8n-combined-seed42\\weights\\best.pt",
+    "device": "cuda:0",
+    "image_size": 640,
+    "confidence_threshold": 0.2,
+    "iou_threshold": 0.5,
+    "total_images": 3,
+    "avg_latency_ms": 508.59,
+    "fps": 1.97,
+    "results": [
+      {
+        "image": "base64-1717231151649602366964.jpeg",
+        "error": "'DetectionResult' object has no attribute 'width'"
+      },
+      {
+        "image": "battery-sample.png",
+        "error": "'DetectionResult' object has no attribute 'width'"
+      },
+      {
+        "image": "download (2).jpg",
+        "error": "'DetectionResult' object has no attribute 'width'"
+      }
+    ]
+  }
+]

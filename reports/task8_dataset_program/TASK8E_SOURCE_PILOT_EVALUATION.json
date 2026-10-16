@@ -1,0 +1,59 @@
+{
+  "pilots": [
+    {
+      "pilot_id": "PILOT_8E_01",
+      "source_name": "Shynuaa/Street-garbage (HuggingFace `yolo/train` First-Party 2025 Captures)",
+      "sample_size_inspected": 30,
+      "real_waste_rate_pct": 96.7,
+      "has_tight_instance_boxes": true,
+      "license_verified": "MIT (filtered strictly to first-party 2025 smartphone captures `2025*`/`IMG_2025*`; third-party web scrapes excluded)",
+      "split_integrity": "Strictly uses `yolo/train` with zero capture-minute (`YYYYMMDD_HHMM`) or pHash overlap with `yolo/valid` or `yolo/test`.",
+      "decision": "EXPAND_APPROVED",
+      "notes": "High-yield real street litter across cardboard, paper, metal cans, glass bottles, plastic bags/bottles/cups, biological food scraps, and mixed trash."
+    },
+    {
+      "pilot_id": "PILOT_8E_02",
+      "source_name": "hariharan944212005/indoor-waste-detection-merged (HuggingFace)",
+      "sample_size_inspected": 30,
+      "real_waste_rate_pct": 33.3,
+      "has_tight_instance_boxes": false,
+      "license_verified": "UNVERIFIED (Roboflow merged export lacking original author attribution)",
+      "split_integrity": "Contains 3x offline rotated/sheared Roboflow augmentations mixed across splits.",
+      "decision": "STOPPED_AFTER_PILOT",
+      "notes": "Rejected per Task 8E rules: heavy offline augmentation clones and unverified upstream license provenance."
+    },
+    {
+      "pilot_id": "PILOT_8E_03",
+      "source_name": "ninditya/aquasense-waste-detection-dataset (HuggingFace)",
+      "sample_size_inspected": 30,
+      "real_waste_rate_pct": 60.0,
+      "has_tight_instance_boxes": true,
+      "license_verified": "UNSPECIFIED (No license tag in dataset card)",
+      "split_integrity": "Consecutive video frames with high near-duplicate redundancy across splits.",
+      "decision": "STOPPED_AFTER_PILOT",
+      "notes": "Rejected per Task 8E rules: missing license provenance and single-class plastic bottle video frames."
+    },
+    {
+      "pilot_id": "PILOT_8E_04",
+      "source_name": "Wikimedia Commons Explicit Real-Waste Categories & Bitmap Queries",
+      "sample_size_inspected": 30,
+      "real_waste_rate_pct": 63.3,
+      "has_tight_instance_boxes": false,
+      "license_verified": "VERIFIED (CC0 / CC-BY / CC-BY-SA / Public Domain with per-image author & URL)",
+      "split_integrity": "Unsplitted source; grouped by author + upload session before train/val assignment.",
+      "decision": "EXPAND_APPROVED_WITH_MANUAL_BOX_ANNOTATION",
+      "notes": "Essential source for scarce classes (`0: battery`, `1: biological`, `3: clothes`, `4: glass`, `5: metal`, `8: shoes`)."
+    },
+    {
+      "pilot_id": "PILOT_8E_05",
+      "source_name": "Open Images V7 (`train` and `validation` splits only, waste-context & multi-object filtered)",
+      "sample_size_inspected": 30,
+      "real_waste_rate_pct": 46.7,
+      "has_tight_instance_boxes": true,
+      "license_verified": "VERIFIED (CC-BY 2.0 with original Flickr author & URL from official metadata)",
+      "split_integrity": "Strictly preserves `source_split` (`train` -> `TRAIN`, `validation` -> `VAL`, `0` from `test`).",
+      "decision": "EXPAND_APPROVED_FILTERED",
+      "notes": "Standalone closed trash containers (`/m/0bjyj5`) are routed to `KEEP_AUXILIARY`; multi-class/visible-waste scenes pass to `REAL_WASTE_PASS`."
+    }
+  ]
+}

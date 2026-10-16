@@ -1,0 +1,1005 @@
+{
+  "image": "D:\\Hinh_Anh_Rac\\base64-1717231151649602366964.jpeg",
+  "image_sha256": "c38a8b2e3066a81d6327f16be0078f767b141d414bb0586f9b2ac83e4e06c0b5",
+  "detector_checkpoint": "artifacts\\detection\\waste-ssdlite320-mobilenetv3-combined-seed42\\weights\\best.pt",
+  "detector_sha256": "584c5980eb4ebe3718da7b3e87a3c95edfee3d78f186def3e5feba32cf03dff1",
+  "classifier_checkpoint": "artifacts\\official_run\\best_model.pt",
+  "classifier_sha256": "c824fec4f3d1dffff946cd8ad7e2d4f121be33e684dda4e6af92b5bda343e424",
+  "classifier_class_names": [
+    "battery",
+    "biological",
+    "cardboard",
+    "clothes",
+    "glass",
+    "metal",
+    "paper",
+    "plastic",
+    "shoes",
+    "trash"
+  ],
+  "device": "cpu",
+  "operating_confidence": 0.15,
+  "modes": {
+    "normal": {
+      "enable_tiling": false,
+      "enable_two_stage": false,
+      "detector_input_threshold": 0.15,
+      "num_boxes": 10,
+      "image_size": [
+        2000,
+        1334
+      ],
+      "tiles": 0,
+      "pipeline_ms": 357.7,
+      "wall_ms_incl_decode_draw": 1246.8,
+      "all_boxes_in_bounds": true,
+      "overlay": "reports\\pipeline_v2\\base64-1717231151649602366964_normal_conf0.15.png",
+      "detections": [
+        {
+          "class_id": "plastic",
+          "confidence": 0.5316,
+          "box_xyxy": [
+            1430.2,
+            1042.4,
+            1976.2,
+            1326.8
+          ]
+        },
+        {
+          "class_id": "metal",
+          "confidence": 0.2644,
+          "box_xyxy": [
+            149.2,
+            257.5,
+            1914.9,
+            1166.7
+          ]
+        },
+        {
+          "class_id": "cardboard",
+          "confidence": 0.2559,
+          "box_xyxy": [
+            515.0,
+            299.6,
+            1851.9,
+            1190.9
+          ]
+        },
+        {
+          "class_id": "battery",
+          "confidence": 0.248,
+          "box_xyxy": [
+            1414.6,
+            1035.5,
+            1970.0,
+            1326.0
+          ]
+        },
+        {
+          "class_id": "battery",
+          "confidence": 0.2441,
+          "box_xyxy": [
+            525.6,
+            300.2,
+            1849.3,
+            1191.3
+          ]
+        },
+        {
+          "class_id": "cardboard",
+          "confidence": 0.2385,
+          "box_xyxy": [
+            1414.6,
+            1035.5,
+            1970.0,
+            1326.0
+          ]
+        },
+        {
+          "class_id": "metal",
+          "confidence": 0.1999,
+          "box_xyxy": [
+            0.0,
+            895.9,
+            967.3,
+            1334.0
+          ]
+        },
+        {
+          "class_id": "cardboard",
+          "confidence": 0.1829,
+          "box_xyxy": [
+            613.2,
+            926.1,
+            1998.0,
+            1327.6
+          ]
+        },
+        {
+          "class_id": "paper",
+          "confidence": 0.1654,
+          "box_xyxy": [
+            605.2,
+            287.4,
+            1998.5,
+            1143.3
+          ]
+        },
+        {
+          "class_id": "cardboard",
+          "confidence": 0.1595,
+          "box_xyxy": [
+            0.0,
+            1002.4,
+            646.6,
+            1334.0
+          ]
+        }
+      ]
+    },
+    "tiling": {
+      "enable_tiling": true,
+      "enable_two_stage": false,
+      "detector_input_threshold": 0.15,
+      "num_boxes": 71,
+      "image_size": [
+        2000,
+        1334
+      ],
+      "tiles": 12,
+      "pipeline_ms": 2087.4,
+      "wall_ms_incl_decode_draw": 2618.3,
+      "all_boxes_in_bounds": true,
+      "overlay": "reports\\pipeline_v2\\base64-1717231151649602366964_tiling_conf0.15.png",
+      "detections": [
+        {
+          "class_id": "cardboard",
+          "confidence": 0.6465,
+          "box_xyxy": [
+            1852.3,
+            446.6,
+            2000.0,
+            626.4
+          ]
+        },
+        {
+          "class_id": "plastic",
+          "confidence": 0.5316,
+          "box_xyxy": [
+            1430.2,
+            1042.4,
+            1976.2,
+            1326.8
+          ]
+        },
+        {
+          "class_id": "cardboard",
+          "confidence": 0.3843,
+          "box_xyxy": [
+            1033.3,
+            701.5,
+            1392.3,
+            890.7
+          ]
+        },
+        {
+          "class_id": "plastic",
+          "confidence": 0.3836,
+          "box_xyxy": [
+            927.8,
+            554.8,
+            1143.7,
+            767.5
+          ]
+        },
+        {
+          "class_id": "plastic",
+          "confidence": 0.3536,
+          "box_xyxy": [
+            1542.3,
+            860.8,
+            1576.9,
+            889.9
+          ]
+        },
+        {
+          "class_id": "battery",
+          "confidence": 0.3397,
+          "box_xyxy": [
+            520.0,
+            539.3,
+            899.7,
+            856.5
+          ]
+        },
+        {
+          "class_id": "cardboard",
+          "confidence": 0.336,
+          "box_xyxy": [
+            216.2,
+            443.1,
+            640.0,
+            635.0
+          ]
+        },
+        {
+          "class_id": "cardboard",
+          "confidence": 0.3336,
+          "box_xyxy": [
+            1415.3,
+            438.2,
+            1880.5,
+            630.1
+          ]
+        },
+        {
+          "class_id": "plastic",
+          "confidence": 0.321,
+          "box_xyxy": [
+            1383.8,
+            394.2,
+            1652.0,
+            624.6
+          ]
+        },
+        {
+          "class_id": "plastic",
+          "confidence": 0.3188,
+          "box_xyxy": [
+            1526.6,
+            863.6,
+            1564.7,
+            903.9
+          ]
+        },
+        {
+          "class_id": "plastic",
+          "confidence": 0.3047,
+          "box_xyxy": [
+            1522.5,
+            637.0,
+            1553.6,
+            664.1
+          ]
+        },
+        {
+          "class_id": "battery",
+          "confidence": 0.2906,
+          "box_xyxy": [
+            416.6,
+            423.8,
+            640.0,
+            640.0
+          ]
+        },
+        {
+          "class_id": "cardboard",
+          "confidence": 0.284,
+          "box_xyxy": [
+            422.9,
+            442.7,
+            632.1,
+            627.8
+          ]
+        },
+        {
+          "class_id": "cardboard",
+          "confidence": 0.2721,
+          "box_xyxy": [
+            10.4,
+            709.6,
+            362.8,
+            1031.6
+          ]
+        },
+        {
+          "class_id": "plastic",
+          "confidence": 0.2714,
+          "box_xyxy": [
+            1550.3,
+            940.8,
+            1585.1,
+            977.4
+          ]
+        },
+        {
+          "class_id": "cardboard",
+          "confidence": 0.2708,
+          "box_xyxy": [
+            292.1,
+            694.0,
+            636.7,
+            1084.7
+          ]
+        },
+        {
+          "class_id": "cardboard",
+          "confidence": 0.2684,
+          "box_xyxy": [
+            275.2,
+            535.4,
+            640.0,
+            877.8
+          ]
+        },
+        {
+          "class_id": "metal",
+          "confidence": 0.2644,
+          "box_xyxy": [
+            149.2,
+            257.5,
+            1914.9,
+            1166.7
+          ]
+        },
+        {
+          "class_id": "battery",
+          "confidence": 0.2595,
+          "box_xyxy": [
+            292.1,
+            694.0,
+            636.7,
+            1084.7
+          ]
+        },
+        {
+          "class_id": "cardboard",
+          "confidence": 0.2579,
+          "box_xyxy": [
+            1034.0,
+            581.9,
+            1427.1,
+            960.5
+          ]
+        },
+        {
+          "class_id": "plastic",
+          "confidence": 0.2565,
+          "box_xyxy": [
+            1523.7,
+            840.5,
+            1554.5,
+            875.5
+          ]
+        },
+        {
+          "class_id": "cardboard",
+          "confidence": 0.2559,
+          "box_xyxy": [
+            515.0,
+            299.6,
+            1851.9,
+            1190.9
+          ]
+        },
+        {
+          "class_id": "cardboard",
+          "confidence": 0.2548,
+          "box_xyxy": [
+            1034.3,
+            709.8,
+            1398.4,
+            1026.2
+          ]
+        },
+        {
+          "class_id": "battery",
+          "confidence": 0.248,
+          "box_xyxy": [
+            1414.6,
+            1035.5,
+            1970.0,
+            1326.0
+          ]
+        },
+        {
+          "class_id": "battery",
+          "confidence": 0.2441,
+          "box_xyxy": [
+            525.6,
+            300.2,
+            1849.3,
+            1191.3
+          ]
+        },
+        {
+          "class_id": "battery",
+          "confidence": 0.2438,
+          "box_xyxy": [
+            0.7,
+            526.3,
+            384.7,
+            898.7
+          ]
+        },
+        {
+          "class_id": "battery",
+          "confidence": 0.2398,
+          "box_xyxy": [
+            10.5,
+            975.0,
+            331.9,
+            1283.2
+          ]
+        },
+        {
+          "class_id": "cardboard",
+          "confidence": 0.2385,
+          "box_xyxy": [
+            1414.6,
+            1035.5,
+            1970.0,
+            1326.0
+          ]
+        },
+        {
+          "class_id": "paper",
+          "confidence": 0.2347,
+          "box_xyxy": [
+            25.2,
+            963.8,
+            276.4,
+            1152.0
+          ]
+        },
+        {
+          "class_id": "plastic",
+          "confidence": 0.2285,
+          "box_xyxy": [
+            1476.7,
+            819.6,
+            1635.6,
+            987.1
+          ]
+        },
+        {
+          "class_id": "cardboard",
+          "confidence": 0.2209,
+          "box_xyxy": [
+            1368.9,
+            384.7,
+            1592.7,
+            617.8
+          ]
+        },
+        {
+          "class_id": "cardboard",
+          "confidence": 0.2188,
+          "box_xyxy": [
+            1897.8,
+            471.1,
+            1995.8,
+            619.7
+          ]
+        },
+        {
+          "class_id": "cardboard",
+          "confidence": 0.2122,
+          "box_xyxy": [
+            0.7,
+            526.3,
+            384.7,
+            898.7
+          ]
+        },
+        {
+          "class_id": "plastic",
+          "confidence": 0.2099,
+          "box_xyxy": [
+            1477.9,
+            765.8,
+            1636.6,
+            940.2
+          ]
+        },
+        {
+          "class_id": "cardboard",
+          "confidence": 0.2075,
+          "box_xyxy": [
+            592.7,
+            522.4,
+            1116.8,
+            864.2
+          ]
+        },
+        {
+          "class_id": "battery",
+          "confidence": 0.2053,
+          "box_xyxy": [
+            275.2,
+            535.4,
+            640.0,
+            877.8
+          ]
+        },
+        {
+          "class_id": "metal",
+          "confidence": 0.2033,
+          "box_xyxy": [
+            1537.9,
+            701.6,
+            2000.0,
+            1172.6
+          ]
+        },
+        {
+          "class_id": "paper",
+          "confidence": 0.201,
+          "box_xyxy": [
+            291.0,
+            540.0,
+            635.8,
+            867.2
+          ]
+        },
+        {
+          "class_id": "cardboard",
+          "confidence": 0.201,
+          "box_xyxy": [
+            525.8,
+            709.2,
+            933.4,
+            1102.4
+          ]
+        },
+        {
+          "class_id": "metal",
+          "confidence": 0.1999,
+          "box_xyxy": [
+            0.0,
+            895.9,
+            967.3,
+            1334.0
+          ]
+        },
+        {
+          "class_id": "paper",
+          "confidence": 0.1987,
+          "box_xyxy": [
+            1034.0,
+            581.9,
+            1427.1,
+            960.5
+          ]
+        },
+        {
+          "class_id": "paper",
+          "confidence": 0.198,
+          "box_xyxy": [
+            313.8,
+            595.9,
+            640.0,
+            1037.1
+          ]
+        },
+        {
+          "class_id": "paper",
+          "confidence": 0.1971,
+          "box_xyxy": [
+            0.0,
+            526.7,
+            382.6,
+            897.2
+          ]
+        },
+        {
+          "class_id": "cardboard",
+          "confidence": 0.1943,
+          "box_xyxy": [
+            846.6,
+            543.1,
+            1141.3,
+            795.5
+          ]
+        },
+        {
+          "class_id": "paper",
+          "confidence": 0.1936,
+          "box_xyxy": [
+            1551.0,
+            743.2,
+            1999.7,
+            1177.9
+          ]
+        },
+        {
+          "class_id": "paper",
+          "confidence": 0.192,
+          "box_xyxy": [
+            1542.0,
+            999.6,
+            2000.0,
+            1326.0
+          ]
+        },
+        {
+          "class_id": "plastic",
+          "confidence": 0.1861,
+          "box_xyxy": [
+            428.3,
+            439.5,
+            628.1,
+            640.0
+          ]
+        },
+        {
+          "class_id": "plastic",
+          "confidence": 0.1843,
+          "box_xyxy": [
+            839.7,
+            694.0,
+            1136.8,
+            923.2
+          ]
+        },
+        {
+          "class_id": "cardboard",
+          "confidence": 0.1841,
+          "box_xyxy": [
+            1551.0,
+            743.2,
+            1999.7,
+            1177.9
+          ]
+        },
+        {
+          "class_id": "cardboard",
+          "confidence": 0.1829,
+          "box_xyxy": [
+            613.2,
+            926.1,
+            1998.0,
+            1327.6
+          ]
+        },
+        {
+          "class_id": "metal",
+          "confidence": 0.182,
+          "box_xyxy": [
+            612.0,
+            342.9,
+            1078.9,
+            594.9
+          ]
+        },
+        {
+          "class_id": "plastic",
+          "confidence": 0.1815,
+          "box_xyxy": [
+            1013.3,
+            638.5,
+            1069.5,
+            695.3
+          ]
+        },
+        {
+          "class_id": "cardboard",
+          "confidence": 0.181,
+          "box_xyxy": [
+            591.4,
+            801.5,
+            977.3,
+            1203.4
+          ]
+        },
+        {
+          "class_id": "plastic",
+          "confidence": 0.1808,
+          "box_xyxy": [
+            1537.1,
+            857.7,
+            1597.7,
+            948.8
+          ]
+        },
+        {
+          "class_id": "plastic",
+          "confidence": 0.1791,
+          "box_xyxy": [
+            1534.2,
+            892.6,
+            1571.4,
+            934.9
+          ]
+        },
+        {
+          "class_id": "cardboard",
+          "confidence": 0.1779,
+          "box_xyxy": [
+            1370.6,
+            525.7,
+            1774.7,
+            841.9
+          ]
+        },
+        {
+          "class_id": "paper",
+          "confidence": 0.177,
+          "box_xyxy": [
+            10.1,
+            709.9,
+            359.2,
+            1030.3
+          ]
+        },
+        {
+          "class_id": "paper",
+          "confidence": 0.174,
+          "box_xyxy": [
+            261.0,
+            449.9,
+            622.0,
+            640.0
+          ]
+        },
+        {
+          "class_id": "cardboard",
+          "confidence": 0.1718,
+          "box_xyxy": [
+            520.0,
+            539.3,
+            899.7,
+            856.5
+          ]
+        },
+        {
+          "class_id": "plastic",
+          "confidence": 0.1714,
+          "box_xyxy": [
+            636.2,
+            298.1,
+            1057.9,
+            631.7
+          ]
+        },
+        {
+          "class_id": "plastic",
+          "confidence": 0.1704,
+          "box_xyxy": [
+            1521.3,
+            813.7,
+            1613.8,
+            949.2
+          ]
+        },
+        {
+          "class_id": "plastic",
+          "confidence": 0.1703,
+          "box_xyxy": [
+            1543.2,
+            897.6,
+            1596.1,
+            961.5
+          ]
+        },
+        {
+          "class_id": "paper",
+          "confidence": 0.1681,
+          "box_xyxy": [
+            515.5,
+            415.5,
+            711.4,
+            636.0
+          ]
+        },
+        {
+          "class_id": "paper",
+          "confidence": 0.1654,
+          "box_xyxy": [
+            605.2,
+            287.4,
+            1998.5,
+            1143.3
+          ]
+        },
+        {
+          "class_id": "plastic",
+          "confidence": 0.1625,
+          "box_xyxy": [
+            1005.1,
+            627.3,
+            1048.3,
+            665.4
+          ]
+        },
+        {
+          "class_id": "cardboard",
+          "confidence": 0.1595,
+          "box_xyxy": [
+            0.0,
+            1002.4,
+            646.6,
+            1334.0
+          ]
+        },
+        {
+          "class_id": "paper",
+          "confidence": 0.1559,
+          "box_xyxy": [
+            1814.5,
+            444.7,
+            1990.3,
+            629.7
+          ]
+        },
+        {
+          "class_id": "battery",
+          "confidence": 0.1554,
+          "box_xyxy": [
+            1033.3,
+            701.5,
+            1392.3,
+            890.7
+          ]
+        },
+        {
+          "class_id": "paper",
+          "confidence": 0.1537,
+          "box_xyxy": [
+            519.8,
+            544.2,
+            894.6,
+            854.5
+          ]
+        },
+        {
+          "class_id": "plastic",
+          "confidence": 0.1513,
+          "box_xyxy": [
+            1005.0,
+            704.3,
+            1057.9,
+            753.0
+          ]
+        },
+        {
+          "class_id": "battery",
+          "confidence": 0.1506,
+          "box_xyxy": [
+            592.7,
+            522.4,
+            1116.8,
+            864.2
+          ]
+        }
+      ]
+    },
+    "two_stage": {
+      "enable_tiling": false,
+      "enable_two_stage": true,
+      "detector_input_threshold": 0.15,
+      "num_boxes": 0,
+      "image_size": [
+        2000,
+        1334
+      ],
+      "tiles": 0,
+      "pipeline_ms": 1035.0,
+      "wall_ms_incl_decode_draw": 1848.2,
+      "all_boxes_in_bounds": true,
+      "overlay": "reports\\pipeline_v2\\base64-1717231151649602366964_two_stage_conf0.15.png",
+      "detections": []
+    },
+    "tiling_two_stage": {
+      "enable_tiling": true,
+      "enable_two_stage": true,
+      "detector_input_threshold": 0.15,
+      "num_boxes": 4,
+      "image_size": [
+        2000,
+        1334
+      ],
+      "tiles": 12,
+      "pipeline_ms": 4269.0,
+      "wall_ms_incl_decode_draw": 4935.0,
+      "all_boxes_in_bounds": true,
+      "overlay": "reports\\pipeline_v2\\base64-1717231151649602366964_tiling_two_stage_conf0.15.png",
+      "detections": [
+        {
+          "class_id": "trash",
+          "confidence": 0.2014,
+          "box_xyxy": [
+            1033.3,
+            701.5,
+            1392.3,
+            890.7
+          ],
+          "top3": [
+            [
+              "trash",
+              0.5242
+            ],
+            [
+              "shoes",
+              0.141
+            ],
+            [
+              "battery",
+              0.0606
+            ]
+          ],
+          "detector_score": 0.3843,
+          "detector_class_id": "cardboard"
+        },
+        {
+          "class_id": "glass",
+          "confidence": 0.1881,
+          "box_xyxy": [
+            1415.3,
+            438.2,
+            1880.5,
+            630.1
+          ],
+          "top3": [
+            [
+              "glass",
+              0.5639
+            ],
+            [
+              "shoes",
+              0.112
+            ],
+            [
+              "metal",
+              0.0725
+            ]
+          ],
+          "detector_score": 0.3336,
+          "detector_class_id": "cardboard"
+        },
+        {
+          "class_id": "glass",
+          "confidence": 0.183,
+          "box_xyxy": [
+            1383.8,
+            394.2,
+            1652.0,
+            624.6
+          ],
+          "top3": [
+            [
+              "glass",
+              0.5702
+            ],
+            [
+              "paper",
+              0.1282
+            ],
+            [
+              "metal",
+              0.1044
+            ]
+          ],
+          "detector_score": 0.321,
+          "detector_class_id": "plastic"
+        },
+        {
+          "class_id": "metal",
+          "confidence": 0.1528,
+          "box_xyxy": [
+            275.2,
+            535.4,
+            640.0,
+            877.8
+          ],
+          "top3": [
+            [
+              "metal",
+              0.5693
+            ],
+            [
+              "shoes",
+              0.0912
+            ],
+            [
+              "glass",
+              0.0859
+            ]
+          ],
+          "detector_score": 0.2684,
+          "detector_class_id": "cardboard"
+        }
+      ]
+    }
+  }
+}

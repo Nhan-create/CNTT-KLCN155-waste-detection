@@ -1,0 +1,31 @@
+{
+  "task": "TASK_8D_HIGH_YIELD_REAL_WASTE_ACQUISITION",
+  "generated_from_manifests": {
+    "canonical_ledger": "reports/task8_dataset_program/CANONICAL_5000_DATASET_LEDGER.json",
+    "pilot_summary": "data/acquisition_staging/task8d_high_yield_real_waste/pilot_30_per_source/pilot_30_yield_summary.json",
+    "task8d_qa_manifest": "data/acquisition_staging/task8d_high_yield_real_waste/task8d_qa_manifest.json",
+    "task8c_representative_pack": "data/acquisition_staging/task8c_pm_review_representative_pack/task8c_representative_manifest.json"
+  },
+  "pilot_sources_evaluated": 7,
+  "pilot_sources_stopped": 4,
+  "pilot_sources_approved": 3,
+  "task8d_downloaded_candidates": 443,
+  "task8d_real_waste_pass_images": 200,
+  "task8d_real_waste_train_images": 175,
+  "task8d_real_waste_val_images": 25,
+  "task8d_real_waste_pass_boxes": 368,
+  "task8d_real_waste_pass_multiclass_images": 21,
+  "task8d_overall_real_waste_yield_pct": 45.15,
+  "task8d_keep_auxiliary_images": 36,
+  "task8d_needs_review_images": 28,
+  "task8d_reject_images": 179,
+  "train_val_session_overlap_count": 0,
+  "train_val_specimen_overlap_count": 0,
+  "approved_for_train_all_false": true,
+  "task8c_representative_pack_summary": {
+    "total_items": 76,
+    "wave2_real_waste_pass": 41,
+    "wave1_real_waste_pass": 20,
+    "wave2_keep_auxiliary": 15
+  }
+}

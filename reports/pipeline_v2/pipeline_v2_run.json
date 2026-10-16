@@ -1,0 +1,140 @@
+{
+  "image": "D:\\Hinh_Anh_Rac\\base64-1717231151649602366964.jpeg",
+  "image_sha256": "c38a8b2e3066a81d6327f16be0078f767b141d414bb0586f9b2ac83e4e06c0b5",
+  "detector_checkpoint": "artifacts\\detection\\waste-ssdlite320-mobilenetv3-combined-seed42\\weights\\best.pt",
+  "detector_sha256": "584c5980eb4ebe3718da7b3e87a3c95edfee3d78f186def3e5feba32cf03dff1",
+  "classifier_checkpoint": "artifacts\\official_run\\best_model.pt",
+  "classifier_sha256": "c824fec4f3d1dffff946cd8ad7e2d4f121be33e684dda4e6af92b5bda343e424",
+  "classifier_class_names": [
+    "battery",
+    "biological",
+    "cardboard",
+    "clothes",
+    "glass",
+    "metal",
+    "paper",
+    "plastic",
+    "shoes",
+    "trash"
+  ],
+  "device": "cpu",
+  "operating_confidence": 0.45,
+  "modes": {
+    "normal": {
+      "enable_tiling": false,
+      "enable_two_stage": false,
+      "detector_input_threshold": 0.45,
+      "num_boxes": 1,
+      "image_size": [
+        2000,
+        1334
+      ],
+      "tiles": 0,
+      "pipeline_ms": 1021.8,
+      "wall_ms_incl_decode_draw": 1867.1,
+      "all_boxes_in_bounds": true,
+      "overlay": "reports\\pipeline_v2\\base64-1717231151649602366964_normal.png",
+      "detections": [
+        {
+          "class_id": "plastic",
+          "confidence": 0.5316,
+          "box_xyxy": [
+            1430.2,
+            1042.4,
+            1976.2,
+            1326.8
+          ]
+        }
+      ]
+    },
+    "tiling": {
+      "enable_tiling": true,
+      "enable_two_stage": false,
+      "detector_input_threshold": 0.45,
+      "num_boxes": 4,
+      "image_size": [
+        2000,
+        1334
+      ],
+      "tiles": 12,
+      "pipeline_ms": 13912.2,
+      "wall_ms_incl_decode_draw": 14429.3,
+      "all_boxes_in_bounds": true,
+      "overlay": "reports\\pipeline_v2\\base64-1717231151649602366964_tiling.png",
+      "detections": [
+        {
+          "class_id": "cardboard",
+          "confidence": 0.6465,
+          "box_xyxy": [
+            1852.3,
+            446.6,
+            2000.0,
+            626.4
+          ]
+        },
+        {
+          "class_id": "metal",
+          "confidence": 0.5514,
+          "box_xyxy": [
+            1568.8,
+            978.4,
+            1658.1,
+            1143.2
+          ]
+        },
+        {
+          "class_id": "cardboard",
+          "confidence": 0.5347,
+          "box_xyxy": [
+            1382.6,
+            404.3,
+            1664.0,
+            640.0
+          ]
+        },
+        {
+          "class_id": "plastic",
+          "confidence": 0.5316,
+          "box_xyxy": [
+            1430.2,
+            1042.4,
+            1976.2,
+            1326.8
+          ]
+        }
+      ]
+    },
+    "two_stage": {
+      "enable_tiling": false,
+      "enable_two_stage": true,
+      "detector_input_threshold": 0.15,
+      "num_boxes": 0,
+      "image_size": [
+        2000,
+        1334
+      ],
+      "tiles": 0,
+      "pipeline_ms": 9896.9,
+      "wall_ms_incl_decode_draw": 10516.3,
+      "all_boxes_in_bounds": true,
+      "overlay": "reports\\pipeline_v2\\base64-1717231151649602366964_two_stage.png",
+      "detections": []
+    },
+    "tiling_two_stage": {
+      "enable_tiling": true,
+      "enable_two_stage": true,
+      "detector_input_threshold": 0.15,
+      "num_boxes": 0,
+      "image_size": [
+        2000,
+        1334
+      ],
+      "tiles": 12,
+      "pipeline_ms": 20038.2,
+      "wall_ms_incl_decode_draw": 21275.5,
+      "all_boxes_in_bounds": true,
+      "overlay": "reports\\pipeline_v2\\base64-1717231151649602366964_tiling_two_stage.png",
+      "detections": []
+    }
+  }
+}

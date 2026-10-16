@@ -1,0 +1,95 @@
+{
+  "num_images": 257,
+  "num_label_files": 257,
+  "orphan_labels": [],
+  "missing_labels": [],
+  "empty_labels": [],
+  "invalid": {},
+  "placeholder_box_images": [
+    "oi_00a36f96e31731c4.jpg",
+    "oi_02deba0102b5ce2a.jpg",
+    "oi_04e310af546ec9d0.jpg",
+    "oi_07d2a7e5d98e6f27.jpg"
+  ],
+  "per_source": {
+    "openimages_v7": {
+      "images": 152,
+      "boxes": {
+        "clothes": 58,
+        "metal": 17,
+        "plastic": 1,
+        "glass": 21,
+        "shoes": 507,
+        "cardboard": 2
+      },
+      "image_presence": {
+        "clothes": 19,
+        "metal": 8,
+        "plastic": 1,
+        "glass": 9,
+        "shoes": 114,
+        "cardboard": 2
+      }
+    },
+    "taco": {
+      "images": 105,
+      "boxes": {
+        "glass": 60,
+        "cardboard": 67,
+        "plastic": 405,
+        "metal": 92,
+        "paper": 89,
+        "trash": 319,
+        "biological": 8,
+        "shoes": 7,
+        "battery": 2
+      },
+      "image_presence": {
+        "glass": 29,
+        "cardboard": 44,
+        "plastic": 89,
+        "metal": 40,
+        "paper": 60,
+        "trash": 66,
+        "biological": 7,
+        "shoes": 6,
+        "battery": 2
+      }
+    }
+  },
+  "unreadable_images": [],
+  "tiny_boxes": [
+    "oi_22fa8c0824206437.jpg",
+    "oi_8f939cbb01f114d1.jpg",
+    "oi_ce3136faf5116e0d.jpg",
+    "taco_0089.jpg",
+    "taco_0135.jpg",
+    "taco_0136.jpg",
+    "taco_0348.jpg",
+    "taco_0426.jpg",
+    "taco_0616.jpg",
+    "taco_0637.jpg",
+    "taco_0755.jpg",
+    "taco_0758.jpg",
+    "taco_0764.jpg",
+    "taco_0804.jpg",
+    "taco_0816.jpg",
+    "taco_0853.jpg",
+    "taco_0860.jpg",
+    "taco_0879.jpg",
+    "taco_1032.jpg",
+    "taco_1107.jpg",
+    "taco_1211.jpg",
+    "taco_1213.jpg",
+    "taco_1215.jpg",
+    "taco_1239.jpg",
+    "taco_1240.jpg",
+    "taco_1246.jpg",
+    "taco_1323.jpg",
+    "taco_1335.jpg",
+    "taco_1353.jpg",
+    "taco_1453.jpg",
+    "taco_1486.jpg",
+    "taco_1488.jpg"
+  ]
+}

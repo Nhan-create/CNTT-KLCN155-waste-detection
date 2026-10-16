@@ -55,8 +55,8 @@ def parse_args():
     parser = argparse.ArgumentParser(description="Audit real detection images against OpenImages metadata and visual inspection.")
     parser.add_argument("--image-dir", type=Path, default=Path("data/detection/images/real"), help="Path to real images folder")
     parser.add_argument("--label-dir", type=Path, default=Path("data/detection/labels/real"), help="Path to real labels folder")
-    parser.add_argument("--oi-boxes-csv", type=Path, default=Path(r"D:\waste-training\openimages-validation-boxes.csv"), help="OpenImages validation boxes CSV")
-    parser.add_argument("--oi-classes-csv", type=Path, default=Path(r"D:\waste-training\openimages-boxable-classes.csv"), help="OpenImages class descriptions CSV")
+    parser.add_argument("--oi-boxes-csv", type=Path, default=(Path(__import__("os").environ.get("WASTE_TRAINING_DIR", str(Path(__file__).resolve().parents[1] / "data" / "external" / "waste-training"))) / "openimages-validation-boxes.csv"), help="OpenImages validation boxes CSV")
+    parser.add_argument("--oi-classes-csv", type=Path, default=(Path(__import__("os").environ.get("WASTE_TRAINING_DIR", str(Path(__file__).resolve().parents[1] / "data" / "external" / "waste-training"))) / "openimages-boxable-classes.csv"), help="OpenImages class descriptions CSV")
     parser.add_argument("--output-dir", type=Path, default=Path("artifacts/part02/real_data_audit"), help="Output directory for reports")
     return parser.parse_args()
 

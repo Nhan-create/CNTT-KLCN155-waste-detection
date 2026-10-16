@@ -21,7 +21,7 @@ from collections import Counter
 import pandas as pd
 import yaml
 
-PROJECT_ROOT = Path("D:/CNTT-KLCN155-waste-detection")
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = PROJECT_ROOT / "data" / "detection"
 AUDIT_DIR = PROJECT_ROOT / "data" / "audit"
 ARTIFACTS_DIR = PROJECT_ROOT / "artifacts" / "part02"
@@ -315,7 +315,7 @@ def main():
     # 8. Generate configs/detection_dataset.yaml and data/detection/manifest.jsonl
     CONFIGS_DIR.mkdir(parents=True, exist_ok=True)
     yaml_config = {
-        "path": "D:/CNTT-KLCN155-waste-detection/data/detection",
+        "path": "../data/detection",
         "train": "splits/train.txt",
         "val": "splits/val.txt",
         "test": "splits/test.txt",

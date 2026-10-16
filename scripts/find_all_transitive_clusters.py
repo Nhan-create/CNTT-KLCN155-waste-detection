@@ -26,7 +26,7 @@ import networkx as nx
 import numpy as np
 import pandas as pd
 
-PROJECT_ROOT = Path("D:/CNTT-KLCN155-waste-detection")
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_MANIFEST = PROJECT_ROOT / "data" / "audit" / "split_manifest_v2.csv"
 DEFAULT_DATASET_INFO = PROJECT_ROOT / "data" / "metadata" / "dataset_info.csv"
 DEFAULT_DECISION_TABLE = PROJECT_ROOT / "data" / "audit" / "visual_audit_decision_table.csv"

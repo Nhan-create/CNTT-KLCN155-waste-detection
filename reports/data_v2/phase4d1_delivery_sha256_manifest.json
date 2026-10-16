@@ -1,0 +1,107 @@
+{
+  "delivery_package": "PHASE4D1_FINAL_SAFETY_PATCH_EVIDENCE.zip",
+  "phase": "4D.1",
+  "total_items": 20,
+  "manifest": [
+    {
+      "path": "reports/PHASE4D1_FINAL_SAFETY_PATCH_AND_EXECUTION_READINESS.md",
+      "size_bytes": 13719,
+      "sha256": "3314f2993b522ede0593181116374bad1ee2ff67672f0a39bc7f55ce3329da2a"
+    },
+    {
+      "path": "reports/PHASE4D_SAFETY_RELEASE_AND_VERIFIED_SOURCES.md",
+      "size_bytes": 14647,
+      "sha256": "108d5a658e7369109ed4a232553dbebc4c3b50cf6c0933e58b8637b3949a9502"
+    },
+    {
+      "path": "src/detection/export_train_manifest.py",
+      "size_bytes": 18874,
+      "sha256": "cc1f0501910f28b1eb90596f548e5d576e03939201746d21ad247fe47be9d1b1"
+    },
+    {
+      "path": "src/detection/preflight_guard.py",
+      "size_bytes": 7008,
+      "sha256": "23c4104662459d2702ad1ebb3e12309297b34ba654d4df990a91c55f9aa0fa06"
+    },
+    {
+      "path": "src/detection/ssdlite_train.py",
+      "size_bytes": 15277,
+      "sha256": "4b696d03e20e4e0c87a0869a0b0d161d90e3565ab481a3f35af923c9cf9fe440"
+    },
+    {
+      "path": "scripts/train_detection_v2.py",
+      "size_bytes": 25340,
+      "sha256": "633abe34703ed2ecf0e8ee5307c681db067e32ee4f829bb6412fce833bd24fa2"
+    },
+    {
+      "path": "scripts/prepare_acquisition_pilot.py",
+      "size_bytes": 4641,
+      "sha256": "63fd8c706bfdfabf09149952dadc613d04fe0a3c739449e092529ddbb2be418e"
+    },
+    {
+      "path": "scripts/validate_pilot_quality_gates.py",
+      "size_bytes": 15410,
+      "sha256": "ec9ba3ce469724aedcf5e09641cc18fbaaeb1b9248b4b83dd00cafa11d1264b8"
+    },
+    {
+      "path": "tests/qa/test_split_contamination_safety.py",
+      "size_bytes": 13886,
+      "sha256": "8dd276af010c715c48c829f247ad557afcbda915c0eb14fb1b60f363d8eb1610"
+    },
+    {
+      "path": "tests/qa/test_pilot_dataset_v3.py",
+      "size_bytes": 6377,
+      "sha256": "7a496ec1cc04dc9a1baf2717e316448e370affd891c6b05bb3fdbe1ba558e007"
+    },
+    {
+      "path": "tests/detection/test_preflight_guard_integration.py",
+      "size_bytes": 9116,
+      "sha256": "d49c765fff186a564698118179ca0a01d8ae89fef537e6487237cba29ea23306"
+    },
+    {
+      "path": "tests/detection/test_train_command_smoke.py",
+      "size_bytes": 3498,
+      "sha256": "ba0f0298868db61fd79b7d5b29196acf0ec9874986d6e8388d03d9c20292db0f"
+    },
+    {
+      "path": "reports/data_v2/pytest_targeted.log",
+      "size_bytes": 3963,
+      "sha256": "eae499767e0355872022eadfdbfd2e3fbc6b7c0a5b60944475eaeccd1932ecbb"
+    },
+    {
+      "path": "reports/data_v2/real_data_acquisition_plan.md",
+      "size_bytes": 12427,
+      "sha256": "8330e95e30bf7187b4a04bb0c18dccdca4ac2d159eb7ed36e9867ba97e04e07a"
+    },
+    {
+      "path": "reports/data_v2/candidate_expansion_sources.json",
+      "size_bytes": 8674,
+      "sha256": "679ac3b847f83267505db7d41429fec5d4f120ac9ab5a36d397d59feeeb38e0b"
+    },
+    {
+      "path": "reports/data_v2/candidate_expansion_sources.md",
+      "size_bytes": 4425,
+      "sha256": "e417b099b94b8a24f5bbfcdaa1b3efc634d4fd191ea90437d7c65bc2d0c86f97"
+    },
+    {
+      "path": "reports/data_v2/pilot_quality_gates_report.json",
+      "size_bytes": 5527,
+      "sha256": "9860a4604889abca4f3cab2140413f9ccf2db5c7bbf4ac30938ce40b9b67a141"
+    },
+    {
+      "path": "reports/data_v2/pilot_train_eligible_manifest.json",
+      "size_bytes": 1934,
+      "sha256": "44980c6f93d107d0b8630cfe822bcf8226e13b78f76d00ef83c31820c3473734"
+    },
+    {
+      "path": "data/acquisition_staging/manifests/candidate_acquisition_manifest.json",
+      "size_bytes": 17474,
+      "sha256": "dd04ff751f696e2f9a54b653b05033cff78d02065fc2cc004315227cf08c9f1b"
+    },
+    {
+      "path": "data/acquisition_staging/README.md",
+      "size_bytes": 1251,
+      "sha256": "c4992595de35b6168f3e99b4128ffb82f505dd914f9a7c82f3894e27e53ef578"
+    }
+  ]
+}

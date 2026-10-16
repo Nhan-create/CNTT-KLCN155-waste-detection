@@ -1,0 +1,817 @@
+{
+  "source": {
+    "path": "reports\\model_v2\\predictions_E1_yolov8n_10cls.json",
+    "format": "simple_wrapped",
+    "stored_min_confidence": 0.001,
+    "backend": "yolov8n",
+    "checkpoint_sha256": "7e986deed90ba4208f4662039c1e78b2d03ffb41a6e57e8235184db78aec32d8"
+  },
+  "ground_truth": "D:\\CNTT-KLCN155-waste-detection\\reports\\qa_acceptance\\ground_truth_hinh_anh_rac.json",
+  "operating_confidence": 0.25,
+  "views": {
+    "all_27": {
+      "n_images": 27,
+      "n_gt_objects": 57,
+      "n_predictions_total": 3050,
+      "missing_prediction_images": [],
+      "ignored_prediction_images_not_in_gt": [],
+      "ap": {
+        "per_class": {
+          "battery": {
+            "n_gt": 2,
+            "n_pred": 0,
+            "ap50": 0.0,
+            "ap75": 0.0,
+            "ap50_95": 0.0
+          },
+          "biological": {
+            "n_gt": 3,
+            "n_pred": 0,
+            "ap50": 0.0,
+            "ap75": 0.0,
+            "ap50_95": 0.0
+          },
+          "cardboard": {
+            "n_gt": 3,
+            "n_pred": 92,
+            "ap50": 0.33663366336633666,
+            "ap75": 0.0,
+            "ap50_95": 0.13886138613861387
+          },
+          "clothes": {
+            "n_gt": 8,
+            "n_pred": 525,
+            "ap50": 0.0014966612940363804,
+            "ap75": 0.0014966612940363804,
+            "ap50_95": 0.0011973290352291044
+          },
+          "glass": {
+            "n_gt": 11,
+            "n_pred": 229,
+            "ap50": 0.003438805419003439,
+            "ap75": 0.003438805419003439,
+            "ap50_95": 0.0024233192550024234
+          },
+          "metal": {
+            "n_gt": 4,
+            "n_pred": 222,
+            "ap50": 0.051485148514851496,
+            "ap75": 0.03217821782178218,
+            "ap50_95": 0.033465346534653474
+          },
+          "paper": {
+            "n_gt": 2,
+            "n_pred": 34,
+            "ap50": 0.0,
+            "ap75": 0.0,
+            "ap50_95": 0.0
+          },
+          "plastic": {
+            "n_gt": 17,
+            "n_pred": 1289,
+            "ap50": 0.08010304447507807,
+            "ap75": 0.023399244992082895,
+            "ap50_95": 0.03761294610106804
+          },
+          "shoes": {
+            "n_gt": 6,
+            "n_pred": 438,
+            "ap50": 0.09788251984282334,
+            "ap75": 0.08015087223008015,
+            "ap50_95": 0.07549759295322243
+          },
+          "trash": {
+            "n_gt": 1,
+            "n_pred": 221,
+            "ap50": 0.0,
+            "ap75": 0.0,
+            "ap50_95": 0.0
+          }
+        },
+        "mAP50": 0.05710398429121294,
+        "mAP50_95": 0.028905792001778934,
+        "classes_in_mean": 10,
+        "class_agnostic_AP50": 0.19590172815488818,
+        "class_agnostic_AP50_95": 0.09323545166468321
+      },
+      "operating_point": {
+        "class_aware": {
+          "confidence_threshold": 0.25,
+          "iou_threshold": 0.5,
+          "class_agnostic": false,
+          "tp": 5,
+          "fp": 27,
+          "fn": 52,
+          "n_gt": 57,
+          "precision": 0.15625,
+          "recall": 0.08771929824561403,
+          "f1": 0.11235955056179775
+        },
+        "class_agnostic": {
+          "confidence_threshold": 0.25,
+          "iou_threshold": 0.5,
+          "class_agnostic": true,
+          "tp": 11,
+          "fp": 21,
+          "fn": 46,
+          "n_gt": 57,
+          "precision": 0.34375,
+          "recall": 0.19298245614035087,
+          "f1": 0.24719101123595508
+        }
+      },
+      "localization_class_analysis": {
+        "confidence_threshold": 0.25,
+        "iou_threshold": 0.5,
+        "matched_pairs": 11,
+        "correct_class_pairs": 5,
+        "class_accuracy_on_matched": 0.45454545454545453,
+        "confusion_matrix": {
+          "labels": [
+            "battery",
+            "biological",
+            "cardboard",
+            "clothes",
+            "glass",
+            "metal",
+            "paper",
+            "plastic",
+            "shoes",
+            "trash",
+            "background"
+          ],
+          "rows": "ground_truth",
+          "cols": "prediction",
+          "matrix": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              3
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              3
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              8
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              10
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              3
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2,
+              0,
+              0,
+              1,
+              3,
+              0,
+              0,
+              11
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              5
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              4,
+              3,
+              4,
+              2,
+              7,
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      },
+      "confidence_sweep": [
+        {
+          "confidence_threshold": 0.2,
+          "tp": 6,
+          "fp": 42,
+          "fn": 51,
+          "precision": 0.125,
+          "recall": 0.10526315789473684,
+          "f1": 0.11428571428571428,
+          "class_accuracy_on_matched": 0.4
+        },
+        {
+          "confidence_threshold": 0.25,
+          "tp": 5,
+          "fp": 27,
+          "fn": 52,
+          "precision": 0.15625,
+          "recall": 0.08771929824561403,
+          "f1": 0.11235955056179775,
+          "class_accuracy_on_matched": 0.45454545454545453
+        },
+        {
+          "confidence_threshold": 0.3,
+          "tp": 4,
+          "fp": 23,
+          "fn": 53,
+          "precision": 0.14814814814814814,
+          "recall": 0.07017543859649122,
+          "f1": 0.09523809523809523,
+          "class_accuracy_on_matched": 0.4
+        },
+        {
+          "confidence_threshold": 0.35,
+          "tp": 3,
+          "fp": 21,
+          "fn": 54,
+          "precision": 0.125,
+          "recall": 0.05263157894736842,
+          "f1": 0.07407407407407407,
+          "class_accuracy_on_matched": 0.3333333333333333
+        },
+        {
+          "confidence_threshold": 0.4,
+          "tp": 2,
+          "fp": 17,
+          "fn": 55,
+          "precision": 0.10526315789473684,
+          "recall": 0.03508771929824561,
+          "f1": 0.05263157894736842,
+          "class_accuracy_on_matched": 0.25
+        },
+        {
+          "confidence_threshold": 0.45,
+          "tp": 2,
+          "fp": 15,
+          "fn": 55,
+          "precision": 0.11764705882352941,
+          "recall": 0.03508771929824561,
+          "f1": 0.05405405405405405,
+          "class_accuracy_on_matched": 0.25
+        },
+        {
+          "confidence_threshold": 0.5,
+          "tp": 1,
+          "fp": 14,
+          "fn": 56,
+          "precision": 0.06666666666666667,
+          "recall": 0.017543859649122806,
+          "f1": 0.02777777777777778,
+          "class_accuracy_on_matched": 0.16666666666666666
+        }
+      ],
+      "practical_acceptance": {
+        "criteria": {
+          "min_recall_at_iou50": 0.6,
+          "min_precision_at_iou50": 0.6,
+          "min_class_accuracy_on_matched": 0.75
+        },
+        "checks": {
+          "recall_at_iou50": {
+            "actual": 0.08771929824561403,
+            "target": ">= 0.6",
+            "passed": false
+          },
+          "precision_at_iou50": {
+            "actual": 0.15625,
+            "target": ">= 0.6",
+            "passed": false
+          },
+          "class_accuracy_on_matched": {
+            "actual": 0.45454545454545453,
+            "target": ">= 0.75",
+            "passed": false
+          },
+          "coverage_all_images_predicted": {
+            "actual": 27,
+            "target": 27,
+            "passed": true
+          }
+        },
+        "status": "FAIL"
+      },
+      "warnings": [
+        "Predictions only contain detections with confidence >= 0.001; AP is truncated (lower bound) and P/R/F1 are only valid for thresholds >= 0.001."
+      ],
+      "excluded_duplicates": []
+    },
+    "dedup_sha256": {
+      "n_images": 26,
+      "n_gt_objects": 56,
+      "n_predictions_total": 2750,
+      "missing_prediction_images": [],
+      "ignored_prediction_images_not_in_gt": [
+        "images (7).jpg"
+      ],
+      "ap": {
+        "per_class": {
+          "battery": {
+            "n_gt": 2,
+            "n_pred": 0,
+            "ap50": 0.0,
+            "ap75": 0.0,
+            "ap50_95": 0.0
+          },
+          "biological": {
+            "n_gt": 3,
+            "n_pred": 0,
+            "ap50": 0.0,
+            "ap75": 0.0,
+            "ap50_95": 0.0
+          },
+          "cardboard": {
+            "n_gt": 3,
+            "n_pred": 92,
+            "ap50": 0.33663366336633666,
+            "ap75": 0.0,
+            "ap50_95": 0.13886138613861387
+          },
+          "clothes": {
+            "n_gt": 8,
+            "n_pred": 493,
+            "ap50": 0.0016292768517358065,
+            "ap75": 0.0016292768517358065,
+            "ap50_95": 0.0013034214813886452
+          },
+          "glass": {
+            "n_gt": 11,
+            "n_pred": 201,
+            "ap50": 0.0039603960396039604,
+            "ap75": 0.0039603960396039604,
+            "ap50_95": 0.002791969804715278
+          },
+          "metal": {
+            "n_gt": 4,
+            "n_pred": 167,
+            "ap50": 0.06435643564356436,
+            "ap75": 0.036775106082036775,
+            "ap50_95": 0.04045261669024045
+          },
+          "paper": {
+            "n_gt": 2,
+            "n_pred": 32,
+            "ap50": 0.0,
+            "ap75": 0.0,
+            "ap50_95": 0.0
+          },
+          "plastic": {
+            "n_gt": 16,
+            "n_pred": 1186,
+            "ap50": 0.0861073407593072,
+            "ap75": 0.02702323265233635,
+            "ap50_95": 0.04100358523276963
+          },
+          "shoes": {
+            "n_gt": 6,
+            "n_pred": 358,
+            "ap50": 0.1024985431817476,
+            "ap75": 0.08015087223008015,
+            "ap50_95": 0.07696549362404083
+          },
+          "trash": {
+            "n_gt": 1,
+            "n_pred": 221,
+            "ap50": 0.0,
+            "ap75": 0.0,
+            "ap50_95": 0.0
+          }
+        },
+        "mAP50": 0.059518565584229556,
+        "mAP50_95": 0.030137847297176872,
+        "classes_in_mean": 10,
+        "class_agnostic_AP50": 0.20248594406922865,
+        "class_agnostic_AP50_95": 0.09618014830514918
+      },
+      "operating_point": {
+        "class_aware": {
+          "confidence_threshold": 0.25,
+          "iou_threshold": 0.5,
+          "class_agnostic": false,
+          "tp": 5,
+          "fp": 25,
+          "fn": 51,
+          "n_gt": 56,
+          "precision": 0.16666666666666666,
+          "recall": 0.08928571428571429,
+          "f1": 0.11627906976744186
+        },
+        "class_agnostic": {
+          "confidence_threshold": 0.25,
+          "iou_threshold": 0.5,
+          "class_agnostic": true,
+          "tp": 11,
+          "fp": 19,
+          "fn": 45,
+          "n_gt": 56,
+          "precision": 0.36666666666666664,
+          "recall": 0.19642857142857142,
+          "f1": 0.25581395348837205
+        }
+      },
+      "localization_class_analysis": {
+        "confidence_threshold": 0.25,
+        "iou_threshold": 0.5,
+        "matched_pairs": 11,
+        "correct_class_pairs": 5,
+        "class_accuracy_on_matched": 0.45454545454545453,
+        "confusion_matrix": {
+          "labels": [
+            "battery",
+            "biological",
+            "cardboard",
+            "clothes",
+            "glass",
+            "metal",
+            "paper",
+            "plastic",
+            "shoes",
+            "trash",
+            "background"
+          ],
+          "rows": "ground_truth",
+          "cols": "prediction",
+          "matrix": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              3
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              3
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              8
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              10
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              3
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              2,
+              0,
+              0,
+              1,
+              3,
+              0,
+              0,
+              10
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              5
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              4,
+              3,
+              3,
+              1,
+              7,
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      },
+      "confidence_sweep": [
+        {
+          "confidence_threshold": 0.2,
+          "tp": 6,
+          "fp": 40,
+          "fn": 50,
+          "precision": 0.13043478260869565,
+          "recall": 0.10714285714285714,
+          "f1": 0.11764705882352941,
+          "class_accuracy_on_matched": 0.4
+        },
+        {
+          "confidence_threshold": 0.25,
+          "tp": 5,
+          "fp": 25,
+          "fn": 51,
+          "precision": 0.16666666666666666,
+          "recall": 0.08928571428571429,
+          "f1": 0.11627906976744186,
+          "class_accuracy_on_matched": 0.45454545454545453
+        },
+        {
+          "confidence_threshold": 0.3,
+          "tp": 4,
+          "fp": 22,
+          "fn": 52,
+          "precision": 0.15384615384615385,
+          "recall": 0.07142857142857142,
+          "f1": 0.0975609756097561,
+          "class_accuracy_on_matched": 0.4
+        },
+        {
+          "confidence_threshold": 0.35,
+          "tp": 3,
+          "fp": 21,
+          "fn": 53,
+          "precision": 0.125,
+          "recall": 0.05357142857142857,
+          "f1": 0.075,
+          "class_accuracy_on_matched": 0.3333333333333333
+        },
+        {
+          "confidence_threshold": 0.4,
+          "tp": 2,
+          "fp": 17,
+          "fn": 54,
+          "precision": 0.10526315789473684,
+          "recall": 0.03571428571428571,
+          "f1": 0.05333333333333334,
+          "class_accuracy_on_matched": 0.25
+        },
+        {
+          "confidence_threshold": 0.45,
+          "tp": 2,
+          "fp": 15,
+          "fn": 54,
+          "precision": 0.11764705882352941,
+          "recall": 0.03571428571428571,
+          "f1": 0.0547945205479452,
+          "class_accuracy_on_matched": 0.25
+        },
+        {
+          "confidence_threshold": 0.5,
+          "tp": 1,
+          "fp": 14,
+          "fn": 55,
+          "precision": 0.06666666666666667,
+          "recall": 0.017857142857142856,
+          "f1": 0.02816901408450704,
+          "class_accuracy_on_matched": 0.16666666666666666
+        }
+      ],
+      "practical_acceptance": {
+        "criteria": {
+          "min_recall_at_iou50": 0.6,
+          "min_precision_at_iou50": 0.6,
+          "min_class_accuracy_on_matched": 0.75
+        },
+        "checks": {
+          "recall_at_iou50": {
+            "actual": 0.08928571428571429,
+            "target": ">= 0.6",
+            "passed": false
+          },
+          "precision_at_iou50": {
+            "actual": 0.16666666666666666,
+            "target": ">= 0.6",
+            "passed": false
+          },
+          "class_accuracy_on_matched": {
+            "actual": 0.45454545454545453,
+            "target": ">= 0.75",
+            "passed": false
+          },
+          "coverage_all_images_predicted": {
+            "actual": 26,
+            "target": 26,
+            "passed": true
+          }
+        },
+        "status": "FAIL"
+      },
+      "warnings": [
+        "Predictions only contain detections with confidence >= 0.001; AP is truncated (lower bound) and P/R/F1 are only valid for thresholds >= 0.001."
+      ],
+      "excluded_duplicates": [
+        "images (7).jpg"
+      ]
+    }
+  },
+  "strict_dod_reference": {
+    "dod_status": "FAIL",
+    "acceptance_criteria": {
+      "coverage_target": "100%",
+      "coverage_actual": "100.00% (27/27)",
+      "coverage_passed": true,
+      "fn_target": 0,
+      "fn_actual": 41,
+      "fn_passed": false,
+      "fp_target": 0,
+      "fp_actual": 16,
+      "fp_passed": false,
+      "wrong_class_target": 0,
+      "wrong_class_actual": 8,
+      "wrong_class_passed": false,
+      "min_iou_target": ">= 0.75",
+      "iou_violations_count": 11,
+      "iou_passed": false,
+      "min_inter_gt_target": ">= 0.99",
+      "inter_gt_violations_count": 11,
+      "inter_gt_passed": false,
+      "invalid_boxes_count": 0,
+      "invalid_boxes_passed": true
+    },
+    "note": "Ideal criterion (unchanged). Computed on all manifest images."
+  }
+}

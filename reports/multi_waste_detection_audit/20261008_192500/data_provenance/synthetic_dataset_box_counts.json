@@ -1,0 +1,72 @@
+{
+  "dataset_name": "A synthetic outdoor waste image dataset with YOLO-format annotations for object detection",
+  "doi": "10.17632/2x69gjbcz6.2",
+  "authors": [
+    "Tanvinur Rahman Siam",
+    "Kaushik Deb"
+  ],
+  "total_synthetic_images": 1305,
+  "total_synthetic_boxes": 4095,
+  "boxes_by_class_id": {
+    "0": {
+      "mendeley_category": "plastic",
+      "project_taxonomy_10": "battery",
+      "alignment_status": "SCRAMBLED",
+      "box_count": 462
+    },
+    "1": {
+      "mendeley_category": "paper",
+      "project_taxonomy_10": "biological",
+      "alignment_status": "SCRAMBLED",
+      "box_count": 446
+    },
+    "2": {
+      "mendeley_category": "cardboard",
+      "project_taxonomy_10": "cardboard",
+      "alignment_status": "MATCH",
+      "box_count": 452
+    },
+    "3": {
+      "mendeley_category": "metal",
+      "project_taxonomy_10": "clothes",
+      "alignment_status": "SCRAMBLED",
+      "box_count": 462
+    },
+    "4": {
+      "mendeley_category": "glass",
+      "project_taxonomy_10": "glass",
+      "alignment_status": "MATCH",
+      "box_count": 476
+    },
+    "5": {
+      "mendeley_category": "organic waste",
+      "project_taxonomy_10": "metal",
+      "alignment_status": "SCRAMBLED",
+      "box_count": 448
+    },
+    "6": {
+      "mendeley_category": "battery waste",
+      "project_taxonomy_10": "paper",
+      "alignment_status": "SCRAMBLED",
+      "box_count": 422
+    },
+    "7": {
+      "mendeley_category": "e-waste",
+      "project_taxonomy_10": "plastic",
+      "alignment_status": "SCRAMBLED",
+      "box_count": 472
+    },
+    "8": {
+      "mendeley_category": "cloth",
+      "project_taxonomy_10": "shoes",
+      "alignment_status": "SCRAMBLED",
+      "box_count": 0
+    },
+    "9": {
+      "mendeley_category": "other waste",
+      "project_taxonomy_10": "trash",
+      "alignment_status": "MATCH",
+      "box_count": 455
+    }
+  }
+}
