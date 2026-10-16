@@ -30,28 +30,31 @@ Xác lập hồ sơ kỹ thuật chính xác 100% về hiện trạng kho lưu t
 
 ### 2.2. Kiểm kê các module mã nguồn hiện có
 1. **Tiền xử lý và Dữ liệu:**
-   - [src/preprocessing/merge_datasets.py](file:///D:/CNTT-KLCN155-waste-detection/src/preprocessing/merge_datasets.py): Gộp nguồn với provenance SHA-256.
-   - [src/preprocessing/clean_data.py](file:///D:/CNTT-KLCN155-waste-detection/src/preprocessing/clean_data.py) & [src/data/dedup.py](file:///D:/CNTT-KLCN155-waste-detection/src/data/dedup.py): Khử trùng lặp ảnh bằng SHA-256 và pHash qua chỉ mục BK-Tree.
-   - [src/data/split.py](file:///D:/CNTT-KLCN155-waste-detection/src/data/split.py): Chia cụm cluster 70/15/15 chống rò rỉ dữ liệu.
-   - [src/data/validation.py](file:///D:/CNTT-KLCN155-waste-detection/src/data/validation.py): Cổng kiểm tra tính hợp lệ và zero-leakage trước khi huấn luyện.
+   - [src/preprocessing/merge_datasets.py](../../src/preprocessing/merge_datasets.py): Gộp nguồn với provenance SHA-256.
+   - [src/preprocessing/clean_data.py](../../src/preprocessing/clean_data.py) & [src/data/dedup.py](../../src/data/dedup.py): Khử trùng lặp ảnh bằng SHA-256 và pHash qua chỉ mục BK-Tree.
+   - [src/data/split.py](../../src/data/split.py): Chia cụm cluster 70/15/15 chống rò rỉ dữ liệu.
+   - [src/data/validation.py](../../src/data/validation.py): Cổng kiểm tra tính hợp lệ và zero-leakage trước khi huấn luyện.
 2. **Huấn luyện và Đánh giá Phân loại (Giai đoạn A):**
-   - [src/models/mobilenet.py](file:///D:/CNTT-KLCN155-waste-detection/src/models/mobilenet.py): Định nghĩa kiến trúc MobileNetV3-Large với đầu phân loại 10 lớp.
-   - [src/training/train.py](file:///D:/CNTT-KLCN155-waste-detection/src/training/train.py) & [src/training/engine.py](file:///D:/CNTT-KLCN155-waste-detection/src/training/engine.py): Vòng lặp huấn luyện PyTorch với AMP fp16, Cosine Annealing, early stopping.
-   - [src/evaluation/evaluate.py](file:///D:/CNTT-KLCN155-waste-detection/src/evaluation/evaluate.py): Xuất báo cáo Precision, Recall, Macro-F1, Confusion Matrix.
-3. **Huấn luyện và Đánh giá Phát hiện (Giai đoạn B):**
-   - [src/detection/yolo.py](file:///D:/CNTT-KLCN155-waste-detection/src/detection/yolo.py): Adapter giao tiếp với Ultralytics YOLOv8.
-   - [src/detection/ssdlite.py](file:///D:/CNTT-KLCN155-waste-detection/src/detection/ssdlite.py) & [src/detection/ssdlite_train.py](file:///D:/CNTT-KLCN155-waste-detection/src/detection/ssdlite_train.py): Cài đặt SSDLite320-MobileNetV3 từ Torchvision.
-   - [src/detection/fusion.py](file:///D:/CNTT-KLCN155-waste-detection/src/detection/fusion.py): Thuật toán Weighted Boxes Fusion kết hợp kết quả.
-   - [src/detection/tune.py](file:///D:/CNTT-KLCN155-waste-detection/src/detection/tune.py): Grid Search tìm trọng số $w_{\text{YOLO}}, w_{\text{SSD}}$ tối ưu trên tập Validation.
-   - [src/detection/evaluate.py](file:///D:/CNTT-KLCN155-waste-detection/src/detection/evaluate.py): Tính mAP COCO chuẩn qua `pycocotools`.
+   - [src/models/mobilenetv3.py](../../src/models/mobilenetv3.py): Định nghĩa kiến trúc MobileNetV3-Large với đầu phân loại 10 lớp.
+   - [src/training/train.py](../../src/training/train.py) & [src/training/engine.py](../../src/training/engine.py): Vòng lặp huấn luyện PyTorch với AMP fp16, Cosine Annealing, early stopping.
+   - [src/evaluation/evaluate.py](../../src/evaluation/evaluate.py): Xuất báo cáo Precision, Recall, Macro-F1, Confusion Matrix.
+3. **Huấn luyện, Hậu xử lý và Đánh giá Phát hiện (Giai đoạn B):**
+   - [src/detection/yolo.py](../../src/detection/yolo.py): Adapter giao tiếp với Ultralytics YOLOv8 (10 lớp `0..9`).
+   - [src/detection/ssdlite.py](../../src/detection/ssdlite.py) & [src/detection/ssdlite_train.py](../../src/detection/ssdlite_train.py): Cài đặt SSDLite320-MobileNetV3 từ Torchvision (Background = 0, Foreground = `1..10`).
+   - [src/detection/tiling.py](../../src/detection/tiling.py), [src/detection/two_stage.py](../../src/detection/two_stage.py) & [src/detection/coordinates.py](../../src/detection/coordinates.py): Cắt ô ảnh (SAHI), thẩm định 2 giai đoạn với MobileNetV3 (Bayesian `product` / `blend`), chuẩn hóa EXIF & letterbox.
+   - [src/detection/augmentation.py](../../src/detection/augmentation.py) & [src/detection/copy_paste.py](../../src/detection/copy_paste.py): 4 chiến lược tăng cường dữ liệu (`none`, `geometric`, `photometric`, `combined`).
+   - [src/detection/safe_dataset_builder.py](../../src/detection/safe_dataset_builder.py) & [src/detection/preflight_guard.py](../../src/detection/preflight_guard.py): Kiểm duyệt dữ liệu `fail-closed` và bảo vệ phần cứng RAM/VRAM.
+   - [src/detection/fusion.py](../../src/detection/fusion.py) & [src/detection/tune.py](../../src/detection/tune.py): Thuật toán Weighted Boxes Fusion (WBF) và Grid Search tìm trọng số tối ưu trên tập Validation.
+   - [src/detection/evaluate.py](../../src/detection/evaluate.py): Tính mAP COCO chuẩn qua `pycocotools`.
 4. **Giao diện người dùng và công cụ thẩm định:**
-   - [streamlit_app.py](file:///D:/CNTT-KLCN155-waste-detection/streamlit_app.py): Ứng dụng Web hoàn chỉnh, nhận diện đa ảnh, bảng thống kê nhóm rác, đo độ trễ và xuất ảnh.
-   - [src/ui/review_tool.py](file:///D:/CNTT-KLCN155-waste-detection/src/ui/review_tool.py): Công cụ Streamlit nội bộ nhẹ phục vụ kiểm định và gán nhãn bounding box (thay thế CVAT).
+   - [streamlit_app.py](../../streamlit_app.py), [src/web/detection_logic.py](../../src/web/detection_logic.py) & [src/web/classifier_service.py](../../src/web/classifier_service.py): Ứng dụng Web 2 Tab (Phân loại 96.18% & Phát hiện đa vật thể kèm Tiling, Two-Stage, ngưỡng riêng từng lớp).
+   - [src/ui/review_tool.py](../../src/ui/review_tool.py): Công cụ Streamlit nội bộ nhẹ phục vụ kiểm định và gán nhãn bounding box.
 
 ### 2.3. Kiểm kê trọng số Checkpoint (`VERIFIED`)
-- [artifacts/ecovision/best.pt](file:///D:/CNTT-KLCN155-waste-detection/artifacts/ecovision/best.pt): Checkpoint Torchvision MobileNetV3-Large 10 lớp (MIT License, nguồn HuggingFace `AmadFR/ecovision_mobilenetv3`). Trạng thái: `PRETRAINING_OVERLAP_UNKNOWN`. Dùng làm baseline đối chứng ngoại bộ, không dùng làm checkpoint huấn luyện chính thức để tránh nguy cơ rò rỉ tập test Garbage V2. Huấn luyện chính thức sẽ bắt đầu từ ImageNet-1K chuẩn (`weights='DEFAULT'`).
-- [weights/yolo26n.pt](file:///D:/CNTT-KLCN155-waste-detection/weights/yolo26n.pt) & `yolo26n.pt`: Bóc tách metadata xác nhận đây là mô hình COCO 80 lớp (`tune-yolo26n-objv1-coco`), không phải mô hình rác. Huấn luyện đa rác phải chạy mới hoàn toàn trên dữ liệu rác.
-- Thư mục trọng số phát hiện đã huấn luyện: `artifacts/detection/` hiện đang rỗng (chờ huấn luyện Giai đoạn B).
+- `artifacts/official_run/best_model.pt`: Trọng số chính thức `MobileNetV3-Large` 10 lớp huấn luyện trên Split V2 sạch (Accuracy 96.18%, Macro-F1 0.9578).
+- `artifacts/detection_v2/E2_ssdlite320_10cls/weights/best.pt`: Trọng số mô hình chính `SSDLite320-MobileNetV3` 10 lớp (kế thừa 258 backbone keys từ `MobileNetV3-Large`).
+- `artifacts/detection_v2/E1_yolov8n_10cls/weights/best.pt` & `artifacts/detection_v3_pilot/E3_yolov8n_pilot/weights/best.pt`: Trọng số mô hình đối chứng `YOLOv8n` 10 lớp.
+- `artifacts/ecovision/best.pt`: Baseline đối chứng ngoại bộ (MIT License, nguồn HuggingFace `AmadFR/ecovision_mobilenetv3`), không dùng làm checkpoint huấn luyện chính thức.
 
 ---
 

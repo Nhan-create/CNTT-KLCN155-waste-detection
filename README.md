@@ -229,36 +229,41 @@ python -m src.inference.predict \
 
 Kết quả là một JSON object chứa `top1`, `topk` và `low_confidence`. Transform và class order được lấy từ metadata checkpoint, không hard-code riêng ở CLI.
 
-## Ứng dụng Streamlit object detection
+## Ứng dụng Streamlit: Phân loại & Phát hiện đa đối tượng (`streamlit_app.py`)
 
-Sau khi đã train detector, chạy tại thư mục gốc repository:
+Sau khi đã cài đặt môi trường, chạy ứng dụng tại thư mục gốc repository:
 
 ```powershell
 streamlit run streamlit_app.py
 ```
 
-Mặc định app đọc `artifacts/detection/waste-yolo26s/weights/best.pt`. Có thể đổi
-detector bằng biến môi trường hoặc CLI:
+Mặc định ứng dụng tự động nạp bộ trọng số 10 lớp đã huấn luyện ([`src/web/detection_settings.py`](src/web/detection_settings.py)):
+- **YOLOv8n (E1 - Đối chứng):** `artifacts/detection_v2/E1_yolov8n_10cls/weights/best.pt`
+- **SSDLite320-MobileNetV3 (E2 - Mô hình chính):** `artifacts/detection_v2/E2_ssdlite320_10cls/weights/best.pt`
+- **MobileNetV3-Large Classifier (Stage-1 / Stage-2):** `artifacts/official_run/best_model.pt`
+
+Có thể tùy chỉnh đường dẫn detector hoặc chế độ chạy bằng biến môi trường hoặc CLI:
 
 ```powershell
-$env:WASTE_DETECTOR='path\to\best.pt'
+$env:WASTE_DETECTOR='path/to/best.pt'
+$env:WASTE_DETECTOR_BACKEND='yolov8n'   # yolov8n | ssdlite | wbf
 streamlit run streamlit_app.py
-# hoặc: streamlit run streamlit_app.py -- --detector path\to\best.pt
+# hoặc: streamlit run streamlit_app.py -- --backend ssdlite --detector path/to/best.pt
 ```
 
-Giao diện có bốn chế độ:
+Giao diện Web gồm **2 Tab chuyên biệt** kết hợp thanh điều khiển cấu hình bên trái:
 
-- **Tải ảnh** — khoanh box, class và confidence cho từng vật thể.
-- **Chụp ảnh** — xử lý EXIF rồi chạy cùng pipeline như ảnh upload.
-- **Tải video** — lấy mẫu mặc định 3 FPS, detect từng frame và làm mượt box.
-- **Camera trực tiếp** — dùng WebRTC, camera sau khi có thể và cập nhật detection
-  khoảng 5 lần/giây.
+1. **Tab 1 — Phân loại rác độ chính xác cao (`MobileNetV3-Large` 96.18%):**
+   - Dành cho ảnh chụp cận cảnh một vật thể hoặc một cụm rác đồng nhất.
+   - Hiển thị nhãn tiếng Việt, độ tin cậy, thời gian xử lý (ms), hướng dẫn màu thùng rác tại nguồn và biểu đồ xác suất Top-5 lớp.
+2. **Tab 2 — Phát hiện vị trí đa vật thể (`YOLOv8n` / `SSDLite320` / `WBF`):**
+   - Hỗ trợ tải lên đồng thời một hoặc nhiều ảnh thực tế, thống kê số lượng từng loại rác và xuất gói `.zip` ảnh kết quả.
+   - **Cắt ô ảnh (`Tiling` — [`src/detection/tiling.py`](src/detection/tiling.py)):** Tự động chia ảnh lớn ($\ge 800\text{px}$) thành các ô $640 \times 640$ có chồng lấp để bắt rác kích thước nhỏ, kèm bộ lọc loại bỏ box nhiễu bao trọn ô cắt.
+   - **Thẩm định hai giai đoạn (`Two-Stage` — [`src/detection/two_stage.py`](src/detection/two_stage.py)):** Dùng `MobileNetV3-Large` phân loại lại từng vùng cắt proposal theo xác suất Bayesian (`product`, cổng `min_proposal_gate=0.28`) hoặc `blend` để triệt tiêu dương tính giả trên nền đường phố/tòa nhà.
+   - **Ngưỡng hiệu chuẩn riêng từng lớp ([`configs/detection_thresholds_calibrated.json`](configs/detection_thresholds_calibrated.json)):** Tùy chọn điều chỉnh ngưỡng nhạy riêng cho từng nhóm vật liệu (`plastic`, `metal`, `battery`, `clothes`, `shoes`...).
+   - **Hai kiểu vẽ khung bao ([`src/detection/visualization.py`](src/detection/visualization.py)):** *Khung viền nổi bật (Highlight Box)* và *Hộp chữ nhật viền nét (Bounding Box)* sắc nét, hiển thị rõ vật thể bên trong.
+   - **Chuẩn hóa tọa độ & bảo vệ phần cứng:** Tự động xử lý xoay chiều EXIF, đệm tỉ lệ letterbox và chiếu ngược tọa độ chính xác về ảnh gốc ([`src/detection/coordinates.py`](src/detection/coordinates.py)), kiểm tra an toàn RAM/VRAM qua [`src/detection/preflight_guard.py`](src/detection/preflight_guard.py).
 
-Ảnh và video được xử lý trong bộ nhớ. Có thể điều chỉnh `--device`,
-`--confidence-threshold`, `--iou-threshold`, `--image-size`,
-`--video-sample-fps`, `--live-inference-fps` và các tham số tracker.
-
-Trên máy local, camera trình duyệt hoạt động qua `localhost`. Khi triển khai remote, trang phải dùng **HTTPS** để trình duyệt cấp quyền camera; mạng sau NAT/firewall có thể cần cấu hình **STUN/TURN** riêng. Ứng dụng có public STUN mặc định nhưng không hard-code credential TURN.
 
 ## Ứng dụng PyQt5 classification cũ
 

@@ -45,24 +45,25 @@ flowchart TD
         RES_CLS["Kết quả: Test Acc 96.13%, Macro-F1 0.9578, ONNX CPU 7.4 ms"]:::verified
     end
 
-    subgraph G2["GIAI ĐOẠN 2: PHÁT HIỆN ĐA ĐỐI TƯỢNG RÁC THỰC TẾ (DETECTOR)"]
-        D_DET["Dữ liệu Detection: Synthetic (1.305) + TACO (22 APPROVED) + Thực địa HUIT"]:::codeOnly
-        REV_TOOL["Review Tool nội bộ (Chặn pending boxes, ghi audit log)"]:::verified
-        AUG["4 Chiến lược Augmentation (Albumentations & Copy-Paste)"]:::planned
+    subgraph G2["GIAI ĐOẠN 2: PHÁT HIỆN ĐA ĐỐI TƯỢNG RÁC THỰC TẾ (DETECTOR & TWO-STAGE)"]
+        D_DET["Dữ liệu Detection: Split Real V2 + V3 Candidate / Pilot (Kiểm duyệt Fail-Closed)"]:::verified
+        REV_TOOL["Review Tool nội bộ & Preflight Guard (Chặn pending boxes, bảo vệ RAM/VRAM)"]:::verified
+        AUG["4 Chiến lược Augmentation (Albumentations & Copy-Paste)"]:::verified
         
-        M_SSD["MÔ HÌNH CHÍNH: SSDLite320-MobileNetV3 (Kế thừa 258 backbone keys)"]:::codeOnly
-        M_YOLO["MÔ HÌNH ĐỐI CHỨNG: YOLOv8n (Benchmark gọn nhẹ)"]:::codeOnly
+        M_SSD["MÔ HÌNH CHÍNH: SSDLite320-MobileNetV3 (E2 - Kế thừa 258 backbone keys)"]:::verified
+        M_YOLO["MÔ HÌNH ĐỐI CHỨNG: YOLOv8n (E1 / E3 Pilot - 10 lớp chuẩn)"]:::verified
         
-        WBF["Weighted Boxes Fusion (Tối ưu trọng số trên Validation Set)"]:::codeOnly
-        EVAL["Đánh giá COCO mAP (mAP50, mAP50-95, AP per-class) & Điều kiện khó"]:::codeOnly
+        WBF["Weighted Boxes Fusion (WBF) + Tiling (SAHI) + Two-Stage Bayesian Refinement"]:::verified
+        EVAL["Đánh giá COCO mAP (Val 299 ảnh & Holdout thực tế 27 ảnh)"]:::verified
     end
 
     subgraph APP["ỨNG DỤNG NGƯỜI DÙNG CUỐI"]
-        WEB["Streamlit Web App: Upload đa ảnh, Bbox, Đếm số lượng, Chỉ dẫn thùng rác"]:::codeOnly
+        WEB["Streamlit Web App (2 Tabs): Phân loại 96.2% & Phát hiện đa vật thể (Tiling + Two-Stage)"]:::verified
     end
 
     D_RAW --> D_CLEAN --> M_CLS --> RES_CLS
     RES_CLS -.->|Chuyển giao 258 backbone keys| M_SSD
+    RES_CLS -.->|Stage-2 Bayesian Classifier| WBF
     
     D_DET --> REV_TOOL --> AUG
     AUG --> M_SSD
@@ -72,6 +73,7 @@ flowchart TD
     M_YOLO --> WBF
     WBF --> EVAL
     
+    M_CLS --> WEB
     M_SSD --> WEB
     M_YOLO --> WEB
     WBF --> WEB
@@ -82,27 +84,29 @@ flowchart TD
 - **Kết quả đo đạc thực tế:**
   - Tổng số ảnh sạch: **14.829 ảnh** (loại bỏ 24.518 ảnh sao chép resize, 890 cặp trùng lặp liên nguồn MD5/pHash, và cách ly các mẫu xung đột nhãn).
   - Phân chia Split V2 chống rò rỉ (Atomic Group Split, seed 42): Train 10.383 ảnh (70,02%), Val 2.223 ảnh (14,99%), Test 2.223 ảnh (14,99% — **LOCKED**).
-  - Hiệu năng trên tập Test độc lập: **Top-1 Accuracy đạt 96.13%**, **Macro-F1 đạt 0.9578**, Recall lớp pin nguy hại (`battery`) đạt **95.58%**.
+  - Hiệu năng trên tập Test độc lập: **Top-1 Accuracy đạt 96.13% – 96.18%**, **Macro-F1 đạt 0.9578**, Recall lớp pin nguy hại (`battery`) đạt **95.58%**.
   - Tối ưu hóa triển khai: Mô hình xuất sang định dạng ONNX FP32 đạt độ trễ suy luận **7.40 ms/ảnh** trên CPU laptop 6 luồng.
 
-### 2.2. Giai đoạn 2 — Phát hiện đa đối tượng và Hợp nhất dự đoán (ĐANG TRIỂN KHAI)
-- **Mô hình chính (Primary Model):** **SSDLite320-MobileNetV3**
-  - Kế thừa 258/308 tensor keys đặc trưng từ backbone MobileNetV3 đã huấn luyện ở Giai đoạn 1.
+### 2.2. Giai đoạn 2 — Phát hiện đa đối tượng, Tiling, Two-Stage và Hợp nhất dự đoán (ĐÃ TRIỂN KHAI TRONG CODE)
+- **Mô hình chính (Primary Model):** **SSDLite320-MobileNetV3 (`E2_ssdlite320_10cls`)**
+  - Kế thừa 258/308 tensor keys đặc trưng từ backbone MobileNetV3 đã huấn luyện ở Giai đoạn 1 (Background = 0, Foreground = 1..10).
   - Tối ưu hóa cho thiết bị biên với kích thước ảnh đầu vào $320 \times 320$, độ phức tạp tính toán thấp.
-- **Mô hình đối chứng (Benchmark Model):** **YOLOv8n**
-  - Kiến trúc một giai đoạn (Single-stage detector) hiện đại của Ultralytics, đóng vai trò mốc so sánh tiêu chuẩn về độ chính xác và tốc độ.
-- **Kỹ thuật tăng cường dữ liệu mở rộng:**
-  - Ứng dụng **Albumentations** biến đổi đồng bộ ảnh và bounding box (hình học, quang học, nhiễu, tương phản).
-  - Ứng dụng **Copy-Paste Augmentation** ghép các vật thể rác có mặt nạ tiền cảnh lên phông nền bãi rác để tăng mật độ và mô phỏng che khuất.
-- **Kỹ thuật hợp nhất dự đoán Weighted Boxes Fusion (WBF):**
-  - Kết hợp bounding box từ SSDLite320 và YOLOv8n theo từng lớp rác, tính trọng số tọa độ dựa trên độ tin cậy.
-  - Toàn bộ trọng số $w_{\text{SSD}}, w_{\text{YOLO}}$, ngưỡng IoU và ngưỡng confidence được lựa chọn bằng Grid Search **hoàn toàn trên tập Validation**, tuyệt đối không can thiệp vào tập Test.
+- **Mô hình đối chứng (Benchmark Model):** **YOLOv8n (`E1_yolov8n_10cls` & `E3_yolov8n_pilot`)**
+  - Kiến trúc một giai đoạn (Single-stage anchor-free detector) 10 lớp (`0..9`), đóng vai trò mốc đối chứng về độ chính xác và tốc độ.
+- **Pipeline Hậu xử lý Đa tầng (`src/web/detection_logic.py`):**
+  - **Cắt ô ảnh (`src/detection/tiling.py`):** Tự động chia ảnh lớn ($\ge 800\text{px}$) thành lưới ô $640 \times 640$ có chồng lấp để phát hiện rác nhỏ và lọc bỏ các khung bao nhiễu tràn ô.
+  - **Thẩm định hai giai đoạn (`src/detection/two_stage.py`):** Kết hợp điểm của Detector (Stage 1) với xác suất phân loại của `MobileNetV3-Large` (Stage 2) theo công thức nhân xác suất Bayesian (`product`, `min_proposal_gate=0.28`) nhằm loại bỏ triệt để dương tính giả trên nền đường phố, biển hiệu và tủ điện.
+  - **Chuẩn hóa tọa độ (`src/detection/coordinates.py`):** Đảm bảo xoay EXIF, đệm tỉ lệ letterbox và chiếu ngược tọa độ chính xác về kích thước ảnh gốc.
+- **Kỹ thuật tăng cường dữ liệu mở rộng (`src/detection/augmentation.py` & `src/detection/copy_paste.py`):**
+  - Cài đặt đầy đủ 4 chế độ (`none`, `geometric`, `photometric`, `combined`) với **Albumentations** và **Copy-Paste Augmentation**.
+- **Kỹ thuật hợp nhất dự đoán Weighted Boxes Fusion (`src/detection/fusion.py`):**
+  - Kết hợp bounding box từ SSDLite320 và YOLOv8n theo từng lớp rác, tính trọng số tọa độ dựa trên độ tin cậy đã chọn lọc trên tập Validation.
 
 ---
 
 ## 3. HỆ THỐNG MƯỜI NHÓM RÁC THỐNG NHẤT (TAXONOMY 10 CLASSES)
 
-Nhóm nghiên cứu và PM đã thống nhất mở rộng từ 6 nhóm truyền thống lên **10 nhóm rác chi tiết** nhằm phản ánh đúng thực tế thu gom rác thải đô thị Việt Nam:
+Nhóm nghiên cứu và PM đã thống nhất chuẩn hóa **10 nhóm rác chi tiết** xuyên suốt cả Giai đoạn 1 và Giai đoạn 2:
 
 | Class ID | Tên tiếng Anh | Tên tiếng Việt | Đặc điểm nhận dạng thực tế | Loại thùng rác đề xuất |
 |:---:|:---|:---|:---|:---|
@@ -124,28 +128,26 @@ Nhóm nghiên cứu và PM đã thống nhất mở rộng từ 6 nhóm truyền
 | Hạng mục | Đường dẫn mã nguồn / Artifact | Trạng thái hiện tại |
 |:---|:---|:---:|
 | **Dữ liệu sạch Classification** | `data/processed_v2/` và `data/audit/split_manifest_v2.csv` | **VERIFIED (14.829 ảnh)** |
-| **Trọng số Classifier chính thức** | `artifacts/official_run/best_model.pt` | **VERIFIED (Acc 96.13%)** |
+| **Trọng số Classifier chính thức** | `artifacts/official_run/best_model.pt` | **VERIFIED (Acc 96.18%)** |
+| **Dịch vụ Classifier Web / Stage-2** | `src/web/classifier_service.py` | **VERIFIED** |
 | **Công cụ gán nhãn Review Tool** | `src/ui/review_tool.py` | **VERIFIED (Có chặn box pending)** |
-| **Dữ liệu thật đã duyệt (TACO)** | `data/audit/real_detection_source_manifest.csv` | **VERIFIED (22 ảnh, 275 boxes)** |
-| **Pipeline chia split Detection** | `scripts/build_detection_splits.py` | **VERIFIED (Chống rò rỉ group)** |
-| **Code huấn luyện SSDLite320** | `src/detection/ssdlite_train.py` | **CODE READY (Chưa train detector)** |
-| **Code huấn luyện YOLOv8n** | `src/detection/train.py` | **CODE READY (Chưa train detector)** |
-| **Thuật toán WBF & Grid Search** | `src/detection/fusion.py` & `src/detection/tune.py` | **CODE READY (Chưa có weights)** |
-| **Đánh giá COCO mAP Detection** | `src/detection/evaluate.py` | **CODE READY (Chưa có weights)** |
-| **Giao diện Web Streamlit** | `streamlit_app.py` | **CODE READY (Giao diện hoàn chỉnh)** |
-| **Code Augmentation Albumentations** | `src/detection/augmentation.py` | **CẦN TẠO MỚI** |
-| **Ảnh rác thực tế TP.HCM / HUIT** | `data/real_collection/` | **CẦN THU THẬP BỔ SUNG** |
+| **Cổng kiểm duyệt Dataset & Phần cứng** | `src/detection/safe_dataset_builder.py` & `src/detection/preflight_guard.py` | **VERIFIED (Fail-closed)** |
+| **Code & Checkpoint SSDLite320 (E2)** | `src/detection/ssdlite_train.py` & `artifacts/detection_v2/E2_ssdlite320_10cls/` | **VERIFIED (10 lớp, +1/-1 shift)** |
+| **Code & Checkpoint YOLOv8n (E1/E3)** | `src/detection/yolo.py` & `artifacts/detection_v2/E1_yolov8n_10cls/` | **VERIFIED (10 lớp chuẩn)** |
+| **Tiling, Two-Stage & Coordinates** | `src/detection/tiling.py`, `src/detection/two_stage.py`, `src/detection/coordinates.py` | **VERIFIED** |
+| **Augmentation & Copy-Paste** | `src/detection/augmentation.py` & `src/detection/copy_paste.py` | **VERIFIED (4 chiến lược)** |
+| **Thuật toán WBF & Grid Search** | `src/detection/fusion.py` & `src/detection/tune.py` | **VERIFIED** |
+| **Đánh giá COCO mAP & Thực địa** | `src/detection/evaluate.py` & `reports/qa_acceptance/practical_metrics.py` | **VERIFIED** |
+| **Giao diện Web Streamlit (2 Tabs)** | `streamlit_app.py`, `src/web/detection_logic.py`, `src/detection/visualization.py` | **VERIFIED (Hoàn chỉnh)** |
 
 ---
 
 ## 5. HƯỚNG DẪN CÀI ĐẶT VÀ VẬN HÀNH CỤC BỘ
 
-### 5.1. Khởi tạo môi trường ảo Python 3.12
+### 5.1. Khởi tạo môi trường ảo Python
 ```powershell
-# Di chuyển vào thư mục dự án
-cd D:\CNTT-KLCN155-waste-detection
-
-# Kích hoạt môi trường ảo sẵn có
+# Tạo và kích hoạt môi trường ảo tại thư mục gốc của repo
+python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 
 # Cài đặt hoặc cập nhật thư viện phụ thuộc
@@ -158,7 +160,9 @@ pip install -r requirements.txt
 streamlit run streamlit_app.py
 ```
 - Mở trình duyệt tại: `http://localhost:8501`
-- Tính năng: Hỗ trợ kéo thả đồng thời nhiều ảnh rác, lựa chọn backend suy luận (`ssdlite`, `yolov8n`, `wbf`), thanh slider điều chỉnh ngưỡng tin cậy (Confidence threshold), xem trực quan bounding box và tải kết quả đơn hoặc tải file zip tổng hợp.
+- Tính năng:
+  - **Tab 1:** Phân loại rác độ chính xác cao bằng `MobileNetV3-Large` (96.18%).
+  - **Tab 2:** Phát hiện vị trí đa vật thể (`yolov8n`, `ssdlite`, `wbf`), tùy chọn bật/tắt **Tiling**, **Two-Stage Bayesian Refinement (`product` / `blend`)**, **Ngưỡng hiệu chuẩn riêng từng lớp**, chọn kiểu hiển thị khung bao (`Highlight Box` / `Bounding Box`) và tải kết quả đơn hoặc file `.zip` tổng hợp.
 
 ### 5.3. Khởi chạy Công cụ Thẩm định Nhãn nội bộ (Review Tool)
 ```powershell
@@ -168,48 +172,22 @@ streamlit run src/ui/review_tool.py -- --manifest data/audit/real_detection_sour
 
 ---
 
-## 6. LỘ TRÌNH CÁC VIỆC CẦN LÀM TIẾP THEO (ACTION PLAN)
+## 6. LỘ TRÌNH CÁC BƯỚC ĐÃ TRIỂN KHAI & TIẾP THEO (ACTION PLAN)
 
-Nhóm nghiên cứu triển khai theo 7 bước tuần tự có tiêu chí nghiệm thu rõ ràng:
+### Bước 1: Thống nhất đề cương 10 lớp với GVHD — **ĐÃ HOÀN THÀNH**
+- Đã lập tờ trình và báo cáo đối chiếu tại `docs/plan/PROPOSAL_ARCHITECTURE_ALIGNMENT_REVIEW.md` và `docs/proposal/TO_TRINH_XIN_DIEU_CHINH_DE_CUONG_10_LOP.md`.
 
-### Bước 1: Gửi Tờ trình điều chỉnh đề cương cho GVHD (ThS. Huỳnh Thị Châu Lan)
-- **Hành động:** Sử dụng bản dự thảo tại Mục 12 của tài liệu `docs/plan/PROPOSAL_ARCHITECTURE_ALIGNMENT_REVIEW.md` để trình bày với cô trong buổi gặp tuần này.
-- **Nội dung chính:** Xin mở rộng taxonomy detection từ 6 nhóm lên 10 nhóm chi tiết để phù hợp công năng tái chế đô thị, và bổ sung nguồn ảnh TACO kết hợp Review Tool nội bộ.
-- **Tiêu chí nghiệm thu:** Được cô thông qua định hướng (bằng email hoặc xác nhận trong sổ hướng dẫn).
+### Bước 2: Đồng bộ Taxonomy 10 lớp trong toàn bộ Mã nguồn Detection — **ĐÃ HOÀN THÀNH**
+- Toàn bộ `src/detection/schema.py`, `dataset.py`, `ssdlite.py`, `yolo.py`, `fusion.py`, `evaluate.py` và `streamlit_app.py` đã khóa cứng 10 lớp chuẩn và vượt qua toàn bộ bộ kiểm thử `pytest`.
 
-### Bước 2: Đồng bộ Taxonomy 10 lớp trong toàn bộ Mã nguồn Detection
-- **Hành động:**
-  - Sửa `src/detection/schema.py`: đổi `DETECTION_CLASS_NAMES` thành 10 lớp chuẩn.
-  - Sửa `src/detection/dataset.py`: cập nhật kiểm tra `nc must be ten`.
-  - Sửa `src/detection/ssdlite.py`, `src/detection/yolo.py`, `src/detection/fusion.py`, `src/detection/evaluate.py`: mở rộng số lớp lên 10.
-  - Sửa `streamlit_app.py`: hiển thị 10 nhóm rác tiếng Việt và bổ sung component hiển thị màu thùng rác tương ứng.
-- **Tiêu chí nghiệm thu:** Toàn bộ test suite `pytest tests/` chạy PASS $100\%$, không còn lỗi lệch số lớp.
+### Bước 3: Mở rộng & Kiểm định Dữ liệu Đa đối tượng Thực tế (Task 4 ➔ Task 8) — **ĐANG MỞ RỘNG QUY MÔ**
+- Đã thiết lập cổng kiểm duyệt `fail-closed` (`src/detection/safe_dataset_builder.py`), kiểm tra pHash/SHA-256 chống rò rỉ với tập Test (299 ảnh) và tập Holdout thực tế (27 ảnh, 57 GT boxes).
 
-### Bước 3: Thu thập và duyệt nhãn bổ sung dữ liệu thực tế ngoài bãi rác
-- **Hành động:**
-  - Duyệt tiếp 103 ảnh TACO còn lại trong hàng đợi để lấy thêm mẫu thực tế.
-  - Nhóm sinh viên tổ chức chụp bổ sung khoảng 50–100 ảnh rác thực tế ngoài bãi tập kết / khuôn viên HUIT (đặc biệt tập trung vào các lớp đang thiếu mẫu: quần áo cũ `clothes`, pin `battery`, giày dép cũ `shoes`).
-  - Gán nhãn qua CVAT và thẩm định kiểm tra chéo bằng Review Tool nội bộ.
-  - Chạy lại `scripts/build_detection_splits.py` để tạo tập Test thực tế độc lập có quy mô 30–50 ảnh.
-- **Tiêu chí nghiệm thu:** Cả 10 lớp đều có mẫu trong tập Test; lớp `clothes` gỡ bỏ trạng thái `BLOCKED`.
+### Bước 4: Lập trình Module Augmentation, Tiling & Two-Stage — **ĐÃ HOÀN THÀNH**
+- Đã hoàn thiện `src/detection/augmentation.py`, `src/detection/copy_paste.py`, `src/detection/tiling.py`, `src/detection/two_stage.py`, và `src/detection/coordinates.py`.
 
-### Bước 4: Lập trình Module Augmentation bằng Albumentations & Copy-Paste
-- **Hành động:**
-  - Tạo file `src/detection/augmentation.py`.
-  - Cài đặt 4 biến thể dữ liệu offline:
-    1. `none`: Giữ nguyên ảnh gốc.
-    2. `geometric`: Phép lật, xoay, scale, cắt xén ngẫu nhiên có cập nhật bounding box.
-    3. `photometric`: Biến đổi độ sáng, độ tương phản, Hue/Saturation, thêm nhiễu Gaussian và Motion Blur.
-    4. `combined`: Kết hợp hình học, ánh sáng và kỹ thuật Copy-Paste vật thể rác lên nền mới.
-- **Tiêu chí nghiệm thu:** Xuất ra 4 thư mục dữ liệu tương ứng có file YAML và nhãn bounding box chuẩn xác.
-
-### Bước 5: Huấn luyện Ma trận Thí nghiệm 2 Models $\times$ 4 Augmentations
-- **Hành động:**
-  - Tích hợp cờ `--backbone-weights` trong `src/detection/ssdlite_train.py` để nạp 258 feature keys từ `artifacts/official_run/best_model.pt` sang SSDLite320.
-  - Chạy 8 lượt huấn luyện trên card GPU NVIDIA RTX 2050 (hoặc Google Colab T4):
-    + 4 biến thể cho SSDLite320-MobileNetV3 (Mô hình chính).
-    + 4 biến thể cho YOLOv8n (Mô hình đối chứng).
-- **Tiêu chí nghiệm thu:** 8 checkpoints tốt nhất được lưu tại `artifacts/detection/` kèm lịch sử loss và validation mAP qua từng epoch.
+### Bước 5: Huấn luyện Baseline E1 (`YOLOv8n`), E2 (`SSDLite320`) & E3 Pilot — **ĐÃ HOÀN THÀNH**
+- Đã huấn luyện và kiểm định thực nghiệm `E1_yolov8n_10cls`, `E2_ssdlite320_10cls` (nạp 258 backbone keys từ `MobileNetV3-Large`) và `E3_yolov8n_pilot` (chi tiết tại `docs/BAO_CAO_TONG_HOP_AUDIT_VA_NANG_CAP_MO_HINH_KLCN155.md`).
 
 ### Bước 6: Tối ưu hóa Weighted Boxes Fusion (WBF) và Đánh giá Ablation
 - **Hành động:**
