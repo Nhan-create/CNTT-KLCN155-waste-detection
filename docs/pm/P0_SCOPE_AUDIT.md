@@ -2,7 +2,7 @@
 
 - **Dự án:** Khóa luận cử nhân ngành CNTT năm học 2026 – 2027 (Mã đề tài: `CNTT-KLCN155`)
 - **Tên đề tài chính thức:** *Xây dựng hệ thống phát hiện và phân loại đa đối tượng rác thải sinh hoạt trong ảnh chụp thực tế bằng mô hình học sâu nhẹ và kỹ thuật tăng cường dữ liệu*
-- **Tài liệu nguồn yêu cầu:** `CNTT-KLCN155_da_bo_sung.docx` (Lưu tại: `C:\Users\ad\Downloads\CNTT-KLCN155_da_bo_sung.docx`)
+- **Tài liệu nguồn yêu cầu:** `CNTT-KLCN155_da_bo_sung.docx` (Lưu tại: `~/Downloads\CNTT-KLCN155_da_bo_sung.docx`)
 - **Người thực hiện:** Dev Anti
 - **Người nhận:** Project Manager (PM)
 - **Thời điểm kiểm kê:** 2026-09-27T19:43:00+07:00
@@ -13,7 +13,7 @@
 ## 1. Xác định Thư mục gốc Dự án & Hiện trạng Git
 
 ### 1.1. Thông tin Kho lưu trữ (Repository)
-* **Đường dẫn thư mục gốc thực tế:** `C:\Users\ad\Downloads\Do-an-deeplearning\waste-classifier-mobilenetv3`
+* **Đường dẫn thư mục gốc thực tế:** `~/Downloads\Do-an-deeplearning\waste-classifier-mobilenetv3`
 * **Git Remote URL:** `https://github.com/Nhan-create/waste-classifier-mobilenetv3.git` (Trùng khớp sinh viên Ngô Thanh Nhân - MSSV: 2001230595)
 * **Branch hiện tại:** `feat/mobilenetv3-10-class` (Đang đi trước `origin/feat/mobilenetv3-10-class` 4 commit: `35b28e4`, `e92ca84`, `b159541`, `f778460`, `1fa0d97`)
 * **HEAD Commit:** `1fa0d9797e73bfce82e876cd6cacecddebebd543`
@@ -50,7 +50,7 @@
 
 ### 1.3. Phân loại các tệp hiện hữu theo từng nhóm chức năng
 * **Tài liệu đề cương & Hướng dẫn:**
-  * File gốc Word: `C:\Users\ad\Downloads\CNTT-KLCN155_da_bo_sung.docx`
+  * File gốc Word: `~/Downloads\CNTT-KLCN155_da_bo_sung.docx`
   * Tài liệu đào tạo detection nội bộ: `docs/object-detection-training.md`
   * Quy chuẩn provenance cũ: `docs/model-provenance.md`
 * **Cấu hình (Configs):**
@@ -58,7 +58,7 @@
   * WBF Fusion parameters: `configs/detection_fusion.yaml`
   * Huấn luyện YOLO: `configs/detection_training.yaml`, `configs/detection_training_rtx2050.yaml`
 * **Dữ liệu & Nhãn (Data & Labels):**
-  * Dữ liệu hiện có: `data/detection/v1/` (và mirror tại `D:\waste-training\dataset-v1\`) gồm `images/` và `labels/` định dạng YOLO `.txt`.
+  * Dữ liệu hiện có: `data/detection/v1/` (và mirror tại `data/external/waste-training/dataset-v1\`) gồm `images/` và `labels/` định dạng YOLO `.txt`.
   * Mapping cũ: `data/metadata/label_mapping.csv`
 * **Mã nguồn Huấn luyện & Đánh giá (Detection Core - `src/detection/`):**
   * Chuẩn dữ liệu: `dataset.py`, `schema.py`, `prepare.py`, `manifest.py`
@@ -116,8 +116,8 @@
 ## 4. Kiểm kê Dữ liệu & Môi trường Hiện có trên Máy
 
 ### 4.1. Dữ liệu thực tế trên máy (Không tải thêm ở P0)
-1. **Tập dữ liệu `data/detection/v1` (và mirror tại `D:\waste-training\dataset-v1`):**
-   * *Đường dẫn:* `C:\Users\ad\Downloads\Do-an-deeplearning\waste-classifier-mobilenetv3\data\detection\v1`
+1. **Tập dữ liệu `data/detection/v1` (và mirror tại `data/external/waste-training/dataset-v1`):**
+   * *Đường dẫn:* `~/Downloads\Do-an-deeplearning\waste-classifier-mobilenetv3\data\detection\v1`
    * *Nguồn gốc:* Tổng hợp từ OpenImages (`oi_...`) và Mendeley Synthetic (`syn_...`). Không phải VN-trash hay Garbage Classification V2.
    * *Số lượng file:*
      * `images/train`: 1,004 ảnh | `labels/train`: 1,004 file `.txt`
@@ -137,7 +137,7 @@
      * Class 8 (`shoes`): 507 boxes
      * Class 9 (`trash`): 455 boxes
      * *Nhận xét:* Đây là **dataset 10 lớp**, có Bounding Box, **không có Polygon/Mask**.
-2. **Tập nén `C:\Users\ad\Downloads\Dataset_Garbage.zip`:**
+2. **Tập nén `~/Downloads\Dataset_Garbage.zip`:**
    * Kích thước: 42,822,633 bytes (~40.8 MB).
    * Cấu trúc: Thư mục `dataset-resized/` chứa 2,527 ảnh phân loại đơn nhãn (TrashNet). Không có bounding box.
 3. **Thư mục dự kiến cho đề cương: `data/detection/v2-six-class`:**
@@ -145,8 +145,8 @@
 
 ### 4.2. Kiểm kê Môi trường Thực thi (Python & Phần cứng)
 * **Hệ điều hành:** Windows 11 Home Single Language (Build 26100)
-* **Python hệ thống:** Python 3.12.10 (tại `C:\Users\ad\AppData\Local\Programs\Python\Python312\python.exe`)
-* **Môi trường ảo (.venv):** `C:\Users\ad\Downloads\Do-an-deeplearning\waste-classifier-mobilenetv3\.venv` (Python 3.12.13)
+* **Python hệ thống:** Python 3.12.10 (tại `~/AppData\Local\Programs\Python\Python312\python.exe`)
+* **Môi trường ảo (.venv):** `~/Downloads\Do-an-deeplearning\waste-classifier-mobilenetv3\.venv` (Python 3.12.13)
   * *Lưu ý đối chiếu:* Đề cương Word (Đoạn 34) ghi **Python 3.10**. Local đang lệch 2 phiên bản minor (3.12 vs 3.10).
 * **Phần cứng GPU cục bộ:**
   * Model: **NVIDIA GeForce RTX 2050** (4096 MiB VRAM)
@@ -261,7 +261,7 @@
 
 ```powershell
 # 1. Xác định thư mục, branch và commit
-cd C:\Users\ad\Downloads\Do-an-deeplearning\waste-classifier-mobilenetv3
+cd ~/Downloads\Do-an-deeplearning\waste-classifier-mobilenetv3
 git branch -v
 # Output: * feat/mobilenetv3-10-class 1fa0d97 [ahead 4] feat(web): make Streamlit presentation icon-free
 

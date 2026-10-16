@@ -60,4 +60,4 @@ for target_dir in ["tests", "src", "scripts"]:
 
 print(f"\nVerification result: Foreign .pyc files remaining: {foreign_count}")
 if foreign_count == 0:
-    print("SUCCESS: Bytecode sanitized 100%. All tracebacks will now point strictly to D:\\CNTT-KLCN155-waste-detection.")
+    print("SUCCESS: Bytecode sanitized 100%. All tracebacks will now point strictly to ..")

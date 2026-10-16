@@ -1,6 +1,6 @@
 # BÁO CÁO KỸ THUẬT & BÀN GIAO: SPRINT AI-UPGRADE-01 — TASK 5D FIX (BATTERY OBJECT ANNOTATION & QA STATE MACHINE)
 
-*(Bản cập nhật hợp nhất theo kết luận nghiệm thu Task 5D Fix — Chi tiết xem tại [`TASK5D_FIX_BATTERY_ANNOTATION_REPORT.md`](file:///d:/CNTT-KLCN155-waste-detection/TASK5D_FIX_BATTERY_ANNOTATION_REPORT.md))*
+*(Bản cập nhật hợp nhất theo kết luận nghiệm thu Task 5D Fix — Chi tiết xem tại [`TASK5D_FIX_BATTERY_ANNOTATION_REPORT.md`](TASK5D_FIX_BATTERY_ANNOTATION_REPORT.md))*
 
 - **Trạng thái QA 140 nhóm ảnh `base_id`:**
   - `TECHNICAL_VALID`: **140/140** ảnh (`768x768`, giải mã hợp lệ, tọa độ toán học hợp lệ).

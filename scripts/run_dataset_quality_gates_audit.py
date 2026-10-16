@@ -5,7 +5,7 @@ Executes Quality Gates on real workspace images and annotations.
 Audits:
 - All 1,996 images in splits_real_v2 (train, val, test)
 - The 147 real images not currently in splits
-- Exact SHA-256 and perceptual pHash against 27 holdout images in D:\\Hinh_Anh_Rac
+- Exact SHA-256 and perceptual pHash against 27 holdout images in data/holdout
 
 Generates:
 - reports/data_v2/real_dataset_quality_gate_audit.json

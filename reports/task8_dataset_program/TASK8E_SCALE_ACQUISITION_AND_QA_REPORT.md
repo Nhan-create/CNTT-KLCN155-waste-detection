@@ -1,9 +1,9 @@
 # BÁO CÁO NGHIỆM THU TASK 8E — SCALE REAL-WASTE DATA ACQUISITION & TASK 8D FOCUSED VERIFICATION
 
-- **Repository:** `D:\CNTT-KLCN155-waste-detection`
+- **Repository:** `.`
 - **Phiên bản báo cáo:** `TASK8E_SCALE_ACQUISITION_AND_QA_V1`
 - **Trạng thái phê duyệt huấn luyện (`APPROVED_FOR_TRAIN`):** `False` *(100% ảnh mới giữ ở staging chờ PM/User nghiệm thu độc lập; tuyệt đối chưa chạy huấn luyện)*
-- **Tính toàn vẹn tập Test/Holdout:** `100%` *(Không đụng chạm tập frozen test `299` ảnh, candidate test `274` ảnh, hay `D:\Hinh_Anh_Rac` `27` ảnh)*
+- **Tính toàn vẹn tập Test/Holdout:** `100%` *(Không đụng chạm tập frozen test `299` ảnh, candidate test `274` ảnh, hay `data/holdout` `27` ảnh)*
 
 ---
 
@@ -103,9 +103,9 @@ Sổ cái được tính tự động bởi `scripts/build_canonical_5000_ledger
 
 ---
 
-## 6. ĐÓNG GÓI BÀN GIAO `< 500 MB` TẠI `C:\Users\ad\Downloads\` (MỤC 7)
+## 6. ĐÓNG GÓI BÀN GIAO `< 500 MB` TẠI `~/Downloads\` (MỤC 7)
 
-- **Tệp đóng gói:** `C:\Users\ad\Downloads\TASK8E_SCALE_REAL_WASTE_DELIVERY.zip` (nhỏ hơn giới hạn `500 MB`).
+- **Tệp đóng gói:** `~/Downloads\TASK8E_SCALE_REAL_WASTE_DELIVERY.zip` (nhỏ hơn giới hạn `500 MB`).
 - **Thành phần bên trong gói bàn giao:**
   1. Manifest & provenance đầy đủ của Wave 8E (`data/acquisition_staging/task8e_scale_real_waste/task8e_qa_manifest.json`, `.csv`, `task8e_raw_candidates_manifest.json`).
   2. Toàn bộ ảnh đã qua QA của Wave 8E (`images/`), nhãn YOLO (`labels_real_waste_pass/`, `labels_auxiliary/`, `labels_needs_manual_review/`), ảnh overlay (`overlays/`) và contact sheets (`contact_sheets/`).

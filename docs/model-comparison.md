@@ -36,7 +36,7 @@
   * SSDLite320: 3 lớp (`clothes`, `plastic`, `shoes`).
   * YOLOv8n: 5 lớp (`clothes`, `metal`, `plastic`, `shoes`, `glass`).
 
-### 2.2. Đánh giá trên tập nghiệm thu độc lập `D:\Hinh_Anh_Rac` (27 ảnh, 57 GT)
+### 2.2. Đánh giá trên tập nghiệm thu độc lập `data/holdout` (27 ảnh, 57 GT)
 - **SSDLite320 (App Default - Blend):** Precision $1.8\%$, Recall $10.5\%$, FP = 23. Nhận nhầm tòa nhà, biển hiệu, tủ điện thành bìa carton với xác suất $\sim 50\%$.
 - **YOLOv8n (Raw):** Precision $20.0\%$, Recall $15.8\%$, FP = 36. Không bị kích điểm ảo từ classifier Closed-World, bounding box ôm sát vật thể thực tế hơn.
 
@@ -66,7 +66,7 @@ Tuân thủ nghiêm ngặt 9 yêu cầu của đề tài:
 ### 4.1. Nguyên tắc cốt lõi
 - **Không huấn luyện từ đầu (No training from scratch):** Bắt buộc khởi tạo từ pretrained weights chính thức của Ultralytics (`yolo26n.pt` hoặc `yolov8n.pt` đã có sẵn tại `weights/yolo26n.pt` và `yolov8n.pt`).
 - **Chiến lược dữ liệu:**
-  1. Giữ nguyên tập kiểm chứng `D:\Hinh_Anh_Rac` làm tập độc lập bất khả xâm phạm.
+  1. Giữ nguyên tập kiểm chứng `data/holdout` làm tập độc lập bất khả xâm phạm.
   2. Bổ sung $200 - 300$ ảnh Hard-Negative sạch (tường nhà, đường phố, biển hiệu, tủ điện đô thị) có file nhãn `.txt` rỗng.
   3. Bổ sung các mẫu ảnh rõ nét của `battery` và `biological` để giải quyết triệt để 2 lớp $0.0\%$.
 

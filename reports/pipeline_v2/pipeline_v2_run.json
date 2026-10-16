@@ -1,5 +1,5 @@
 {
-  "image": "D:\\Hinh_Anh_Rac\\base64-1717231151649602366964.jpeg",
+  "image": "data/holdout/base64-1717231151649602366964.jpeg",
   "image_sha256": "c38a8b2e3066a81d6327f16be0078f767b141d414bb0586f9b2ac83e4e06c0b5",
   "detector_checkpoint": "artifacts\\detection\\waste-ssdlite320-mobilenetv3-combined-seed42\\weights\\best.pt",
   "detector_sha256": "584c5980eb4ebe3718da7b3e87a3c95edfee3d78f186def3e5feba32cf03dff1",

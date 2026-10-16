@@ -1,6 +1,6 @@
 # BÁO CÁO XÁC MINH NGUỒN ẢNH THẬT: 5 MẪU CHỨNG MINH ĐỘC LẬP
 **Dự án:** Hệ thống nhận diện rác thải đa nguồn KLCN155  
-**Repository:** `D:\CNTT-KLCN155-waste-detection`  
+**Repository:** `.`  
 **Thời điểm thực thi:** 2026-10-12  
 **Mục tiêu duy nhất:** Chứng minh 5 bản ghi nguồn THẬT, hạ cấp toàn bộ 35 ID cũ về `SOURCE_UNVERIFIED`, và siết chặt toàn diện logic phê duyệt train.
 
@@ -107,7 +107,7 @@ Toàn bộ 5 bản ghi dưới đây được lưu trong file cấu trúc máy �
 - **Bộ dữ liệu nguồn:** Open Images V7 (Tập Validation)
 - **Exact Source ID:** **`078821d86db99fc9`** (16 ký tự hex thực tế)
 - **Tên tệp chuẩn hóa đề xuất:** `oi_078821d86db99fc9.jpg`
-- **File CSV bằng chứng nguồn trên đĩa:** `D:\waste-training\openimages-validation-boxes.csv`
+- **File CSV bằng chứng nguồn trên đĩa:** `data/external/waste-training/openimages-validation-boxes.csv`
 - **Dòng raw CSV trong `openimages-validation-boxes.csv`:**
   ```csv
   078821d86db99fc9,xclick,/m/014j1m,1,0.244792,0.542847,0.092857,0.539823,0,0,0,0,0
@@ -141,7 +141,7 @@ Toàn bộ 5 bản ghi dưới đây được lưu trong file cấu trúc máy �
 - **Bộ dữ liệu nguồn:** Open Images V7 (Tập Validation)
 - **Exact Source ID:** **`74a44994e3d6b962`** (16 ký tự hex thực tế)
 - **Tên tệp chuẩn hóa đề xuất:** `oi_74a44994e3d6b962.jpg`
-- **File CSV bằng chứng nguồn trên đĩa:** `D:\waste-training\openimages-validation-boxes.csv`
+- **File CSV bằng chứng nguồn trên đĩa:** `data/external/waste-training/openimages-validation-boxes.csv`
 - **Dòng raw CSV trong `openimages-validation-boxes.csv`:**
   ```csv
   74a44994e3d6b962,xclick,/m/01dwwc,1,0,0.870833,0.246875,0.74375,0,0,0,0,0
@@ -180,7 +180,7 @@ Toàn bộ 5 bản ghi dưới đây được lưu trong file cấu trúc máy �
 - **Bộ dữ liệu nguồn:** Open Images V7 (Tập Validation)
 - **Exact Source ID:** **`e29db1c1963628e7`** (16 ký tự hex thực tế)
 - **Tên tệp chuẩn hóa đề xuất:** `oi_e29db1c1963628e7.jpg`
-- **File CSV bằng chứng nguồn trên đĩa:** `D:\waste-training\openimages-validation-boxes.csv`
+- **File CSV bằng chứng nguồn trên đĩa:** `data/external/waste-training/openimages-validation-boxes.csv`
 - **Dòng raw CSV trong `openimages-validation-boxes.csv`:**
   ```csv
   e29db1c1963628e7,xclick,/m/0cgh4,1,0,0.999219,0,0.998958,0,0,0,0,0
@@ -216,7 +216,7 @@ Toàn bộ 5 bản ghi dưới đây được lưu trong file cấu trúc máy �
 
 ## 4. THỰC HIỆN YÊU CẦU 8: THẮT CHẶT TOÀN DIỆN LOGIC PHÊ DUYỆT TRONG EXPORT_TRAIN_MANIFEST.PY
 
-Đã rà soát và cập nhật trực tiếp tại [`src/detection/export_train_manifest.py`](file:///d:/CNTT-KLCN155-waste-detection/src/detection/export_train_manifest.py):
+Đã rà soát và cập nhật trực tiếp tại [`src/detection/export_train_manifest.py`](../src/detection/export_train_manifest.py):
 
 ### 4.1 Phạm vi (Scope) và Image SHA-256 là BẮT BUỘC đối với ảnh mới
 - Đối với mọi ảnh mới bổ sung (`category in ("NEW_CANDIDATE", "ACQUISITION_TARGET", "PILOT_IMAGE_NEW")`):

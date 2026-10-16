@@ -13,7 +13,7 @@
 - **Bản chất kỹ thuật:**
   - Bộ phát hiện (Two-Stage Detector) được khởi tạo với ngưỡng sinh ứng viên:
     $$\text{min\_score} = 0.20$$
-  - Trên toàn bộ 27 ảnh holdout ngoài thực tế (`D:\Hinh_Anh_Rac`), pipeline sinh ra tổng cộng **24 box** có điểm tin cậy $\ge 0.20$.
+  - Trên toàn bộ 27 ảnh holdout ngoài thực tế (`data/holdout`), pipeline sinh ra tổng cộng **24 box** có điểm tin cậy $\ge 0.20$.
   - Tuy nhiên, giao thức đánh giá nghiệm thu chuẩn COCO (`practical_metrics.py`) đo lường hiệu năng tại ngưỡng vận hành:
     $$\text{operating\_confidence} = 0.25$$
   - Danh sách chính xác 3 box nằm trong khoảng $[0.20, 0.25)$ bị bộ lọc đánh giá loại bỏ:
@@ -76,10 +76,10 @@ Trong bài toán Object Detection có phân loại lớp (Class-Aware Detection)
 ## 3. BỘ DỮ LIỆU RAW PREDICTIONS JSON ĐÃ XUẤT (VẤN ĐỀ 4 & 5)
 
 Đã xuất đầy đủ 3 tệp dữ liệu dự đoán thô (raw predictions) chi tiết từng box của từng ảnh tại:
-1. 📄 [reports/qa_acceptance/raw_predictions_before_quick_fix.json](file:///d:/CNTT-KLCN155-waste-detection/reports/qa_acceptance/raw_predictions_before_quick_fix.json)
-2. 📄 [reports/qa_acceptance/raw_predictions_after_quick_fix.json](file:///d:/CNTT-KLCN155-waste-detection/reports/qa_acceptance/raw_predictions_after_quick_fix.json)
-3. 📄 [reports/qa_acceptance/raw_predictions_yolov8n_e1.json](file:///d:/CNTT-KLCN155-waste-detection/reports/qa_acceptance/raw_predictions_yolov8n_e1.json)
-4. 📄 [reports/qa_acceptance/verified_evaluation_summary_from_raw.json](file:///d:/CNTT-KLCN155-waste-detection/reports/qa_acceptance/verified_evaluation_summary_from_raw.json)
+1. 📄 [reports/qa_acceptance/raw_predictions_before_quick_fix.json](../reports/qa_acceptance/raw_predictions_before_quick_fix.json)
+2. 📄 [reports/qa_acceptance/raw_predictions_after_quick_fix.json](../reports/qa_acceptance/raw_predictions_after_quick_fix.json)
+3. 📄 [reports/qa_acceptance/raw_predictions_yolov8n_e1.json](../reports/qa_acceptance/raw_predictions_yolov8n_e1.json)
+4. 📄 [reports/qa_acceptance/verified_evaluation_summary_from_raw.json](../reports/qa_acceptance/verified_evaluation_summary_from_raw.json)
 
 ### Bảng kết quả chạy lại trực tiếp từ Raw JSON (Không lấy số từ Markdown)
 Được tính toán độc lập bằng lệnh: `.venv\Scripts\python.exe scripts/re_evaluate_from_raw_json.py`
@@ -142,7 +142,7 @@ Trong bài toán Object Detection có phân loại lớp (Class-Aware Detection)
 
 ## 5. KIỂM TRA CHẤT LƯỢNG GROUND TRUTH: ĐỐNG RÁC HỖN HỢP VÀ BOX QUÁ KHỔ (VẤN ĐỀ 7)
 
-Đã quét toàn bộ 57 vật thể trong file [ground_truth_hinh_anh_rac.json](file:///d:/CNTT-KLCN155-waste-detection/reports/qa_acceptance/ground_truth_hinh_anh_rac.json):
+Đã quét toàn bộ 57 vật thể trong file [ground_truth_hinh_anh_rac.json](../reports/qa_acceptance/ground_truth_hinh_anh_rac.json):
 
 ### 5.1. Thống kê kích thước Bounding Box bất thường trong Ground Truth
 - **Box chiếm $\ge 25\%$ diện tích ảnh:** **27 / 57 vật thể (chiếm 47.4%)**!
@@ -168,15 +168,15 @@ Trong bài toán Object Detection có phân loại lớp (Class-Aware Detection)
 ## 6. DANH SÁCH FILE ĐÃ SỬA VÀ CÁC CHỨC NĂNG CHƯA ĐẠT YÊU CẦU (VẤN ĐỀ 8 & 9)
 
 ### 6.1. Danh sách chính xác các file mã nguồn đã chỉnh sửa
-1. [`src/detection/two_stage.py`](file:///d:/CNTT-KLCN155-waste-detection/src/detection/two_stage.py):
+1. [`src/detection/two_stage.py`](../src/detection/two_stage.py):
    - Đặt `scoring_mode = "product"` làm mặc định an toàn.
    - Thêm ngưỡng chặn `allow_blend` và giới hạn nhân trần `max_allowed` để triệt tiêu việc closed-world classifier tự kích điểm cho các vùng nền phẳng.
-2. [`src/detection/tiling.py`](file:///d:/CNTT-KLCN155-waste-detection/src/detection/tiling.py):
+2. [`src/detection/tiling.py`](../src/detection/tiling.py):
    - Thêm bộ lọc loại bỏ anchor proposal chiếm gần trọn tile ($\ge 92\%$ width và $\ge 90\%$ height) nhằm triệt tiêu box ảo sinh ra từ tile cắt vào tường nhà, biển hiệu phẳng.
-3. [`streamlit_app.py`](file:///d:/CNTT-KLCN155-waste-detection/streamlit_app.py):
+3. [`streamlit_app.py`](../streamlit_app.py):
    - Chuyển chế độ khuyến nghị mặc định sang `product`.
    - Nâng ngưỡng `tiling_min_side` từ 640 lên 800 để tránh cắt vụn ảnh kích thước trung bình.
-4. [`tests/qa/test_evaluator_synthetic_verification.py`](file:///d:/CNTT-KLCN155-waste-detection/tests/qa/test_evaluator_synthetic_verification.py):
+4. [`tests/qa/test_evaluator_synthetic_verification.py`](../tests/qa/test_evaluator_synthetic_verification.py):
    - Bổ sung unit test toán học kiểm chứng tính nhất quán của bộ đánh giá.
 
 ### 6.2. Các chức năng và tiêu chí VẪN CHƯA ĐẠT YÊU CẦU NGHIỆM THU

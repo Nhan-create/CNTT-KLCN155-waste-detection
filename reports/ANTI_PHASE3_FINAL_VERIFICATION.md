@@ -31,7 +31,7 @@ Thực tế trong 10 ảnh zero-active của GT v2:
 - **8 ảnh đống rác cận cảnh:** `images (6)`, `images (7)`, `images (9)`, `images (13)`, `images (19)`, `OIP.webp`, `photo-5...webp`, `rac-thai-huu-co-1.jpg`. Các ảnh này chứa toàn bộ là rác thải (bìa carton, chai nhựa, quần áo dệt, rác hữu cơ) chiếm từ 85% đến 100% canvas. Việc coi các ảnh này là nền sạch khiến cho dự đoán đúng loại rác (ví dụ: SSDLite đoán `cardboard` trên đống bìa `images (9).jpg`) bị phạt oan thành False Positive!
 
 ### B. Ba chính sách đánh giá rõ ràng trong `scripts/compare_eval_v1_vs_v2.py`
-Mã nguồn tại [`scripts/compare_eval_v1_vs_v2.py`](file:///D:/CNTT-KLCN155-waste-detection/scripts/compare_eval_v1_vs_v2.py) đã được nâng cấp hỗ trợ đầy đủ 3 chính sách:
+Mã nguồn tại [`scripts/compare_eval_v1_vs_v2.py`](../scripts/compare_eval_v1_vs_v2.py) đã được nâng cấp hỗ trợ đầy đủ 3 chính sách:
 1. **NEGATIVE BENCHMARK:** Áp dụng cho ảnh không chứa rác mục tiêu (ví dụ 2 ảnh thùng rác). Active GT = 0. Mọi dự đoán trên ảnh đều được đưa vào đánh giá và tính là **False Positive (FP)**.
 2. **EXCLUDED BENCHMARK:** Áp dụng cho ảnh nằm ngoài phạm vi bài toán instance detection (8 ảnh đống rác cận cảnh). Ảnh này được loại hoàn toàn khỏi mẫu đánh giá instance: không tính GT, không tính predictions vào `total_preds`, không phạt FP hay TP.
 3. **IGNORE REGION:** Áp dụng cho vùng không gian đống rác hoặc vùng thảm vụn. Các dự đoán có tâm hoặc phần lớn diện tích giao cắt (IoU $\ge 0.1$ hoặc containment $\ge 0.3$) nằm trong hộp ignore-region sẽ được **bỏ qua** (`ignored_preds += 1`), không tính là TP và không phạt FP.
@@ -59,7 +59,7 @@ Mã nguồn tại [`scripts/compare_eval_v1_vs_v2.py`](file:///D:/CNTT-KLCN155-w
 | | `v2_ignore_region_active` (Đống rác là Ignore Region) | 45 | 26 | 6 | 5 | 21 | 40 | **19.23** | **11.11** | **14.08** |
 
 ### D. Minh chứng Regression Tests (7/7 PASSED)
-Đã triển khai bộ test tự động tại [`tests/qa/test_compare_eval_v1_vs_v2.py`](file:///D:/CNTT-KLCN155-waste-detection/tests/qa/test_compare_eval_v1_vs_v2.py):
+Đã triển khai bộ test tự động tại [`tests/qa/test_compare_eval_v1_vs_v2.py`](../tests/qa/test_compare_eval_v1_vs_v2.py):
 1. `test_best_match_must_have_the_prediction_class`: Khớp nhãn class-aware một-đối-một.
 2. `test_real_before_quick_fix_v1_matching`: Bảo toàn kết quả GT v1 frozen (13 TP, 8 FP, 44 FN).
 3. `test_negative_benchmark_policy_counts_fp`: Kiểm chứng ảnh negative benchmark bị phạt FP khi có dự đoán sai.
@@ -72,7 +72,7 @@ Mã nguồn tại [`scripts/compare_eval_v1_vs_v2.py`](file:///D:/CNTT-KLCN155-w
 
 ## 3. P1 — BẰNG CHỨNG PHẪU THUẬT BẢN VÁ DATASET (`oi_2734e597675d8a97.txt`)
 
-Do thư mục `data/detection/` nằm trong `.gitignore` (dòng 49), lệnh `git diff` thông thường không in ra sự thay đổi của file nhãn. Antigravity đã tạo script [`scripts/generate_patch_evidence_oi.py`](file:///D:/CNTT-KLCN155-waste-detection/scripts/generate_patch_evidence_oi.py) xuất bản vá độc lập tại [`reports/patches/patch_oi_2734e597675d8a97.diff`](file:///D:/CNTT-KLCN155-waste-detection/reports/patches/patch_oi_2734e597675d8a97.diff) và hồ sơ JSON tại [`reports/patches/patch_oi_2734e597675d8a97_evidence.json`](file:///D:/CNTT-KLCN155-waste-detection/reports/patches/patch_oi_2734e597675d8a97_evidence.json).
+Do thư mục `data/detection/` nằm trong `.gitignore` (dòng 49), lệnh `git diff` thông thường không in ra sự thay đổi của file nhãn. Antigravity đã tạo script [`scripts/generate_patch_evidence_oi.py`](../scripts/generate_patch_evidence_oi.py) xuất bản vá độc lập tại [`reports/patches/patch_oi_2734e597675d8a97.diff`](../reports/patches/patch_oi_2734e597675d8a97.diff) và hồ sơ JSON tại [`reports/patches/patch_oi_2734e597675d8a97_evidence.json`](../reports/patches/patch_oi_2734e597675d8a97_evidence.json).
 
 ### Bảng đối chiếu mã băm SHA-256 và số lượng box:
 
@@ -117,9 +117,9 @@ Do thư mục `data/detection/` nằm trong `.gitignore` (dòng 49), lệnh `git
 
 ## 4. P1 — NHẬT KÝ KIỂM THỬ NGUYÊN BẢN (TEST EVIDENCE)
 
-Đã xuất đầy đủ 4 tệp bằng chứng tại thư mục [`reports/test_evidence/`](file:///D:/CNTT-KLCN155-waste-detection/reports/test_evidence/):
+Đã xuất đầy đủ 4 tệp bằng chứng tại thư mục [`reports/test_evidence/`](../reports/test_evidence/):
 1. **Thông tin môi trường (`python_environment.json`):**
-   - Trình thông dịch: `D:\CNTT-KLCN155-waste-detection\.venv\Scripts\python.exe`
+   - Trình thông dịch: `.venv\Scripts\python.exe`
    - Phiên bản: `Python 3.12.10 (tags/v3.12.10:0cc8128, Apr 8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]`
    - Phần cứng: `NVIDIA GeForce RTX 2050 (CUDA 12.1, PyTorch 2.5.1+cu121)`
    - Thư viện: `Torchvision 0.20.1+cu121`, `Ultralytics 8.4.171`, `imagehash 4.3.2`, `PyQt5 5.15.11`
@@ -137,12 +137,12 @@ Do thư mục `data/detection/` nằm trong `.gitignore` (dòng 49), lệnh `git
 
 ## 5. P1 — CHẤT LƯỢNG TẬP DỮ LIỆU VÀ RÀ SOÁT RÒ RỈ (QUALITY & LEAKAGE)
 
-Báo cáo JSON độc lập: [`reports/DATASET_QUALITY_AND_LEAKAGE_REPORT.json`](file:///D:/CNTT-KLCN155-waste-detection/reports/DATASET_QUALITY_AND_LEAKAGE_REPORT.json).
+Báo cáo JSON độc lập: [`reports/DATASET_QUALITY_AND_LEAKAGE_REPORT.json`](../reports/DATASET_QUALITY_AND_LEAKAGE_REPORT.json).
 
 ### Kết quả kiểm toán 1,996 ảnh và 5,584 bounding boxes trong `splits_real_v2`:
 1. **Trùng lặp SHA-256 nội bộ:** **0 ảnh** trùng mã băm SHA-256 trong cùng split hoặc giữa các split.
 2. **Rò rỉ giữa các tập Train/Val/Test (Cross-split Leakage):** **0 trường hợp** (cả theo filename, theo SHA-256 và theo nhóm pHash near-duplicate).
-3. **Rò rỉ với tập Holdout độc lập (`D:\Hinh_Anh_Rac`):** **0 trường hợp** (không có bất kỳ ảnh hoặc mã băm nào của 27 ảnh holdout xuất hiện trong train, val hay test).
+3. **Rò rỉ với tập Holdout độc lập (`data/holdout`):** **0 trường hợp** (không có bất kỳ ảnh hoặc mã băm nào của 27 ảnh holdout xuất hiện trong train, val hay test).
 4. **Lỗi cú pháp nhãn:** 0 ảnh hỏng, 0 nhãn sai class ID ngoài $[0, 9]$, 0 box âm, 0 box tràn biên, 0 box trùng lặp sau bản vá.
 5. **Hiện trạng ảnh cảnh nền (Hard-negatives):**
    - Số lượng ảnh nhãn rỗng (negative images): **0 ảnh (0.0%)**.
@@ -168,7 +168,7 @@ Báo cáo JSON độc lập: [`reports/DATASET_QUALITY_AND_LEAKAGE_REPORT.json`]
 ## 6. P1 — HÌNH HỌC CẮT TỌA ĐỘ TACO (CLIPPING GEOMETRY PROOF)
 
 ### A. Bản chất toán học của tọa độ âm $y = -1.00$
-Trong tệp nhãn COCO gốc của TACO ([`data/audit/taco_annotations_raw.json`](file:///D:/CNTT-KLCN155-waste-detection/data/audit/taco_annotations_raw.json)):
+Trong tệp nhãn COCO gốc của TACO ([`data/audit/taco_annotations_raw.json`](../data/audit/taco_annotations_raw.json)):
 - `taco_0112` (Image 112, Annotation 387, Kích thước $1824 \times 1824$): COCO bbox = `[1225.0, -1.0, 107.0, 92.0]`.
 - `taco_0457` (Image 457, Annotation 1621, Kích thước $4160 \times 4160$): COCO bbox = `[1167.0, -1.0, 246.0, 269.0]`.
 
@@ -177,7 +177,7 @@ Khi $y = -1.0$, đỉnh trên-trái nằm ngoài khung ảnh 1 pixel ở phía t
 $$y_2 = y + h = -1.0 + 92.0 = 91.0 \text{ pixels}$$
 
 ### B. Chứng minh hình học của hàm `coco_to_yolo`
-Hàm chuyển đổi trong [`scripts/collect_real_detection_v2.py`](file:///D:/CNTT-KLCN155-waste-detection/scripts/collect_real_detection_v2.py):
+Hàm chuyển đổi trong [`scripts/collect_real_detection_v2.py`](../scripts/collect_real_detection_v2.py):
 ```python
 def coco_to_yolo(bbox, W, H):
     x, y, w, h = bbox
@@ -200,7 +200,7 @@ def coco_to_yolo(bbox, W, H):
      Điều này khiến **toàn bộ bounding box bị trôi dịch chuyển xuống dưới 1 pixel**, lấn quá ranh giới thực của vật thể rác!
    - Hàm `coco_to_yolo` của dự án đã tính lại $(y_2 - y_1)$, đảm bảo đáy hộp tái lập từ YOLO $(y_c + h/2) \times H$ đúng bằng $91.0$ pixels, bảo toàn 100% hình học vật thể.
 
-Bộ test hồi quy toán học tại [`tests/detection/test_taco_clipping_geometry.py`](file:///D:/CNTT-KLCN155-waste-detection/tests/detection/test_taco_clipping_geometry.py) đã chạy và đạt **5/5 PASSED**.
+Bộ test hồi quy toán học tại [`tests/detection/test_taco_clipping_geometry.py`](../tests/detection/test_taco_clipping_geometry.py) đã chạy và đạt **5/5 PASSED**.
 
 ---
 
@@ -230,7 +230,7 @@ Bộ test hồi quy toán học tại [`tests/detection/test_taco_clipping_geome
      - **Phương án A (Theo hình thức thị giác thuần túy - Visual Material):** Gán nhãn `plastic` (vỏ bao bì nhựa nhìn thấy được).
      - **Phương án B (Theo nghiệp vụ thu gom đô thị - Waste Management Handling):** Gán nhãn `trash` (bao rác sinh hoạt hỗn hợp, không phân loại tái chế màng film).
 
-Tất cả 27 ảnh overlay kiểm duyệt đã được kết xuất sẵn sàng tại [`reports/qa_acceptance/gt_review_overlays/`](file:///D:/CNTT-KLCN155-waste-detection/reports/qa_acceptance/gt_review_overlays/).
+Tất cả 27 ảnh overlay kiểm duyệt đã được kết xuất sẵn sàng tại [`reports/qa_acceptance/gt_review_overlays/`](../reports/qa_acceptance/gt_review_overlays/).
 
 ---
 
@@ -253,7 +253,7 @@ Tất cả 27 ảnh overlay kiểm duyệt đã được kết xuất sẵn sàn
 ## 9. ĐÓNG GÓI HỒ SƠ BẰNG CHỨNG (DELIVERABLE ARCHIVE)
 
 Đã đóng gói tệp nén tinh gọn, độc lập tại:  
-[`C:\Users\ad\Downloads\ANTI_PHASE3_FINAL_VERIFICATION_EVIDENCE.zip`](file:///C:/Users/ad/Downloads/ANTI_PHASE3_FINAL_VERIFICATION_EVIDENCE.zip)
+[`~/Downloads\ANTI_PHASE3_FINAL_VERIFICATION_EVIDENCE.zip`](~/Downloads/ANTI_PHASE3_FINAL_VERIFICATION_EVIDENCE.zip)
 
 ### Danh mục tệp trong gói ZIP:
 1. `00_ANTI_PHASE3_FINAL_VERIFICATION.md`: Bản báo cáo này.

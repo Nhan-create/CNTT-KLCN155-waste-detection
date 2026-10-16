@@ -3,7 +3,7 @@ scripts/build_phase4e_final_patch_delivery.py
 ---------------------------------------------
 Packages all Phase 4E Final Patch artifacts, regression tests, raw logs,
 manifests, downloaded images, contact sheet, overlays, and reports into:
-C:\\Users\\ad\\Downloads\\PHASE4E_FINAL_PATCH_AND_MINI_PILOT_EVIDENCE.zip
+~/Downloads/PHASE4E_FINAL_PATCH_AND_MINI_PILOT_EVIDENCE.zip
 """
 
 import hashlib

@@ -31,7 +31,7 @@ Tuy nhiên, PM đã chỉ ra chính xác **3 lỗ hổng logic nghiêm trọng t
 ### 2.1. Lỗ hổng 1: Cổng kiểm tra đĩa vật lý không chặn lỗi khi thư mục ảnh vắng mặt hoặc sai lệch
 
 - **Nguyên nhân gốc rễ (Code cũ):**
-  Trong [scripts/check_split_leakage.py](file:///D:/CNTT-KLCN155-waste-detection/scripts/check_split_leakage.py), điều kiện xét trạng thái cuối cùng chỉ kiểm tra:
+  Trong [scripts/check_split_leakage.py](../../scripts/check_split_leakage.py), điều kiện xét trạng thái cuối cùng chỉ kiểm tra:
   ```python
   if (train_val_sha + train_test_sha + val_test_sha == 0) and (burst_leakage_count == 0) and (unresolved_count == 0):
       status = "VERIFIED_NO_LEAKAGE_WITHIN_HASH_SCOPE"
@@ -82,7 +82,7 @@ Tuy nhiên, PM đã chỉ ra chính xác **3 lỗ hổng logic nghiêm trọng t
 ### 2.3. Lỗ hổng 3: Script tái hiện validation chưa tính mã băm trực tiếp từ từng byte ảnh vật lý
 
 - **Nguyên nhân gốc rễ (Code cũ):**
-  Trong [scripts/reproduce_validation.py](file:///D:/CNTT-KLCN155-waste-detection/scripts/reproduce_validation.py), cột `sha256` trong bảng `val_predictions.csv` được gán bằng cách tra cứu ngược:
+  Trong [scripts/reproduce_validation.py](../../scripts/reproduce_validation.py), cột `sha256` trong bảng `val_predictions.csv` được gán bằng cách tra cứu ngược:
   ```python
   val_manifest_sha_map = val_manifest.set_index("filename")["sha256"].to_dict()
   file_sha = val_manifest_sha_map.get(fname, "")
@@ -94,13 +94,13 @@ Tuy nhiên, PM đã chỉ ra chính xác **3 lỗ hổng logic nghiêm trọng t
      actual_disk_sha256 = compute_sha256(sample_p)
      ```
   2. Đối chiếu mã băm tính toán trực tiếp với `expected_manifest_sha` từ manifest. Nếu phát hiện bất kỳ sự sai lệch nào (`disk_hash_mismatches > 0`), script dừng lại và báo lỗi ngay lập tức (`exit 1`).
-  3. Lưu `actual_disk_sha256` thật vào tệp [artifacts/official_run/val_predictions.csv](file:///D:/CNTT-KLCN155-waste-detection/artifacts/official_run/val_predictions.csv) và bổ sung khối `disk_hash_verification` vào báo cáo [artifacts/official_run/reproduced_validation_summary.json](file:///D:/CNTT-KLCN155-waste-detection/artifacts/official_run/reproduced_validation_summary.json).
+  3. Lưu `actual_disk_sha256` thật vào tệp [artifacts/official_run/val_predictions.csv](../../artifacts/official_run/val_predictions.csv) và bổ sung khối `disk_hash_verification` vào báo cáo [artifacts/official_run/reproduced_validation_summary.json](../../artifacts/official_run/reproduced_validation_summary.json).
 
 ---
 
 ## 3. Bộ Kiểm thử Tự động Kiểm chứng Cổng (Automated Gate Test Suite)
 
-Nhóm phát triển đã xây dựng bộ kiểm thử tự động tại [tests/test_verification_gates.py](file:///D:/CNTT-KLCN155-waste-detection/tests/test_verification_gates.py) để mô phỏng chính xác các ca lỗi và chứng minh các cổng kiểm chứng hoạt động đúng:
+Nhóm phát triển đã xây dựng bộ kiểm thử tự động tại [tests/test_verification_gates.py](../../tests/test_verification_gates.py) để mô phỏng chính xác các ca lỗi và chứng minh các cổng kiểm chứng hoạt động đúng:
 
 ### 3.1. Kết quả chạy thực tế của bộ kiểm thử:
 ```
@@ -153,11 +153,11 @@ ALL 4 VERIFICATION GATE TESTS PASSED CONVINCINGLY!
 
 Nhóm phát triển tuân thủ nghiêm ngặt chỉ đạo của PM: **"Giữ checkpoint hiện tại, sửa các lỗi trên rồi chạy lại kiểm tra. Chưa có lý do phải train lại"**.
 
-- **Checkpoint chính thức:** [artifacts/official_run/best_model.pt](file:///D:/CNTT-KLCN155-waste-detection/artifacts/official_run/best_model.pt)
+- **Checkpoint chính thức:** [artifacts/official_run/best_model.pt](../../artifacts/official_run/best_model.pt)
   - SHA-256: `c824fec4f3d1dffff946cd8ad7e2d4f121be33e684dda4e6af92b5bda343e424` (Giữ nguyên vẹn 100%).
   - Epoch tối ưu: Epoch 12.
-- **Phân vùng dữ liệu Split V2:** [data/audit/split_manifest_v2.csv](file:///D:/CNTT-KLCN155-waste-detection/data/audit/split_manifest_v2.csv)
-  - SHA-256: `1429a22ebbf95cc464881f903dae5ac6dcc5e6e64152e1dd3353e9365429ec96` (Giữ nguyên vẹn 100%).
+- **Phân vùng dữ liệu Split V2:** [data/audit/split_manifest_v2.csv](../../data/audit/split_manifest_v2.csv)
+  - SHA-256: `f83def99895e990d474e3ebc66d45fe5692c1496497705089ec9a2183d058980` (Giữ nguyên vẹn 100%).
   - Tổng số mẫu: 14.829 (Train: 10.383, Val: 2.223, Test: 2.223).
 - **Tập Final Test:** Giữ nguyên trạng thái niêm phong bảo mật, chưa từng được đọc hay nạp vào bất kỳ mô hình nào trong suốt Phần 1.
 
@@ -165,7 +165,7 @@ Nhóm phát triển tuân thủ nghiêm ngặt chỉ đạo của PM: **"Giữ c
 
 ## 5. Danh mục Gói Bàn giao Hoàn thiện (P1-R2 Deliverables)
 
-Gói bàn giao cập nhật đã được đóng gói và đặt đồng thời tại `C:\Users\ad\Downloads` và thư mục gốc dự án:
+Gói bàn giao cập nhật đã được đóng gói và đặt đồng thời tại `~/Downloads` và thư mục gốc dự án:
 
 1. **Gói chính thức P1-R2:** `CNTT-KLCN155_PART01_VERIFIED_R2.zip`
    - Bảng kê chi tiết từng file: `CNTT-KLCN155_PART01_VERIFIED_R2_manifest.csv`

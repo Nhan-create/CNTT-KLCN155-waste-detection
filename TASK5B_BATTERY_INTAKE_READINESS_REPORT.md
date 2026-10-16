@@ -1,12 +1,12 @@
 # BÁO CÁO THỰC THI SPRINT AI-UPGRADE-01 — TASK 5B
 ## TIẾP NHẬN NGUỒN PIN, HOTFIX HẠ TẦNG & SẴN SÀNG HUẤN LUYỆN
 
-- **Repository:** `D:\CNTT-KLCN155-waste-detection`
+- **Repository:** `.`
 - **Mã công việc:** SPRINT AI-UPGRADE-01 — TASK 5B (HOTFIX & BATTERY INTAKE)
 - **Thời điểm:** 2026-10-13 21:45 UTC+7
 - **Phân định vai trò:** Antigravity Integrator + Chuyên trách Data / Model / QA
 - **Trạng thái cổng tiếp nhận:** **GATE STATUS: BLOCKED — WAITING_FOR_BATTERY_ZIP**
-- **Gói bàn giao:** `C:\Users\ad\Downloads\CNTT_KLCN155_Task5B_Delivery.zip`
+- **Gói bàn giao:** `~/Downloads\CNTT_KLCN155_Task5B_Delivery.zip`
 
 ---
 
@@ -51,7 +51,7 @@ Người dùng thực hiện trên trình duyệt web (hoàn toàn ngoại tuy�
 3. **Tại ô Format:** Chọn định dạng **`YOLOv8`** (hoặc `YOLOv5 PyTorch`).
 4. **Tại ô Export Option:** Chọn **"download zip to computer"** và nhấn **Continue**.
 5. **Di chuyển file ZIP vừa tải về** vào thư mục dự án:  
-   👉 `D:\CNTT-KLCN155-waste-detection\data\acquisition_staging\roboflow_battery\`
+   👉 `data\acquisition_staging\roboflow_battery\`
 6. **Chạy lệnh tự động giải nén an toàn và QA:**
    ```powershell
    .venv\Scripts\python.exe scripts/import_and_qa_roboflow_battery.py

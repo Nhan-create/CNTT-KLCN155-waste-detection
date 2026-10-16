@@ -872,7 +872,7 @@ def update_wave1_manifest_and_report() -> dict[str, Any]:
     md_lines = [
         "# TASK 8 — WAVE 1 QA CORRECTION & FORENSIC AUDIT REPORT (`WAVE1_QA_CORRECTION_REPORT.md`)",
         "",
-        "- **Repository:** `D:\\CNTT-KLCN155-waste-detection`",
+        "- **Repository:** `.`",
         "- **Source of Truth Manifest:** [`task8_wave1_qa_manifest.json`](./data/acquisition_staging/task8a_multiclass_batch/task8_wave1_qa_manifest.json)",
         f"- **Task 8C Consistency Fix Applied:** Reconciled all table cells and bounding-box totals directly from `task8_wave1_qa_manifest.json` (**`{len(qa_pass_recs)}` `QA_PASS` unique images**, **`{total_boxes_qa_pass}` verified bounding boxes**: `{total_boxes_real_waste}` boxes in `{len(real_waste_pass_recs)}` `REAL_WASTE_PASS` images + `{total_boxes_aux}` boxes in `{len(aux_recs)}` `KEEP_AUXILIARY` images).",
         "- **Training Approval Gate:** `APPROVED_FOR_TRAIN = False` on all `221` records.",

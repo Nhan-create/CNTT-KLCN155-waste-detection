@@ -2,14 +2,14 @@
 
 **Run ID:** `RUN_20261009_032500_ACCEPTANCE`  
 **Thời gian lập báo cáo:** 2026-10-08 20:21:16 UTC  
-**Tập ảnh nghiệm thu bắt buộc:** `D:\Hinh_Anh_Rac`  
+**Tập ảnh nghiệm thu bắt buộc:** `data/holdout`  
 **Đơn vị thực hiện:** Antigravity Multi-Agent System (Integrator + Sub-Agents A, B, C, D)  
 
 ---
 
 ## 1. TỔNG QUAN VÀ TRẠNG THÁI NGHIỆM THU THEO DoD
 
-Căn cứ theo [BẢN GIAO VIỆC CHO ANTI] (`PROMPT_ANTI_HOAN_TAT_WASTE_DETECTION.md`) và quy chuẩn `AGENTS.md`, hệ thống Multi-Agent đã tiến hành rà soát, kiểm toán, lập Ground Truth độc lập và thực thi đánh giá đối chứng thực tế trên toàn bộ tập ảnh nghiệm thu `D:\Hinh_Anh_Rac`.
+Căn cứ theo [BẢN GIAO VIỆC CHO ANTI] (`PROMPT_ANTI_HOAN_TAT_WASTE_DETECTION.md`) và quy chuẩn `AGENTS.md`, hệ thống Multi-Agent đã tiến hành rà soát, kiểm toán, lập Ground Truth độc lập và thực thi đánh giá đối chứng thực tế trên toàn bộ tập ảnh nghiệm thu `data/holdout`.
 
 ### BẢNG ĐỐI CHIẾU TIÊU CHÍ ĐỊNH NGHĨA HOÀN THÀNH (Definition of Done - DoD)
 
@@ -32,7 +32,7 @@ Căn cứ theo [BẢN GIAO VIỆC CHO ANTI] (`PROMPT_ANTI_HOAN_TAT_WASTE_DETECTI
 
 ## 2. KẾT QUẢ KIỂM KÊ TOÀN DIỆN TẬP ẢNH NGHIỆM THU (INVENTORY)
 
-- **Thư mục kiểm tra:** `D:\Hinh_Anh_Rac`
+- **Thư mục kiểm tra:** `data/holdout`
 - **Tổng số ảnh quét được:** **27 ảnh** (quét đệ quy toàn bộ thư mục và thư mục con).
 - **Trạng thái giải mã:** **27/27 ảnh hợp lệ** (100% decode thành công bằng cả `PIL.Image` và `cv2.imread`, 0 ảnh hỏng).
 - **Phát hiện trùng lặp:** `images (13).jpg` và `images (7).jpg` trùng khớp byte-for-byte hoàn toàn (SHA-256: `88b331d53c554a6eabcd700291dc4e0c2418798a3c45ff1ca6b2b00dc186fee7`).
@@ -67,7 +67,7 @@ Tại sao cả 2 checkpoint `waste-ssdlite320-mobilenetv3-combined-seed42` và `
 - Bộ dữ liệu thật (`data/detection/labels/real/`) chỉ có **2 mẫu pin** (battery) và **8 mẫu hữu cơ** (biological) trong toàn bộ 257 ảnh. Do đó, mô hình hoàn toàn không đủ khả năng tổng quát hóa trên các lớp này.
 
 ### 3. Ràng buộc bất biến về đạo đức dữ liệu
-- Theo chỉ thị bất biến tại Mục 1 & Mục 3 của Bản giao việc: Tập `D:\Hinh_Anh_Rac` là tập nghiệm thu bắt buộc, **TUYỆT ĐỐI KHÔNG ĐƯỢC ĐƯA VÀO HUẤN LUYỆN, AUGMENTATION HOẶC TRA CỨU ĐÁP ÁN**.
+- Theo chỉ thị bất biến tại Mục 1 & Mục 3 của Bản giao việc: Tập `data/holdout` là tập nghiệm thu bắt buộc, **TUYỆT ĐỐI KHÔNG ĐƯỢC ĐƯA VÀO HUẤN LUYỆN, AUGMENTATION HOẶC TRA CỨU ĐÁP ÁN**.
 - Không được can thiệp hardcode tọa độ hay nhãn giả tạo. Do đó, sự thất bại của các checkpoint hiện hữu là sự thật khách quan cần được ghi nhận trung thực.
 
 ---
@@ -115,7 +115,7 @@ Mặc dù mô hình chưa đạt DoD, toàn bộ hệ thống nền tảng đã 
   * Ngân sách huấn luyện tối ưu: **100 epochs** $\approx$ **125 phút** (~2 giờ).
 - **Lộ trình kỹ thuật đề xuất:**
   1. Loại bỏ triệt để các mẫu Mendeley bị cách ly theo `mendeley_quarantine_manifest.json`.
-  2. Bổ sung các mẫu ảnh rác thực tế tại Việt Nam vào tập train độc lập (không vi phạm `D:\Hinh_Anh_Rac`).
+  2. Bổ sung các mẫu ảnh rác thực tế tại Việt Nam vào tập train độc lập (không vi phạm `data/holdout`).
   3. Áp dụng Copy-Paste Augmentation với `DonorBank` cho các lớp thiểu số (battery: 2 mẫu, biological: 8 mẫu).
   4. Huấn luyện SSDLite320 với learning rate cosine annealing, giải phóng backbone sau epoch 20.
 
@@ -124,7 +124,7 @@ Mặc dù mô hình chưa đạt DoD, toàn bộ hệ thống nền tảng đã 
 ## 6. DANH MỤC TỆP TIN BÀN GIAO TRONG GÓI ZIP
 
 Gói ZIP bàn giao chính thức được lưu tại:  
-`C:\Users\ad\Downloads\BAN_GIAO_NGHIEM_THU_WASTE_DETECTION_RUN_20261009_032500_ACCEPTANCE.zip`  
+`~/Downloads\BAN_GIAO_NGHIEM_THU_WASTE_DETECTION_RUN_20261009_032500_ACCEPTANCE.zip`  
 **Mã băm SHA-256 của file ZIP:** `{ZIP_SHA256}`
 
 ### Cấu trúc nội dung gói bàn giao:

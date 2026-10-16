@@ -25,7 +25,7 @@ Thực hiện đầy đủ các cam kết học thuật trong đề tài:
 
 ## 2. Thiết kế Grid Search WBF trên Validation Set
 
-Thực thi script [src/detection/tune.py](file:///D:/CNTT-KLCN155-waste-detection/src/detection/tune.py) quét trên tập Validation:
+Thực thi script [src/detection/tune.py](../../src/detection/tune.py) quét trên tập Validation:
 - **Trọng số kết hợp $(w_{\text{YOLO}}, w_{\text{SSD}})$:** Quét qua các cặp $[1.0, 0.0], [0.8, 0.2], [0.7, 0.3], [0.6, 0.4], [0.5, 0.5]$.
 - **Ngưỡng IoU (`iou_thr`):** $[0.45, 0.50, 0.55, 0.60]$.
 - **Ngưỡng lọc hộp bao (`skip_box_thr`):** $[0.20, 0.25, 0.30]$.

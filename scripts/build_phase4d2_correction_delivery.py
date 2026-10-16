@@ -2,7 +2,7 @@
 scripts/build_phase4d2_correction_delivery.py
 ---------------------------------------------
 Builds the small Phase 4D.2 Correction deliverable package:
-C:\\Users\\ad\\Downloads\\PHASE4D2_CORRECTION_REAL_SOURCE_PROOF_EVIDENCE.zip
+~/Downloads/PHASE4D2_CORRECTION_REAL_SOURCE_PROOF_EVIDENCE.zip
 
 Contents:
 1. reports/REAL_IMAGE_SOURCE_PROOF_5_SAMPLES.md

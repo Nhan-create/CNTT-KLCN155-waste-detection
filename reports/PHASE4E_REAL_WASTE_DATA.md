@@ -1,7 +1,7 @@
 # BÁO CÁO NGHIỆM THU: PHASE 4E — REAL WASTE DATA ACQUISITION & GOVERNANCE
 
 **Dự án:** Hệ thống nhận diện rác thải sinh hoạt KLCN155  
-**Thư mục làm việc:** `D:\CNTT-KLCN155-waste-detection`  
+**Thư mục làm việc:** `.`  
 **Thời điểm thực thi:** 2026-10-12  
 **Trạng thái phê duyệt huấn luyện:** 0 ảnh mới được duyệt vào train (`APPROVED_FOR_TRAIN = 0`)  
 **Nguyên tắc cốt lõi:** Không dùng dữ liệu trái cây sai ngữ cảnh; Chuyển trọng tâm sang Pin thải thật, Rác hữu cơ thải bỏ và Hard-Negative tủ điện đô thị.  
@@ -11,7 +11,7 @@
 ## 1. TIẾP THU ĐÁNH GIÁ REVIEWER & SỬA LỖI KỸ THUẬT
 
 ### 1.1 Kết quả kiểm tra trực quan đợt Preview 3 ảnh
-Reviewer độc lập đã kiểm tra trực tiếp tệp bàn giao [`PILOT_PREVIEW_3_VISUAL_QA_EVIDENCE.zip`](file:///C:/Users/ad/Downloads/PILOT_PREVIEW_3_VISUAL_QA_EVIDENCE.zip) và đưa ra kết luận chuẩn xác:
+Reviewer độc lập đã kiểm tra trực tiếp tệp bàn giao [`PILOT_PREVIEW_3_VISUAL_QA_EVIDENCE.zip`](~/Downloads/PILOT_PREVIEW_3_VISUAL_QA_EVIDENCE.zip) và đưa ra kết luận chuẩn xác:
 - **Ảnh quả táo (`oi_078821d86db99fc9.jpg`):** **REJECT**. Đây là quả táo tươi còn treo trên cành cây ăn quả giữa vườn cây, không thể đại diện cho rác thải sinh hoạt.
 - **Ảnh quả chuối (`oi_74a44994e3d6b962.jpg`):** **REJECT**. Đây là chuối cắt lát tươi ngon phủ làm topping trên đĩa bánh pancake ăn sáng, đặt trên đĩa sứ gia đình.
 - **Ảnh cầu Ronda (`oi_e29db1c1963628e7.jpg`):** **PENDING_NEGATIVE_REVIEW**. Khung cảnh sạch, nhưng là di tích kiến trúc đá Tây Ban Nha, hoàn toàn lệch domain so với lỗi nhận diện sai thực tế (nhầm tủ điện thành bìa carton).
@@ -19,7 +19,7 @@ Reviewer độc lập đã kiểm tra trực tiếp tệp bàn giao [`PILOT_PREV
 
 ### 1.2 Sửa dứt điểm lỗi hardcode QA verdict theo ImageID
 Trong phiên bản script trước, nhận định QA sơ bộ bị gán cứng bằng điều kiện `if iid == "078821d86db99fc9": ...`.
-- **Bản vá mới ([`scripts/stage_whitelisted_pilot_images.py`](file:///d:/CNTT-KLCN155-waste-detection/scripts/stage_whitelisted_pilot_images.py)):** Đã gỡ bỏ toàn bộ các điều kiện phân nhánh theo ImageID.
+- **Bản vá mới ([`scripts/stage_whitelisted_pilot_images.py`](../scripts/stage_whitelisted_pilot_images.py)):** Đã gỡ bỏ toàn bộ các điều kiện phân nhánh theo ImageID.
 - Mọi ảnh khi tải về đều mang trạng thái ban đầu là `DOWNLOADED_AWAITING_VISUAL_REVIEW` với nhãn `PROPOSED`.
 - Quy trình phán quyết QA được tách rời độc lập, dựa trên việc đối chiếu với tiêu chí loại trừ (Physical Exclusion Rules), không đưa quyết định chủ quan vào luồng tải mạng.
 
@@ -36,12 +36,12 @@ Trong phiên bản script trước, nhận định QA sơ bộ bị gán cứng 
   2. Bấm nút **"Download Dataset"** ở góc phải trên.
   3. Chọn định dạng xuất: **YOLOv8** (hoặc COCO).
   4. Đặt tệp ZIP tải về vào thư mục:  
-     [`data/acquisition_staging/roboflow_battery/`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/roboflow_battery/)
-- **Cơ chế xử lý tự động đã xây dựng ([`scripts/ingest_roboflow_battery_export.py`](file:///d:/CNTT-KLCN155-waste-detection/scripts/ingest_roboflow_battery_export.py)):**
+     [`data/acquisition_staging/roboflow_battery/`](../data/acquisition_staging/roboflow_battery/)
+- **Cơ chế xử lý tự động đã xây dựng ([`scripts/ingest_roboflow_battery_export.py`](../scripts/ingest_roboflow_battery_export.py)):**
   * Tự động giải nén và quét file ảnh thực tế.
   * Lọc bỏ ảnh trùng lặp, ảnh render 3D và các biến thể data augmentation bị méo mó/nhiễu quá mức.
   * Tự động remap nhãn sang class `0: battery`.
-  * Tính mã băm SHA-256 và pHash, đối chiếu toàn bộ với train, val, test (v2/v3) và holdout (`D:\Hinh_Anh_Rac`) để bảo đảm 0% rò rỉ (leakage).
+  * Tính mã băm SHA-256 và pHash, đối chiếu toàn bộ với train, val, test (v2/v3) và holdout (`data/holdout`) để bảo đảm 0% rò rỉ (leakage).
   * Giữ trạng thái ở mức `VISUALLY_REVIEWED / PENDING_USER_APPROVAL`, không tự ý đưa vào train.
 
 ---
@@ -67,7 +67,7 @@ Chấm dứt hoàn toàn việc lấy mẫu ngẫu nhiên nhãn Apple/Banana c�
 ---
 
 ### 2.3 Luồng 3: HARD-NEGATIVE (Khắc phục lỗi Tủ điện trong ảnh `rac_online_012.jpg`)
-Trong các báo cáo kiểm toán trước, mô hình liên tục gặp lỗi False Positive: nhận nhầm tủ điện kỹ thuật màu xanh trên vỉa hè thành bìa carton (`cardboard`) hoặc rác hỗn hợp (`trash`) trong ảnh kiểm toán [`D:\Hinh_Anh_Rac\rac_online_012.jpg`](file:///D:/Hinh_Anh_Rac/rac_online_012.jpg).  
+Trong các báo cáo kiểm toán trước, mô hình liên tục gặp lỗi False Positive: nhận nhầm tủ điện kỹ thuật màu xanh trên vỉa hè thành bìa carton (`cardboard`) hoặc rác hỗn hợp (`trash`) trong ảnh kiểm toán [`data/holdout/rac_online_012.jpg`](../data/holdout/rac_online_012.jpg).  
 Nguyên nhân cốt lõi là do tập huấn luyện có **0% ảnh âm bản (0 ảnh Hard-Negative)**.
 
 #### A. Nguồn ảnh tủ điện / hạ tầng đô thị xác minh trên Wikimedia:
@@ -87,7 +87,7 @@ Do Wikimedia có hạn chế về bối cảnh hạ tầng đường phố Việ
    - Đảm bảo **100% khung hình sạch rác** (không có chai lọ, bao bì, đầu mẩu thuốc lá, lá cây rụng dày đặc).
    - Chụp góc nhìn ngang tầm mắt người đi đường hoặc camera giám sát.
    - Độ phân giải tiêu chuẩn smartphone (1920x1080 hoặc cao hơn, định dạng JPEG).
-   - Đặt ảnh vào thư mục: [`data/acquisition_staging/user_captured_negatives/`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/user_captured_negatives/)
+   - Đặt ảnh vào thư mục: [`data/acquisition_staging/user_captured_negatives/`](../data/acquisition_staging/user_captured_negatives/)
 3. **Cam kết liêm chính:** Hệ thống **tuyệt đối không tuyên bố tự chụp** khi người dùng chưa cung cấp ảnh.
 
 ---
@@ -144,7 +144,7 @@ stateDiagram-v2
 ## 5. ĐỀ XUẤT THỰC NGHIỆM VÀ KẾ HOẠCH BƯỚC TIẾP THEO
 
 1. **Về việc tải ảnh mới:**
-   - Hệ thống đã lập sẵn script staging an toàn có whitelist cứng: [`scripts/stage_phase4e_whitelist_candidates.py`](file:///d:/CNTT-KLCN155-waste-detection/scripts/stage_phase4e_whitelist_candidates.py).
+   - Hệ thống đã lập sẵn script staging an toàn có whitelist cứng: [`scripts/stage_phase4e_whitelist_candidates.py`](../scripts/stage_phase4e_whitelist_candidates.py).
    - Khi người dùng gửi lệnh phê duyệt rõ ràng trong chat (ví dụ: `[DUYET_TAI_PHASE4E_WIKI]`), hệ thống mới kích hoạt tải luồng và tính toán mã băm SHA/pHash.
 2. **Về dữ liệu Pin Roboflow:**
    - Khi người dùng tải file ZIP từ Roboflow và đặt vào `data/acquisition_staging/roboflow_battery/`, chạy ngay lệnh:

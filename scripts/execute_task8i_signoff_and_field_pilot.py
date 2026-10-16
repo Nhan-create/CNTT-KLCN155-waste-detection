@@ -1403,7 +1403,7 @@ def main() -> None:
         "  4. **Yêu cầu bằng chứng người duyệt thật (`reviewer_id`, `review_timestamp`, `context_evidence >= 10 ký tự`, `bbox_tightness_verified = True`):** Chỉ khi có đủ các trường này trên mẫu `ACTUAL_WASTE` đã xác nhận quyền sử dụng thì mới đạt `REAL_WASTE_CONTEXT_VERIFIED = True`.",
         "  5. **Giữ `APPROVED_FOR_TRAIN = False` trên 100% bản ghi:** Kể cả khi `qa_status == REAL_WASTE_PASS`.",
         "  6. **Không tự gán `CC-BY-4.0`:** Nếu thiếu giấy phép rõ ràng hoặc `rights_confirmed = False`, gán `UNCONFIRMED_USAGE_RIGHTS` và giữ ở `NEEDS_REVIEW`.",
-        f"- **Ví dụ kiểm thử giả lập `PRODUCT_STUDIO` bị giữ ở `NEEDS_REVIEW`:** [`{reg_example_p.relative_to(REPO_ROOT).as_posix()}`](file:///{reg_example_p.as_posix()})",
+        f"- **Ví dụ kiểm thử giả lập `PRODUCT_STUDIO` bị giữ ở `NEEDS_REVIEW`:** [`{reg_example_p.relative_to(REPO_ROOT).as_posix()}`](../../{reg_example_p.relative_to(REPO_ROOT).as_posix()})",
         "",
         "## 2. Task 2 (Hotfix) — Đồng bộ Báo cáo iNaturalist & Xử lý 3 Ca Trái cây Mốc Cầm tay (`task8h_0085`, `0092`, `0137`)",
         "- **Số liệu thực trong manifest trước Hotfix:** `33` `REAL_WASTE_PASS` (`27` train + `6` validation), `29` `KEEP_AUXILIARY`, `45` `REJECT`.",

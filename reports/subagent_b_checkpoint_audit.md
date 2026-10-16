@@ -93,13 +93,13 @@
 
 ## 4. Công cụ Kiểm tra Suy luận (`scripts/benchmark_inference.py`)
 
-Đã phát triển script [benchmark_inference.py](file:///d:/CNTT-KLCN155-waste-detection/scripts/benchmark_inference.py) hỗ trợ đo kiểm suy luận đa nền tảng:
+Đã phát triển script [benchmark_inference.py](../scripts/benchmark_inference.py) hỗ trợ đo kiểm suy luận đa nền tảng:
 - Chế độ chạy: Hỗ trợ `--device cpu`, `--device cuda` hoặc `--device both`.
 - Mô hình: Hỗ trợ `--backend ssdlite`, `--backend yolov8n` hoặc `--backend both`.
-- Tùy chỉnh: Ngưỡng `--conf`, `--iou`, kích thước `--limit` và thư mục ảnh `--images-dir` (mặc định `D:\Hinh_Anh_Rac`).
+- Tùy chỉnh: Ngưỡng `--conf`, `--iou`, kích thước `--limit` và thư mục ảnh `--images-dir` (mặc định `data/holdout`).
 - Xuất dữ liệu: Lưu toàn bộ metadata và bounding boxes dạng JSON cấu trúc.
 
-### Kết quả đo kiểm thực tế trên tập ảnh `D:\Hinh_Anh_Rac`:
+### Kết quả đo kiểm thực tế trên tập ảnh `data/holdout`:
 | Mô hình | Phần cứng | Độ trễ trung bình / ảnh (ms) | Tốc độ (FPS) |
 |---|:---:|:---:|:---:|
 | **SSDLite320-MobileNetV3** | CPU (Intel Core i5 6 threads) | 381.19 ms | **2.62 FPS** |
@@ -107,4 +107,4 @@
 | **YOLOv8n** | CPU (Intel Core i5 6 threads) | 3350.08 ms | **0.30 FPS** |
 | **YOLOv8n** | GPU (NVIDIA RTX 2050 4GB) | 508.59 ms | **1.97 FPS** |
 
-*Ghi chú:* SSDLite320 đạt tốc độ vượt trội trên cả CPU và GPU do kiến trúc MobileNetV3 rút gọn Tail và độ phân giải 320x320. Cả hai mô hình sẵn sàng để Agent D sử dụng chạy đánh giá Baseline và nghiệm thu trên 27 ảnh của `D:\Hinh_Anh_Rac`.
+*Ghi chú:* SSDLite320 đạt tốc độ vượt trội trên cả CPU và GPU do kiến trúc MobileNetV3 rút gọn Tail và độ phân giải 320x320. Cả hai mô hình sẵn sàng để Agent D sử dụng chạy đánh giá Baseline và nghiệm thu trên 27 ảnh của `data/holdout`.

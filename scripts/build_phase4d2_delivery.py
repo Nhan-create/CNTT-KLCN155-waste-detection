@@ -2,7 +2,7 @@
 scripts/build_phase4d2_delivery.py
 ----------------------------------
 Builds the concise Phase 4D.2 deliverable archive:
-C:\\Users\\ad\\Downloads\\PHASE4D2_REAL_DATA_SHORTLIST_EVIDENCE.zip
+~/Downloads/PHASE4D2_REAL_DATA_SHORTLIST_EVIDENCE.zip
 
 Contents:
 1. Master report detailing 35 real image shortlist, source catalog, and answers to 3 questions.

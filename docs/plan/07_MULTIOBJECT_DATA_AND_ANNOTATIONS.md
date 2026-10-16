@@ -10,18 +10,18 @@
 ## 1. Mục tiêu và vấn đề cần giải quyết
 
 ### 1.1. Mục tiêu
-Xây dựng một bộ dữ liệu phát hiện đối tượng đa rác (Multi-Object Waste Detection Dataset) hoàn chỉnh, chuẩn hóa theo danh mục 10 lớp thống nhất (với cơ chế ánh xạ đối chiếu sang 6 nhóm vật liệu của đề cương cũ khi cần); kiểm soát nghiêm ngặt nguồn gốc dữ liệu; bóc tách và cô lập dữ liệu tổng hợp (synthetic); triển khai quy trình thẩm định và gán nhãn Bounding Box gọn nhẹ qua công cụ Streamlit nội bộ [src/ui/review_tool.py](file:///D:/CNTT-KLCN155-waste-detection/src/ui/review_tool.py) và script Python, loại bỏ hoàn toàn việc sử dụng CVAT.
+Xây dựng một bộ dữ liệu phát hiện đối tượng đa rác (Multi-Object Waste Detection Dataset) hoàn chỉnh, chuẩn hóa theo danh mục 10 lớp thống nhất (với cơ chế ánh xạ đối chiếu sang 6 nhóm vật liệu của đề cương cũ khi cần); kiểm soát nghiêm ngặt nguồn gốc dữ liệu; bóc tách và cô lập dữ liệu tổng hợp (synthetic); triển khai quy trình thẩm định và gán nhãn Bounding Box gọn nhẹ qua công cụ Streamlit nội bộ [src/ui/review_tool.py](../../src/ui/review_tool.py) và script Python, loại bỏ hoàn toàn việc sử dụng CVAT.
 
 ### 1.2. Vấn đề cốt lõi cần giải quyết
 1. **Loại bỏ CVAT theo chỉ đạo dứt khoát của PM:** Không sử dụng CVAT hay các giải pháp Docker cồng kềnh. Sử dụng công cụ xem và gán nhãn nhẹ viết bằng Streamlit và Python có sẵn trong repository để nhóm sinh viên thẩm định trực tiếp trên máy local.
-2. **Kiểm toán và cô lập ảnh tổng hợp trong tập v1:** Kết quả kiểm toán [data/audit/audit_summary.json](file:///D:/CNTT-KLCN155-waste-detection/data/audit/audit_summary.json) xác nhận trong 1.419 ảnh của tập `detection/v1` có tới **1.305 ảnh (91,97%) là ảnh tổng hợp (Mendeley Synthetic)** và chỉ 114 ảnh (8,03%) là ảnh thực tế từ OpenImages. Ảnh tổng hợp chỉ dùng cho bước pretraining sơ khởi, tuyệt đối không đưa vào tập Test đánh giá thực tế.
+2. **Kiểm toán và cô lập ảnh tổng hợp trong tập v1:** Kết quả kiểm toán [data/audit/audit_summary.json](../../data/audit/audit_summary.json) xác nhận trong 1.419 ảnh của tập `detection/v1` có tới **1.305 ảnh (91,97%) là ảnh tổng hợp (Mendeley Synthetic)** và chỉ 114 ảnh (8,03%) là ảnh thực tế từ OpenImages. Ảnh tổng hợp chỉ dùng cho bước pretraining sơ khởi, tuyệt đối không đưa vào tập Test đánh giá thực tế.
 3. **Bẫy gán nhãn một phần (Partial Annotation Trap):** Trong một bức ảnh có nhiều món rác hỗn hợp, bắt buộc phải vẽ bounding box cho toàn bộ các vật thể nhìn thấy được để tránh việc các vật thể chưa được gán nhãn bị coi là vùng nền âm tính (negative background), triệt tiêu gradient của mô hình.
 
 ---
 
 ## 2. Hiện trạng tập dữ liệu Detection v1 đã xác minh (`VERIFIED`)
 
-Thư mục lưu trữ: [data/detection/v1](file:///D:/CNTT-KLCN155-waste-detection/data/detection/v1)
+Thư mục lưu trữ: [data/detection/v1](../../data/detection/v1)
 - **Tổng số ảnh:** 1.419 ảnh.
 - **Tổng số Bounding Boxes:** 4.602 hộp.
 - **Cơ cấu nguồn gốc:**
@@ -37,7 +37,7 @@ Thư mục lưu trữ: [data/detection/v1](file:///D:/CNTT-KLCN155-waste-detecti
 
 ### 3.1. Kiến trúc Công cụ Thẩm định Nội bộ
 Thay vì cài đặt phần mềm bên thứ ba phức tạp, dự án sử dụng module:
-- **Công cụ trực quan:** [src/ui/review_tool.py](file:///D:/CNTT-KLCN155-waste-detection/src/ui/review_tool.py) chạy trên Streamlit (`streamlit run src/ui/review_tool.py`).
+- **Công cụ trực quan:** [src/ui/review_tool.py](../../src/ui/review_tool.py) chạy trên Streamlit (`streamlit run src/ui/review_tool.py`).
 - **Chức năng:**
   - Hiển thị ảnh kèm các bounding box hiện có (vẽ overlay bằng PIL/OpenCV).
   - Cho phép người duyệt bấm duyệt (`APPROVE`), sửa nhãn (`RE-LABEL`), hoặc từ chối ảnh rác (`REJECT`).

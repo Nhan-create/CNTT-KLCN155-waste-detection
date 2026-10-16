@@ -2,13 +2,13 @@
 
 **Dự án:** CNTT-KLCN155 — Hệ thống nhận diện và phân loại rác thải  
 **Sprint:** AI-UPGRADE-01 — TASK 6B (Evidence Correction & Reconciliation)  
-**Repository:** `D:\CNTT-KLCN155-waste-detection`  
+**Repository:** `.`  
 **Ngày cập nhật:** 14/10/2026  
 **Nguồn sự thật duy nhất (Single Source of Truth):**
-- [`artifacts/detection_v3_pilot/evaluation_e1_vs_e3/e1_vs_e3_comprehensive_evaluation.json`](file:///d:/CNTT-KLCN155-waste-detection/artifacts/detection_v3_pilot/evaluation_e1_vs_e3/e1_vs_e3_comprehensive_evaluation.json)
-- [`artifacts/detection_v3_pilot/dataset_v3_materialization_and_preflight_report.json`](file:///d:/CNTT-KLCN155-waste-detection/artifacts/detection_v3_pilot/dataset_v3_materialization_and_preflight_report.json)
-- [`artifacts/detection_v3_pilot/E3_yolov8n_pilot/epoch_telemetry.json`](file:///d:/CNTT-KLCN155-waste-detection/artifacts/detection_v3_pilot/E3_yolov8n_pilot/epoch_telemetry.json)
-- [`artifacts/detection_v3_pilot/E3_yolov8n_pilot/results.csv`](file:///d:/CNTT-KLCN155-waste-detection/artifacts/detection_v3_pilot/E3_yolov8n_pilot/results.csv)
+- [`artifacts/detection_v3_pilot/evaluation_e1_vs_e3/e1_vs_e3_comprehensive_evaluation.json`](artifacts/detection_v3_pilot/evaluation_e1_vs_e3/e1_vs_e3_comprehensive_evaluation.json)
+- [`artifacts/detection_v3_pilot/dataset_v3_materialization_and_preflight_report.json`](artifacts/detection_v3_pilot/dataset_v3_materialization_and_preflight_report.json)
+- [`artifacts/detection_v3_pilot/E3_yolov8n_pilot/epoch_telemetry.json`](artifacts/detection_v3_pilot/E3_yolov8n_pilot/epoch_telemetry.json)
+- [`artifacts/detection_v3_pilot/E3_yolov8n_pilot/results.csv`](artifacts/detection_v3_pilot/E3_yolov8n_pilot/results.csv)
 
 ---
 
@@ -38,7 +38,7 @@ Báo cáo này khắc phục triệt để 4 điểm sai lệch giữa văn bả
 
 ## 1. TASK 1 — BẰNG CHỨNG GIẢI PHÓNG GPU & KIỂM TRA CUDA
 
-File log gốc: [`artifacts/detection_v3_pilot/gpu_preflight_log.txt`](file:///d:/CNTT-KLCN155-waste-detection/artifacts/detection_v3_pilot/gpu_preflight_log.txt)
+File log gốc: [`artifacts/detection_v3_pilot/gpu_preflight_log.txt`](artifacts/detection_v3_pilot/gpu_preflight_log.txt)
 
 - **Trạng thái `HD-Player.exe` (BlueStacks):** Đã tắt hoàn toàn (`STOPPED_CLEANLY`, `0` tiến trình còn chạy).
 - **Trạng thái `nvidia-smi` trước khi huấn luyện:** `0 MiB / 4096 MiB` (`No running processes found`).
@@ -48,7 +48,7 @@ File log gốc: [`artifacts/detection_v3_pilot/gpu_preflight_log.txt`](file:///d
 
 ## 2. TASK 2 — ĐÓNG DẤU PHÊ DUYỆT 140 ẢNH PIN & BẢNG PER-CLASS DATASET V3 CHUẨN XÁC (A2)
 
-Nguồn sự thật: [`artifacts/detection_v3_pilot/dataset_v3_materialization_and_preflight_report.json`](file:///d:/CNTT-KLCN155-waste-detection/artifacts/detection_v3_pilot/dataset_v3_materialization_and_preflight_report.json)
+Nguồn sự thật: [`artifacts/detection_v3_pilot/dataset_v3_materialization_and_preflight_report.json`](artifacts/detection_v3_pilot/dataset_v3_materialization_and_preflight_report.json)
 
 ### 2.1. Thống kê phê duyệt dữ liệu pin
 
@@ -80,9 +80,9 @@ Nguồn sự thật: [`artifacts/detection_v3_pilot/dataset_v3_materialization_a
 
 ## 3. TASK 3 — KẾT QUẢ HUẤN LUYỆN E3 & ĐỐI CHIẾU LOG / CHECKPOINT SHA-256 (A3)
 
-- **Bản ghi đối chiếu Errata JSON:** [`artifacts/detection_v3_pilot/E3_yolov8n_pilot/training_log_errata_and_reconciliation.json`](file:///d:/CNTT-KLCN155-waste-detection/artifacts/detection_v3_pilot/E3_yolov8n_pilot/training_log_errata_and_reconciliation.json)
-- **Telemetry JSON:** [`artifacts/detection_v3_pilot/E3_yolov8n_pilot/epoch_telemetry.json`](file:///d:/CNTT-KLCN155-waste-detection/artifacts/detection_v3_pilot/E3_yolov8n_pilot/epoch_telemetry.json)
-- **Results CSV (`22` dòng):** [`artifacts/detection_v3_pilot/E3_yolov8n_pilot/results.csv`](file:///d:/CNTT-KLCN155-waste-detection/artifacts/detection_v3_pilot/E3_yolov8n_pilot/results.csv)
+- **Bản ghi đối chiếu Errata JSON:** [`artifacts/detection_v3_pilot/E3_yolov8n_pilot/training_log_errata_and_reconciliation.json`](artifacts/detection_v3_pilot/E3_yolov8n_pilot/training_log_errata_and_reconciliation.json)
+- **Telemetry JSON:** [`artifacts/detection_v3_pilot/E3_yolov8n_pilot/epoch_telemetry.json`](artifacts/detection_v3_pilot/E3_yolov8n_pilot/epoch_telemetry.json)
+- **Results CSV (`22` dòng):** [`artifacts/detection_v3_pilot/E3_yolov8n_pilot/results.csv`](artifacts/detection_v3_pilot/E3_yolov8n_pilot/results.csv)
 
 ### 3.1. Bảng đối chiếu SHA-256 trước và sau khi nhúng `phase2_metadata`
 
@@ -124,7 +124,7 @@ Nguồn sự thật: [`artifacts/detection_v3_pilot/dataset_v3_materialization_a
 
 ## 4. TASK 4 — ĐÁNH GIÁ CÔNG BẰNG E1 VS E3 TRÊN 4 BENCHMARKS (ĐÃ CHUẨN HÓA A1 & A4)
 
-Nguồn sự thật: [`artifacts/detection_v3_pilot/evaluation_e1_vs_e3/e1_vs_e3_comprehensive_evaluation.json`](file:///d:/CNTT-KLCN155-waste-detection/artifacts/detection_v3_pilot/evaluation_e1_vs_e3/e1_vs_e3_comprehensive_evaluation.json)
+Nguồn sự thật: [`artifacts/detection_v3_pilot/evaluation_e1_vs_e3/e1_vs_e3_comprehensive_evaluation.json`](artifacts/detection_v3_pilot/evaluation_e1_vs_e3/e1_vs_e3_comprehensive_evaluation.json)
 
 ### 4.1. Bảng tổng hợp 4 Benchmarks (`E1 @512`, `E1 @640`, `E3 @512` và Chênh lệch `E3@512 - E1@512`)
 

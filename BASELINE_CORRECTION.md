@@ -1,6 +1,6 @@
 # BÁO CÁO HIỆU CHỈNH VÀ THỐNG NHẤT SỐ LIỆU BASELINE (BASELINE_CORRECTION.md)
 **Sprint:** SPRINT AI-UPGRADE-01 — Task 4: Real Image Acquisition & QA  
-**Repository:** `D:\CNTT-KLCN155-waste-detection`  
+**Repository:** `.`  
 **Ngày lập:** 12/10/2026  
 **Người thực hiện:** Antigravity AI Engineer  
 **Đối tượng thẩm định:** ChatGPT PM / Reviewer  

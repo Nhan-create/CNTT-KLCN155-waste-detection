@@ -29,7 +29,7 @@ Hệ thống đã nạp trực tiếp hai checkpoint gốc và thực hiện suy
 ---
 
 ### 2. Ca bệnh 2: `images (17).jpg` — Nhiều chai nhựa, thủy tinh và lon kim loại trên nền gỗ
-* **Ảnh kiểm thử:** `D:\Hinh_Anh_Rac\images (17).jpg` (547x365 pixels).
+* **Ảnh kiểm thử:** `data/holdout/images (17).jpg` (547x365 pixels).
 * **Vật thể thực tế trong ảnh:** Bàn gỗ có nhiều chai nhựa rỗng nằm ngang, chai thủy tinh, vỏ lon bia kim loại, hộp carton nhỏ.
 * **Kết quả thực tế từ mô hình (tại ngưỡng nhạy conf >= 0.15):**
   - **YOLOv8n E1:** Phát hiện 7 boxes:
@@ -50,7 +50,7 @@ Hệ thống đã nạp trực tiếp hai checkpoint gốc và thực hiện suy
 ---
 
 ### 3. Ca bệnh 3: `images (15).jpg` — Cụm nhiều đôi giày dép cũ
-* **Ảnh kiểm thử:** `D:\Hinh_Anh_Rac\images (15).jpg` (độ phân giải thấp: 259x194 pixels).
+* **Ảnh kiểm thử:** `data/holdout/images (15).jpg` (độ phân giải thấp: 259x194 pixels).
 * **Vật thể thực tế trong ảnh:** Một đống khoảng 6–8 đôi giày dép cũ xếp chồng lên nhau.
 * **Kết quả thực tế từ mô hình:**
   - **YOLOv8n E1:** Chỉ phát hiện đúng **2 boxes** (`shoes` conf = 0.493 và `shoes` conf = 0.182), hai box này chồng lấn lên nhau ở trung tâm, **bỏ sót 70% số đôi giày còn lại**.
@@ -60,7 +60,7 @@ Hệ thống đã nạp trực tiếp hai checkpoint gốc và thực hiện suy
 ---
 
 ### 4. Ca bệnh 4: `rac_online_020.jpg` — Đại cảnh bãi rác với hàng trăm chai nhựa
-* **Ảnh kiểm thử:** `D:\Hinh_Anh_Rac\rac_online_020.jpg` (kích thước lớn: 3000x4000 pixels).
+* **Ảnh kiểm thử:** `data/holdout/rac_online_020.jpg` (kích thước lớn: 3000x4000 pixels).
 * **Vật thể thực tế trong ảnh:** Bãi rác khổng lồ ngoài trời với hàng trăm chai nhựa rải rác từ tiền cảnh đến hậu cảnh.
 * **Kết quả thực tế từ mô hình:**
   - **YOLOv8n E1:** Chỉ bắt được đúng **7 bounding boxes** lẻ tẻ (1 `metal` conf = 0.594, 5 `plastic` conf = 0.154 - 0.307, 1 `glass` conf = 0.195). **Bỏ sót hơn 95% số chai nhựa có trong bãi rác!**
@@ -73,7 +73,7 @@ Hệ thống đã nạp trực tiếp hai checkpoint gốc và thực hiện suy
 ---
 
 ### 5. Ca bệnh 5: `kho_15_da_loai_tham_co.jpg` — Chai nhựa trên nền cỏ
-* **Ảnh kiểm thử:** `D:\Hinh_Anh_Rac\kho_15_da_loai_tham_co.jpg` (2048x1536 pixels).
+* **Ảnh kiểm thử:** `data/holdout/kho_15_da_loai_tham_co.jpg` (2048x1536 pixels).
 * **Kết quả thực tế:**
   - **SSDLite E2:** Sinh ra 1 box khổng lồ **bao trùm toàn bộ bức ảnh** `[0.0, 0.0, 2048.0, 1528.7]` và gán nhãn `clothes` với confidence = 0.531! Đồng thời phát hiện 1 box `plastic` (conf = 0.352) và 1 box `paper` (conf = 0.155) đè lên chai nhựa.
   - **YOLOv8n E1:** Phát hiện 3 box `plastic` (conf = 0.589, 0.476, 0.228), localization tương đối chuẩn xác hơn SSDLite.
@@ -82,7 +82,7 @@ Hệ thống đã nạp trực tiếp hai checkpoint gốc và thực hiện suy
 ---
 
 ### 6. Ca bệnh 6: `kho_20_da_loai_goc_pho.jpg` — Dương tính giả trên tủ điện kỹ thuật và cảnh nền sạch
-* **Ảnh kiểm thử:** `D:\Hinh_Anh_Rac\kho_20_da_loai_goc_pho.jpg` (2918x2189 pixels).
+* **Ảnh kiểm thử:** `data/holdout/kho_20_da_loai_goc_pho.jpg` (2918x2189 pixels).
 * **Vật thể ngoại cảnh:** Tủ điện kỹ thuật màu xanh lá cây trên vỉa hè, biển quảng cáo, mảng tường gạch nhà mặt phố.
 * **Hiện tượng thực tế đã ghi nhận:**
   - Mô hình SSDLite + Two-Stage (cấu hình cũ trước quick fix) từng gán:

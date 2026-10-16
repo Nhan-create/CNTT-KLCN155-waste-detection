@@ -43,10 +43,10 @@ Reviewer độc lập đã phát hiện hàm `validate_image_eligibility` trả 
 ### 2.2. P0.2 — XÓA BỎ HOÀN TOÀN TRAINING PREFLIGHT BYPASS
 
 - **Xóa bỏ `skip_preflight_guard`**:
-  - Đã loại bỏ hoàn toàn việc đọc `skip_preflight_guard` tại [`scripts/train_detection_v2.py`](file:///d:/CNTT-KLCN155-waste-detection/scripts/train_detection_v2.py) (`train_yolo` và `train_ssd`) và [`src/detection/ssdlite_train.py`](file:///d:/CNTT-KLCN155-waste-detection/src/detection/ssdlite_train.py).
+  - Đã loại bỏ hoàn toàn việc đọc `skip_preflight_guard` tại [`scripts/train_detection_v2.py`](../scripts/train_detection_v2.py) (`train_yolo` và `train_ssd`) và [`src/detection/ssdlite_train.py`](../src/detection/ssdlite_train.py).
   - Preflight guard được thực thi vô điều kiện trước mọi quá trình khởi tạo model/loader.
 - **Thiết lập sàn an toàn cứng (Hard Safety Floor)**:
-  - Trong [`src/detection/preflight_guard.py`](file:///d:/CNTT-KLCN155-waste-detection/src/detection/preflight_guard.py), bổ sung hằng số:
+  - Trong [`src/detection/preflight_guard.py`](../src/detection/preflight_guard.py), bổ sung hằng số:
     ```python
     HARD_MIN_RAM_FLOOR_MB = 1000.0   # Không cho phép hạ dưới 1000 MB
     HARD_MIN_VRAM_FLOOR_MB = 300.0   # Không cho phép hạ dưới 300 MB
@@ -71,7 +71,7 @@ python scripts/train_detection_v2.py ssdlite --run E2_ssdlite320_10cls --data co
 # Đánh giá sau huấn luyện (chỉ chạy trên val+test đã đóng băng)
 python scripts/train_detection_v2.py post --run E1_yolov8n_10cls
 ```
-- **Smoke test tự động** ([`tests/detection/test_train_command_smoke.py`](file:///d:/CNTT-KLCN155-waste-detection/tests/detection/test_train_command_smoke.py)):
+- **Smoke test tự động** ([`tests/detection/test_train_command_smoke.py`](../tests/detection/test_train_command_smoke.py)):
   - Thiếu cờ `--run`: Bị chặn với mã thoát `2` (`SystemExit: error: the following arguments are required: --run`).
   - Truyền cờ lạ/không hỗ trợ: Bị chặn với mã thoát `2` (`unrecognized arguments`).
   - Xác nhận không có lệnh thô `YOLO.train()` nào được phép vượt mặt preflight guard.
@@ -99,13 +99,13 @@ Reviewer yêu cầu kiểm tra kỹ lưỡng nguồn Roboflow được đề xu�
 
 ### 2.5. P1 — THIẾT LẬP ACQUISITION PILOT MANIFEST & CƠ CHẾ KHÓA TẢI
 
-- **Manifest chuẩn bị:** [`data/acquisition_staging/manifests/candidate_acquisition_manifest.json`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/manifests/candidate_acquisition_manifest.json)
+- **Manifest chuẩn bị:** [`data/acquisition_staging/manifests/candidate_acquisition_manifest.json`](../data/acquisition_staging/manifests/candidate_acquisition_manifest.json)
 - **Quy mô:** **35 ảnh mục tiêu hoàn toàn mới**:
   - **12 ảnh Battery** (từ Roboflow `waste-battery-only/1`, CC BY 4.0).
   - **12 ảnh Biological** (từ OpenImages v7 / Flickr, CC-BY 2.0 / CC0, rác hữu cơ ngoài môi trường: chuối, táo, cam, bánh mì, dừa, mía...).
   - **6 ảnh Hard-Negative** (đường đá granite sạch, vỉa hè, thảm cỏ, bậc tam cấp không rác, CC0).
   - **5 ảnh Multi-Waste** (rác hỗn hợp chai nhựa + hộp giấy + lon nhôm ngoài đường phố).
-- **Công cụ điều phối & Tiền kiểm split:** [`scripts/prepare_acquisition_pilot.py`](file:///d:/CNTT-KLCN155-waste-detection/scripts/prepare_acquisition_pilot.py)
+- **Công cụ điều phối & Tiền kiểm split:** [`scripts/prepare_acquisition_pilot.py`](../scripts/prepare_acquisition_pilot.py)
   - Chạy tiền kiểm: `python scripts/prepare_acquisition_pilot.py --check-manifest`
   - **Kết quả đối chiếu:** **0/35 ảnh trùng lặp** với tập `train`, `val`, `test` hay `holdout` 27 ảnh (`is_leakage_free: True`).
   - **Khóa bảo vệ:** Lệnh `python scripts/prepare_acquisition_pilot.py --execute-download` sẽ tự động thoát với mã `1` nếu thiếu cờ phê duyệt rõ ràng từ người dùng (`--approve-pilot-download`).
@@ -120,7 +120,7 @@ Reviewer yêu cầu kiểm tra kỹ lưỡng nguồn Roboflow được đề xu�
 ```
 - **Tổng số kiểm thử:** **245 kiểm thử**
 - **Kết quả:** **244 passed, 1 skipped, 0 failed, 3 warnings** (thời gian: 57.75s)
-- **Nhật ký chi tiết:** [`reports/data_v2/pytest_targeted.log`](file:///d:/CNTT-KLCN155-waste-detection/reports/data_v2/pytest_targeted.log)
+- **Nhật ký chi tiết:** [`reports/data_v2/pytest_targeted.log`](../reports/data_v2/pytest_targeted.log)
 
 ### Phân rã kiểm thử chuyên biệt mới:
 | Tên kiểm thử | File | Mục đích kiểm tra | Kết quả |

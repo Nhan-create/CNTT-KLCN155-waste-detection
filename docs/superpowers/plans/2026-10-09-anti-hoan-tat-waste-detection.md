@@ -2,13 +2,13 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development with Antigravity Integrator coordinating Agents A, B, C, D. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Triển khai, khắc phục toàn diện lỗi mô hình và đường ống nhận diện đa loại rác thải, kiểm định độc lập trên toàn bộ 27 ảnh `D:\Hinh_Anh_Rac`, đạt 100% tiêu chí DoD bắt buộc.
+**Goal:** Triển khai, khắc phục toàn diện lỗi mô hình và đường ống nhận diện đa loại rác thải, kiểm định độc lập trên toàn bộ 27 ảnh `data/holdout`, đạt 100% tiêu chí DoD bắt buộc.
 
 **Architecture:** Kiến trúc 2 giai đoạn: Giai đoạn 1 MobileNetV3 trích xuất đặc trưng; Giai đoạn 2 SSDLite320-MobileNetV3 (mô hình chính) và YOLOv8n (đối chứng), tiền xử lý chuẩn hóa tọa độ ảnh gốc, hậu xử lý NMS và tích hợp giao diện Streamlit.
 
 **Tech Stack:** Python 3.12, PyTorch 2.5.1+cu121, Torchvision 0.20.1+cu121, Ultralytics 8.3.163, OpenCV, Albumentations, Streamlit, Pytest.
 
-**Spec:** `c:\Users\ad\Downloads\PROMPT_ANTI_HOAN_TAT_WASTE_DETECTION.md`
+**Spec:** `~/Downloads\PROMPT_ANTI_HOAN_TAT_WASTE_DETECTION.md`
 
 ## Global Constraints
 - SSDLite320-MobileNetV3 là mô hình chính. YOLOv8n là mô hình đối chứng; đánh giá riêng.
@@ -43,13 +43,13 @@ Lệnh: `.\.venv\Scripts\python.exe -m pytest tests/detection/test_real_mapping_
 
 ---
 
-### Task 2: Kiểm kê và Xây dựng Ground Truth Độc lập tập `D:\Hinh_Anh_Rac` (Owner: Agent D)
+### Task 2: Kiểm kê và Xây dựng Ground Truth Độc lập tập `data/holdout` (Owner: Agent D)
 **Files:**
 - Create: `reports/qa_acceptance/manifest_hinh_anh_rac.json`
 - Create: `reports/qa_acceptance/ground_truth_hinh_anh_rac.json`
 - Create: `reports/qa_acceptance/inventory_hinh_anh_rac.py`
 
-- [ ] **Step 2.1:** Quét đệ quy toàn bộ 27 ảnh trong `D:\Hinh_Anh_Rac`, tính SHA-256, kích thước WxH, kiểm tra decode PIL/OpenCV, ghi nhận trạng thái.
+- [ ] **Step 2.1:** Quét đệ quy toàn bộ 27 ảnh trong `data/holdout`, tính SHA-256, kích thước WxH, kiểm tra decode PIL/OpenCV, ghi nhận trạng thái.
 - [ ] **Step 2.2:** Quan sát từng ảnh ở độ phân giải gốc, xác định tất cả instance rác có trong ảnh, gán `object_id`, `class_name`, `class_id` (0..9) và bounding box chuẩn `[x1, y1, x2, y2]` theo tọa độ pixel ảnh gốc.
 - [ ] **Step 2.3:** Ghi nhận rõ căn cứ review (reviewer: Agent D, reasoning, visibility, occlusion). Không bỏ sót vật thể nhỏ, sát mép.
 - [ ] **Step 2.4:** Đóng băng (Freeze) manifest và ground truth tại `reports/qa_acceptance/ground_truth_hinh_anh_rac.json`.
@@ -71,7 +71,7 @@ Lệnh: `.\.venv\Scripts\python.exe -m pytest tests/detection/test_visualization
 
 ---
 
-### Task 4: Chạy Đánh giá Baseline trên tập `D:\Hinh_Anh_Rac` (Owner: Agent B & Agent D)
+### Task 4: Chạy Đánh giá Baseline trên tập `data/holdout` (Owner: Agent B & Agent D)
 **Files:**
 - Create: `reports/qa_acceptance/run_baseline_evaluation.py`
 - Create: `reports/qa_acceptance/baseline_results_ssdlite.json`
@@ -95,7 +95,7 @@ Lệnh: `.\.venv\Scripts\python.exe -m pytest tests/detection/test_visualization
 - [ ] **Step 5.2:** Sử dụng tập dữ liệu đã cách ly mẫu lỗi (quarantined noisy synthetic) từ Agent A, bổ sung augmentation phù hợp.
 - [ ] **Step 5.3:** Tiến hành train/fine-tune SSDLite320-MobileNetV3 (và YOLOv8n nếu cần), giám sát GPU, lưu logs và checkpoints.
 - [ ] **Step 5.4:** Chọn best checkpoint theo validation metrics, ghi nhận SHA-256 và provenance rõ ràng.
-- [ ] **Step 5.5:** Chạy lại đánh giá nghiệm thu trên tập `D:\Hinh_Anh_Rac`.
+- [ ] **Step 5.5:** Chạy lại đánh giá nghiệm thu trên tập `data/holdout`.
 
 ---
 
@@ -122,4 +122,4 @@ Lệnh: `.\.venv\Scripts\python.exe -m pytest tests/detection/test_visualization
 - [ ] **Step 7.1:** Đối chiếu từng tiêu chí trong bảng DoD: Coverage 100%, Đủ vật thể (FN=0), Đúng nhãn (wrong-class=0), Không rác giả (FP=0), Khung toàn vẹn (IoU $\ge$ 0.75, Inter/GT $\ge$ 0.99), Khung hợp lệ, Kết quả sản phẩm, Bằng chứng đầy đủ.
 - [ ] **Step 7.2:** Tạo báo cáo tổng hợp `reports/final_acceptance/final_acceptance_report.md` tự động từ artifacts máy sinh.
 - [ ] **Step 7.3:** Lưu toàn bộ ảnh overlay có vẽ box GT và Prediction.
-- [ ] **Step 7.4:** Đóng gói ZIP bàn giao có run_id vào `C:\Users\ad\Downloads\`, tính và lưu mã băm SHA-256.
+- [ ] **Step 7.4:** Đóng gói ZIP bàn giao có run_id vào `~/Downloads\`, tính và lưu mã băm SHA-256.

@@ -6,7 +6,7 @@
     "checkpoint_sha256": "584c5980eb4ebe3718da7b3e87a3c95edfee3d78f186def3e5feba32cf03dff1",
     "stored_min_confidence": 0.2
   },
-  "ground_truth": "D:\\CNTT-KLCN155-waste-detection\\reports\\qa_acceptance\\ground_truth_hinh_anh_rac.json",
+  "ground_truth": "reports\\qa_acceptance\\ground_truth_hinh_anh_rac.json",
   "operating_confidence": 0.25,
   "views": {
     "all_27": {

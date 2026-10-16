@@ -102,7 +102,7 @@ bc = mendeley.get("box_matching_counters", {})
 report_lines = [
     "# BÁO CÁO XÁC MINH VÀ SỬA MAPPING 10 LỚP TRÊN DỮ LIỆU THẬT (TASK 1 - R2 REVISED)",
     "",
-    "**Dự án:** `D:\\CNTT-KLCN155-waste-detection`  ",
+    "**Dự án:** `.`  ",
     "**Thời gian cập nhật:** 09/10/2026  ",
     "**Môi trường thực thi (Trích xuất từ `environment_and_execution_log.json`):**",
     f"- **Hệ điều hành:** {env['platform']}",
@@ -118,7 +118,7 @@ report_lines = [
     "Báo cáo này được sinh tự động trực tiếp từ các file kết quả máy sinh (`annotation_inventory_summary.json`, `annotation_inventory.csv`, `mutation_test_red_green_log.json`, `mendeley_conversion_audit.json`, `checkpoint_inspection_report.json`, và `crop_manifest.json`). Toàn bộ các phát hiện và xử lý được thực hiện trên dữ liệu, code và checkpoint thật của dự án:",
     "",
     "### 1.1. Sửa lỗi `medical -> battery` và kiểm soát chặt chẽ Automatic Mapping",
-    "- **Hiện trạng trước sửa đổi:** Trong `src/detection/schema.py`, `SOURCE_LABEL_MAPPING[\"vn_trash\"]` từng chứa ánh xạ `\"medical\": \"battery\"` và `\"organic\": \"biological\"`. Tuy nhiên dữ liệu thô gốc `D:\\HK7\\Đồ án khóa luận\\Data\\VN Trash classification` chỉ có đúng 9 thư mục nhãn (`Alu, Carton, Foam_box, Milk_box, Other, Paper, Paper_cup, PET, Plastic_cup`), hoàn toàn không có `medical`.",
+    "- **Hiện trạng trước sửa đổi:** Trong `src/detection/schema.py`, `SOURCE_LABEL_MAPPING[\"vn_trash\"]` từng chứa ánh xạ `\"medical\": \"battery\"` và `\"organic\": \"biological\"`. Tuy nhiên dữ liệu thô gốc `data/VN Trash classification` chỉ có đúng 9 thư mục nhãn (`Alu, Carton, Foam_box, Milk_box, Other, Paper, Paper_cup, PET, Plastic_cup`), hoàn toàn không có `medical`.",
     "- **Hành động khắc phục:**",
     "  1. Loại bỏ triệt để `medical` và `organic` khỏi `SOURCE_LABEL_MAPPING[\"vn_trash\"]`.",
     "  2. Cập nhật hàm `map_source_label`: Khi nhận nhãn `medical` hoặc `organic` mà không có chuyên gia chỉ định, hệ thống **TỪ CHỐI TỰ ĐỘNG (REJECT)** và ném ngoại lệ `DetectionDatasetError(\"Exclude or manually review vn_trash/medical; a material class and reviewer are required\")`.",

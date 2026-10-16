@@ -2,7 +2,7 @@
   "ssdlite": {
     "model_key": "ssdlite",
     "display_name": "SSDLite320-MobileNetV3 (Mô hình chính)",
-    "checkpoint_path": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\detection_v2\\E2_ssdlite320_10cls\\weights\\best.pt",
+    "checkpoint_path": "artifacts\\detection_v2\\E2_ssdlite320_10cls\\weights\\best.pt",
     "checkpoint_size_mb": 27.14,
     "latency": {
       "gpu_mean_ms": 33.35,
@@ -1201,7 +1201,7 @@
   "yolov8n": {
     "model_key": "yolov8n",
     "display_name": "YOLOv8n (Mô hình đối chứng)",
-    "checkpoint_path": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\detection_v2\\E1_yolov8n_10cls\\weights\\best.pt",
+    "checkpoint_path": "artifacts\\detection_v2\\E1_yolov8n_10cls\\weights\\best.pt",
     "checkpoint_size_mb": 5.94,
     "latency": {
       "gpu_mean_ms": 34.43,

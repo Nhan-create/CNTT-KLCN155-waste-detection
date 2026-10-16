@@ -35,7 +35,7 @@ Ma trận bao gồm **2 cấu trúc mô hình** kết hợp với **4 chiến l�
 Để đảm bảo kết luận khoa học có giá trị học thuật cao, hai mô hình được đặt trong điều kiện đánh giá nghiêm ngặt và đồng nhất:
 
 1. **Đồng nhất dữ liệu và phân chia tập chống rò rỉ (Zero-Leakage Split):**
-   - Cả hai mô hình sử dụng chung tệp chỉ mục dữ liệu đã kiểm toán: [`configs/detection_dataset.yaml`](file:///D:/CNTT-KLCN155-waste-detection/configs/detection_dataset.yaml) và [`data/detection/manifest.jsonl`](file:///D:/CNTT-KLCN155-waste-detection/data/detection/manifest.jsonl).
+   - Cả hai mô hình sử dụng chung tệp chỉ mục dữ liệu đã kiểm toán: [`configs/detection_dataset.yaml`](../../configs/detection_dataset.yaml) và [`data/detection/manifest.jsonl`](../../data/detection/manifest.jsonl).
    - Tỷ lệ dữ liệu thật trong Validation và Test là 100% (không dùng ảnh synthetic trong tập đánh giá).
 2. **Cố định hạt giống ngẫu nhiên (Reproducibility Seed):**
    - Thiết lập `seed = 42` trên toàn bộ hệ thống (PyTorch, NumPy, Python standard random, CUDA deterministic ops).
@@ -66,7 +66,7 @@ Ma trận bao gồm **2 cấu trúc mô hình** kết hợp với **4 chiến l�
 
 ## 4. GIAO THỨC ĐÁNH GIÁ VÀ BÁO CÁO KẾT QUẢ CUỐI CÙNG (FINAL EVALUATION)
 
-Sau khi hoàn thành huấn luyện và đóng băng tham số, tiến hành đánh giá một lần duy nhất trên **TẬP TEST (Blind Test Set)** bằng module [`src/detection/evaluate.py`](file:///D:/CNTT-KLCN155-waste-detection/src/detection/evaluate.py):
+Sau khi hoàn thành huấn luyện và đóng băng tham số, tiến hành đánh giá một lần duy nhất trên **TẬP TEST (Blind Test Set)** bằng module [`src/detection/evaluate.py`](../../src/detection/evaluate.py):
 
 ### A. Độ chính xác nhận diện (Accuracy Metrics)
 - **Chuẩn giao thức quốc tế COCO:** Báo cáo AP từng lớp, **mAP@0.5** và **mAP@0.5:0.95** thông qua thư viện chuẩn `pycocotools.COCOeval`.

@@ -113,13 +113,13 @@ $\implies$ Đây là lý do mAP của `battery` và `biological` trên tập val
 ### 2. Kế hoạch bổ sung dữ liệu
 1. **Bổ sung 250 - 300 ảnh Hard-Negative:** Thu thập ảnh vỉa hè sạch, tường nhà, biển hiệu, tủ điện đô thị Việt Nam với tệp nhãn `.txt` rỗng (0 bytes). Tuyệt đối không gán nhãn nền thành `trash`.
 2. **Bổ sung mẫu Pin và Rác hữu cơ:** Trích xuất từ OpenImages V7 và các nguồn dữ liệu mở, áp dụng Copy-Paste Augmentation (`src/detection/copy_paste.py`) để nâng số lượng box của 2 lớp này lên tối thiểu 300 boxes mỗi lớp.
-3. **Bảo vệ tập nghiệm thu độc lập:** Tập `D:\Hinh_Anh_Rac` (27 ảnh, 57 GT) được bảo vệ bất biến, không đưa vào huấn luyện.
+3. **Bảo vệ tập nghiệm thu độc lập:** Tập `data/holdout` (27 ảnh, 57 GT) được bảo vệ bất biến, không đưa vào huấn luyện.
 
 ---
 
 ## PHẦN 5: MA TRẬN THỬ NGHIỆM ABLATION & CHỈ SỐ NGHIỆM THU
 
-### 1. Đánh giá Ablation trên tập nghiệm thu độc lập `D:\Hinh_Anh_Rac` (Conf 0.25, IoU 0.50)
+### 1. Đánh giá Ablation trên tập nghiệm thu độc lập `data/holdout` (Conf 0.25, IoU 0.50)
 
 | Cấu hình thử nghiệm | Detector | Tiling | Two-Stage Mode | Precision | Recall | mAP50 | Latency (ms) | Nhận xét |
 |---|---|:---:|:---:|:---:|:---:|:---:|:---:|---|

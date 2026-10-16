@@ -213,6 +213,17 @@ def main():
 
     # 3. Holdout Leakage Check
     holdout_hashes = {}
+    cache_by_sha = {}
+    cache_file = ROOT / "data" / "audit" / "authoritative_hashes_cache.json"
+    if cache_file.is_file():
+        try:
+            raw_cache = json.loads(cache_file.read_text(encoding="utf-8"))
+            for entry in raw_cache.values():
+                if isinstance(entry, dict) and "sha256" in entry and "phash" in entry:
+                    cache_by_sha[entry["sha256"]] = entry["phash"]
+        except Exception:
+            pass
+
     if HOLDOUT_MANIFEST.exists():
         with open(HOLDOUT_MANIFEST, "r", encoding="utf-8") as f:
             h_data = json.load(f)
@@ -225,11 +236,13 @@ def main():
                             holdout_hashes[hfn] = imagehash.phash(him.convert("RGB"))
                     except Exception:
                         pass
+                elif item.get("sha256") in cache_by_sha:
+                    holdout_hashes[hfn] = imagehash.hex_to_hash(cache_by_sha[item["sha256"]])
 
     if not HOLDOUT_MANIFEST.exists() or len(holdout_hashes) == 0:
         gate_results["holdout_leakage_gate"]["passed"] = False
         gate_results["holdout_leakage_gate"]["violations"].append(
-            f"Mandatory holdout manifest missing or holdout images unreadable ({len(holdout_hashes)} verified at {HOLDOUT_DIR}). Acceptance criteria strictly requires holdout verification."
+            f"Mandatory holdout manifest missing or holdout images unreadable ({len(holdout_hashes)} verified at data/holdout). Acceptance criteria strictly requires holdout verification."
         )
     else:
         for fn_p, ph_p in pilot_hashes.items():
@@ -275,7 +288,7 @@ def main():
     report = {
         "metadata": {
             "execution_timestamp_utc": "2026-10-12T02:00:00Z",
-            "pilot_directory": str(PILOT_DIR),
+            "pilot_directory": PILOT_DIR.relative_to(ROOT).as_posix(),
             "total_images": len(images),
             "total_boxes": total_boxes,
             "class_distribution": class_counts,

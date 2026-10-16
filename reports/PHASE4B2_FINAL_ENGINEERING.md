@@ -11,19 +11,19 @@
 
 | Hạng mục kiểm tra | Phán quyết | Trạng thái kỹ thuật & Bằng chứng xác thực |
 |---|:---:|---|
-| **P0: Sửa V3 Dataset Rebuild & Đồng bộ Nhãn an toàn** | **VERIFIED** | Cơ chế đồng bộ nhãn qua Checksum SHA-256 + Atomic replace (`.tmp` + `os.replace`). Phát hiện và bảo toàn conflict khi v3 sửa thủ công (`MANUAL_CONFLICT_PRESERVED`). Tuyệt đối không gọi `chmod` trên hardlink ảnh. Đạt 5/5 integration tests tại [`test_dataset_v3_isolation.py`](file:///d:/CNTT-KLCN155-waste-detection/tests/qa/test_dataset_v3_isolation.py). |
-| **P0: Chuẩn hóa Số liệu Thực tế từ Nhãn Đĩa** | **VERIFIED** | Đã xác minh nguyên nhân gốc: bảng báo cáo cũ copy từ bản nháp ước lượng. Dữ liệu đĩa thật luôn nhất quán 100%: **v2 = 5.584 boxes**, **v3 candidate = 4.331 boxes**, **loại bỏ = 1.253 boxes**. Đạt 5/5 regression tests tại [`test_authoritative_dataset_metrics.py`](file:///d:/CNTT-KLCN155-waste-detection/tests/qa/test_authoritative_dataset_metrics.py). |
-| **P0: Đo lường Leakage Toán học bằng pHash** | **VERIFIED_ZERO_LEAKAGE** | Đã chạy so sánh từng cặp (pairwise) trên toàn bộ 1.820 ảnh v3 và 147 ảnh Holdout (gồm 27 ảnh benchmark chính thức). **0 cặp xuyên split có Hamming $\le 8$**, **0 cặp holdout có Hamming $\le 8$**. Đạt 4/4 tests tại [`test_phash_leakage_audit.py`](file:///d:/CNTT-KLCN155-waste-detection/tests/qa/test_phash_leakage_audit.py). |
-| **P1: Kiểm chứng Huấn luyện Thật & Cổng An toàn RAM** | **VERIFIED (LOCAL BLOCKED)** | SSDLite chạy 1-step GPU với `weights=None`, `weights_backbone=None`, đo bằng `torch.cuda.synchronize()`. Loss và gradients hữu hạn 100%. VRAM peak: 203.51 MB. Thiết lập module dùng chung [`src/detection/preflight_guard.py`](file:///d:/CNTT-KLCN155-waste-detection/src/detection/preflight_guard.py) tự động khóa train khi RAM khả dụng < 1.2 GB (hiện chỉ còn 416 MB). |
-| **P1: Kiểm định YOLO DataLoader qua Toàn bộ 10 Class** | **VERIFIED** | Quét tự động qua các batch train cho đến khi **xác minh đầy đủ 10/10 class** (gồm cả `battery` tại batch 159 ảnh `taco_0499.jpg` và `biological` tại batch 194 ảnh `taco_0704.jpg`). Bbox chuẩn hóa, không lỗi tọa độ. Đạt 4/4 tests tại [`test_yolo_dataloader_batches.py`](file:///d:/CNTT-KLCN155-waste-detection/tests/qa/test_yolo_dataloader_batches.py). |
-| **P1: Chuyển sang Kế hoạch Mở rộng Dữ liệu Thật** | **READY FOR ACTION** | Đã kiểm tra 9 nguồn: phát hiện OpenImages `/m/01cydv` (Battery) không có box detection $\rightarrow$ loại bỏ để tránh phụ thuộc ảo; xác nhận 3.344 box Biological có sẵn trong file index local `D:\waste-training`. Trình bày lộ trình triển khai ngay (Giai đoạn A: 0 MB tải; Giai đoạn B: ~110 MB tải). |
+| **P0: Sửa V3 Dataset Rebuild & Đồng bộ Nhãn an toàn** | **VERIFIED** | Cơ chế đồng bộ nhãn qua Checksum SHA-256 + Atomic replace (`.tmp` + `os.replace`). Phát hiện và bảo toàn conflict khi v3 sửa thủ công (`MANUAL_CONFLICT_PRESERVED`). Tuyệt đối không gọi `chmod` trên hardlink ảnh. Đạt 5/5 integration tests tại [`test_dataset_v3_isolation.py`](../tests/qa/test_dataset_v3_isolation.py). |
+| **P0: Chuẩn hóa Số liệu Thực tế từ Nhãn Đĩa** | **VERIFIED** | Đã xác minh nguyên nhân gốc: bảng báo cáo cũ copy từ bản nháp ước lượng. Dữ liệu đĩa thật luôn nhất quán 100%: **v2 = 5.584 boxes**, **v3 candidate = 4.331 boxes**, **loại bỏ = 1.253 boxes**. Đạt 5/5 regression tests tại [`test_authoritative_dataset_metrics.py`](../tests/qa/test_authoritative_dataset_metrics.py). |
+| **P0: Đo lường Leakage Toán học bằng pHash** | **VERIFIED_ZERO_LEAKAGE** | Đã chạy so sánh từng cặp (pairwise) trên toàn bộ 1.820 ảnh v3 và 147 ảnh Holdout (gồm 27 ảnh benchmark chính thức). **0 cặp xuyên split có Hamming $\le 8$**, **0 cặp holdout có Hamming $\le 8$**. Đạt 4/4 tests tại [`test_phash_leakage_audit.py`](../tests/qa/test_phash_leakage_audit.py). |
+| **P1: Kiểm chứng Huấn luyện Thật & Cổng An toàn RAM** | **VERIFIED (LOCAL BLOCKED)** | SSDLite chạy 1-step GPU với `weights=None`, `weights_backbone=None`, đo bằng `torch.cuda.synchronize()`. Loss và gradients hữu hạn 100%. VRAM peak: 203.51 MB. Thiết lập module dùng chung [`src/detection/preflight_guard.py`](../src/detection/preflight_guard.py) tự động khóa train khi RAM khả dụng < 1.2 GB (hiện chỉ còn 416 MB). |
+| **P1: Kiểm định YOLO DataLoader qua Toàn bộ 10 Class** | **VERIFIED** | Quét tự động qua các batch train cho đến khi **xác minh đầy đủ 10/10 class** (gồm cả `battery` tại batch 159 ảnh `taco_0499.jpg` và `biological` tại batch 194 ảnh `taco_0704.jpg`). Bbox chuẩn hóa, không lỗi tọa độ. Đạt 4/4 tests tại [`test_yolo_dataloader_batches.py`](../tests/qa/test_yolo_dataloader_batches.py). |
+| **P1: Chuyển sang Kế hoạch Mở rộng Dữ liệu Thật** | **READY FOR ACTION** | Đã kiểm tra 9 nguồn: phát hiện OpenImages `/m/01cydv` (Battery) không có box detection $\rightarrow$ loại bỏ để tránh phụ thuộc ảo; xác nhận 3.344 box Biological có sẵn trong file index local `data/external/waste-training`. Trình bày lộ trình triển khai ngay (Giai đoạn A: 0 MB tải; Giai đoạn B: ~110 MB tải). |
 
 ---
 
 ## 2. P0: SỬA DỨT ĐIỂM CƠ CHẾ REBUILD V3 & AN TOÀN NHÃN
 
-File xử lý: [scripts/build_dataset_v3_candidate.py](file:///d:/CNTT-KLCN155-waste-detection/scripts/build_dataset_v3_candidate.py)  
-File kiểm thử tích hợp: [tests/qa/test_dataset_v3_isolation.py](file:///d:/CNTT-KLCN155-waste-detection/tests/qa/test_dataset_v3_isolation.py)
+File xử lý: [scripts/build_dataset_v3_candidate.py](../scripts/build_dataset_v3_candidate.py)  
+File kiểm thử tích hợp: [tests/qa/test_dataset_v3_isolation.py](../tests/qa/test_dataset_v3_isolation.py)
 
 ### 2.1. Phân tích lỗi và cơ chế đồng bộ an toàn mới
 1. **Kiểm tra Checksum và phát hiện thay đổi nhãn nguồn:**
@@ -53,9 +53,9 @@ Bộ test `tests/qa/test_dataset_v3_isolation.py` giả lập toàn bộ môi tr
 
 ## 3. P0: CHUẨN HÓA SỐ LIỆU TỪ DỮ LIỆU ĐĨA THẬT
 
-Báo cáo phân tích: [reports/data_v2/authoritative_dataset_metrics.md](file:///d:/CNTT-KLCN155-waste-detection/reports/data_v2/authoritative_dataset_metrics.md)  
-Dữ liệu JSON: [reports/data_v2/authoritative_dataset_metrics.json](file:///d:/CNTT-KLCN155-waste-detection/reports/data_v2/authoritative_dataset_metrics.json)  
-Script tạo nguồn: [scripts/generate_authoritative_dataset_metrics.py](file:///d:/CNTT-KLCN155-waste-detection/scripts/generate_authoritative_dataset_metrics.py)
+Báo cáo phân tích: [reports/data_v2/authoritative_dataset_metrics.md](../reports/data_v2/authoritative_dataset_metrics.md)  
+Dữ liệu JSON: [reports/data_v2/authoritative_dataset_metrics.json](../reports/data_v2/authoritative_dataset_metrics.json)  
+Script tạo nguồn: [scripts/generate_authoritative_dataset_metrics.py](../scripts/generate_authoritative_dataset_metrics.py)
 
 ### 3.1. Xác minh nguyên nhân gốc của sai lệch số liệu
 Trong báo cáo Phase 4B.1, các con số `v2 = 5590`, `v3 = 4337`, `plastic = 1902`, `biological = 5` xuất phát từ việc **sao chép một bảng nháp cũ ước lượng thủ công**.
@@ -83,26 +83,26 @@ $$\mathbf{5.584\ (v2)\ -\ 1.253\ (loại\ bỏ)\ =\ 4.331\ (v3\ candidate)}$$
 | `9: trash` | **1.163** | 854 | 170 | 139 | **532** | **631** | 463 | 95 | 73 | **Cắt giảm mạnh box catch-all nhiễu** |
 | **TỔNG CỘNG** | **5.584** | **3.963** | **901** | **720** | **1.253** | **4.331** | **3.052** | **684** | **595** | **Khớp 100% toán học** |
 
-Bộ test [`tests/qa/test_authoritative_dataset_metrics.py`](file:///d:/CNTT-KLCN155-waste-detection/tests/qa/test_authoritative_dataset_metrics.py) đã xác nhận các phương trình toán học trên đều đạt `5/5 PASSED`.
+Bộ test [`tests/qa/test_authoritative_dataset_metrics.py`](../tests/qa/test_authoritative_dataset_metrics.py) đã xác nhận các phương trình toán học trên đều đạt `5/5 PASSED`.
 
 ---
 
 ## 4. P0: KIỂM TRA LEAKAGE ĐÚNG BẰNG KHOẢNG CÁCH HAMMING pHASH
 
-Báo cáo phân tích chi tiết: [reports/data_v2/phash_leakage_audit_report.json](file:///d:/CNTT-KLCN155-waste-detection/reports/data_v2/phash_leakage_audit_report.json)  
-Script thực thi: [scripts/verify_phash_cross_split_and_holdout.py](file:///d:/CNTT-KLCN155-waste-detection/scripts/verify_phash_cross_split_and_holdout.py)
+Báo cáo phân tích chi tiết: [reports/data_v2/phash_leakage_audit_report.json](../reports/data_v2/phash_leakage_audit_report.json)  
+Script thực thi: [scripts/verify_phash_cross_split_and_holdout.py](../scripts/verify_phash_cross_split_and_holdout.py)
 
 ### 4.1. Phương pháp đo lường toán học độc lập
 Thay vì chỉ kiểm tra các `group` metadata có sẵn từ v2, hệ thống đã thực thi **tính toán ma trận khoảng cách Hamming pHash (Perceptual Hash) 64-bit giữa từng cặp ảnh thực tế**:
 - Tập kiểm tra 1: Toàn bộ 1.820 ảnh của Dataset v3 Candidate (1.277 train, 269 val, 274 test).
-- Tập kiểm tra 2: Toàn bộ 147 ảnh trong thư mục `D:\Hinh_Anh_Rac` (bao gồm 27 ảnh benchmark chính thức trong `manifest_hinh_anh_rac.json`).
+- Tập kiểm tra 2: Toàn bộ 147 ảnh trong thư mục `data/holdout` (bao gồm 27 ảnh benchmark chính thức trong `manifest_hinh_anh_rac.json`).
 
 ### 4.2. Kết quả so sánh khoảng cách Hamming
 1. **Kiểm tra rò rỉ xuyên Split (Cross-Split: Train vs Val, Train vs Test, Val vs Test):**
    - Số cặp ảnh có $\text{Hamming} = 0$ (trùng lặp tri giác tuyệt đối): **0 cặp**.
    - Số cặp ảnh có $\text{Hamming} \le 8$ (nghi ngờ trùng lặp/leakage): **0 cặp**.
    - Số cặp ảnh có $8 < \text{Hamming} \le 12$ (tương đồng bối cảnh nền nhẹ): **8 cặp** (đã kiểm tra nội dung: các vật thể rác và góc chụp hoàn toàn khác nhau).
-2. **Kiểm tra rò rỉ với Tập kiểm thử Holdout (`D:\Hinh_Anh_Rac`):**
+2. **Kiểm tra rò rỉ với Tập kiểm thử Holdout (`data/holdout`):**
    - So sánh với 27 ảnh benchmark chính thức có $\text{Hamming} \le 8$: **0 ảnh**.
    - So sánh với toàn bộ 147 ảnh trên đĩa Holdout có $\text{Hamming} \le 8$: **0 ảnh**.
    - Số ảnh có $8 < \text{Hamming} \le 12$: **1 cặp duy nhất** (ảnh vỉa hè gạch cùng kiểu lát nền nhưng góc chụp và vật thể khác nhau).
@@ -113,8 +113,8 @@ Thay vì chỉ kiểm tra các `group` metadata có sẵn từ v2, hệ thống 
 
 ## 5. P1: KIỂM CHỨNG HUẤN LUYỆN SSDLite, ĐO LƯỜNG GPU VÀ PREFLIGHT GUARD
 
-Báo cáo chi tiết: [reports/model_v2/training_dry_run_report.json](file:///d:/CNTT-KLCN155-waste-detection/reports/model_v2/training_dry_run_report.json)  
-Mã nguồn Preflight Guard: [src/detection/preflight_guard.py](file:///d:/CNTT-KLCN155-waste-detection/src/detection/preflight_guard.py)
+Báo cáo chi tiết: [reports/model_v2/training_dry_run_report.json](../reports/model_v2/training_dry_run_report.json)  
+Mã nguồn Preflight Guard: [src/detection/preflight_guard.py](../src/detection/preflight_guard.py)
 
 ### 5.1. Thiết lập mô hình hoàn toàn cách ly
 - Kiến trúc: `ssdlite320_mobilenet_v3_large(num_classes=11)`.
@@ -136,7 +136,7 @@ Mã nguồn Preflight Guard: [src/detection/preflight_guard.py](file:///d:/CNTT-
   - *Lưu ý khoa học:* Số đo batch=2 **không thể suy rộng tuyến tính** lên batch=8 hay batch=16 vì PyTorch bộ cấp phát bộ nhớ (caching allocator) cấp phát theo khối 2MB/20MB và tensor anchor của SSD tăng theo kích thước batch.
 
 ### 5.3. Cổng an toàn phần cứng (Preflight Safety Guard)
-Đã phát triển module độc lập [`src/detection/preflight_guard.py`](file:///d:/CNTT-KLCN155-waste-detection/src/detection/preflight_guard.py):
+Đã phát triển module độc lập [`src/detection/preflight_guard.py`](../src/detection/preflight_guard.py):
 - Đo lường RAM thời điểm chạy: **14.90 GB / 15.31 GB đang dùng (97.3% utilization)**, **RAM khả dụng chỉ còn 416.4 MB**.
 - **Cơ chế bảo vệ:** Khi RAM khả dụng < 1.2 GB, hàm `enforce_preflight_guard()` tự động chặn đứng lệnh khởi chạy và ném lỗi `PreflightSafetyError`, ngăn chặn hoàn toàn việc huấn luyện nhiều epoch làm treo máy tính của người dùng.
 
@@ -144,8 +144,8 @@ Mã nguồn Preflight Guard: [src/detection/preflight_guard.py](file:///d:/CNTT-
 
 ## 6. P1: KIỂM ĐỊNH ULTRALYTICS YOLO DATALOADER QUA TOÀN BỘ 10 LỚP
 
-Báo cáo chi tiết: [reports/model_v2/yolo_dataloader_verification_report.json](file:///d:/CNTT-KLCN155-waste-detection/reports/model_v2/yolo_dataloader_verification_report.json)  
-Script thực thi: [scripts/verify_yolo_dataloader_batches.py](file:///d:/CNTT-KLCN155-waste-detection/scripts/verify_yolo_dataloader_batches.py)
+Báo cáo chi tiết: [reports/model_v2/yolo_dataloader_verification_report.json](../reports/model_v2/yolo_dataloader_verification_report.json)  
+Script thực thi: [scripts/verify_yolo_dataloader_batches.py](../scripts/verify_yolo_dataloader_batches.py)
 
 ### 6.1. Quét tìm và xác minh toàn bộ 10 lớp
 Khắc phục giới hạn của Phase 4B.1 (chỉ duyệt 5 batch đầu), script đã duyệt qua 194 batch train cho đến khi **bắt gặp và xác minh thành công toàn bộ 10/10 class**:
@@ -166,21 +166,21 @@ Khắc phục giới hạn của Phase 4B.1 (chỉ duyệt 5 batch đầu), scri
   - Toàn bộ tọa độ bounding box nằm trong khoảng chuẩn hóa $[0.0..1.0]$.
   - Vector liên kết `batch_idx` khớp 1-1 với từng bounding box.
   - Không xuất hiện bất kỳ giá trị NaN, Inf hay lỗi hình học nào.
-- Bộ test [`tests/qa/test_yolo_dataloader_batches.py`](file:///d:/CNTT-KLCN155-waste-detection/tests/qa/test_yolo_dataloader_batches.py) đã chạy và đạt `4/4 PASSED`.
+- Bộ test [`tests/qa/test_yolo_dataloader_batches.py`](../tests/qa/test_yolo_dataloader_batches.py) đã chạy và đạt `4/4 PASSED`.
 
 ---
 
 ## 7. P1: KẾ HOẠCH MỞ RỘNG DỮ LIỆU THẬT CÓ THỂ TRIỂN KHAI NGAY
 
-Báo cáo chi tiết: [reports/data_v2/candidate_expansion_sources.md](file:///d:/CNTT-KLCN155-waste-detection/reports/data_v2/candidate_expansion_sources.md)  
-Dữ liệu JSON: [reports/data_v2/candidate_expansion_sources.json](file:///d:/CNTT-KLCN155-waste-detection/reports/data_v2/candidate_expansion_sources.json)
+Báo cáo chi tiết: [reports/data_v2/candidate_expansion_sources.md](../reports/data_v2/candidate_expansion_sources.md)  
+Dữ liệu JSON: [reports/data_v2/candidate_expansion_sources.json](../reports/data_v2/candidate_expansion_sources.json)
 
 ### 7.1. Kết quả kiểm tra tính xác thực của 9 nguồn ứng viên
 1. **Phát hiện quan trọng về Open Images Battery:**
-   - Khi kiểm tra trực tiếp danh sách 600 boxable classes của Open Images tại `D:\waste-training\openimages-boxable-classes.csv`: Nhãn `/m/01cydv` (Battery) **KHÔNG PHẢI LÀ CLASS CÓ BOUNDING BOX**. Đây chỉ là nhãn phân loại cấp độ ảnh (image-level label).
+   - Khi kiểm tra trực tiếp danh sách 600 boxable classes của Open Images tại `data/external/waste-training/openimages-boxable-classes.csv`: Nhãn `/m/01cydv` (Battery) **KHÔNG PHẢI LÀ CLASS CÓ BOUNDING BOX**. Đây chỉ là nhãn phân loại cấp độ ảnh (image-level label).
    - **Hành động xử lý:** Phân loại nguồn này vào **Tier 3 (Loại bỏ)**, không tiếp tục kỳ vọng lấy box pin từ Open Images để tránh phụ thuộc ảo.
 2. **Xác minh nguồn Biological trong Open Images:**
-   - Kiểm tra file `D:\waste-training\openimages-validation-boxes.csv`: Xác nhận có sẵn hơn **3.344 bounding box** cho Fruit (`/m/02xwb`), Vegetable (`/m/0f4s2w`), Banana (`/m/09qck`), Apple (`/m/014j1m`). Phân loại vào **Tier 2 (Cần quy trình lọc bỏ ảnh sạch trong nhà để lấy ảnh rác rải rác ngoài trời)**.
+   - Kiểm tra file `data/external/waste-training/openimages-validation-boxes.csv`: Xác nhận có sẵn hơn **3.344 bounding box** cho Fruit (`/m/02xwb`), Vegetable (`/m/0f4s2w`), Banana (`/m/09qck`), Apple (`/m/014j1m`). Phân loại vào **Tier 2 (Cần quy trình lọc bỏ ảnh sạch trong nhà để lấy ảnh rác rải rác ngoài trời)**.
 3. **Xác minh nguồn TACO (Tier 1 - Tin cậy cao):**
    - Category 60 (`Batteries`) và Category 63, 64 (`Organic waste`, `Food waste`) trong TACO đều có sẵn chú thích bounding box thật dạng COCO.
 
@@ -196,7 +196,7 @@ flowchart TD
     subgraph PhaseB["GIAI ĐOẠN B: PHÊ DUYỆT TẢI CHỌN LỌC (~110 MB)"]
         B1["1. Tải 40 ảnh TACO Cat 60 (Batteries, ~50 MB)"]
         B2["2. Tải 50 ảnh TACO Cat 63/64 (Organic/Food waste, ~60 MB)"]
-        B3["3. Trích xuất 60 ảnh floor food từ D:\\waste-training sẵn có"]
+        B3["3. Trích xuất 60 ảnh floor food từ data/external/waste-training sẵn có"]
     end
     PhaseA --> Target["DATASET V3 CHÍNH THỨC HOÀN CHỈNH<br>(1.420 ảnh, 45 pin, 55 hữu cơ, 6.7% hard-negatives)"]
     PhaseB --> Target
@@ -220,7 +220,7 @@ flowchart TD
 ## 9. DANH MỤC GÓI BẰNG CHỨNG (DELIVERABLE PACKAGE)
 
 Gói bằng chứng đã được tạo tự động tại:  
-📦 **`C:\Users\ad\Downloads\PHASE4B2_FINAL_ENGINEERING_EVIDENCE.zip`**  
+📦 **`~/Downloads\PHASE4B2_FINAL_ENGINEERING_EVIDENCE.zip`**  
 *(Kích thước: 0.40 MB — SHA-256 đã xác minh tính toàn vẹn)*
 
 Danh mục tài liệu bên trong:

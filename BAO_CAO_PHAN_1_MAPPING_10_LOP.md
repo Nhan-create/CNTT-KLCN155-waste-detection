@@ -76,7 +76,7 @@ Báo cáo kiểm toán cũ trước đây cho rằng:
 *“Script tạo dataset đã copy nguyên class ID 0..9 từ Mendeley Data sang TAXONOMY_10 dẫn tới 77,1% nhãn bị gán sai.”*
 
 ### Thực nghiệm đối chứng
-1. Script kiểm tra đối chiếu trực tiếp 1.529 box giữa `D:\waste-training\mendeley-labels\train` và `D:\waste-training\dataset-v1\labels\train`:
+1. Script kiểm tra đối chiếu trực tiếp 1.529 box giữa `data/external/waste-training/mendeley-labels\train` và `data/external/waste-training/dataset-v1\labels\train`:
    - Mendeley `0` $\rightarrow$ v1 `7` (179/179 box)
    - Mendeley `1` $\rightarrow$ v1 `6` (157/157 box)
    - Mendeley `2` $\rightarrow$ v1 `2` (168/168 box)
@@ -218,7 +218,7 @@ Quét toàn bộ thư mục `data/detection/labels`:
 ```text
 ============================= test session starts =============================
 platform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.6.0
-rootdir: D:\CNTT-KLCN155-waste-detection
+rootdir: .
 configfile: pytest.ini
 plugins: anyio-4.15.1
 collected 11 items

@@ -99,4 +99,4 @@ Fingerprint SHA-256 của các file split (cũng ghi trong YAML):
 1. Battery (2 box) và biological (6 box) cần nguồn dữ liệu thật mới, hoặc tạm đánh dấu là "không đánh giá được" trong báo cáo kết quả.
 2. 1886 ảnh mới tải (TACO 1253 + 142 ảnh phục hồi hướng, OI 491) mang nhãn chuyển đổi tự động từ annotation chính thức và **chưa được người review** (review_status UNREVIEWED). Mới chỉ xem mẫu khoảng 35 overlay.
 3. Clothes/shoes của OI là ảnh không có người nhưng vẫn ở bối cảnh sản phẩm hoặc trong nhà (domain gap so với ảnh rác).
-4. Không có ảnh nào trong `D:\Hinh_Anh_Rac` được đọc hay dùng; chỉ dùng SHA-256 từ manifest QA.
+4. Không có ảnh nào trong `data/holdout` được đọc hay dùng; chỉ dùng SHA-256 từ manifest QA.

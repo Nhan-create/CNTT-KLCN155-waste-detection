@@ -13,7 +13,7 @@
 Xác lập hồ sơ kỹ thuật chính xác 100% về hiện trạng kho lưu trữ mã nguồn, tính độc lập của workspace, các module chức năng, trọng số và dữ liệu hiện hữu; đồng thời làm rõ về mặt lý thuyết và thực nghiệm các quyết định kiến trúc: vai trò của MobileNetV3 (Classifier), MobileNetV3 trong SSDLite (Backbone Feature Extractor), YOLOv8n (One-stage Detector), và giải thích triệt để vì sao mô hình phân loại không thể tự động trở thành mô hình phát hiện khi đưa ảnh nhiều rác vào.
 
 ### 1.2. Vấn đề cần giải quyết
-1. **Giải quyết vấn đề Junction và thiết lập workspace độc lập (`VERIFIED`):** Gỡ bỏ hoàn toàn liên kết Junction `D:\CNTT-KLCN155-waste-detection` trỏ vào repo cũ `C:\Users\ad\Downloads\Do-an-deeplearning\waste-classifier-mobilenetv3`. Thiết lập thư mục vật lý độc lập mới có Git repo riêng, `.venv` riêng, bảo toàn 100% repo cũ.
+1. **Giải quyết vấn đề Junction và thiết lập workspace độc lập (`VERIFIED`):** Gỡ bỏ hoàn toàn liên kết Junction `.` trỏ vào repo cũ `~/Downloads\Do-an-deeplearning\waste-classifier-mobilenetv3`. Thiết lập thư mục vật lý độc lập mới có Git repo riêng, `.venv` riêng, bảo toàn 100% repo cũ.
 2. **Thống nhất taxonomy 10 lớp (`VERIFIED`):** Đặt 10 lớp làm chuẩn kiến trúc cho cả hai giai đoạn, lập bảng ánh xạ 10 lớp $\leftrightarrow$ 6 lớp của đề cương cũ để đối chiếu khi cần.
 3. **Hiểu lầm về tái sử dụng mô hình (`VERIFIED`):** Chứng minh bằng cấu trúc tensor thực tế rằng classifier không thể nạp thẳng vào detector; bóc tách checkpoint `yolo26n.pt` chứng minh đây là COCO model chứ không phải mô hình rác; phân tích nguy cơ data contamination từ checkpoint `Ecovision`.
 
@@ -22,11 +22,11 @@ Xác lập hồ sơ kỹ thuật chính xác 100% về hiện trạng kho lưu t
 ## 2. Hiện trạng đã xác minh (`VERIFIED`)
 
 ### 2.1. Thư mục và cấu hình Git
-- **Workspace hoạt động chính thức (`VERIFIED`):** [D:\CNTT-KLCN155-waste-detection](file:///D:/CNTT-KLCN155-waste-detection) (Thư mục vật lý độc lập, không phải Reparse Point hay Junction).
-- **Git Repo mới:** `git init -b main` tại `D:\CNTT-KLCN155-waste-detection`.
-- **Môi trường ảo mới:** `D:\CNTT-KLCN155-waste-detection\.venv` (Python 3.12.10, cài đặt pillow, pandas, pyyaml, numpy độc lập).
-- **Bảo toàn kho cũ:** `C:\Users\ad\Downloads\Do-an-deeplearning\waste-classifier-mobilenetv3` được giữ nguyên trạng, không bị chỉnh sửa thêm qua Junction.
-- **Thư mục dữ liệu:** `D:\HK7\Đồ án khóa luận\Data` (gồm `raw/` và `processed/`).
+- **Workspace hoạt động chính thức (`VERIFIED`):** [.](../..) (Thư mục vật lý độc lập, không phải Reparse Point hay Junction).
+- **Git Repo mới:** `git init -b main` tại `.`.
+- **Môi trường ảo mới:** `.venv` (Python 3.12.10, cài đặt pillow, pandas, pyyaml, numpy độc lập).
+- **Bảo toàn kho cũ:** `~/Downloads\Do-an-deeplearning\waste-classifier-mobilenetv3` được giữ nguyên trạng, không bị chỉnh sửa thêm qua Junction.
+- **Thư mục dữ liệu:** `.\Data` (gồm `raw/` và `processed/`).
 
 ### 2.2. Kiểm kê các module mã nguồn hiện có
 1. **Tiền xử lý và Dữ liệu:**
@@ -134,7 +134,7 @@ Có 3 nguyên nhân bản chất về mặt kiến trúc toán học và học m
 
 ## 5. Đối soát chi tiết Layer-by-Layer giữa Classifier và SSDLite320 (`VERIFIED`)
 
-Kết quả đối soát thực tế được lưu tại [data/audit/backbone_transfer_audit.json](file:///D:/CNTT-KLCN155-waste-detection/data/audit/backbone_transfer_audit.json):
+Kết quả đối soát thực tế được lưu tại [data/audit/backbone_transfer_audit.json](../../data/audit/backbone_transfer_audit.json):
 
 ```
 Tổng số tham số:
@@ -155,8 +155,8 @@ Chi tiết chuyển giao:
 
 ## 6. Cách kiểm tra và tiêu chí nghiệm thu
 
-1. **Kiểm tra tính toàn vẹn workspace:** Lệnh PowerShell `Test-Path "D:\CNTT-KLCN155-waste-detection\streamlit_app.py"` phải trả về `True`.
-2. **Kiểm tra repo cũ:** Kiểm tra Git status trên `C:\Users\ad\Downloads\Do-an-deeplearning\waste-classifier-mobilenetv3` chứng minh không có thay đổi phát sinh.
+1. **Kiểm tra tính toàn vẹn workspace:** Lệnh PowerShell `Test-Path "streamlit_app.py"` phải trả về `True`.
+2. **Kiểm tra repo cũ:** Kiểm tra Git status trên `~/Downloads\Do-an-deeplearning\waste-classifier-mobilenetv3` chứng minh không có thay đổi phát sinh.
 3. **Kiểm tra import và cú pháp:**
    ```powershell
    .\.venv\Scripts\python.exe -c "import torch, PIL, pandas, yaml; print('All core modules loaded successfully')"
@@ -166,4 +166,4 @@ Chi tiết chuyển giao:
 
 ## 7. Task tiếp theo khi đủ điều kiện
 
-> **TASK TIẾP THEO:** Triển khai [02_DATA_INVENTORY_AND_TAXONOMY.md](file:///D:/CNTT-KLCN155-waste-detection/docs/plan/02_DATA_INVENTORY_AND_TAXONOMY.md): Kiểm kê chi tiết 2 bộ dữ liệu Kaggle, đối soát toàn bộ 14.831 ảnh sạch, thống nhất bảng phân bố 10 lớp và phân tích giải quyết các lớp tranh chấp.
+> **TASK TIẾP THEO:** Triển khai [02_DATA_INVENTORY_AND_TAXONOMY.md](../../docs/plan/02_DATA_INVENTORY_AND_TAXONOMY.md): Kiểm kê chi tiết 2 bộ dữ liệu Kaggle, đối soát toàn bộ 14.831 ảnh sạch, thống nhất bảng phân bố 10 lớp và phân tích giải quyết các lớp tranh chấp.

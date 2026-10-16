@@ -16,7 +16,7 @@ Huấn luyện hoàn chỉnh hai kiến trúc phát hiện đối tượng nhẹ
 Cả hai mô hình được huấn luyện trên cùng một bộ dữ liệu phát hiện rác chuẩn 10 lớp (có cơ chế mapping đối chiếu 6 nhóm vật liệu của đề cương cũ), cùng seed phân chia và cùng giao thức đánh giá.
 
 ### 1.2. Vấn đề cần giải quyết
-1. **Chuyển giao trọng số backbone khoa học (`VERIFIED`):** Áp dụng kết quả kiểm toán layer [data/audit/backbone_transfer_audit.json](file:///D:/CNTT-KLCN155-waste-detection/data/audit/backbone_transfer_audit.json): Nạp chính xác **258 / 308 keys** tương thích từ MobileNetV3 Classifier sang SSDLite320; khởi tạo ngẫu nhiên và huấn luyện mới hoàn toàn **168 keys** (72 extra pyramid keys + 96 detection head keys).
+1. **Chuyển giao trọng số backbone khoa học (`VERIFIED`):** Áp dụng kết quả kiểm toán layer [data/audit/backbone_transfer_audit.json](../../data/audit/backbone_transfer_audit.json): Nạp chính xác **258 / 308 keys** tương thích từ MobileNetV3 Classifier sang SSDLite320; khởi tạo ngẫu nhiên và huấn luyện mới hoàn toàn **168 keys** (72 extra pyramid keys + 96 detection head keys).
 2. **Làm rõ nguồn gốc checkpoint pre-trained:** Checkpoint `yolo26n.pt` trong repo là mô hình COCO 80 lớp (`tune-yolo26n-objv1-coco`). Quá trình huấn luyện đa rác sẽ sử dụng `yolov8n.pt` COCO chuẩn từ Ultralytics để khởi tạo và fine-tune trên dữ liệu rác.
 3. **Quản lý bộ nhớ GPU RTX 2050 (4GB VRAM):** Huấn luyện tuần tự từng mô hình (Sequential Training), kích hoạt AMP fp16 và dọn dẹp cache `torch.cuda.empty_cache()`.
 

@@ -3,7 +3,7 @@
 - **Dự án:** CNTT-KLCN155 — Phát hiện và phân loại rác thải đa đối tượng
 - **Tác giả:** Tech Lead ML / Nhóm Kỹ sư ML
 - **Người nhận:** PM Ngô Thanh Nhân (HUIT)
-- **Thư mục làm việc:** `D:\CNTT-KLCN155-waste-detection`
+- **Thư mục làm việc:** `.`
 - **Mã tài liệu:** `PART_02_CPU_OPTIMIZATION.md`
 - **Ngày lập:** 02/10/2026
 - **Trạng thái thực nghiệm:** `OPTIMIZATION_SUCCESSFUL` (Khẳng định giả thuyết Sub-10ms trên CPU vật lý)

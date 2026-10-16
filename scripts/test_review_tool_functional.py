@@ -47,7 +47,7 @@ EVIDENCE_DIR = PROJECT_ROOT / "artifacts" / "part02" / "mcp_test_evidence"
 EVIDENCE_DIR.mkdir(parents=True, exist_ok=True)
 DOCX_REPORT_PATH = PROJECT_ROOT / "artifacts" / "part02" / "Bao_Cao_Kiem_Thu_Cong_Cu_Review_Tool.docx"
 
-CHROME_PATH = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
+CHROME_PATH = os.environ.get("CHROME_PATH") or shutil.which("chrome") or shutil.which("google-chrome")
 APP_PORT = 8501
 APP_URL = f"http://localhost:{APP_PORT}"
 
@@ -120,6 +120,7 @@ def run_test_suite():
     with sync_playwright() as p:
         browser = p.chromium.launch(
             executable_path=CHROME_PATH,
+            channel="chrome" if not CHROME_PATH else None,
             headless=True,
             args=["--no-sandbox", "--disable-dev-shm-usage"]
         )
@@ -576,7 +577,7 @@ def generate_word_report(results):
     p_mcp = doc.add_paragraph()
     p_mcp.add_run(
         "- Nguyên nhân khóa profile ban đầu: Do cấu hình hệ thống nạp đồng thời 2 server MCP (chrome-devtools và chrome-devtools-plugin_chrome-devtools) "
-        "cùng trỏ vào thư mục profile mặc định C:\\Users\\ad\\.cache\\chrome-devtools-mcp\\chrome-profile. Một tiến trình automation cũ (PID 23636) "
+        "cùng trỏ vào thư mục profile mặc định ~/.cache\\chrome-devtools-mcp\\chrome-profile. Một tiến trình automation cũ (PID 23636) "
         "giữ khóa tệp khiến các phiên kết nối mới bị từ chối.\n"
         "- Khắc phục thành công: Tiến trình automation PID 23636 đã được dừng an toàn. Server MCP chrome-devtools đã kết nối trực tiếp thành công, "
         "điều hướng tới http://localhost:8501, thực thi các thao tác live trên giao diện (sửa tọa độ, đổi lớp sang 5: metal, bấm lưu, bấm thêm box lỗi và ghi nhận alert đỏ) "

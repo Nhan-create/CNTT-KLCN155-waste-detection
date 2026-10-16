@@ -1,16 +1,16 @@
 {
   "execution_timestamp": "2026-10-11T18:46:25Z",
   "phase": "4B.2",
-  "interpreter_path": "D:\\CNTT-KLCN155-waste-detection\\.venv\\Scripts\\python.exe",
+  "interpreter_path": ".venv\\Scripts\\python.exe",
   "collection": {
-    "command": "D:\\CNTT-KLCN155-waste-detection\\.venv\\Scripts\\python.exe -m pytest --collect-only",
+    "command": ".venv\\Scripts\\python.exe -m pytest --collect-only",
     "exit_code": 0,
     "duration_seconds": 13.33,
     "total_collected_in_workspace": 358,
     "log_file": "reports\\test_evidence\\pytest_collection.log"
   },
   "targeted_suite": {
-    "command": "D:\\CNTT-KLCN155-waste-detection\\.venv\\Scripts\\python.exe -m pytest tests/qa/ tests/detection/ tests/test_detection_annotations.py tests/test_verification_gates.py -v",
+    "command": ".venv\\Scripts\\python.exe -m pytest tests/qa/ tests/detection/ tests/test_detection_annotations.py tests/test_verification_gates.py -v",
     "exit_code": 0,
     "duration_seconds": 72.22,
     "test_files_count": 24,

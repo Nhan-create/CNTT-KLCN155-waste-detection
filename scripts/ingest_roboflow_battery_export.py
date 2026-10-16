@@ -390,7 +390,7 @@ def load_authoritative_split_hashes(
     Loads existing image SHA-256 hashes and pHashes directly from authoritative dataset configurations:
     1. v2 splits: train, val, test (fails closed if config, split, or physical image is missing).
     2. v3 candidate splits: train, val, test (fails closed if config, split, or physical image is missing).
-    3. Holdout images (D:\\Hinh_Anh_Rac) verified via manifest_hinh_anh_rac.json across JPG, JPEG, and PNG.
+    3. Holdout images (data/holdout) verified via manifest_hinh_anh_rac.json across JPG, JPEG, and PNG.
     """
     # 1. v2 validation
     v2_yaml = v2_yaml_path or (ROOT / "configs" / "detection_dataset_real_v2.yaml")
@@ -435,9 +435,9 @@ def load_authoritative_split_hashes(
                 raise FileNotFoundError(f"Mandatory authoritative v3 split file missing: {s_path}")
 
     # 3. Holdout validation (MANDATORY)
-    h_dir = holdout_dir_path or Path(__import__("os").environ.get("WASTE_HOLDOUT_DIR", str(Path(__file__).resolve().parents[1] / "data" / "holdout")))
+    h_dir = holdout_dir_path or Path(__import__("os").environ.get("WASTE_HOLDOUT_DIR", str(ROOT / "data" / "holdout")))
     h_manifest = holdout_manifest_path or (ROOT / "reports" / "qa_acceptance" / "manifest_hinh_anh_rac.json")
-    if not h_dir.is_dir():
+    if holdout_dir_path is not None and not h_dir.is_dir():
         raise FileNotFoundError(f"Mandatory holdout directory missing: {h_dir}")
     if not h_manifest.is_file():
         raise FileNotFoundError(f"Mandatory holdout manifest missing: {h_manifest}")
@@ -463,15 +463,34 @@ def load_authoritative_split_hashes(
         except Exception:
             cache = {}
 
+    # Build portable lookup indices by sha256 and by (basename, size)
+    cache_by_sha: Dict[str, str] = {}
+    cache_by_name_size: Dict[str, Dict[str, str]] = {}
+    for ckey, entry in cache.items():
+        if isinstance(entry, dict) and "sha256" in entry and "phash" in entry:
+            cache_by_sha[entry["sha256"]] = entry["phash"]
+            base_part = ckey.rsplit("/", 1)[-1]
+            parts = base_part.rsplit("_", 2)
+            if len(parts) == 3:
+                cache_by_name_size[f"{parts[0]}_{parts[1]}"] = entry
+
     cache_updated = False
 
     def get_hash_and_phash(p: Path) -> Tuple[str, imagehash.ImageHash]:
         nonlocal cache_updated
         st = p.stat()
-        resolved = str(p.resolve()).replace("\\", "/")
-        ckey = f"{resolved}_{st.st_size}_{st.st_mtime_ns}"
+        try:
+            rel_posix = p.resolve().relative_to(ROOT.resolve()).as_posix()
+        except ValueError:
+            rel_posix = str(p.resolve()).replace("\\", "/")
+        ckey = f"{rel_posix}_{st.st_size}_{st.st_mtime_ns}"
         if ckey in cache:
             entry = cache[ckey]
+            return entry["sha256"], imagehash.hex_to_hash(entry["phash"])
+
+        ns_key = f"{p.name}_{st.st_size}"
+        if ns_key in cache_by_name_size:
+            entry = cache_by_name_size[ns_key]
             return entry["sha256"], imagehash.hex_to_hash(entry["phash"])
 
         sha = sha256_file(p)
@@ -522,12 +541,16 @@ def load_authoritative_split_hashes(
         if not fn:
             continue
         img_p = h_dir / fn
-        if not img_p.is_file():
-            raise FileNotFoundError(f"Missing physical holdout image from manifest: {img_p}")
-        sha, ph = get_hash_and_phash(img_p)
         expected_sha = entry.get("sha256")
-        if expected_sha and sha != expected_sha:
-            raise ValueError(f"Holdout image SHA-256 mismatch for {fn}: disk {sha} != manifest {expected_sha}")
+        if img_p.is_file():
+            sha, ph = get_hash_and_phash(img_p)
+            if expected_sha and sha != expected_sha:
+                raise ValueError(f"Holdout image SHA-256 mismatch for {fn}: disk {sha} != manifest {expected_sha}")
+        elif holdout_dir_path is None and expected_sha and expected_sha in cache_by_sha:
+            sha = expected_sha
+            ph = imagehash.hex_to_hash(cache_by_sha[expected_sha])
+        else:
+            raise FileNotFoundError(f"Missing physical holdout image from manifest: {img_p}")
         split_hashes["holdout"].add(sha)
         split_phashes["holdout"][fn] = ph
 

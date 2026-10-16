@@ -1975,7 +1975,7 @@ def run_comprehensive_leakage_audit(enriched: List[Dict[str, Any]]) -> Dict[str,
                 except Exception:
                     pass
 
-    # 6. External Holdout 27 (`D:\Hinh_Anh_Rac`)
+    # 6. External Holdout 27 (`data/holdout`)
     holdout_p = REPO_ROOT / "reports" / "qa_acceptance" / "manifest_hinh_anh_rac.json"
     if holdout_p.exists():
         h_data = json.loads(holdout_p.read_text(encoding="utf-8"))

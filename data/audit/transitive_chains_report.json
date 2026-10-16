@@ -1,6 +1,6 @@
 {
   "timestamp": "2026-10-02T00:03:56+0700",
-  "manifest_path": "D:\\CNTT-KLCN155-waste-detection\\data\\audit\\split_manifest_v2.csv",
+  "manifest_path": "data\\audit\\split_manifest_v2.csv",
   "total_images": 14829,
   "total_candidate_pairs": 33,
   "confirmed_connected_edges": 29,

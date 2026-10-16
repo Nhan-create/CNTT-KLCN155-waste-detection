@@ -1,6 +1,6 @@
 """Generate high quality class-by-class contact sheets and an overall summary contact sheet.
 
-Destination: D:\Hinh_Anh_Rac\demo_multiobject_100_20261012\contact_sheets\
+Destination: data/holdout/demo_multiobject_100_20261012/contact_sheets/
 """
 
 from __future__ import annotations

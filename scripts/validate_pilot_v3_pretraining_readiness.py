@@ -77,7 +77,7 @@ def verify_holdout_27_gt_manifests() -> Dict[str, Any]:
                 v2_accepted_per_class[obj["class_name"]] += 1
 
     return {
-        "holdout_directory": "D:\\Hinh_Anh_Rac",
+        "holdout_directory": "data/holdout",
         "total_images": len(gt_v1["images"]),
         "authoritative_v1_frozen": {
             "manifest_path": "reports/qa_acceptance/ground_truth_hinh_anh_rac.json",

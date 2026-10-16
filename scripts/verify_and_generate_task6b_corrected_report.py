@@ -262,7 +262,7 @@ def generate_corrected_markdown(artifacts: Dict[str, Any], errata: Dict[str, Any
 
 **Dự án:** CNTT-KLCN155 — Hệ thống nhận diện và phân loại rác thải  
 **Sprint:** AI-UPGRADE-01 — TASK 6B (Evidence Correction & Reconciliation)  
-**Repository:** `D:\\CNTT-KLCN155-waste-detection`  
+**Repository:** `.`  
 **Ngày cập nhật:** 14/10/2026  
 **Nguồn sự thật duy nhất (Single Source of Truth):**
 - [`artifacts/detection_v3_pilot/evaluation_e1_vs_e3/e1_vs_e3_comprehensive_evaluation.json`](./artifacts/detection_v3_pilot/evaluation_e1_vs_e3/e1_vs_e3_comprehensive_evaluation.json)

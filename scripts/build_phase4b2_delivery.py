@@ -3,7 +3,7 @@ scripts/build_phase4b2_delivery.py
 -----------------------------------
 Packages all Phase 4B.2 verified artifacts, source code, regression tests,
 logs, manifests, and authoritative metrics into:
-C:\\Users\\ad\\Downloads\\PHASE4B2_FINAL_ENGINEERING_EVIDENCE.zip
+~/Downloads/PHASE4B2_FINAL_ENGINEERING_EVIDENCE.zip
 """
 
 import sys

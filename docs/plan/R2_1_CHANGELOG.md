@@ -8,24 +8,24 @@
 ---
 
 ## 1. Môi trường và Hạ tầng (Environment & Hardware)
-- [x] **Cài đặt PyTorch CUDA:** Cài đặt thành công `torch==2.5.1+cu121` và `torchvision==0.20.1+cu121` vào virtualenv `.venv` tại `D:\CNTT-KLCN155-waste-detection\.venv`.
+- [x] **Cài đặt PyTorch CUDA:** Cài đặt thành công `torch==2.5.1+cu121` và `torchvision==0.20.1+cu121` vào virtualenv `.venv` tại `.venv`.
 - [x] **Xác thực GPU:** Nhận diện và kích hoạt card đồ họa **NVIDIA GeForce RTX 2050 Laptop GPU (4.095,5 MB VRAM)**; CUDA driver 591.86.
 - [x] **Cài đặt thư viện bổ trợ:** Đã cài đặt `scikit-learn==1.9.1`, `matplotlib==3.11.2`, `tqdm==4.70.1`.
 
 ## 2. Kiểm toán Dữ liệu và Sửa lỗi Giải thuật (Data Audit & Algorithmic Bugfixes)
 - [x] **Sửa lỗi gán cứng số liệu trong audit:** Đã xóa bỏ dòng gán cứng `"cross_source_duplicates": 0` tại `scripts/audit_and_reconcile_data.py`. Số liệu đếm đúng thực tế trong `duplicate_groups.csv` là **890 cặp trùng liên nguồn** giữa Garbage V2 và VN Trash (trong đó **879 cặp trùng tuyệt đối MD5**).
-- [x] **Tạo script kiểm tra rò rỉ phân chia tập độc lập:** Tạo [scripts/check_split_leakage.py](file:///D:/CNTT-KLCN155-waste-detection/scripts/check_split_leakage.py) tính toán ma trận khoảng cách bitwise pHash trên toàn bộ 14.831 ảnh qua các split Train, Val, Test.
+- [x] **Tạo script kiểm tra rò rỉ phân chia tập độc lập:** Tạo [scripts/check_split_leakage.py](../../scripts/check_split_leakage.py) tính toán ma trận khoảng cách bitwise pHash trên toàn bộ 14.831 ảnh qua các split Train, Val, Test.
 - [x] **Tái hiện 100% các cặp rò rỉ của PM:** Tái hiện chính xác 18 cặp ứng viên pHash $\le 4$ xuyên split; kiểm định trực quan phát hiện **15 cặp rò rỉ dữ liệu thật** (10 cặp burst-shot cùng vật thể, 5 cặp cùng vật thể xoay góc) và 3 cặp trùng ngẫu nhiên khác lớp.
-- [x] **Xuất bản trực quan hóa rò rỉ:** Tạo script [scripts/generate_phash_visual_audit.py](file:///D:/CNTT-KLCN155-waste-detection/scripts/generate_phash_visual_audit.py) và kết xuất 18 ảnh so sánh trực quan song song (side-by-side) tại `data/audit/visual_phash_inspection/pair_01_*.jpg` đến `pair_18_*.jpg`.
+- [x] **Xuất bản trực quan hóa rò rỉ:** Tạo script [scripts/generate_phash_visual_audit.py](../../scripts/generate_phash_visual_audit.py) và kết xuất 18 ảnh so sánh trực quan song song (side-by-side) tại `data/audit/visual_phash_inspection/pair_01_*.jpg` đến `pair_18_*.jpg`.
 - [x] **Đặt trạng thái Cổng Dữ liệu:** Đặt trạng thái `DATA_GATE_FLAGGED_WITH_LEAKAGE` cho split vật lý cũ; yêu cầu gom cụm 15 cặp này trước khi chạy huấn luyện chính thức báo cáo khóa luận.
 
 ## 3. Kiến trúc và Chuyển giao Trọng số (Architecture & Transferability)
-- [x] **Kiểm toán chuyển giao Backbone sang SSDLite320:** Tạo script [scripts/audit_backbone_transfer.py](file:///D:/CNTT-KLCN155-waste-detection/scripts/audit_backbone_transfer.py); đối soát từng tầng giữa `mobilenet_v3_large` và `ssdlite320_mobilenet_v3_large`.
-- [x] **Xuất bảng đối soát chi tiết:** Xuất [data/audit/backbone_transfer_keys.csv](file:///D:/CNTT-KLCN155-waste-detection/data/audit/backbone_transfer_keys.csv) (312 dòng) và [data/audit/backbone_transfer_audit.json](file:///D:/CNTT-KLCN155-waste-detection/data/audit/backbone_transfer_audit.json).
+- [x] **Kiểm toán chuyển giao Backbone sang SSDLite320:** Tạo script [scripts/audit_backbone_transfer.py](../../scripts/audit_backbone_transfer.py); đối soát từng tầng giữa `mobilenet_v3_large` và `ssdlite320_mobilenet_v3_large`.
+- [x] **Xuất bảng đối soát chi tiết:** Xuất [data/audit/backbone_transfer_keys.csv](../../data/audit/backbone_transfer_keys.csv) (312 dòng) và [data/audit/backbone_transfer_audit.json](../../data/audit/backbone_transfer_audit.json).
 - [x] **Thực nghiệm nạp trọng số và suy luận:** Xác nhận 258/308 keys trích xuất đặc trưng (83,8%) khớp hoàn hảo; nạp thử nghiệm `load_state_dict(strict=False)` không gặp lỗi; chạy forward pass thành công trên tensor `torch.randn(1, 3, 320, 320)`, trích xuất đúng 300 boxes dự đoán.
 
 ## 4. Thực nghiệm Kỹ thuật Chạy thử (Smoke Test Execution)
-- [x] **Xây dựng script chạy thử chuẩn:** Viết [scripts/run_smoke_test.py](file:///D:/CNTT-KLCN155-waste-detection/scripts/run_smoke_test.py) tối ưu hóa cho phần cứng RTX 2050, kích hoạt AMP fp16 và xử lý mã hóa UTF-8 trên Windows.
+- [x] **Xây dựng script chạy thử chuẩn:** Viết [scripts/run_smoke_test.py](../../scripts/run_smoke_test.py) tối ưu hóa cho phần cứng RTX 2050, kích hoạt AMP fp16 và xử lý mã hóa UTF-8 trên Windows.
 - [x] **Huấn luyện 3 Epochs trên Train/Val:**
   - Train: 10.381 ảnh | Val: 2.225 ảnh | Test: 2.225 ảnh (**Khóa chặt 100% — Không nạp**)
   - Epoch 1: Train Loss 0.8835, Val Acc 92.99%, Val Macro-F1 0.9303, VRAM 1.511,2 MB.

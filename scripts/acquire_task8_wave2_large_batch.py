@@ -2,7 +2,7 @@ r"""
 Task 8 Part B (B1 & B2) — Resumable Large-Scale Wave 2 Acquisition (1,000+ Candidate Images).
 
 Sources:
-1. Open Images V7 Train (`D:\waste-training\openimages-train-slice-boxes.csv` + `openimages-train-slice-meta.csv`)
+1. Open Images V7 Train (`data/external/waste-training/openimages-train-slice-boxes.csv` + `openimages-train-slice-meta.csv`)
    supplemented by unused Open Images V7 Test/Val (`test-annotations-bbox.csv` / `openimages-validation-boxes.csv`)
    for rare classes (`/m/01kb5b` Flashlight/Battery, `/m/02w3r3` Paper towel, `/m/09gtd` Toilet paper, `/m/02jnhm` Tin can).
    - 100% disjoint by `ImageID` AND `AuthorProfileURL` from `real_v2` (including frozen 299 test & 274 v3_candidate test).

@@ -4,7 +4,7 @@
     "format": "evaluator_images",
     "stored_min_confidence": null
   },
-  "ground_truth": "D:\\CNTT-KLCN155-waste-detection\\reports\\qa_acceptance\\ground_truth_hinh_anh_rac.json",
+  "ground_truth": "reports\\qa_acceptance\\ground_truth_hinh_anh_rac.json",
   "operating_confidence": 0.25,
   "views": {
     "all_27": {

@@ -26,15 +26,17 @@ def main():
     evidence_dir.mkdir(parents=True, exist_ok=True)
     screenshot_path = evidence_dir / "review_tool_verified.png"
 
-    chrome_path = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
+    import shutil
+    chrome_path = os.environ.get("CHROME_PATH") or shutil.which("chrome") or shutil.which("google-chrome")
     url = "http://localhost:8501"
 
-    print(f"[INFO] Launching Playwright with Chrome at: {chrome_path}")
+    print(f"[INFO] Launching Playwright with Chrome at: {chrome_path or 'system default'}")
     print(f"[INFO] Target URL: {url}")
 
     with sync_playwright() as p:
         browser = p.chromium.launch(
             executable_path=chrome_path,
+            channel="chrome" if not chrome_path else None,
             headless=True,
             args=["--no-sandbox", "--disable-dev-shm-usage"]
         )

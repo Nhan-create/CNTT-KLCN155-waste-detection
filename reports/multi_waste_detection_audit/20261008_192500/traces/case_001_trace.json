@@ -4,14 +4,14 @@
   "run_id": "run_20261008_154047_case_001",
   "timestamp": "2026-10-08T22:40:47.757260+07:00",
   "models_provenance": {
-    "yolov8n_checkpoint": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\detection\\waste-yolov8n-combined-seed42\\weights\\best.pt",
+    "yolov8n_checkpoint": "artifacts\\detection\\waste-yolov8n-combined-seed42\\weights\\best.pt",
     "yolov8n_sha256": "97f46ccaaa0a63c5934225d51ccd399c1c18eb3e1af8a63b9f14bec1aaa085c9",
-    "ssdlite_checkpoint": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\detection\\waste-ssdlite320-mobilenetv3-combined-seed42\\weights\\best.pt",
+    "ssdlite_checkpoint": "artifacts\\detection\\waste-ssdlite320-mobilenetv3-combined-seed42\\weights\\best.pt",
     "ssdlite_sha256": "584c5980eb4ebe3718da7b3e87a3c95edfee3d78f186def3e5feba32cf03dff1"
   },
   "input_image": {
     "file_name": "rac-1562828175-1562828212-3852-1562828313.webp",
-    "raw_file_path": "D:\\CNTT-KLCN155-waste-detection\\reports\\multi_waste_detection_audit\\20261008_192500\\images\\case_001_raw.webp",
+    "raw_file_path": "reports\\multi_waste_detection_audit\\20261008_192500\\images\\case_001_raw.webp",
     "sha256": "8cf8f55715db1dc53b815976a690bb6dbcef26cce9c2a74d7f6b3834b264b3cb",
     "format": "WEBP",
     "dimensions": {

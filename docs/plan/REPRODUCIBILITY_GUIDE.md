@@ -68,12 +68,12 @@ Get-FileHash -Path data/audit/split_manifest_v2.csv -Algorithm SHA256
 
 **Mã băm chuẩn đối chiếu:**
 - `best_model.pt` SHA-256: `c824fec4f3d1dffff946cd8ad7e2d4f121be33e684dda4e6af92b5bda343e424`
-- `split_manifest_v2.csv` SHA-256: `1429a22ebbf95cc464881f903dae5ac6dcc5e6e64152e1dd3353e9365429ec96`
+- `split_manifest_v2.csv` SHA-256: `f83def99895e990d474e3ebc66d45fe5692c1496497705089ec9a2183d058980`
 
 ---
 
 ### Bước 2: Tái hiện Toàn bộ Kết quả Validation từ Checkpoint
-Chạy script tái hiện độc lập [scripts/reproduce_validation.py](file:///D:/CNTT-KLCN155-waste-detection/scripts/reproduce_validation.py):
+Chạy script tái hiện độc lập [scripts/reproduce_validation.py](../../scripts/reproduce_validation.py):
 
 ```powershell
 python scripts/reproduce_validation.py `
@@ -104,7 +104,7 @@ python scripts/reproduce_validation.py --device cpu
 ---
 
 ### Bước 3: Kiểm chứng Kiểm toán Rò rỉ Dữ liệu (Leakage Audit)
-Chạy script kiểm toán độc lập [scripts/check_split_leakage.py](file:///D:/CNTT-KLCN155-waste-detection/scripts/check_split_leakage.py):
+Chạy script kiểm toán độc lập [scripts/check_split_leakage.py](../../scripts/check_split_leakage.py):
 
 ```powershell
 python scripts/check_split_leakage.py `
@@ -123,7 +123,7 @@ python scripts/check_split_leakage.py `
 ---
 
 ### Bước 4: Kiểm chứng Chuỗi Liên thông và Cụm Bắc cầu
-Chạy script kiểm toán thành phần liên thông [scripts/find_all_transitive_clusters.py](file:///D:/CNTT-KLCN155-waste-detection/scripts/find_all_transitive_clusters.py):
+Chạy script kiểm toán thành phần liên thông [scripts/find_all_transitive_clusters.py](../../scripts/find_all_transitive_clusters.py):
 
 ```powershell
 python scripts/find_all_transitive_clusters.py `
@@ -140,7 +140,7 @@ python scripts/find_all_transitive_clusters.py `
 ---
 
 ### Bước 5: Đối chứng Lịch sử Huấn luyện từ Log Gốc
-Chạy script xuất báo cáo tự động từ log gốc [scripts/export_official_results.py](file:///D:/CNTT-KLCN155-waste-detection/scripts/export_official_results.py):
+Chạy script xuất báo cáo tự động từ log gốc [scripts/export_official_results.py](../../scripts/export_official_results.py):
 
 ```powershell
 python scripts/export_official_results.py `

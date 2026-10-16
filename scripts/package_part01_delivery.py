@@ -1,7 +1,7 @@
 r"""Package Part 1 Verified Deliverables (P1-R2 Hardened Gates).
 
 Creates:
-1. CNTT-KLCN155_PART01_VERIFIED_R2.zip in C:\Users\ad\Downloads\ and project root.
+1. CNTT-KLCN155_PART01_VERIFIED_R2.zip in ~/Downloads/ and project root.
 2. CNTT-KLCN155_PART01_VERIFIED_R2_manifest.csv (file-by-file SHA-256 and size).
 3. Updates CNTT-KLCN155_PART01_VERIFIED_R1.zip for backward compatibility.
 Verifies zip integrity and computes top-level archive SHA-256.

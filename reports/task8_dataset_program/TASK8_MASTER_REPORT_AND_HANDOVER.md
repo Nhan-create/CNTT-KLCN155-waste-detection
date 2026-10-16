@@ -1,13 +1,13 @@
 # BÁO CÁO BÀN GIAO ĐỢT 1 — TASK 8: CHƯƠNG TRÌNH XÂY DỰNG DATASET 10 LỚP CÂN BẰNG QUY MÔ LỚP (5.000+ ẢNH TRAIN ĐỘC LẬP/LỚP)
 
 - **Thời điểm xuất báo cáo:** `2026-10-14T07:46:13.941377+00:00`
-- **Repository:** `D:\CNTT-KLCN155-waste-detection`
+- **Repository:** `.`
 - **Trạng thái cổng phê duyệt:** **DỪNG TẠI CỔNG PHÊ DUYỆT TRƯỚC KHI HUẤN LUYỆN (`approved_for_train = False`)**
 - **Tuân thủ tuyệt đối các giới hạn thực thi:**
   - Chưa chạy huấn luyện E4/E5 (`0` GPU training jobs).
   - Chưa tự ý phê duyệt dữ liệu vào tập train chính thức (`approved_for_train = False`).
   - Giữ nguyên tuyệt đối checkpoint E1/E3 và cấu hình mô hình trong `streamlit_app.py`.
-  - Giữ nguyên tuyệt đối tập `frozen test` (`299` ảnh `real_v2` / `274` ảnh `v3_candidate`) và `holdout` (`27` ảnh tại `D:\Hinh_Anh_Rac`).
+  - Giữ nguyên tuyệt đối tập `frozen test` (`299` ảnh `real_v2` / `274` ảnh `v3_candidate`) và `holdout` (`27` ảnh tại `data/holdout`).
 
 ---
 
@@ -22,7 +22,7 @@
 | `SRC_05_UAVVASTE_PLASTOPOL_WADE` | **Outdoor Litter Detection Benchmarks (UAVVaste, PlastOPol, Cigarette Butt / Litter Detection)** | Yes (100% outdoor grass, beach, pavement, street litter photos) | Yes (COCO/YOLO bounding boxes) | Partial (Strong on 7:plastic, 5:metal, 4:glass, 6:paper, 9:trash; coarse litter labels require 10-class subclass verification) | Valid (CC BY 4.0 / Academic Open Access) | Zero (0% overlap) | 100% outdoor in-the-wild complex backgrounds | **4,800** | **2.5 GB** | `TIER_2_REMAP_DETECTION` |
 | `SRC_06_MENDELEY_GARBAGE_10_12_CLASS` | **Mendeley / Kaggle 10-Class & 12-Class Garbage Classification Pools (Single & Multi-Object Real Photos)** | Yes (Real photos, though ~30% are clean e-commerce product shots that must be filtered out) | No (Classification-only folder labels; requires Detector-Assisted Pre-Box + Human QA) | Exact 10-class taxonomy (`battery`, `biological`, `cardboard`, `clothes`, `glass`, `metal`, `paper`, `plastic`, `shoes`, `trash`) | Mixed (Mendeley Data CC BY 4.0 valid; scraped retail subsets must be filtered for copyright/product bias) | Zero with real_v2 (previously quarantined when pseudo-labeled with full-image boxes; only usable after true tight physical bbox annotation) | Moderate (~70% real household/discarded items, ~30% white-background catalog images to reject) | **8,500** | **2.1 GB** | `TIER_2_NEEDS_BBOX_ANNOTATION` |
 | `SRC_07_WIKIMEDIA_FLICKR_CC_COMMONS` | **Wikimedia Commons & Flickr Creative Commons API (Targeted Real-World Waste & Hard Negatives)** | Yes (Requires filtering out diagrams, posters, museum specimens, historical B&W) | No (Requires manual tight YOLO annotation) | High (Targeted category/search queries per class, especially corroded batteries, rotting food/compost, dirty packaging, abandoned shoes) | Valid (CC0, PD, CC BY, CC BY-SA with full API extmetadata, author & URL) | Controlled via SHA-256 + 4-rotation pHash<=8 pre-filter (Wave 1 + Task 7 already staged) | Very High (Rich in dirty, decayed, corroded, outdoor complex scenes) | **4,000** | **2.4 GB** | `TIER_2_HIGH_DIVERSITY_SUPPLEMENT` |
-| `SRC_08_FIELD_SMARTPHONE_CAPTURE_VN` | **Controlled Field & Household Smartphone Capture Campaign (Vietnam Local Waste Context)** | Yes (100% native real-world smartphone photos matching deployment camera distribution) | No (Requires manual CVAT/LabelStudio annotation) | Exact 10-class taxonomy + intentional multi-class combinations + targeted hard negatives | 100% First-Party Project Owned (CC BY 4.0 / Full commercial & academic rights) | Zero (Strictly separated from frozen 27-image holdout `D:\Hinh_Anh_Rac` by photographer session & specimen ID) | 100% real-world Vietnamese household, campus, street, wet-market, and bin scenes | **5,000** | **4.5 GB** | `TIER_1_DOMAIN_ANCHOR` |
+| `SRC_08_FIELD_SMARTPHONE_CAPTURE_VN` | **Controlled Field & Household Smartphone Capture Campaign (Vietnam Local Waste Context)** | Yes (100% native real-world smartphone photos matching deployment camera distribution) | No (Requires manual CVAT/LabelStudio annotation) | Exact 10-class taxonomy + intentional multi-class combinations + targeted hard negatives | 100% First-Party Project Owned (CC BY 4.0 / Full commercial & academic rights) | Zero (Strictly separated from frozen 27-image holdout `data/holdout` by photographer session & specimen ID) | 100% real-world Vietnamese household, campus, street, wet-market, and bin scenes | **5,000** | **4.5 GB** | `TIER_1_DOMAIN_ANCHOR` |
 
 > **Bài học thực nghiệm quan trọng từ Wave 1 khi kiểm tra mẫu Open Images V7 (`task8a_155`..`task8a_196`):**
 > - Lớp `Coffee cup` (`/m/02p5f1q`) trong Open Images V7 chứa phần lớn là **cốc sứ/tách trà đang có đồ uống** (`task8a_161`..`166` -> bị loại `REJECT`), không phải cốc giấy rác (`6: paper`).
@@ -111,5 +111,5 @@ Khi đạt từng mốc Milestone (bắt đầu từ Milestone 1 = 500 ảnh tra
 
 1. **Frozen Test (`data/detection_v3_candidate/images/test`, 274 ảnh):** Đo `Precision`, `Recall`, `AP@50`, `AP@50:95` của **từng lớp trong 10 lớp**. Không chấp nhận chỉ nhìn `mAP@50` trung bình.
 2. **Independent Real Validation (`VAL_REAL` mở rộng theo nguồn chụp độc lập, gồm `VAL_REAL_BATTERY` + `VAL_REAL_WAVE1`):** Kiểm tra khả năng tổng quát hóa trên các nguồn ảnh hoàn toàn tách biệt theo `specimen_group`.
-3. **External Real Holdout (`D:\Hinh_Anh_Rac`, 27 ảnh thực tế độc lập):** Kiểm tra one-to-one đối chiếu Ground Truth độc lập của QA Agent D, theo dõi tỷ lệ phát hiện đúng trên `0: battery`, `1: biological`, `2: cardboard`, `6: paper` và tỷ lệ báo động giả (False Positives) trên nền phức tạp.
+3. **External Real Holdout (`data/holdout`, 27 ảnh thực tế độc lập):** Kiểm tra one-to-one đối chiếu Ground Truth độc lập của QA Agent D, theo dõi tỷ lệ phát hiện đúng trên `0: battery`, `1: biological`, `2: cardboard`, `6: paper` và tỷ lệ báo động giả (False Positives) trên nền phức tạp.
 4. **Cổng chống suy giảm chéo (Anti-Forgetting / Regression Gate):** Tự động so sánh bảng `AP@50` và `Recall` của từng lớp so với E1/E3 baseline; nếu bất kỳ lớp nào trong 8 lớp mạnh (`cardboard`, `clothes`, `glass`, `metal`, `paper`, `plastic`, `shoes`, `trash`) sụt giảm quá `> 0.03 AP@50` khi nâng `battery`/`biological`, hệ thống cảnh báo suy giảm (catastrophic forgetting / class imbalance shift) và chặn xuất bản checkpoint.

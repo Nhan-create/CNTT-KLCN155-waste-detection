@@ -1,6 +1,6 @@
 # BÁO CÁO TASK 7 — THU THẬP DỮ LIỆU PIN ĐA DẠNG NGOÀI ROBOFLOW, QA TRỰC QUAN & ĐỀ XUẤT DATASET V4 / E4 (DO NOT RUN)
 
-- **Dự án:** `D:\CNTT-KLCN155-waste-detection`
+- **Dự án:** `.`
 - **Sprint:** `AI-UPGRADE-01 — TASK 6B & TASK 7`
 - **Thư mục Staging:** `data/acquisition_staging/task7_diverse_battery_batch/`
 - **Trạng thái phê duyệt huấn luyện:** **`APPROVED_FOR_TRAIN = 0`** *(Tất cả dữ liệu và cấu hình ở trạng thái đề xuất chờ PM nghiệm thu; tuyệt đối chưa chạy huấn luyện E4)*
@@ -11,7 +11,7 @@
 
 Từ kết quả thực nghiệm của Pilot E3 ở Task 6:
 - Tập 140 ảnh Roboflow (`111 train + 29 val`) giúp E3 đạt `mAP50 = 0.99235` trên cùng domain bàn gỗ đơn chiếc (`1 bbox/ảnh`).
-- Tuy nhiên, trên tập Holdout thực tế (`D:\Hinh_Anh_Rac`, ảnh `IMG_2608.JPG` gồm cụm 4 viên pin chụp góc nghiêng), E3 chỉ phát hiện được `1/4` viên pin ở ngưỡng thấp và tăng False Positive trên các lớp khác.
+- Tuy nhiên, trên tập Holdout thực tế (`data/holdout`, ảnh `IMG_2608.JPG` gồm cụm 4 viên pin chụp góc nghiêng), E3 chỉ phát hiện được `1/4` viên pin ở ngưỡng thấp và tăng False Positive trên các lớp khác.
 - Nguyên nhân cốt lõi: **Domain shift nghiêm trọng** (100% ảnh pin bổ sung ở V3 là ảnh 1 viên pin đơn lẻ trên nền bàn phẳng, thiếu hoàn toàn cụm nhiều viên pin đứng/nằm chồng lấn, pin cúc áo, pin 9V vuông, pin Li-ion/18650/pin điện thoại, pin rỉ sét/chảy hóa chất và mẫu âm tính khó dạng trụ/thiết bị điện).
 
 ### Nguồn thu thập độc lập & Bản quyền mở
@@ -143,7 +143,7 @@ File cấu hình đề xuất (chưa chạy): `configs/training_yolov8n_v4_propo
 2. **`VAL_V3_TABLETOP` (`328` ảnh, `930` boxes, `29` tabletop batteries):** Cổng kiểm tra hồi quy trong miền Roboflow.
 3. **`VAL_REAL_BATTERY` (`11` ảnh độc lập từ Task 7: `10` ảnh đa dạng gồm `21` battery boxes + `1` ảnh hard negative):** Đánh giá độc lập trên cụm nhiều pin (`task7_16`, `task7_29`, `task7_31`, `task7_41`, `task7_54`), pin cúc áo (`task7_09`), pin 9V (`task7_14`, `task7_43`), pin điện thoại BL-5C (`task7_56`) và hard negative tủ điện/ống kim loại (`task7_27`).
 4. **`TEST` (`299` ảnh, `720` boxes):** Tập kiểm thử nội bộ đóng băng (`FROZEN`).
-5. **`HOLDOUT` (`27` ảnh `D:\Hinh_Anh_Rac`, `57` GT boxes):** Tập nghiệm thu thực tế bên ngoài đóng băng (`FROZEN`).
+5. **`HOLDOUT` (`27` ảnh `data/holdout`, `57` GT boxes):** Tập nghiệm thu thực tế bên ngoài đóng băng (`FROZEN`).
 
 ### 4.2. Số lượng ảnh và box dự kiến của `TRAIN_V4`
 - `Train V2 baseline`: `1.398` ảnh (`3.963` boxes, trong đó `1` battery box).
@@ -171,7 +171,7 @@ Mặc dù lô 30 ảnh `QA_PASS` (`61` boxes) của Task 7 đã giải quyết t
 - Đa dạng hình thái (pin cúc áo CR2032/ML2032, pin vuông 9V, pin sạc 18650/21700, pin máy ảnh LP-E6, pin điện thoại Nokia BL-5C, pin rỉ sét/chảy hóa chất),
 - Mẫu âm tính khó (tụ điện trụ, hộp điện âm tường, ống luồn dây kim loại),
 
-**Vẫn còn 3 khoảng trống dữ liệu thực tế cần bổ sung tiếp trước khi kỳ vọng cải thiện mạnh trên `D:\Hinh_Anh_Rac`:**
+**Vẫn còn 3 khoảng trống dữ liệu thực tế cần bổ sung tiếp trước khi kỳ vọng cải thiện mạnh trên `data/holdout`:**
 1. **Ảnh hỗn hợp nhiều loại rác (`Mixed-Class Waste Context`):** Toàn bộ 30 ảnh `QA_PASS` từ Wikimedia Commons chỉ chứa lớp `0: battery` (hoặc hard negative không có rác), chưa có ảnh chụp **pin nằm lẫn cùng vỏ chai nhựa, giấy vụn, lon kim loại, bìa carton trên cùng một khung hình** như trong thùng rác sinh hoạt thực tế.
 2. **Nền hiện trường phức tạp & khoảng cách chụp xa (`Small Object Scale`):** Phần lớn ảnh Wikimedia là ảnh chụp cận cảnh/trung cảnh (`bbox area` chiếm 10%–70% diện tích ảnh), trong khi ảnh thực tế ngoài đời hoặc camera giám sát có thể chụp từ khoảng cách 1–1.5 mét trên nền gạch đá hoa, nền bê tông hoặc đất cát khiến viên pin chỉ chiếm `< 3%` diện tích ảnh.
 3. **Chính sách gán nhãn đống pin dày đặc (`Dense Pile Policy`):** `task7_37` (đống >40 viên pin chồng lấp) và `task7_44` (hộp 48 viên Duracell) đang được giữ trong `NEEDS_MANUAL_REVIEW` chờ PM quyết định có gán nhãn từng viên bị che khuất hay loại bỏ.

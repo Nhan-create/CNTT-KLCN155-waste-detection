@@ -1,13 +1,13 @@
 # BÁO CÁO THỰC THI SPRINT AI-UPGRADE-01 — TASK 5C
 ## TIẾP NHẬN NGUỒN PIN, KIỂM TOÁN DỮ LIỆU & ĐỀ XUẤT PILOT TRAINING
 
-- **Repository:** `D:\CNTT-KLCN155-waste-detection`
+- **Repository:** `.`
 - **Mã công việc:** SPRINT AI-UPGRADE-01 — TASK 5C (BATTERY DATA QA)
 - **Thời điểm hoàn tất:** 2026-10-13 22:50 UTC+7
 - **Phân định vai trò:** Antigravity Integrator + Chuyên trách Data / Model / QA
 - **Tệp nguồn xác minh:** `Waste-battery-only.v1i.yolov8.zip` (18,593,303 bytes)
 - **URL nguồn chính thức:** [https://universe.roboflow.com/battery-detection-yuv0z/waste-battery-only/dataset/1](https://universe.roboflow.com/battery-detection-yuv0z/waste-battery-only/dataset/1)
-- **Gói bàn giao:** `C:\Users\ad\Downloads\CNTT_KLCN155_Task5C_Delivery.zip`
+- **Gói bàn giao:** `~/Downloads\CNTT_KLCN155_Task5C_Delivery.zip`
 - **Cam kết Gatekeeper:** `APPROVED_FOR_TRAIN = 0` (Chờ quyết định phê duyệt của PM).
 
 ---
@@ -80,7 +80,7 @@ Toàn bộ **350 ảnh** và **505 bounding boxes** đã được kiểm tra hì
 
 1. **Đối chiếu với tập dữ liệu dự án hiện hữu (4,046 references từ train, val, test, external holdout):**
    - **Rò rỉ SHA-256 chính xác:** **0 ảnh** (Không trùng bất kỳ ảnh nào hiện có).
-   - **Rò rỉ gần đúng pHash (Hamming distance $\le 8$):** **0 ảnh** (Không có ảnh nào trùng góc chụp hay phiên chụp với tập dữ liệu nội bộ và holdout `D:\Hinh_Anh_Rac`).
+   - **Rò rỉ gần đúng pHash (Hamming distance $\le 8$):** **0 ảnh** (Không có ảnh nào trùng góc chụp hay phiên chụp với tập dữ liệu nội bộ và holdout `data/holdout`).
 2. **Kiểm tra chồng lấn giữa các Split nguồn trong Roboflow:**
    - 105 base images của `train` và 35 base images của `valid` có **độ giao nhau (intersection) = 0**.
    - Không có ảnh validation nào là phiên bản augment của ảnh train.
@@ -94,7 +94,7 @@ Toàn bộ **350 ảnh** và **505 bounding boxes** đã được kiểm tra hì
 
 Hệ thống đã xuất **13 contact sheets** có vẽ bounding box màu xanh `(0, 220, 0)` kèm nhãn `bat(0)` và metadata độ phân giải, số hộp, phân tách split để người dùng nghiệm thu trực quan:
 
-- **Thư mục lưu trữ:** [`data/acquisition_staging/roboflow_battery/contact_sheets/`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/roboflow_battery/contact_sheets/)
+- **Thư mục lưu trữ:** [`data/acquisition_staging/roboflow_battery/contact_sheets/`](data/acquisition_staging/roboflow_battery/contact_sheets/)
 - **Danh mục Contact Sheets:**
   1. `battery_valid_all_01.jpg` (520 KB): 16 ảnh validation đầu tiên.
   2. `battery_valid_all_02.jpg` (530 KB): 16 ảnh validation tiếp theo.
@@ -102,7 +102,7 @@ Hệ thống đã xuất **13 contact sheets** có vẽ bounding box màu xanh `
   4. `battery_train_sample_01.jpg` (680 KB): Mẫu 16 ảnh train tiêu biểu.
   5. `battery_train_sample_02.jpg` (650 KB): Mẫu 16 ảnh train tiêu biểu tiếp theo.
   6. `battery_multi_battery_01.jpg` đến `08.jpg` (4.1 MB): Toàn bộ **114 ảnh chứa từ 2 pin trở lên** (kiểm chứng khả năng phát hiện đa vật thể).
-- **Mẫu Overlays phân giải gốc (Full-res Overlays):** 6 ảnh mẫu tại [`data/acquisition_staging/roboflow_battery/overlays/`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/roboflow_battery/overlays/).
+- **Mẫu Overlays phân giải gốc (Full-res Overlays):** 6 ảnh mẫu tại [`data/acquisition_staging/roboflow_battery/overlays/`](data/acquisition_staging/roboflow_battery/overlays/).
 
 ### Phân loại trạng thái QA tự động (QA Decisions):
 - `QA_PASS_SINGLE_OBJECT`: **226 ảnh** (Chứa đúng 1 pin, bọc khít, nhãn sạch).
@@ -132,7 +132,7 @@ Theo tính toán từ Task 5A/5B, dự án thiếu chính xác **29 boxes train*
 
 > **Quy chuẩn bất biến:**
 > - Toàn bộ dữ liệu baseline v2 (train, val, test) và checkpoint gốc `artifacts/detection_v2/E1_yolov8n_10cls/weights/best.pt` được **giữ nguyên 100% không chỉnh sửa**.
-> - Tập external holdout 27 ảnh (`D:\Hinh_Anh_Rac`) không được dùng trong quá trình training hay tinh chỉnh threshold.
+> - Tập external holdout 27 ảnh (`data/holdout`) không được dùng trong quá trình training hay tinh chỉnh threshold.
 
 ---
 
@@ -158,7 +158,7 @@ TỔNG CỘNG: 87 passed in 15.52s (100% PASS, 0 FAILURES)
 ## 8. NỘI DUNG GÓI BÀN GIAO `CNTT_KLCN155_Task5C_Delivery.zip`
 
 Gói bàn giao nghiệm thu được lưu trữ tại:
-👉 `C:\Users\ad\Downloads\CNTT_KLCN155_Task5C_Delivery.zip`
+👉 `~/Downloads\CNTT_KLCN155_Task5C_Delivery.zip`
 
 Bao gồm:
 1. `TASK5C_BATTERY_DATA_QA_REPORT.md` (Báo cáo nghiệm thu đầy đủ).

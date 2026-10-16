@@ -2,7 +2,7 @@
   "timestamp": "2026-10-13T19:57:40+0700",
   "audit_script": "scripts/check_split_leakage.py",
   "manifest_path": "data\\audit\\split_manifest_v2.csv",
-  "manifest_sha256": "1429a22ebbf95cc464881f903dae5ac6dcc5e6e64152e1dd3353e9365429ec96",
+  "manifest_sha256": "f83def99895e990d474e3ebc66d45fe5692c1496497705089ec9a2183d058980",
   "audit_status": "VERIFIED_NO_LEAKAGE_WITHIN_HASH_SCOPE",
   "audit_scope": "Exhaustive pairwise scan: exact SHA-256 byte match + pHash (64-bit DCT) Hamming distance <= 4 with manual visual review of all candidate pairs.",
   "exact_sha256_overlap": {

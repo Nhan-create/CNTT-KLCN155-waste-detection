@@ -33,7 +33,7 @@
 - **Nguồn trích xuất:** `reports/qa_acceptance/baseline_results_yolov8n.json`, dòng 15–16.
 - **Checkpoint thực thi:** `artifacts\detection_v2\E1_yolov8n_10cls\weights\best.pt`  
   *(SHA-256: `7e986deed90ba4208f4662039c1e78b2d03ffb41a6e57e8235184db78aec32d8`)*.
-- **Tập dữ liệu:** 27 ảnh holdout `D:\Hinh_Anh_Rac` (57 vật thể GT).
+- **Tập dữ liệu:** 27 ảnh holdout `data/holdout` (57 vật thể GT).
 - **Bộ đánh giá:** `reports/qa_acceptance/run_baseline_evaluation.py`.
 - **Cấu hình chạy:** `confidence_threshold = 0.15`, và tại dòng 204: `iou_match_threshold = 0.20` (hạ ngưỡng IoU xuống 0.20 thay vì 0.50 chuẩn COCO).
 - **Phép tính thực tế:**
@@ -44,7 +44,7 @@
 
 ### 2.2. Nguồn gốc của $\text{mAP50} = 0.1380$
 - **Nguồn trích xuất:** `artifacts/detection_v2/E1_yolov8n_10cls/eval_val_test.json`, dòng 72.
-- **Tập dữ liệu:** Phân tách `test.txt` (299 ảnh, trích từ bộ dữ liệu Mendeley/v2), **hoàn toàn không phải tập holdout 27 ảnh `D:\Hinh_Anh_Rac`**.
+- **Tập dữ liệu:** Phân tách `test.txt` (299 ảnh, trích từ bộ dữ liệu Mendeley/v2), **hoàn toàn không phải tập holdout 27 ảnh `data/holdout`**.
 - **Chỉ số gốc:** Tại dòng 72, giá trị này chính xác là:
   $$\text{test.map50\_95} = 0.1380492811576202$$
   Trong khi đó, trên cùng tập test 299 ảnh này: $\text{test.map50} = 0.222756$ ($22.28\%$), và trên tập val 299 ảnh: $\text{val.map50} = 0.2473$, $\text{val.map50\_95} = 0.1600$.
@@ -83,8 +83,8 @@
 Thực hiện kiểm tra toàn diện 10 mắt xích trong chuỗi xử lý hình học của YOLOv8n:
 
 1. **Kích thước ảnh gốc:** Được đọc chính xác từ PIL/OpenCV, kiểm tra chéo với `manifest_hinh_anh_rac.json`.
-2. **EXIF orientation:** Kiểm tra toàn bộ 27 ảnh trong `D:\Hinh_Anh_Rac`. Toàn bộ 27 ảnh đều có EXIF Orientation tag = 1 (hoặc không có tag), `raw_size == trans_size`. Không có hiện tượng ảnh bị xoay 90/180/270 độ làm lệch tọa độ.
-3. **RGB / BGR:** `WasteDetector.detect_pil` tại dòng 189 của [`src/detection/yolo.py`](file:///d:/CNTT-KLCN155-waste-detection/src/detection/yolo.py#L189) nhận ảnh RGB từ PIL, chuyển đổi `np.asarray(prepared)[:, :, ::-1].copy()` sang BGR trước khi gọi Ultralytics. Không có hiện tượng đảo kênh màu gây mất đặc trưng.
+2. **EXIF orientation:** Kiểm tra toàn bộ 27 ảnh trong `data/holdout`. Toàn bộ 27 ảnh đều có EXIF Orientation tag = 1 (hoặc không có tag), `raw_size == trans_size`. Không có hiện tượng ảnh bị xoay 90/180/270 độ làm lệch tọa độ.
+3. **RGB / BGR:** `WasteDetector.detect_pil` tại dòng 189 của [`src/detection/yolo.py`](../src/detection/yolo.py#L189) nhận ảnh RGB từ PIL, chuyển đổi `np.asarray(prepared)[:, :, ::-1].copy()` sang BGR trước khi gọi Ultralytics. Không có hiện tượng đảo kênh màu gây mất đặc trưng.
 4. **Resize & Letterbox:** Ultralytics tự động letterbox giữ nguyên tỉ lệ khung hình (aspect ratio) khi đưa vào mạng ở kích thước `imgsz` (320 hoặc 640), sau đó tự động un-pad và rescale tọa độ box về đúng kích thước pixel gốc của ảnh đầu vào.
 5. **Định dạng xyxy / xywh:** Output của `boxes.xyxy` trả về `[x1, y1, x2, y2]`. BoundingBox trong `src/detection/types.py` quản lý chặt chẽ theo `[x1, y1, x2, y2]`.
 6. **Normalized vs Absolute Pixel:** Đã kiểm chứng: Ultralytics `boxes.xyxy` trả về tọa độ **Pixel tuyệt đối**, hoàn toàn đồng nhất với tọa độ pixel trong `ground_truth_hinh_anh_rac.json`.
@@ -92,7 +92,7 @@ Thực hiện kiểm tra toàn diện 10 mắt xích trong chuỗi xử lý hìn
 
 ### Bằng chứng trực quan: Các hình Overlay GT (Xanh lá) và Prediction (Đỏ)
 Đã xuất 5 hình ảnh kiểm chứng độc lập lưu tại thư mục:  
-[`reports/qa_acceptance/gt_pred_overlays_verified/`](file:///d:/CNTT-KLCN155-waste-detection/reports/qa_acceptance/gt_pred_overlays_verified/)
+[`reports/qa_acceptance/gt_pred_overlays_verified/`](../reports/qa_acceptance/gt_pred_overlays_verified/)
 
 1. **Ảnh `battery-sample.png` ($512 \times 411$):**  
    - GT: `battery [14, 50, 503, 371]`
@@ -129,7 +129,7 @@ Trong repository tồn tại 3 cơ chế đánh giá:
 - Đây là nguyên nhân vì sao cùng một file kết quả, `run_baseline_evaluation.py` ghi nhận 9 TP (ở IoU $\ge 0.20$), nhưng `practical_metrics.py` chỉ ghi nhận 5 TP (ở IoU $\ge 0.50$).
 
 ### 4.3. Bằng chứng kiểm thử tự động
-Đã bổ sung bộ kiểm thử toán học [`tests/qa/test_evaluator_synthetic_verification.py`](file:///d:/CNTT-KLCN155-waste-detection/tests/qa/test_evaluator_synthetic_verification.py):
+Đã bổ sung bộ kiểm thử toán học [`tests/qa/test_evaluator_synthetic_verification.py`](../tests/qa/test_evaluator_synthetic_verification.py):
 ```
 tests/qa/test_acceptance_evaluator.py::test_manifest_integrity PASSED
 tests/qa/test_acceptance_evaluator.py::test_ground_truth_integrity PASSED

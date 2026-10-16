@@ -1,7 +1,7 @@
 # BÁO CÁO NGHIỆM THU: REAL IMAGE PREVIEW & VISUAL QA (OPEN IMAGES 3 SAMPLES)
 
 **Dự án:** Hệ thống nhận diện rác thải sinh hoạt KLCN155  
-**Thư mục làm việc:** `D:\CNTT-KLCN155-waste-detection`  
+**Thư mục làm việc:** `.`  
 **Thời điểm thực thi:** 2026-10-12  
 **Trạng thái kiểm duyệt:** 2 REJECTED, 1 PENDING_NEGATIVE_REVIEW, 0 APPROVED  
 **Tình trạng dữ liệu:** 0 ảnh được merge vào train, 0 ảnh được huấn luyện  
@@ -10,7 +10,7 @@
 
 ## 1. TỔNG QUAN THỰC THI & CƠ CHẾ AN TOÀN
 
-Thực hiện theo chỉ đạo phê duyệt của người dùng với script [`scripts/stage_whitelisted_pilot_images.py`](file:///d:/CNTT-KLCN155-waste-detection/scripts/stage_whitelisted_pilot_images.py):
+Thực hiện theo chỉ đạo phê duyệt của người dùng với script [`scripts/stage_whitelisted_pilot_images.py`](../scripts/stage_whitelisted_pilot_images.py):
 
 1. **Cơ chế kiểm soát tải ảnh (Fail-Closed):**
    - **Whitelist cứng 3 ảnh duy nhất:** `078821d86db99fc9` (Apple), `74a44994e3d6b962` (Banana), `e29db1c1963628e7` (Building).
@@ -19,7 +19,7 @@ Thực hiện theo chỉ đạo phê duyệt của người dùng với script [
    - **Bắt buộc cờ phê duyệt:** Mọi lệnh chạy không có `--approve-preview-download` đều bị từ chối với exit code 1.
 
 2. **Dữ liệu đệm độc lập:**
-   - Lưu trữ biệt lập tại: [`data/acquisition_staging/pilot_preview_3/`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/pilot_preview_3/)
+   - Lưu trữ biệt lập tại: [`data/acquisition_staging/pilot_preview_3/`](../data/acquisition_staging/pilot_preview_3/)
    - Tuyệt đối không can thiệp vào `data/detection_v2`, `data/detection_v3_candidate` hay bất kỳ split huấn luyện/kiểm thử nào.
 
 ---
@@ -40,7 +40,7 @@ Thực hiện theo chỉ đạo phê duyệt của người dùng với script [
 
 ### 3.1 Mẫu 1: `078821d86db99fc9` (Apple / biological)
 - **Tiêu đề gốc Flickr:** *"Omenapuu Åkerö"* (Cây táo giống Åkerö) của tác giả Matleena Laakso.
-- **Quan sát trực quan từ ảnh overlay ([`overlay_oi_078821d86db99fc9.jpg`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/pilot_preview_3/overlays/overlay_oi_078821d86db99fc9.jpg)):**
+- **Quan sát trực quan từ ảnh overlay ([`overlay_oi_078821d86db99fc9.jpg`](../data/acquisition_staging/pilot_preview_3/overlays/overlay_oi_078821d86db99fc9.jpg)):**
   - Hai quả táo tươi đang treo trực tiếp trên cành cây ăn quả, lá cây xanh tươi bao quanh.
   - Đây là nông sản / cây trồng tự nhiên trong vườn cây ăn quả.
 - **Tiêu chí loại trừ:** *"Trái cây còn sống trên cây hoặc đang được trồng -> REJECT."*
@@ -48,7 +48,7 @@ Thực hiện theo chỉ đạo phê duyệt của người dùng với script [
 
 ### 3.2 Mẫu 2: `74a44994e3d6b962` (Banana / biological)
 - **Tiêu đề gốc Flickr:** *"Vegan Lemon Cornmeal Pancakes"* của tác giả tomatoes and friends.
-- **Quan sát trực quan từ ảnh overlay ([`overlay_oi_74a44994e3d6b962.jpg`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/pilot_preview_3/overlays/overlay_oi_74a44994e3d6b962.jpg)):**
+- **Quan sát trực quan từ ảnh overlay ([`overlay_oi_74a44994e3d6b962.jpg`](../data/acquisition_staging/pilot_preview_3/overlays/overlay_oi_74a44994e3d6b962.jpg)):**
   - 4 lát chuối tươi được xếp trang trí làm topping bên trên đĩa bánh pancake nóng hổi, đặt trên đĩa sứ hoa văn đặt trên bàn ăn gia đình.
   - Đây là món ăn ẩm thực đang được phục vụ thưởng thức.
 - **Tiêu chí loại trừ:** *"Chuối trên đĩa thức ăn bình thường -> REJECT."*
@@ -56,7 +56,7 @@ Thực hiện theo chỉ đạo phê duyệt của người dùng với script [
 
 ### 3.3 Mẫu 3: `e29db1c1963628e7` (Building / hard_negatives)
 - **Tiêu đề gốc Flickr:** *"Ronda"* của tác giả Manuela Aguilera.
-- **Quan sát trực quan từ ảnh overlay ([`overlay_oi_e29db1c1963628e7.jpg`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/pilot_preview_3/overlays/overlay_oi_e29db1c1963628e7.jpg)):**
+- **Quan sát trực quan từ ảnh overlay ([`overlay_oi_e29db1c1963628e7.jpg`](../data/acquisition_staging/pilot_preview_3/overlays/overlay_oi_e29db1c1963628e7.jpg)):**
   - Toàn cảnh cầu đá lịch sử Puente Nuevo tại thị trấn Ronda (Tây Ban Nha), với hẻm núi đá vôi hùng vĩ và bầu trời xanh.
   - Rà soát toàn bộ khung hình không thấy bất kỳ mảnh rác sinh hoạt nào (không vỏ chai, túi ni-lông, cốc giấy).
 - **Tiêu chí kiểm định:** Không tự động đánh dấu `VERIFIED_TRUE_NEGATIVE` khi chưa có quyết định của người dùng.
@@ -70,7 +70,7 @@ Thực hiện theo chỉ đạo phê duyệt của người dùng với script [
 - **Số ảnh chờ duyệt (PENDING):** 1 ảnh (`e29db1c1963628e7`).
 - **Số ảnh được phê duyệt huấn luyện (APPROVED):** 0 ảnh.
 - **Số ảnh được merge vào tập train:** 0 ảnh.
-- **Contact Sheet hợp nhất:** Đã xuất tại [`contact_sheet_preview_3.jpg`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/pilot_preview_3/contact_sheet/contact_sheet_preview_3.jpg) hiển thị trực quan cả 3 mẫu cùng thông tin bbox, nguồn và thẻ đánh giá.
+- **Contact Sheet hợp nhất:** Đã xuất tại [`contact_sheet_preview_3.jpg`](../data/acquisition_staging/pilot_preview_3/contact_sheet/contact_sheet_preview_3.jpg) hiển thị trực quan cả 3 mẫu cùng thông tin bbox, nguồn và thẻ đánh giá.
 
 ---
 

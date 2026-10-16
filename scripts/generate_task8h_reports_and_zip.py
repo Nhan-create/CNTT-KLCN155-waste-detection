@@ -6,7 +6,7 @@ Updates & Generates:
 3. `reports/task8_dataset_program/CANONICAL_5000_DATASET_LEDGER.{md,json,csv}` (V5 — Post-Task 8H)
 4. `reports/task8_dataset_program/REAL_WASTE_10CLASS_VALIDATION_PLAN.{md,json}` (V4 — Post-Task 8H)
 5. `reports/task8_dataset_program/TASK8H_SCARCE_CLASS_SCALING_REPORT.{md,json}`
-6. `D:\CNTT-KLCN155-waste-detection\TASK8H_SCARCE_CLASS_SCALING.zip` (and `C:\Users\ad\Downloads\TASK8H_SCARCE_CLASS_SCALING.zip`)
+6. `TASK8H_SCARCE_CLASS_SCALING.zip` (and `~/Downloads/TASK8H_SCARCE_CLASS_SCALING.zip`)
 """
 from __future__ import annotations
 

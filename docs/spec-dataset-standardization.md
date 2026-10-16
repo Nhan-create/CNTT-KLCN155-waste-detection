@@ -15,7 +15,7 @@
 2. **Thiếu hoàn toàn ảnh Negative (Zero Background Images)**:
    - Toàn bộ 1398 ảnh train đều chứa ít nhất 1 box rác. Không có bất kỳ ảnh cảnh nền rỗng nào (`empty label`).
    - Hậu quả: Detector kích hoạt False Positive trên tường gạch, biển hiệu, tủ kỹ thuật và vỉa hè vì nó chưa từng được học cảnh nền không có rác.
-3. **Dị thường cấu trúc trong Ground Truth Holdout v1 (`D:\Hinh_Anh_Rac`)**:
+3. **Dị thường cấu trúc trong Ground Truth Holdout v1 (`data/holdout`)**:
    - 7 box chiếm đúng 100% diện tích ảnh (full canvas fill).
    - 12 box chiếm $\ge 80\%$ diện tích ảnh.
    - 2 ảnh thùng rác công cộng và giỏ rác văn phòng bị gán nhãn thành rác `plastic` cần thu gom.

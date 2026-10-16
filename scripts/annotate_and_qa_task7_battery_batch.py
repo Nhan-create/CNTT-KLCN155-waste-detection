@@ -9,7 +9,7 @@ Sprint AI-UPGRADE-01 — Task 7 (Part B2, B3, B4):
 3. Runs a comprehensive SHA-256 + 4-rotation pHash leakage check against:
    - Dataset V2 (1,996 images across train/val/test)
    - Roboflow Battery Export (350 images: 140 canonical + 210 augmented)
-   - External Holdout (27 images in D:\\Hinh_Anh_Rac)
+   - External Holdout (27 images in data/holdout)
    - Cross-split specimen/author grouping between proposed TRAIN_V4 and VAL_REAL_BATTERY.
 4. Produces:
    - `data/acquisition_staging/task7_diverse_battery_batch/task7_qa_manifest.json`
@@ -892,7 +892,7 @@ def main() -> None:
                 "2. Validation V3 Tabletop (328 images, 930 boxes, 29 tabletop batteries) — In-domain Regression Gate",
                 "3. NEW Validation Real-World Battery (`val_real_battery`: 10 QA_PASS images, 19 diverse battery boxes + 1 hard negative, expandable to 25+ images) — Model Selection & EarlyStopping Gate for diverse batteries",
                 "4. Internal Test Frozen (299 images, 720 boxes) — Blind Final Internal Test (never used for tuning)",
-                "5. External Holdout (27 images, 57 GT objects in D:\\Hinh_Anh_Rac) — Blind External Acceptance Benchmark (never used for tuning)",
+                "5. External Holdout (27 images, 57 GT objects in data/holdout) — Blind External Acceptance Benchmark (never used for tuning)",
             ],
         },
         "e4_conservative_finetuning_config_proposal": {

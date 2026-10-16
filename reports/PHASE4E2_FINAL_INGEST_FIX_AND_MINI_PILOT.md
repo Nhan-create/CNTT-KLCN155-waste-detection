@@ -1,7 +1,7 @@
 # BÁO CÁO NGHIỆM THU: PHASE 4E.2 — FINAL INGEST FIX & REAL MINI-PILOT GATING
 
 **Dự án:** Hệ thống nhận diện rác thải sinh hoạt KLCN155  
-**Thư mục làm việc:** `D:\CNTT-KLCN155-waste-detection`  
+**Thư mục làm việc:** `.`  
 **Thời điểm thực thi:** 2026-10-12  
 **Trạng thái phê duyệt huấn luyện:** 0 ảnh mới được duyệt vào train (`APPROVED_FOR_TRAIN = 0`)  
 **Trạng thái tải ảnh thực tế:** 0 ảnh mới được tải (`REAL NEW IMAGES DOWNLOADED = 0`)  
@@ -10,7 +10,7 @@
 
 ## 1. KHẮC PHỤC CÁC LỖI TÁI HIỆN BỞI REVIEWER (P0 INGEST & LEAKAGE)
 
-File: [`scripts/ingest_roboflow_battery_export.py`](file:///d:/CNTT-KLCN155-waste-detection/scripts/ingest_roboflow_battery_export.py)
+File: [`scripts/ingest_roboflow_battery_export.py`](../scripts/ingest_roboflow_battery_export.py)
 
 ### 1.1 Kiểm tra chính xác 5 tokens YOLO
 - Trước đây hàm chỉ kiểm tra `len(parts) < 5`, dẫn đến trường hợp dòng có hơn 5 tokens (ví dụ 6 tokens) vẫn lọt qua.
@@ -31,7 +31,7 @@ File: [`scripts/ingest_roboflow_battery_export.py`](file:///d:/CNTT-KLCN155-wast
 
 ### 1.4 Kiểm tra đẳng thức số lượng lớp: `nc == len(names)`
 - Trước đây file `data.yaml` có `nc=1` nhưng `names` chứa 2 lớp vẫn hợp lệ.
-- **Bản sửa đổi:** Hàm [`inspect_roboflow_data_yaml()`](file:///d:/CNTT-KLCN155-waste-detection/scripts/ingest_roboflow_battery_export.py) nâng ngoại lệ `ValueError("Roboflow data.yaml class count mismatch: nc={nc} != len(names)={len(names)}")` nếu có sự bất nhất giữa `nc` và số lượng tên lớp.
+- **Bản sửa đổi:** Hàm [`inspect_roboflow_data_yaml()`](../scripts/ingest_roboflow_battery_export.py) nâng ngoại lệ `ValueError("Roboflow data.yaml class count mismatch: nc={nc} != len(names)={len(names)}")` nếu có sự bất nhất giữa `nc` và số lượng tên lớp.
 
 ### 1.5 Phân loại và cách ly (Quarantine) các lớp nguồn không xác minh
 - Trước đây toàn bộ các lớp trong file nhãn bị chuyển thành `0: battery`.
@@ -40,28 +40,28 @@ File: [`scripts/ingest_roboflow_battery_export.py`](file:///d:/CNTT-KLCN155-wast
   * Các đối tượng có Class ID thuộc các lớp khác hoặc không nhận diện được sẽ khiến ảnh bị **CÁCH LY (QUARANTINED)**: `QUARANTINED_CONTAINS_NON_BATTERY_OR_UNRECOGNIZED_CLASS_ID_{id}`, tuyệt đối không tự ý gộp vào lớp Pin.
 
 ### 1.6 Xử lý ZIP an toàn (Zip Slip & Zip Bomb Protection)
-- Hàm [`safe_extract_untrusted_zip()`](file:///d:/CNTT-KLCN155-waste-detection/scripts/ingest_roboflow_battery_export.py):
+- Hàm [`safe_extract_untrusted_zip()`](../scripts/ingest_roboflow_battery_export.py):
   * Giới hạn tối đa 2,000 tệp và 300 MiB dung lượng giải nén (ngăn chặn Zip Bomb).
   * Kiểm tra đường dẫn từng tệp giải nén bằng `path.is_relative_to(target_dir)` (ngăn chặn tấn công Zip Slip ghi đè ra ngoài thư mục đích).
 
 ### 1.7 Kiểm tra Leakage toàn diện (V2, V3, Holdout Fail-Closed)
 - Bắt buộc kiểm tra đồng thời v2, v3 candidate và holdout. Thiếu cấu hình YAML, file split `.txt` hoặc bất kỳ ảnh vật lý nào trên đĩa đều nâng `FileNotFoundError`.
-- Holdout đọc toàn bộ 27 ảnh bao gồm cả `.jpg`, `.jpeg`, và `.png` dựa trên [`reports/qa_acceptance/manifest_hinh_anh_rac.json`](file:///d:/CNTT-KLCN155-waste-detection/reports/qa_acceptance/manifest_hinh_anh_rac.json).
+- Holdout đọc toàn bộ 27 ảnh bao gồm cả `.jpg`, `.jpeg`, và `.png` dựa trên [`reports/qa_acceptance/manifest_hinh_anh_rac.json`](../reports/qa_acceptance/manifest_hinh_anh_rac.json).
 - Kiểm tra SHA-256 (chống trùng lặp tuyệt đối) và pHash Hamming distance ($\le 8$) với toàn bộ train, val, test và holdout.
 - Bổ sung kiểm tra **Near-Duplicate giữa các ảnh bên trong nội bộ tệp xuất Roboflow**.
-- Thiết lập bộ đệm băm [`data/audit/authoritative_hashes_cache.json`](file:///d:/CNTT-KLCN155-waste-detection/data/audit/authoritative_hashes_cache.json) giúp tốc độ kiểm tra hồi quy giảm từ 82 giây xuống 0.7 giây mà vẫn bảo đảm 100% độ chính xác mật mã.
+- Thiết lập bộ đệm băm [`data/audit/authoritative_hashes_cache.json`](../data/audit/authoritative_hashes_cache.json) giúp tốc độ kiểm tra hồi quy giảm từ 82 giây xuống 0.7 giây mà vẫn bảo đảm 100% độ chính xác mật mã.
 - Toàn bộ ảnh trích xuất thành công được gán trạng thái `IMPORTED_PENDING_VISUAL_QA` và `PENDING_USER_APPROVAL` (không tự gán `VISUALLY_REVIEWED` hoặc `APPROVED_FOR_TRAIN`).
 
 ---
 
 ## 2. KẾT QUẢ KIỂM THỬ HỒI QUY (TDD EVIDENCE)
 
-Tệp kiểm thử: [`tests/qa/test_phase4e_intake_safety.py`](file:///d:/CNTT-KLCN155-waste-detection/tests/qa/test_phase4e_intake_safety.py)
+Tệp kiểm thử: [`tests/qa/test_phase4e_intake_safety.py`](../tests/qa/test_phase4e_intake_safety.py)
 
 ```text
 ============================= test session starts =============================
 platform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.6.0
-rootdir: D:\CNTT-KLCN155-waste-detection
+rootdir: .
 collected 14 items
 
 tests/qa/test_phase4e_intake_safety.py::test_validate_yolo_bbox_valid_cases PASSED [  7%]
@@ -98,9 +98,9 @@ tests/qa/test_phase4e_intake_safety.py::test_quarantine_non_battery_source_class
 
 - **Tổng dung lượng 4 ảnh:** 10,714,787 bytes (~10.22 MiB), tuân thủ trần giới hạn tối đa 20 MiB.
 - **Quy trình khi được phê duyệt:**
-  1. Tải ảnh có giới hạn chunk buffer qua script [`scripts/stage_phase4e_whitelist_candidates.py`](file:///d:/CNTT-KLCN155-waste-detection/scripts/stage_phase4e_whitelist_candidates.py).
+  1. Tải ảnh có giới hạn chunk buffer qua script [`scripts/stage_phase4e_whitelist_candidates.py`](../scripts/stage_phase4e_whitelist_candidates.py).
   2. Tính toán mã băm SHA-256 và pHash, kiểm tra toàn vẹn định dạng bằng Pillow.
-  3. Tự động kết xuất ảnh Contact Sheet tổng hợp 2x2 lưu tại [`data/acquisition_staging/phase4e_staging/contact_sheet/mini_pilot_contact_sheet.jpg`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/phase4e_staging/contact_sheet/).
+  3. Tự động kết xuất ảnh Contact Sheet tổng hợp 2x2 lưu tại [`data/acquisition_staging/phase4e_staging/contact_sheet/mini_pilot_contact_sheet.jpg`](../data/acquisition_staging/phase4e_staging/contact_sheet/).
   4. Visual QA: Đề xuất bounding box riêng biệt cho `biological` và kiểm tra 100% khung hình đối với ảnh tủ điện âm bản.
   5. Đối chiếu leakage chống trùng lặp trước khi đệ trình người dùng xem xét đưa vào huấn luyện.
 

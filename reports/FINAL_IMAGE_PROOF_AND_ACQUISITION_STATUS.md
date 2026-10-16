@@ -1,14 +1,14 @@
 # BÁO CÁO NGHIỆM THU: FINAL IMAGE PROOF & DATA ACQUISITION
 **Dự án:** Hệ thống nhận diện rác thải đa nguồn KLCN155  
-**Repository:** `D:\CNTT-KLCN155-waste-detection`  
+**Repository:** `.`  
 **Thời điểm thực thi:** 2026-10-12  
-**Trạng thái kiểm thử:** 27 Passed, 0 Failed ([`reports/data_v2/phase4d2_correction_raw_test.log`](file:///d:/CNTT-KLCN155-waste-detection/reports/data_v2/phase4d2_correction_raw_test.log))
+**Trạng thái kiểm thử:** 27 Passed, 0 Failed ([`reports/data_v2/phase4d2_correction_raw_test.log`](../reports/data_v2/phase4d2_correction_raw_test.log))
 
 ---
 
 ## 1. P0 — BẢN VÁ APPROVAL CUỐI CÙNG TRONG EXPORT_TRAIN_MANIFEST.PY
 
-Đã sửa dứt điểm lỗi phê duyệt được reviewer tái hiện trong [`src/detection/export_train_manifest.py`](file:///d:/CNTT-KLCN155-waste-detection/src/detection/export_train_manifest.py):
+Đã sửa dứt điểm lỗi phê duyệt được reviewer tái hiện trong [`src/detection/export_train_manifest.py`](../src/detection/export_train_manifest.py):
 
 ### 1.1 Chi tiết bản vá an toàn (Fail-Closed)
 1. **Bắt buộc `images_dir` đối với mọi ảnh mới:**
@@ -23,7 +23,7 @@
    - Không tuyên bố `CRYPTOGRAPHIC_APPROVAL_VERIFIED` nếu không có bằng chứng so khớp mật mã đồng thời cả file ảnh và file nhãn trên đĩa vật lý.
 
 ### 1.2 Bằng chứng kiểm thử hồi quy (Regression Test)
-Trong [`tests/detection/test_train_command_smoke.py`](file:///d:/CNTT-KLCN155-waste-detection/tests/detection/test_train_command_smoke.py):
+Trong [`tests/detection/test_train_command_smoke.py`](../tests/detection/test_train_command_smoke.py):
 - **Test Case 7 (Thiếu `images_dir`):** Gọi `validate_image_eligibility` với `images_dir=None` trên `NEW_CANDIDATE` -> Đạt: Trả về `is_ok=False`, `err="MISSING_IMAGE_VERIFICATION"`, ném `MissingImageVerificationError`.
 - **Test Case 8 (Sửa đổi bytes ảnh):** Thay đổi nội dung tệp ảnh trên đĩa sau khi có approval record -> Đạt: Trả về `is_ok=False`, `err="INVALID_APPROVAL_RECORD"`, báo lỗi "image SHA-256 mismatch".
 
@@ -31,11 +31,11 @@ Trong [`tests/detection/test_train_command_smoke.py`](file:///d:/CNTT-KLCN155-wa
 
 ## 2. P0 — CHỈ GIỮ NGUỒN DỮ LIỆU CÓ BẰNG CHỨNG TRONG MANIFEST
 
-Đã tái cấu trúc toàn diện [`data/acquisition_staging/manifests/candidate_acquisition_manifest.json`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/manifests/candidate_acquisition_manifest.json) (phiên bản `3.0.0-proven-shortlist`):
+Đã tái cấu trúc toàn diện [`data/acquisition_staging/manifests/candidate_acquisition_manifest.json`](../data/acquisition_staging/manifests/candidate_acquisition_manifest.json) (phiên bản `3.0.0-proven-shortlist`):
 
 1. **Phân định ranh giới rõ ràng:**
    - **`active_shortlist` (Chỉ 5 mục):**
-     * **3 ảnh Open Images thật:** Đã xác thực đầy đủ ImageID 16-hex, dòng CSV trong `D:\waste-training\openimages-validation-boxes.csv`, metadata Flickr và S3 URL.
+     * **3 ảnh Open Images thật:** Đã xác thực đầy đủ ImageID 16-hex, dòng CSV trong `data/external/waste-training/openimages-validation-boxes.csv`, metadata Flickr và S3 URL.
      * **2 yêu cầu Roboflow bị chặn:** Đánh dấu rõ ràng `BLOCKED_REQUIRES_ACCESS` (không có ID giả mạo, không có URL suy đoán).
    - **`rejected_unverified_history` (35 mục):**
      * Toàn bộ 35 mục cũ sinh theo quy ước trước đây đã được chuyển sang khu vực lịch sử cách ly.
@@ -52,7 +52,7 @@ Trong [`tests/detection/test_train_command_smoke.py`](file:///d:/CNTT-KLCN155-wa
 
 ## 3. P1 — SCRIPT TẢI STAGING WHITELIST 3 ẢNH OPEN IMAGES
 
-Đã tạo script quản lý tải đệm độc lập: [`scripts/stage_whitelisted_pilot_images.py`](file:///d:/CNTT-KLCN155-waste-detection/scripts/stage_whitelisted_pilot_images.py)
+Đã tạo script quản lý tải đệm độc lập: [`scripts/stage_whitelisted_pilot_images.py`](../scripts/stage_whitelisted_pilot_images.py)
 
 ### 3.1 Thiết kế an toàn
 - **Whitelist cứng chỉ 3 ảnh:**

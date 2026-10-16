@@ -21,7 +21,7 @@ def main() -> None:
 
     report_md = f"""# BÁO CÁO NGHIỆM THU BẢN VÁ TASK 7 FINAL QA PATCH (CHỈ SỬA 2 ẢNH: `task7_30` & `task7_53`)
 
-- **Repository:** `D:\\CNTT-KLCN155-waste-detection`
+- **Repository:** `.`
 - **Reviewer & Patch Author:** `{qa['qa_reviewer']}`
 - **Thời gian cập nhật (UTC):** `{qa['generated_at_utc']}`
 - **Trạng thái phê duyệt huấn luyện:** **`APPROVED_FOR_TRAIN = 0`** (`False` trên toàn bộ 56 ứng viên)

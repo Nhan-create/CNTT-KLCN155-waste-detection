@@ -8,7 +8,7 @@
 
 ## I. TỔNG HỢP KẾT QUẢ XÁC MINH QUA WIKIMEDIA COMMONS API
 
-Toàn bộ 25 ứng viên trong manifest [batch_a_candidate_manifest.json](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/manifests/batch_a_candidate_manifest.json) đã được truy vấn trực tiếp qua API chính thức của Wikimedia Commons (`https://commons.wikimedia.org/w/api.php?action=query&prop=imageinfo&iiprop=url|size|mime|extmetadata`). Bằng chứng JSON thô được lưu tại [wikimedia_raw_api_responses.json](file:///d:/CNTT-KLCN155-waste-detection/reports/source_verification/wikimedia_raw_api_responses.json).
+Toàn bộ 25 ứng viên trong manifest [batch_a_candidate_manifest.json](../../data/acquisition_staging/manifests/batch_a_candidate_manifest.json) đã được truy vấn trực tiếp qua API chính thức của Wikimedia Commons (`https://commons.wikimedia.org/w/api.php?action=query&prop=imageinfo&iiprop=url|size|mime|extmetadata`). Bằng chứng JSON thô được lưu tại [wikimedia_raw_api_responses.json](../../reports/source_verification/wikimedia_raw_api_responses.json).
 
 ### 1. Số liệu tổng quan:
 - **TỔNG SỐ ỨNG VIÊN QUÉT:** 25

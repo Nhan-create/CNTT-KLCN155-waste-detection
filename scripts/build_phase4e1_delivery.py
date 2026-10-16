@@ -3,7 +3,7 @@ scripts/build_phase4e1_delivery.py
 -----------------------------------
 Packages all Phase 4E.1 scripts, intake safety tests, raw execution logs,
 catalogs, and reports into a delivery ZIP archive:
-C:\\Users\\ad\\Downloads\\PHASE4E1_REAL_WASTE_MINI_PILOT_EVIDENCE.zip
+~/Downloads/PHASE4E1_REAL_WASTE_MINI_PILOT_EVIDENCE.zip
 """
 
 import hashlib

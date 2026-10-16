@@ -3,7 +3,7 @@ scripts/build_phase4b1_delivery.py
 -----------------------------------
 Packages all Phase 4B.1 verified artifacts, source code, regression tests,
 logs, manifests, YOLO config, and dry-run reports into:
-C:\\Users\\ad\\Downloads\\PHASE4B1_SAFETY_VERIFICATION_EVIDENCE.zip
+~/Downloads/PHASE4B1_SAFETY_VERIFICATION_EVIDENCE.zip
 """
 
 import sys

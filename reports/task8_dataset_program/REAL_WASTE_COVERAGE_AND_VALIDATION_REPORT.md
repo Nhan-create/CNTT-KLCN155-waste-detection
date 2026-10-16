@@ -45,13 +45,13 @@ Every record in both Wave 1 (`221` records) and Wave 2 (`1,196` records) now car
 3. **Explicit Policy for Open Images V7 Test & Validation Split Origins:**
    - Images originating from `openimages_v7_test` or `openimages_v7_validation` are **preferentially routed to `VAL_REAL_WASTE_W2`** when verified as `REAL_WASTE_PASS` (`ACTUAL_WASTE`), unless their photographer `session_group` already has images in train (in which case the entire session group is kept together to prevent cross-split photographer leakage). They are never mixed across splits and never touch the existing frozen project benchmarks.
 4. **Frozen Test & Holdout Isolation:**
-   - Existing frozen test sets (`299` pre-audit / `274` sanitized candidate in `data/Unified_Dataset/test`) and the 27-image external holdout (`D:\Hinh_Anh_Rac`) remain 100% untouched and are never used to tune data selection or thresholds.
+   - Existing frozen test sets (`299` pre-audit / `274` sanitized candidate in `data/Unified_Dataset/test`) and the 27-image external holdout (`data/holdout`) remain 100% untouched and are never used to tune data selection or thresholds.
 
 ---
 
 ## 4. Complete List of All 41 Wave 2 `REAL_WASTE_PASS` Images
 
-- **Visual Contact Sheet:** [`task8c_wave2_all_real_waste_pass_after.jpg`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/task8_wave2_large_batch/contact_sheets_task8c/task8c_wave2_all_real_waste_pass_after.jpg)
+- **Visual Contact Sheet:** [`task8c_wave2_all_real_waste_pass_after.jpg`](../../data/acquisition_staging/task8_wave2_large_batch/contact_sheets_task8c/task8c_wave2_all_real_waste_pass_after.jpg)
 
 | Item ID | Source Family | Verified Classes | Boxes | Split | Session Group | Visual Evidence of Real Waste |
 |---|---|---|---:|---|---|---|

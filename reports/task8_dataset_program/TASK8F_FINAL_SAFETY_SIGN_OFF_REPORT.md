@@ -1,6 +1,6 @@
 # TASK 8F FINAL SAFETY CHECK — CLOSE SEMANTIC QA SIGN-OFF REPORT
 
-- **Repository:** `D:\CNTT-KLCN155-waste-detection`
+- **Repository:** `.`
 - **Manifest Version:** `TASK8F_SCARCE_CLASSES_V2_SEMANTIC_QA_CORRECTED`
 - **Manifest JSON SHA-256 (Idempotent Run 1 == Run 2):** `7a24e9344c8e410b70269ce42b8408d18016ce1f664f0cee36f5f91d8529bb85`
 - **Manifest CSV SHA-256 (Idempotent Run 1 == Run 2):** `8e11b1068791b551a726ae363c19be2197a82f84f4f3f87fca8f9fbed396b83d`

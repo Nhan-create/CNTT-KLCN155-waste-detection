@@ -2,7 +2,7 @@
 scripts/generate_split_contamination_report.py
 ----------------------------------------------
 Audits all 15 Pilot Dataset images against all Dataset v2 and v3 splits (train, val, test)
-and Holdout benchmark images (manifest_hinh_anh_rac.json and D:\\Hinh_Anh_Rac).
+and Holdout benchmark images (manifest_hinh_anh_rac.json and data/holdout).
 
 Categorizes each into:
 - EXISTING_TRAIN

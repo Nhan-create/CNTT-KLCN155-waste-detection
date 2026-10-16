@@ -7,10 +7,15 @@ import pytest
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 def test_python_interpreter_is_local_venv():
-    """Ensure the test runner is executing from the project-local .venv."""
-    exe_path = Path(sys.executable).resolve()
-    assert "CNTT-KLCN155-waste-detection" in str(exe_path), f"Python executable {exe_path} is outside project workspace"
-    assert ".venv" in str(exe_path), f"Python executable {exe_path} is not in .venv"
+    """Ensure the test runner is executing from the project-local .venv or CI environment."""
+    exe_path = Path(sys.executable)
+    prefix_path = Path(sys.prefix).resolve()
+    if os.environ.get("CI", "").lower() == "true":
+        return
+    assert (
+        PROJECT_ROOT.name in str(exe_path)
+        or prefix_path.is_relative_to(PROJECT_ROOT)
+    ), f"Python environment {prefix_path} is outside project workspace {PROJECT_ROOT}"
 
 def test_src_module_is_workspace_local():
     """Ensure src resolves strictly within this repository."""

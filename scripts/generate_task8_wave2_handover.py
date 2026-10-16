@@ -6,8 +6,8 @@ Generates:
 2. `reports/task8_dataset_program/TEN_CLASS_PROGRESS_AND_MILESTONE_REPORT.md`
 3. `reports/task8_dataset_program/LICENSE_AND_PROVENANCE_REPORT.md`
 4. `reports/task8_dataset_program/TEST_SETS_AND_LEAKAGE_AUDIT_REPORT.md`
-5. Packages `C:\\Users\\ad\\Downloads\\TASK8_WAVE1_FIX_AND_WAVE2_DELIVERY.zip`
-   (and updates `C:\\Users\\ad\\Downloads\\TASK8_FIRST_WAVE_DELIVERY.zip`).
+5. Packages `~/Downloads/TASK8_WAVE1_FIX_AND_WAVE2_DELIVERY.zip`
+   (and updates `~/Downloads/TASK8_FIRST_WAVE_DELIVERY.zip`).
 """
 
 from __future__ import annotations
@@ -225,7 +225,7 @@ def main() -> None:
         "",
         "## 2. Upstream Candidate Pools: Verified Local Metadata vs Theoretical Estimates",
         "",
-        "| Upstream Source | License | Already Used in `real_v2` | Verified Metadata Rows Cached Locally (`D:\\waste-training\\`) | Actually Downloaded & Audited in W1+W2 | Remaining Unaudited Pool Status |",
+        "| Upstream Source | License | Already Used in `real_v2` | Verified Metadata Rows Cached Locally (`data/external/waste-training//`) | Actually Downloaded & Audited in W1+W2 | Remaining Unaudited Pool Status |",
         "|---|---|---:|---:|---:|---|",
         "| **TACO Official v1.0 (`pedropro/TACO`)** | `CC-BY-4.0` | **`1,500 / 1,500` (`100%`)** (`1,490` active + `10` EXIF-quarantined in `real_v2_source_manifest.csv`) | `1,500` images (`4,784` boxes in `taco_official_annotations.json`) | `0` in W1/W2 (intentionally skipped to prevent 100% duplication/leakage with `real_v2`!) | **Exhausted (`0` unused images remaining in official TACO 1.0)** |",
         f"| **Open Images V7 Train** | `CC-BY-2.0` (Flickr attribution) | `0` | `6,133` non-human, non-rotated images (`17,681` boxes) cached in `openimages-train-slice-meta.csv` (`5,422` author-disjoint from `real_v2`) | **{sum(1 for r in w2_recs if r['source_family']=='openimages_v7_train')}** downloaded in Wave 2 | ~`4,486` cached author-disjoint candidates remaining locally + full 9M Open Images Train CSV streamable |",
@@ -250,7 +250,7 @@ def main() -> None:
         "|---|---|---:|---|",
         "| **`real_v2/test` (Frozen Official Test)** | `data/detection/splits/real_v2/test.txt` | **299** | Primary immutable benchmark used for `E1`, `E2`, `E3` historical comparisons. Never modified or re-split. |",
         "| **`v3_candidate/test` (Leakage-Cleansed Test)** | `data/detection_v3_candidate/splits/test.txt` | **274** | Strict subset of `real_v2/test` (`299 - 25 = 274`) with 25 legacy train-test near-duplicate images removed. Used to verify leakage-free generalization. |",
-        "| **`holdout_27` (`D:\\Hinh_Anh_Rac`)** | `D:\\Hinh_Anh_Rac` (`reports/qa_acceptance/`) | **27** | Independent physical Vietnamese waste holdout set managed by QA Agent D. Zero overlap with any training/staging data. |",
+        "| **`holdout_27` (`data/holdout`)** | `data/holdout` (`reports/qa_acceptance/`) | **27** | Independent physical Vietnamese waste holdout set managed by QA Agent D. Zero overlap with any training/staging data. |",
         f"| **`VAL_REAL_WAVE1` + `VAL_REAL_WAVE2`** | Staging QA manifests | **{len(w1_val)} + {len(w2_val)} = {len(w1_val)+len(w2_val)}** | Photographer-session-disjoint validation splits from Wave 1 and Wave 2. |",
         "",
         "---",

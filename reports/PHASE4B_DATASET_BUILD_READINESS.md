@@ -22,8 +22,8 @@ Giai đoạn 4B đã hoàn thành toàn diện 5 mục tiêu trọng tâm theo �
 
 ## PHẦN 1: SỬA TOÀN DIỆN QUALITY GATES (P0)
 
-Tệp triển khai: [`scripts/validate_dataset_v3_quality_gates.py`](file:///d:/CNTT-KLCN155-waste-detection/scripts/validate_dataset_v3_quality_gates.py)  
-Tệp kiểm thử TDD: [`tests/qa/test_dataset_v3_quality_gates.py`](file:///d:/CNTT-KLCN155-waste-detection/tests/qa/test_dataset_v3_quality_gates.py) (20 unit tests)
+Tệp triển khai: [`scripts/validate_dataset_v3_quality_gates.py`](../scripts/validate_dataset_v3_quality_gates.py)  
+Tệp kiểm thử TDD: [`tests/qa/test_dataset_v3_quality_gates.py`](../tests/qa/test_dataset_v3_quality_gates.py) (20 unit tests)
 
 ### 1.1. Khắc phục lỗi NaN, Infinity và Tính toàn vẹn hình học
 - **Cơ chế lỗi cũ:** Trong Python, phép so sánh số học với `float('nan')` luôn trả về `False`, khiến các điều kiện biên `x1 < 0` hay `bw <= 0` bị vượt qua, trả về `True, "OK"`.
@@ -52,7 +52,7 @@ Hàm `check_hard_negative_label` phân loại chính xác 4 tình trạng tệp:
 - Bất kỳ ảnh nào có khoảng cách $\text{Hamming} \le 8$ sẽ bị kích hoạt cảnh báo rò rỉ tri giác (`HOLDOUT_LEAKAGE`).
 
 ### 1.5. Kết quả kiểm toán Quality Gates trên 2,143 tệp ảnh thực tế
-Thực thi kiểm toán độc lập qua script [`scripts/run_dataset_quality_gates_audit.py`](file:///d:/CNTT-KLCN155-waste-detection/scripts/run_dataset_quality_gates_audit.py) trên toàn bộ dữ liệu ảnh thực:
+Thực thi kiểm toán độc lập qua script [`scripts/run_dataset_quality_gates_audit.py`](../scripts/run_dataset_quality_gates_audit.py) trên toàn bộ dữ liệu ảnh thực:
 - **Tổng số ảnh quét:** **2,143 ảnh** (1,996 ảnh trong `splits_real_v2` + 147 ảnh ngoài split).
 - **Trạng thái VALID:** **1,949 ảnh (90.95%)**.
 - **Trạng thái FLAG_FOR_REVIEW:** **194 ảnh (9.05%)**:
@@ -60,7 +60,7 @@ Thực thi kiểm toán độc lập qua script [`scripts/run_dataset_quality_ga
   - 13 ảnh TACO có nhãn 0 boxes (do annotation gốc thuộc danh mục không thể ánh xạ).
 - **Trạng thái INVALID:** **0 ảnh (0.00%)**.
 - **Rò rỉ vào Holdout (SHA-256 / pHash $\le 8$):** **0 trường hợp (Cách ly tuyệt đối 100%)**.
-- Tệp báo cáo chi tiết: [`reports/data_v2/real_dataset_quality_gate_audit.json`](file:///d:/CNTT-KLCN155-waste-detection/reports/data_v2/real_dataset_quality_gate_audit.json) (1.6 MB).
+- Tệp báo cáo chi tiết: [`reports/data_v2/real_dataset_quality_gate_audit.json`](../reports/data_v2/real_dataset_quality_gate_audit.json) (1.6 MB).
 
 ---
 
@@ -75,7 +75,7 @@ Thực thi kiểm toán độc lập qua script [`scripts/run_dataset_quality_ga
 | **Detection Splits v2** | `data/detection/splits_real_v2/` | 1,996 ảnh | Tập split chuẩn v2 hiện hành (Train 1,398 / Val 299 / Test 299). | **ĐƯỢC BẢO TOÀN** (Không can thiệp) |
 | **Classification Crops** | `data/processed_v2/{train,val,test}/` | **15,138 ảnh** | Ảnh cắt vuông cận cảnh từng vật thể (Mendeley Waste: 756 pin, 699 rác hữu cơ,...). **Không có bounding box.** | **TUYỆT ĐỐI KHÔNG** (Chỉ dùng cho bộ phân loại Two-Stage) |
 | **Synthetic Detection** | `data/detection/images/synthetic/` | 1,305 ảnh | Ảnh ghép vật thể nhân tạo (đã cách ly do gây nhiễu biên và vỡ box). | **CÁCH LY** |
-| **Holdout Acceptance** | `D:\Hinh_Anh_Rac\` | 27 audit + 100 online | Bộ ảnh kiểm toán nghiệm thu độc lập. | **KHÓA NGHIÊM NGẶT** (Chỉ đọc để benchmark) |
+| **Holdout Acceptance** | `data/holdout/` | 27 audit + 100 online | Bộ ảnh kiểm toán nghiệm thu độc lập. | **KHÓA NGHIÊM NGẶT** (Chỉ đọc để benchmark) |
 
 ### 2.2. Hiện trạng Hard-Negatives và Đói nhãn Battery / Biological
 1. **Hard-Negatives:** Trong toàn bộ 2,143 ảnh detection hiện có, **không có bất kỳ ảnh cảnh nền sạch (clean background) ngoại vi nào**. Toàn bộ ảnh đều chứa rác. 13 ảnh TACO nhãn 0 bytes là do nhãn rác không xác định (rác vỡ vụn trên bờ biển), không phải cảnh nền sạch đô thị.
@@ -89,14 +89,14 @@ Thực thi kiểm toán độc lập qua script [`scripts/run_dataset_quality_ga
 - **Ảnh được phê duyệt (Vetted Candidate):** **1,820 ảnh** (Train: 1,277; Val: 269; Test: 274).
 - **Tổng số Bounding Box:** **4,331 boxes** (Train: 3,052; Val: 684; Test: 595).
 - **Hàng đợi kiểm duyệt (Review Queue):** 176 ảnh có box lớn hoặc dị thường được giữ riêng tại `reports/data_v2/real_dataset_quality_gate_audit.json` để chờ ý kiến QA.
-- **Tệp phân định nguồn gốc (Provenance):** [`data/detection_v3_candidate/manifests/dataset_provenance_report.json`](file:///d:/CNTT-KLCN155-waste-detection/data/detection_v3_candidate/manifests/dataset_provenance_report.json).
-- **Tệp toàn vẹn dữ liệu (Integrity):** [`data/detection_v3_candidate/manifests/dataset_integrity_report.json`](file:///d:/CNTT-KLCN155-waste-detection/data/detection_v3_candidate/manifests/dataset_integrity_report.json).
+- **Tệp phân định nguồn gốc (Provenance):** [`data/detection_v3_candidate/manifests/dataset_provenance_report.json`](../data/detection_v3_candidate/manifests/dataset_provenance_report.json).
+- **Tệp toàn vẹn dữ liệu (Integrity):** [`data/detection_v3_candidate/manifests/dataset_integrity_report.json`](../data/detection_v3_candidate/manifests/dataset_integrity_report.json).
 
 ---
 
 ## PHẦN 3: TƯƠNG THÍCH ULTRALYTICS YOLO (YOLO DATA COMPATIBILITY)
 
-Đã thiết lập module xuất bản và kiểm thử tương thích tại [`scripts/verify_yolo_v3_compatibility.py`](file:///d:/CNTT-KLCN155-waste-detection/scripts/verify_yolo_v3_compatibility.py) và [`tests/qa/test_yolo_v3_compatibility.py`](file:///d:/CNTT-KLCN155-waste-detection/tests/qa/test_yolo_v3_compatibility.py):
+Đã thiết lập module xuất bản và kiểm thử tương thích tại [`scripts/verify_yolo_v3_compatibility.py`](../scripts/verify_yolo_v3_compatibility.py) và [`tests/qa/test_yolo_v3_compatibility.py`](../tests/qa/test_yolo_v3_compatibility.py):
 
 ### 3.1. Cấu trúc thư mục chuẩn Ultralytics YOLO (`data/detection_v3_candidate/yolo/`)
 ```
@@ -114,7 +114,7 @@ data/detection_v3_candidate/yolo/
 
 ### 3.2. Nội dung tệp cấu hình `data.yaml`
 ```yaml
-path: D:\CNTT-KLCN155-waste-detection\data\detection_v3_candidate\yolo
+path: data\detection_v3_candidate\yolo
 train: images/train
 val: images/val
 test: images/test
@@ -144,8 +144,8 @@ names:
 
 ## PHẦN 4: THỰC THI TRAINING DRY RUN VÀ PHÂN TÍCH TÀI NGUYÊN (RTX 2050 4GB)
 
-Script thực thi: [`scripts/verify_training_dry_run_environment.py`](file:///d:/CNTT-KLCN155-waste-detection/scripts/verify_training_dry_run_environment.py)  
-Tệp kết quả: [`reports/model_v2/training_dry_run_report.json`](file:///d:/CNTT-KLCN155-waste-detection/reports/model_v2/training_dry_run_report.json)
+Script thực thi: [`scripts/verify_training_dry_run_environment.py`](../scripts/verify_training_dry_run_environment.py)  
+Tệp kết quả: [`reports/model_v2/training_dry_run_report.json`](../reports/model_v2/training_dry_run_report.json)
 
 ### 4.1. Thông số Phần cứng và Hệ thống
 - **GPU:** NVIDIA GeForce RTX 2050 Laptop GPU (4,095.5 MB VRAM).
@@ -205,7 +205,7 @@ flowchart LR
 |---|:---:|---|
 | **Sửa lỗi NaN trong Quality Gate** | **PASSED** | 20 unit tests trong `test_dataset_v3_quality_gates.py` passed 100%. |
 | **Kiểm toán dữ liệu thực tế** | **PASSED** | 2,143 ảnh đĩa quét qua Quality Gate: 1,949 VALID, 194 FLAGGED, 0 INVALID. |
-| **Bảo toàn dữ liệu gốc** | **PASSED** | `splits_real_v2` và `D:\Hinh_Anh_Rac` giữ nguyên vẹn 100%, không bị sửa đổi. |
+| **Bảo toàn dữ liệu gốc** | **PASSED** | `splits_real_v2` và `data/holdout` giữ nguyên vẹn 100%, không bị sửa đổi. |
 | **Dataset v3 Candidate** | **PASSED** | Thư mục riêng `data/detection_v3_candidate/` với đầy đủ manifests và splits. |
 | **YOLO Compatibility** | **PASSED** | `data.yaml` chuẩn Ultralytics, hardlinks 1-1, kiểm thử `check_det_dataset` passed. |
 | **Định cỡ phần cứng RTX 2050** | **PASSED** | SSDLite batch 16 (~1.45 GB VRAM); YOLO batch 8 + accum 2 (~1.65 GB VRAM). |

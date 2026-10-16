@@ -3,7 +3,7 @@ scripts/package_part02_verification_delivery.py
 ------------------------------------------------
 Packages code, verification checkpoints, official 1-epoch training runs, raw logs,
 pixel audit table & contact sheets, web testing proofs, and formal documentation into:
-C:\\Users\\ad\\Downloads\\Bao_Cao_Kiem_Chung_CNTT_KLCN155.zip
+~/Downloads/Bao_Cao_Kiem_Chung_CNTT_KLCN155.zip
 """
 
 import os

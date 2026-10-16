@@ -4,14 +4,14 @@
   "run_id": "run_20261008_154048_case_002",
   "timestamp": "2026-10-08T22:40:48.469922+07:00",
   "models_provenance": {
-    "yolov8n_checkpoint": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\detection\\waste-yolov8n-combined-seed42\\weights\\best.pt",
+    "yolov8n_checkpoint": "artifacts\\detection\\waste-yolov8n-combined-seed42\\weights\\best.pt",
     "yolov8n_sha256": "97f46ccaaa0a63c5934225d51ccd399c1c18eb3e1af8a63b9f14bec1aaa085c9",
-    "ssdlite_checkpoint": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\detection\\waste-ssdlite320-mobilenetv3-combined-seed42\\weights\\best.pt",
+    "ssdlite_checkpoint": "artifacts\\detection\\waste-ssdlite320-mobilenetv3-combined-seed42\\weights\\best.pt",
     "ssdlite_sha256": "584c5980eb4ebe3718da7b3e87a3c95edfee3d78f186def3e5feba32cf03dff1"
   },
   "input_image": {
     "file_name": "rac-thai-huu-co-1.jpg",
-    "raw_file_path": "D:\\CNTT-KLCN155-waste-detection\\reports\\multi_waste_detection_audit\\20261008_192500\\images\\case_002_raw.jpg",
+    "raw_file_path": "reports\\multi_waste_detection_audit\\20261008_192500\\images\\case_002_raw.jpg",
     "sha256": "63725ccb524387b443c28e9255a5eb2cf3cb2a1581e2f168e4ca9aff9caa0df2",
     "format": "JPEG",
     "dimensions": {

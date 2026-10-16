@@ -2,9 +2,9 @@
 ## (GROUND TRUTH V2 REVIEW FOR STAKEHOLDER APPROVAL)
 
 **Dự án:** Nhận diện Rác thải Đa lớp Thông minh (CNTT-KLCN155)  
-**Tập dữ liệu:** Holdout Độc lập `D:\Hinh_Anh_Rac` (27 ảnh kiểm toán)  
-**Tài liệu tham chiếu:** [`reports/qa_acceptance/ground_truth_hinh_anh_rac.json`](file:///D:/CNTT-KLCN155-waste-detection/reports/qa_acceptance/ground_truth_hinh_anh_rac.json) (v1 Frozen)  
-**Tệp đề xuất:** [`reports/qa_acceptance/ground_truth_hinh_anh_rac_v2_proposed.json`](file:///D:/CNTT-KLCN155-waste-detection/reports/qa_acceptance/ground_truth_hinh_anh_rac_v2_proposed.json)  
+**Tập dữ liệu:** Holdout Độc lập `data/holdout` (27 ảnh kiểm toán)  
+**Tài liệu tham chiếu:** [`reports/qa_acceptance/ground_truth_hinh_anh_rac.json`](../reports/qa_acceptance/ground_truth_hinh_anh_rac.json) (v1 Frozen)  
+**Tệp đề xuất:** [`reports/qa_acceptance/ground_truth_hinh_anh_rac_v2_proposed.json`](../reports/qa_acceptance/ground_truth_hinh_anh_rac_v2_proposed.json)  
 **Trạng thái:** DỪNG VÀ XIN Ý KIẾN PHÊ DUYỆT (CHƯA ĐÓNG BĂNG V2 KHI CHƯA ĐƯỢC CHẤP THUẬN)
 
 ---

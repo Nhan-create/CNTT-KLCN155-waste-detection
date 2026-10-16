@@ -5,7 +5,7 @@ Verified inventory and priority roadmap for real data expansion:
 - Rigorously validates dataset existence, class IDs, detection modalities, and licenses.
 - Categorizes sources by reliability tier (Tier 1 Verified vs Tier 2 Requiring Filtering).
 - Explicitly flags OpenImages /m/01cydv as non-boxable for detection, preventing false dependencies.
-- Confirms local availability of 3,344 biological boxes in D:\\waste-training.
+- Confirms local availability of 3,344 biological boxes in data/external/waste-training.
 - Lays out an actionable implementation plan for Battery, Biological, and Hard-Negatives.
 
 Outputs:
@@ -113,7 +113,7 @@ CATALOG = {
             "target_class": "biological",
             "source_id": "oi_v7_bio_boxable",
             "source_name": "Open Images V7 Boxable Classes (Fruit /m/02xwb, Vegetable /m/0f4s2w, Banana /m/09qck, Apple /m/014j1m)",
-            "url": "D:\\waste-training\\openimages-validation-boxes.csv (Indexed locally)",
+            "url": "data/external/waste-training/openimages-validation-boxes.csv (Indexed locally)",
             "license": "CC BY 4.0",
             "annotation_modality": "Human-verified bounding boxes (x_min, y_min, x_max, y_max)",
             "estimated_valid_intake": "60 - 100 images (after litter filtering)",
@@ -171,7 +171,7 @@ CATALOG = {
         {
             "priority": "P1-B (Pending PM Approval, ~100 MB)",
             "focus": "OpenImages Filtered Biological",
-            "action": "Extract 60-80 floor/discarded fruit/vegetable images from locally indexed D:\\waste-training annotations."
+            "action": "Extract 60-80 floor/discarded fruit/vegetable images from locally indexed data/external/waste-training annotations."
         }
     ]
 }
@@ -191,9 +191,9 @@ def main():
 ---
 
 ## 1. KẾT QUẢ XÁC MINH CÁC NGUỒN DỮ LIỆU (SOURCE VERIFICATION AUDIT)
-Trong quá trình kiểm tra thực tế trên đĩa `D:\\waste-training\\openimages-boxable-classes.csv`:
+Trong quá trình kiểm tra thực tế trên đĩa `data/external/waste-training/openimages-boxable-classes.csv`:
 - **Phát hiện quan trọng về Pin (Battery):** Nhãn `/m/01cydv` của Open Images **chỉ là image-level classification, KHÔNG NẰM TRONG 600 boxable detection classes của Open Images**. Do đó, catalog đã loại bỏ nguồn này để tránh phụ thuộc sai lệch.
-- **Xác minh nguồn Rác hữu cơ (Biological):** Đã kiểm tra file `D:\\waste-training\\openimages-validation-boxes.csv`, xác nhận có sẵn hơn **3.344 bounding box** cho các lớp Fruit (`/m/02xwb`), Vegetable (`/m/0f4s2w`), Banana (`/m/09qck`), Apple (`/m/014j1m`). Cần quy trình lọc để chỉ lấy các bối cảnh rơi vãi ngoài trời/sàn nhà, loại bỏ ảnh bàn ăn/siêu thị sạch.
+- **Xác minh nguồn Rác hữu cơ (Biological):** Đã kiểm tra file `data/external/waste-training/openimages-validation-boxes.csv`, xác nhận có sẵn hơn **3.344 bounding box** cho các lớp Fruit (`/m/02xwb`), Vegetable (`/m/0f4s2w`), Banana (`/m/09qck`), Apple (`/m/014j1m`). Cần quy trình lọc để chỉ lấy các bối cảnh rơi vãi ngoài trời/sàn nhà, loại bỏ ảnh bàn ăn/siêu thị sạch.
 - **Xác minh nguồn TACO:** TACO có sẵn Category 60 (`Batteries`) và Category 63, 64 (`Organic waste`, `Food waste`) với chú thích bounding box thật dạng COCO.
 - **Hai ảnh Biological có sẵn trong máy:** `taco_0072.jpg` và `taco_0092.jpg` nằm trong `data/detection/images/real/` chỉ cần được QA chỉnh sửa lại viền nhãn là có thể đưa vào train ngay mà không cần tải bất kỳ byte nào từ ngoài.
 

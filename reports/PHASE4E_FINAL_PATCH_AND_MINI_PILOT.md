@@ -1,6 +1,6 @@
 # ANTIGRAVITY — PHASE 4E: FINAL PATCH & REAL IMAGE MINI-PILOT REPORT
 
-**Repository:** `D:\CNTT-KLCN155-waste-detection`  
+**Repository:** `.`  
 **Execution Timestamp:** 2026-10-12  
 **Status:** TASK 1 COMPLETED (100% REGRESSION TESTS PASSED) | TASK 2 MINI-PILOT EXECUTED & DATA QA COMPLETED
 
@@ -120,7 +120,7 @@ The updated intake safety test suite in `tests/qa/test_phase4e_intake_safety.py`
 ```text
 ============================= test session starts =============================
 platform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.6.0
-rootdir: D:\CNTT-KLCN155-waste-detection, configfile: pytest.ini
+rootdir: ., configfile: pytest.ini
 collected 26 items
 
 tests/qa/test_phase4e_intake_safety.py::test_validate_yolo_bbox_valid_cases PASSED [  3%]

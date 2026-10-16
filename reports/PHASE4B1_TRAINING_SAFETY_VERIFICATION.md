@@ -27,7 +27,7 @@ Khi áp dụng hardlink lên file nhãn text (`.txt`):
 - Điều này vi phạm nghiêm trọng nguyên tắc **Bất biến của dữ liệu gốc (Immutability)**.
 
 ### 2.2. Giải pháp khắc phục & Bằng chứng Inode độc lập
-File xử lý: [scripts/build_dataset_v3_candidate.py](file:///d:/CNTT-KLCN155-waste-detection/scripts/build_dataset_v3_candidate.py)
+File xử lý: [scripts/build_dataset_v3_candidate.py](../scripts/build_dataset_v3_candidate.py)
 1. **File nhãn (`.txt`):** Thay thế toàn bộ bằng `shutil.copy2(src, dst)`. Mỗi file nhãn v3 được cấp phát MFT/Inode độc lập hoàn toàn.
 2. **File ảnh (`.jpg`, `.png`):** Áp dụng chính sách **Read-Only / Immutable**. Ảnh dùng hardlink để tiết kiệm dung lượng đĩa nhưng bị khóa thuộc tính chỉ đọc (`stat.S_IREAD`), ngăn chặn mọi hành vi ghi đè.
 3. **Làm sạch cache tái tạo:** Khi build lại, script tự động quét và xóa toàn bộ thư mục đích cũ cùng các file cache `.cache` của YOLO để ngăn chặn rác dữ liệu tồn đọng.
@@ -37,15 +37,15 @@ File xử lý: [scripts/build_dataset_v3_candidate.py](file:///d:/CNTT-KLCN155-w
 - `v3 label inode`: `281474977729218` (Khác nhau hoàn toàn, độc lập 100%).
 - Thử nghiệm sửa đổi nội dung file nhãn v3: File nhãn gốc v2 không bị biến đổi bất kỳ byte nào.
 
-**Kiểm thử tự động:** Bộ test [tests/qa/test_dataset_v3_isolation.py](file:///d:/CNTT-KLCN155-waste-detection/tests/qa/test_dataset_v3_isolation.py) đã chạy và đạt `3/3 PASSED`.
+**Kiểm thử tự động:** Bộ test [tests/qa/test_dataset_v3_isolation.py](../tests/qa/test_dataset_v3_isolation.py) đã chạy và đạt `3/3 PASSED`.
 
 ---
 
 ## 3. P0: THỰC THI TRAINING DRY-RUN THẬT & ĐO LƯỜNG TÀI NGUYÊN PHẦN CỨNG
 
 ### 3.1. Thiết kế bài test Training Dry-Run cách ly
-File thực thi: [scripts/verify_training_dry_run_environment.py](file:///d:/CNTT-KLCN155-waste-detection/scripts/verify_training_dry_run_environment.py)  
-Báo cáo chi tiết: [reports/model_v2/training_dry_run_report.json](file:///d:/CNTT-KLCN155-waste-detection/reports/model_v2/training_dry_run_report.json)
+File thực thi: [scripts/verify_training_dry_run_environment.py](../scripts/verify_training_dry_run_environment.py)  
+Báo cáo chi tiết: [reports/model_v2/training_dry_run_report.json](../reports/model_v2/training_dry_run_report.json)
 
 Khác với các lần chạy `model.eval()` giả lập trước đây, bài test này thực hiện quy trình huấn luyện thật 100%:
 - Khởi tạo kiến trúc mô hình chuẩn: `ssdlite320_mobilenet_v3_large(num_classes=11)` (Background = 0, Foreground = 1..10).
@@ -83,7 +83,7 @@ Khác với các lần chạy `model.eval()` giả lập trước đây, bài te
 
 ## 4. P1: ĐỐI SOÁT & GIẢI TRÌNH CÁC TẬP SPLITS V2 VS V3 CANDIDATE
 
-Báo cáo phân tích: [reports/data_v2/v3_splits_reconciliation_audit.json](file:///d:/CNTT-KLCN155-waste-detection/reports/data_v2/v3_splits_reconciliation_audit.json)
+Báo cáo phân tích: [reports/data_v2/v3_splits_reconciliation_audit.json](../reports/data_v2/v3_splits_reconciliation_audit.json)
 
 ### 4.1. Bảng đối soát số lượng ảnh theo Split
 
@@ -124,7 +124,7 @@ Tổng số ảnh thực tế trong thư mục `data/detection/images/real`: **2
 Số ảnh trong `splits_real_v2`: **1.996 ảnh**.  
 Chênh lệch trên đĩa: **147 ảnh** (118 ảnh tiền tố `oi_`, 29 ảnh tiền tố `taco_`).
 
-Toàn bộ 147 ảnh này đã được ghi nhận trong file kiểm soát cách ly [data/detection/quarantine_real_v2.csv](file:///d:/CNTT-KLCN155-waste-detection/data/detection/quarantine_real_v2.csv) với các lý do cụ thể:
+Toàn bộ 147 ảnh này đã được ghi nhận trong file kiểm soát cách ly [data/detection/quarantine_real_v2.csv](../data/detection/quarantine_real_v2.csv) với các lý do cụ thể:
 - `oi_human_present_in_use_object`: **101 ảnh** (Ảnh Open Images người đang đi giày hoặc mặc đồ, không phải rác thải vứt bừa bãi).
 - `review_status_REJECTED`: **14 ảnh** (Bị đánh giá REJECTED trong Phase 1 do nhãn sai lệch).
 - `empty_label`: **13 ảnh** (File nhãn rỗng 0 box).
@@ -151,7 +151,7 @@ Thực hiện kiểm tra toán học và tri giác toàn diện trên 1.820 ản
    - Train vs Val: `0 va chạm`
    - Train vs Test: `0 va chạm`
    - Val vs Test: `0 va chạm`
-2. **Kiểm tra va chạm SHA-256 với Tập kiểm thử độc lập (Holdout D:\Hinh_Anh_Rac):**
+2. **Kiểm tra va chạm SHA-256 với Tập kiểm thử độc lập (Holdout data/holdout):**
    - So sánh với 27 ảnh trong `reports/qa_acceptance/manifest_hinh_anh_rac.json`: `0 va chạm`.
 3. **Kiểm tra rò rỉ nhóm gần trùng lặp pHash (Perceptual Hash):**
    - Khoảng cách Hamming $\le 8$ giữa các ảnh thuộc các nhóm (groups) khác split: `0 nhóm bị rò rỉ`.
@@ -162,10 +162,10 @@ Thực hiện kiểm tra toán học và tri giác toàn diện trên 1.820 ản
 
 ## 6. P1: KIỂM ĐỊNH CHUYÊN SÂU ULTRALYTICS YOLO DATALOADER TRÊN DATASET V3
 
-Báo cáo chi tiết: [reports/model_v2/yolo_dataloader_verification_report.json](file:///d:/CNTT-KLCN155-waste-detection/reports/model_v2/yolo_dataloader_verification_report.json)  
-Script thực thi: [scripts/verify_yolo_dataloader_batches.py](file:///d:/CNTT-KLCN155-waste-detection/scripts/verify_yolo_dataloader_batches.py)
+Báo cáo chi tiết: [reports/model_v2/yolo_dataloader_verification_report.json](../reports/model_v2/yolo_dataloader_verification_report.json)  
+Script thực thi: [scripts/verify_yolo_dataloader_batches.py](../scripts/verify_yolo_dataloader_batches.py)
 
-Đã khởi tạo đối tượng `YOLODataset` và `build_dataloader` chính thức từ thư viện Ultralytics trên file cấu hình [data/detection_v3_candidate/yolo/data.yaml](file:///d:/CNTT-KLCN155-waste-detection/data/detection_v3_candidate/yolo/data.yaml):
+Đã khởi tạo đối tượng `YOLODataset` và `build_dataloader` chính thức từ thư viện Ultralytics trên file cấu hình [data/detection_v3_candidate/yolo/data.yaml](../data/detection_v3_candidate/yolo/data.yaml):
 - **Tập Train (kèm Augmentations Albumentations, batch_size=4, imgsz=640):**
   - Quét 1.277 file nhãn: `100% valid`, `0 background`, `0 corrupt`. Đã tạo cache `.cache` chuẩn.
   - Chạy thực nghiệm 5 batch (103 bounding boxes):
@@ -184,7 +184,7 @@ Script thực thi: [scripts/verify_yolo_dataloader_batches.py](file:///d:/CNTT-K
 
 ## 7. P1: DANH MỤC NGUỒN DỮ LIỆU MỞ RỘNG (EXPANSION PROPOSAL)
 
-Báo cáo chi tiết: [reports/data_v2/candidate_expansion_sources.json](file:///d:/CNTT-KLCN155-waste-detection/reports/data_v2/candidate_expansion_sources.json)
+Báo cáo chi tiết: [reports/data_v2/candidate_expansion_sources.json](../reports/data_v2/candidate_expansion_sources.json)
 
 > [!CAUTION]
 > **CHÍNH SÁCH TUÂN THỦ:** Nhóm kỹ sư cam kết **KHÔNG TỰ Ý DOWNLOAD DỮ LIỆU NGOÀI LỚN** khi chưa có phê duyệt từ PM / Product Owner. Toàn bộ các nguồn dưới đây được thiết kế sẵn theo dạng Catalog để sẵn sàng kích hoạt ngay khi được phê duyệt.
@@ -216,7 +216,7 @@ Báo cáo chi tiết: [reports/data_v2/candidate_expansion_sources.json](file://
 
 ### 8.2. Danh mục Bằng chứng đính kèm (Evidence Artifacts)
 Tất cả các tài liệu và bằng chứng đã được đóng gói hoàn chỉnh tại:  
-`C:\Users\ad\Downloads\PHASE4B1_SAFETY_VERIFICATION_EVIDENCE.zip`
+`~/Downloads\PHASE4B1_SAFETY_VERIFICATION_EVIDENCE.zip`
 - `reports/PHASE4B1_TRAINING_SAFETY_VERIFICATION.md` (Báo cáo này)
 - `reports/model_v2/training_dry_run_report.json` (Kết quả đo VRAM & 1-step dry run)
 - `reports/model_v2/yolo_dataloader_verification_report.json` (Kết quả nạp batch YOLO)

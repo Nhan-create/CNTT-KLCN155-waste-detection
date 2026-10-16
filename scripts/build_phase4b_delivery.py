@@ -3,7 +3,7 @@ scripts/build_phase4b_delivery.py
 ---------------------------------
 Packages all Phase 4B verified artifacts, source code, regression tests,
 logs, manifests, YOLO config, and dry-run report into:
-C:\\Users\\ad\\Downloads\\PHASE4B_DATASET_BUILD_EVIDENCE.zip
+~/Downloads/PHASE4B_DATASET_BUILD_EVIDENCE.zip
 """
 
 import sys

@@ -2,7 +2,7 @@
 scripts/export_all_reports_to_downloads.py
 -------------------------------------------
 Exports all project reports, plans, metrics, logs, test suites, and visual evidence
-to C:\\Users\\ad\\Downloads\\CNTT-KLCN155_Bao_Cao_Va_Bang_Chung
+to ~/Downloads/CNTT-KLCN155_Bao_Cao_Va_Bang_Chung
 and archives it into a ZIP file in Downloads for PM Ngô Thanh Nhân.
 """
 
@@ -153,7 +153,7 @@ def main():
 
 **Người nhận:** PM Ngô Thanh Nhân (HUIT)  
 **Ngày xuất gói:** 02/10/2026  
-**Thư mục nguồn:** `D:\\CNTT-KLCN155-waste-detection`  
+**Thư mục nguồn:** `.`  
 **Gói nén đính kèm:** `CNTT-KLCN155_Bao_Cao_Va_Bang_Chung.zip`
 
 ---

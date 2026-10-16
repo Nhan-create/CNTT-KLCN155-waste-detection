@@ -1,6 +1,6 @@
 """Build comprehensive QA evaluation manifest, approved/rejected manifests, and replacement candidate list.
 
-Destination: D:\Hinh_Anh_Rac\demo_multiobject_100_20261012\manifests\
+Destination: data/holdout/demo_multiobject_100_20261012/manifests/
 """
 
 from __future__ import annotations

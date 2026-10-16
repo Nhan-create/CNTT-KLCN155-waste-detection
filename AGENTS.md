@@ -16,7 +16,7 @@
 | **A** | **Data / Mapping** | - `src/detection/schema.py`<br>- `configs/detection_source_mapping.yaml`<br>- `reports/reproduce_scripts/audit_mendeley_mapping.py`<br>- `tests/detection/test_real_mapping_integration.py`<br>- `data/detection/labels/` (đánh dấu/quarantine) | Source samples/metadata thật, expected độc lập, output converter, patch và regression tests. |
 | **B** | **Model / Inference** | - `src/detection/ssdlite.py`<br>- `src/detection/ssdlite_train.py`<br>- `src/detection/yolo.py`<br>- `src/detection/factory.py`<br>- `configs/` liên quan training/inference | Config, split fingerprint, checkpoint hash, training logs, best/completed epochs và predictions thật. |
 | **C** | **Coordinates / Rendering** | - `src/detection/visualization.py`<br>- `src/detection/fusion.py`<br>- `src/web/detection_logic.py`<br>- `src/web/detection_settings.py`<br>- `streamlit_app.py`<br>- Chuyển đổi tọa độ, EXIF, letterbox, clipping | Patch, kiểm thử tọa độ xuôi/ngược, overlay qua luồng ứng dụng thực tế. |
-| **D** | **QA Độc lập** | - `reports/qa_acceptance/`<br>- Manifest và Ground Truth độc lập `D:\Hinh_Anh_Rac`<br>- Đánh giá baseline và nghiệm thu DoD<br>*(Tuyệt đối không sửa code mô hình/inference, không sửa GT để khớp prediction)* | Manifest 27 ảnh `D:\Hinh_Anh_Rac`, SHA-256, Ground Truth từng ảnh/vật thể, bảng đánh giá một-một, lỗi và bằng chứng. |
+| **D** | **QA Độc lập** | - `reports/qa_acceptance/`<br>- Manifest và Ground Truth độc lập `data/holdout`<br>- Đánh giá baseline và nghiệm thu DoD<br>*(Tuyệt đối không sửa code mô hình/inference, không sửa GT để khớp prediction)* | Manifest 27 ảnh `data/holdout`, SHA-256, Ground Truth từng ảnh/vật thể, bảng đánh giá một-một, lỗi và bằng chứng. |
 
 ---
 
@@ -32,8 +32,8 @@
 ## AI Skills Routing (Điều phối Kho Skills Toàn Máy)
 
 Khi thực hiện nhiệm vụ trong dự án này, Agent tuân thủ quy trình chọn và đọc Skills tại bộ tài liệu trung tâm trên máy:
-- **Hướng dẫn chính & Quy trình 7 bước:** `C:\Users\ad\.agents\docs\AI_SKILLS_GUIDE.md`
-- **Ma trận chọn Skill theo 11 nhóm nhiệm vụ & 4 cấp quy mô:** `C:\Users\ad\.agents\docs\TASK_SKILL_ROUTING_MATRIX.md`
-- **Hướng dẫn theo từng công cụ (Antigravity, Codex, Claude Code, Orca):** `C:\Users\ad\.agents\docs\TOOL_SKILL_GUIDES.md`
-- **Danh mục tổng (1.636 nội dung duy nhất):** `C:\Users\ad\.agents\docs\SKILLS_CATALOG.md`
+- **Hướng dẫn chính & Quy trình 7 bước:** `~/.agents\docs\AI_SKILLS_GUIDE.md`
+- **Ma trận chọn Skill theo 11 nhóm nhiệm vụ & 4 cấp quy mô:** `~/.agents\docs\TASK_SKILL_ROUTING_MATRIX.md`
+- **Hướng dẫn theo từng công cụ (Antigravity, Codex, Claude Code, Orca):** `~/.agents\docs\TOOL_SKILL_GUIDES.md`
+- **Danh mục tổng (1.636 nội dung duy nhất):** `~/.agents\docs\SKILLS_CATALOG.md`
 - **Nguyên tắc bắt buộc:** Mỗi bước chọn đúng **01 Skill chính** (chỉ thêm Skill bổ trợ khi có lý do rõ ràng), nêu ngắn gọn chọn skill nào và dùng công cụ đọc file (`view_file` / `Read`) đọc đầy đủ `SKILL.md` trước khi làm. Luôn giữ nguyên các ràng buộc riêng của dự án ở phía trên làm ưu tiên cao nhất.

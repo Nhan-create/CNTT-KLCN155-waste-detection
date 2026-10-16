@@ -1,7 +1,7 @@
 # HƯỚNG DẪN TÁI LẬP NHANH (QUICK REPRODUCE GUIDE) - TASK 1 R2
 
 Gói giao nộp: `Phan1_Mapping_10Lop_VERIFIED_R2.zip`  
-Thư mục dự án gốc: `D:\CNTT-KLCN155-waste-detection`
+Thư mục dự án gốc: `.`
 
 ---
 
@@ -22,7 +22,7 @@ Thư mục dự án gốc: `D:\CNTT-KLCN155-waste-detection`
 
 ## 2. Các lệnh tái lập (Reproduction Commands)
 
-Thực hiện trong terminal PowerShell tại thư mục `D:\CNTT-KLCN155-waste-detection`:
+Thực hiện trong terminal PowerShell tại thư mục `.`:
 
 ### Bước 1: Kích hoạt môi trường và kiểm tra GPU
 ```powershell

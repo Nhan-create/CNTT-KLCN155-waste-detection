@@ -10,7 +10,7 @@
 ## 1. MỤC TIÊU VÀ QUY MÔ DỮ LIỆU DÀI HẠN
 
 ### 1.1 Khảo sát thiếu hụt thực tế (Gap Analysis)
-Kết quả đánh giá trên tập kiểm thử độc lập ngoài thực tế (`D:\Hinh_Anh_Rac`, 27 ảnh, 57 vật thể) từ [PRACTICAL_METRICS_REPORT.md](file:///d:/CNTT-KLCN155-waste-detection/reports/qa_acceptance/PRACTICAL_METRICS_REPORT.md) đã chỉ ra các điểm yếu cốt tử của mô hình hiện tại:
+Kết quả đánh giá trên tập kiểm thử độc lập ngoài thực tế (`data/holdout`, 27 ảnh, 57 vật thể) từ [PRACTICAL_METRICS_REPORT.md](reports/qa_acceptance/PRACTICAL_METRICS_REPORT.md) đã chỉ ra các điểm yếu cốt tử của mô hình hiện tại:
 - **Pin / Ắc quy (Battery):** Recall = 0.00% (0/2 vật thể phát hiện được trên tập holdout). Số lượng mẫu train hiện có trong `splits_real_v2` quá ít và chủ yếu là ảnh đồ họa/studio, thiếu pin bị gỉ, pin cúc áo nằm trên đất.
 - **Rác sinh học / Hữu cơ (Biological):** Recall = 0.00% (0/3 vật thể phát hiện được). Mô hình chưa được học vỏ chuối nát, thức ăn thừa mục rữa trên mặt đường thật.
 - **Dương tính giả ngoại cảnh (False Positives):** Trên các cảnh đường phố, gạch lát, hộp kỹ thuật điện, mô hình nhận diện nhầm thiết bị công cộng thành `cardboard` hoặc `metal`.
@@ -63,7 +63,7 @@ Tập dữ liệu mới được mở rộng có giấy phép rõ ràng, phân b
 5. **Duyệt trùng lặp 2 lớp:**
    - Trùng lặp tuyệt đối: SHA-256 bit-for-bit.
    - Trùng lặp thị giác: pHash với khoảng cách Hamming $\le 8$.
-   - Đối chiếu chéo tự động với **3.842 mã băm đóng băng** của `splits_real_v2` và `holdout_27` (`D:\Hinh_Anh_Rac`).
+   - Đối chiếu chéo tự động với **3.842 mã băm đóng băng** của `splits_real_v2` và `holdout_27` (`data/holdout`).
 6. **Chia split theo Session / Video / Source:** Không bao giờ cắt các frame từ cùng một đoạn video ngắn vào cả tập Train và tập Test (Data Leakage nghiêm trọng). Mọi frame từ cùng một nguồn/buổi quay phải nằm trọn trong một tập duy nhất.
 
 ---
@@ -115,7 +115,7 @@ CHỐT TRẠNG THÁI HIỆN TẠI (PHASE 4E):
 - APPROVED FOR TRAIN         = 0 (TUYỆT ĐỐI KHÔNG TỰ AUTO-APPROVE; GIỮ NGUYÊN CHỜ DUYỆT)
 ======================================================================
 ```
-*Ghi chú quan trọng:* Hai ảnh QA PASS trên hiện đang được lưu an toàn tại [train_expansion_candidate_manifest.json](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/manifests/train_expansion_candidate_manifest.json). Chưa có bất kỳ file nhãn hay dòng dữ liệu nào bị chèn vào tập huấn luyện chính thức khi người dùng chưa bấm duyệt.
+*Ghi chú quan trọng:* Hai ảnh QA PASS trên hiện đang được lưu an toàn tại [train_expansion_candidate_manifest.json](data/acquisition_staging/manifests/train_expansion_candidate_manifest.json). Chưa có bất kỳ file nhãn hay dòng dữ liệu nào bị chèn vào tập huấn luyện chính thức khi người dùng chưa bấm duyệt.
 
 ---
 

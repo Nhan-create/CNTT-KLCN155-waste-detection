@@ -1,7 +1,7 @@
 {
   "generated_at_utc": "2026-10-11T16:20:42.640386+00:00",
   "status": "PASS",
-  "output_directory": "D:\\CNTT-KLCN155-waste-detection\\reports\\qa_acceptance\\phase3_gt_review",
+  "output_directory": "reports\\qa_acceptance\\phase3_gt_review",
   "active_disputed_objects": 6,
   "zero_active_filenames": 10,
   "visual_review_filenames": 16,

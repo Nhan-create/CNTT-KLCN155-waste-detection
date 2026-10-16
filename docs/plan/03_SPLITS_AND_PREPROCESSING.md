@@ -18,15 +18,15 @@ Thiết kế, kiểm toán độc lập và kiểm chứng quy trình tiền x�
    - Băm SHA-256 hoàn toàn bất lực trước hiện tượng này vì chỉ cần 1 pixel khác biệt là chuỗi băm thay đổi 100%.
    - Nếu để các ảnh này nằm rải rác giữa Train và Test, mô hình sẽ nhớ nền chụp và góc cạnh cụ thể của vật thể thay vì học đặc trưng ngữ nghĩa tổng quát, dẫn đến độ chính xác cao giả tạo (overoptimistic benchmark).
 2. **Khắc phục sai lệch kiểm toán trong R2:**
-   - Trong bản R2, báo cáo ghi nhận `cross_source_duplicates = 0`. Kiểm toán mã nguồn thực tế tại [scripts/audit_and_reconcile_data.py](file:///D:/CNTT-KLCN155-waste-detection/scripts/audit_and_reconcile_data.py) phát hiện đây là lỗi gán cứng số liệu (`"cross_source_duplicates": 0`).
-   - Kiểm toán thực tế trên [data/audit/duplicate_groups.csv](file:///D:/CNTT-KLCN155-waste-detection/data/audit/duplicate_groups.csv) (923 cặp) cho thấy: **890 cặp trùng là giữa Garbage V2 và VN Trash** (trong đó **879 cặp trùng tuyệt đối MD5/SHA-256**), và chỉ có 33 cặp trùng nội bộ trong VN Trash.
+   - Trong bản R2, báo cáo ghi nhận `cross_source_duplicates = 0`. Kiểm toán mã nguồn thực tế tại [scripts/audit_and_reconcile_data.py](../../scripts/audit_and_reconcile_data.py) phát hiện đây là lỗi gán cứng số liệu (`"cross_source_duplicates": 0`).
+   - Kiểm toán thực tế trên [data/audit/duplicate_groups.csv](../../data/audit/duplicate_groups.csv) (923 cặp) cho thấy: **890 cặp trùng là giữa Garbage V2 và VN Trash** (trong đó **879 cặp trùng tuyệt đối MD5/SHA-256**), và chỉ có 33 cặp trùng nội bộ trong VN Trash.
    - Nguyên nhân: Do quét Garbage V2 trước, mọi bản sao trùng lặp trong VN Trash đều bị đánh dấu là trùng với ảnh gốc thuộc Garbage V2.
 
 ---
 
 ## 2. Kết quả kiểm toán rò rỉ dữ liệu phân chia (`VERIFIED`)
 
-Báo cáo kiểm toán độc lập thực thi bằng script [scripts/check_split_leakage.py](file:///D:/CNTT-KLCN155-waste-detection/scripts/check_split_leakage.py) trên toàn bộ 14.831 ảnh của manifest phân chia vật lý tại [D:\HK7\Đồ án khóa luận\Data\processed](file:///D:/HK7/Đồ%20án%20khóa%20luận/Data/processed):
+Báo cáo kiểm toán độc lập thực thi bằng script [scripts/check_split_leakage.py](../../scripts/check_split_leakage.py) trên toàn bộ 14.831 ảnh của manifest phân chia vật lý tại [data/processed](../../data/processed):
 
 ### 2.1. Kiểm định băm toàn vẹn SHA-256
 - Giao tập Train $\cap$ Val: **0 ảnh** (`VERIFIED`)
@@ -36,7 +36,7 @@ Báo cáo kiểm toán độc lập thực thi bằng script [scripts/check_spli
 
 ### 2.2. Kiểm định băm tri giác pHash (Ngưỡng khoảng cách Hamming $\le 4$)
 Script đã tính khoảng cách bitwise pHash 64-bit trên toàn bộ các cặp xuyên split ($10.381 \times 2.225$ cặp Train-Val và $10.381 \times 2.225$ cặp Train-Test), phát hiện chính xác **18 cặp ứng viên**:
-- Kết quả đối soát trực quan từng cặp (lưu tại [data/audit/visual_phash_inspection/](file:///D:/CNTT-KLCN155-waste-detection/data/audit/visual_phash_inspection/) và [data/audit/cross_split_phash_verdicts.csv](file:///D:/CNTT-KLCN155-waste-detection/data/audit/cross_split_phash_verdicts.csv)):
+- Kết quả đối soát trực quan từng cặp (lưu tại [data/audit/visual_phash_inspection/](../../data/audit/visual_phash_inspection/) và [data/audit/cross_split_phash_verdicts.csv](../../data/audit/cross_split_phash_verdicts.csv)):
   1. **10 cặp `BURST_SHOT_SAME_OBJECT`** (Pixel MAE < 20.0): Cùng một vật thể vật lý trong cùng một bối cảnh chụp liên tiếp, nằm khác split (ví dụ: Pair 01, 02, 06, 07, 10, 11, 14, 15, 17, 18).
   2. **5 cặp `SAME_OBJECT_ROTATED_OR_PERSPECTIVE`** (Pixel MAE 20.0 – 38.0): Cùng một vật thể nhưng bị xoay góc hoặc đổi góc nhìn (Pair 03, 04, 05, 08, 12).
   3. **3 cặp `CROSS_CLASS_COINCIDENCE`** (Khác lớp, nền trắng đơn giản): Vật thể hình học đơn giản trên nền đồng nhất vô tình có pHash gần nhau (Pair 09, 13, 16).
@@ -63,7 +63,7 @@ pie title Phân loại 18 cặp pHash <= 4 xuyên split
 
 ## 4. Phân bố tập dữ liệu vật lý hiện tại (`VERIFIED`)
 
-Thư mục [D:\HK7\Đồ án khóa luận\Data\processed](file:///D:/HK7/Đồ%20án%20khóa%20luận/Data/processed):
+Thư mục [data/processed](../../data/processed):
 - **`train/`:** **10.381** ảnh ($69,99\%$)
 - **`val/`:** **2.225** ảnh ($15,00\%$)
 - **`test/`:** **2.225** ảnh ($15,00\%$) — **KHÓA CHẶT TUYỆT ĐỐI**

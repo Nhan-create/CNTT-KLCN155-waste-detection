@@ -3,8 +3,8 @@
 > **Dự án:** CNTT-KLCN155 — Hệ thống phát hiện và phân loại rác thải tự động
 > **Thời gian thực hiện:** 2026-10-12 10:42:43 (Giờ địa phương)
 > **Mô hình kiểm định:** `YOLOv8n-10cls` (Checkpoint: `artifacts/detection_v2/E1_yolov8n_10cls/weights/best.pt`)
-> **Thư mục lưu trữ độc lập:** `D:\Hinh_Anh_Rac\demo_multiobject_100_20261012\`
-> **Cam kết bảo toàn:** Giữ nguyên 100% hiện trạng 27 ảnh holdout và GTv1 tại `D:\Hinh_Anh_Rac`, không can thiệp evaluator cũ, không sửa weights.
+> **Thư mục lưu trữ độc lập:** `data/holdout/demo_multiobject_100_20261012\`
+> **Cam kết bảo toàn:** Giữ nguyên 100% hiện trạng 27 ảnh holdout và GTv1 tại `data/holdout`, không can thiệp evaluator cũ, không sửa weights.
 
 ---
 
@@ -136,10 +136,10 @@ Kiểm định thực tế trên 100 ảnh độc lập đã bộc lộ 4 điể
 ## 5. CẤU TRÚC LƯU TRỮ VÀ HÌNH ẢNH TRỰC QUAN TRÊN Ổ D
 
 Toàn bộ dữ liệu được tổ chức độc lập tuyệt đối tại:
-`D:\Hinh_Anh_Rac\demo_multiobject_100_20261012\`
+`data/holdout/demo_multiobject_100_20261012\`
 
 ```text
-D:\Hinh_Anh_Rac\demo_multiobject_100_20261012\
+data/holdout/demo_multiobject_100_20261012\
 ├── originals/                 # 100 ảnh JPEG gốc tải từ Wikimedia Commons (TEST_00_01.jpg .. TEST_09_10.jpg)
 ├── overlays/                  # 100 ảnh kết quả vẽ bounding box, nhãn và confidence YOLOv8n
 ├── contact_sheets/            # Bảng tổng hợp so sánh trực quan

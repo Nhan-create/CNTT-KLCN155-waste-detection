@@ -214,9 +214,9 @@
     }
   ],
   "openimages": {
-    "source_boxes_csv": "D:\\waste-training\\openimages-validation-boxes.csv",
+    "source_boxes_csv": "data/external/waste-training/openimages-validation-boxes.csv",
     "source_boxes_sha256": "b15b65dde524eeba93f47739b5f150e9a89372e2fc29fada4eddfb8c0a8c8942",
-    "source_classes_csv": "D:\\waste-training\\openimages-boxable-classes.csv",
+    "source_classes_csv": "data/external/waste-training/openimages-boxable-classes.csv",
     "source_classes_sha256": "1839e0e7e84130ae281f7f67413768601b031581c0c42e7fc17527b8e2a99aa9",
     "v2_manifest": "data/detection/real_v2_source_manifest.csv",
     "v2_manifest_sha256": "d5ae0dd4de456ec8ec0016f944dcb429658ed300b2c93546ba4a81063706717d",

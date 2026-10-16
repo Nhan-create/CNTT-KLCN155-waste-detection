@@ -1,4 +1,4 @@
-"""Search online, verify security/antivirus, sanitize, and download 100 diverse waste images to D:\\Hinh_Anh_Rac."""
+"""Search online, verify security/antivirus, sanitize, and download 100 diverse waste images to data/holdout."""
 
 from __future__ import annotations
 
@@ -326,7 +326,7 @@ def main():
         time.sleep(0.15)
 
     print("\n" + "=" * 70)
-    print(f"HOÀN THÀNH: Đã tải, quét virus và lưu trữ an toàn {success_count}/{target_total} ảnh vào D:\\Hinh_Anh_Rac!")
+    print(f"HOÀN THÀNH: Đã tải, quét virus và lưu trữ an toàn {success_count}/{target_total} ảnh vào data/holdout!")
     print("=" * 70)
 
     # Ghi nhận manifest chi tiết

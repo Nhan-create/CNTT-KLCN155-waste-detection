@@ -1,4 +1,4 @@
-"""Package all Task 6 deliverables into C:\\Users\\ad\\Downloads\\CNTT_KLCN155_Task6_E3_Training_Delivery.zip."""
+"""Package all Task 6 deliverables into ~/Downloads/CNTT_KLCN155_Task6_E3_Training_Delivery.zip."""
 
 from __future__ import annotations
 

@@ -1318,7 +1318,7 @@ def write_patch_markdown_report(
     lines = [
         "# BÁO CÁO NGHIỆM THU SỬA LỖI QA CUỐI CÙNG — TASK 8E (`TASK8E_FINAL_QA_PATCH_REPORT.md`)",
         "",
-        "- **Repository:** `D:\\CNTT-KLCN155-waste-detection`",
+        "- **Repository:** `.`",
         "- **Manifest đã cập nhật:** `data/acquisition_staging/task8e_scale_real_waste/task8e_qa_manifest.json` & `.csv` (`TASK8E_SCALE_REAL_WASTE_V3_POST_QA_PATCH`)",
         "- **Bản lưu trước khi sửa (Immutable Audit Snapshot):** `data/acquisition_staging/task8e_scale_real_waste/qa_patch_before_after/task8e_qa_manifest_pre_patch.json`",
         "- **Contact Sheet đối chiếu Before/After:** `data/acquisition_staging/task8e_scale_real_waste/contact_sheets/task8e_qa_patch_before_after.jpg`",

@@ -1,4 +1,4 @@
-"""Download, scan for security/malware, sanitize, and save 20 challenging waste images to D:\\Hinh_Anh_Rac."""
+"""Download, scan for security/malware, sanitize, and save 20 challenging waste images to data/holdout."""
 
 from __future__ import annotations
 
@@ -287,7 +287,7 @@ def main() -> None:
     print(f"Starting safe download and virus scan for 20 challenging waste images...")
     print(f"Target directory: {DEST_DIR}\n")
     
-    # Protect existing files in D:\Hinh_Anh_Rac
+    # Protect existing files in data/holdout
     existing_files_before = {p.name for p in DEST_DIR.glob("*") if p.is_file()}
     print(f"Existing files in {DEST_DIR} before operation: {len(existing_files_before)}")
 

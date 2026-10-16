@@ -1,10 +1,10 @@
 # BÁO CÁO HIỆU CHỈNH CHẤT LƯỢNG NHÃN NGỮ NGHĨA, DOMAIN RÁC & KHỬ BBOX TRÙNG — TASK 8F (`TASK8F_SEMANTIC_QA_CORRECTION_REPORT.md`)
 
-- **Repository:** `D:\CNTT-KLCN155-waste-detection`
-- **Script thực thi hiệu chỉnh:** [`scripts/correct_task8f_semantic_qa.py`](file:///d:/CNTT-KLCN155-waste-detection/scripts/correct_task8f_semantic_qa.py)
-- **Bản sao lưu Manifest trước hiệu chỉnh:** [`task8f_qa_manifest_pre_correction.json`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/task8f_scarce_classes/qa_correction_before_after/task8f_qa_manifest_pre_correction.json)
-- **Manifest sau hiệu chỉnh:** [`task8f_qa_manifest.json`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/task8f_scarce_classes/task8f_qa_manifest.json) | [`task8f_qa_manifest.csv`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/task8f_scarce_classes/task8f_qa_manifest.csv)
-- **Contact Sheets sau hiệu chỉnh:** [`task8f_real_waste_pass_p1.jpg`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/task8f_scarce_classes/contact_sheets/task8f_real_waste_pass_p1.jpg) | [`p2.jpg`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/task8f_scarce_classes/contact_sheets/task8f_real_waste_pass_p2.jpg) | [`p3.jpg`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/task8f_scarce_classes/contact_sheets/task8f_real_waste_pass_p3.jpg) | [`task8f_semantic_qa_before_after.jpg`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/task8f_scarce_classes/contact_sheets/task8f_semantic_qa_before_after.jpg)
+- **Repository:** `.`
+- **Script thực thi hiệu chỉnh:** [`scripts/correct_task8f_semantic_qa.py`](../../scripts/correct_task8f_semantic_qa.py)
+- **Bản sao lưu Manifest trước hiệu chỉnh:** [`task8f_qa_manifest_pre_correction.json`](../../data/acquisition_staging/task8f_scarce_classes/qa_correction_before_after/task8f_qa_manifest_pre_correction.json)
+- **Manifest sau hiệu chỉnh:** [`task8f_qa_manifest.json`](../../data/acquisition_staging/task8f_scarce_classes/task8f_qa_manifest.json) | [`task8f_qa_manifest.csv`](../../data/acquisition_staging/task8f_scarce_classes/task8f_qa_manifest.csv)
+- **Contact Sheets sau hiệu chỉnh:** [`task8f_real_waste_pass_p1.jpg`](../../data/acquisition_staging/task8f_scarce_classes/contact_sheets/task8f_real_waste_pass_p1.jpg) | [`p2.jpg`](../../data/acquisition_staging/task8f_scarce_classes/contact_sheets/task8f_real_waste_pass_p2.jpg) | [`p3.jpg`](../../data/acquisition_staging/task8f_scarce_classes/contact_sheets/task8f_real_waste_pass_p3.jpg) | [`task8f_semantic_qa_before_after.jpg`](../../data/acquisition_staging/task8f_scarce_classes/contact_sheets/task8f_semantic_qa_before_after.jpg)
 - **Nguyên tắc thực thi:** Ưu tiên tuyệt đối chất lượng nhãn thực tế; **KHÔNG** cố giữ con số `203` `REAL_WASTE_PASS`. **DỪNG** mở rộng acquisition mới. **KHÔNG** train E4/E5. `APPROVED_FOR_TRAIN = False`.
 
 ---
@@ -253,7 +253,7 @@ Trước khi hiệu chỉnh, tập `203` ảnh `REAL_WASTE_PASS` có đúng **33
 ### 5.1. Nguyên nhân gây lệch số liệu giữa văn bản báo cáo (`1.644 / 686 / 434`) và tệp JSON trong ZIP (`1.611 / 653 / 380`)
 
 1. Ở lần chạy đầu của Task 8F trước khi áp bộ lọc visual QA cuối cùng, `task8f_qa_manifest.json` tạm thời có `248` ảnh `REAL_WASTE_PASS` (`194` train + `54` val), tạo ra các tổng: `958 + 686 = 1.644` ảnh train và `204 + 230 = 434` ảnh val.
-2. Ngay sau đó, script `acquire_and_qa_task8f_scarce_classes.py` được chạy lại với bộ lọc visual QA (`203` ảnh `REAL_WASTE_PASS` = `161` train + `42` val), và cả hai script [`scripts/build_canonical_5000_ledger.py`](file:///d:/CNTT-KLCN155-waste-detection/scripts/build_canonical_5000_ledger.py) cùng [`scripts/generate_task8f_and_validation_reports.py`](file:///d:/CNTT-KLCN155-waste-detection/scripts/generate_task8f_and_validation_reports.py) đã cập nhật chính xác tệp JSON/MD trên đĩa thành `1.611` (`958 + 653`) và `380` (`204 + 176`), nhưng phần tóm tắt văn bản trả lời bị giữ lại con số cũ (`1.644 / 686 / 434`).
+2. Ngay sau đó, script `acquire_and_qa_task8f_scarce_classes.py` được chạy lại với bộ lọc visual QA (`203` ảnh `REAL_WASTE_PASS` = `161` train + `42` val), và cả hai script [`scripts/build_canonical_5000_ledger.py`](../../scripts/build_canonical_5000_ledger.py) cùng [`scripts/generate_task8f_and_validation_reports.py`](../../scripts/generate_task8f_and_validation_reports.py) đã cập nhật chính xác tệp JSON/MD trên đĩa thành `1.611` (`958 + 653`) và `380` (`204 + 176`), nhưng phần tóm tắt văn bản trả lời bị giữ lại con số cũ (`1.644 / 686 / 434`).
 
 ### 5.2. Bảng đối chiếu 3 cột: Văn bản cũ vs Tệp JSON trước hiệu chỉnh vs Giá trị thực tế sau hiệu chỉnh Task 8F
 
@@ -275,7 +275,7 @@ Trước khi hiệu chỉnh, tập `203` ảnh `REAL_WASTE_PASS` có đúng **33
 2. **Nguyên nhân 2 — BBox trùng lặp `IoU > 0.70` do ghi đè class sau NMS theo lớp:** `detector.predict()` của YOLOv8 mặc định chạy NMS riêng cho từng lớp (`agnostic_nms=False`), nên một vật thể có thể sinh ra 2–3 dự đoán thuộc các lớp khác nhau với tọa độ gần trùng khít (`IoU = 0.92..0.99`). Khi dòng 853 gán tất cả về cùng `primary_cid` mà không chạy khử trùng hậu xử lý, các box này biến thành box trùng cùng lớp.
    - **Khắc phục:** Bật `agnostic_nms=True` và bổ sung hàm `deduplicate_same_class_boxes_iou(..., iou_thresh=0.70)` trong cả `extract_tight_per_instance_boxes()` lẫn `norm_boxes_to_struct()`.
 3. **Nguyên nhân 3 — Fallback box `[0.14, 0.14, 0.86, 0.86]` và lọc ngữ cảnh bằng từ khóa đơn lẻ:** Khi detector và contour không tách được vật thể (như `task8f_0712` trên nền trời), script sinh box mặc định `[0.14, 0.14, 0.86, 0.86]` và vẫn cho vào `REAL_WASTE_PASS`. Đồng thời từ khóa `pizza`, `cup`, `battery` trong tiêu đề khiến ảnh đang sử dụng (`0026`, `0118`, `0250`, `0255`, `0573`, `0590`, `0690`) lọt qua.
-   - **Khắc phục:** Tự động chuyển mọi trường hợp chạm fallback `[0.14, 0.14, 0.86, 0.86]` sang `NEEDS_REVIEW`, bổ sung kiểm tra visual QA bắt buộc, và khóa bằng bộ kiểm thử hồi quy [`tests/detection/test_task8_manifest_report_consistency.py`](file:///d:/CNTT-KLCN155-waste-detection/tests/detection/test_task8_manifest_report_consistency.py).
+   - **Khắc phục:** Tự động chuyển mọi trường hợp chạm fallback `[0.14, 0.14, 0.86, 0.86]` sang `NEEDS_REVIEW`, bổ sung kiểm tra visual QA bắt buộc, và khóa bằng bộ kiểm thử hồi quy [`tests/detection/test_task8_manifest_report_consistency.py`](../../tests/detection/test_task8_manifest_report_consistency.py).
 
 ---
 

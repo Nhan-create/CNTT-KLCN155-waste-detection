@@ -114,7 +114,7 @@ def main() -> None:
     c_md = [
         "# BÁO CÁO MỞ RỘNG DỮ LIỆU RÁC THỰC TẾ CHO 8 LỚP HIẾM — TASK 8F (ĐÃ HIỆU CHỈNH SEMANTIC QA)",
         "",
-        "- **Repository:** `D:\\CNTT-KLCN155-waste-detection`",
+        "- **Repository:** `.`",
         "- **Thư mục dữ liệu Wave 8F:** `data/acquisition_staging/task8f_scarce_classes/`",
         "- **Manifest QA (Post-Correction):** [`task8f_qa_manifest.json`](./data/acquisition_staging/task8f_scarce_classes/task8f_qa_manifest.json) & [`.csv`](./data/acquisition_staging/task8f_scarce_classes/task8f_qa_manifest.csv)",
         "- **Manifest QA (Pre-Correction Snapshot):** [`task8f_qa_manifest_pre_correction.json`](./data/acquisition_staging/task8f_scarce_classes/qa_correction_before_after/task8f_qa_manifest_pre_correction.json)",
@@ -267,7 +267,7 @@ def main() -> None:
     d_md = [
         "# KẾ HOẠCH & KIỂM KÊ TẬP VALIDATION RÁC THỰC TẾ 10 LỚP (`REAL_WASTE_10CLASS_VALIDATION_PLAN.md`)",
         "",
-        "- **Mục tiêu Phần D:** Xây dựng tập `VAL_REAL_WASTE` độc lập đủ cả 10 lớp, hướng tới **50–100 instances thực tế/lớp**, không trùng `session_group` / `specimen_group` / `pHash` với `train`, và tuyệt đối không đụng tới `frozen test (299)`, `candidate test (274)` hay `D:\\Hinh_Anh_Rac (27)`.",
+        "- **Mục tiêu Phần D:** Xây dựng tập `VAL_REAL_WASTE` độc lập đủ cả 10 lớp, hướng tới **50–100 instances thực tế/lớp**, không trùng `session_group` / `specimen_group` / `pHash` với `train`, và tuyệt đối không đụng tới `frozen test (299)`, `candidate test (274)` hay `data/holdout (27)`.",
         "- **Nguyên tắc phân tách domain trong Validation:** Trong `269` ảnh `V3 Val Baseline`, chỉ tính **`204` ảnh `taco_*`** (rác thực địa TACO) vào `VERIFIED_REAL_WASTE_VAL`; tách riêng `65` ảnh `oi_*` (Open Images chưa xác minh ngữ cảnh rác) khỏi bộ đo lường rác thực tế.",
         "",
         "---",
@@ -295,7 +295,7 @@ def main() -> None:
     md = [
         "# BÁO CÁO HIỆU CHỈNH CHẤT LƯỢNG NHÃN NGỮ NGHĨA, DOMAIN RÁC & KHỬ BBOX TRÙNG — TASK 8F (`TASK8F_SEMANTIC_QA_CORRECTION_REPORT.md`)",
         "",
-        "- **Repository:** `D:\\CNTT-KLCN155-waste-detection`",
+        "- **Repository:** `.`",
         "- **Script thực thi hiệu chỉnh:** [`scripts/correct_task8f_semantic_qa.py`](./scripts/correct_task8f_semantic_qa.py)",
         "- **Bản sao lưu Manifest trước hiệu chỉnh:** [`task8f_qa_manifest_pre_correction.json`](./data/acquisition_staging/task8f_scarce_classes/qa_correction_before_after/task8f_qa_manifest_pre_correction.json)",
         "- **Manifest sau hiệu chỉnh:** [`task8f_qa_manifest.json`](./data/acquisition_staging/task8f_scarce_classes/task8f_qa_manifest.json) | [`task8f_qa_manifest.csv`](./data/acquisition_staging/task8f_scarce_classes/task8f_qa_manifest.csv)",

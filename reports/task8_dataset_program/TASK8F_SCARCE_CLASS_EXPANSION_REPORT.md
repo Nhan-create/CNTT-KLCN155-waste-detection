@@ -1,9 +1,9 @@
 # BÁO CÁO MỞ RỘNG DỮ LIỆU RÁC THỰC TẾ CHO 8 LỚP HIẾM — TASK 8F (ĐÃ HIỆU CHỈNH SEMANTIC QA)
 
-- **Repository:** `D:\CNTT-KLCN155-waste-detection`
+- **Repository:** `.`
 - **Thư mục dữ liệu Wave 8F:** `data/acquisition_staging/task8f_scarce_classes/`
-- **Manifest QA (Post-Correction):** [`task8f_qa_manifest.json`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/task8f_scarce_classes/task8f_qa_manifest.json) & [`.csv`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/task8f_scarce_classes/task8f_qa_manifest.csv)
-- **Manifest QA (Pre-Correction Snapshot):** [`task8f_qa_manifest_pre_correction.json`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/task8f_scarce_classes/qa_correction_before_after/task8f_qa_manifest_pre_correction.json)
+- **Manifest QA (Post-Correction):** [`task8f_qa_manifest.json`](../../data/acquisition_staging/task8f_scarce_classes/task8f_qa_manifest.json) & [`.csv`](../../data/acquisition_staging/task8f_scarce_classes/task8f_qa_manifest.csv)
+- **Manifest QA (Pre-Correction Snapshot):** [`task8f_qa_manifest_pre_correction.json`](../../data/acquisition_staging/task8f_scarce_classes/qa_correction_before_after/task8f_qa_manifest_pre_correction.json)
 - **Trạng thái phê duyệt huấn luyện:** `APPROVED_FOR_TRAIN = False` (toàn bộ ảnh mới giữ ở staging chờ PM nghiệm thu độc lập).
 
 ---

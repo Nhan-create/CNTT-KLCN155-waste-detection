@@ -386,7 +386,7 @@ def main() -> int:
         "task": "TASK P1.6 OFFICIAL MOBILENETV3 TRAINING",
         "status": "COMPLETED",
         "data_split_version": "v2_zero_leakage",
-        "split_manifest_v2_sha256": "1429a22ebbf95cc464881f903dae5ac6dcc5e6e64152e1dd3353e9365429ec96",
+        "split_manifest_v2_sha256": "f83def99895e990d474e3ebc66d45fe5692c1496497705089ec9a2183d058980",
         "hardware": {
             "device": str(device),
             "gpu_name": gpu_name,

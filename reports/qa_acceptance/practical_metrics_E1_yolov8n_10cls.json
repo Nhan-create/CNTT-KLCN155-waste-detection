@@ -6,7 +6,7 @@
     "backend": "yolov8n",
     "checkpoint_sha256": "7e986deed90ba4208f4662039c1e78b2d03ffb41a6e57e8235184db78aec32d8"
   },
-  "ground_truth": "D:\\CNTT-KLCN155-waste-detection\\reports\\qa_acceptance\\ground_truth_hinh_anh_rac.json",
+  "ground_truth": "reports\\qa_acceptance\\ground_truth_hinh_anh_rac.json",
   "operating_confidence": 0.25,
   "views": {
     "all_27": {

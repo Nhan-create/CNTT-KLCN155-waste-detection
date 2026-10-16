@@ -1,6 +1,6 @@
 """
 Export all important project reports, manifests, audit evidence, and specifications
-into C:\\Users\\ad\\Downloads\\CNTT_KLCN155_Bao_Cao_Va_Bang_Chung_AI_Upgrade.zip
+into ~/Downloads/CNTT_KLCN155_Bao_Cao_Va_Bang_Chung_AI_Upgrade.zip
 """
 
 import hashlib

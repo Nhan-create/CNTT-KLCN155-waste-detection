@@ -207,7 +207,7 @@ def main() -> None:
     md_lines = [
         "# TASK 8F FINAL SAFETY CHECK — CLOSE SEMANTIC QA SIGN-OFF REPORT",
         "",
-        "- **Repository:** `D:\\CNTT-KLCN155-waste-detection`",
+        "- **Repository:** `.`",
         "- **Manifest Version:** `TASK8F_SCARCE_CLASSES_V2_SEMANTIC_QA_CORRECTED`",
         f"- **Manifest JSON SHA-256 (Idempotent Run 1 == Run 2):** `{sha_json_run1}`",
         f"- **Manifest CSV SHA-256 (Idempotent Run 1 == Run 2):** `{sha_csv_run1}`",

@@ -3,7 +3,7 @@ scripts/generate_task8_program_master_report.py
 -----------------------------------------------
 Generates all Task 8 Program Master Deliverables (Tasks 1..6) from actual on-disk
 manifests and YOLO label files, and packages the First Handover ZIP:
-  - C:\\Users\\ad\\Downloads\\TASK8_FIRST_WAVE_DELIVERY.zip
+  - ~/Downloads/TASK8_FIRST_WAVE_DELIVERY.zip
   - artifacts/detection_v3_pilot/TASK8_FIRST_WAVE_DELIVERY.zip
 """
 
@@ -187,7 +187,7 @@ def build_source_evaluation_matrix() -> List[Dict[str, Any]]:
             "has_preexisting_bboxes": "No (Requires manual CVAT/LabelStudio annotation)",
             "taxonomy_alignment": "Exact 10-class taxonomy + intentional multi-class combinations + targeted hard negatives",
             "license_and_provenance": "100% First-Party Project Owned (CC BY 4.0 / Full commercial & academic rights)",
-            "overlap_with_current_dataset": "Zero (Strictly separated from frozen 27-image holdout `D:\\Hinh_Anh_Rac` by photographer session & specimen ID)",
+            "overlap_with_current_dataset": "Zero (Strictly separated from frozen 27-image holdout `data/holdout` by photographer session & specimen ID)",
             "real_world_vs_product_coverage": "100% real-world Vietnamese household, campus, street, wet-market, and bin scenes",
             "estimated_usable_independent_images": 5000,
             "estimated_storage_gb": 4.5,
@@ -453,13 +453,13 @@ def main() -> None:
         "# BÁO CÁO BÀN GIAO ĐỢT 1 — TASK 8: CHƯƠNG TRÌNH XÂY DỰNG DATASET 10 LỚP CÂN BẰNG QUY MÔ LỚP (5.000+ ẢNH TRAIN ĐỘC LẬP/LỚP)",
         "",
         f"- **Thời điểm xuất báo cáo:** `{master_json['generated_at_utc']}`",
-        "- **Repository:** `D:\\CNTT-KLCN155-waste-detection`",
+        "- **Repository:** `.`",
         "- **Trạng thái cổng phê duyệt:** **DỪNG TẠI CỔNG PHÊ DUYỆT TRƯỚC KHI HUẤN LUYỆN (`approved_for_train = False`)**",
         "- **Tuân thủ tuyệt đối các giới hạn thực thi:**",
         "  - Chưa chạy huấn luyện E4/E5 (`0` GPU training jobs).",
         "  - Chưa tự ý phê duyệt dữ liệu vào tập train chính thức (`approved_for_train = False`).",
         "  - Giữ nguyên tuyệt đối checkpoint E1/E3 và cấu hình mô hình trong `streamlit_app.py`.",
-        "  - Giữ nguyên tuyệt đối tập `frozen test` (`299` ảnh `real_v2` / `274` ảnh `v3_candidate`) và `holdout` (`27` ảnh tại `D:\\Hinh_Anh_Rac`).",
+        "  - Giữ nguyên tuyệt đối tập `frozen test` (`299` ảnh `real_v2` / `274` ảnh `v3_candidate`) và `holdout` (`27` ảnh tại `data/holdout`).",
         "",
         "---",
         "",
@@ -562,7 +562,7 @@ def main() -> None:
         "",
         "1. **Frozen Test (`data/detection_v3_candidate/images/test`, 274 ảnh):** Đo `Precision`, `Recall`, `AP@50`, `AP@50:95` của **từng lớp trong 10 lớp**. Không chấp nhận chỉ nhìn `mAP@50` trung bình.",
         "2. **Independent Real Validation (`VAL_REAL` mở rộng theo nguồn chụp độc lập, gồm `VAL_REAL_BATTERY` + `VAL_REAL_WAVE1`):** Kiểm tra khả năng tổng quát hóa trên các nguồn ảnh hoàn toàn tách biệt theo `specimen_group`.",
-        "3. **External Real Holdout (`D:\\Hinh_Anh_Rac`, 27 ảnh thực tế độc lập):** Kiểm tra one-to-one đối chiếu Ground Truth độc lập của QA Agent D, theo dõi tỷ lệ phát hiện đúng trên `0: battery`, `1: biological`, `2: cardboard`, `6: paper` và tỷ lệ báo động giả (False Positives) trên nền phức tạp.",
+        "3. **External Real Holdout (`data/holdout`, 27 ảnh thực tế độc lập):** Kiểm tra one-to-one đối chiếu Ground Truth độc lập của QA Agent D, theo dõi tỷ lệ phát hiện đúng trên `0: battery`, `1: biological`, `2: cardboard`, `6: paper` và tỷ lệ báo động giả (False Positives) trên nền phức tạp.",
         "4. **Cổng chống suy giảm chéo (Anti-Forgetting / Regression Gate):** Tự động so sánh bảng `AP@50` và `Recall` của từng lớp so với E1/E3 baseline; nếu bất kỳ lớp nào trong 8 lớp mạnh (`cardboard`, `clothes`, `glass`, `metal`, `paper`, `plastic`, `shoes`, `trash`) sụt giảm quá `> 0.03 AP@50` khi nâng `battery`/`biological`, hệ thống cảnh báo suy giảm (catastrophic forgetting / class imbalance shift) và chặn xuất bản checkpoint.",
     ])
 

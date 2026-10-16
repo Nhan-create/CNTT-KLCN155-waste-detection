@@ -425,7 +425,7 @@ def main() -> int:
             e1_boxes=e1_b,
             e3_boxes=e3_b,
             title_text=f"[{grp_label}] {fn}",
-            subtitle_text="External Holdout (D:\\Hinh_Anh_Rac) | imgsz=512, conf=0.25, iou=0.55",
+            subtitle_text="External Holdout (data/holdout) | imgsz=512, conf=0.25, iou=0.55",
         )
         safe_stem = Path(fn).stem[:32].replace(" ", "_")
         out_name = f"holdout_{idx:02d}_{safe_stem}.jpg"

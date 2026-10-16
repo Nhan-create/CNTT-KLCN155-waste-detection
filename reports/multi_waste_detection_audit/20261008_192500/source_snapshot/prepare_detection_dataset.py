@@ -1,8 +1,8 @@
 """
 scripts/prepare_detection_dataset.py
 ------------------------------------
-Prepares and structures the multi-object waste detection dataset from D:\waste-training\dataset-v1
-into the local project directory D:\CNTT-KLCN155-waste-detection\data\detection.
+Prepares and structures the multi-object waste detection dataset from data/external/waste-training/dataset-v1
+into the local project directory data/detection.
 
 Key operations:
 1. Strictly isolates Synthetic (Mendeley) images from Real (OpenImages) images into separate folders.

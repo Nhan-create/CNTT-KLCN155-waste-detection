@@ -14,7 +14,7 @@
 
 ## 2. Ma Trận Thử Nghiệm Ablation (Ablation Study Matrix)
 
-Thực nghiệm được thực hiện trên ảnh kiểm chứng thực tế và tập kiểm thử nghiệm thu độc lập `D:\Hinh_Anh_Rac` (27 ảnh, 57 vật thể Ground Truth).
+Thực nghiệm được thực hiện trên ảnh kiểm chứng thực tế và tập kiểm thử nghiệm thu độc lập `data/holdout` (27 ảnh, 57 vật thể Ground Truth).
 
 ### 2.1. Đánh giá Định lượng trên Tập Nghiệm thu Độc lập (QA Holdout - 27 ảnh, 57 GT)
 

@@ -2,8 +2,8 @@
 scripts/package_task5d_fix_delivery.py
 --------------------------------------
 Packages all Task 5D Fix deliverables into:
-  C:\\Users\\ad\\Downloads\\CNTT_KLCN155_Task5D_Fix_Delivery.zip
-  (and updates C:\\Users\\ad\\Downloads\\CNTT_KLCN155_Task5D_Delivery.zip)
+  ~/Downloads/CNTT_KLCN155_Task5D_Fix_Delivery.zip
+  (and updates ~/Downloads/CNTT_KLCN155_Task5D_Delivery.zip)
 
 Included artifacts:
 1. 20 representative battery images (`reannotated_v1_minipilot20/images/*.jpg`)

@@ -1,7 +1,7 @@
 """Generate comprehensive delivery report for 100 candidate images test.
 
 Outputs:
-- D:\Hinh_Anh_Rac\demo_multiobject_100_20261012\reports\BAO_CAO_KIEM_DINH_100_ANH_TEST_YOLOV8N.md
+- data/holdout/demo_multiobject_100_20261012/reports/BAO_CAO_KIEM_DINH_100_ANH_TEST_YOLOV8N.md
 - reports/qa_acceptance/BAO_CAO_KIEM_DINH_100_ANH_TEST_YOLOV8N.md
 """
 
@@ -47,8 +47,8 @@ def build_markdown_report() -> str:
     lines.append("> **Dự án:** CNTT-KLCN155 — Hệ thống phát hiện và phân loại rác thải tự động")
     lines.append(f"> **Thời gian thực hiện:** {time.strftime('%Y-%m-%d %H:%M:%S')} (Giờ địa phương)")
     lines.append("> **Mô hình kiểm định:** `YOLOv8n-10cls` (Checkpoint: `artifacts/detection_v2/E1_yolov8n_10cls/weights/best.pt`)")
-    lines.append("> **Thư mục lưu trữ độc lập:** `D:\\Hinh_Anh_Rac\\demo_multiobject_100_20261012\\`")
-    lines.append("> **Cam kết bảo toàn:** Giữ nguyên 100% hiện trạng 27 ảnh holdout và GTv1 tại `D:\\Hinh_Anh_Rac`, không can thiệp evaluator cũ, không sửa weights.")
+    lines.append("> **Thư mục lưu trữ độc lập:** `data/holdout/demo_multiobject_100_20261012/`")
+    lines.append("> **Cam kết bảo toàn:** Giữ nguyên 100% hiện trạng 27 ảnh holdout và GTv1 tại `data/holdout`, không can thiệp evaluator cũ, không sửa weights.")
     lines.append("")
     lines.append("---")
     lines.append("")
@@ -202,10 +202,10 @@ def build_markdown_report() -> str:
     lines.append("## 5. CẤU TRÚC LƯU TRỮ VÀ HÌNH ẢNH TRỰC QUAN TRÊN Ổ D")
     lines.append("")
     lines.append("Toàn bộ dữ liệu được tổ chức độc lập tuyệt đối tại:")
-    lines.append("`D:\\Hinh_Anh_Rac\\demo_multiobject_100_20261012\\`")
+    lines.append("`data/holdout/demo_multiobject_100_20261012/`")
     lines.append("")
     lines.append("```text")
-    lines.append("D:\\Hinh_Anh_Rac\\demo_multiobject_100_20261012\\")
+    lines.append("data/holdout/demo_multiobject_100_20261012/")
     lines.append("├── originals/                 # 100 ảnh JPEG gốc tải từ Wikimedia Commons (TEST_00_01.jpg .. TEST_09_10.jpg)")
     lines.append("├── overlays/                  # 100 ảnh kết quả vẽ bounding box, nhãn và confidence YOLOv8n")
     lines.append("├── contact_sheets/            # Bảng tổng hợp so sánh trực quan")

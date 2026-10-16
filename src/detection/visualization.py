@@ -82,7 +82,7 @@ def detection_label(class_id: str | int) -> str:
 
 def _label_font(size: int) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
     # TrueType fonts cover Vietnamese diacritics on common Windows/Linux hosts.
-    for name in ("DejaVuSans.ttf", "C:/Windows/Fonts/arial.ttf", "Arial.ttf"):
+    for name in ("DejaVuSans.ttf", "arial.ttf", "Arial.ttf"):
         try:
             return ImageFont.truetype(name, size)
         except OSError:

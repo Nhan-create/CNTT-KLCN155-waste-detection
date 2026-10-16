@@ -1,6 +1,6 @@
 # BÁO CÁO NGHIỆM THU PHASE 4D.2: ACQUIRE REAL IMAGES, NOT PLACEHOLDERS
 **Dự án:** Hệ thống nhận diện rác thải đa nguồn KLCN155  
-**Repository:** `D:\CNTT-KLCN155-waste-detection`  
+**Repository:** `.`  
 **Thời điểm thực thi:** 2026-10-12  
 **Phiên bản Manifest ứng viên:** `2.0.0-real-source-identified`  
 **Trạng thái kiểm thử:** 247 Passed, 1 Skipped (Targeted QA & Safety Suite)
@@ -114,7 +114,7 @@ Breakdown:
   - hard_negatives: 6 images
   - multi_waste: 5 images
 Leakage Audit Status: PASSED (Zero Overlap)
-Staging Environment:  D:\CNTT-KLCN155-waste-detection\data\acquisition_staging
+Staging Environment:  data\acquisition_staging
 Status:               AWAITING_USER_APPROVAL
 =================================================================
 ```

@@ -23,8 +23,8 @@
 
 ### 1. Vì sao checkpoint YOLO vẫn là 80 lớp nhưng báo cáo ghi PASS cho Detection 10 lớp?
 - **Nguyên nhân kỹ thuật gốc rễ:**
-  1. Trong script kiểm chứng cũ [`scripts/verify_real_training_combined.py`](file:///D:/CNTT-KLCN155-waste-detection/scripts/verify_real_training_combined.py) (dòng 296 cũ), script khởi tạo mô hình bằng lệnh `model = YOLO("yolov8n.pt")`. Tệp `yolov8n.pt` là trọng số gốc của Ultralytics được huấn luyện sẵn trên tập dữ liệu COCO với `nc = 80`.
-  2. Dataset YAML của dự án [`configs/detection_dataset.yaml`](file:///D:/CNTT-KLCN155-waste-detection/configs/detection_dataset.yaml) định nghĩa 10 lớp với class ID từ `0` đến `9`. Khi đưa vào hàm mất mát `v8DetectionLoss` của Ultralytics, do target category IDs ($0 \dots 9$) đều nằm trong phạm vi chỉ số hợp lệ của tensor dự đoán 80 lớp ($0 \dots 79$), phép tính nhị phân chéo `BCEWithLogitsLoss` diễn ra bình thường trên 80 logits mà không văng ngoại lệ `IndexError`.
+  1. Trong script kiểm chứng cũ [`scripts/verify_real_training_combined.py`](../../scripts/verify_real_training_combined.py) (dòng 296 cũ), script khởi tạo mô hình bằng lệnh `model = YOLO("yolov8n.pt")`. Tệp `yolov8n.pt` là trọng số gốc của Ultralytics được huấn luyện sẵn trên tập dữ liệu COCO với `nc = 80`.
+  2. Dataset YAML của dự án [`configs/detection_dataset.yaml`](../../configs/detection_dataset.yaml) định nghĩa 10 lớp với class ID từ `0` đến `9`. Khi đưa vào hàm mất mát `v8DetectionLoss` của Ultralytics, do target category IDs ($0 \dots 9$) đều nằm trong phạm vi chỉ số hợp lệ của tensor dự đoán 80 lớp ($0 \dots 79$), phép tính nhị phân chéo `BCEWithLogitsLoss` diễn ra bình thường trên 80 logits mà không văng ngoại lệ `IndexError`.
   3. Tiêu chuẩn đánh giá của script kiểm chứng cũ lúc đó chỉ bao gồm hai điều kiện lỏng lẻo:
      - Hàm mất mát có giá trị hữu hạn (`torch.isfinite(loss)`).
      - Trọng số thay đổi sau bước tối ưu (`max_abs_diff > 0.0`).
@@ -38,7 +38,7 @@
   - **`model.names`:** Hoàn toàn đồng nhất với taxonomy dự án:
     `{0: 'battery', 1: 'biological', 2: 'cardboard', 3: 'clothes', 4: 'glass', 5: 'metal', 6: 'paper', 7: 'plastic', 8: 'shoes', 9: 'trash'}`.
   - **Hàm mất mát và Dataset class ID:** Loss tính toán trực tiếp trên không gian 10 chiều tương ứng với nhãn target từ 0 đến 9. Bất kỳ nhãn ngoài khoảng [0..9] đều bị chặn ngay lập tức.
-  - **Bằng chứng code:** [`src/detection/yolo.py`](file:///D:/CNTT-KLCN155-waste-detection/src/detection/yolo.py#L55-L85) trong hàm `validate_yolov8n_architecture(model, expected_classes=10)` và unit test [`tests/detection/test_yolo_adapter.py`](file:///D:/CNTT-KLCN155-waste-detection/tests/detection/test_yolo_adapter.py).
+  - **Bằng chứng code:** [`src/detection/yolo.py`](../../src/detection/yolo.py#L55-L85) trong hàm `validate_yolov8n_architecture(model, expected_classes=10)` và unit test [`tests/detection/test_yolo_adapter.py`](../../tests/detection/test_yolo_adapter.py).
 
 ---
 
@@ -58,13 +58,13 @@
 
 ### 4. Runtime adapter của Web đọc metadata ở đâu? Checkpoint mới có đáp ứng hợp đồng đó không?
 - **Vị trí đọc metadata của Runtime Adapter:**
-  - Đối với YOLOv8n ([`src/detection/yolo.py`](file:///D:/CNTT-KLCN155-waste-detection/src/detection/yolo.py#L88-L105)): Hàm `validate_yolo_metadata` đọc thuộc tính `model.model.phase2_metadata` (hoặc dictionary `phase2_metadata` trong payload checkpoint).
+  - Đối với YOLOv8n ([`src/detection/yolo.py`](../../src/detection/yolo.py#L88-L105)): Hàm `validate_yolo_metadata` đọc thuộc tính `model.model.phase2_metadata` (hoặc dictionary `phase2_metadata` trong payload checkpoint).
   - Yêu cầu hợp đồng:
     1. `metadata["backend"] == "yolov8n"`
     2. `metadata["trained"] is True`
     3. `tuple(metadata["class_names"]) == CLASS_NAMES` (đủ 10 lớp và đúng thứ tự)
     4. Cấu trúc mạng phải có `head.nc == 10` và output channels của 3 tầng `cv3` đều bằng 10.
-  - Đối với SSDLite ([`src/detection/ssdlite.py`](file:///D:/CNTT-KLCN155-waste-detection/src/detection/ssdlite.py#L156-L166)): Hàm `_ensure_loaded` kiểm tra `checkpoint["metadata"]` với `architecture == ARCHITECTURE`, `backend == "ssdlite"`, `class_names == DETECTION_CLASS_NAMES`, `background_index == 0`, `trained == True`, và `epoch >= 1`.
+  - Đối với SSDLite ([`src/detection/ssdlite.py`](../../src/detection/ssdlite.py#L156-L166)): Hàm `_ensure_loaded` kiểm tra `checkpoint["metadata"]` với `architecture == ARCHITECTURE`, `backend == "ssdlite"`, `class_names == DETECTION_CLASS_NAMES`, `background_index == 0`, `trained == True`, và `epoch >= 1`.
 - **Kết quả kiểm tra:** Cả 2 checkpoint mới (`artifacts/detection/combined-ssdlite320-combined-seed42/weights/best.pt` và `artifacts/detection/combined-yolov8n-combined-seed42/weights/best.pt`) đều đáp ứng 100% hợp đồng metadata và được nạp thành công qua `create_detector()`.
 
 ---
@@ -72,22 +72,22 @@
 ### 5. Việc vẽ ảnh đã có trường hợp lấy ID COCO để tra tên lớp rác chưa?
 - **Trả lời:** **ĐÃ CÓ TRONG CODE CŨ VÀ ĐÃ BỊ LOẠI BỎ TRIỆT ĐỂ.**
 - **Bằng chứng kỹ thuật:**
-  - Trong file script cũ [`scripts/verify_real_training_combined.py`](file:///D:/CNTT-KLCN155-waste-detection/scripts/verify_real_training_combined.py) (dòng 92 cũ), hàm vẽ ảnh có đoạn mã:
+  - Trong file script cũ [`scripts/verify_real_training_combined.py`](../../scripts/verify_real_training_combined.py) (dòng 92 cũ), hàm vẽ ảnh có đoạn mã:
     ```python
     cname = CLASS_NAMES[cid_int % len(colors)]
     ```
     Phép toán modulo `% len(colors)` (với len = 10) đã vô tình ánh xạ class ID COCO `0` (`person`) thành lớp rác `0` (`battery`), ID COCO `2` (`car`) thành `cardboard`, v.v. Điều này gây hiểu lầm nghiêm trọng rằng mô hình đang nhận diện được rác.
-  - **Khắc phục:** Loại bỏ hoàn toàn phép modulo. Hàm vẽ ảnh hiện tại [`src/detection/yolo.py`](file:///D:/CNTT-KLCN155-waste-detection/src/detection/yolo.py) và [`scripts/verify_real_training_combined.py`](file:///D:/CNTT-KLCN155-waste-detection/scripts/verify_real_training_combined.py) kiểm tra nghiêm ngặt: nếu `class_index < 0` hoặc `class_index >= len(CLASS_NAMES)`, hệ thống sẽ báo lỗi `DetectionError` ngay lập tức.
+  - **Khắc phục:** Loại bỏ hoàn toàn phép modulo. Hàm vẽ ảnh hiện tại [`src/detection/yolo.py`](../../src/detection/yolo.py) và [`scripts/verify_real_training_combined.py`](../../scripts/verify_real_training_combined.py) kiểm tra nghiêm ngặt: nếu `class_index < 0` hoặc `class_index >= len(CLASS_NAMES)`, hệ thống sẽ báo lỗi `DetectionError` ngay lập tức.
 
 ---
 
 ### 6. 81 ảnh `APPROVED_TECH_AUDIT` có bằng chứng quan sát pixel nào theo từng ảnh?
-- **Hiện trạng trước đây:** Script [`scripts/audit_unreviewed_and_relabel_candidates.py`](file:///D:/CNTT-KLCN155-waste-detection/scripts/audit_unreviewed_and_relabel_candidates.py) chỉ mở ảnh để đọc `opened.size` (chiều rộng x chiều cao), sau đó dùng mệnh đề `if t_id in (...)` và `else: APPROVED_TECH_AUDIT` với một câu template tĩnh lặp lại cho toàn bộ 81 ảnh. **Hoàn toàn không có bằng chứng quan sát pixel theo từng ảnh.**
-- **Khắc phục triệt để:** Đã xây dựng và thực thi script [`scripts/pixel_audit_81_candidates.py`](file:///D:/CNTT-KLCN155-waste-detection/scripts/pixel_audit_81_candidates.py):
+- **Hiện trạng trước đây:** Script [`scripts/audit_unreviewed_and_relabel_candidates.py`](../../scripts/audit_unreviewed_and_relabel_candidates.py) chỉ mở ảnh để đọc `opened.size` (chiều rộng x chiều cao), sau đó dùng mệnh đề `if t_id in (...)` và `else: APPROVED_TECH_AUDIT` với một câu template tĩnh lặp lại cho toàn bộ 81 ảnh. **Hoàn toàn không có bằng chứng quan sát pixel theo từng ảnh.**
+- **Khắc phục triệt để:** Đã xây dựng và thực thi script [`scripts/pixel_audit_81_candidates.py`](../../scripts/pixel_audit_81_candidates.py):
   - Kiểm tra pixel thực tế của từng ảnh trong số 81 ảnh: độ phân giải, độ sáng trung bình, địa hình mặt đất (cỏ, sỏi đá, cát, mặt đường bê tông, nước).
   - Đánh giá độ khít của bounding box và phát hiện các mảnh rác bị bỏ sót (unannotated background litter).
-  - Xuất ra tệp CSV chi tiết [`artifacts/part02/pixel_audit/pixel_audit_81_candidates.csv`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/part02/pixel_audit/pixel_audit_81_candidates.csv) chứa đầy đủ: `filename`, `sha256`, `dimensions`, `box_count`, `pixel_decision`, `scene_context`, `specific_pixel_evidence`, `inspection_timestamp_utc`.
-  - Sinh ra **4 tấm contact sheets** (`contact_sheet_batch_1.png` đến `contact_sheet_batch_4.png`) tại [`artifacts/part02/pixel_audit/contact_sheets/`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/part02/pixel_audit/contact_sheets/) cho phép trực quan hóa toàn bộ 81 ảnh cùng nhãn và bounding box.
+  - Xuất ra tệp CSV chi tiết [`artifacts/part02/pixel_audit/pixel_audit_81_candidates.csv`](../../artifacts/part02/pixel_audit/pixel_audit_81_candidates.csv) chứa đầy đủ: `filename`, `sha256`, `dimensions`, `box_count`, `pixel_decision`, `scene_context`, `specific_pixel_evidence`, `inspection_timestamp_utc`.
+  - Sinh ra **4 tấm contact sheets** (`contact_sheet_batch_1.png` đến `contact_sheet_batch_4.png`) tại [`artifacts/part02/pixel_audit/contact_sheets/`](../../artifacts/part02/pixel_audit/contact_sheets/) cho phép trực quan hóa toàn bộ 81 ảnh cùng nhãn và bounding box.
 
 ---
 
@@ -131,14 +131,14 @@
 
 ### Kết quả huấn luyện chính thức:
 1. **SSDLite320 (`combined-ssdlite320-combined-seed42`):**
-   - Checkpoint: [`artifacts/detection/combined-ssdlite320-combined-seed42/weights/best.pt`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/detection/combined-ssdlite320-combined-seed42/weights/best.pt) (28.454.422 bytes).
+   - Checkpoint: [`artifacts/detection/combined-ssdlite320-combined-seed42/weights/best.pt`](../../artifacts/detection/combined-ssdlite320-combined-seed42/weights/best.pt) (28.454.422 bytes).
    - Training Loss: `9.8137`.
    - Validation mAP50-95: `0.0000` (sau 1 epoch khởi đầu).
    - Telemetry Augmentation: Đã ghi nhận trong `augmentation_telemetry.json`.
    - Nạp lại qua Runtime Adapter: `SSDLiteWasteDetector` tải thành công với `weights_only=True`.
 
 2. **YOLOv8n (`combined-yolov8n-combined-seed42`):**
-   - Checkpoint: [`artifacts/detection/combined-yolov8n-combined-seed42/weights/best.pt`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/detection/combined-yolov8n-combined-seed42/weights/best.pt) (6.241.139 bytes).
+   - Checkpoint: [`artifacts/detection/combined-yolov8n-combined-seed42/weights/best.pt`](../../artifacts/detection/combined-yolov8n-combined-seed42/weights/best.pt) (6.241.139 bytes).
    - Head Architecture: `Detect(nc=10, ch=[64, 128, 256])`. Transferred 319 tensors, reinitialized 36 head tensors.
    - Validation Metrics (trên 5 ảnh Val thật, 45 instances rác):
      * `all`: Precision = 0.181, Recall = 0.054, mAP50 = 0.0182, mAP50-95 = 0.0103.
@@ -155,21 +155,21 @@
    - Danh sách 10 nhóm rác: *"Pin, Rác hữu cơ, Bìa carton, Quần áo, Thủy tinh, Kim loại, Giấy, Nhựa, Giày dép, Rác khác"*.
 2. **Kiểm thử SSDLite320:**
    - Chọn mô hình `SSDLite320-MobileNetV3 (Mô hình chính)`.
-   - Tải lên ảnh kiểm chứng [`taco_0081.jpg`](file:///D:/CNTT-KLCN155-waste-detection/data/detection/images/real/taco_0081.jpg).
-   - Chạy nhận diện: Thời gian xử lý 2.506 ms. Lưu ảnh chụp màn hình tại [`artifacts/part02/web_verification/ssdlite_web_result.png`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/part02/web_verification/ssdlite_web_result.png).
+   - Tải lên ảnh kiểm chứng [`taco_0081.jpg`](../../data/detection/images/real/taco_0081.jpg).
+   - Chạy nhận diện: Thời gian xử lý 2.506 ms. Lưu ảnh chụp màn hình tại [`artifacts/part02/web_verification/ssdlite_web_result.png`](../../artifacts/part02/web_verification/ssdlite_web_result.png).
 3. **Kiểm thử YOLOv8n (Chuyển đổi Detector & Điều chỉnh Threshold):**
    - Chuyển combobox sang `YOLOv8n (Mô hình đối chứng)`.
    - Điều chỉnh ngưỡng tin cậy sang `0.14`.
    - Bấm nút *"Nhận diện"*: Phát hiện 5 vật thể rác thuộc các nhóm `Nhựa`, `Pin`, `Bìa carton`, `Rác khác` (tất cả đều thuộc taxonomy 10 lớp của dự án).
    - Hiển thị hướng dẫn phân loại tại nguồn tương ứng: Thùng Vàng/Trắng (tái chế) và Thùng Đỏ/Cam (nguy hại).
-   - Lưu ảnh chụp màn hình tại [`artifacts/part02/web_verification/yolov8n_web_result.png`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/part02/web_verification/yolov8n_web_result.png).
+   - Lưu ảnh chụp màn hình tại [`artifacts/part02/web_verification/yolov8n_web_result.png`](../../artifacts/part02/web_verification/yolov8n_web_result.png).
 4. **Kiểm thử Tải tệp kết quả thực tế:**
    - Click nút *"Tải ảnh kết quả"*.
-   - Trình duyệt tải tệp `taco_0081_nhan_dien.png` về thư mục Downloads của hệ thống (`C:\Users\ad\Downloads\`).
+   - Trình duyệt tải tệp `taco_0081_nhan_dien.png` về thư mục Downloads của hệ thống (`~/Downloads\`).
    - Kiểm tra tệp thực tế trên đĩa:
      * Kích thước tệp: **538.570 bytes** (~538 KB).
      * Độ phân giải ảnh: **480 x 640**, định dạng **RGB PNG**.
-     * Đã sao chép và lưu vết minh chứng tại: [`artifacts/part02/web_verification/downloaded_result.png`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/part02/web_verification/downloaded_result.png).
+     * Đã sao chép và lưu vết minh chứng tại: [`artifacts/part02/web_verification/downloaded_result.png`](../../artifacts/part02/web_verification/downloaded_result.png).
 
 ---
 
@@ -180,13 +180,13 @@
 - **Bằng chứng xác thực:**
   1. Module layer 22 của mạng là `Detect(nc=10, ch=[64, 128, 256])`. Cả 3 tầng tích chập đầu ra `model.22.cv3[0..2][2]` đều có số kênh trọng số là `torch.Size([10, 64, 1, 1])` (không còn là 80).
   2. Bảng ánh xạ `names` chứa chính xác 10 lớp rác thải sinh hoạt từ 0 đến 9, không còn bất kỳ nhãn nào của COCO như `person`, `car`, `bicycle`.
-  3. Runtime adapter [`WasteDetector`](file:///D:/CNTT-KLCN155-waste-detection/src/detection/yolo.py) có cơ chế từ chối ngay lập tức bất kỳ checkpoint nào có `nc != 10` hoặc dự đoán nhãn ngoài khoảng [0..9]. 5/5 unit tests trong `tests/detection/test_yolo_adapter.py` đều đạt kết quả PASS.
+  3. Runtime adapter [`WasteDetector`](../../src/detection/yolo.py) có cơ chế từ chối ngay lập tức bất kỳ checkpoint nào có `nc != 10` hoặc dự đoán nhãn ngoài khoảng [0..9]. 5/5 unit tests trong `tests/detection/test_yolo_adapter.py` đều đạt kết quả PASS.
 
 ### Kết luận 2: Hai checkpoint có chạy qua runtime chính thức chưa?
 **KẾT LUẬN: CẢ HAI CHECKPOINT ĐÃ CHẠY QUA RUNTIME CHÍNH THỨC THÀNH CÔNG.**
 - **Bằng chứng xác thực:**
   1. Cả SSDLite (`combined-ssdlite320-combined-seed42`) và YOLOv8n (`combined-yolov8n-combined-seed42`) đều được lưu trữ với đầy đủ hợp đồng metadata (`phase2_metadata`, `class_names`, `trained=True`).
-  2. Cả hai đều được nạp thông qua `create_detector()` trong runtime adapter của Web App và thực thi suy luận trên ảnh thật [`taco_0081.jpg`](file:///D:/CNTT-KLCN155-waste-detection/data/detection/images/real/taco_0081.jpg).
+  2. Cả hai đều được nạp thông qua `create_detector()` trong runtime adapter của Web App và thực thi suy luận trên ảnh thật [`taco_0081.jpg`](../../data/detection/images/real/taco_0081.jpg).
   3. Giao diện Web đã chuyển đổi qua lại mượt mà giữa hai mô hình, điều chỉnh ngưỡng tin cậy và xuất kết quả trực quan kèm tệp tải về hợp lệ 538 KB.
 
 ### Kết luận 3: Có bao nhiêu ảnh mới thực sự được duyệt và đưa vào dữ liệu?

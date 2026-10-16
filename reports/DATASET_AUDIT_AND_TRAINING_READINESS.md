@@ -31,7 +31,7 @@
 ## 1. TỔNG HỢP KIỂM TOÁN VÀ ĐỐI SOÁT CHÊNH LỆCH DIỆN TÍCH BBOX
 
 ### 1.1. Kết quả tính toán toán học chính xác từ JSON gốc
-Bằng script kiểm toán tự động `scripts/audit_gt_exact_counts.py`, toàn bộ 57 bounding box của 27 ảnh trong tệp [ground_truth_hinh_anh_rac.json](file:///d:/CNTT-KLCN155-waste-detection/reports/qa_acceptance/ground_truth_hinh_anh_rac.json) đã được tính toán lại theo công thức hình học chuẩn xác:
+Bằng script kiểm toán tự động `scripts/audit_gt_exact_counts.py`, toàn bộ 57 bounding box của 27 ảnh trong tệp [ground_truth_hinh_anh_rac.json](../reports/qa_acceptance/ground_truth_hinh_anh_rac.json) đã được tính toán lại theo công thức hình học chuẩn xác:
 $$\text{Area\_Ratio} = \frac{(x_2 - x_1) \times (y_2 - y_1)}{W_{\text{image}} \times H_{\text{image}}}$$
 
 Kết quả xác minh độc lập:
@@ -113,7 +113,7 @@ Trong bài test holdout, ảnh `battery-sample.png` (thỏi pin thanh dài lapto
 ## 3. PHASE 2: BẢNG KIỂM TRA GROUND TRUTH VÀ PHIÊN BẢN V2 PROPOSED
 
 ### 3.1. Bảng chi tiết 18 Annotation dị thường trong Holdout v1
-Được trích xuất tự động qua [generate_gt_review_overlays.py](file:///d:/CNTT-KLCN155-waste-detection/scripts/generate_gt_review_overlays.py) và lưu tại [suspicious_gt_audit_table.json](file:///d:/CNTT-KLCN155-waste-detection/reports/qa_acceptance/suspicious_gt_audit_table.json):
+Được trích xuất tự động qua [generate_gt_review_overlays.py](../scripts/generate_gt_review_overlays.py) và lưu tại [suspicious_gt_audit_table.json](../reports/qa_acceptance/suspicious_gt_audit_table.json):
 
 | STT | Filename | Object ID | Class | Tọa độ BBox | Diện tích (%) | Vấn đề phát hiện | Đề xuất sửa chữa | Mức độ chắc chắn |
 |---|---|---|---|---|---|---|---|---|
@@ -174,14 +174,14 @@ Chạy trực tiếp bằng `scripts/compare_eval_v1_vs_v2.py` từ raw predicti
 ## 4. PHASE 3: CHUẨN HÓA TAXONOMY (DOMAIN MODELING) VÀ LỘ TRÌNH DỮ LIỆU
 
 ### 4.1. Bản mô hình hóa định danh (GLOSSARY.md Domain Rules)
-Đã biên soạn và lưu trữ tại [GLOSSARY.md](file:///d:/CNTT-KLCN155-waste-detection/GLOSSARY.md). Các nguyên tắc tối cao:
+Đã biên soạn và lưu trữ tại [GLOSSARY.md](../GLOSSARY.md). Các nguyên tắc tối cao:
 1. **Object > Material:** Lớp vật thể cụ thể (`battery`, `shoes`, `clothes`) có quyền ưu tiên cao hơn lớp vật liệu (`metal`, `plastic`). Thỏi pin vỏ sắt bắt buộc là `battery`, dép tông cao su bắt buộc là `shoes`.
 2. **Receptacle != Waste:** Thùng rác 2 bánh xe đẩy, giỏ rác văn phòng là hạ tầng thu gom, tuyệt đối không được gán nhãn `plastic` hay `trash`. Phải đưa vào tập cảnh nền Negative.
 3. **Bao rác đóng gói:** Bao rác kín chứa nhiều vật liệu lẫn lộn quy ước là `trash`. Túi nilon rỗng mỏng là `plastic`.
 4. **Vật liệu phức hợp Tetra Pak:** Hộp sữa tiệt trùng đa lớp thống nhất quy ước là `cardboard`.
 
 ### 4.2. Danh sách Tickets hành động cải thiện dữ liệu (/to-tickets)
-Đã phân rã chi tiết tại [docs/tickets-dataset-improvement.md](file:///d:/CNTT-KLCN155-waste-detection/docs/tickets-dataset-improvement.md):
+Đã phân rã chi tiết tại [docs/tickets-dataset-improvement.md](../docs/tickets-dataset-improvement.md):
 - **TICKET-DATA-01 (P0):** Thu thập 250 ảnh Hard-Negative (tường gạch, tủ điện, vỉa hè sạch, thùng rác rỗng) với nhãn rỗng `.txt` 0 bytes.
 - **TICKET-DATA-02 (P0):** Bổ sung khẩn cấp 300 boxes mới cho `battery` và 300 boxes mới cho `biological` để chấm dứt tình trạng 1-mẫu và 3-mẫu.
 - **TICKET-DATA-03 (P1):** Thu thập 150 ảnh đường phố thực tế nhiều vật thể (Multi-object: 4 - 8 boxes/ảnh) tại Việt Nam.
@@ -221,7 +221,7 @@ Chạy trực tiếp bằng `scripts/compare_eval_v1_vs_v2.py` từ raw predicti
 
 ### Câu hỏi 4: Có cần tinh chỉnh Taxonomy và định nghĩa lớp không?
 **TRẢ LỜI: CẦN THIẾT VÀ BẮT BUỘC.**
-Đã ban hành tại [GLOSSARY.md](file:///d:/CNTT-KLCN155-waste-detection/GLOSSARY.md):
+Đã ban hành tại [GLOSSARY.md](../GLOSSARY.md):
 - Áp dụng nguyên tắc **Object > Material** (Pin > Kim loại; Giày > Nhựa/Vải).
 - Quy chuẩn **Hạ tầng thu gom $\ne$ Rác thải** (Thùng rác = Cảnh nền/Negative).
 - Phân định rõ **Vỏ bao bì (Plastic) vs. Rác đóng bao (Trash)**.
@@ -233,7 +233,7 @@ Chạy trực tiếp bằng `scripts/compare_eval_v1_vs_v2.py` từ raw predicti
 2. Đã phân tích kiểm toán toàn bộ 1398 ảnh train `real_v2`: xác nhận **1 box battery** và **3 box biological**, **0 ảnh negative**.
 3. Đã trích xuất raw predictions từ 3 pipeline (`Before Quick Fix`, `After Quick Fix`, `YOLOv8n E1`) và chứng minh nguyên nhân vì sao YOLOv8n E1 dự đoán thỏi pin thành `shoes` (conf 0.9188).
 4. Đã sinh 27 ảnh overlay visual review tại `reports/qa_acceptance/gt_review_overlays/` có đánh dấu phân cấp mức độ nghiêm trọng.
-5. Đã viết và vượt qua 100% bài test kiểm tra tính toàn vẹn hình học và schema trong [test_ground_truth_v2_integrity.py](file:///d:/CNTT-KLCN155-waste-detection/tests/qa/test_ground_truth_v2_integrity.py).
+5. Đã viết và vượt qua 100% bài test kiểm tra tính toàn vẹn hình học và schema trong [test_ground_truth_v2_integrity.py](../tests/qa/test_ground_truth_v2_integrity.py).
 
 ### Câu hỏi 6: Những điều kiện gì cần thỏa mãn trước khi fine-tune YOLO mới?
 **TRẢ LỜI: 5 ĐIỀU KIỆN TIÊN QUYẾT BẮT BUỘC (GATING CONDITIONS):**
@@ -262,7 +262,7 @@ Chạy trực tiếp bằng `scripts/compare_eval_v1_vs_v2.py` từ raw predicti
 ```
 ============================= test session starts =============================
 platform win32 -- Python 3.12.9, pytest-9.1.1, pluggy-1.6.0
-rootdir: D:\CNTT-KLCN155-waste-detection
+rootdir: .
 configfile: pytest.ini
 collected 171 items
 

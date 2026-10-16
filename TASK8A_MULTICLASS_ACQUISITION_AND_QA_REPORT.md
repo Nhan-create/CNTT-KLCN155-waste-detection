@@ -1,10 +1,10 @@
 # BÁO CÁO NGHIỆM THU TASK 8A — THU THẬP & KIỂM ĐỊNH DỮ LIỆU ĐA LỚP THỰC TẾ
 
-- **Repository:** `D:\CNTT-KLCN155-waste-detection`
+- **Repository:** `.`
 - **Thời điểm tạo báo cáo (UTC):** `2026-10-14T07:32:30.615626+00:00`
 - **Trạng thái tuân thủ Governance:**
   - `APPROVED_FOR_TRAIN = 0` (`approved_for_train: false` trên toàn bộ 154/154 ứng viên)
-  - **KHÔNG** chạy Task 8B, **KHÔNG** huấn luyện E4/E5, **KHÔNG** thay đổi checkpoint Streamlit hay bộ Frozen Test (`299` ảnh) / External Holdout (`27` ảnh `D:\Hinh_Anh_Rac`).
+  - **KHÔNG** chạy Task 8B, **KHÔNG** huấn luyện E4/E5, **KHÔNG** thay đổi checkpoint Streamlit hay bộ Frozen Test (`299` ảnh) / External Holdout (`27` ảnh `data/holdout`).
 
 ---
 
@@ -33,7 +33,7 @@
   - `roboflow_v3_battery_140_base`: `140` ảnh
   - `task7_diverse_battery_56`: `56` ảnh
   - `batch_a_mini01_10`: `10` ảnh
-  - `holdout_27_hinh_anh_rac` (`D:\Hinh_Anh_Rac` SHA-256 + pHash): `27` ảnh
+  - `holdout_27_hinh_anh_rac` (`data/holdout` SHA-256 + pHash): `27` ảnh
 - **Tổng số mã băm đối chiếu:** `2088` SHA-256 và `4112` pHash.
 - **Trùng lặp SHA-256 với dữ liệu hiện hữu:** `0` (`zero_external_sha256_leakage = True`).
 - **Gần trùng 4-rotation pHash (`Hamming distance <= 8`) với dữ liệu hiện hữu:** `0` (`zero_external_phash_le8_leakage = True`).

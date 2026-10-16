@@ -1,10 +1,10 @@
 {
- "checkpoint": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\detection\\waste-yolov8n-combined-seed42\\weights\\best.pt",
+ "checkpoint": "artifacts\\detection\\waste-yolov8n-combined-seed42\\weights\\best.pt",
  "train_imgsz": 320,
  "cases": [
   {
    "group": "qa",
-   "path": "D:\\Hinh_Anh_Rac\\base64-1717231151649602366964.jpeg",
+   "path": "data/holdout/base64-1717231151649602366964.jpeg",
    "size": [
     2000,
     1334
@@ -75,7 +75,7 @@
   },
   {
    "group": "qa",
-   "path": "D:\\Hinh_Anh_Rac\\Phan-Loai-Rac-Tai-Ng-01.jpg",
+   "path": "data/holdout/Phan-Loai-Rac-Tai-Ng-01.jpg",
    "size": [
     960,
     720
@@ -266,7 +266,7 @@
   },
   {
    "group": "qa",
-   "path": "D:\\Hinh_Anh_Rac\\images (10).jpg",
+   "path": "data/holdout/images (10).jpg",
    "size": [
     640,
     398
@@ -312,7 +312,7 @@
   },
   {
    "group": "qa",
-   "path": "D:\\Hinh_Anh_Rac\\rac-thai-quan-ao-4.jpg",
+   "path": "data/holdout/rac-thai-quan-ao-4.jpg",
    "size": [
     600,
     375
@@ -359,7 +359,7 @@
   },
   {
    "group": "train_real",
-   "path": "D:\\CNTT-KLCN155-waste-detection\\data\\detection\\images\\real\\taco_0082.jpg",
+   "path": "data\\detection\\images\\real\\taco_0082.jpg",
    "size": [
     640,
     480
@@ -614,7 +614,7 @@
   },
   {
    "group": "train_real",
-   "path": "D:\\CNTT-KLCN155-waste-detection\\data\\detection\\images\\real\\taco_0704.jpg",
+   "path": "data\\detection\\images\\real\\taco_0704.jpg",
    "size": [
     480,
     640
@@ -715,7 +715,7 @@
   },
   {
    "group": "train_real",
-   "path": "D:\\CNTT-KLCN155-waste-detection\\data\\detection\\images\\real\\taco_0853.jpg",
+   "path": "data\\detection\\images\\real\\taco_0853.jpg",
    "size": [
     640,
     480
@@ -1031,7 +1031,7 @@
   },
   {
    "group": "train_synthetic",
-   "path": "D:\\CNTT-KLCN155-waste-detection\\data\\detection\\images\\synthetic\\syn_syn_000000.jpg",
+   "path": "data\\detection\\images\\synthetic\\syn_syn_000000.jpg",
    "size": [
     640,
     640
@@ -1249,7 +1249,7 @@
   },
   {
    "group": "train_synthetic",
-   "path": "D:\\CNTT-KLCN155-waste-detection\\data\\detection\\images\\synthetic\\syn_syn_000002.jpg",
+   "path": "data\\detection\\images\\synthetic\\syn_syn_000002.jpg",
    "size": [
     640,
     640
@@ -1324,7 +1324,7 @@
   },
   {
    "group": "train_synthetic",
-   "path": "D:\\CNTT-KLCN155-waste-detection\\data\\detection\\images\\synthetic\\syn_syn_000003.jpg",
+   "path": "data\\detection\\images\\synthetic\\syn_syn_000003.jpg",
    "size": [
     640,
     640
@@ -1487,7 +1487,7 @@
   },
   {
    "group": "val_real",
-   "path": "D:\\CNTT-KLCN155-waste-detection\\data\\detection\\images\\real\\taco_0081.jpg",
+   "path": "data\\detection\\images\\real\\taco_0081.jpg",
    "size": [
     480,
     640
@@ -1733,7 +1733,7 @@
   },
   {
    "group": "val_real",
-   "path": "D:\\CNTT-KLCN155-waste-detection\\data\\detection\\images\\real\\taco_0089.jpg",
+   "path": "data\\detection\\images\\real\\taco_0089.jpg",
    "size": [
     640,
     480
@@ -1878,7 +1878,7 @@
   },
   {
    "group": "val_real",
-   "path": "D:\\CNTT-KLCN155-waste-detection\\data\\detection\\images\\real\\taco_1353.jpg",
+   "path": "data\\detection\\images\\real\\taco_1353.jpg",
    "size": [
     640,
     480

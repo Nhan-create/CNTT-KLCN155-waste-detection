@@ -1,10 +1,10 @@
 {
   "timestamp": "2026-10-01T16:31:50+0700",
   "status": "PASSED",
-  "manifest_path": "D:\\CNTT-KLCN155-waste-detection\\data\\audit\\split_manifest_v2.csv",
-  "manifest_sha256": "1429a22ebbf95cc464881f903dae5ac6dcc5e6e64152e1dd3353e9365429ec96",
+  "manifest_path": "data\\audit\\split_manifest_v2.csv",
+  "manifest_sha256": "f83def99895e990d474e3ebc66d45fe5692c1496497705089ec9a2183d058980",
   "manifest_total_rows": 14829,
-  "physical_directory": "D:\\CNTT-KLCN155-waste-detection\\data\\processed_v2",
+  "physical_directory": "data\\processed_v2",
   "train_samples": 10383,
   "val_samples": 2223,
   "test_split_status": "STRICTLY_LOCKED_AND_ISOLATED",

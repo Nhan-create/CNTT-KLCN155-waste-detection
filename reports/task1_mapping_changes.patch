@@ -376,7 +376,7 @@ index 0000000..b73f444
 +from src.detection.fusion import fuse_detections
 +from src.detection.types import BoundingBox, Detection, DetectionResult
 +
-+PROJECT_ROOT = Path(r"D:\CNTT-KLCN155-waste-detection")
++PROJECT_ROOT = Path(r".")
 +
 +
 +def test_real_dataset_loader_background_shift():

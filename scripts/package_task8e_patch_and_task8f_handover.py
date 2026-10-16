@@ -1,4 +1,4 @@
-"""Package TASK 8E FINAL QA PATCH + TASK 8F SCARCE-CLASS EXPANSION handover into 2 balanced ZIP files (each ~335 MB < 500 MB) in C:\\Users\\ad\\Downloads."""
+"""Package TASK 8E FINAL QA PATCH + TASK 8F SCARCE-CLASS EXPANSION handover into 2 balanced ZIP files (each ~335 MB < 500 MB) in ~/Downloads."""
 from __future__ import annotations
 
 import pathlib

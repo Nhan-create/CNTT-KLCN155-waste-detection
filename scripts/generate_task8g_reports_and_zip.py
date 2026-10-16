@@ -4,7 +4,7 @@ Updates:
 1. `reports/task8_dataset_program/CANONICAL_5000_DATASET_LEDGER.{md,json,csv}`
 2. `reports/task8_dataset_program/REAL_WASTE_10CLASS_VALIDATION_PLAN.{md,json}`
 3. `reports/task8_dataset_program/TASK8G_LARGE_SCALE_EXPANSION_REPORT.{md,json}`
-4. `D:\CNTT-KLCN155-waste-detection\TASK8G_LARGE_SCALE_EXPANSION.zip` (and `C:\Users\ad\Downloads\TASK8G_LARGE_SCALE_EXPANSION.zip`)
+4. `TASK8G_LARGE_SCALE_EXPANSION.zip` (and `~/Downloads/TASK8G_LARGE_SCALE_EXPANSION.zip`)
    containing ONLY the new Task 8G dataset, manifests, labels, overlays, contact sheets, updated ledger, and reports.
 """
 from __future__ import annotations

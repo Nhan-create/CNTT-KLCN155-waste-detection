@@ -1,14 +1,14 @@
 # BÁO CÁO NGHIỆM THU TASK 8I (FINAL HOTFIX) — FIELD CAPTURE QA SAFETY & INATURALIST SIGN-OFF
 
 ## 1. Task 1 (Hotfix P0) — Tách biệt Kiểm tra Kỹ thuật & Xác nhận Bối cảnh Rác thật trong `scripts/field_capture_import_and_qa.py`
-- Đã sửa triệt để lỗi P0 trong [`scripts/field_capture_import_and_qa.py`](file:///D:/CNTT-KLCN155-waste-detection/scripts/field_capture_import_and_qa.py):
+- Đã sửa triệt để lỗi P0 trong [`scripts/field_capture_import_and_qa.py`](../../scripts/field_capture_import_and_qa.py):
   1. **Tách riêng `FILE_AND_BBOX_FORMAT_VALID` và `REAL_WASTE_CONTEXT_VERIFIED`:** Việc ảnh hợp lệ và tọa độ YOLO `.txt` đúng chuẩn chỉ thiết lập `FILE_AND_BBOX_FORMAT_VALID = True`, tuyệt đối không tự suy ra `REAL_WASTE_CONTEXT_VERIFIED = True`.
   2. **Mặc định `qa_status = NEEDS_REVIEW`:** Mọi ảnh mới nhập chưa có bản ghi `visual_qa_review` của người duyệt đều giữ ở `NEEDS_REVIEW` (`target_split = MANUAL_REVIEW_QUEUE`).
   3. **Chặn nâng `PRODUCT_STUDIO` và `IN_USE` lên `REAL_WASTE_PASS`:** Bất kể nhãn YOLO hợp lệ hay người nhập khai báo sai, `context_type in (PRODUCT_STUDIO, IN_USE)` luôn có `REAL_WASTE_CONTEXT_VERIFIED = False` và không bao giờ đạt `REAL_WASTE_PASS`.
   4. **Yêu cầu bằng chứng người duyệt thật (`reviewer_id`, `review_timestamp`, `context_evidence >= 10 ký tự`, `bbox_tightness_verified = True`):** Chỉ khi có đủ các trường này trên mẫu `ACTUAL_WASTE` đã xác nhận quyền sử dụng thì mới đạt `REAL_WASTE_CONTEXT_VERIFIED = True`.
   5. **Giữ `APPROVED_FOR_TRAIN = False` trên 100% bản ghi:** Kể cả khi `qa_status == REAL_WASTE_PASS`.
   6. **Không tự gán `CC-BY-4.0`:** Nếu thiếu giấy phép rõ ràng hoặc `rights_confirmed = False`, gán `UNCONFIRMED_USAGE_RIGHTS` và giữ ở `NEEDS_REVIEW`.
-- **Ví dụ kiểm thử giả lập `PRODUCT_STUDIO` bị giữ ở `NEEDS_REVIEW`:** [`data/acquisition_staging/task8i_source_signoff_and_field_pilot/regression_examples/product_studio_held_at_needs_review_example.json`](file:///D:/CNTT-KLCN155-waste-detection/data/acquisition_staging/task8i_source_signoff_and_field_pilot/regression_examples/product_studio_held_at_needs_review_example.json)
+- **Ví dụ kiểm thử giả lập `PRODUCT_STUDIO` bị giữ ở `NEEDS_REVIEW`:** [`data/acquisition_staging/task8i_source_signoff_and_field_pilot/regression_examples/product_studio_held_at_needs_review_example.json`](../../data/acquisition_staging/task8i_source_signoff_and_field_pilot/regression_examples/product_studio_held_at_needs_review_example.json)
 
 ## 2. Task 2 (Hotfix) — Đồng bộ Báo cáo iNaturalist & Xử lý 3 Ca Trái cây Mốc Cầm tay (`task8h_0085`, `0092`, `0137`)
 - **Số liệu thực trong manifest trước Hotfix:** `33` `REAL_WASTE_PASS` (`27` train + `6` validation), `29` `KEEP_AUXILIARY`, `45` `REJECT`.

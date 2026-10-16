@@ -23,7 +23,7 @@ Huấn luyện và tinh chỉnh (fine-tune) một mô hình học sâu nhẹ chu
 
 ## 2. Kết quả Thực nghiệm Chạy thử (Smoke Test Empirical Results) (`VERIFIED`)
 
-Thực thi script [scripts/run_smoke_test.py](file:///D:/CNTT-KLCN155-waste-detection/scripts/run_smoke_test.py) trên môi trường vật lý:
+Thực thi script [scripts/run_smoke_test.py](../../scripts/run_smoke_test.py) trên môi trường vật lý:
 - **Phần cứng:** NVIDIA GeForce RTX 2050 Laptop GPU (4.095,5 MB VRAM).
 - **Mô hình:** `mobilenet_v3_large` (khởi tạo ImageNet-1K, thay thế head 10 lớp output logits).
 - **Tập dữ liệu sử dụng:**
@@ -43,7 +43,7 @@ Thực thi script [scripts/run_smoke_test.py](file:///D:/CNTT-KLCN155-waste-dete
 1. **Hội tụ và hàm mất mát:** Loss tập Train giảm đều từ $0.8835 \to 0.6509 \to 0.5889$; Val Loss giảm từ $0.7084 \to 0.6562$; Val Macro-F1 tăng từ $0.9303 \to 0.9430$. Không có hiện tượng bùng nổ gradient hay tràn số (NaN/Inf).
 2. **Bộ nhớ VRAM:** Đỉnh VRAM tiêu thụ ổn định ở mức **1.511,2 MB** (chỉ chiếm $36,9\%$ tổng dung lượng 4 GB của RTX 2050), chứng minh cấu hình batch size 64 kèm AMP fp16 hoàn toàn an toàn và không gây Out-of-Memory (OOM).
 3. **Kiểm tra nạp lại Checkpoint (Reload Test) (`VERIFIED`):**
-   - Checkpoint lưu tại [artifacts/smoke_test/best_smoke_checkpoint.pt](file:///D:/CNTT-KLCN155-waste-detection/artifacts/smoke_test/best_smoke_checkpoint.pt) với dung lượng **48,58 MB**.
+   - Checkpoint lưu tại [artifacts/smoke_test/best_smoke_checkpoint.pt](../../artifacts/smoke_test/best_smoke_checkpoint.pt) với dung lượng **48,58 MB**.
    - Nạp checkpoint vào một instance model mới tinh và chạy suy luận đối chứng trên cùng một batch dữ liệu:
      $$\text{Max Difference} = |y_{\text{trained}} - y_{\text{reloaded}}| = \mathbf{0.00000000\text{e+}00}$$
    - Khớp chính xác $100\%$ từng bit float32.

@@ -11,7 +11,7 @@
 |---|---|---:|---|
 | **`real_v2/test` (Frozen Official Test)** | `data/detection/splits/real_v2/test.txt` | **299** | Primary immutable benchmark used for `E1`, `E2`, `E3` historical comparisons. Never modified or re-split. |
 | **`v3_candidate/test` (Leakage-Cleansed Test)** | `data/detection_v3_candidate/splits/test.txt` | **274** | Strict subset of `real_v2/test` (`299 - 25 = 274`) with 25 legacy train-test near-duplicate images removed. Used to verify leakage-free generalization. |
-| **`holdout_27` (`D:\Hinh_Anh_Rac`)** | `D:\Hinh_Anh_Rac` (`reports/qa_acceptance/`) | **27** | Independent physical Vietnamese waste holdout set managed by QA Agent D. Zero overlap with any training/staging data. |
+| **`holdout_27` (`data/holdout`)** | `data/holdout` (`reports/qa_acceptance/`) | **27** | Independent physical Vietnamese waste holdout set managed by QA Agent D. Zero overlap with any training/staging data. |
 | **`VAL_REAL_WAVE1` + `VAL_REAL_WAVE2`** | Staging QA manifests | **23 + 40 = 63** | Photographer-session-disjoint validation splits from Wave 1 and Wave 2. |
 
 ---

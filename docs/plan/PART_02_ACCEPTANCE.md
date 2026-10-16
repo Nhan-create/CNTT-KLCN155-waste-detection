@@ -3,7 +3,7 @@
 - **Dự án:** CNTT-KLCN155 — Hệ thống phát hiện và phân loại rác thải đa đối tượng
 - **Đơn vị thực hiện:** Nhóm ML / Tech Lead
 - **Người nhận báo cáo:** PM Ngô Thanh Nhân (HUIT)
-- **Thư mục làm việc:** `D:\CNTT-KLCN155-waste-detection`
+- **Thư mục làm việc:** `.`
 - **Mã tài liệu:** `PART_02_ACCEPTANCE.md` (Cập nhật R6 — Đối soát điểm ảnh 35 ảnh mẫu, Khắc phục quyết định duyệt, Chặn hàng đợi PENDING & Thiết lập Split Detection Không Rò rỉ)
 - **Ngày cập nhật:** 02/10/2026
 - **Trạng thái Gate A gốc (Final Test Classifier):** `GATE_A_FAILED` (PyTorch CPU forward 23,86 ms > ngưỡng 20,0 ms; Accuracy 96,13%, Macro-F1 0,9578, Battery Recall 95,58% đạt chuẩn. Giữ nguyên mốc lịch sử).
@@ -85,7 +85,7 @@ if action_decision == "APPROVED":
         )
 ```
 - **Kiểm chứng thực nghiệm (MCP Live Verification):** Tech Lead đã điều khiển trình duyệt qua Chrome DevTools MCP mở ảnh `oi_13d3f1e5893726a2` (có 11 box PENDING) và bấm lưu APPROVED. Giao diện ngay lập tức chặn lại và hiển thị cảnh báo đỏ rực:
-  - Bằng chứng hình ảnh: [`artifacts/part02/mcp_test_evidence/mcp_gate_pending_blocked.png`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/part02/mcp_test_evidence/mcp_gate_pending_blocked.png).
+  - Bằng chứng hình ảnh: [`artifacts/part02/mcp_test_evidence/mcp_gate_pending_blocked.png`](../../artifacts/part02/mcp_test_evidence/mcp_gate_pending_blocked.png).
   - Thuộc tính người duyệt (Reviewer Attribution): Ghi nhận rõ `AI_assistant_audit` trong `review_audit_log.csv`.
 
 ---
@@ -153,8 +153,8 @@ Trước đây các file split CSV trong dự án là split phục vụ bài to�
 ## 5. DANH MỤC TỆP BÀN GIAO VÀ ĐÓNG GÓI BÁO CÁO
 
 Toàn bộ báo cáo, file kiểm toán, cấu hình, manifest và ảnh chụp bằng chứng MCP đã được cập nhật:
-- **Thư mục trích xuất:** `C:\Users\ad\Downloads\CNTT-KLCN155_Bao_Cao_Va_Bang_Chung\`
-- **File ZIP chính thức:** `C:\Users\ad\Downloads\CNTT-KLCN155_Bao_Cao_Va_Bang_Chung.zip`
+- **Thư mục trích xuất:** `~/Downloads\CNTT-KLCN155_Bao_Cao_Va_Bang_Chung\`
+- **File ZIP chính thức:** `~/Downloads\CNTT-KLCN155_Bao_Cao_Va_Bang_Chung.zip`
 
 ### Danh mục tệp cốt lõi đính kèm:
 1. `docs/plan/PART_02_ACCEPTANCE.md`: Báo cáo nghiệm thu Task 2 cập nhật R6.

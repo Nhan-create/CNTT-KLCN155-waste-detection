@@ -2,11 +2,11 @@
 ## TIẾP NHẬN DỮ LIỆU PIN (BATTERY) & THIẾT LẬP DATASET PILOT AN TOÀN (FAIL-CLOSED)
 
 - **Dự án:** Hệ thống Nhận diện và Phân loại Rác thải (CNTT-KLCN155)
-- **Repository:** `D:\CNTT-KLCN155-waste-detection`
+- **Repository:** `.`
 - **Mã công việc:** SPRINT AI-UPGRADE-01 — TASK 5A
 - **Thời điểm hoàn thành:** 2026-10-13 20:55 UTC+7
 - **Phân định vai trò:** Antigravity Integrator + Chuyên trách Data / Model / QA
-- **Gói bàn giao:** `C:\Users\ad\Downloads\CNTT_KLCN155_Task5A_Delivery.zip`
+- **Gói bàn giao:** `~/Downloads\CNTT_KLCN155_Task5A_Delivery.zip`
 
 ---
 
@@ -80,7 +80,7 @@ Người dùng thực hiện 5 bước sau để đưa dữ liệu vào hệ th�
 4. Tại mục tùy chọn tải, chọn **"download zip to computer"** và nhấn **Continue**.
 5. Di chuyển file ZIP vừa tải về vào đúng thư mục:
    ```
-   D:\CNTT-KLCN155-waste-detection\data\acquisition_staging\roboflow_battery\
+   data\acquisition_staging\roboflow_battery\
    ```
 6. Khi file ZIP đã nằm trong thư mục, chạy lệnh sau để hệ thống tự động kiểm tra giải nén an toàn (chống Zip Slip, Zip Bomb), kiểm tra mapping về `0: battery`, quét rò rỉ pHash và lập manifest QA:
    ```powershell
@@ -186,7 +186,7 @@ Cấu hình đã được tích hợp vào `configs/detection_dataset_real_v3_pi
 ### 6.2. Đóng gói Deliverable
 Gói deliverable chứa toàn bộ mã nguồn mô-đun an toàn, script, cấu hình dataset pilot v3, dữ liệu staging và báo cáo được xuất thành công vào:
 ```
-C:\Users\ad\Downloads\CNTT_KLCN155_Task5A_Delivery.zip
+~/Downloads\CNTT_KLCN155_Task5A_Delivery.zip
 ```
 - **Kích thước file:** ~125 KB (chứa toàn bộ code, tests, configs, manifest JSON; không duplicate dữ liệu ảnh thô nặng).
 - **SHA-256:** Được xác thực toàn vẹn bằng PowerShell.

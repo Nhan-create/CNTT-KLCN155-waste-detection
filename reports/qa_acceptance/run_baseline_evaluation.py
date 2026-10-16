@@ -1,5 +1,5 @@
 """
-Run Authoritative Baseline Evaluation on D:\Hinh_Anh_Rac for both SSDLite320 and YOLOv8n.
+Run Authoritative Baseline Evaluation on data/holdout for both SSDLite320 and YOLOv8n.
 Computes 1-to-1 matching with Ground Truth, per-object metrics, and DoD compliance verification.
 """
 

@@ -6,7 +6,7 @@ Generates the comprehensive Markdown reports for Task 8A:
      (also copied to repo root TASK8A_MULTICLASS_ACQUISITION_AND_QA_REPORT.md)
   2. data/acquisition_staging/task8a_multiclass_batch/TASK8A_10CLASS_COVERAGE_MATRIX.md
 and packages the self-contained delivery archive:
-  - C:\\Users\\ad\\Downloads\\CNTT_KLCN155_Task8A_MultiClass_Delivery.zip
+  - ~/Downloads/CNTT_KLCN155_Task8A_MultiClass_Delivery.zip
   - artifacts/detection_v3_pilot/CNTT_KLCN155_Task8A_MultiClass_Delivery.zip
 """
 
@@ -80,11 +80,11 @@ def build_main_report_markdown(qa: dict, lic: dict, leak: dict, cov: dict) -> st
     lines = [
         "# BÁO CÁO NGHIỆM THU TASK 8A — THU THẬP & KIỂM ĐỊNH DỮ LIỆU ĐA LỚP THỰC TẾ",
         "",
-        f"- **Repository:** `D:\\CNTT-KLCN155-waste-detection`",
+        f"- **Repository:** `.`",
         f"- **Thời điểm tạo báo cáo (UTC):** `{datetime.now(timezone.utc).isoformat()}`",
         "- **Trạng thái tuân thủ Governance:**",
         "  - `APPROVED_FOR_TRAIN = 0` (`approved_for_train: false` trên toàn bộ 154/154 ứng viên)",
-        "  - **KHÔNG** chạy Task 8B, **KHÔNG** huấn luyện E4/E5, **KHÔNG** thay đổi checkpoint Streamlit hay bộ Frozen Test (`299` ảnh) / External Holdout (`27` ảnh `D:\\Hinh_Anh_Rac`).",
+        "  - **KHÔNG** chạy Task 8B, **KHÔNG** huấn luyện E4/E5, **KHÔNG** thay đổi checkpoint Streamlit hay bộ Frozen Test (`299` ảnh) / External Holdout (`27` ảnh `data/holdout`).",
         "",
         "---",
         "",
@@ -135,7 +135,7 @@ def build_main_report_markdown(qa: dict, lic: dict, leak: dict, cov: dict) -> st
         f"  - `roboflow_v3_battery_140_base`: `{pools['roboflow_v3_battery_140_base']}` ảnh",
         f"  - `task7_diverse_battery_56`: `{pools['task7_diverse_battery_56']}` ảnh",
         f"  - `batch_a_mini01_10`: `{pools['batch_a_mini01_10']}` ảnh",
-        f"  - `holdout_27_hinh_anh_rac` (`D:\\Hinh_Anh_Rac` SHA-256 + pHash): `{pools['holdout_27_hinh_anh_rac']}` ảnh",
+        f"  - `holdout_27_hinh_anh_rac` (`data/holdout` SHA-256 + pHash): `{pools['holdout_27_hinh_anh_rac']}` ảnh",
         f"- **Tổng số mã băm đối chiếu:** `{leak['total_known_sha256_checked']}` SHA-256 và `{leak['total_known_phash_checked']}` pHash.",
         f"- **Trùng lặp SHA-256 với dữ liệu hiện hữu:** `{len(leak['exact_sha256_collisions_with_existing_datasets'])}` (`zero_external_sha256_leakage = {leak['zero_external_sha256_leakage']}`).",
         f"- **Gần trùng 4-rotation pHash (`Hamming distance <= 8`) với dữ liệu hiện hữu:** `{len(leak['near_phash_le8_collisions_with_existing_datasets'])}` (`zero_external_phash_le8_leakage = {leak['zero_external_phash_le8_leakage']}`).",

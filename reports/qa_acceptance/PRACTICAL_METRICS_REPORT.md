@@ -1,12 +1,12 @@
-# PRACTICAL METRICS REPORT — Holdout `D:\Hinh_Anh_Rac` (27 ảnh, 57 vật thể)
+# PRACTICAL METRICS REPORT — Holdout `data/holdout` (27 ảnh, 57 vật thể)
 
 > Agent D (QA Độc lập). Bổ sung bộ chỉ số nghiệm thu thực tế. **DoD nghiêm ngặt** (FN=0, FP=0, sai lớp=0, IoU≥0.75, Intersection/GT≥0.99, coverage 100%) trong `acceptance_evaluator.py` **giữ nguyên** và được coi là *tiêu chí lý tưởng*; nó vẫn được tính lại trong mục `strict_dod_reference` của mỗi kết quả.
 
 ## 1. Công cụ
 
-- Module + CLI: [practical_metrics.py](file:///d:/CNTT-KLCN155-waste-detection/reports/qa_acceptance/practical_metrics.py)
-- Unit test: [test_practical_metrics.py](file:///d:/CNTT-KLCN155-waste-detection/tests/qa/test_practical_metrics.py) (16 case tính tay; `pytest tests/qa` → **24 passed**)
-- Kết quả baseline: [practical_metrics_baseline.json](file:///d:/CNTT-KLCN155-waste-detection/reports/qa_acceptance/practical_metrics_baseline.json) (gộp), cùng `practical_metrics_ssdlite.json`, `practical_metrics_yolov8n.json`
+- Module + CLI: [practical_metrics.py](../../reports/qa_acceptance/practical_metrics.py)
+- Unit test: [test_practical_metrics.py](../../tests/qa/test_practical_metrics.py) (16 case tính tay; `pytest tests/qa` → **24 passed**)
+- Kết quả baseline: [practical_metrics_baseline.json](../../reports/qa_acceptance/practical_metrics_baseline.json) (gộp), cùng `practical_metrics_ssdlite.json`, `practical_metrics_yolov8n.json`
 
 ```powershell
 .venv\Scripts\python.exe reports/qa_acceptance/practical_metrics.py --predictions <file> --out <file> `

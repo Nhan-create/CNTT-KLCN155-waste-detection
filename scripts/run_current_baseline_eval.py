@@ -1,5 +1,5 @@
 """
-Execute rigorous, end-to-end baseline evaluation on D:\\Hinh_Anh_Rac (27 images, 57 GT objects)
+Execute rigorous, end-to-end baseline evaluation on data/holdout (27 images, 57 GT objects)
 for both SSDLite320-MobileNetV3 and YOLOv8n.
 Measures latency, FPS, precision, recall, F1, per-class metrics, mAP50, mAP50-95,
 false positives, false negatives, and exports overlay images + standalone visual dashboard.
@@ -416,11 +416,7 @@ def main():
     yolo_det = WasteDetector(ckpt_yolo, confidence_threshold=0.25, image_size=640, device="cuda")
 
     for case_id, case_name, img_path in test_cases:
-        if not img_path.is_file():
-            # fallback if needed
-            alt = Path(str(img_path).replace("D:/Hinh_Anh_Rac/", "D:\\Hinh_Anh_Rac\\"))
-            if alt.is_file():
-                img_path = alt
+        img_path = Path(img_path).resolve()
 
         with Image.open(img_path) as im:
             img = ImageOps.exif_transpose(im).convert("RGB")

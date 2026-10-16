@@ -12,7 +12,7 @@
     "sha256": "bb21afde00436cbea59f5f13b9f22b3c62ebfff5769ea27ddb68215c0fcb5906",
     "security_scan": "CLEAN_PASSED",
     "sanitization": "PIL_RGB_RE_ENCODED_CLEAN",
-    "saved_path": "D:\\Hinh_Anh_Rac\\kho_01_don_loai_pin.jpg"
+    "saved_path": "data/holdout/kho_01_don_loai_pin.jpg"
   },
   {
     "filename": "kho_02_don_loai_thuy_tinh.jpg",
@@ -27,7 +27,7 @@
     "sha256": "3c6b3a5404df4d27257d4b5d07160e030bccf9bc221e2445995c4668c162a57f",
     "security_scan": "CLEAN_PASSED",
     "sanitization": "PIL_RGB_RE_ENCODED_CLEAN",
-    "saved_path": "D:\\Hinh_Anh_Rac\\kho_02_don_loai_thuy_tinh.jpg"
+    "saved_path": "data/holdout/kho_02_don_loai_thuy_tinh.jpg"
   },
   {
     "filename": "kho_03_don_loai_kim_loai.jpg",
@@ -42,7 +42,7 @@
     "sha256": "73bb8540b02b471f2cbdb0f307f934dd53e7d89403da2b6eb0b44fe5e0a7f261",
     "security_scan": "CLEAN_PASSED",
     "sanitization": "PIL_RGB_RE_ENCODED_CLEAN",
-    "saved_path": "D:\\Hinh_Anh_Rac\\kho_03_don_loai_kim_loai.jpg"
+    "saved_path": "data/holdout/kho_03_don_loai_kim_loai.jpg"
   },
   {
     "filename": "kho_04_don_loai_bia_carton.jpg",
@@ -57,7 +57,7 @@
     "sha256": "4f0c2c7cf1dbdddd1e59b464144e17ea4430edbbb196513185dca9866db5d24c",
     "security_scan": "CLEAN_PASSED",
     "sanitization": "PIL_RGB_RE_ENCODED_CLEAN",
-    "saved_path": "D:\\Hinh_Anh_Rac\\kho_04_don_loai_bia_carton.jpg"
+    "saved_path": "data/holdout/kho_04_don_loai_bia_carton.jpg"
   },
   {
     "filename": "kho_05_don_loai_quan_ao.jpg",
@@ -72,7 +72,7 @@
     "sha256": "3f0122e422a8698d3682f616cefbd90c34384490e93b16e5e66c5c1bb6cdb770",
     "security_scan": "CLEAN_PASSED",
     "sanitization": "PIL_RGB_RE_ENCODED_CLEAN",
-    "saved_path": "D:\\Hinh_Anh_Rac\\kho_05_don_loai_quan_ao.jpg"
+    "saved_path": "data/holdout/kho_05_don_loai_quan_ao.jpg"
   },
   {
     "filename": "kho_06_don_loai_giay_dep.jpg",
@@ -87,7 +87,7 @@
     "sha256": "283a70a039cb68dd2f8c86dcc38b6df44ce95f2bc55e7d59270a5c38744e4ec3",
     "security_scan": "CLEAN_PASSED",
     "sanitization": "PIL_RGB_RE_ENCODED_CLEAN",
-    "saved_path": "D:\\Hinh_Anh_Rac\\kho_06_don_loai_giay_dep.jpg"
+    "saved_path": "data/holdout/kho_06_don_loai_giay_dep.jpg"
   },
   {
     "filename": "kho_07_don_loai_nhua.jpg",
@@ -102,7 +102,7 @@
     "sha256": "e5237f72e99b8f67ad9f32041056dc9e4d69ccae56e79ceae47c5153aad4a19a",
     "security_scan": "CLEAN_PASSED",
     "sanitization": "PIL_RGB_RE_ENCODED_CLEAN",
-    "saved_path": "D:\\Hinh_Anh_Rac\\kho_07_don_loai_nhua.jpg"
+    "saved_path": "data/holdout/kho_07_don_loai_nhua.jpg"
   },
   {
     "filename": "kho_08_don_loai_giay.jpg",
@@ -117,7 +117,7 @@
     "sha256": "4c3e77ab9edf46e585db2e27ae6fad9132a565589f0fb0fae3abd7b12455cb54",
     "security_scan": "CLEAN_PASSED",
     "sanitization": "PIL_RGB_RE_ENCODED_CLEAN",
-    "saved_path": "D:\\Hinh_Anh_Rac\\kho_08_don_loai_giay.jpg"
+    "saved_path": "data/holdout/kho_08_don_loai_giay.jpg"
   },
   {
     "filename": "kho_09_don_loai_huu_co.jpg",
@@ -132,7 +132,7 @@
     "sha256": "f751077315ee4048dd8a101ff2020b0ccf3ec5abccdcec9a040ddd8a63203e80",
     "security_scan": "CLEAN_PASSED",
     "sanitization": "PIL_RGB_RE_ENCODED_CLEAN",
-    "saved_path": "D:\\Hinh_Anh_Rac\\kho_09_don_loai_huu_co.jpg"
+    "saved_path": "data/holdout/kho_09_don_loai_huu_co.jpg"
   },
   {
     "filename": "kho_10_don_loai_pin_dien_tu.jpg",
@@ -147,7 +147,7 @@
     "sha256": "a9fbb5bf22b1a3312547afdf6722cdb762cd39b225915381fafe0f732931002f",
     "security_scan": "CLEAN_PASSED",
     "sanitization": "PIL_RGB_RE_ENCODED_CLEAN",
-    "saved_path": "D:\\Hinh_Anh_Rac\\kho_10_don_loai_pin_dien_tu.jpg"
+    "saved_path": "data/holdout/kho_10_don_loai_pin_dien_tu.jpg"
   },
   {
     "filename": "kho_11_da_loai_bai_bien.jpg",
@@ -162,7 +162,7 @@
     "sha256": "a76393d1b3fa325cd86a344f7eab1d5f709c6c4d41edf2e26af7440a9d5f15dc",
     "security_scan": "CLEAN_PASSED",
     "sanitization": "PIL_RGB_RE_ENCODED_CLEAN",
-    "saved_path": "D:\\Hinh_Anh_Rac\\kho_11_da_loai_bai_bien.jpg"
+    "saved_path": "data/holdout/kho_11_da_loai_bai_bien.jpg"
   },
   {
     "filename": "kho_12_da_loai_ranh_nuoc.jpg",
@@ -177,7 +177,7 @@
     "sha256": "b859b4f1403a152c67281b7db3c199ac8632991545a54cd38aa2599f9df413bf",
     "security_scan": "CLEAN_PASSED",
     "sanitization": "PIL_RGB_RE_ENCODED_CLEAN",
-    "saved_path": "D:\\Hinh_Anh_Rac\\kho_12_da_loai_ranh_nuoc.jpg"
+    "saved_path": "data/holdout/kho_12_da_loai_ranh_nuoc.jpg"
   },
   {
     "filename": "kho_13_da_loai_bo_song.jpg",
@@ -192,7 +192,7 @@
     "sha256": "d920b4f0ef48cbf74542fceef2f849c770238d51cb6b1bd8aca63369f6c88c54",
     "security_scan": "CLEAN_PASSED",
     "sanitization": "PIL_RGB_RE_ENCODED_CLEAN",
-    "saved_path": "D:\\Hinh_Anh_Rac\\kho_13_da_loai_bo_song.jpg"
+    "saved_path": "data/holdout/kho_13_da_loai_bo_song.jpg"
   },
   {
     "filename": "kho_14_da_loai_bai_rac_tu_phat.jpg",
@@ -207,7 +207,7 @@
     "sha256": "49e2e253f02817cc5a152bc638062043875edd7581d187649cdc7380e5adcb42",
     "security_scan": "CLEAN_PASSED",
     "sanitization": "PIL_RGB_RE_ENCODED_CLEAN",
-    "saved_path": "D:\\Hinh_Anh_Rac\\kho_14_da_loai_bai_rac_tu_phat.jpg"
+    "saved_path": "data/holdout/kho_14_da_loai_bai_rac_tu_phat.jpg"
   },
   {
     "filename": "kho_15_da_loai_tham_co.jpg",
@@ -222,7 +222,7 @@
     "sha256": "515f795ec2bc4dd77a395beecc4992de13860ba1ad5f198cacc7829eca2d00a8",
     "security_scan": "CLEAN_PASSED",
     "sanitization": "PIL_RGB_RE_ENCODED_CLEAN",
-    "saved_path": "D:\\Hinh_Anh_Rac\\kho_15_da_loai_tham_co.jpg"
+    "saved_path": "data/holdout/kho_15_da_loai_tham_co.jpg"
   },
   {
     "filename": "kho_16_da_loai_duong_mon.jpg",
@@ -237,7 +237,7 @@
     "sha256": "c5dfede0167b15de8c4aa97f598eddcaf7da592d275c3685b2d82ccdb11dfe40",
     "security_scan": "CLEAN_PASSED",
     "sanitization": "PIL_RGB_RE_ENCODED_CLEAN",
-    "saved_path": "D:\\Hinh_Anh_Rac\\kho_16_da_loai_duong_mon.jpg"
+    "saved_path": "data/holdout/kho_16_da_loai_duong_mon.jpg"
   },
   {
     "filename": "kho_17_da_loai_phe_thai_hon_hop.jpg",
@@ -252,7 +252,7 @@
     "sha256": "267b874f011e6bc9f83e4d66535d1f65483269ff3c1918409dfdd8306e46307f",
     "security_scan": "CLEAN_PASSED",
     "sanitization": "PIL_RGB_RE_ENCODED_CLEAN",
-    "saved_path": "D:\\Hinh_Anh_Rac\\kho_17_da_loai_phe_thai_hon_hop.jpg"
+    "saved_path": "data/holdout/kho_17_da_loai_phe_thai_hon_hop.jpg"
   },
   {
     "filename": "kho_18_da_loai_kenh_rach.jpg",
@@ -267,7 +267,7 @@
     "sha256": "b3fb4fc1e290cd5d15c48abd1b7ce7c4d90934d22581e1e233b33bdacd55d02b",
     "security_scan": "CLEAN_PASSED",
     "sanitization": "PIL_RGB_RE_ENCODED_CLEAN",
-    "saved_path": "D:\\Hinh_Anh_Rac\\kho_18_da_loai_kenh_rach.jpg"
+    "saved_path": "data/holdout/kho_18_da_loai_kenh_rach.jpg"
   },
   {
     "filename": "kho_19_da_loai_thung_rac_tran.jpg",
@@ -282,7 +282,7 @@
     "sha256": "43dd993681717ad8100bd2555532946779d4424a39335254dda4ee9a4b616002",
     "security_scan": "CLEAN_PASSED",
     "sanitization": "PIL_RGB_RE_ENCODED_CLEAN",
-    "saved_path": "D:\\Hinh_Anh_Rac\\kho_19_da_loai_thung_rac_tran.jpg"
+    "saved_path": "data/holdout/kho_19_da_loai_thung_rac_tran.jpg"
   },
   {
     "filename": "kho_20_da_loai_goc_pho.jpg",
@@ -297,6 +297,6 @@
     "sha256": "f18f23afd05f91698e0df118a7110681f003f3b4f6bc4986d5580be6fdc67fd4",
     "security_scan": "CLEAN_PASSED",
     "sanitization": "PIL_RGB_RE_ENCODED_CLEAN",
-    "saved_path": "D:\\Hinh_Anh_Rac\\kho_20_da_loai_goc_pho.jpg"
+    "saved_path": "data/holdout/kho_20_da_loai_goc_pho.jpg"
   }
 ]

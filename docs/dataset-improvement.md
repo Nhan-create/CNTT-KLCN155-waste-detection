@@ -74,11 +74,11 @@ Tập dữ liệu đang được sử dụng để huấn luyện `E1_yolov8n_10
 
 ---
 
-## 4. Bảo Vệ Tuyệt Đối Tập Kiểm Chứng Độc Lập `D:\Hinh_Anh_Rac`
+## 4. Bảo Vệ Tuyệt Đối Tập Kiểm Chứng Độc Lập `data/holdout`
 
-- Tập ảnh `D:\Hinh_Anh_Rac` (27 ảnh, 57 vật thể Ground Truth) do Sub-Agent D quản lý là **bộ chuẩn nghiệm thu độc lập (Unseen Test Holdout)**.
+- Tập ảnh `data/holdout` (27 ảnh, 57 vật thể Ground Truth) do Sub-Agent D quản lý là **bộ chuẩn nghiệm thu độc lập (Unseen Test Holdout)**.
 - **Quy tắc bất biến:**
-  1. Tuyệt đối không đưa bất kỳ ảnh nào từ `D:\Hinh_Anh_Rac` vào tập huấn luyện hoặc tập validation.
+  1. Tuyệt đối không đưa bất kỳ ảnh nào từ `data/holdout` vào tập huấn luyện hoặc tập validation.
   2. Mã băm SHA-256 của từng file trong tập nghiệm thu được kiểm tra tự động trước mỗi lần huấn luyện để ngăn chặn hoàn toàn rò rỉ dữ liệu (Data Leakage).
   3. Không tối ưu hóa siêu tham số (Hyperparameter Tuning) trực tiếp trên tập nghiệm thu này.
 

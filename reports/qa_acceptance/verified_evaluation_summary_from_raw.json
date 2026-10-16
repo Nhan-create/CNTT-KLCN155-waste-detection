@@ -1,7 +1,7 @@
 [
   {
     "pipeline_name": "BEFORE_QUICK_FIX (Tiling 640 + TwoStage Blend)",
-    "raw_json_path": "D:\\CNTT-KLCN155-waste-detection\\reports\\qa_acceptance\\raw_predictions_before_quick_fix.json",
+    "raw_json_path": "reports\\qa_acceptance\\raw_predictions_before_quick_fix.json",
     "operating_conf": 0.25,
     "total_generated_boxes": 24,
     "filtered_low_conf": 3,
@@ -35,7 +35,7 @@
   },
   {
     "pipeline_name": "AFTER_QUICK_FIX (Tiling 800 + TwoStage Product)",
-    "raw_json_path": "D:\\CNTT-KLCN155-waste-detection\\reports\\qa_acceptance\\raw_predictions_after_quick_fix.json",
+    "raw_json_path": "reports\\qa_acceptance\\raw_predictions_after_quick_fix.json",
     "operating_conf": 0.25,
     "total_generated_boxes": 19,
     "filtered_low_conf": 8,
@@ -69,7 +69,7 @@
   },
   {
     "pipeline_name": "YOLOV8N_E1_RAW",
-    "raw_json_path": "D:\\CNTT-KLCN155-waste-detection\\reports\\qa_acceptance\\raw_predictions_yolov8n_e1.json",
+    "raw_json_path": "reports\\qa_acceptance\\raw_predictions_yolov8n_e1.json",
     "operating_conf": 0.25,
     "total_generated_boxes": 46,
     "filtered_low_conf": 14,

@@ -174,7 +174,7 @@
       "has_preexisting_bboxes": "No (Requires manual CVAT/LabelStudio annotation)",
       "taxonomy_alignment": "Exact 10-class taxonomy + intentional multi-class combinations + targeted hard negatives",
       "license_and_provenance": "100% First-Party Project Owned (CC BY 4.0 / Full commercial & academic rights)",
-      "overlap_with_current_dataset": "Zero (Strictly separated from frozen 27-image holdout `D:\\Hinh_Anh_Rac` by photographer session & specimen ID)",
+      "overlap_with_current_dataset": "Zero (Strictly separated from frozen 27-image holdout `data/holdout` by photographer session & specimen ID)",
       "real_world_vs_product_coverage": "100% real-world Vietnamese household, campus, street, wet-market, and bin scenes",
       "estimated_usable_independent_images": 5000,
       "estimated_storage_gb": 4.5,

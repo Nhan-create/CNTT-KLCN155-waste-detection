@@ -4,7 +4,7 @@ Guarantees:
 - no image leakage between train/val/test (filename, SHA-256, and pHash near-duplicate groups)
 - no synthetic / Mendeley image in any split
 - every image exists and has a valid YOLO label (class ids 0..9, normalized geometry, non-empty)
-- no image matches the acceptance holdout D:/Hinh_Anh_Rac (SHA-256 vs reports/qa_acceptance manifest)
+- no image matches the acceptance holdout data/holdout (SHA-256 vs reports/qa_acceptance manifest)
 - dataset YAML fingerprints match the split files; class order unchanged
 - class-agnostic labels mirror the split images with class 0 only
 """

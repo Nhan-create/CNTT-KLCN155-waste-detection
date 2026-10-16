@@ -3,7 +3,7 @@ scripts/build_phase4a_delivery.py
 ---------------------------------
 Packages all Phase 4A verified artifacts, reports, raw predictions, GT files,
 evaluators, patch evidence, and test logs into:
-C:\\Users\\ad\\Downloads\\PHASE4A_DATASET_PREPARATION_EVIDENCE.zip
+~/Downloads/PHASE4A_DATASET_PREPARATION_EVIDENCE.zip
 """
 
 import sys

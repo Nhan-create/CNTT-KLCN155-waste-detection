@@ -6,7 +6,7 @@ Generates:
    - Representative direct-inspection set of Task 8C images, YOLO `.txt` labels, full-box overlays, contact sheets, and `task8c_representative_manifest.json` (`41` Wave 2 `REAL_WASTE_PASS` + `20` Wave 1 `REAL_WASTE_PASS` + `15` `KEEP_AUXILIARY` = `76` representative Task 8C items).
 2. `reports/task8_dataset_program/TASK8D_SOURCE_YIELD_PILOT_AND_ACQUISITION_REPORT.md` & `.json`:
    - Full Task 1–5 evidence report derived 100% programmatically from manifests on disk.
-3. `C:\\Users\\ad\\Downloads\\TASK8D_HIGH_YIELD_REAL_WASTE_DELIVERY.zip` (strictly < 500 MB):
+3. `~/Downloads/TASK8D_HIGH_YIELD_REAL_WASTE_DELIVERY.zip` (strictly < 500 MB):
    - All Task 8D reports, canonical 5,000 ledger, scripts, tests, 7 pilot 30-image contact sheets, all `200` `REAL_WASTE_PASS` raw images + `.txt` labels + overlays, all `36` `KEEP_AUXILIARY` labels + overlays, all `28` `NEEDS_REVIEW` labels + overlays, all Task 8D contact sheets, AND the complete Task 8C Representative PM Review Pack (`76` images + labels + overlays + contact sheets).
 """
 
@@ -423,7 +423,7 @@ def generate_reports_and_zip() -> None:
         pilot_rows.append(
             f"| `{p['source_id']}` | `{p['source_type']}` | `{p['license']}` | `{p['pilot_sample_size']}` | "
             f"**{p['estimated_real_waste_count']}/30 (`{p['estimated_real_waste_yield_pct']}%`)** | "
-            f"**`{p['decision']}`** | [`{pathlib.Path(p['contact_sheet_path']).name}`](file:///{REPO_ROOT.as_posix()}/{p['contact_sheet_path']}) | {p['findings']} |"
+            f"**`{p['decision']}`** | [`{pathlib.Path(p['contact_sheet_path']).name}`](../../{p['contact_sheet_path']}) | {p['findings']} |"
         )
 
     glv = w8d_manifest["group_leakage_verification"]
@@ -466,8 +466,8 @@ def generate_reports_and_zip() -> None:
     md = [
         "# BÁO CÁO NGHIỆM THU TASK 8D — HIGH-YIELD REAL-WASTE ACQUISITION & BASELINE RECONCILIATION",
         "",
-        "- **Repository:** `D:\\CNTT-KLCN155-waste-detection`",
-        "- **Trạng thái cổng huấn luyện:** `APPROVED_FOR_TRAIN = False` trên 100% ảnh mới (Tuyệt đối chưa chạy E4/E5 training, chưa thay đổi E1 trên Streamlit, chưa chạm vào tập test frozen `299` / `274` / `D:\\Hinh_Anh_Rac`).",
+        "- **Repository:** `.`",
+        "- **Trạng thái cổng huấn luyện:** `APPROVED_FOR_TRAIN = False` trên 100% ảnh mới (Tuyệt đối chưa chạy E4/E5 training, chưa thay đổi E1 trên Streamlit, chưa chạm vào tập test frozen `299` / `274` / `data/holdout`).",
         "- **Sổ cái chuẩn hóa 5.000 ảnh/lớp:** [`CANONICAL_5000_DATASET_LEDGER.md`](./reports/task8_dataset_program/CANONICAL_5000_DATASET_LEDGER.md) | [`.json`](./reports/task8_dataset_program/CANONICAL_5000_DATASET_LEDGER.json) | [`.csv`](./reports/task8_dataset_program/CANONICAL_5000_DATASET_LEDGER.csv)",
         "- **Manifest QA Task 8D:** [`task8d_qa_manifest.json`](./data/acquisition_staging/task8d_high_yield_real_waste/task8d_qa_manifest.json) | [`task8d_qa_manifest.csv`](./data/acquisition_staging/task8d_high_yield_real_waste/task8d_qa_manifest.csv)",
         "- **Bộ mẫu đại diện Task 8C đính kèm để PM kiểm tra trực tiếp:** [`task8c_pm_review_representative_pack/`](./data/acquisition_staging/task8c_pm_review_representative_pack/task8c_representative_manifest.json) (`76` ảnh + nhãn `.txt` + overlays + contact sheets).",

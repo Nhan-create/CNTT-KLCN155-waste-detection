@@ -1,7 +1,7 @@
 # TASK 8 — WAVE 1 QA CORRECTION & FORENSIC AUDIT REPORT (`WAVE1_QA_CORRECTION_REPORT.md`)
 
-- **Repository:** `D:\CNTT-KLCN155-waste-detection`
-- **Source of Truth Manifest:** [`task8_wave1_qa_manifest.json`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/task8a_multiclass_batch/task8_wave1_qa_manifest.json)
+- **Repository:** `.`
+- **Source of Truth Manifest:** [`task8_wave1_qa_manifest.json`](../../data/acquisition_staging/task8a_multiclass_batch/task8_wave1_qa_manifest.json)
 - **Task 8C Consistency Fix Applied:** Reconciled all table cells and bounding-box totals directly from `task8_wave1_qa_manifest.json` (**`104` `QA_PASS` unique images**, **`170` verified bounding boxes**: `93` boxes in `59` `REAL_WASTE_PASS` images + `77` boxes in `45` `KEEP_AUXILIARY` images).
 - **Training Approval Gate:** `APPROVED_FOR_TRAIN = False` on all `221` records.
 

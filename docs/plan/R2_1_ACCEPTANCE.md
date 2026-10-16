@@ -12,7 +12,7 @@
 
 | Yêu cầu của PM trong TASK R2.1 | Kết quả thực hiện & Bằng chứng thực tế | Đánh giá |
 |:---|:---|:---:|
-| **1. Workspace mới độc lập** | Thư mục vật lý độc lập `D:\CNTT-KLCN155-waste-detection`, Git root riêng biệt, virtualenv `.venv` riêng biệt, log và artifacts ghi cục bộ. Repo cũ tại Downloads được giữ nguyên 100%. | **ĐẠT (VERIFIED)** |
+| **1. Workspace mới độc lập** | Thư mục vật lý độc lập `.`, Git root riêng biệt, virtualenv `.venv` riêng biệt, log và artifacts ghi cục bộ. Repo cũ tại Downloads được giữ nguyên 100%. | **ĐẠT (VERIFIED)** |
 | **2. Báo cáo bằng chứng thực tế cho 12 câu hỏi** | Trả lời đầy đủ 12 câu hỏi kèm trích dẫn file code, đường dẫn dữ liệu, trạng thái VERIFIED/CONFLICT và phân tích tác động. | **ĐẠT (VERIFIED)** |
 | **3. Sửa lỗi kiểm toán dữ liệu và script** | Đã sửa bug gán cứng `cross_source_duplicates = 0` trong `scripts/audit_and_reconcile_data.py`; xác nhận 890 cặp trùng liên nguồn (879 cặp trùng exact MD5). | **ĐẠT (VERIFIED)** |
 | **4. Tái hiện và kiểm định 18 cặp pHash $\le 4$** | Tái hiện chính xác 100% 18 cặp ứng viên; kiểm định trực quan phát hiện 15 cặp rò rỉ dữ liệu thật (10 burst-shot, 5 xoay góc) và 3 cặp trùng ngẫu nhiên khác lớp. Xuất ảnh plate trực quan tại `data/audit/visual_phash_inspection/`. | **ĐẠT (VERIFIED)** |

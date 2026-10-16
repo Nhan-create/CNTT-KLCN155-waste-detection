@@ -1,7 +1,7 @@
 """DoD Acceptance Evaluation Module for Waste Detection (CNTT-KLCN155).
 
 Evaluates predictions against Frozen Ground Truth on the mandatory acceptance dataset:
-D:\\Hinh_Anh_Rac
+data/holdout
 
 DoD Criteria:
 1. Coverage: 100% of manifest images evaluated.

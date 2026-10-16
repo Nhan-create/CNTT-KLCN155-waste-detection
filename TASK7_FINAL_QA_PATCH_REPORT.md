@@ -1,6 +1,6 @@
 # BÁO CÁO NGHIỆM THU BẢN VÁ TASK 7 FINAL QA PATCH (CHỈ SỬA 2 ẢNH: `task7_30` & `task7_53`)
 
-- **Repository:** `D:\CNTT-KLCN155-waste-detection`
+- **Repository:** `.`
 - **Reviewer & Patch Author:** `Antigravity Visual QA + PM Audit Patch (Task 7 Final QA Patch)`
 - **Thời gian cập nhật (UTC):** `2026-10-14T06:30:58.493745+00:00`
 - **Trạng thái phê duyệt huấn luyện:** **`APPROVED_FOR_TRAIN = 0`** (`False` trên toàn bộ 56 ứng viên)

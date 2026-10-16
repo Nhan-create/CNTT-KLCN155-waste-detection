@@ -6,7 +6,7 @@ Performs comprehensive mathematical and semantic audit of:
 2. Deep analysis of 176 excluded images (reason breakdown, class box impact).
 3. Deep analysis of 147 un-split disk images (quarantine reasons, 129 annotated review holdouts, TACO biological provenance).
 4. Cross-split leakage check for Dataset v3 candidate (SHA-256 and pHash Hamming distance).
-5. Isolation check against Holdout benchmark (D:\\Hinh_Anh_Rac).
+5. Isolation check against Holdout benchmark (data/holdout).
 
 Outputs: reports/data_v2/v3_splits_reconciliation_audit.json
 """

@@ -1,6 +1,6 @@
 # BÁO CÁO KỸ THUẬT & BÀN GIAO: SPRINT AI-UPGRADE-01 — TASK 5D FIX (BATTERY OBJECT ANNOTATION & QA STATE MACHINE)
 
-**Repository:** `D:\CNTT-KLCN155-waste-detection`  
+**Repository:** `.`  
 **Trạng thái Gatekeeper:** `APPROVED_FOR_TRAIN = 0` (`HALTED_PENDING_PM_REVIEW`)  
 **Huấn luyện GPU:** `0` (Tuyệt đối chưa chạy fine-tuning YOLOv8n)
 
@@ -25,12 +25,12 @@
 
 ## 2. TASK 2 — KẾT QUẢ RE-ANNOTATE MINI-PILOT 20 ẢNH ĐẠI DIỆN
 
-- **Thư mục lưu trữ có versioning:** [`data/acquisition_staging/roboflow_battery/reannotated_v1_minipilot20/`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/roboflow_battery/reannotated_v1_minipilot20/)
+- **Thư mục lưu trữ có versioning:** [`data/acquisition_staging/roboflow_battery/reannotated_v1_minipilot20/`](data/acquisition_staging/roboflow_battery/reannotated_v1_minipilot20/)
   - `images/`: 20 ảnh gốc (`768x768`) đại diện cho cả `train` (9 ảnh) và `valid` (11 ảnh).
   - `labels/`: 20 file nhãn YOLO `.txt` mới (`class 0: battery`), mỗi file chứa đúng **1 full-battery bounding box**.
   - `overlays_before_after/`: **20 ảnh đối chiếu BEFORE / AFTER đặt cạnh nhau** (`before_after_01_*.jpg` .. `before_after_20_*.jpg`) kèm 2 bảng tổng hợp (`summary_before_after_sheet_01_of_02.jpg`, `02_of_02.jpg`).
   - `minipilot20_reannotation_manifest.json`: Bản ghi review trực quan từng ảnh (`reviewed_by`, `review_timestamp`, `review_method`, `review_note`, tọa độ cũ vs. mới).
-- **Script tái lập:** [`scripts/reannotate_battery_minipilot_20.py`](file:///d:/CNTT-KLCN155-waste-detection/scripts/reannotate_battery_minipilot_20.py)
+- **Script tái lập:** [`scripts/reannotate_battery_minipilot_20.py`](scripts/reannotate_battery_minipilot_20.py)
 
 ### Bảng đối chiếu 20 ảnh Mini-Pilot (Từ 41 box chữ cũ $\rightarrow$ 20 box toàn bộ viên pin):
 
@@ -61,7 +61,7 @@
 
 ## 3. TASK 3 — PHÂN TÍCH BIẾN THỂ AUGMENTATION, `ORIGINAL_UNKNOWN` & CHỐNG RÒ RỈ PHIÊN CHỤP
 
-File phân tích định lượng: [`data/acquisition_staging/roboflow_battery/augmentation_and_session_leakage_analysis.json`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/roboflow_battery/augmentation_and_session_leakage_analysis.json) (tạo bởi [`scripts/analyze_battery_variants_and_sessions.py`](file:///d:/CNTT-KLCN155-waste-detection/scripts/analyze_battery_variants_and_sessions.py)).
+File phân tích định lượng: [`data/acquisition_staging/roboflow_battery/augmentation_and_session_leakage_analysis.json`](data/acquisition_staging/roboflow_battery/augmentation_and_session_leakage_analysis.json) (tạo bởi [`scripts/analyze_battery_variants_and_sessions.py`](scripts/analyze_battery_variants_and_sessions.py)).
 
 1. **Tại sao kiểm tra `".rf." in filename` không hợp lệ và phải gán `ORIGINAL_UNKNOWN`:**
    - Toàn bộ **350/350 file** trong bản xuất Roboflow đều có định dạng `<base_id>.rf.<md5_hash>.jpg`.
@@ -89,7 +89,7 @@ File phân tích định lượng: [`data/acquisition_staging/roboflow_battery/a
 
 ## 4. TASK 4 — SỬA QA STATE MACHINE & REGRESSION TESTS
 
-Đã sửa đổi [`src/detection/safe_dataset_builder.py`](file:///d:/CNTT-KLCN155-waste-detection/src/detection/safe_dataset_builder.py), [`scripts/import_and_qa_roboflow_battery.py`](file:///d:/CNTT-KLCN155-waste-detection/scripts/import_and_qa_roboflow_battery.py) và [`scripts/generate_all_140_base_contact_sheets.py`](file:///d:/CNTT-KLCN155-waste-detection/scripts/generate_all_140_base_contact_sheets.py):
+Đã sửa đổi [`src/detection/safe_dataset_builder.py`](src/detection/safe_dataset_builder.py), [`scripts/import_and_qa_roboflow_battery.py`](scripts/import_and_qa_roboflow_battery.py) và [`scripts/generate_all_140_base_contact_sheets.py`](scripts/generate_all_140_base_contact_sheets.py):
 
 1. **Tách biệt 5 trạng thái QA độc lập:**
    - `TECHNICAL_VALID`: Ảnh giải mã hợp lệ, tọa độ YOLO hợp lệ về mặt toán học (`140/140` base images). Không được dùng trạng thái này để đưa vào huấn luyện.
@@ -105,7 +105,7 @@ File phân tích định lượng: [`data/acquisition_staging/roboflow_battery/a
 ## 5. TASK 5 — ĐỐI CHIẾU SỐ LIỆU THỐNG KÊ CHÍNH XÁC
 
 ### 5.1. Đính chính số lượng Bounding Boxes của tập `test` đóng băng
-Trong [`configs/detection_dataset_real_v3_pilot.yaml`](file:///d:/CNTT-KLCN155-waste-detection/configs/detection_dataset_real_v3_pilot.yaml), số lượng box của tập `test` cố định (299 ảnh) có lớp `trash = 139` (đã sửa lỗi đánh máy `130` trong bảng báo cáo cũ), khớp tuyệt đối tổng **720 boxes**:
+Trong [`configs/detection_dataset_real_v3_pilot.yaml`](configs/detection_dataset_real_v3_pilot.yaml), số lượng box của tập `test` cố định (299 ảnh) có lớp `trash = 139` (đã sửa lỗi đánh máy `130` trong bảng báo cáo cũ), khớp tuyệt đối tổng **720 boxes**:
 
 | Lớp | `0:bat` | `1:bio` | `2:card` | `3:cloth` | `4:glass` | `5:metal` | `6:paper` | `7:plast` | `8:shoes` | `9:trash` | **Tổng cộng** |
 |---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -130,7 +130,7 @@ Trong [`configs/detection_dataset_real_v3_pilot.yaml`](file:///d:/CNTT-KLCN155-w
 
 ## 6. BẰNG CHỨNG KIỂM THỬ PYTEST
 
-Toàn bộ bộ kiểm thử QA và Detection đều đạt **100% PASS** (log chi tiết tại [`reports/task5d_fix_pytest_log.txt`](file:///d:/CNTT-KLCN155-waste-detection/reports/task5d_fix_pytest_log.txt)):
+Toàn bộ bộ kiểm thử QA và Detection đều đạt **100% PASS** (log chi tiết tại [`reports/task5d_fix_pytest_log.txt`](reports/task5d_fix_pytest_log.txt)):
 - `tests/qa/test_task5d_fix_reannotation_and_qa.py`: **5/5 PASSED**
 - `tests/qa/test_task5d_approval_package.py`: **5/5 PASSED**
 - `tests/qa/test_task5c_battery_qa.py`: **5/5 PASSED**

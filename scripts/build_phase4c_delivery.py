@@ -2,7 +2,7 @@
 scripts/build_phase4c_delivery.py
 ---------------------------------
 Packages the definitive delivery archive for Phase 4C Acceptance:
-C:\\Users\\ad\\Downloads\\PHASE4C_REAL_DATA_PILOT_EVIDENCE.zip
+~/Downloads/PHASE4C_REAL_DATA_PILOT_EVIDENCE.zip
 
 Includes:
 1. 15 pilot images and labels

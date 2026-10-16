@@ -24,7 +24,7 @@
 
 ## 2. Upstream Candidate Pools: Verified Local Metadata vs Theoretical Estimates
 
-| Upstream Source | License | Already Used in `real_v2` | Verified Metadata Rows Cached Locally (`D:\waste-training\`) | Actually Downloaded & Audited in W1+W2 | Remaining Unaudited Pool Status |
+| Upstream Source | License | Already Used in `real_v2` | Verified Metadata Rows Cached Locally (`data/external/waste-training/`) | Actually Downloaded & Audited in W1+W2 | Remaining Unaudited Pool Status |
 |---|---|---:|---:|---:|---|
 | **TACO Official v1.0 (`pedropro/TACO`)** | `CC-BY-4.0` | **`1,500 / 1,500` (`100%`)** (`1,490` active + `10` EXIF-quarantined in `real_v2_source_manifest.csv`) | `1,500` images (`4,784` boxes in `taco_official_annotations.json`) | `0` in W1/W2 (intentionally skipped to prevent 100% duplication/leakage with `real_v2`!) | **Exhausted (`0` unused images remaining in official TACO 1.0)** |
 | **Open Images V7 Train** | `CC-BY-2.0` (Flickr attribution) | `0` | `6,133` non-human, non-rotated images (`17,681` boxes) cached in `openimages-train-slice-meta.csv` (`5,422` author-disjoint from `real_v2`) | **936** downloaded in Wave 2 | ~`4,486` cached author-disjoint candidates remaining locally + full 9M Open Images Train CSV streamable |

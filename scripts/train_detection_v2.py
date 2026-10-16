@@ -7,7 +7,7 @@ Sequential GPU usage: run ONE command at a time.
   python scripts/train_detection_v2.py ssdlite --run E2_ssdlite320_10cls --data configs/detection_dataset_real_v2.yaml
   python scripts/train_detection_v2.py post    --run E1_yolov8n_10cls
 
-Training never reads the test split or D:\\Hinh_Anh_Rac. ``post`` evaluates val+test,
+Training never reads the test split or data/holdout. ``post`` evaluates val+test,
 calibrates per-class thresholds on VAL only and exports raw QA predictions (conf>=0.001).
 """
 

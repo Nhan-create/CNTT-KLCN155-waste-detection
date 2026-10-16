@@ -1,6 +1,6 @@
 {
   "status": "PASSED",
-  "dataset_yaml": "D:\\CNTT-KLCN155-waste-detection\\data\\detection_v3_candidate\\yolo\\data.yaml",
+  "dataset_yaml": "data\\detection_v3_candidate\\yolo\\data.yaml",
   "total_classes_declared": 10,
   "total_classes_verified": 10,
   "all_10_classes_verified": true,

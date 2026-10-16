@@ -14,7 +14,7 @@
 | **Taxonomy 10 lớp** | Đã đóng băng cố định tại `src/detection/schema.py`. | Đã hoàn chỉnh. Giữ nguyên bất biến. |
 | **Dữ liệu huấn luyện** | `splits_real_v2` (1.996 ảnh, 5.585 box). Đã loại bỏ sạch dữ liệu Mendeley/Synthetic. | Thiếu nghiêm trọng ảnh Pin (Recall 0%) và Rác sinh học (Recall 0%). Cần bổ sung Đợt A (100–200 ảnh). |
 | **Checkpoints mô hình** | YOLOv8n E1 (`best.pt`, 5.94 MB), SSDLite320 E2 (27.14 MB), MobileNetV3 (48.57 MB, 96.18%). | Cần fine-tuning pilot trên tập dữ liệu Đợt A với cấu hình RTX 2050 (imgsz 512, batch 2-4). |
-| **Kiểm thử độc lập** | 27 ảnh nghiệm thu `D:\Hinh_Anh_Rac` (57 GT objects), module `practical_metrics.py`. | Cần thu thập thêm 2 tập kiểm thử mới: Fixed Camera Holdout và Mobile Camera Holdout. |
+| **Kiểm thử độc lập** | 27 ảnh nghiệm thu `data/holdout` (57 GT objects), module `practical_metrics.py`. | Cần thu thập thêm 2 tập kiểm thử mới: Fixed Camera Holdout và Mobile Camera Holdout. |
 | **Pipeline Tọa độ** | `src/detection/coordinates.py` đã có `ensure_exif_orientation`, `letterbox_image`, `scale_coords_back`. | Cần tích hợp vào vòng lặp đọc camera để xử lý xoay màn hình điện thoại tự động. |
 | **Cơ chế Tracking** | `src/detection/tracking.py` đã có `TemporalDetectionSmoother`. | Cần mở rộng thêm gán `track_id` để chống đếm trùng một vật thể rác nhiều lần trong 1 giờ. |
 | **Camera Cố định** | `cv2.VideoCapture(0)` đã kiểm tra hoạt động tốt trên máy trạm. | Chưa có background worker tự động reconnect khi mất kết nối USB/RTSP và hàng đợi drop frame chống lag. |

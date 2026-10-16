@@ -26,37 +26,37 @@
   },
   "runtime_checkpoints": {
     "ssdlite_combined_seed42": {
-      "path": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\detection\\waste-ssdlite320-mobilenetv3-combined-seed42\\weights\\best.pt",
+      "path": "artifacts\\detection\\waste-ssdlite320-mobilenetv3-combined-seed42\\weights\\best.pt",
       "size_bytes": 28456982,
       "sha256": "584c5980eb4ebe3718da7b3e87a3c95edfee3d78f186def3e5feba32cf03dff1"
     },
     "yolov8n_combined_seed42": {
-      "path": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\detection\\waste-yolov8n-combined-seed42\\weights\\best.pt",
+      "path": "artifacts\\detection\\waste-yolov8n-combined-seed42\\weights\\best.pt",
       "size_bytes": 6217379,
       "sha256": "97f46ccaaa0a63c5934225d51ccd399c1c18eb3e1af8a63b9f14bec1aaa085c9"
     },
     "ssdlite_baseline": {
-      "path": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\detection\\waste-ssdlite320-mobilenetv3\\weights\\best.pt",
+      "path": "artifacts\\detection\\waste-ssdlite320-mobilenetv3\\weights\\best.pt",
       "size_bytes": 28456918,
       "sha256": "c9a079d630bdff7919d476c960784af885662fd12fa28fee7c8fef03bd551c9b"
     },
     "yolov8n_baseline": {
-      "path": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\detection\\waste-yolov8n\\weights\\best.pt",
+      "path": "artifacts\\detection\\waste-yolov8n\\weights\\best.pt",
       "size_bytes": 6208931,
       "sha256": "84b677fcb4de6cb0725973aa7de21f0a594dfea57c20c875256f393fff2a06dd"
     },
     "classifier_official": {
-      "path": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\official_run\\best_model.pt",
+      "path": "artifacts\\official_run\\best_model.pt",
       "size_bytes": 50929856,
       "sha256": "c824fec4f3d1dffff946cd8ad7e2d4f121be33e684dda4e6af92b5bda343e424"
     },
     "pretrained_yolov8n": {
-      "path": "D:\\CNTT-KLCN155-waste-detection\\yolov8n.pt",
+      "path": "yolov8n.pt",
       "size_bytes": 6549796,
       "sha256": "f59b3d833e2ff32e194b5bb8e08d211dc7c5bdf144b90d2c8412c47ccfc83b36"
     },
     "selection_wbf_ensemble": {
-      "path": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\detection\\selection_wbf_ensemble.json",
+      "path": "artifacts\\detection\\selection_wbf_ensemble.json",
       "size_bytes": 49271,
       "sha256": "cdab0c2025c2333ab402abdc2f4632a74ebad5b32c95989d1d18fe0a837b2de4"
     }

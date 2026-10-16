@@ -6,7 +6,7 @@ Builds Dataset v3 Candidate in dedicated versioned directory:
 
 Guarantees:
 1. Zero modifications to existing dataset v2 (data/detection/splits_real_v2/)
-2. Zero modifications to holdout (D:\\Hinh_Anh_Rac)
+2. Zero modifications to holdout (data/holdout)
 3. Zero inclusion of classification crops from data/processed_v2/
 4. Only images passing Quality Gates (VALID) are promoted to candidate splits
 5. Safe label synchronization with SHA-256 checksums and manual conflict detection:
@@ -229,7 +229,7 @@ def build_dataset_v3_candidate(
         "created_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "source_breakdown": dict(Counter(row["source"] for row in image_rows)),
         "classification_crops_policy": "STRICTLY_EXCLUDED (15,138 images in data/processed_v2 reserved for two-stage classifier, zero detection annotations)",
-        "holdout_isolation": "STRICTLY_VERIFIED (0 collisions with D:\\Hinh_Anh_Rac holdout)",
+        "holdout_isolation": "STRICTLY_VERIFIED (0 collisions with data/holdout holdout)",
         "hard_negatives_status": "PENDING_ACQUISITION (0 offline clean background images in current repo, awaiting stakeholder approval for download)",
         "quarantined_review_queue": {
             "count": len(flagged_images),

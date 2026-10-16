@@ -4,8 +4,8 @@
   "backend": "wbf",
   "validation_fingerprint": "420e1d0c7b9786016085d4a51ddbaec3efe21da96e99a6483de1ce738726a24b",
   "models": {
-    "primary": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\detection\\waste-ssdlite320-mobilenetv3-combined-seed42\\weights\\best.pt",
-    "secondary": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\detection\\waste-yolov8n-combined-seed42\\weights\\best.pt"
+    "primary": "artifacts\\detection\\waste-ssdlite320-mobilenetv3-combined-seed42\\weights\\best.pt",
+    "secondary": "artifacts\\detection\\waste-yolov8n-combined-seed42\\weights\\best.pt"
   },
   "model_hashes": {
     "primary": "584c5980eb4ebe3718da7b3e87a3c95edfee3d78f186def3e5feba32cf03dff1",

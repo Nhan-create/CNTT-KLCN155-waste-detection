@@ -1,7 +1,7 @@
 {
   "metadata": {
     "total_images": 100,
-    "destination_directory": "D:\\Hinh_Anh_Rac",
+    "destination_directory": "data/holdout",
     "generated_at": "2026-10-11 20:40:38",
     "security_protocol": "Multi-layer In-Memory Threat Scan (Magic Header, Executable Signatures, Polyglot/Script Injection) + Deterministic Image Sanitization + Avast Real-time Shield Active"
   },

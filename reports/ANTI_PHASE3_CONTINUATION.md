@@ -11,10 +11,10 @@
 ## 1. TÌNH TRẠNG TIẾP NHẬN TỪ CODEX (STATUS OF HANDOVER FROM CODEX)
 
 Codex đã thực hiện kiểm toán ban đầu và phát hiện các điểm sai lệch giữa các bản báo cáo Markdown trước đó:
-- **Tập dữ liệu Holdout độc lập:** Thư mục `D:\Hinh_Anh_Rac` gồm **27 ảnh** (trong đó có 2 ảnh trùng lặp byte hoàn toàn: `images (7).jpg` và `images (13).jpg`, SHA-256: `9ee5ca3468bead7c48529f79024f21db5976b97e937d37ef67223e75e110b9db`).
+- **Tập dữ liệu Holdout độc lập:** Thư mục `data/holdout` gồm **27 ảnh** (trong đó có 2 ảnh trùng lặp byte hoàn toàn: `images (7).jpg` và `images (13).jpg`, SHA-256: `9ee5ca3468bead7c48529f79024f21db5976b97e937d37ef67223e75e110b9db`).
 - **Ground Truth v1 (Frozen Baseline):** Tệp `reports/qa_acceptance/ground_truth_hinh_anh_rac.json` gồm **57 bounding boxes**, mã băm SHA-256 bất biến:
   `f390f0f9440a977d0a0afe9e55b862562f1aafd3011ab18313e1772b18d470c0`.
-- **Gói bàn giao từ Codex:** Tệp nén `C:\Users\ad\Downloads\CNTT-KLCN155_CODEX_AUDIT_20261011_225845.zip` đã được đối soát thực tế tại thư mục Downloads của hệ thống.
+- **Gói bàn giao từ Codex:** Tệp nén `~/Downloads\CNTT-KLCN155_CODEX_AUDIT_20261011_225845.zip` đã được đối soát thực tế tại thư mục Downloads của hệ thống.
 - **Vấn đề Codex để lại:**
   1. Chưa giải thích triệt để nguyên nhân cảnh báo import module ngoại lai `waste-classifier-mobilenetv3`.
   2. Bị vướng 10 lỗi pytest collection errors khi chạy qua công cụ gọi test tự động.
@@ -41,7 +41,7 @@ Antigravity đã kiểm tra trực tiếp mã nguồn và chạy kiểm thử đ
 ## 3. NGUYÊN NHÂN GỐC RỄ VẤN ĐỀ IMPORT MÔI TRƯỜNG PYTHON (ROOT CAUSE OF IMPORT ALARMS)
 
 Trong các log lỗi trước đây xuất hiện đường dẫn lạ:
-`C:\Users\ad\Downloads\Do-an-deeplearning\waste-classifier-mobilenetv3\...`
+`~/Downloads\Do-an-deeplearning\waste-classifier-mobilenetv3\...`
 gây lo ngại rằng môi trường `.venv` đang import nhầm mã nguồn từ một dự án khác.
 
 ### Kết quả điều tra thực nghiệm:
@@ -49,18 +49,18 @@ gây lo ngại rằng môi trường `.venv` đang import nhầm mã nguồn t�
    Chạy lệnh kiểm toán trực tiếp:
    ```python
    import src
-   print(src.__file__)  # D:\CNTT-KLCN155-waste-detection\src\__init__.py
+   print(src.__file__)  # src\__init__.py
    ```
    Hoàn toàn không có bất kỳ thư mục ngoại lai nào nằm trong `sys.path`.
 2. **Nguyên nhân cốt lõi – 149 tệp bytecode `.pyc` lỗi thời (Stale Bytecode):**
    - Khi dự án được copy hoặc clone từ thư mục gốc ban đầu, toàn bộ các tệp `.pyc` trong thư mục `__pycache__` đã bị sao chép theo.
    - Trong kiến trúc Python, mỗi tệp bytecode `.pyc` chứa cấu trúc `code object` lưu cứng chuỗi `co_filename` tại thời điểm biên dịch (`compile-time absolute path`).
-   - Khi xảy ra ngoại lệ, Python traceback in chuỗi `co_filename` được nhúng sẵn trong `.pyc`, dẫn đến việc hiển thị đường dẫn thư mục Downloads cũ mặc dù mã nguồn Python `.py` đang chạy thực tế 100% nằm tại `D:\CNTT-KLCN155-waste-detection`.
+   - Khi xảy ra ngoại lệ, Python traceback in chuỗi `co_filename` được nhúng sẵn trong `.pyc`, dẫn đến việc hiển thị đường dẫn thư mục Downloads cũ mặc dù mã nguồn Python `.py` đang chạy thực tế 100% nằm tại `.`.
 3. **Biện pháp xử lý triệt để:**
    - Đã phát triển và thực thi script `scripts/recompile_clean_bytecode.py`.
    - Quét và xóa sạch toàn bộ 149 tệp `.pyc` cũ trong tất cả các thư mục `__pycache__`.
    - Biên dịch lại toàn bộ mã nguồn tại chỗ bằng `compileall.compile_dir(force=True)`.
-   - Kết quả: 100% tệp `.pyc` mới đều trỏ chính xác về `D:\CNTT-KLCN155-waste-detection`.
+   - Kết quả: 100% tệp `.pyc` mới đều trỏ chính xác về `.`.
    - Xây dựng bộ test hồi quy `tests/test_environment_integrity.py` gồm 4 bài kiểm tra tự động xác nhận không còn bất kỳ tham chiếu bytecode ngoại lai nào.
 
 ---
@@ -134,7 +134,7 @@ Báo cáo trước đó ghi nhận có 10 lỗi Collection Errors khi chạy pyt
 ## 7. CHÚ THÍCH ĐANG CHỜ PHÊ DUYỆT THỦ CÔNG TỪ STAKEHOLDER (GT V2 REVIEW)
 
 Báo cáo chuyên sâu độc lập đã được xuất tại:
-[`reports/GT_V2_REVIEW_FOR_APPROVAL.md`](file:///D:/CNTT-KLCN155-waste-detection/reports/GT_V2_REVIEW_FOR_APPROVAL.md)
+[`reports/GT_V2_REVIEW_FOR_APPROVAL.md`](../reports/GT_V2_REVIEW_FOR_APPROVAL.md)
 
 ### Tóm tắt cơ cấu 57 đối tượng Holdout trong đề xuất v2:
 - **39 đối tượng ACCEPTED (68.42%):** Các vật thể rác đơn lẻ, rõ ràng ranh giới (chai, lon, hộp, giấy báo).

@@ -2,7 +2,7 @@
 scripts/build_phase4d1_delivery.py
 ----------------------------------
 Builds the concise Phase 4D.1 deliverable archive:
-C:\\Users\\ad\\Downloads\\PHASE4D1_FINAL_SAFETY_PATCH_EVIDENCE.zip
+~/Downloads/PHASE4D1_FINAL_SAFETY_PATCH_EVIDENCE.zip
 
 Contents:
 1. Modified source files (export_train_manifest, preflight_guard, ssdlite_train, train_detection_v2).

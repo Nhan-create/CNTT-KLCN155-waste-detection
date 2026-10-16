@@ -1,4 +1,4 @@
-"""Practical acceptance metrics for the D:\\Hinh_Anh_Rac holdout (CNTT-KLCN155).
+"""Practical acceptance metrics for the data/holdout holdout (CNTT-KLCN155).
 
 The strict DoD in ``acceptance_evaluator.py`` (FN=0, FP=0, wrong-class=0,
 IoU>=0.75, Intersection/GT>=0.99) is kept unchanged as the *ideal* criterion.
@@ -457,7 +457,7 @@ def _print_summary(res: Dict[str, Any]) -> None:
 
 
 def main(argv: Optional[List[str]] = None) -> int:
-    ap = argparse.ArgumentParser(description="Practical acceptance metrics on D:\\Hinh_Anh_Rac")
+    ap = argparse.ArgumentParser(description="Practical acceptance metrics on data/holdout")
     ap.add_argument("--predictions", required=True, type=Path)
     ap.add_argument("--out", type=Path, default=None)
     ap.add_argument("--gt", type=Path, default=DEFAULT_GT_PATH)

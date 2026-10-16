@@ -6,8 +6,8 @@
 - **Reclassified to `REJECT` (non-waste posters/signs/drawings/non-target materials):** **`33` unique images**
 - **Returned to / Kept in `NEEDS_REVIEW` (dense indistinguishable heaps or unannotated secondary objects):** **`115` unique images**
 - **BEFORE / AFTER Contact Sheets:**
-  - [`task8c_salvaged_23_real_waste_before.jpg`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/task8_wave2_large_batch/contact_sheets_task8c/task8c_salvaged_23_real_waste_before.jpg) -> [`task8c_salvaged_23_real_waste_after.jpg`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/task8_wave2_large_batch/contact_sheets_task8c/task8c_salvaged_23_real_waste_after.jpg)
-  - [`task8c_salvaged_27_auxiliary_after.jpg`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/task8_wave2_large_batch/contact_sheets_task8c/task8c_salvaged_27_auxiliary_after.jpg)
+  - [`task8c_salvaged_23_real_waste_before.jpg`](../../data/acquisition_staging/task8_wave2_large_batch/contact_sheets_task8c/task8c_salvaged_23_real_waste_before.jpg) -> [`task8c_salvaged_23_real_waste_after.jpg`](../../data/acquisition_staging/task8_wave2_large_batch/contact_sheets_task8c/task8c_salvaged_23_real_waste_after.jpg)
+  - [`task8c_salvaged_27_auxiliary_after.jpg`](../../data/acquisition_staging/task8_wave2_large_batch/contact_sheets_task8c/task8c_salvaged_27_auxiliary_after.jpg)
 
 ---
 

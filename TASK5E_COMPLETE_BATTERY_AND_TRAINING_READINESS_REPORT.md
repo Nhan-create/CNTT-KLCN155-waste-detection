@@ -1,6 +1,6 @@
 # BÁO CÁO NGHIỆM THU TASK 5E (FINAL DATASET SIGN-OFF FIX) — BẢNG ACCOUNTING CHUẨN & DRY-RUN PILOT V3
 
-**Dự án:** `D:\CNTT-KLCN155-waste-detection`  
+**Dự án:** `.`  
 **Giai đoạn:** Sprint AI-UPGRADE-01 — Task 5E Final Dataset Sign-Off Fix  
 **Trạng thái cổng phê duyệt:** `APPROVED_FOR_TRAIN = 0` (`USER_TRAIN_APPROVAL = PENDING_PM_APPROVAL`)  
 **Phần cứng xác minh trực tiếp (`torch.cuda` / `nvidia-smi`):** `NVIDIA GeForce RTX 2050` (`4095.5 MB` / `4 GB VRAM`)  
@@ -37,14 +37,14 @@ Toàn bộ số liệu dưới đây được đếm trực tiếp bằng hàm `
 | **9** | `trash` | `854` / `294` | `854` / `294` | `170` / `64` | `170` / `64` | `139` / `63` |
 | **Tổng** | **10 lớp** | **`3,963` boxes (`1,398` ảnh)** | **`4,074` boxes (`1,509` ảnh)** | **`901` boxes (`299` ảnh)** | **`930` boxes (`328` ảnh)** | **`720` boxes (`299` ảnh)** |
 
-### 1.3. Đối chiếu Ground Truth tập Holdout 27 ảnh (`D:\Hinh_Anh_Rac`) — Giải trình con số `33` vs `57`
+### 1.3. Đối chiếu Ground Truth tập Holdout 27 ảnh (`data/holdout`) — Giải trình con số `33` vs `57`
 
 - **Manifest gốc đã đóng băng (`reports/qa_acceptance/ground_truth_hinh_anh_rac.json`, `version: 1.0_FROZEN`):**
   - Tổng số ảnh: **`27` ảnh**.
   - Tổng số đối tượng Ground Truth: **`57` objects** (`battery: 2, biological: 3, cardboard: 3, clothes: 8, glass: 11, metal: 4, paper: 2, plastic: 17, shoes: 6, trash: 1`).
 - **Manifest đề xuất chuẩn hóa (`reports/qa_acceptance/ground_truth_hinh_anh_rac_v2_proposed.json`, `version: v2.0-proposed-standardized`, trạng thái `PROPOSED_ONLY_NOT_FROZEN`):**
   - Giữ nguyên toàn bộ **`57` bản ghi gốc**, trong đó phân loại **`45` đối tượng active cho đánh giá discrete-instance** (`39` đối tượng `ACCEPTED` rời rạc + `6` đối tượng đang tranh chấp) và `12` đối tượng inactive (`8` `FLAGGED_UNSEGREGATED_PILE` + `4` `QUARANTINED_*`).
-- **Nguyên nhân xuất hiện số `33` trước đây:** Con số `33` chỉ là một hằng số hardcode nhầm trong phiên bản cũ của script `validate_pilot_v3_pretraining_readiness.py` (dòng 315), không tồn tại trong bất kỳ manifest Ground Truth nào của `D:\Hinh_Anh_Rac`. Đã xóa bỏ hằng số hardcode này và đối chiếu trực tiếp từ tệp JSON gốc mà **không sửa đổi bất kỳ tệp Ground Truth nào**.
+- **Nguyên nhân xuất hiện số `33` trước đây:** Con số `33` chỉ là một hằng số hardcode nhầm trong phiên bản cũ của script `validate_pilot_v3_pretraining_readiness.py` (dòng 315), không tồn tại trong bất kỳ manifest Ground Truth nào của `data/holdout`. Đã xóa bỏ hằng số hardcode này và đối chiếu trực tiếp từ tệp JSON gốc mà **không sửa đổi bất kỳ tệp Ground Truth nào**.
 
 ---
 

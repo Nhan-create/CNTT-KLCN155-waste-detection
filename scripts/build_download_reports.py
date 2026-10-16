@@ -26,8 +26,8 @@ img_c_b64 = b64_img(overlays_dir / "images_17_config_C_yolov8n_tiling_no_twostag
 markdown_content = f"""# BÁO CÁO TOÀN DIỆN: XÁC MINH HIỆN TRẠNG DEMO VÀ CHUẨN HÓA BASELINE
 **Dự án:** Hệ thống Nhận diện và Phân loại Rác thải (CNTT-KLCN155)  
 **Thời gian lập:** 12/10/2026 | **Địa chỉ chạy demo:** `localhost:8501`  
-**Đối tượng kiểm tra:** File ảnh `images (17).jpg` và Tập dữ liệu nghiệm thu `D:\\Hinh_Anh_Rac` (27 ảnh, 57 GT)  
-**File gói bàn giao:** `C:\\Users\\ad\\Downloads\\demo_verification_package.zip` (190 KB)
+**Đối tượng kiểm tra:** File ảnh `images (17).jpg` và Tập dữ liệu nghiệm thu `data/holdout` (27 ảnh, 57 GT)  
+**File gói bàn giao:** `~/Downloads/demo_verification_package.zip` (190 KB)
 
 ---
 
@@ -40,7 +40,7 @@ markdown_content = f"""# BÁO CÁO TOÀN DIỆN: XÁC MINH HIỆN TRẠNG DEMO V
 3. **Phần cứng thực tế:**  
    Hệ thống đang chạy trên **NVIDIA GeForce RTX 2050 (Laptop GPU, 4GB VRAM)**, **hoàn toàn không phải RTX 3060**.
 4. **Trạng thái Ground Truth:**  
-   Bộ dữ liệu nghiệm thu `D:\\Hinh_Anh_Rac` có **chính xác 27 ảnh và 57 vật thể Ground Truth**, ở trạng thái đóng băng `1.0_FROZEN` độc lập bởi Agent D (QA).
+   Bộ dữ liệu nghiệm thu `data/holdout` có **chính xác 27 ảnh và 57 vật thể Ground Truth**, ở trạng thái đóng băng `1.0_FROZEN` độc lập bởi Agent D (QA).
 5. **Tính năng Webcam:**  
    Chức năng webcam trên giao diện là **chụp ảnh tĩnh từng khung (single photo capture)**, **không phải nhận diện video thời gian thực (real-time stream)**.
 
@@ -133,7 +133,7 @@ Giao diện `streamlit_app.py` nạp cấu hình mặc định từ `src/web/det
 ## 5. XÁC MINH BÁO CÁO BASELINE VÀ PHẦN CỨNG
 
 ### 5.1. Xác minh Tập dữ liệu Holdout độc lập
-- Thư mục `D:\\Hinh_Anh_Rac`: **Chính xác 27 ảnh, 57 vật thể Ground Truth**, phiên bản `1.0_FROZEN` lập bởi Agent D tại `reports/qa_acceptance/ground_truth_hinh_anh_rac.json`.
+- Thư mục `data/holdout`: **Chính xác 27 ảnh, 57 vật thể Ground Truth**, phiên bản `1.0_FROZEN` lập bởi Agent D tại `reports/qa_acceptance/ground_truth_hinh_anh_rac.json`.
 - 100% không bị thay đổi ground truth, không can thiệp nhãn.
 
 ### 5.2. Bảng Đối chiếu Chỉ số Baseline Chuẩn hóa (Protocol COCO: IoU $\\ge 0.50$, Conf $\\ge 0.25$)
@@ -152,7 +152,7 @@ Giao diện `streamlit_app.py` nạp cấu hình mặc định từ `src/web/det
 2. **Con số `8.65%` (mAP50) và `4.89%` (mAP50-95):**  
    Được ghi nhận từ validation split của mô hình SSDLite v1 (Legacy) tại Epoch 37.
 3. **Con số `5.72%` và `5.60%`:**  
-   Là mAP50 đo thực tế bằng `practical_metrics.py` trên 27 ảnh holdout độc lập `D:\\Hinh_Anh_Rac`.
+   Là mAP50 đo thực tế bằng `practical_metrics.py` trên 27 ảnh holdout độc lập `data/holdout`.
 4. **Con số `13.80%` của YOLOv8n:**  
    Xuất phát từ `artifacts/detection_v2/E1_yolov8n_10cls/eval_val_test.json`: `test.map50_95 = 0.1380` trên 299 ảnh test split của Mendeley v2, bị báo cáo cũ nhầm lẫn thành mAP50 trên tập holdout.
 
@@ -219,7 +219,7 @@ html_content = f"""<!DOCTYPE html>
 <h1>BÁO CÁO TOÀN DIỆN: XÁC MINH HIỆN TRẠNG DEMO VÀ CHUẨN HÓA BASELINE</h1>
 <p><strong>Dự án:</strong> Hệ thống Nhận diện và Phân loại Rác thải (CNTT-KLCN155)<br>
 <strong>Môi trường thử nghiệm:</strong> <code>localhost:8501</code> (Streamlit Web App)<br>
-<strong>File gói bàn giao:</strong> <code>C:\\Users\\ad\\Downloads\\demo_verification_package.zip</code> (190 KB)</p>
+<strong>File gói bàn giao:</strong> <code>~/Downloads/demo_verification_package.zip</code> (190 KB)</p>
 
 <div class="card alert-warning">
   <h3 style="margin-top:0; color:#b45309;">KẾT LUẬN ĐIỀU TRA NHANH</h3>

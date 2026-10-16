@@ -3,7 +3,7 @@
 **Thời điểm thực hiện:** 2026-10-12T02:00:00Z (Cập nhật hoàn thiện sau Independent Acceptance Review)  
 **Đơn vị thực hiện:** Antigravity AI Engineering Team (Principal CV / ML Data / Independent QA)  
 **Thư mục Pilot độc lập:** `data/detection_pilot_v3/`  
-**Gói nén nghiệm thu:** `C:\Users\ad\Downloads\PHASE4C_REAL_DATA_PILOT_EVIDENCE.zip`  
+**Gói nén nghiệm thu:** `~/Downloads\PHASE4C_REAL_DATA_PILOT_EVIDENCE.zip`  
 
 ---
 
@@ -37,7 +37,7 @@
     - Trong file cấu hình `configs/detection_source_mapping.yaml`, Category 51 được gán `class_id: null` (trạng thái `REQUIRES_REVIEW`, do chưa thống nhất xếp dây thừng vào plastic, clothes hay trash).
     - Bộ chuyển đổi (converter) khi gặp category có `class_id: null` đã bỏ qua không xuất box, tạo ra file `.txt` rỗng 0 bytes!
   - **Phán quyết:** **8 ẢNH NÀY KHÔNG PHẢI LÀ HARD-NEGATIVE.** Chúng là `EMPTY_LABEL_DUE_TO_UNMAPPED_CATEGORY_51`. Nếu đưa chúng vào train làm âm bản (0-object), mô hình sẽ bị dạy sai rằng dây thừng phế thải là background sạch!
-  - Đã xuất contact sheet 8 ảnh minh chứng tại: [`reports/data_v2/negative_review/negative_audit_contact_sheet.jpg`](file:///d:/CNTT-KLCN155-waste-detection/reports/data_v2/negative_review/negative_audit_contact_sheet.jpg).
+  - Đã xuất contact sheet 8 ảnh minh chứng tại: [`reports/data_v2/negative_review/negative_audit_contact_sheet.jpg`](../reports/data_v2/negative_review/negative_audit_contact_sheet.jpg).
 
 ---
 
@@ -63,7 +63,7 @@
   - *Nhãn Đề xuất (Proposed):* `1 0.475000 0.648000 0.178000 0.215000`. Bám sát viền vỏ hoa quả, triệt tiêu 19.8% diện tích mặt đường giả.
 - **Trạng thái phê duyệt:** **`PROPOSED_PENDING_USER_APPROVAL`**.
   - Nhãn gốc trên đĩa tại `data/detection/labels/real/taco_0072.txt` và `taco_0092.txt` **ĐƯỢC BẢO TOÀN NGUYÊN VẸN, CHƯA BỊ GHI ĐÈ**.
-  - File tài liệu chi tiết: [`reports/data_v2/biological_overlays/reannotation_audit_evidence.md`](file:///d:/CNTT-KLCN155-waste-detection/reports/data_v2/biological_overlays/reannotation_audit_evidence.md).
+  - File tài liệu chi tiết: [`reports/data_v2/biological_overlays/reannotation_audit_evidence.md`](../reports/data_v2/biological_overlays/reannotation_audit_evidence.md).
 
 ---
 
@@ -97,7 +97,7 @@
 
 ### 5. Cần người dùng duyệt những gì?
 **Trả lời:** Người dùng chỉ cần xem xét và phê duyệt duy nhất một hạng mục:
-- **Phê duyệt đề xuất Re-annotation cho 2 ảnh cách ly:** `taco_0072.jpg` (+1 biological, +1 plastic) và `taco_0092.jpg` (+1 biological) theo hình ảnh trực quan tại [reannotation_audit_evidence.md](file:///d:/CNTT-KLCN155-waste-detection/reports/data_v2/biological_overlays/reannotation_audit_evidence.md).
+- **Phê duyệt đề xuất Re-annotation cho 2 ảnh cách ly:** `taco_0072.jpg` (+1 biological, +1 plastic) và `taco_0092.jpg` (+1 biological) theo hình ảnh trực quan tại [reannotation_audit_evidence.md](../reports/data_v2/biological_overlays/reannotation_audit_evidence.md).
 - Nếu người dùng phê duyệt, 2 ảnh này sẽ được ghi vào tập Train để bổ sung thêm +2 box biological chất lượng cao mà không gây bất kỳ rò rỉ dữ liệu nào.
 - Toàn bộ các split v2/v3 và tập Test hiện tại vẫn được giữ nguyên vẹn 100%.
 
@@ -107,5 +107,5 @@
 
 - **Kết quả kiểm thử tự động:** Toàn bộ **149 tests** trong bộ kiểm thử trọng tâm (gồm cả test preflight guard và test pilot quality gates) đều **PASSED 100%**.
 - **Gói hồ sơ bàn giao:**
-  [`C:\Users\ad\Downloads\PHASE4C_REAL_DATA_PILOT_EVIDENCE.zip`](file:///C:/Users/ad/Downloads/PHASE4C_REAL_DATA_PILOT_EVIDENCE.zip)
+  [`~/Downloads\PHASE4C_REAL_DATA_PILOT_EVIDENCE.zip`](~/Downloads/PHASE4C_REAL_DATA_PILOT_EVIDENCE.zip)
   - Bao gồm đầy đủ: Báo cáo Master, 8 ảnh negative review kèm Contact Sheet composite, 2 cặp ảnh trước/sau re-annotation, báo cáo pháp y Pin, báo cáo đối chiếu Split Contamination, báo cáo tính mới Data Novelty, TACO audit JSON, và bộ test unit/integration.

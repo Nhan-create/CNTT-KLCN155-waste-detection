@@ -1,6 +1,6 @@
 """
 Package Task 6B (E3 Evidence Correction) and Task 7 (Diverse Battery Data Acquisition & Visual QA)
-into a single self-contained ZIP archive in C:/Users/ad/Downloads/.
+into a single self-contained ZIP archive in ~/Downloads/.
 """
 import hashlib
 import json

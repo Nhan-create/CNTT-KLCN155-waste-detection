@@ -6,7 +6,7 @@
 - **Demoted to `NEEDS_REVIEW` (`OBJECT_ANNOTATION_VALID=False` due to secondary unannotated objects or active party/dining scene):** **`28`**
 - **Demoted to `REJECT` (`OBJECT_ANNOTATION_VALID=False`, wrong material class):** **`1`** (`task8w2_0626` plastic patch bucket mislabeled as metal can)
 - **Domain Breakdown across 175 Images:** `ACTUAL_WASTE=12`, `PRODUCT_STUDIO=18`, `IN_USE=40`, `AMBIGUOUS_CONTEXT=105`
-- **BEFORE / AFTER Contact Sheet:** [`task8c_priority_175_reaudit_after.jpg`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/task8_wave2_large_batch/contact_sheets_task8c/task8c_priority_175_reaudit_after.jpg)
+- **BEFORE / AFTER Contact Sheet:** [`task8c_priority_175_reaudit_after.jpg`](../../data/acquisition_staging/task8_wave2_large_batch/contact_sheets_task8c/task8c_priority_175_reaudit_after.jpg)
 
 ---
 

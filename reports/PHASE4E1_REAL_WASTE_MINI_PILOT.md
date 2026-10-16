@@ -1,7 +1,7 @@
 # BÁO CÁO NGHIỆM THU: PHASE 4E.1 — REAL WASTE DATA INTAKE SAFETY & MINI-PILOT GATING
 
 **Dự án:** Hệ thống nhận diện rác thải sinh hoạt KLCN155  
-**Thư mục làm việc:** `D:\CNTT-KLCN155-waste-detection`  
+**Thư mục làm việc:** `.`  
 **Thời điểm thực thi:** 2026-10-12  
 **Trạng thái phê duyệt huấn luyện:** 0 ảnh mới được duyệt vào train (`APPROVED_FOR_TRAIN = 0`)  
 **Trạng thái tải ảnh thực tế:** 0 ảnh mới được tải (`REAL NEW IMAGES DOWNLOADED = 0`)  
@@ -20,14 +20,14 @@ Sau vòng kiểm duyệt độc lập từ Phase 4E, nhóm phát triển đã ti
 
 ## 2. P0: SỬA ĐỔI INGEST ROBOFLOW (`scripts/ingest_roboflow_battery_export.py`)
 
-File: [`scripts/ingest_roboflow_battery_export.py`](file:///d:/CNTT-KLCN155-waste-detection/scripts/ingest_roboflow_battery_export.py)
+File: [`scripts/ingest_roboflow_battery_export.py`](../scripts/ingest_roboflow_battery_export.py)
 
 ### 2.1 Đọc đường dẫn split từ cấu hình dataset hiện hành & Fail-Closed
 Hàm `load_authoritative_split_hashes()` đã được cập nhật:
 - Đọc phân rã từ:
   - `configs/detection_dataset_real_v2.yaml` (train, val, test v2)
   - `configs/detection_dataset_real_v3_candidate.yaml` (v3 candidate splits)
-  - Holdout dataset: `reports/qa_acceptance/manifest_hinh_anh_rac.json` và thư mục `D:\Hinh_Anh_Rac`.
+  - Holdout dataset: `reports/qa_acceptance/manifest_hinh_anh_rac.json` và thư mục `data/holdout`.
 - **Fail-Closed:** Nếu bất kỳ tệp split YAML hoặc tệp manifest/thư mục holdout nào bị thiếu, hàm lập tức nâng ngoại lệ `FileNotFoundError`, không bao giờ cho phép thực thi trong tình trạng thiếu dữ liệu đối chứng.
 
 ### 2.2 Xác thực Bounding Box YOLO nghiêm ngặt
@@ -58,11 +58,11 @@ Hàm `inspect_roboflow_data_yaml(extract_dir: Path)`:
 
 ## 3. P0: SỬA ĐỔI STAGING VÀ XÓA BỎ NHÃN RỖNG / COMMENT (`scripts/stage_phase4e_whitelist_candidates.py`)
 
-File: [`scripts/stage_phase4e_whitelist_candidates.py`](file:///d:/CNTT-KLCN155-waste-detection/scripts/stage_phase4e_whitelist_candidates.py)
+File: [`scripts/stage_phase4e_whitelist_candidates.py`](../scripts/stage_phase4e_whitelist_candidates.py)
 
 ### 3.1 Không tạo tệp nhãn 0-byte khi tải về
 - Trước đây, việc tạo tệp `.txt` 0-byte ngay khi tải ảnh âm bản dẫn đến nguy cơ ngộ nhận đó là "Hard Negative đã được chứng minh".
-- **Bản sửa đổi:** Không tạo bất kỳ tệp `.txt` nào trong thư mục `labels/` khi tải ảnh. Toàn bộ tiến trình theo dõi trạng thái chưa có nhãn được lưu trữ độc quyền trong tệp metadata JSON: [`data/acquisition_staging/phase4e_staging/mini_pilot_staging_summary.json`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/phase4e_staging/mini_pilot_staging_summary.json).
+- **Bản sửa đổi:** Không tạo bất kỳ tệp `.txt` nào trong thư mục `labels/` khi tải ảnh. Toàn bộ tiến trình theo dõi trạng thái chưa có nhãn được lưu trữ độc quyền trong tệp metadata JSON: [`data/acquisition_staging/phase4e_staging/mini_pilot_staging_summary.json`](../data/acquisition_staging/phase4e_staging/mini_pilot_staging_summary.json).
 
 ### 3.2 Không ghi comment trong tệp nhãn YOLO
 - Xóa bỏ hoàn toàn logic ghi comment (như `# PENDING_ANNOTATION`) vào tệp `.txt`.
@@ -95,13 +95,13 @@ Nhóm phát triển đã chốt danh sách **4 ứng viên ưu tiên cao** giả
 
 ## 5. BẰNG CHỨNG KIỂM THỬ HỒI QUY TOÀN DIỆN (REGRESSION TEST SUITE)
 
-File kiểm thử: [`tests/qa/test_phase4e_intake_safety.py`](file:///d:/CNTT-KLCN155-waste-detection/tests/qa/test_phase4e_intake_safety.py)
+File kiểm thử: [`tests/qa/test_phase4e_intake_safety.py`](../tests/qa/test_phase4e_intake_safety.py)
 
 Kết quả thực thi:
 ```text
 ============================= test session starts =============================
 platform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.6.0
-rootdir: D:\CNTT-KLCN155-waste-detection
+rootdir: .
 plugins: anyio-4.15.1, platformdirs-4.13.0, qt-4.5.0
 collected 7 items
 
@@ -124,7 +124,7 @@ Toàn bộ test suite kiểm tra hệ thống gồm 245 ca kiểm thử trong `t
 
 Hệ thống đang dừng ở trạng thái chờ và **chưa thực hiện tải bất kỳ ảnh nào trong 4 ảnh trên**.
 
-Để cho phép tải 4 ảnh vào thư mục đệm [`data/acquisition_staging/phase4e_staging/images/`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/phase4e_staging/images/), người dùng vui lòng phản hồi:
+Để cho phép tải 4 ảnh vào thư mục đệm [`data/acquisition_staging/phase4e_staging/images/`](../data/acquisition_staging/phase4e_staging/images/), người dùng vui lòng phản hồi:
 ```text
 [DUYET_TAI_MINI_PILOT]
 ```

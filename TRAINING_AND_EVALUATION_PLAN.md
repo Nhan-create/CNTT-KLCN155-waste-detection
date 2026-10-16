@@ -13,7 +13,7 @@
 Kiểm tra trực tiếp tại máy trạm thông qua môi trường ảo `.venv`:
 - **GPU:** NVIDIA GeForce RTX 2050 Laptop GPU (4.0 GB VRAM tổng, CUDA 12.1).
 - **Host RAM:** 15.31 GB Tổng. Lưu ý: RAM khả dụng biến động xung quanh $2.3\text{--}3.5\text{ GB}$.
-- **Cơ chế an toàn Preflight:** Trước mọi lần nạp mô hình hoặc huấn luyện, hệ thống bắt buộc phải kích hoạt hàm `check_training_safety()` từ [preflight_guard.py](file:///d:/CNTT-KLCN155-waste-detection/src/detection/preflight_guard.py):
+- **Cơ chế an toàn Preflight:** Trước mọi lần nạp mô hình hoặc huấn luyện, hệ thống bắt buộc phải kích hoạt hàm `check_training_safety()` từ [preflight_guard.py](src/detection/preflight_guard.py):
   - Yêu cầu sàn RAM trống: $\ge 1.200\text{ MB}$.
   - Yêu cầu sàn VRAM trống: $\ge 500\text{ MB}$.
   - Nếu không thỏa mãn, tiến trình lập tức kích hoạt lỗi `PreflightSafetyError` và dừng lại an toàn, ngăn chặn đứng máy hoặc tràn RAM hệ điều hành.
@@ -68,14 +68,14 @@ Mọi lượt chạy huấn luyện đều phải sinh file nhật ký `train_pr
 
 ## 3. THIẾT LẬP HAI TẬP KIỂM THỬ ĐỘC LẬP MỚI (DUAL REAL-WORLD TEST PROTOCOL)
 
-Bảo toàn nguyên vẹn tập nghiệm thu hiện tại (`D:\Hinh_Anh_Rac`, 27 ảnh, 57 vật thể Ground Truth đã đóng băng). Xây dựng thêm **2 tập kiểm thử thực địa chuyên biệt**:
+Bảo toàn nguyên vẹn tập nghiệm thu hiện tại (`data/holdout`, 27 ảnh, 57 vật thể Ground Truth đã đóng băng). Xây dựng thêm **2 tập kiểm thử thực địa chuyên biệt**:
 
 ```
 +-----------------------------------------------------------------------------------+
 |                        HỆ THỐNG ĐÁNH GIÁ 3 TẬP ĐỘC LẬP                            |
 |                                                                                   |
 |  [TẬP 1: HOLDOUT ĐÓNG BĂNG HIỆN HỮU]                                              |
-|  - 27 ảnh D:\Hinh_Anh_Rac, 57 Ground Truth objects (Đã đóng băng từ Sprint 0)     |
+|  - 27 ảnh data/holdout, 57 Ground Truth objects (Đã đóng băng từ Sprint 0)     |
 |  - Thước đo so sánh độ tiến bộ trực tiếp với Baseline SSDLite và YOLOv8n E1       |
 |                                                                                   |
 |  [TẬP 2: FIXED CAMERA HOLDOUT (MỚI)]                                              |

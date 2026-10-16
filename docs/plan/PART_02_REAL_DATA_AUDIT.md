@@ -3,7 +3,7 @@
 - **Dự án:** CNTT-KLCN155 — Phát hiện và phân loại rác thải đa đối tượng
 - **Tác giả:** Tech Lead ML
 - **Người nhận:** PM Ngô Thanh Nhân (HUIT)
-- **Thư mục làm việc:** `D:\CNTT-KLCN155-waste-detection`
+- **Thư mục làm việc:** `.`
 - **Mã tài liệu:** `PART_02_REAL_DATA_AUDIT.md` (Cập nhật R3)
 - **Ngày lập:** 02/10/2026
 
@@ -11,14 +11,14 @@
 
 ## 1. TỔNG QUAN HIỆN TRẠNG VÀ TRUY NGUYÊN NGUỒN GỐC (PROVENANCE)
 
-Tập dữ liệu bounding box ban đầu được kế thừa từ thư mục `D:\waste-training\dataset-v1`, gồm **1.419 bức ảnh** với **4.602 bounding box**. 
+Tập dữ liệu bounding box ban đầu được kế thừa từ thư mục `data/external/waste-training/dataset-v1`, gồm **1.419 bức ảnh** với **4.602 bounding box**. 
 
-Kết quả truy nguyên nguồn gốc dựa trên tệp cấu hình tải dữ liệu gốc tại `D:\waste-training` như sau:
+Kết quả truy nguyên nguồn gốc dựa trên tệp cấu hình tải dữ liệu gốc tại `data/external/waste-training` như sau:
 
 | Nguồn dữ liệu | Số lượng ảnh | Tỷ lệ ảnh | Số lượng BBox | Tỷ lệ BBox | Các lớp hiện diện | Truy nguyên nguồn gốc chính xác |
 |---|---|---|---|---|---|---|
-| **Synthetic** | 1.305 | **91,97%** | **4.095** | **88,98%** | 9 lớp (0, 1, 2, 3, 4, 5, 6, 7, 9). **0 box lớp 8 (`shoes`)** | Tải từ Mendeley Data (Dataset ID: `2x69gjbcz6`), ghi nhận tại `D:\waste-training\synthetic-image-jobs.json`. Ảnh ghép nhân tạo từ vật thể rác dán trên các nền khác nhau. |
-| **Real** | 114 | **8,03%** | **507** | **11,02%** | **Duy nhất lớp 8 (`shoes`)**. **0 box của 9 lớp còn lại** | Tải từ Google OpenImages V7 (tập validation qua Amazon S3), ghi nhận tại `D:\waste-training\shoe-image-jobs.json`. |
+| **Synthetic** | 1.305 | **91,97%** | **4.095** | **88,98%** | 9 lớp (0, 1, 2, 3, 4, 5, 6, 7, 9). **0 box lớp 8 (`shoes`)** | Tải từ Mendeley Data (Dataset ID: `2x69gjbcz6`), ghi nhận tại `data/external/waste-training/synthetic-image-jobs.json`. Ảnh ghép nhân tạo từ vật thể rác dán trên các nền khác nhau. |
+| **Real** | 114 | **8,03%** | **507** | **11,02%** | **Duy nhất lớp 8 (`shoes`)**. **0 box của 9 lớp còn lại** | Tải từ Google OpenImages V7 (tập validation qua Amazon S3), ghi nhận tại `data/external/waste-training/shoe-image-jobs.json`. |
 | **Ảnh thực địa TP.HCM** | **0** | **0,00%** | **0** | **0,00%** | **Chưa có** | Kế hoạch thu thập 500+ ảnh đang trong giai đoạn chuẩn bị, chưa có trong dữ liệu hiện tại. |
 | **TỔNG CỘNG** | **1.419** | **100%** | **4.602** | **100%** | - | - |
 
@@ -30,7 +30,7 @@ Kết quả truy nguyên nguồn gốc dựa trên tệp cấu hình tải dữ 
 ## 2. BẰNG CHỨNG MAPPING VÀ CHUYỂN ĐỔI TỌA ĐỘ TỪ OPENIMAGES
 
 ### 2.1. Đối chiếu Ontology và Class ID nguồn
-Dựa trên tệp ontology gốc `D:\waste-training\openimages-boxable-classes.csv`:
+Dựa trên tệp ontology gốc `data/external/waste-training/openimages-boxable-classes.csv`:
 - `/m/09j5n` $\rightarrow$ **Footwear** (Được chuyển thành lớp 8: `shoes`)
 - `/m/01b638` $\rightarrow$ **Boot** (Được chuyển thành lớp 8: `shoes`)
 - `/m/03nfch` $\rightarrow$ **Sandal** (Được chuyển thành lớp 8: `shoes`)
@@ -46,7 +46,7 @@ $$x_c = \frac{X_{min} + X_{max}}{2}, \quad y_c = \frac{Y_{min} + Y_{max}}{2}, \q
     $\rightarrow x_c = 0.57343750, y_c = 0.88333335, w = 0.10625000, h = 0.15416670$
   - Box 2: $X_{min} = 0.7953125, X_{max} = 0.878125, Y_{min} = 0.95, Y_{max} = 0.99791664$
     $\rightarrow x_c = 0.83671875, y_c = 0.97395832, w = 0.08281250, h = 0.04791664$
-- Khớp chính xác 100% từng chữ số với file nhãn baseline: `D:\waste-training\dataset-v1\labels\train\oi_034f71ee4e111261.txt`.
+- Khớp chính xác 100% từng chữ số với file nhãn baseline: `data/external/waste-training/dataset-v1\labels\train\oi_034f71ee4e111261.txt`.
 
 ---
 
@@ -54,7 +54,7 @@ $$x_c = \frac{X_{min} + X_{max}}{2}, \quad y_c = \frac{Y_{min} + Y_{max}}{2}, \q
 
 Tech Lead ML đã trực tiếp kiểm tra bằng mắt toàn bộ **114/114 bức ảnh** kèm bounding box thông qua hệ thống **10 contact sheets** lưu tại `artifacts/part02/real_data_audit/contact_sheets/` (`contact_sheet_01.jpg` đến `contact_sheet_10.jpg`).
 
-Bảng thẩm định chi tiết 114 dòng được lưu tại [`real_images_audit_table.csv`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/part02/real_data_audit/real_images_audit_table.csv).
+Bảng thẩm định chi tiết 114 dòng được lưu tại [`real_images_audit_table.csv`](../../artifacts/part02/real_data_audit/real_images_audit_table.csv).
 
 ### 3.1. Phân loại bối cảnh trực quan (Visual Context Breakdown)
 

@@ -1,5 +1,5 @@
 """
-Tạo cases.csv và ảnh overlay cho các ca kiểm thử đa dạng từ D:\Hinh_Anh_Rac.
+Tạo cases.csv và ảnh overlay cho các ca kiểm thử đa dạng từ data/holdout.
 """
 import csv
 import hashlib

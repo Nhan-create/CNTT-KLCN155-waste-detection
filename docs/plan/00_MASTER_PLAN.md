@@ -29,10 +29,10 @@ Xây dựng một hệ thống học sâu hoàn chỉnh, nhẹ, có khả năng 
 ## 2. Hiện trạng đã xác minh (`VERIFIED`)
 
 1. **Kho lưu trữ và đường dẫn (`VERIFIED`):**
-   - Thư mục hoạt động độc lập: [D:\CNTT-KLCN155-waste-detection](file:///D:/CNTT-KLCN155-waste-detection) (đã gỡ bỏ Junction, khởi tạo Git repository riêng biệt, nhánh `main`, môi trường ảo Python 3.12 riêng tại `.venv`).
-   - Thư mục dự án cũ: `C:\Users\ad\Downloads\Do-an-deeplearning\waste-classifier-mobilenetv3` được bảo toàn nguyên vẹn, không bị xóa hay sửa đổi.
+   - Thư mục hoạt động độc lập: [.](../..) (đã gỡ bỏ Junction, khởi tạo Git repository riêng biệt, nhánh `main`, môi trường ảo Python 3.12 riêng tại `.venv`).
+   - Thư mục dự án cũ: `~/Downloads\Do-an-deeplearning\waste-classifier-mobilenetv3` được bảo toàn nguyên vẹn, không bị xóa hay sửa đổi.
 2. **Dữ liệu thô và đã xử lý (`VERIFIED`):**
-   - Dữ liệu thô tại `D:\HK7\Đồ án khóa luận\Data\`: gồm `raw/garbage_v2` (12.259 ảnh gốc) và `raw/vn_trash` (3.495 ảnh gốc). Tổng: **15.754** ảnh thô.
+   - Dữ liệu thô tại `data\`: gồm `raw/garbage_v2` (12.259 ảnh gốc) và `raw/vn_trash` (3.495 ảnh gốc). Tổng: **15.754** ảnh thô.
    - Loại trừ 24.518 ảnh sao chép resize (`standardized_256`: 12.259, `standardized_384`: 12.259).
    - Khử trùng chính xác 923 ảnh trùng lặp (897 MD5 exact match, 26 pHash near match). Trong đó: **890 cặp trùng liên nguồn** giữa `garbage_v2` và `vn_trash` (gồm 879 cặp trùng tuyệt đối MD5) và 33 cặp trùng nội bộ `vn_trash`.
    - Cách ly 2 mẫu xung đột nhãn (`cardboard` vs `paper` ở Cặp 10) tại `data/audit/quarantined_samples.csv`.
@@ -46,8 +46,8 @@ Xây dựng một hệ thống học sâu hoàn chỉnh, nhẹ, có khả năng 
    - `data/detection/v1` gồm 1.419 ảnh và 4.602 bounding boxes.
    - **1.305 ảnh (91,97%)** là ảnh tổng hợp (Mendeley Synthetic) và chỉ có **114 ảnh (8,03%)** từ OpenImages. Tập này được cô lập chỉ dùng cho pretraining đa vật thể, không dùng làm test set thực tế.
 4. **Trọng số mô hình hiện có (`VERIFIED`):**
-   - [artifacts/ecovision/best.pt](file:///D:/CNTT-KLCN155-waste-detection/artifacts/ecovision/best.pt): Checkpoint MobileNetV3-Large 10 lớp được gán tag `PRETRAINING_OVERLAP_UNKNOWN`. Được giữ lại làm baseline tham chiếu ngoại bộ, đánh giá trên VN Trash và ảnh thực tế TP.HCM.
-   - [weights/yolo26n.pt](file:///D:/CNTT-KLCN155-waste-detection/weights/yolo26n.pt): Bóc tách checkpoint xác nhận là mô hình COCO 80 lớp (`tune-yolo26n-objv1-coco`), không phải mô hình rác. Huấn luyện đa rác sẽ chạy mới trên tập dữ liệu rác từ nền tảng YOLOv8n.
+   - [artifacts/ecovision/best.pt](../../artifacts/ecovision/best.pt): Checkpoint MobileNetV3-Large 10 lớp được gán tag `PRETRAINING_OVERLAP_UNKNOWN`. Được giữ lại làm baseline tham chiếu ngoại bộ, đánh giá trên VN Trash và ảnh thực tế TP.HCM.
+   - [weights/yolo26n.pt](../../weights/yolo26n.pt): Bóc tách checkpoint xác nhận là mô hình COCO 80 lớp (`tune-yolo26n-objv1-coco`), không phải mô hình rác. Huấn luyện đa rác sẽ chạy mới trên tập dữ liệu rác từ nền tảng YOLOv8n.
 5. **Môi trường phần cứng (`VERIFIED`):**
    - CPU AMD Ryzen 5 6600H (6 cores, 12 threads), RAM 16 GB, GPU NVIDIA GeForce RTX 2050 (4 GB VRAM), Driver 591.86, CUDA 13.1.
 
@@ -97,7 +97,7 @@ flowchart TD
 
 ## 4. Đầu ra cụ thể của kế hoạch (Deliverables)
 
-1. **Bộ tài liệu kế hoạch và đối soát (15 tệp Markdown):** Trong thư mục [docs/plan/](file:///D:/CNTT-KLCN155-waste-detection/docs/plan), kèm file tự phản biện [R2_REVIEW.md](file:///D:/CNTT-KLCN155-waste-detection/docs/plan/R2_REVIEW.md) và biên bản kiểm kê [data/audit/](file:///D:/CNTT-KLCN155-waste-detection/data/audit).
+1. **Bộ tài liệu kế hoạch và đối soát (15 tệp Markdown):** Trong thư mục [docs/plan/](../../docs/plan), kèm file tự phản biện [R2_REVIEW.md](../../docs/plan/R2_REVIEW.md) và biên bản kiểm kê [data/audit/](../../data/audit).
 2. **Giai đoạn A:**
    - Checkpoint `artifacts/run-001/best.pt` mô hình MobileNetV3 10 lớp được fine-tune từ ImageNet-1K trên 10.381 ảnh train.
    - Bảng metrics chi tiết (Top-1 Accuracy $\ge 0.88$, Macro-F1 $\ge 0.85$, Recall $\ge 0.80$, Battery Recall $\ge 0.88$).
@@ -106,11 +106,11 @@ flowchart TD
 3. **Giai đoạn B:**
    - Dataset đa rác chuẩn YOLO format tại `data/detection/v2-waste/` với nhãn được gán/thẩm định bằng in-repo review tool, tách riêng tập synthetic và tập real-world.
    - Checkpoints: `artifacts/detection/yolov8n-waste/weights/best.pt` và `artifacts/detection/ssdlite320-waste/weights/best.pth`.
-   - Kết quả Grid Search WBF: tệp cấu hình [configs/detection_fusion.yaml](file:///D:/CNTT-KLCN155-waste-detection/configs/detection_fusion.yaml) chứa trọng số tối ưu $w_{\text{YOLO}}, w_{\text{SSD}}$ trên tập Validation.
+   - Kết quả Grid Search WBF: tệp cấu hình [configs/detection_fusion.yaml](../../configs/detection_fusion.yaml) chứa trọng số tối ưu $w_{\text{YOLO}}, w_{\text{SSD}}$ trên tập Validation.
    - Báo cáo so sánh 3 chế độ: YOLOv8n vs SSDLite320 vs WBF (mAP50, mAP50-95, latency, FPS).
 4. **Sản phẩm ứng dụng:**
-   - Ứng dụng Web Streamlit [streamlit_app.py](file:///D:/CNTT-KLCN155-waste-detection/streamlit_app.py) hỗ trợ cả 2 chế độ: Đơn rác (Classification) và Đa rác (Detection).
-   - Công cụ kiểm tra và thẩm định bounding box nội bộ [src/ui/review_tool.py](file:///D:/CNTT-KLCN155-waste-detection/src/ui/review_tool.py).
+   - Ứng dụng Web Streamlit [streamlit_app.py](../../streamlit_app.py) hỗ trợ cả 2 chế độ: Đơn rác (Classification) và Đa rác (Detection).
+   - Công cụ kiểm tra và thẩm định bounding box nội bộ [src/ui/review_tool.py](../../src/ui/review_tool.py).
 
 ---
 
@@ -118,12 +118,12 @@ flowchart TD
 
 | Tệp | Trạng thái | Mục đích |
 |:---|:---:|:---|
-| [docs/plan/*.md](file:///D:/CNTT-KLCN155-waste-detection/docs/plan) | `VERIFIED` | 15 tài liệu kế hoạch, phản biện và đối soát hoàn chỉnh |
-| [data/audit/*](file:///D:/CNTT-KLCN155-waste-detection/data/audit) | `VERIFIED` | 6 tệp log và CSV kiểm toán dữ liệu và chuyển giao backbone |
-| [configs/train_stage_a.yaml](file:///D:/CNTT-KLCN155-waste-detection/configs/train_stage_a.yaml) | `PROPOSED` | Cấu hình huấn luyện MobileNetV3 10 lớp khởi tạo từ ImageNet |
-| [configs/detection_training.yaml](file:///D:/CNTT-KLCN155-waste-detection/configs/detection_training.yaml) | `PROPOSED` | Cấu hình huấn luyện YOLOv8n và SSDLite320 trên dữ liệu rác |
-| [src/ui/review_tool.py](file:///D:/CNTT-KLCN155-waste-detection/src/ui/review_tool.py) | `PROPOSED` | Công cụ Streamlit nội bộ để review/thẩm định nhãn bounding box |
-| [streamlit_app.py](file:///D:/CNTT-KLCN155-waste-detection/streamlit_app.py) | `PROPOSED` | Ứng dụng Web chính thức cho người dùng cuối |
+| [docs/plan/*.md](../../docs/plan) | `VERIFIED` | 15 tài liệu kế hoạch, phản biện và đối soát hoàn chỉnh |
+| [data/audit/*](../../data/audit) | `VERIFIED` | 6 tệp log và CSV kiểm toán dữ liệu và chuyển giao backbone |
+| [configs/train_stage_a.yaml](../../configs/train_stage_a.yaml) | `PROPOSED` | Cấu hình huấn luyện MobileNetV3 10 lớp khởi tạo từ ImageNet |
+| [configs/detection_training.yaml](../../configs/detection_training.yaml) | `PROPOSED` | Cấu hình huấn luyện YOLOv8n và SSDLite320 trên dữ liệu rác |
+| [src/ui/review_tool.py](../../src/ui/review_tool.py) | `PROPOSED` | Công cụ Streamlit nội bộ để review/thẩm định nhãn bounding box |
+| [streamlit_app.py](../../streamlit_app.py) | `PROPOSED` | Ứng dụng Web chính thức cho người dùng cuối |
 
 ---
 

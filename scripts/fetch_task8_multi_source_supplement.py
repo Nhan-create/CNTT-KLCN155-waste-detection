@@ -4,7 +4,7 @@ scripts/fetch_task8_multi_source_supplement.py
 Expands the Task 8 Wave 1 acquisition batch (`data/acquisition_staging/task8a_multiclass_batch`)
 with:
   1. Unused Open Images V7 validation images + official bounding boxes from
-     `D:\\waste-training\\openimages-validation-boxes.csv` (AWS S3 `open-images-dataset.s3.amazonaws.com`,
+     `data/external/waste-training/openimages-validation-boxes.csv` (AWS S3 `open-images-dataset.s3.amazonaws.com`,
      CC BY 2.0 / CC BY 4.0) across cardboard (`Box`), paper/plastic (`Coffee cup`, `Book`),
      glass/plastic (`Bottle`, `Wine glass`), shoes (`Boot`, `Sandal`), clothes (`Clothing`, `Glove`, `Towel`),
      biological (`Banana`, `Egg`), and trash/context (`Waste container`).

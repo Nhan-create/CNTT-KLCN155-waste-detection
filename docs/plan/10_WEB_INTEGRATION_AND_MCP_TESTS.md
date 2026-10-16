@@ -13,7 +13,7 @@
 Hiện thực hóa ứng dụng Web hoàn chỉnh phục vụ báo cáo và bảo vệ khóa luận tốt nghiệp dựa trên nền tảng **Streamlit**; kết nối trực tiếp giao diện người dùng với cả hai chế độ:
 1. **Chế độ Phân loại đơn rác (Giai đoạn A):** Sử dụng MobileNetV3-Large (10 lớp rác sinh hoạt).
 2. **Chế độ Phát hiện đa rác (Giai đoạn B):** Sử dụng `YOLOv8n`, `SSDLite320`, và `WBF Ensemble` (hỗ trợ hiển thị bounding box, phân loại và đếm số lượng);  
-Đồng thời duy trì công cụ nội bộ thẩm định dữ liệu [src/ui/review_tool.py](file:///D:/CNTT-KLCN155-waste-detection/src/ui/review_tool.py) và thiết lập bộ kịch bản kiểm thử giao diện tự động bằng máy chủ MCP `chrome-devtools`.
+Đồng thời duy trì công cụ nội bộ thẩm định dữ liệu [src/ui/review_tool.py](../../src/ui/review_tool.py) và thiết lập bộ kịch bản kiểm thử giao diện tự động bằng máy chủ MCP `chrome-devtools`.
 
 ### 1.2. Vấn đề cần giải quyết
 1. **Chống kết quả ảo và dữ liệu cũ (Stale Results):** Đảm bảo 100% kết quả hiển thị được tính toán trực tiếp từ ảnh tải lên và mô hình đang chọn.
@@ -24,11 +24,11 @@ Hiện thực hóa ứng dụng Web hoàn chỉnh phục vụ báo cáo và bả
 
 ## 2. Hiện trạng mã nguồn giao diện trong workspace mới (`VERIFIED`)
 
-- [streamlit_app.py](file:///D:/CNTT-KLCN155-waste-detection/streamlit_app.py): Giao diện người dùng Web chính thức.
-- [src/ui/review_tool.py](file:///D:/CNTT-KLCN155-waste-detection/src/ui/review_tool.py): Giao diện Streamlit nội bộ thẩm định nhãn bounding box (thay thế CVAT).
-- [src/web/detection_service.py](file:///D:/CNTT-KLCN155-waste-detection/src/web/detection_service.py): Service nạp mô hình và quản lý cache.
-- [src/web/detection_logic.py](file:///D:/CNTT-KLCN155-waste-detection/src/web/detection_logic.py): Vẽ bounding box và xuất dữ liệu.
-- [src/web/detection_settings.py](file:///D:/CNTT-KLCN155-waste-detection/src/web/detection_settings.py): Cấu hình tham số backend và ngưỡng confidence.
+- [streamlit_app.py](../../streamlit_app.py): Giao diện người dùng Web chính thức.
+- [src/ui/review_tool.py](../../src/ui/review_tool.py): Giao diện Streamlit nội bộ thẩm định nhãn bounding box (thay thế CVAT).
+- [src/web/detection_service.py](../../src/web/detection_service.py): Service nạp mô hình và quản lý cache.
+- [src/web/detection_logic.py](../../src/web/detection_logic.py): Vẽ bounding box và xuất dữ liệu.
+- [src/web/detection_settings.py](../../src/web/detection_settings.py): Cấu hình tham số backend và ngưỡng confidence.
 
 ---
 

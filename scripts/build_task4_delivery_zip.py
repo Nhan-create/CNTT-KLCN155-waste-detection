@@ -1,5 +1,5 @@
 """
-Package Task 4 deliverables into a single zip archive in C:\\Users\\ad\\Downloads.
+Package Task 4 deliverables into a single zip archive in ~/Downloads.
 """
 
 import sys

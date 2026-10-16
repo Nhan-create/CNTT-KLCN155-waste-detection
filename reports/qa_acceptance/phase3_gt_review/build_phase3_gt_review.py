@@ -212,7 +212,7 @@ def evaluate(prediction_data, gt_by_filename, excluded_images=frozenset()):
 
 
 def font(size=20):
-    candidates = [Path(r"C:\Windows\Fonts\arial.ttf"), Path(r"C:\Windows\Fonts\segoeui.ttf")]
+    candidates = [Path(r"arial.ttf"), Path(r"segoeui.ttf")]
     for candidate in candidates:
         if candidate.exists():
             return ImageFont.truetype(str(candidate), size=size)

@@ -3,7 +3,7 @@
 Generates:
 1. `reports/task8_dataset_program/TASK8E_SCALE_ACQUISITION_AND_QA_REPORT.json`
 2. `reports/task8_dataset_program/TASK8E_SCALE_ACQUISITION_AND_QA_REPORT.md`
-3. `C:\\Users\\ad\\Downloads\\TASK8E_SCALE_REAL_WASTE_DELIVERY.zip` (strictly `< 500 MB`, verified on disk) containing:
+3. `~/Downloads/TASK8E_SCALE_REAL_WASTE_DELIVERY.zip` (strictly `< 500 MB`, verified on disk) containing:
    - Wave 8E manifest & provenance (`task8e_qa_manifest.json`, `.csv`, `task8e_raw_candidates_manifest.json`)
    - Wave 8E QA'd images, YOLO labels (`labels_real_waste_pass`, `labels_auxiliary`, `labels_needs_manual_review`), overlays, and contact sheets
    - Compact Task 8D Independent QA Evidence Mini-Pack (`data/acquisition_staging/task8d_independent_qa_mini_pack/` + `task8d_qa_manifest.json` & `.csv`)
@@ -125,10 +125,10 @@ def main() -> None:
     md: list[str] = []
     md.append("# BÁO CÁO NGHIỆM THU TASK 8E — SCALE REAL-WASTE DATA ACQUISITION & TASK 8D FOCUSED VERIFICATION")
     md.append("")
-    md.append("- **Repository:** `D:\\CNTT-KLCN155-waste-detection`")
+    md.append("- **Repository:** `.`")
     md.append("- **Phiên bản báo cáo:** `TASK8E_SCALE_ACQUISITION_AND_QA_V1`")
     md.append("- **Trạng thái phê duyệt huấn luyện (`APPROVED_FOR_TRAIN`):** `False` *(100% ảnh mới giữ ở staging chờ PM/User nghiệm thu độc lập; tuyệt đối chưa chạy huấn luyện)*")
-    md.append("- **Tính toàn vẹn tập Test/Holdout:** `100%` *(Không đụng chạm tập frozen test `299` ảnh, candidate test `274` ảnh, hay `D:\\Hinh_Anh_Rac` `27` ảnh)*")
+    md.append("- **Tính toàn vẹn tập Test/Holdout:** `100%` *(Không đụng chạm tập frozen test `299` ảnh, candidate test `274` ảnh, hay `data/holdout` `27` ảnh)*")
     md.append("")
     md.append("---")
     md.append("")
@@ -240,9 +240,9 @@ def main() -> None:
     md.append("")
     md.append("---")
     md.append("")
-    md.append("## 6. ĐÓNG GÓI BÀN GIAO `< 500 MB` TẠI `C:\\Users\\ad\\Downloads\\` (MỤC 7)")
+    md.append("## 6. ĐÓNG GÓI BÀN GIAO `< 500 MB` TẠI `~/Downloads//` (MỤC 7)")
     md.append("")
-    md.append("- **Tệp đóng gói:** `C:\\Users\\ad\\Downloads\\TASK8E_SCALE_REAL_WASTE_DELIVERY.zip` (nhỏ hơn giới hạn `500 MB`).")
+    md.append("- **Tệp đóng gói:** `~/Downloads/TASK8E_SCALE_REAL_WASTE_DELIVERY.zip` (nhỏ hơn giới hạn `500 MB`).")
     md.append("- **Thành phần bên trong gói bàn giao:**")
     md.append("  1. Manifest & provenance đầy đủ của Wave 8E (`data/acquisition_staging/task8e_scale_real_waste/task8e_qa_manifest.json`, `.csv`, `task8e_raw_candidates_manifest.json`).")
     md.append("  2. Toàn bộ ảnh đã qua QA của Wave 8E (`images/`), nhãn YOLO (`labels_real_waste_pass/`, `labels_auxiliary/`, `labels_needs_manual_review/`), ảnh overlay (`overlays/`) và contact sheets (`contact_sheets/`).")

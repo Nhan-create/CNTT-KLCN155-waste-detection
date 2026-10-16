@@ -1,7 +1,7 @@
 # BÁO CÁO NGHIỆM THU: PHASE 4E.3 — FINAL DATA INTAKE PATCH & WIKIMEDIA MINI-PILOT GATING
 
 **Dự án:** Hệ thống nhận diện rác thải sinh hoạt KLCN155  
-**Thư mục làm việc:** `D:\CNTT-KLCN155-waste-detection`  
+**Thư mục làm việc:** `.`  
 **Thời điểm thực thi:** 2026-10-12  
 **Trạng thái phê duyệt huấn luyện:** 0 ảnh mới được duyệt vào train (`APPROVED_FOR_TRAIN = 0`)  
 **Trạng thái tải ảnh thực tế:** 0 ảnh mới được tải (`REAL NEW IMAGES DOWNLOADED = 0`)  
@@ -10,7 +10,7 @@
 
 ## 1. TASK A: BẢN VÁ PHÂN LOẠI LỚP PIN & BỘ ĐỆM BĂM (BATTERY TAXONOMY & CACHE)
 
-Tệp sửa đổi: [`scripts/ingest_roboflow_battery_export.py`](file:///d:/CNTT-KLCN155-waste-detection/scripts/ingest_roboflow_battery_export.py)
+Tệp sửa đổi: [`scripts/ingest_roboflow_battery_export.py`](../scripts/ingest_roboflow_battery_export.py)
 
 ### 1.1 Khắc phục nhận diện loại pin không chứa từ khóa "battery"
 - **Không tự nhận định cố định:** Hệ thống không mặc định áp đặt 8 lớp cụ thể nào trong Roboflow v1, mà đọc động cấu hình `data.yaml` từ tệp xuất thực tế.
@@ -25,7 +25,7 @@ Tệp sửa đổi: [`scripts/ingest_roboflow_battery_export.py`](file:///d:/CNT
 - Các lớp như `battery charger`, `battery case`, `battery holder` bị gán nhãn `QUARANTINE_ACCESSORY` và loại trừ tuyệt đối, không bao giờ được coi là pin.
 
 ### 1.3 Bảng ánh xạ phân loại động (Source Class ID → Target Class)
-Hàm [`inspect_roboflow_data_yaml()`](file:///d:/CNTT-KLCN155-waste-detection/scripts/ingest_roboflow_battery_export.py) xây dựng bảng ánh xạ minh bạch và in ra log:
+Hàm [`inspect_roboflow_data_yaml()`](../scripts/ingest_roboflow_battery_export.py) xây dựng bảng ánh xạ minh bạch và in ra log:
 - Lớp pin hợp lệ $\longrightarrow$ `0: battery` (`PROPOSED_ACCEPTED`).
 - Lớp phụ kiện sạc/vỏ $\longrightarrow$ `QUARANTINE_ACCESSORY` (`EXCLUDED_ACCESSORY`).
 - Lớp mơ hồ hoặc chưa xác minh (ví dụ `Damaged`, `box`) $\longrightarrow$ `QUARANTINE_UNVERIFIED` (`REQUIRES_APPROVAL`).
@@ -40,18 +40,18 @@ Hàm [`inspect_roboflow_data_yaml()`](file:///d:/CNTT-KLCN155-waste-detection/sc
 - Loại bỏ hoàn toàn nguy cơ trùng khóa giữa hai tệp cùng tên nằm ở các thư mục khác nhau.
 
 ### 1.5 Cam kết liêm chính đối với Roboflow Export
-- Nếu chưa có tệp ZIP thực tế trong [`data/acquisition_staging/roboflow_battery/`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/roboflow_battery/), script thông báo hướng dẫn người dùng tải từ trang web chính thức và thoát an toàn với mã `0`. Tuyệt đối không giả lập dữ liệu hay sinh kết quả ảo.
+- Nếu chưa có tệp ZIP thực tế trong [`data/acquisition_staging/roboflow_battery/`](../data/acquisition_staging/roboflow_battery/), script thông báo hướng dẫn người dùng tải từ trang web chính thức và thoát an toàn với mã `0`. Tuyệt đối không giả lập dữ liệu hay sinh kết quả ảo.
 
 ---
 
 ## 2. KẾT QUẢ KIỂM THỬ HỒI QUY (TDD EVIDENCE)
 
-Tệp kiểm thử: [`tests/qa/test_phase4e_intake_safety.py`](file:///d:/CNTT-KLCN155-waste-detection/tests/qa/test_phase4e_intake_safety.py)
+Tệp kiểm thử: [`tests/qa/test_phase4e_intake_safety.py`](../tests/qa/test_phase4e_intake_safety.py)
 
 ```text
 ============================= test session starts =============================
 platform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.6.0
-rootdir: D:\CNTT-KLCN155-waste-detection
+rootdir: .
 collected 19 items
 
 tests/qa/test_phase4e_intake_safety.py::test_validate_yolo_bbox_valid_cases PASSED [  5%]
@@ -91,7 +91,7 @@ Hệ thống đã thực hiện kiểm tra mạng độc lập (HTTP HEAD reques
 | **4** | `wiki_neg_utility_box_leeds` | `File:Utility_box,_Wesley_Street,_Beeston,_Leeds_(11th_August_2023)_001.jpg` | **200 OK** | 5,736,159 B | CC BY-SA 4.0 | Mtaylor848 | URL & Bản quyền hợp lệ |
 
 - **Tổng dung lượng tải thực tế:** 10,714,787 bytes (~10.22 MiB), thấp hơn đáng kể so với ngưỡng trần 20 MiB.
-- **Tệp QA Manifest & Bbox sơ bộ:** Đã chuẩn bị sẵn tại [`data/acquisition_staging/manifests/mini_pilot_qa_manifest.json`](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/manifests/mini_pilot_qa_manifest.json).
+- **Tệp QA Manifest & Bbox sơ bộ:** Đã chuẩn bị sẵn tại [`data/acquisition_staging/manifests/mini_pilot_qa_manifest.json`](../data/acquisition_staging/manifests/mini_pilot_qa_manifest.json).
 
 ---
 

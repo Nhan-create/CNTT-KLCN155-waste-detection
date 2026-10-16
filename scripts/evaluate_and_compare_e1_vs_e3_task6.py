@@ -4,7 +4,7 @@ Evaluates:
   - Evaluation A: Validation V3 (328 images, 930 boxes, 29 battery boxes)
   - Evaluation B: Validation V2 (299 images, 901 boxes, 0 battery boxes)
   - Evaluation C: Internal Test Frozen (299 images, 720 boxes, 1 battery box)
-  - Evaluation D: External Holdout (27 images, 57 GT objects in D:\\Hinh_Anh_Rac)
+  - Evaluation D: External Holdout (27 images, 57 GT objects in data/holdout)
   - Extra Qualitative Check: Unannotated hard-negative utility boxes / brick walls
 """
 

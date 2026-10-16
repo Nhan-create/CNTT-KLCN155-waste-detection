@@ -1,6 +1,6 @@
 # BÁO CÁO NGHIỆM THU PHASE 4C CLOSEOUT & KẾ HOẠCH MỞ RỘNG DỮ LIỆU THẬT
 **Mã dự án:** CNTT-KLCN155 — Waste Detection System  
-**Repository:** `D:\CNTT-KLCN155-waste-detection`  
+**Repository:** `.`  
 **Tài liệu:** `reports/PHASE4C_CLOSEOUT_AND_DATA_ACQUISITION.md`  
 **Thời điểm hoàn thành:** 2026-10-12T06:20:00Z  
 **Vai trò:** Principal Computer Vision Engineer, Senior ML Data Engineer & Independent QA Auditor  
@@ -51,7 +51,7 @@ Hệ thống Quality Gate mới trong `scripts/validate_pilot_quality_gates.py` 
 ## 3. KIẾN TRÚC NGĂN CHẶN NHIỄM CHÉO TRAIN/TEST (P0)
 
 Nhóm kỹ thuật đã triển khai module kiểm soát xuất dữ liệu:
-[`src/detection/export_train_manifest.py`](file:///d:/CNTT-KLCN155-waste-detection/src/detection/export_train_manifest.py)
+[`src/detection/export_train_manifest.py`](../src/detection/export_train_manifest.py)
 
 ### 3.1. Các lớp ngoại lệ an toàn (Exception Guards)
 - `SplitContaminationError`: Kích hoạt ngay lập tức nếu phát hiện ảnh thuộc split `TEST` hoặc `VAL` trong danh sách xuất Train.
@@ -59,7 +59,7 @@ Nhóm kỹ thuật đã triển khai module kiểm soát xuất dữ liệu:
 - `PendingApprovalError`: Kích hoạt nếu cố tình xuất các ảnh đang chờ duyệt (`PROPOSED_PENDING_USER_APPROVAL`) mà không có cờ `--allow-pending`.
 
 ### 3.2. Bằng chứng kiểm thử hồi quy (Regression Test Proof)
-Bộ test suite chuyên trách [`tests/qa/test_split_contamination_safety.py`](file:///d:/CNTT-KLCN155-waste-detection/tests/qa/test_split_contamination_safety.py) gồm 6 bài kiểm thử nghiêm ngặt:
+Bộ test suite chuyên trách [`tests/qa/test_split_contamination_safety.py`](../tests/qa/test_split_contamination_safety.py) gồm 6 bài kiểm thử nghiêm ngặt:
 1. `test_test_images_strictly_blocked_from_train_export` $\to$ **PASSED** (chứng minh `taco_0068` và `taco_0082` kích hoạt `SplitContaminationError`).
 2. `test_unmapped_waste_images_strictly_blocked_from_train_export` $\to$ **PASSED** (chứng minh 8 ảnh dây thừng kích hoạt `UnmappedWasteLeakageError`).
 3. `test_proposed_biological_reannotations_blocked_until_user_approval` $\to$ **PASSED** (chứng minh `taco_0072` và `taco_0092` bị chặn mặc định).
@@ -95,7 +95,7 @@ Dựa trên việc kiểm tra trực tiếp từng pixel của các file ảnh:
 
 ## 5. KẾ HOẠCH MỞ RỘNG DỮ LIỆU THỰC TẾ (P1)
 
-Tài liệu chi tiết: [`reports/data_v2/real_data_acquisition_plan.md`](file:///d:/CNTT-KLCN155-waste-detection/reports/data_v2/real_data_acquisition_plan.md)
+Tài liệu chi tiết: [`reports/data_v2/real_data_acquisition_plan.md`](../reports/data_v2/real_data_acquisition_plan.md)
 
 Nhóm kỹ thuật đề xuất kế hoạch thu thập có kiểm soát gồm 4 nhóm mục tiêu với quy mô **25 ảnh/nhóm** (tổng cộng 100 ảnh thí điểm), đáp ứng đầy đủ tiêu chí pháp lý, kỹ thuật và an toàn chống rò rỉ:
 
@@ -116,7 +116,7 @@ Nhóm kỹ thuật đề xuất kế hoạch thu thập có kiểm soát gồm 4
 
 ### 6.1. Dataset Version & Split Target
 - Dataset: `configs/detection_dataset_real_v2.yaml` (hoặc candidate v3 sau khi tích hợp 100 ảnh mới qua `src.detection.export_train_manifest`).
-- Split tỷ lệ: 80% Train, 20% Val, 0% Test (tập Test và 27 ảnh Holdout tại `D:\Hinh_Anh_Rac` giữ nguyên 100% không đổi).
+- Split tỷ lệ: 80% Train, 20% Val, 0% Test (tập Test và 27 ảnh Holdout tại `data/holdout` giữ nguyên 100% không đổi).
 
 ### 6.2. Kiểm soát phần cứng (Preflight Guard)
 - RAM hệ thống hiện tại: ~16 GB, khả dụng: ~800–1200 MB (nguy cơ OOM cao nếu chạy tác vụ nền nặng).

@@ -11,7 +11,7 @@
 Nhằm chuẩn bị cơ sở dữ liệu tin cậy cho đợt fine-tune YOLOv8n, bước kiểm kê này rà soát toàn bộ các phân tập dữ liệu hiện hữu trên ổ đĩa, xác định chính xác số lượng ảnh, số lượng bounding boxes, tỷ lệ mất cân bằng và độ nhiễm chéo dữ liệu (data leakage).
 
 ### Nguyên tắc bất biến bắt buộc tuân thủ:
-1. **Phân định rõ ràng giữa Train và Holdout:** Toàn bộ dữ liệu nằm trong `D:\Hinh_Anh_Rac` (gồm 27 ảnh holdout gốc, 20 ảnh kho và 100 ảnh online mới) là **tập đánh giá độc lập bên ngoài**, **TUYỆT ĐỐI KHÔNG ĐƯA VÀO TẬP HUẤN LUYỆN (TRAINING SET)** dưới bất kỳ hình thức nào.
+1. **Phân định rõ ràng giữa Train và Holdout:** Toàn bộ dữ liệu nằm trong `data/holdout` (gồm 27 ảnh holdout gốc, 20 ảnh kho và 100 ảnh online mới) là **tập đánh giá độc lập bên ngoài**, **TUYỆT ĐỐI KHÔNG ĐƯA VÀO TẬP HUẤN LUYỆN (TRAINING SET)** dưới bất kỳ hình thức nào.
 2. **Không phá hủy dữ liệu thô:** Bảo toàn nguyên trạng các tệp ảnh và nhãn hiện có, không chạy các lệnh ghi đè hoặc xóa sạch dữ liệu.
 3. **Bảo tồn Taxonomy 10 lớp chuẩn:**
    `0: battery, 1: biological, 2: cardboard, 3: clothes, 4: glass, 5: metal, 6: paper, 7: plastic, 8: shoes, 9: trash`. Không tự ý thay đổi số lượng lớp hay chỉ số index.
@@ -77,7 +77,7 @@ Nhằm chuẩn bị cơ sở dữ liệu tin cậy cho đợt fine-tune YOLOv8n,
 
 ---
 
-### 4. Phân tập 4: Toàn bộ ảnh trong thư mục `D:\Hinh_Anh_Rac`
+### 4. Phân tập 4: Toàn bộ ảnh trong thư mục `data/holdout`
 * **Tổng số tệp ảnh quét được:** Đúng **147 tệp ảnh** (.jpg, .jpeg, .png, .webp).
 * **Phân rã thành 3 nhóm phục vụ kiểm định độc lập:**
   1. **Bộ 27 ảnh External Holdout đóng băng gốc (`reports/qa_acceptance/manifest_hinh_anh_rac.json`):**
@@ -92,10 +92,10 @@ Nhằm chuẩn bị cơ sở dữ liệu tin cậy cho đợt fine-tune YOLOv8n,
   4. **Thư mục con `demo_multiobject_100_20261012`:**
      - Chứa kết quả chạy demo YOLOv8n trên 100 ảnh, bao gồm ảnh vẽ box (overlays), contact sheets và báo cáo latency.
 * **Kết quả quét rò rỉ dữ liệu (Cross-Contamination & Leakage Audit):**
-  - Đã tính mã băm SHA-256 của toàn bộ 147 ảnh trong `D:\Hinh_Anh_Rac` và đối chiếu từng tệp với 2.143 ảnh trong `data/detection/images/real`.
+  - Đã tính mã băm SHA-256 của toàn bộ 147 ảnh trong `data/holdout` và đối chiếu từng tệp với 2.143 ảnh trong `data/detection/images/real`.
   - **Kết quả:** **0 tệp trùng lặp SHA-256 (0 byte collisions).**
   - Toàn bộ 147 ảnh này hoàn toàn độc lập với tập huấn luyện.
-  - **Kết luận:** Giữ nguyên trạng thái **ĐÓNG BĂNG NGOẠI KIỂM** cho toàn bộ 147 ảnh này. Tuyệt đối không lấy ảnh từ `D:\Hinh_Anh_Rac` đưa vào tập train.
+  - **Kết luận:** Giữ nguyên trạng thái **ĐÓNG BĂNG NGOẠI KIỂM** cho toàn bộ 147 ảnh này. Tuyệt đối không lấy ảnh từ `data/holdout` đưa vào tập train.
 
 ---
 
@@ -149,9 +149,9 @@ Nhằm chuẩn bị cơ sở dữ liệu tin cậy cho đợt fine-tune YOLOv8n,
 | **Dataset v2 Test** | `data/detection/images/real/` | 299 | 720 | Đã kiểm định sạch | **ĐƯỢC PHÉP (Internal Test)** |
 | **Dataset v3 Candidate** | `data/detection_v3_candidate/` | 1.820 | 4.331 | Đã lọc 176 ảnh nghi vấn | **TẠM DỪNG (Vẫn thiếu Battery/Bio)** |
 | **Wikimedia Staged (4 ảnh)** | `data/acquisition_staging/` | 4 | 2 Bio + 2 Neg | Đã kiểm định pixel/license | **CHỜ DUYỆT (Task 3 Batch)** |
-| **Holdout 27 ảnh gốc** | `D:\Hinh_Anh_Rac\` | 27 | 57 GT | Đã đóng băng tuyệt đối | **TUYỆT ĐỐI CẤM (External Test 1)** |
-| **Kho 20 ảnh chuyên biệt** | `D:\Hinh_Anh_Rac\` | 20 | Đơn loại / Đa cảnh | Đã đóng băng | **TUYỆT ĐỐI CẤM (Audit Set)** |
-| **Bộ 100 ảnh online mới** | `D:\Hinh_Anh_Rac\` | 100 | Rác online đa vật thể | Đã đóng băng | **TUYỆT ĐỐI CẤM (External Test 2)** |
+| **Holdout 27 ảnh gốc** | `data/holdout/` | 27 | 57 GT | Đã đóng băng tuyệt đối | **TUYỆT ĐỐI CẤM (External Test 1)** |
+| **Kho 20 ảnh chuyên biệt** | `data/holdout/` | 20 | Đơn loại / Đa cảnh | Đã đóng băng | **TUYỆT ĐỐI CẤM (Audit Set)** |
+| **Bộ 100 ảnh online mới** | `data/holdout/` | 100 | Rác online đa vật thể | Đã đóng băng | **TUYỆT ĐỐI CẤM (External Test 2)** |
 
 ---
 

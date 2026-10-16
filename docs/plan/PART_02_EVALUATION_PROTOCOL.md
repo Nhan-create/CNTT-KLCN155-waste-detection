@@ -15,8 +15,8 @@ Toàn bộ tài nguyên phục vụ đánh giá Gate A được cố định b�
 
 | Mục | Đường dẫn tệp | SHA-256 Checksum | Ghi chú |
 |:---|:---|:---|:---|
-| **Checkpoint Mô hình** | [`artifacts/official_run/best_model.pt`](file:///D:/CNTT-KLCN155-waste-detection/artifacts/official_run/best_model.pt) | `c824fec4f3d1dffff946cd8ad7e2d4f121be33e684dda4e6af92b5bda343e424` | Checkpoint tốt nhất tại Epoch 12 của Phase 2 fine-tuning. |
-| **Phân vùng Dữ liệu** | [`data/audit/split_manifest_v2.csv`](file:///D:/CNTT-KLCN155-waste-detection/data/audit/split_manifest_v2.csv) | `1429a22ebbf95cc464881f903dae5ac6dcc5e6e64152e1dd3353e9365429ec96` | Phân chia sạch Split V2 (10.383 train, 2.223 val, 2.223 test). |
+| **Checkpoint Mô hình** | [`artifacts/official_run/best_model.pt`](../../artifacts/official_run/best_model.pt) | `c824fec4f3d1dffff946cd8ad7e2d4f121be33e684dda4e6af92b5bda343e424` | Checkpoint tốt nhất tại Epoch 12 của Phase 2 fine-tuning. |
+| **Phân vùng Dữ liệu** | [`data/audit/split_manifest_v2.csv`](../../data/audit/split_manifest_v2.csv) | `f83def99895e990d474e3ebc66d45fe5692c1496497705089ec9a2183d058980` | Phân chia sạch Split V2 (10.383 train, 2.223 val, 2.223 test). |
 | **Thư mục Final Test** | `data/processed_v2/test/` | Khớp 100% mã băm từng file với manifest | 2.223 ảnh vật lý, lần đầu tiên nạp vào mô hình. |
 
 ---

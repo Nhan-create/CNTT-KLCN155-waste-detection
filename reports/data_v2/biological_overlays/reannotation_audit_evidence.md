@@ -7,7 +7,7 @@
 ## 1. ẢNH TACO_0072.JPG (Thực phẩm dạng bánh màu nâu trong túi nilon)
 
 ### Hình ảnh trực quan đối chiếu:
-File đối chiếu: [`reports/data_v2/biological_overlays/taco_0072_before_after_comparison.jpg`](file:///d:/CNTT-KLCN155-waste-detection/reports/data_v2/biological_overlays/taco_0072_before_after_comparison.jpg)
+File đối chiếu: [`reports/data_v2/biological_overlays/taco_0072_before_after_comparison.jpg`](../../../reports/data_v2/biological_overlays/taco_0072_before_after_comparison.jpg)
 
 ### Nhận diện hình ảnh thực tế (Ground Truth Reality):
 - **Vật thể thực tế:** Thực phẩm nướng màu nâu sẫm (bánh mì nguyên cám / bánh bun cắt lát) nằm bên trong túi nilon bao bì trong suốt, được cầm bằng tay người trong nhà, phía trên chậu cây húng quế và tường trắng. **Không phải lõi táo và không nằm trên mặt đường nhựa.**
@@ -37,7 +37,7 @@ File đối chiếu: [`reports/data_v2/biological_overlays/taco_0072_before_afte
 ## 2. ẢNH TACO_0092.JPG (Lõi táo cắn dở đang cầm trên tay)
 
 ### Hình ảnh trực quan đối chiếu:
-File đối chiếu: [`reports/data_v2/biological_overlays/taco_0092_before_after_comparison.jpg`](file:///d:/CNTT-KLCN155-waste-detection/reports/data_v2/biological_overlays/taco_0092_before_after_comparison.jpg)
+File đối chiếu: [`reports/data_v2/biological_overlays/taco_0092_before_after_comparison.jpg`](../../../reports/data_v2/biological_overlays/taco_0092_before_after_comparison.jpg)
 
 ### Nhận diện hình ảnh thực tế (Ground Truth Reality):
 - **Vật thể thực tế:** Lõi táo đã bị cắn dở (apple core) đang được các ngón tay người cầm thẳng đứng. Phía dưới nền là mặt đường nhựa có lá rụng và mũi giày. **Vật thể không nằm tự do trên mặt đường mà đang được giữ trên tay người.**

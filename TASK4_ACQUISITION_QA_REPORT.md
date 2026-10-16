@@ -1,6 +1,6 @@
 # BÁO CÁO NGHIỆM THU VÀ HIỆU CHỈNH TASK 4: REAL IMAGE ACQUISITION & QA
 **Sprint:** SPRINT AI-UPGRADE-01 — Task 4 (Đã hiệu chỉnh theo ý kiến thẩm định của PM)  
-**Repository:** `D:\CNTT-KLCN155-waste-detection`  
+**Repository:** `.`  
 **Ngày thực hiện:** 13/10/2026  
 **Kỹ sư thực hiện:** Antigravity AI Engineer  
 **Thẩm định nghiệm thu:** ChatGPT PM / Reviewer  
@@ -48,7 +48,7 @@ APPROVED FOR TRAIN   = 0 (Tuân thủ tuyệt đối DoD)
 - **Xử lý nhãn:** File nhãn `wiki_bio_food_scraps_bin_09.txt` được chuyển thành 0-byte, không cấp phép train khi chưa có box riêng biệt cho từng loại rác.
 
 ### 4. `wiki_multi_banana_and_cup_01.jpg` (Đa rác: Vỏ chuối + Cốc cà phê)
-- **Kiểm tra vật liệu cốc:** Cốc giấy dùng một lần thương hiệu siêu thị (rolled-rim paper cup) có bọc lớp carton sóng cách nhiệt (corrugated ripple sleeve). Theo quy chuẩn [src/detection/schema.py](file:///d:/CNTT-KLCN155-waste-detection/src/detection/schema.py#L55), vật thể này thuộc lớp `6: paper`.
+- **Kiểm tra vật liệu cốc:** Cốc giấy dùng một lần thương hiệu siêu thị (rolled-rim paper cup) có bọc lớp carton sóng cách nhiệt (corrugated ripple sleeve). Theo quy chuẩn [src/detection/schema.py](src/detection/schema.py#L55), vật thể này thuộc lớp `6: paper`.
 - **Hiệu chỉnh box vỏ chuối:** Box cũ cắt mất phần cuống xanh/nâu phía trên (`y = 340`). Đã mở rộng box lên `[200, 335, 2155, 2460]` bao trọn cuống và mép vỏ.
 - **Tọa độ YOLO mới:**
   - Vỏ chuối (biological): `1 0.239183 0.378521 0.397116 0.575569`
@@ -79,7 +79,7 @@ Soi pixel gốc hai ảnh vỏ chuối:
   2. `visual_qa`: Tình trạng thẩm định ảnh (`QA_PASS`, `QA_PASS_OBJECT_ONLY_WHITE_BG`, `QA_PASS_CLEAN_NEGATIVE`, `QUARANTINED_AMBIGUOUS_BATTERY_ASSEMBLY`, `PENDING_ANNOTATION`).
   3. `user_train_approval`: `PENDING_PM_APPROVAL` (duy nhất người dùng và PM có quyền đổi thành APPROVED).
 - **Giải trình minh bạch về kết quả Leakage Check:**
-  - File cache [authoritative_hashes_cache.json](file:///d:/CNTT-KLCN155-waste-detection/data/audit/authoritative_hashes_cache.json) chứa **8.913 checksums** của toàn bộ tập dữ liệu (train, val, test và holdout).
+  - File cache [authoritative_hashes_cache.json](data/audit/authoritative_hashes_cache.json) chứa **8.913 checksums** của toàn bộ tập dữ liệu (train, val, test và holdout).
   - Giá trị `sha256_match: null` có nghĩa là **KHÔNG TÌM THẤY TRÙNG LẶP NÀO** trong 8.913 ảnh đã biết.
   - pHash Hamming Distance đối chiếu toàn bộ dataset đều $> 8$.
 
@@ -93,7 +93,7 @@ Do ảnh pin tự do trên Wikimedia rất hạn chế và ứng viên duy nhấ
    - Người dùng tải trực tiếp file `.zip` từ trình duyệt:  
      `https://universe.roboflow.com/alif-kurniawan-x336t/waste-battery-only/dataset/1`
    - Đặt file `.zip` vào thư mục `data/acquisition_staging/roboflow_battery/`.
-   - Chạy pipeline offline [scripts/import_and_qa_roboflow_battery.py](file:///d:/CNTT-KLCN155-waste-detection/scripts/import_and_qa_roboflow_battery.py).
+   - Chạy pipeline offline [scripts/import_and_qa_roboflow_battery.py](scripts/import_and_qa_roboflow_battery.py).
    - Tuyệt đối không cần dán API key, không tạo ảnh pin AI, không xâm phạm tập test/holdout.
 
 ---
@@ -117,12 +117,12 @@ Do ảnh pin tự do trên Wikimedia rất hạn chế và ứng viên duy nhấ
 
 ## VII. TỔNG HỢP DANH MỤC GIAO NỘP & BẢO CHỨNG KIỂM THỬ
 
-1. **Manifest đã hiệu chỉnh:** [manifest.json](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/batch_a_mini01/manifest.json)
-2. **Thư mục 10 file nhãn chuẩn:** [data/acquisition_staging/batch_a_mini01/labels/](file:///d:/CNTT-KLCN155-waste-detection/data/acquisition_staging/batch_a_mini01/labels/)
+1. **Manifest đã hiệu chỉnh:** [manifest.json](data/acquisition_staging/batch_a_mini01/manifest.json)
+2. **Thư mục 10 file nhãn chuẩn:** [data/acquisition_staging/batch_a_mini01/labels/](data/acquisition_staging/batch_a_mini01/labels/)
 3. **Contact Sheet trực quan cập nhật:**
-   - [minibatch01_annotated_contact_sheet.jpg](file:///d:/CNTT-KLCN155-waste-detection/reports/source_verification/contact_sheets/minibatch01_annotated_contact_sheet.jpg)
-   - [minibatch01_contact_sheet.jpg](file:///d:/CNTT-KLCN155-waste-detection/reports/source_verification/contact_sheets/minibatch01_contact_sheet.jpg)
-4. **Thư mục 10 Overlays chi tiết:** [reports/source_verification/overlays/](file:///d:/CNTT-KLCN155-waste-detection/reports/source_verification/overlays/)
+   - [minibatch01_annotated_contact_sheet.jpg](reports/source_verification/contact_sheets/minibatch01_annotated_contact_sheet.jpg)
+   - [minibatch01_contact_sheet.jpg](reports/source_verification/contact_sheets/minibatch01_contact_sheet.jpg)
+4. **Thư mục 10 Overlays chi tiết:** [reports/source_verification/overlays/](reports/source_verification/overlays/)
 5. **Bộ kiểm thử hồi quy tự động:** **18 passed, 1 skipped** (100% tests PASS).
 6. **Gói ZIP bàn giao cập nhật hoàn chỉnh:**  
-   `C:\Users\ad\Downloads\CNTT_KLCN155_Task4_Acquisition_Va_QA.zip`
+   `~/Downloads\CNTT_KLCN155_Task4_Acquisition_Va_QA.zip`

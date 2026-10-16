@@ -27,19 +27,19 @@ Báo cáo này thiết lập nền tảng dữ liệu chuẩn cho Dataset v3, ba
   - Tổng số bounding box tập train: **3,963 boxes**.
   - Bounding box `plastic` (Class 7): **1,560 boxes (39.36%)**.
   - Bounding box `trash` (Class 9): **854 boxes (21.55%)**.
-  - Script tái lập độc lập: [`scripts/audit_splits_real_v2_distribution.py`](file:///d:/CNTT-KLCN155-waste-detection/scripts/audit_splits_real_v2_distribution.py).
+  - Script tái lập độc lập: [`scripts/audit_splits_real_v2_distribution.py`](../scripts/audit_splits_real_v2_distribution.py).
 
 ### 1.2. Đồng bộ hóa phạm vi kiểm thử trong `tests_summary.json` (311 -> 323 Collected Tests)
 - **Hiện tượng:** Báo cáo kiểm toán ghi nhận 302 hoặc 311 tests collected, trong khi suite targeted thực thi 132/133 tests.
-- **Khắc phục:** Đã bổ sung bộ kiểm thử cổng chất lượng dữ liệu [`tests/qa/test_dataset_v3_quality_gates.py`](file:///d:/CNTT-KLCN155-waste-detection/tests/qa/test_dataset_v3_quality_gates.py) (+12 tests).
+- **Khắc phục:** Đã bổ sung bộ kiểm thử cổng chất lượng dữ liệu [`tests/qa/test_dataset_v3_quality_gates.py`](../tests/qa/test_dataset_v3_quality_gates.py) (+12 tests).
 - **Kết quả kiểm thử chính thức:**
   - Tổng số test thu thập toàn workspace (`pytest --collect-only`): **323 collected tests** (bao gồm các script huấn luyện mở rộng/GPU benchmark không chạy trong targeted suite).
   - Bộ kiểm thử targeted chính thức: **17 test files, 144 passed, 1 skipped, 0 failed** (thời gian chạy: 77.07s).
-  - Tệp lưu trữ bằng chứng: [`reports/test_evidence/tests_summary.json`](file:///d:/CNTT-KLCN155-waste-detection/reports/test_evidence/tests_summary.json) và [`reports/test_evidence/pytest_targeted.log`](file:///d:/CNTT-KLCN155-waste-detection/reports/test_evidence/pytest_targeted.log).
+  - Tệp lưu trữ bằng chứng: [`reports/test_evidence/tests_summary.json`](../reports/test_evidence/tests_summary.json) và [`reports/test_evidence/pytest_targeted.log`](../reports/test_evidence/pytest_targeted.log).
 
 ### 1.3. Đổi tên chính sách Evaluator: Không còn danh xưng "v2_approved"
 - **Hiện tượng:** Bộ Ground Truth v2 đề xuất (`reports/qa_acceptance/ground_truth_hinh_anh_rac_v2_proposed.json`) đang trong quá trình xin ý kiến phê duyệt của các bên liên quan (Stakeholders / PM), **chưa được phê duyệt chính thức**. Việc gọi tên chính sách là `v2_approved` gây hiểu lầm rằng GT v2 đã được đóng băng.
-- **Khắc phục:** Trong script đánh giá [`scripts/compare_eval_v1_vs_v2.py`](file:///d:/CNTT-KLCN155-waste-detection/scripts/compare_eval_v1_vs_v2.py) và bảng tổng hợp 15 dòng [`reports/qa_acceptance/verified_evaluation_summary_from_raw.json`](file:///d:/CNTT-KLCN155-waste-detection/reports/qa_acceptance/verified_evaluation_summary_from_raw.json), toàn bộ định danh đã được đổi thành:
+- **Khắc phục:** Trong script đánh giá [`scripts/compare_eval_v1_vs_v2.py`](../scripts/compare_eval_v1_vs_v2.py) và bảng tổng hợp 15 dòng [`reports/qa_acceptance/verified_evaluation_summary_from_raw.json`](../reports/qa_acceptance/verified_evaluation_summary_from_raw.json), toàn bộ định danh đã được đổi thành:
   - `v2_proposed_active`: 45 active objects (tính cả 6 vật thể đang thảo luận).
   - `v2_proposed_discrete_only`: 39 active objects (chỉ tính các vật thể rời rạc tuyệt đối).
   - Bổ sung làm rõ bản chất metric: Đây là **Operating-threshold Precision/Recall/F1 tại ngưỡng Confidence >= 0.25 và IoU >= 0.50**, hoàn toàn tách biệt về mặt toán học với chỉ số **AP50 / mAP50 tích phân đường cong PR**.
@@ -52,7 +52,7 @@ Báo cáo này thiết lập nền tảng dữ liệu chuẩn cho Dataset v3, ba
   - Đối với file nhãn `labels/real/oi_2734e597675d8a97.txt`:
     - Hash raw bytes trên Windows (CRLF): `ce34d49fd17aa36d23fa185ffc7c5b7db806f9f91b79d59bc6c580499c0d5964`.
     - Hash chuẩn hóa Unix (LF): `d3c88be1e81cd6dd08ad2eb7f569fca0b66df73401bb136060619283a65f3a39`.
-  - Tệp bằng chứng mã hóa đầy đủ: [`reports/patches/patch_oi_2734e597675d8a97_evidence.json`](file:///d:/CNTT-KLCN155-waste-detection/reports/patches/patch_oi_2734e597675d8a97_evidence.json) và [`reports/patches/patch_oi_2734e597675d8a97.diff`](file:///d:/CNTT-KLCN155-waste-detection/reports/patches/patch_oi_2734e597675d8a97.diff).
+  - Tệp bằng chứng mã hóa đầy đủ: [`reports/patches/patch_oi_2734e597675d8a97_evidence.json`](../reports/patches/patch_oi_2734e597675d8a97_evidence.json) và [`reports/patches/patch_oi_2734e597675d8a97.diff`](../reports/patches/patch_oi_2734e597675d8a97.diff).
 
 ---
 
@@ -90,21 +90,21 @@ Tập dữ liệu huấn luyện `real_v2` gồm **1,996 ảnh** (Train: 1,398; 
   3. `clean_sidewalk_and_road`: 30 ảnh vỉa hè sạch lát gạch terrazzo, lòng đường nhựa asphalt có bóng râm cây cối.
   4. `empty_public_trash_bins`: 25 ảnh thùng rác công cộng 240L rỗng sạch, giỏ rác văn phòng đục lỗ rỗng (dạy mô hình không nhận diện thùng rác thành rác cần thu gom).
   5. `indoor_furniture_and_floors`: 20 ảnh sàn nhà lát gạch men, mặt bàn làm việc sạch không có rác.
-- **Quy tắc an toàn (Compliance Rule):** **KHÔNG tự ý download dữ liệu ngoài quy mô lớn khi chưa có phê duyệt.** Antigravity đã đóng gói manifest mẫu sẵn sàng tại [`data/detection/candidate_hard_negatives_manifest.csv`](file:///d:/CNTT-KLCN155-waste-detection/data/detection/candidate_hard_negatives_manifest.csv) để triển khai ngay khi được thông qua.
+- **Quy tắc an toàn (Compliance Rule):** **KHÔNG tự ý download dữ liệu ngoài quy mô lớn khi chưa có phê duyệt.** Antigravity đã đóng gói manifest mẫu sẵn sàng tại [`data/detection/candidate_hard_negatives_manifest.csv`](../data/detection/candidate_hard_negatives_manifest.csv) để triển khai ngay khi được thông qua.
 
 ### 2.3. Cổng kiểm soát chất lượng dữ liệu tự động (Dataset Quality Gates)
-Đã triển khai module kiểm soát tự động tại [`scripts/validate_dataset_v3_quality_gates.py`](file:///d:/CNTT-KLCN155-waste-detection/scripts/validate_dataset_v3_quality_gates.py) và suite kiểm thử [`tests/qa/test_dataset_v3_quality_gates.py`](file:///d:/CNTT-KLCN155-waste-detection/tests/qa/test_dataset_v3_quality_gates.py):
+Đã triển khai module kiểm soát tự động tại [`scripts/validate_dataset_v3_quality_gates.py`](../scripts/validate_dataset_v3_quality_gates.py) và suite kiểm thử [`tests/qa/test_dataset_v3_quality_gates.py`](../tests/qa/test_dataset_v3_quality_gates.py):
 1. **Geometry Gate:** Tọa độ $0 \le x_1 < x_2 \le W$, $0 \le y_1 < y_2 \le H$. Tỷ lệ diện tích normalized nằm trong khoảng $[0.0001, 0.95]$. Loại trừ tự động các box chiếm $\ge 95\%$ diện tích (tránh lặp lại lỗi full canvas). Tỷ lệ khung hình aspect ratio nằm trong $[0.02, 50.0]$.
 2. **Taxonomy Gate:** Class ID hợp lệ thuộc $[0..9]$ khớp chính xác thứ tự chuẩn hóa.
 3. **Duplicate Gate:** Tự động phát hiện các cặp box cùng class có IoU $\ge 0.95$ trong cùng một frame để loại trừ annotation trùng đè.
 4. **Hard-Negative Gate:** Ảnh negative bắt buộc phải có file `.txt` rỗng 0 bytes, không chứa bất kỳ ký tự tọa độ nào.
-5. **Leakage Gate:** So khớp hàm băm mã hóa SHA-256 và khoảng cách Hamming pHash (ngưỡng cảnh báo $\le 8$) giữa dữ liệu train/val và bộ Holdout 27 ảnh độc lập `D:\Hinh_Anh_Rac`.
+5. **Leakage Gate:** So khớp hàm băm mã hóa SHA-256 và khoảng cách Hamming pHash (ngưỡng cảnh báo $\le 8$) giữa dữ liệu train/val và bộ Holdout 27 ảnh độc lập `data/holdout`.
 
 ---
 
 ## PHẦN 3: GÓI ĐÁNH GIÁ THỊ GIÁC CHO 6 ĐỐI TƯỢNG GT TRANH CHẤP
 
-Trong bộ Holdout `D:\Hinh_Anh_Rac`, có 6 đối tượng cần sự thống nhất nguyên tắc từ các bên liên quan để hoàn tất nghiệm thu GT v2.
+Trong bộ Holdout `data/holdout`, có 6 đối tượng cần sự thống nhất nguyên tắc từ các bên liên quan để hoàn tất nghiệm thu GT v2.
 
 > [!IMPORTANT]
 > **Nguyên tắc kỹ thuật độc lập:** Tuyệt đối không suy đoán thành phần rác bên trong các bao tải hoặc túi rác đóng kín. Đánh giá dựa trên bằng chứng thị giác trực giao và quy ước thực thi.

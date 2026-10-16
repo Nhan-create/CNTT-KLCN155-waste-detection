@@ -7,9 +7,9 @@ Executes a 3-epoch smoke test on Train and Val splits ONLY to verify:
 4. Checkpoint saving, metadata integrity, and reload test.
 5. Strict isolation of the Test split (Test set is NOT loaded or evaluated).
 
-Target environment: D:\CNTT-KLCN155-waste-detection
-Data source: D:\HK7\Đồ án khóa luận\Data\processed
-Output directory: D:\CNTT-KLCN155-waste-detection\artifacts\smoke_test
+Target environment: .
+Data source: data/processed
+Output directory: artifacts/smoke_test
 """
 
 from __future__ import annotations

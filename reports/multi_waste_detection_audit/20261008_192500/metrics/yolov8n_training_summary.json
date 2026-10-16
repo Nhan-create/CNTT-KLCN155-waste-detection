@@ -15,7 +15,7 @@
   ],
   "trained": true,
   "created_utc": "2026-10-08T08:04:43.399730+00:00",
-  "dataset": "D:\\CNTT-KLCN155-waste-detection\\configs\\detection_dataset.yaml",
+  "dataset": "configs\\detection_dataset.yaml",
   "dataset_fingerprint_train_val_sha256": "7d452da6a90d9ce248bafc5bf0a9638fd09334bb247b8ec909fdaabf9010ca16",
   "augmentation_variant": "combined",
   "online_augmentation": false,
@@ -124,7 +124,7 @@
       "val": 0
     }
   },
-  "best_checkpoint": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\detection\\waste-yolov8n-combined-seed42\\weights\\best.pt",
+  "best_checkpoint": "artifacts\\detection\\waste-yolov8n-combined-seed42\\weights\\best.pt",
   "effective_train_args": {
     "epochs": 120,
     "imgsz": 320,
@@ -138,7 +138,7 @@
     "seed": 42,
     "deterministic": true,
     "device": "cuda",
-    "project": "D:\\CNTT-KLCN155-waste-detection\\artifacts\\detection",
+    "project": "artifacts\\detection",
     "name": "waste-yolov8n-combined-seed42",
     "exist_ok": true,
     "val": true,

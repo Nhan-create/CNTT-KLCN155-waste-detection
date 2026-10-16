@@ -4,7 +4,7 @@ scripts/verify_phash_cross_split_and_holdout.py
 Independent pairwise pHash Hamming distance verification:
 1. Computes / validates 64-bit pHash for all 1,820 Dataset v3 candidate images.
 2. Computes / validates pHash for all 27 official Holdout images (manifest_hinh_anh_rac.json)
-   and all 147 images in D:\\Hinh_Anh_Rac.
+   and all 147 images in data/holdout.
 3. Performs exhaustive pairwise Hamming distance comparison:
    - Cross-split: Train vs Val, Train vs Test, Val vs Test.
    - Candidate vs Holdout: All 1,820 v3 images vs Holdout benchmark.
@@ -100,7 +100,7 @@ def main():
                         "is_official_27": True
                     }
 
-    # Also include any other images in D:\Hinh_Anh_Rac
+    # Also include any other images in data/holdout
     if HOLDOUT_DIR.exists():
         for p in HOLDOUT_DIR.glob("*.*"):
             if p.suffix.lower() in [".jpg", ".jpeg", ".png"] and p.name not in holdout_files:

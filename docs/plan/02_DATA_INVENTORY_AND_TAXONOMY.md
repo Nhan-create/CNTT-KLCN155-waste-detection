@@ -25,21 +25,21 @@ Thiết lập hồ sơ kiểm kê dữ liệu định lượng chính xác 100% 
 ## 2. Hiện trạng đã kiểm kê trên ổ đĩa (`VERIFIED`)
 
 ### 2.1. Nguồn dữ liệu đã tải về máy
-Toàn bộ dữ liệu thô được lưu trữ tại thư mục [D:\HK7\Đồ án khóa luận\Data\raw](file:///D:/HK7/Đồ%20án%20khóa%20luận/Data/raw):
+Toàn bộ dữ liệu thô được lưu trữ tại thư mục [data/raw](../../data/raw):
 1. **Garbage Classification V2:**
    - Nguồn Kaggle: `sumn2u/garbage-classification-v2` (Version 12, MIT License).
-   - Thư mục trên máy: `D:\HK7\Đồ án khóa luận\Data\raw\garbage_v2`.
+   - Thư mục trên máy: `data\raw\garbage_v2`.
    - Tổng số ảnh gốc độc lập: **12.259 ảnh**.
    - Các thư mục biến thể resize tồn tại song song: `standardized_256` (12.259 ảnh), `standardized_384` (12.259 ảnh) $\rightarrow$ **ĐÃ LOẠI TRỪ 24.518 ẢNH BẢN SAO**.
 2. **VN Trash Classification:**
    - Nguồn Kaggle: `mrgetshjtdone/vn-trash-classification` (Version 1, MIT License).
-   - Thư mục trên máy: `D:\HK7\Đồ án khóa luận\Data\raw\vn_trash`.
+   - Thư mục trên máy: `data\raw\vn_trash`.
    - Tổng số ảnh: **3.495 ảnh**.
 3. **Tổng cộng thô:** $12.259 + 3.495 = \mathbf{15.754\text{ ảnh thô}}$.
 
 ### 2.2. Kiểm kê phân bố lớp thô, trùng lặp và ảnh sạch từng lớp (`VERIFIED`)
 
-Bảng dưới đây trích xuất từ [data/audit/class_counts.csv](file:///D:/CNTT-KLCN155-waste-detection/data/audit/class_counts.csv) được quét trực tiếp trên 15.754 file thô:
+Bảng dưới đây trích xuất từ [data/audit/class_counts.csv](../../data/audit/class_counts.csv) được quét trực tiếp trên 15.754 file thô:
 
 | STT | Tên lớp chuẩn (10 lớp) | Thô Garbage V2 | Thô VN Trash | Tổng ảnh thô | Trùng lặp loại bỏ | Tổng sạch (Clean) | Tập Train (70%) | Tập Val (15%) | Tập Test (15%) |
 |:---:|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -66,7 +66,7 @@ Bảng dưới đây trích xuất từ [data/audit/class_counts.csv](file:///D:
 - **26 tệp gần trùng (pHash Hamming distance $\le 4$)**: Cùng một góc chụp hoặc thay đổi độ sáng nhẹ.
 - **Vị trí trùng lặp:** Toàn bộ 923 tệp trùng lặp nằm bên trong bộ dữ liệu `vn_trash` (838 Carton, 63 Paper, 17 Alu, 4 Foam_box, 1 PET).
 - **Trùng lặp giữa hai nguồn:** **0 ảnh** (Garbage V2 và VN Trash hoàn toàn độc lập về nguồn ảnh).
-- Chi tiết từng nhóm trùng lặp được lưu tại [data/audit/duplicate_groups.csv](file:///D:/CNTT-KLCN155-waste-detection/data/audit/duplicate_groups.csv) và danh sách tệp bị loại tại [data/audit/excluded_samples.csv](file:///D:/CNTT-KLCN155-waste-detection/data/audit/excluded_samples.csv).
+- Chi tiết từng nhóm trùng lặp được lưu tại [data/audit/duplicate_groups.csv](../../data/audit/duplicate_groups.csv) và danh sách tệp bị loại tại [data/audit/excluded_samples.csv](../../data/audit/excluded_samples.csv).
 
 ---
 
@@ -117,7 +117,7 @@ Nếu Hội đồng bảo vệ khóa luận yêu cầu đối chiếu với đ�
 
 ## 4. Phân tích hiện trạng tập Detection v1 (1.419 ảnh) (`VERIFIED`)
 
-Kiểm toán dữ liệu bounding box tại [data/audit/audit_summary.json](file:///D:/CNTT-KLCN155-waste-detection/data/audit/audit_summary.json):
+Kiểm toán dữ liệu bounding box tại [data/audit/audit_summary.json](../../data/audit/audit_summary.json):
 - **Tổng số ảnh:** 1.419 ảnh.
 - **Tổng số bounding box:** 4.602 hộp.
 - **Nguồn gốc ảnh:**
@@ -133,5 +133,5 @@ Kiểm toán dữ liệu bounding box tại [data/audit/audit_summary.json](file
 
 ## 5. Kết luận nghiệm thu kiểm kê
 
-- Mọi số liệu trong R2 đã được đối soát khớp từng dòng trên ổ đĩa và lưu trữ trong [data/audit/](file:///D:/CNTT-KLCN155-waste-detection/data/audit).
+- Mọi số liệu trong R2 đã được đối soát khớp từng dòng trên ổ đĩa và lưu trữ trong [data/audit/](../../data/audit).
 - Không còn mâu thuẫn số học hay nhầm lẫn phân loại nào tồn tại trong tài liệu kế hoạch.

@@ -3,7 +3,7 @@
 Reuses the 575 candidates already downloaded in `data/acquisition_staging/task8e_scale_real_waste/`
 and appends ~525 additional deduplicated candidates from:
 1. Remaining first-party `2025*` smartphone captures in `Shynuaa/Street-garbage/yolo/train` (`source_split="train"`).
-2. `Open Images V7` `train` and `validation` splits (`D:\\waste-training\\openimages-train-slice-*.csv` & `validation-*.csv`, `0` from `test`!).
+2. `Open Images V7` `train` and `validation` splits (`data/external/waste-training/openimages-train-slice-*.csv` & `validation-*.csv`, `0` from `test`!).
 3. `Wikimedia Commons` explicit waste/decay/litter searches across classes `1..9` (throttled to avoid Wikimedia thumbnail 429 rate-limits).
 """
 from __future__ import annotations
@@ -251,7 +251,7 @@ def fetch_more_shynuaa_train(
 def fetch_openimages_train_val(
     sha_set: set[str], dhash_list: list[int], source_ids: set[str], target_add: int = 330
 ) -> list[dict[str, Any]]:
-    print("=== [B] Fetching Open Images V7 Train & Validation Candidates from D:\\waste-training (0 from test!) ===")
+    print("=== [B] Fetching Open Images V7 Train & Validation Candidates from data/external/waste-training (0 from test!) ===")
     cls_map = {}
     cls_csv = WT_DIR / "openimages-boxable-classes.csv"
     if cls_csv.exists():

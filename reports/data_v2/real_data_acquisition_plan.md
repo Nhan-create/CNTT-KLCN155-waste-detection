@@ -66,7 +66,7 @@ flowchart TD
   - **Quy trình gán nhãn:** Gán nhãn thủ công qua labelImg / CVAT theo chuẩn YOLO, kiểm duyệt chéo 2-stage QA.
 - **Biện pháp chống rò rỉ (Leakage Risk):**
   - Tính SHA-256 đối chiếu toàn bộ tập train/val/test hiện tại.
-  - Tính perceptual hash (pHash) đối chiếu 27 ảnh Holdout (`D:\Hinh_Anh_Rac`), loại bỏ bất kỳ ảnh nào có khoảng cách Hamming $\le 10$.
+  - Tính perceptual hash (pHash) đối chiếu 27 ảnh Holdout (`data/holdout`), loại bỏ bất kỳ ảnh nào có khoảng cách Hamming $\le 10$.
 
 ---
 
@@ -80,7 +80,7 @@ flowchart TD
   - **LOẠI BỎ:** Đồ ăn đang cầm trên tay người đang sử dụng (trừ khi có quy chuẩn mở rộng).
   - **CHẤP NHẬN:** Thực phẩm thừa, hư hỏng, đang trong trạng thái vứt bỏ tự do ngoài môi trường (discarded litter).
 - **Nguồn dữ liệu:**
-  - **Tên nguồn:** Open Images Dataset V7 (Validation Subset đã được lập chỉ mục tại `D:\waste-training\openimages-validation-boxes.csv`).
+  - **Tên nguồn:** Open Images Dataset V7 (Validation Subset đã được lập chỉ mục tại `data/external/waste-training/openimages-validation-boxes.csv`).
   - **URL xác thực:** `https://storage.googleapis.com/openimages/v7/` và AWS Open Data `s3://open-images-dataset/`.
   - **Class IDs OpenImages:** `/m/02xwb` (Fruit), `/m/09qck` (Banana), `/m/014j1m` (Apple), `/m/0f4s2w` (Vegetable).
   - **Giấy phép & Attribution:** CC BY 4.0 cho annotations; các ảnh gốc có giấy phép CC-BY 2.0 / CC-BY-SA 2.0 Flickr được ghi nhận tác giả đầy đủ theo metadata Open Images.

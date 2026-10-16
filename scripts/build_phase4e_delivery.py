@@ -3,7 +3,7 @@ scripts/build_phase4e_delivery.py
 ---------------------------------
 Packages all Phase 4E manifests, ingestion scripts, staging scripts,
 evidence logs, and reports into a compact delivery ZIP archive:
-C:\\Users\\ad\\Downloads\\PHASE4E_REAL_WASTE_DATA_EVIDENCE.zip
+~/Downloads/PHASE4E_REAL_WASTE_DATA_EVIDENCE.zip
 """
 
 import hashlib

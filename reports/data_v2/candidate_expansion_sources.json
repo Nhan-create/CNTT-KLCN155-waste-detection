@@ -112,7 +112,7 @@
       "target_class": "biological",
       "source_id": "oi_v7_validation_discard_subset",
       "source_name": "Open Images V7 Validation Pool - Outdoor Discarded Litter Subset",
-      "exact_source_url": "https://storage.googleapis.com/openimages/v7/ (indexed in D:\\waste-training\\openimages-validation-boxes.csv)",
+      "exact_source_url": "https://storage.googleapis.com/openimages/v7/ (indexed in data/external/waste-training/openimages-validation-boxes.csv)",
       "version": "Open Images V7 (2022 release)",
       "annotation_modality": "Human-verified bounding boxes for /m/02xwb (Fruit), /m/09qck (Banana), /m/014j1m (Apple), /m/0f4s2w (Vegetable)",
       "license_evidence": "CC BY 4.0 for annotations; individual images under CC-BY 2.0 / CC-BY-SA 2.0 Flickr licenses with author attribution in Open Images metadata",

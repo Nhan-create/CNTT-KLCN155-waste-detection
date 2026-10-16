@@ -288,7 +288,7 @@ def main():
     report = {
         "metadata": {
             "generated_at_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
-            "evaluation_target": "D:\\Hinh_Anh_Rac\\images (17).jpg",
+            "evaluation_target": "data/holdout/images (17).jpg",
             "image_dimensions": {"width": w, "height": h},
             "image_sha256": img_sha256,
             "hardware_verification": {
@@ -359,7 +359,7 @@ def main():
                 {
                     "reported_number": "SSDLite mAP = 12.6% (loss 3.20, 36 epochs)",
                     "source": "artifacts/detection_v2/E2_ssdlite320_10cls/training_summary.json (best_val_map50_95 = 0.1264)",
-                    "reality": "Đây là mAP50-95 trên tập validation 299 ảnh trong lúc huấn luyện E2, KHÔNG PHẢI trên tập holdout 27 ảnh D:\\Hinh_Anh_Rac (holdout chỉ đạt 5.60% mAP50 và 2.70% mAP50-95)."
+                    "reality": "Đây là mAP50-95 trên tập validation 299 ảnh trong lúc huấn luyện E2, KHÔNG PHẢI trên tập holdout 27 ảnh data/holdout (holdout chỉ đạt 5.60% mAP50 và 2.70% mAP50-95)."
                 },
                 {
                     "reported_number": "YOLOv8n mAP = 13.80%",

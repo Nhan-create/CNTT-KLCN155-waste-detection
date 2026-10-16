@@ -14,7 +14,7 @@
 
 ### 1.1. Mục tiêu cốt lõi
 1. **Đánh giá Cổng kiểm soát Gate A (Single-Object Gate):** Mở niêm phong tập Final Test độc lập (2.223 ảnh vật lý trong `data/processed_v2/test/`) lần đầu tiên. Đánh giá tính tổng quát hóa của checkpoint tối ưu `best_model.pt` (MobileNetV3-Large) trên dữ liệu chưa từng thấy.
-2. **Chuẩn bị Dữ liệu Bounding Box Đa rác:** Kiểm kê toàn diện nguồn dữ liệu detection hiện có (`dataset-v1`), bóc tách và cô lập hoàn toàn 1.305 ảnh tổng hợp (Mendeley Synthetic), xây dựng công cụ thẩm định nội bộ ([`src/ui/review_tool.py`](file:///D:/CNTT-KLCN155-waste-detection/src/ui/review_tool.py)) thay thế CVAT, và xây dựng validator kiểm tra bounding box.
+2. **Chuẩn bị Dữ liệu Bounding Box Đa rác:** Kiểm kê toàn diện nguồn dữ liệu detection hiện có (`dataset-v1`), bóc tách và cô lập hoàn toàn 1.305 ảnh tổng hợp (Mendeley Synthetic), xây dựng công cụ thẩm định nội bộ ([`src/ui/review_tool.py`](../../src/ui/review_tool.py)) thay thế CVAT, và xây dựng validator kiểm tra bounding box.
 
 ### 1.2. Giới hạn nghiêm ngặt
 * **TUYỆT ĐỐI CHƯA HUẤN LUYỆN YOLOv8n hoặc SSDLite320 trong Phần 2.** Huấn luyện detector thuộc phạm vi độc quyền của **PHẦN 3**.
@@ -29,7 +29,7 @@
 | **P2.1** | **Hoàn tất dọn dẹp Gói Phần 1** | Loại bỏ 45 tệp test cũ import `src.*`, chỉ đóng gói `tests/test_verification_gates.py`, xuất zip 49.41 MB và manifest. | `CNTT-KLCN155_PART01_VERIFIED_R2.zip` (SHA-256: `a8a75c0dca...`) | `COMPLETED` |
 | **P2.2** | **Đóng băng Protocol & Đánh giá Gate A** | Đóng băng quy trình đánh giá, đo CPU latency (warmup 50, test 200 lượt forward bs=1), chạy suy luận 2.223 ảnh test, băm SHA-256 trực tiếp từ đĩa, xuất metrics, ma trận nhầm lẫn, phân tích lỗi. | `artifacts/part02/gate_a/*` (`test_predictions.csv`, `gate_a_metrics.json`, ...) | `IN_PROGRESS` |
 | **P2.3** | **Kiểm kê & Chuẩn hóa Dữ liệu Bounding Box** | Kiểm kê 1.419 ảnh `dataset-v1`, cô lập 1.305 ảnh Mendeley Synthetic (`is_synthetic=True`), chuẩn hóa 114 ảnh OpenImages, tạo manifest đa rác `manifest_detection_v1.csv`. | `data/detection/manifest_detection_v1.csv` | `IN_PROGRESS` |
-| **P2.4** | **Phát triển Review Tool & Validator BBox** | Viết công cụ thẩm định Streamlit [`src/ui/review_tool.py`](file:///D:/CNTT-KLCN155-waste-detection/src/ui/review_tool.py) hỗ trợ thêm/sửa/xóa/duyệt box; viết script validator [`scripts/validate_detection_annotations.py`](file:///D:/CNTT-KLCN155-waste-detection/scripts/validate_detection_annotations.py) và bộ kiểm thử [`tests/test_detection_annotations.py`](file:///D:/CNTT-KLCN155-waste-detection/tests/test_detection_annotations.py). | `src/ui/review_tool.py`, `tests/test_detection_annotations.py` | `IN_PROGRESS` |
+| **P2.4** | **Phát triển Review Tool & Validator BBox** | Viết công cụ thẩm định Streamlit [`src/ui/review_tool.py`](../../src/ui/review_tool.py) hỗ trợ thêm/sửa/xóa/duyệt box; viết script validator [`scripts/validate_detection_annotations.py`](../../scripts/validate_detection_annotations.py) và bộ kiểm thử [`tests/test_detection_annotations.py`](../../tests/test_detection_annotations.py). | `src/ui/review_tool.py`, `tests/test_detection_annotations.py` | `IN_PROGRESS` |
 | **P2.5** | **Kiểm chứng MCP UI & Báo cáo Nghiệm thu** | Khởi chạy Review Tool, dùng MCP `chrome-devtools` tương tác thật trên giao diện web, chụp ảnh bằng chứng thao tác; lập biên bản nghiệm thu `PART_02_ACCEPTANCE.md`. | `artifacts/part02/ui_evidence/*.png`, `docs/plan/PART_02_ACCEPTANCE.md` | `PENDING` |
 
 ---
@@ -55,5 +55,5 @@ Tập dữ liệu và công cụ gán nhãn đa rác bắt buộc phải đáp �
 1. **Cô lập ảnh tổng hợp:** 100% ảnh Mendeley Synthetic phải được gắn nhãn `is_synthetic = True`, chỉ dùng cho pretraining, tuyệt đối không được lọt vào tập Validation/Test của phát hiện đa rác.
 2. **Định dạng nhãn chuẩn YOLO:** Toàn bộ bounding box phải tuân thủ chuẩn `<class_id> <x_center> <y_center> <w> <h>` với tọa độ chuẩn hóa trong khoảng $(0, 1]$, $x_{\min} \ge 0, y_{\min} \ge 0, x_{\max} \le 1, y_{\max} \le 1, w > 0, h > 0$.
 3. **Chặn lỗi BBox:** Script validator tự động phải phát hiện và chặn đứng (exit code 1) các trường hợp tọa độ âm, vượt ngoài $[0, 1]$, class ID ngoài $[0, 9]$, và box trùng lặp.
-4. **Công cụ Review Tool hoạt động thật:** Công cụ [`src/ui/review_tool.py`](file:///D:/CNTT-KLCN155-waste-detection/src/ui/review_tool.py) chạy được trên giao diện web, có bằng chứng ảnh chụp MCP ghi nhận thao tác thêm/sửa/xóa/lưu/mở lại bounding box.
+4. **Công cụ Review Tool hoạt động thật:** Công cụ [`src/ui/review_tool.py`](../../src/ui/review_tool.py) chạy được trên giao diện web, có bằng chứng ảnh chụp MCP ghi nhận thao tác thêm/sửa/xóa/lưu/mở lại bounding box.
 5. **Thống kê trung thực:** Báo cáo chi tiết số lượng ảnh thật và ảnh synthetic hiện có; không sinh ảnh giả hay nhãn giả tạo số lượng ảo.
