@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "repository": "https://github.com/Nhan-create/CNTT-KLCN155-waste-detection",
+  "release_tag": "v1.0.0-models",
+  "release_url": "https://github.com/Nhan-create/CNTT-KLCN155-waste-detection/releases/tag/v1.0.0-models",
+  "packages": {
+    "app-models": {
+      "archive_name": "cntt-klcn155-app-models-v1.0.0.zip",
+      "download_url": "https://github.com/Nhan-create/CNTT-KLCN155-waste-detection/releases/download/v1.0.0-models/cntt-klcn155-app-models-v1.0.0.zip",
+      "size_bytes": 77621360,
+      "size_mb": 74.03,
+      "sha256": "1293dca3b93dadb0b4866d81037c954f7908f3207166c3245f134c8c2335ad2c",
+      "description": "Gói trọng số chính thức chạy ứng dụng Streamlit (MobileNetV3-Large Classifier + E2 SSDLite320 Primary + E1 YOLOv8n Benchmark). Giữ nguyên cấu trúc thư mục artifacts/...",
+      "experimental": false,
+      "files": [
+        "artifacts/official_run/best_model.pt",
+        "artifacts/detection_v2/E2_ssdlite320_10cls/weights/best.pt",
+        "artifacts/detection_v2/E1_yolov8n_10cls/weights/best.pt"
+      ]
+    },
+    "e3-pilot-experimental": {
+      "archive_name": "cntt-klcn155-e3-pilot-experimental-v1.0.0.zip",
+      "download_url": "https://github.com/Nhan-create/CNTT-KLCN155-waste-detection/releases/download/v1.0.0-models/cntt-klcn155-e3-pilot-experimental-v1.0.0.zip",
+      "size_bytes": 5656034,
+      "size_mb": 5.39,
+      "sha256": "613c1cd5c5fb64d7cdbaf7215351a0a2e0e4cfdf9ca72a4ee3da61445c4c5643",
+      "description": "Gói trọng số thử nghiệm E3 YOLOv8n v3 Pilot (đóng gói riêng, KHÔNG thay thế mô hình mặc định của ứng dụng).",
+      "experimental": true,
+      "files": [
+        "artifacts/detection_v3_pilot/E3_yolov8n_pilot/weights/best.pt"
+      ]
+    }
+  },
+  "models": [
+    {
+      "id": "classifier_mobilenetv3_large",
+      "name": "MobileNetV3-Large 10-Class Classifier (Stage-1 & Two-Stage Verifier)",
+      "role": "application_default_classifier",
+      "experimental": false,
+      "default_in_app": true,
+      "relative_path": "artifacts/official_run/best_model.pt",
+      "package": "app-models",
+      "size_bytes": 50929856,
+      "size_mb": 48.57,
+      "sha256": "c824fec4f3d1dffff946cd8ad7e2d4f121be33e684dda4e6af92b5bda343e424"
+    },
+    {
+      "id": "detector_e2_ssdlite320_10cls",
+      "name": "SSDLite320-MobileNetV3 10-Class Detector (E2 - Primary Model)",
+      "role": "application_default_primary_detector",
+      "experimental": false,
+      "default_in_app": true,
+      "relative_path": "artifacts/detection_v2/E2_ssdlite320_10cls/weights/best.pt",
+      "package": "app-models",
+      "size_bytes": 28459990,
+      "size_mb": 27.14,
+      "sha256": "c9eb52efe6c5592340843d7678ae7d742eb2250d5ee9aaebbae620b8ebd465e7"
+    },
+    {
+      "id": "detector_e1_yolov8n_10cls",
+      "name": "YOLOv8n 10-Class Detector (E1 - Benchmark Model)",
+      "role": "application_default_benchmark_detector",
+      "experimental": false,
+      "default_in_app": true,
+      "relative_path": "artifacts/detection_v2/E1_yolov8n_10cls/weights/best.pt",
+      "package": "app-models",
+      "size_bytes": 6228451,
+      "size_mb": 5.94,
+      "sha256": "7e986deed90ba4208f4662039c1e78b2d03ffb41a6e57e8235184db78aec32d8"
+    },
+    {
+      "id": "detector_e3_yolov8n_pilot",
+      "name": "YOLOv8n v3 Pilot 10-Class Detector (E3 - Experimental Pilot Only)",
+      "role": "experimental_pilot_detector",
+      "experimental": true,
+      "default_in_app": false,
+      "relative_path": "artifacts/detection_v3_pilot/E3_yolov8n_pilot/weights/best.pt",
+      "package": "e3-pilot-experimental",
+      "size_bytes": 6211491,
+      "size_mb": 5.92,
+      "sha256": "e451cb8d0a0faab9374f5dac90811bba681b2827d51aba07f6e6a120b5364169"
+    }
+  ]
+}

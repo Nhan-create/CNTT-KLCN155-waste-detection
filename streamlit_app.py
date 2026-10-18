@@ -281,9 +281,10 @@ def main() -> None:
     if problem is not None:
         render_status(problem, "error")
 
-    tab_classify, tab_detect = st.tabs([
+    tab_classify, tab_detect, tab_eval = st.tabs([
         "🎯 Phân loại rác độ chính xác cao (MobileNetV3 96.2% - Khuyên dùng khi demo)",
         "🔍 Phát hiện vị trí đa vật thể (YOLOv8n / SSDLite / WBF)",
+        "📊 Biểu đồ huấn luyện & Đánh giá mô hình (Báo cáo KLTN)",
     ])
 
     with tab_classify:
@@ -331,80 +332,147 @@ def main() -> None:
         if not all_detect_files:
             st.session_state.pop("detection-results", None)
             st.session_state.pop("detection-errors", None)
-            return
-
-        payloads = [(uploaded.name or "image.jpg", uploaded.getvalue()) for uploaded in all_detect_files]
-        signature = (
-            settings,
-            visual_style,
-            tuple((name, hashlib.sha256(payload).hexdigest()) for name, payload in payloads),
-        )
-        if st.session_state.get("detection-input-signature") != signature:
-            st.session_state["detection-input-signature"] = signature
-            st.session_state["detection-results"] = []
-            st.session_state["detection-errors"] = []
-
-        if st.button("Phát hiện vị trí rác", type="primary", disabled=problem is not None):
-            try:
-                service = cached_detector(
-                    settings.backend,
-                    str(settings.model_path),
-                    str(settings.secondary_model_path) if settings.secondary_model_path else None,
-                    settings.device,
-                    settings.confidence_threshold,
-                    settings.iou_threshold,
-                    settings.image_size,
-                    settings.max_detections,
-                    settings.fusion_weights,
-                    settings.fusion_iou_threshold,
-                    settings.fusion_input_threshold,
-                    tuple(
-                        (path.stat().st_mtime_ns, path.stat().st_size)
-                        for path in (settings.model_path, settings.secondary_model_path)
-                        if path is not None
-                    ),
-                    settings if (
-                        settings.enable_tiling or settings.enable_two_stage
-                        or settings.per_class_thresholds
-                    ) else None,
-                )
-            except (ImportError, OSError, RuntimeError, ValueError, KeyError, pickle.UnpicklingError) as error:
-                st.session_state["detection-results"] = []
-                render_status(
-                    "Không thể nạp mô hình nhận diện 10 nhóm rác. "
-                    "Vui lòng kiểm tra trọng số và cấu hình ứng dụng.",
-                    "error",
-                )
-                print(f"Detector load failed ({settings.backend}): {error}", file=sys.stderr)
-                return
-
-            outputs: list[ImageDetectionOutput] = []
-            errors: list[str] = []
-            progress = st.progress(0.0, text="Đang xử lý ảnh…")
-            for index, (name, payload) in enumerate(payloads, start=1):
-                try:
-                    outputs.append(analyze_image_file(name, payload, service, style=style_code))
-                except (OSError, RuntimeError, ValueError) as error:
-                    errors.append(f"Không thể xử lý ảnh {name}. Hãy kiểm tra ảnh và thử lại.")
-                    print(f"Image detection failed ({name}): {error}", file=sys.stderr)
-                progress.progress(index / len(payloads), text=f"Đã xử lý {index}/{len(payloads)} ảnh")
-            progress.empty()
-            st.session_state["detection-results"] = outputs
-            st.session_state["detection-errors"] = errors
-
-        for error in st.session_state.get("detection-errors", []):
-            render_status(error, "error")
-        outputs = st.session_state.get("detection-results", [])
-        if len(outputs) > 1:
-            st.download_button(
-                "Tải tất cả ảnh kết quả",
-                data=archive_annotated_images(outputs),
-                file_name="ket_qua_nhan_dien.zip",
-                mime="application/zip",
+        else:
+            payloads = [(uploaded.name or "image.jpg", uploaded.getvalue()) for uploaded in all_detect_files]
+            signature = (
+                settings,
+                visual_style,
+                tuple((name, hashlib.sha256(payload).hexdigest()) for name, payload in payloads),
             )
-        for index, output in enumerate(outputs):
-            render_detection_result(output, index)
+            if st.session_state.get("detection-input-signature") != signature:
+                st.session_state["detection-input-signature"] = signature
+                st.session_state["detection-results"] = []
+                st.session_state["detection-errors"] = []
+
+            if st.button("Phát hiện vị trí rác", type="primary", disabled=problem is not None):
+                try:
+                    service = cached_detector(
+                        settings.backend,
+                        str(settings.model_path),
+                        str(settings.secondary_model_path) if settings.secondary_model_path else None,
+                        settings.device,
+                        settings.confidence_threshold,
+                        settings.iou_threshold,
+                        settings.image_size,
+                        settings.max_detections,
+                        settings.fusion_weights,
+                        settings.fusion_iou_threshold,
+                        settings.fusion_input_threshold,
+                        tuple(
+                            (path.stat().st_mtime_ns, path.stat().st_size)
+                            for path in (settings.model_path, settings.secondary_model_path)
+                            if path is not None
+                        ),
+                        settings if (
+                            settings.enable_tiling or settings.enable_two_stage
+                            or settings.per_class_thresholds
+                        ) else None,
+                    )
+                except (ImportError, OSError, RuntimeError, ValueError, KeyError, pickle.UnpicklingError) as error:
+                    st.session_state["detection-results"] = []
+                    render_status(
+                        "Không thể nạp mô hình nhận diện 10 nhóm rác. "
+                        "Vui lòng kiểm tra trọng số và cấu hình ứng dụng.",
+                        "error",
+                    )
+                    print(f"Detector load failed ({settings.backend}): {error}", file=sys.stderr)
+                    service = None
+
+                if service is not None:
+                    outputs: list[ImageDetectionOutput] = []
+                    errors: list[str] = []
+                    progress = st.progress(0.0, text="Đang xử lý ảnh…")
+                    for index, (name, payload) in enumerate(payloads, start=1):
+                        try:
+                            outputs.append(analyze_image_file(name, payload, service, style=style_code))
+                        except (OSError, RuntimeError, ValueError) as error:
+                            errors.append(f"Không thể xử lý ảnh {name}. Hãy kiểm tra ảnh và thử lại.")
+                            print(f"Image detection failed ({name}): {error}", file=sys.stderr)
+                        progress.progress(index / len(payloads), text=f"Đã xử lý {index}/{len(payloads)} ảnh")
+                    progress.empty()
+                    st.session_state["detection-results"] = outputs
+                    st.session_state["detection-errors"] = errors
+
+            for error in st.session_state.get("detection-errors", []):
+                render_status(error, "error")
+            outputs = st.session_state.get("detection-results", [])
+            if len(outputs) > 1:
+                st.download_button(
+                    "Tải tất cả ảnh kết quả",
+                    data=archive_annotated_images(outputs),
+                    file_name="ket_qua_nhan_dien.zip",
+                    mime="application/zip",
+                )
+            for index, output in enumerate(outputs):
+                render_detection_result(output, index)
+
+    with tab_eval:
+        st.subheader("Tổng hợp Biểu đồ Đánh giá Mô hình & Nghiệm thu Kỹ thuật (DoD)")
+        st.markdown(
+            "Phần này cung cấp đầy đủ các biểu đồ phân tích thực nghiệm, đường cong học tập, "
+            "so sánh hiệu năng và ma trận nhầm lẫn phục vụ trực tiếp cho báo cáo khóa luận tốt nghiệp."
+        )
+
+        fig_dir = Path(__file__).resolve().parent / "reports" / "figures"
+        if not (fig_dir / "ssdlite320_loss_map_curve.png").exists():
+            with st.spinner("Đang khởi tạo các biểu đồ phân tích..."):
+                import subprocess
+                subprocess.run([sys.executable, str(Path(__file__).resolve().parent / "scripts" / "generate_report_charts.py")], check=False)
+
+        col1, col2 = st.columns(2)
+        with col1:
+            st.markdown("#### 1. Đường cong Loss & mAP: SSDLite320-MobileNetV3 (Primary)")
+            ssdlite_fig = fig_dir / "ssdlite320_loss_map_curve.png"
+            if ssdlite_fig.exists():
+                st.image(Image.open(ssdlite_fig), caption="Đường cong học tập SSDLite320: Best Epoch 29 (mAP@0.5-0.95: 0.0489)", use_container_width=True)
+            else:
+                st.error("Chưa tìm thấy file ảnh biểu đồ SSDLite.")
+
+        with col2:
+            st.markdown("#### 2. Đường cong Loss & mAP: YOLOv8n (Benchmark)")
+            yolo_fig = fig_dir / "yolov8n_loss_map_curve.png"
+            if yolo_fig.exists():
+                st.image(Image.open(yolo_fig), caption="Đường cong học tập YOLOv8n: Tối ưu hóa hàm loss box + cls + dfl", use_container_width=True)
+            else:
+                st.error("Chưa tìm thấy file ảnh biểu đồ YOLOv8n.")
+
+        st.markdown("---")
+        col3, col4 = st.columns(2)
+        with col3:
+            st.markdown("#### 3. So sánh AP@0.5 trên từng lớp (SSDLite vs YOLOv8n)")
+            ap_fig = fig_dir / "per_class_ap50_comparison.png"
+            if ap_fig.exists():
+                st.image(Image.open(ap_fig), caption="So sánh AP@0.5 trên 10 lớp rác độc lập: Mô hình Gốc vs Pipeline Cải Tiến", use_container_width=True)
+            else:
+                st.error("Chưa tìm thấy file ảnh biểu đồ AP từng lớp.")
+
+        with col4:
+            st.markdown("#### 4. Ma trận nhầm lẫn chuẩn hóa (Confusion Matrix)")
+            cm_fig = fig_dir / "normalized_confusion_matrix.png"
+            if cm_fig.exists():
+                st.image(Image.open(cm_fig), caption="Ma trận nhầm lẫn chuẩn hóa 10 lớp rác + Background", use_container_width=True)
+            else:
+                st.error("Chưa tìm thấy file ảnh Ma trận nhầm lẫn.")
+
+        st.markdown("---")
+        col5, col6 = st.columns(2)
+        with col5:
+            st.markdown("#### 5. Đường cong Precision-Recall & F1-Confidence")
+            pr_fig = fig_dir / "pr_and_f1_curves.png"
+            if pr_fig.exists():
+                st.image(Image.open(pr_fig), caption="Đường cong P-R và ngưỡng Confidence tối ưu hóa F1-Score", use_container_width=True)
+            else:
+                st.error("Chưa tìm thấy file ảnh đường cong PR / F1.")
+
+        with col6:
+            st.markdown("#### 6. Ablation Study: Độ chính xác vs Tốc độ (Latency/FPS)")
+            ablation_fig = fig_dir / "ablation_study_chart.png"
+            if ablation_fig.exists():
+                st.image(Image.open(ablation_fig), caption="Đánh giá cô lập (Ablation Isolation): Tiling, Two-Stage & WBF Ensemble", use_container_width=True)
+            else:
+                st.error("Chưa tìm thấy file ảnh Ablation Study.")
 
 
 if __name__ == "__main__":
     main()
+
