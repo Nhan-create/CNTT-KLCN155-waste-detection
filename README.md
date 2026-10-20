@@ -123,6 +123,67 @@ pip install -r requirements.txt
 
 `numpy==1.26.4` và `scipy==1.13.1` được khóa để tương thích ABI với `torch==2.3.1`. Máy CUDA cần driver tương thích; notebook Kaggle là đường chạy khuyến nghị cho huấn luyện đầy đủ.
 
+## Tải trọng số mô hình đã huấn luyện (GitHub Release `v1.0.0-models`)
+
+Theo quy tắc `.gitignore`, các file trọng số lớn (`*.pt`, `/artifacts/`) không lưu trực tiếp trong lịch sử Git mà được đóng gói chuẩn hóa trên **GitHub Releases**:
+👉 **Trang Release chính thức:** [`https://github.com/Nhan-create/CNTT-KLCN155-waste-detection/releases/tag/v1.0.0-models`](https://github.com/Nhan-create/CNTT-KLCN155-waste-detection/releases/tag/v1.0.0-models)
+
+### 1. Tải tự động và kiểm tra SHA-256 (Khuyên dùng trên Windows PowerShell)
+
+Sau khi kích hoạt môi trường ảo `.venv`, chạy script [`scripts/download_models.py`](scripts/download_models.py) để tự động tải gói mô hình từ URL phiên bản cố định (`v1.0.0-models`), đối chiếu kích thước byte + mã băm **SHA-256** và giải nén an toàn vào đúng cấu trúc `artifacts/...` (không âm thầm ghi đè nếu trên máy đang có trọng số khác SHA-256):
+
+```powershell
+# Tải bộ 3 mô hình chính thức chạy ứng dụng Streamlit (app-models)
+python scripts/download_models.py
+
+# (Tùy chọn) Tải thêm mô hình thử nghiệm E3 YOLOv8n v3 Pilot (KHÔNG thay thế mô hình mặc định)
+python scripts/download_models.py --include-e3-pilot
+
+# Kiểm tra lại SHA-256 các file trọng số hiện có trên đĩa mà không tải lại
+python scripts/download_models.py --verify-only
+```
+
+### 2. Link tải trực tiếp từng gói từ GitHub Release
+
+| Gói phát hành | Link tải trực tiếp (`v1.0.0-models`) | Dung lượng | SHA-256 của gói `.zip` | Ghi chú |
+|---|---|---:|---|---|
+| **Gói mô hình chạy ứng dụng (`app-models`)** | [`cntt-klcn155-app-models-v1.0.0.zip`](https://github.com/Nhan-create/CNTT-KLCN155-waste-detection/releases/download/v1.0.0-models/cntt-klcn155-app-models-v1.0.0.zip) | `74.03 MB` (`77,621,360` bytes) | `1293dca3b93dadb0b4866d81037c954f7908f3207166c3245f134c8c2335ad2c` | Chứa 3 mô hình mặc định của ứng dụng (`MobileNetV3-Large`, `E2 SSDLite320`, `E1 YOLOv8n`). Giải nén tại thư mục gốc repository. |
+| **Gói thử nghiệm E3 (`e3-pilot-experimental`)** | [`cntt-klcn155-e3-pilot-experimental-v1.0.0.zip`](https://github.com/Nhan-create/CNTT-KLCN155-waste-detection/releases/download/v1.0.0-models/cntt-klcn155-e3-pilot-experimental-v1.0.0.zip) | `5.39 MB` (`5,656,034` bytes) | `613c1cd5c5fb64d7cdbaf7215351a0a2e0e4cfdf9ca72a4ee3da61445c4c5643` | Bản thử nghiệm pilot v3 đóng gói riêng; **không** tự thay thế mô hình mặc định. |
+| **Manifest & Checksum** | [`model_release_manifest.json`](https://github.com/Nhan-create/CNTT-KLCN155-waste-detection/releases/download/v1.0.0-models/model_release_manifest.json) · [`SHA256SUMS.txt`](https://github.com/Nhan-create/CNTT-KLCN155-waste-detection/releases/download/v1.0.0-models/SHA256SUMS.txt) | `3.8 KB` | — | Bản kê khai đầy đủ đường dẫn, vai trò, dung lượng và SHA-256 (cũng được lưu tại [`configs/model_release_manifest.json`](configs/model_release_manifest.json)). |
+
+### 3. Danh mục chi tiết các file trọng số (`artifacts/...`)
+
+| Đường dẫn trong dự án | Tên mô hình & Vai trò trong ứng dụng | Dung lượng | SHA-256 |
+|---|---|---:|---|
+| `artifacts/official_run/best_model.pt` | **MobileNetV3-Large 10-Class Classifier** *(Mặc định cho Tab 1 Phân loại & Tab 2 Two-Stage)* | `48.57 MB` (`50,929,856` bytes) | `c824fec4f3d1dffff946cd8ad7e2d4f121be33e684dda4e6af92b5bda343e424` |
+| `artifacts/detection_v2/E2_ssdlite320_10cls/weights/best.pt` | **SSDLite320-MobileNetV3 10-Class Detector (E2)** *(Mô hình phát hiện chính mặc định)* | `27.14 MB` (`28,459,990` bytes) | `c9eb52efe6c5592340843d7678ae7d742eb2250d5ee9aaebbae620b8ebd465e7` |
+| `artifacts/detection_v2/E1_yolov8n_10cls/weights/best.pt` | **YOLOv8n 10-Class Detector (E1)** *(Mô hình phát hiện đối chứng mặc định & WBF)* | `5.94 MB` (`6,228,451` bytes) | `7e986deed90ba4208f4662039c1e78b2d03ffb41a6e57e8235184db78aec32d8` |
+| `artifacts/detection_v3_pilot/E3_yolov8n_pilot/weights/best.pt` | **YOLOv8n v3 Pilot 10-Class Detector (E3)** *(Thử nghiệm riêng — chỉ nạp khi truyền `--detector`)* | `5.92 MB` (`6,211,491` bytes) | `e451cb8d0a0faab9374f5dac90811bba681b2827d51aba07f6e6a120b5364169` |
+
+### 4. Quy trình Clone và Chạy nhanh ứng dụng trên Windows PowerShell
+
+```powershell
+# 1. Clone repository và di chuyển vào thư mục dự án
+git clone https://github.com/Nhan-create/CNTT-KLCN155-waste-detection.git
+cd CNTT-KLCN155-waste-detection
+
+# 2. Tạo môi trường ảo Python và cài đặt thư viện
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+
+# 3. Tải và xác minh SHA-256 bộ trọng số mô hình chạy ứng dụng
+python scripts/download_models.py
+
+# 4. Khởi chạy ứng dụng Web Streamlit (mặc định dùng SSDLite320 E2, YOLOv8n E1, WBF và MobileNetV3-Large)
+streamlit run streamlit_app.py
+
+# (Tùy chọn) Nếu muốn chạy thử nghiệm riêng mô hình E3 Pilot mà không đổi cấu hình mặc định:
+python scripts/download_models.py --include-e3-pilot
+streamlit run streamlit_app.py -- --backend yolov8n --detector artifacts/detection_v3_pilot/E3_yolov8n_pilot/weights/best.pt
+```
+
 ## Tải dữ liệu cục bộ
 
 Đăng nhập KaggleHub bên ngoài repository; không dán thông tin xác thực vào mã hoặc notebook:

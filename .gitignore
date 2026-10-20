@@ -83,6 +83,7 @@ env/
 /reports/**/*.jpeg
 /reports/**/*.png
 /reports/**/*.webp
+!/reports/figures/*.png
 
 # Authentication material must stay outside the repository
 kaggle.json
