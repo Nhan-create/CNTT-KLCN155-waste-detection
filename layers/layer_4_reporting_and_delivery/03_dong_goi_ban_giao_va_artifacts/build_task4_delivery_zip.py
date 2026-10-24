@@ -1,0 +1,1 @@
+../../../scripts/build_task4_delivery_zip.py

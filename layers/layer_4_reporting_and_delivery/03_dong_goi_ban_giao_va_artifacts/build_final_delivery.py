@@ -1,0 +1,1 @@
+../../../scripts/build_final_delivery.py

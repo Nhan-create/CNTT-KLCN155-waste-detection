@@ -1,5 +1,5 @@
 """Download, scan for security/malware, sanitize, and save 20 challenging waste images to data/holdout."""
-
+#file này để tải xuống 20 hình ảnh rác thải thách thức trực tuyến từ Wikimedia Commons, quét an ninh/mã độc, khử độc và lưu trữ vào thư mục data/holdout.
 from __future__ import annotations
 
 import hashlib
@@ -186,7 +186,7 @@ def scan_file_security(raw_bytes: bytes) -> dict[str, Any]:
         "script_signatures": [],
         "warnings": []
     }
-    
+
     # 1. Header magic check
     if raw_bytes.startswith(b"\xff\xd8\xff"):
         results["magic_header_valid"] = True
@@ -227,18 +227,18 @@ def download_and_sanitize(target: dict[str, str]) -> dict[str, Any]:
     dest_path = DEST_DIR / target["filename"]
     print(f"\n[+] Processing: {target['filename']} ({target['category_type']} - {target['class_label']})")
     print(f"    Source: {target['wiki_title']}")
-    
+
     # 1. Resolve direct download URL
     direct_url = get_wikimedia_direct_url(target["wiki_title"])
     print(f"    URL: {direct_url[:90]}...")
-    
+
     # 2. Download safely with size limit
     r = requests.get(direct_url, headers=HEADERS, verify=False, timeout=25)
     if r.status_code != 200:
         raise RuntimeError(f"HTTP {r.status_code} downloading {target['wiki_title']}")
     raw_content = r.content
     print(f"    Downloaded: {len(raw_content):,} bytes")
-    
+
     # 3. Security & malware scanning
     scan = scan_file_security(raw_content)
     if not scan["passed"]:
@@ -249,17 +249,17 @@ def download_and_sanitize(target: dict[str, str]) -> dict[str, Any]:
     # This strips all trailing polyglot bytes, unparsed metadata, and potential exploit vectors
     with Image.open(BytesIO(raw_content)) as opened:
         opened.verify()  # verify format integrity
-    
+
     # Re-open for actual pixel extraction
     with Image.open(BytesIO(raw_content)) as opened:
         transposed = ImageOps.exif_transpose(opened)
         rgb_img = transposed.convert("RGB")
         orig_w, orig_h = rgb_img.size
-        
+
         # Save clean sanitized image
         DEST_DIR.mkdir(parents=True, exist_ok=True)
         rgb_img.save(dest_path, format="JPEG", quality=95, optimize=True)
-    
+
     sanitized_bytes = dest_path.read_bytes()
     sha256_hash = hashlib.sha256(sanitized_bytes).hexdigest()
     print(f"    Sanitized & Saved -> {dest_path}")
@@ -286,7 +286,7 @@ def main() -> None:
     manifest_records = []
     print(f"Starting safe download and virus scan for 20 challenging waste images...")
     print(f"Target directory: {DEST_DIR}\n")
-    
+
     # Protect existing files in data/holdout
     existing_files_before = {p.name for p in DEST_DIR.glob("*") if p.is_file()}
     print(f"Existing files in {DEST_DIR} before operation: {len(existing_files_before)}")
@@ -303,7 +303,7 @@ def main() -> None:
     # Write manifest
     MANIFEST_OUT.parent.mkdir(parents=True, exist_ok=True)
     MANIFEST_OUT.write_text(json.dumps(manifest_records, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    
+
     print("\n" + "="*70)
     print(f"SUCCESS: Downloaded and verified all {len(manifest_records)} images!")
     print(f"Manifest written to: {MANIFEST_OUT.resolve()}")

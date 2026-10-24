@@ -1,0 +1,1 @@
+../../../scripts/package_task6_delivery.py

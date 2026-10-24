@@ -1,0 +1,1 @@
+../../../scripts/run_task6_e3_pilot_training.py

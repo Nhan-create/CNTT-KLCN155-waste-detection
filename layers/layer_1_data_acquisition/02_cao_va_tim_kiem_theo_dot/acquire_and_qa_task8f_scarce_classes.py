@@ -1,0 +1,1 @@
+../../../scripts/acquire_and_qa_task8f_scarce_classes.py

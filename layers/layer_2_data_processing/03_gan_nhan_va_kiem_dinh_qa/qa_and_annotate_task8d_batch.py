@@ -1,0 +1,1 @@
+../../../scripts/qa_and_annotate_task8d_batch.py

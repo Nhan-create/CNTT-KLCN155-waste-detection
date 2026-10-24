@@ -1,0 +1,1 @@
+../../../scripts/import_ecovision_checkpoint.py

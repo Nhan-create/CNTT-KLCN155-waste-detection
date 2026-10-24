@@ -1,0 +1,81 @@
+# Layer 4 – Báo cáo & Giao hàng
+
+## 01_xuat_ket_qua_va_bang_chung
+- export_all_key_reports_to_downloads.py: báo cáo quan trọng → thư mục Downloads
+- export_test_evidence.py: bằng chứng test → zip file
+- export_all_reports_to_downloads.py: toàn bộ báo cáo → Downloads
+- parse_training_logs.py: log training → tóm tắt metrics
+- export_official_results.py: kết quả chính thức → archive
+- print_baseline_summary.py: baseline metrics → console báo cáo
+- export_raw_predictions.py: dự đoán thô → CSV
+- print_suspicious_table.py: detections đáng ngờ → bảng console
+
+## 02_bieu_do_bao_cao_va_contact_sheets
+- analyze_battery_variants_and_sessions.py: dữ liệu pin → phân tích variant
+- build_comprehensive_visual_audit.py: audit hình ảnh → báo cáo visual
+- build_download_reports.py: báo cáo tải xuống → PDF
+- build_visual_dashboard.py: dashboard visual → HTML dashboard
+- detailed_visual_analysis.py: chi tiết visual → hình ảnh phân tích
+- generate_all_140_base_contact_sheets.py: contact sheet 140 lớp → ảnh lưới
+- generate_authoritative_dataset_metrics.py: metrics dataset → JSON report
+- generate_battery_forensic_report.py: báo cáo forensic pin → PDF
+- generate_biological_reannotation_overlays.py: overlay sinh học → hình ảnh overlay
+- generate_class_contact_sheets.py: contact sheet lớp → ảnh lưới
+- generate_data_novelty_report.py: báo cáo novelty dữ liệu → HTML
+- generate_delivery_report.py: báo cáo giao hàng → PDF
+- generate_demo_verification_package.py: gói kiểm chứng demo → zip
+- generate_gt_review_overlays.py: overlay GT review → hình ảnh
+- generate_mini_pilot_qa_overlays.py: overlay mini pilot QA → overlay
+- generate_minibatch01_contact_sheet.py: contact sheet minibatch01 → ảnh lưới
+- generate_patch_evidence_oi.py: bằng chứng patch OI → file evidence
+- generate_report_charts.py: charts báo cáo → PNG/CSV
+- generate_split_contamination_report.py: báo cáo contamination split → CSV
+- generate_task6_visual_comparisons.py: so sánh visual task6 → hình ảnh
+- generate_task7_raw_inspection_grids.py: lưới kiểm tra raw task7 → grid images
+- generate_task7_report.py: báo cáo task7 → PDF
+- generate_task8_program_master_report.py: master report task8 → PDF
+- generate_task8_wave2_handover.py: handover wave2 → package zip
+- generate_task8a_reports_and_package.py: reports & package task8a → zip
+- generate_task8c_reports_and_zip.py: reports task8c → zip
+- generate_task8d_handover.py: handover task8d → zip
+- generate_task8e_handover.py: handover task8e → zip
+- generate_task8f_and_validation_reports.py: reports task8f & validation → PDF
+- generate_task8f_final_signoff_evidence.py: sign‑off evidence task8f → file
+- generate_task8g_reports_and_zip.py: reports task8g → zip
+- generate_task8h_reports_and_zip.py: reports task8h → zip
+- generate_updated_overlays_and_sheets.py: cập nhật overlays & sheets → images
+
+## 03_dong_goi_ban_giao_va_artifacts
+- build_compact_final_verification_delivery.py: verification compact → artifact
+- build_final_delivery.py: final delivery → package zip
+- build_phase4a_delivery.py: phase4a → artifact
+- build_phase4b1_delivery.py: phase4b1 → artifact
+- build_phase4b2_delivery.py: phase4b2 → artifact
+- build_phase4b_delivery.py: phase4b → artifact
+- build_phase4c_delivery.py: phase4c → artifact
+- build_phase4d1_delivery.py: phase4d1 → artifact
+- build_phase4d2_correction_delivery.py: phase4d2 correction → artifact
+- build_phase4d2_delivery.py: phase4d2 → artifact
+- build_phase4e1_delivery.py: phase4e1 → artifact
+- build_phase4e2_delivery.py: phase4e2 → artifact
+- build_phase4e3_delivery.py: phase4e3 → artifact
+- build_phase4e_candidate_manifest.py: manifest candidate → JSON
+- build_phase4e_delivery.py: phase4e → artifact
+- build_phase4e_final_patch_delivery.py: final patch phase4e → artifact
+- build_pilot_preview_qa_delivery.py: pilot preview QA → artifact
+- build_task4_delivery_zip.py: task4 delivery → zip
+- execute_task8i_signoff_and_field_pilot.py: sign‑off task8i & field pilot → report
+- package_part01_delivery.py: package part01 → zip
+- package_part02_verification_delivery.py: package part02 verification → zip
+- package_task5d_fix_delivery.py: package task5d fix → zip
+- package_task6_delivery.py: package task6 → zip
+- package_task6b_and_task7_delivery.py: package task6b & task7 → zip
+- package_task7_final_qa_patch.py: package task7 final QA patch → zip
+- package_task8e_patch_and_task8f_handover.py: package task8e patch & handover task8f → zip
+- package_task8f_semantic_qa_correction.py: package task8f semantic QA correction → zip
+- verify_and_generate_task6b_corrected_report.py: verify task6b corrected → report PDF
+- verify_real_training_combined.py: verify combined training → summary
+
+## 04_kiem_thu_giao_dien_review_tool
+- test_review_tool_functional.py: test chức năng tool → kết quả unit test
+- verify_review_tool_ui.py: kiểm thử UI tool → screenshot/report

@@ -1,0 +1,1 @@
+../../../scripts/search_candidates.py

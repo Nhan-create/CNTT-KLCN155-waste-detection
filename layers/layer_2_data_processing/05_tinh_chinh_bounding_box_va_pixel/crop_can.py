@@ -1,0 +1,1 @@
+../../../scripts/crop_can.py

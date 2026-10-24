@@ -1,0 +1,1 @@
+../../../scripts/build_phase4e_candidate_manifest.py

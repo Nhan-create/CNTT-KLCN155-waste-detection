@@ -1,0 +1,33 @@
+# Layer 3 – Huấn luyện & Đánh giá mô hình
+
+- audit_backbone_transfer.py: checkpoint gốc → backbone đã chuyển
+- inspect_backbone_transfer.py: backbone chuyển → báo cáo kiểm tra
+- import_ecovision_checkpoint.py: checkpoint Ecovision → checkpoint chuẩn TensorFlow
+- train_official_mobilenetv3.py: dữ liệu đã xử lý → mô hình MobileNetV3 được huấn luyện
+- diagnose_env_imports.py: môi trường Python → báo cáo phụ thuộc / lỗi
+- materialize_and_verify_pilot_v3_task6.py: dữ liệu pilot task6 → dữ liệu pilot xác thực
+- recompile_clean_bytecode.py: source code → bytecode sạch
+- run_task6_e3_pilot_training.py: dữ liệu pilot task6 → mô hình pilot task6
+- train_detection_v2.py: dữ liệu đã chuẩn bị → mô hình detector v2
+- verify_training_dry_run_environment.py: môi trường training → xác nhận dry‑run
+- verify_yolo_dataloader_batches.py: batch loader → báo cáo batch hợp lệ
+- verify_yolo_v3_compatibility.py: mô hình YOLOv3 → kiểm tra tương thích
+- compare_eval_v1_vs_v2.py: kết quả eval v1 & v2 → bảng so sánh
+- run_current_baseline_eval.py: mô hình baseline → metrics baseline
+- eval_20_targets.py: 20 target images → báo cáo evaluate
+- run_quick_demo_comparison.py: demo A & B → hình ảnh so sánh nhanh
+- evaluate_and_compare_e1_vs_e3_task6.py: output e1 & e3 task6 → báo cáo so sánh
+- run_yolov8n_demo_100.py: 100 ảnh demo → kết quả YOLOv8n
+- evaluate_final_test.py: tập test cuối → metrics tổng quan
+- verify_20_targets.py: 20 target → xác thực dữ liệu
+- re_evaluate_from_raw_json.py: raw JSON predictions → metrics tái‑đánh giá
+- benchmark_classifier_runtime.py: classifier model → thời gian chạy benchmark
+- inspect_battery_pred.py: dự đoán pin → báo cáo chi tiết
+- benchmark_inference.py: mô hình inference → thời gian latency
+- inspect_checkpoints_detailed.py: checkpoints → thông tin chi tiết
+- reproduce_box_count_discrepancy.py: trường hợp box count → log lỗi
+- run_experiment_matrix.py: ma trận thí nghiệm → kết quả bảng
+- reproduce_demo_image17.py: demo ảnh 17 → output reproducible
+- run_smoke_test.py: toàn bộ pipeline → kết quả smoke test
+- reproduce_validation.py: validation set → kết quả kiểm tra
+- run_smoke_test_v2.py: phiên bản cải tiến smoke test → log mới

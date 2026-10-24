@@ -1,0 +1,1 @@
+../../../scripts/reproduce_demo_image17.py

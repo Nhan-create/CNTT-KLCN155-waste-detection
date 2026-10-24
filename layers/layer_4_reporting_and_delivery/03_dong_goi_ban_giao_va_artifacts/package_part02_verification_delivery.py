@@ -1,0 +1,1 @@
+../../../scripts/package_part02_verification_delivery.py

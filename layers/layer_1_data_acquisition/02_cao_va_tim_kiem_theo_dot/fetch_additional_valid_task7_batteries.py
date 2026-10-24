@@ -1,0 +1,1 @@
+../../../scripts/fetch_additional_valid_task7_batteries.py

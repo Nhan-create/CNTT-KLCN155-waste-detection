@@ -1,0 +1,1 @@
+../../../scripts/verify_20_targets.py

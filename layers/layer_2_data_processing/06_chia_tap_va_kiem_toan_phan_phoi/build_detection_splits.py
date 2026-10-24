@@ -1,0 +1,1 @@
+../../../scripts/build_detection_splits.py

@@ -1,0 +1,18 @@
+# Layer 2 – Xử lý dữ liệu & Gán nhãn
+
+- **prepare_detection_dataset.py**: chuẩn hoá dữ liệu gốc, sao chép ảnh + label YOLO. *Output*: `data/detection/` và `manifest_detection_v1.csv`.
+- **build_canonical_5000_ledger.py**: tạo ledger 5k mẫu chuẩn. *Output*: `data/audit/ledger_5000.csv`.
+- **scan_all_phash_candidates.py**: tính pHash cho toàn bộ ảnh, tạo candidate clusters. *Output*: `phash_candidates.json`.
+- **find_all_transitive_clusters.py**: gom cluster pHash liên thông. *Output*: `phash_clusters.json`.
+- **cluster_detection_groups.py**: nhóm ảnh theo scene. *Output*: `detection_groups.csv`.
+- **generate_phash_visual_audit.py**: vẽ ảnh mẫu cho các cluster. *Output*: `phash_audit.png`.
+- **verify_phash_cross_split_and_holdout.py**: kiểm tra không trùng qua split. *Output*: báo cáo CSV.
+- **check_split_leakage.py**: audit rò rỉ giữa train/val/test. *Output*: `split_leakage_report.csv`.
+- **annotate_and_qa_task7_battery_batch.py**, **annotate_and_qa_task8_wave1.py**, **annotate_and_qa_task8a_multiclass_batch.py**: gán bbox, QA thủ công. *Output*: `annotations/*.json` và manifest QA.
+- **qa_and_annotate_task8d_batch.py**, **qa_and_annotate_task8e_batch.py**, **qa_and_curate_task8g_batch.py**, **qa_and_curate_task8h_batch.py**: QA + chỉnh sửa bbox. *Output*: `qa_reports/*.json`.
+- **correct_task8f_semantic_qa.py**: sửa lỗi giao diện bbox, lớp. *Output*: `corrected_annotations/*.json`.
+- **reannotate_all_140_battery_bases.py**, **reannotate_battery_minipilot_20.py**: re‑annotate pin. *Output*: `reannotated/*.json`.
+- **crop2.py**, **crop_can.py**, **crop_junction.py**, **exact_banana_fit.py**, **locate_banana_peel_exact.py**, **measure_banana.py**, **measure_banana_cc.py**: xử lý pixel, đo kích thước. *Output*: ảnh đã cắt / CSV đo.
+- **build_detection_splits.py**, **create_split_v2.py**, **build_real_v2_splits.py**: tạo split train/val/test không rò rỉ. *Output*: `data/splits/*.csv` và config YAML.
+- **audit_dataset_integrity_full.py**, **audit_splits_real_v2_distribution.py**, **audit_v3_splits_and_exclusions.py**, **audit_real_detection_images.py**, **audit_taco_coco_exact.py**, **audit_taco_coco_provenance.py**, **audit_taco_exact_categories.py**, **audit_exact_openimages_provenance.py**, **audit_openimages_provenance.py**, **audit_ground_truth_piles.py**, **audit_gt_exact_counts.py**, **audit_hard_negatives_deep.py**, **audit_unreviewed_and_relabel_candidates.py**: kiểm tra chất lượng nguồn. *Output*: báo cáo CSV/JSON.
+- **validate_dataset_v3_quality_gates.py**, **validate_pilot_quality_gates.py**, **validate_pilot_v3_pretraining_readiness.py**, **run_dataset_quality_gates_audit.py**: chạy các gate kiểm định. *Output*: log/JSON gate results.

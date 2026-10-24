@@ -1,0 +1,1 @@
+../../../scripts/inspect_18_pairs.py

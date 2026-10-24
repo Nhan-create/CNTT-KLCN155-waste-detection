@@ -1,0 +1,1 @@
+../../../scripts/acquire_task8d_pilot_and_candidates.py

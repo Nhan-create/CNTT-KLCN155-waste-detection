@@ -1,0 +1,1 @@
+../../../scripts/build_visual_dashboard.py

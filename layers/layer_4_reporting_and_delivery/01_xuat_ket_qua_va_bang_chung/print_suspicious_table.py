@@ -1,0 +1,1 @@
+../../../scripts/print_suspicious_table.py

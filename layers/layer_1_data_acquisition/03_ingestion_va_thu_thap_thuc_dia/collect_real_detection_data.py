@@ -1,0 +1,1 @@
+../../../scripts/collect_real_detection_data.py

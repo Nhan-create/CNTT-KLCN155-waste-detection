@@ -1,0 +1,1 @@
+../../../scripts/inspect_banana_peel_pixels.py

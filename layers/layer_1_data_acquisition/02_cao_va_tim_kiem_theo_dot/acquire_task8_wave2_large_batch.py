@@ -1,0 +1,1 @@
+../../../scripts/acquire_task8_wave2_large_batch.py

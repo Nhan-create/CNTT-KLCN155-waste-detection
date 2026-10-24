@@ -1,0 +1,1 @@
+../../../scripts/generate_minibatch01_contact_sheet.py

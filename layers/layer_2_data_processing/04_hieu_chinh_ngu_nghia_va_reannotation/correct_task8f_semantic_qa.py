@@ -1,0 +1,1 @@
+../../../scripts/correct_task8f_semantic_qa.py

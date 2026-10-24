@@ -1,0 +1,1 @@
+../../../scripts/eval_20_targets.py

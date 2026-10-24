@@ -1,0 +1,1 @@
+../../../scripts/inspect_battery_pred.py

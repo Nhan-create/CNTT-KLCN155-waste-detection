@@ -1,0 +1,1 @@
+../../../scripts/generate_task6_visual_comparisons.py

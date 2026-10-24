@@ -1,0 +1,1 @@
+../../../scripts/verify_training_dry_run_environment.py

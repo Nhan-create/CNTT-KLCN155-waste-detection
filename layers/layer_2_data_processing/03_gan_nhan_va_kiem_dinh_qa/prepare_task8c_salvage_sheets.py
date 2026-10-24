@@ -1,0 +1,1 @@
+../../../scripts/prepare_task8c_salvage_sheets.py

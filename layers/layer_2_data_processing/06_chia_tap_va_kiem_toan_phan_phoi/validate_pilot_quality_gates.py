@@ -1,0 +1,1 @@
+../../../scripts/validate_pilot_quality_gates.py

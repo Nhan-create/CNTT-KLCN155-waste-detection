@@ -1,0 +1,1 @@
+../../../scripts/package_task7_final_qa_patch.py

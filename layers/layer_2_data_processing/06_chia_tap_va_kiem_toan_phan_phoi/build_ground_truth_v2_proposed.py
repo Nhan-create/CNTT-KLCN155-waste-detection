@@ -1,0 +1,1 @@
+../../../scripts/build_ground_truth_v2_proposed.py

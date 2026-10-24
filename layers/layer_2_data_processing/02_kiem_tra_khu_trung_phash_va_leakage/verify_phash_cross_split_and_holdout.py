@@ -1,0 +1,1 @@
+../../../scripts/verify_phash_cross_split_and_holdout.py

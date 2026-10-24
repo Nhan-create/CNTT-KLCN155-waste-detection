@@ -1,0 +1,1 @@
+../../../scripts/acquire_and_qa_task8g_large_scale.py

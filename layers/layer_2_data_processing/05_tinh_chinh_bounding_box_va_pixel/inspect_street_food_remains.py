@@ -1,0 +1,1 @@
+../../../scripts/inspect_street_food_remains.py

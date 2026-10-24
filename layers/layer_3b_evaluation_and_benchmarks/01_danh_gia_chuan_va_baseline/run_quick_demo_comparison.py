@@ -1,0 +1,1 @@
+../../../scripts/run_quick_demo_comparison.py

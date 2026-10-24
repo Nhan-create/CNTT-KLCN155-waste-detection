@@ -1,0 +1,1 @@
+../../../scripts/build_compact_final_verification_delivery.py

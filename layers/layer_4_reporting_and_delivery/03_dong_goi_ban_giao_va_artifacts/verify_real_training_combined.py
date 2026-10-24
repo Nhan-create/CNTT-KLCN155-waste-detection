@@ -1,0 +1,1 @@
+../../../scripts/verify_real_training_combined.py

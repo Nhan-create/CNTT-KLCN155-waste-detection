@@ -1,0 +1,1 @@
+../../../scripts/supplement_task8d_wikimedia_categories.py

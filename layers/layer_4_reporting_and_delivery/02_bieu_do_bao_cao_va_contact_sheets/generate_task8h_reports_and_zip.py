@@ -1,0 +1,1 @@
+../../../scripts/generate_task8h_reports_and_zip.py

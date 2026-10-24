@@ -1,0 +1,1 @@
+../../../scripts/run_smoke_test_v2.py

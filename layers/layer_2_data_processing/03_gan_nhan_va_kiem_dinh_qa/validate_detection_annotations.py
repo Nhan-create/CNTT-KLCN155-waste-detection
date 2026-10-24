@@ -1,0 +1,1 @@
+../../../scripts/validate_detection_annotations.py

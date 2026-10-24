@@ -1,0 +1,1 @@
+../../../scripts/search_and_download_task7_battery_candidates.py

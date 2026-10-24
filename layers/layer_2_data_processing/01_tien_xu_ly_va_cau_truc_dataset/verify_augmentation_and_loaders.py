@@ -1,0 +1,1 @@
+../../../scripts/verify_augmentation_and_loaders.py

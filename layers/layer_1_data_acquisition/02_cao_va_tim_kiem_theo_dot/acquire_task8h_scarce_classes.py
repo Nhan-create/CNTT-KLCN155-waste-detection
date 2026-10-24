@@ -1,0 +1,1 @@
+../../../scripts/acquire_task8h_scarce_classes.py

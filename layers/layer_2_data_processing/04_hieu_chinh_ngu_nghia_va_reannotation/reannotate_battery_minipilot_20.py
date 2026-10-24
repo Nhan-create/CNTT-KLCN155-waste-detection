@@ -1,0 +1,1 @@
+../../../scripts/reannotate_battery_minipilot_20.py

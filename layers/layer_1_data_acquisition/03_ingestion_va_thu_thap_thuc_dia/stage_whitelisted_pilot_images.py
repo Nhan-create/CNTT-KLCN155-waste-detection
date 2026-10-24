@@ -1,0 +1,1 @@
+../../../scripts/stage_whitelisted_pilot_images.py

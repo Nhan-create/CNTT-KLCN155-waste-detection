@@ -1,0 +1,1 @@
+../../../scripts/download_and_qa_minibatch01.py

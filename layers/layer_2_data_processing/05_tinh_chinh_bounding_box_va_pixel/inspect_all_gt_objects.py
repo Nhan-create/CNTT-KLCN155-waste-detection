@@ -1,0 +1,1 @@
+../../../scripts/inspect_all_gt_objects.py

@@ -1,0 +1,1 @@
+../../../scripts/qa_and_curate_task8g_batch.py

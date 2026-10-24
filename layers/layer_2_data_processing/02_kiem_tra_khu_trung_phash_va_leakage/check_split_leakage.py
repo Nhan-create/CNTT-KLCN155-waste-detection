@@ -1,0 +1,1 @@
+../../../scripts/check_split_leakage.py

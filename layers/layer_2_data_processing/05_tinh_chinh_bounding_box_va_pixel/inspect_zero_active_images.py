@@ -1,0 +1,1 @@
+../../../scripts/inspect_zero_active_images.py

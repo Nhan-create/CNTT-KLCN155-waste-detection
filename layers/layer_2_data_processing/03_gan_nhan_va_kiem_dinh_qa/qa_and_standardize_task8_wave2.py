@@ -1,0 +1,1 @@
+../../../scripts/qa_and_standardize_task8_wave2.py

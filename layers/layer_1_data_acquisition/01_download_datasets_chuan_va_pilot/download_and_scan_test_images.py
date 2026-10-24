@@ -1,0 +1,1 @@
+../../../scripts/download_and_scan_test_images.py

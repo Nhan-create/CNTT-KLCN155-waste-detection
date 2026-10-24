@@ -1,0 +1,1 @@
+../../../scripts/pilot_and_acquire_task8e_scale.py

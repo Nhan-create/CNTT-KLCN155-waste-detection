@@ -1,0 +1,1 @@
+../../../scripts/download_100_waste_images.py

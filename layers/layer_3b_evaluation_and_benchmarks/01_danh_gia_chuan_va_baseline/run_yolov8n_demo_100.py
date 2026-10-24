@@ -1,0 +1,1 @@
+../../../scripts/run_yolov8n_demo_100.py

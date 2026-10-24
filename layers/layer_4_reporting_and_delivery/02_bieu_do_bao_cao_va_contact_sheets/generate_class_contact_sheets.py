@@ -1,0 +1,1 @@
+../../../scripts/generate_class_contact_sheets.py

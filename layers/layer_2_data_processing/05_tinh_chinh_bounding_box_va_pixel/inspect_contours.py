@@ -1,0 +1,1 @@
+../../../scripts/inspect_contours.py

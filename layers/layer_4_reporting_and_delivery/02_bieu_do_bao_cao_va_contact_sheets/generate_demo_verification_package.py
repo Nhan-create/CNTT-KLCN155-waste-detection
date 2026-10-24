@@ -1,0 +1,1 @@
+../../../scripts/generate_demo_verification_package.py

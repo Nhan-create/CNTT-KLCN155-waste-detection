@@ -1,0 +1,1 @@
+../../../scripts/build_full_qa_manifests.py

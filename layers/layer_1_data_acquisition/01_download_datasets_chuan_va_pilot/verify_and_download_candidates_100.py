@@ -1,0 +1,1 @@
+../../../scripts/verify_and_download_candidates_100.py

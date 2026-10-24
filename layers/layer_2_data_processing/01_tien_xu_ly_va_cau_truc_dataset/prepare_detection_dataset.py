@@ -1,0 +1,1 @@
+../../../scripts/prepare_detection_dataset.py

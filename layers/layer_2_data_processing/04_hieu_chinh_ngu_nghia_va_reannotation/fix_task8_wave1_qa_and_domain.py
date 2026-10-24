@@ -1,0 +1,1 @@
+../../../scripts/fix_task8_wave1_qa_and_domain.py

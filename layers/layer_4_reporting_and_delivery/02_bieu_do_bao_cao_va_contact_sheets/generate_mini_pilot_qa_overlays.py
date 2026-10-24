@@ -1,0 +1,1 @@
+../../../scripts/generate_mini_pilot_qa_overlays.py

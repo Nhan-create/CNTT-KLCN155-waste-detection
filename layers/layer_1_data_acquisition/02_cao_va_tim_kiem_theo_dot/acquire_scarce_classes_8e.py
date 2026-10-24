@@ -1,0 +1,1 @@
+../../../scripts/acquire_scarce_classes_8e.py

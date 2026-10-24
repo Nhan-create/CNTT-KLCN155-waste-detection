@@ -1,0 +1,1 @@
+../../../scripts/verify_yolo_v3_compatibility.py

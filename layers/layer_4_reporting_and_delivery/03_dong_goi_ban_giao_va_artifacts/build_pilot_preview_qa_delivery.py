@@ -1,0 +1,1 @@
+../../../scripts/build_pilot_preview_qa_delivery.py

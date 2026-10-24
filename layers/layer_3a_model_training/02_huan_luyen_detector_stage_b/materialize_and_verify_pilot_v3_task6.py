@@ -1,0 +1,1 @@
+../../../scripts/materialize_and_verify_pilot_v3_task6.py

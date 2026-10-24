@@ -1,0 +1,1 @@
+../../../scripts/annotate_and_qa_task7_battery_batch.py

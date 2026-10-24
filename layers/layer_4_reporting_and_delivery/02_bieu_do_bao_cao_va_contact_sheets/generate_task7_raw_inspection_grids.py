@@ -1,0 +1,1 @@
+../../../scripts/generate_task7_raw_inspection_grids.py

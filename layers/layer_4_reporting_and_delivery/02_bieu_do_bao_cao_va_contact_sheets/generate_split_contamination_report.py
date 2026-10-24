@@ -1,0 +1,1 @@
+../../../scripts/generate_split_contamination_report.py

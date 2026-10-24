@@ -1,4 +1,5 @@
 """Search online, verify security/antivirus, sanitize, and download 100 diverse waste images to data/holdout."""
+# file này để tải xuống 100 hình ảnh rác trực tuyến từ Wikimedia Commons, quét an ninh/mã độc, khử độc và lưu trữ vào thư mục data/holdout.
 
 from __future__ import annotations
 

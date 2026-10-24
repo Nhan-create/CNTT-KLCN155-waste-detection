@@ -1,0 +1,1 @@
+../../../scripts/validate_pilot_v3_pretraining_readiness.py

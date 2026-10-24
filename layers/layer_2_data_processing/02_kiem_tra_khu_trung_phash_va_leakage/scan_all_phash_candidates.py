@@ -1,0 +1,1 @@
+../../../scripts/scan_all_phash_candidates.py
