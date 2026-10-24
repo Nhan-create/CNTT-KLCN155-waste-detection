@@ -1,33 +1,49 @@
-# Layer 3 – Huấn luyện & Đánh giá mô hình
+# Layer 3 – Huấn luyện và đánh giá mô hình
 
-- audit_backbone_transfer.py: checkpoint gốc → backbone đã chuyển
-- inspect_backbone_transfer.py: backbone chuyển → báo cáo kiểm tra
-- import_ecovision_checkpoint.py: checkpoint Ecovision → checkpoint chuẩn TensorFlow
-- train_official_mobilenetv3.py: dữ liệu đã xử lý → mô hình MobileNetV3 được huấn luyện
-- diagnose_env_imports.py: môi trường Python → báo cáo phụ thuộc / lỗi
-- materialize_and_verify_pilot_v3_task6.py: dữ liệu pilot task6 → dữ liệu pilot xác thực
-- recompile_clean_bytecode.py: source code → bytecode sạch
-- run_task6_e3_pilot_training.py: dữ liệu pilot task6 → mô hình pilot task6
-- train_detection_v2.py: dữ liệu đã chuẩn bị → mô hình detector v2
-- verify_training_dry_run_environment.py: môi trường training → xác nhận dry‑run
-- verify_yolo_dataloader_batches.py: batch loader → báo cáo batch hợp lệ
-- verify_yolo_v3_compatibility.py: mô hình YOLOv3 → kiểm tra tương thích
-- compare_eval_v1_vs_v2.py: kết quả eval v1 & v2 → bảng so sánh
-- run_current_baseline_eval.py: mô hình baseline → metrics baseline
-- eval_20_targets.py: 20 target images → báo cáo evaluate
-- run_quick_demo_comparison.py: demo A & B → hình ảnh so sánh nhanh
-- evaluate_and_compare_e1_vs_e3_task6.py: output e1 & e3 task6 → báo cáo so sánh
-- run_yolov8n_demo_100.py: 100 ảnh demo → kết quả YOLOv8n
-- evaluate_final_test.py: tập test cuối → metrics tổng quan
-- verify_20_targets.py: 20 target → xác thực dữ liệu
-- re_evaluate_from_raw_json.py: raw JSON predictions → metrics tái‑đánh giá
-- benchmark_classifier_runtime.py: classifier model → thời gian chạy benchmark
-- inspect_battery_pred.py: dự đoán pin → báo cáo chi tiết
-- benchmark_inference.py: mô hình inference → thời gian latency
-- inspect_checkpoints_detailed.py: checkpoints → thông tin chi tiết
-- reproduce_box_count_discrepancy.py: trường hợp box count → log lỗi
-- run_experiment_matrix.py: ma trận thí nghiệm → kết quả bảng
-- reproduce_demo_image17.py: demo ảnh 17 → output reproducible
-- run_smoke_test.py: toàn bộ pipeline → kết quả smoke test
-- reproduce_validation.py: validation set → kết quả kiểm tra
-- run_smoke_test_v2.py: phiên bản cải tiến smoke test → log mới
+## 01. Chuẩn bị và kiểm tra mô hình
+
+- audit_backbone_transfer.py: Kiểm tra quá trình chuyển backbone.
+- inspect_backbone_transfer.py: Xuất báo cáo backbone sau chuyển đổi.
+- import_ecovision_checkpoint.py: Chuyển checkpoint Ecovision sang định dạng TensorFlow chuẩn.
+- diagnose_env_imports.py: Kiểm tra môi trường Python và lỗi phụ thuộc.
+- materialize_and_verify_pilot_v3_task6.py: Chuẩn bị và xác thực dữ liệu pilot task 6.
+- recompile_clean_bytecode.py: Biên dịch lại bytecode Python.
+- verify_training_dry_run_environment.py: Kiểm tra môi trường huấn luyện thử.
+- verify_yolo_dataloader_batches.py: Kiểm tra các batch dữ liệu YOLO.
+- verify_yolo_v3_compatibility.py: Kiểm tra khả năng tương thích YOLOv3.
+- inspect_checkpoints_detailed.py: Kiểm tra thông tin chi tiết checkpoint.
+
+## 02. Huấn luyện mô hình
+
+- train_official_mobilenetv3.py: Huấn luyện mô hình phân loại MobileNetV3.
+- run_task6_e3_pilot_training.py: Huấn luyện mô hình pilot task 6.
+- train_detection_v2.py: Huấn luyện mô hình phát hiện đối tượng phiên bản 2.
+- run_experiment_matrix.py: Chạy nhiều thí nghiệm và tổng hợp kết quả.
+
+## 03. Đánh giá và so sánh mô hình
+
+- compare_eval_v1_vs_v2.py: So sánh kết quả đánh giá phiên bản 1 và 2.
+- run_current_baseline_eval.py: Đánh giá mô hình baseline.
+- eval_20_targets.py: Đánh giá mô hình trên 20 ảnh mục tiêu.
+- evaluate_and_compare_e1_vs_e3_task6.py: So sánh kết quả thí nghiệm E1 và E3.
+- evaluate_final_test.py: Đánh giá tổng thể trên tập test cuối.
+- re_evaluate_from_raw_json.py: Tính lại metrics từ kết quả dự đoán JSON.
+- reproduce_validation.py: Tái thực hiện kiểm tra trên tập validation.
+- verify_20_targets.py: Xác thực bộ 20 ảnh mục tiêu.
+
+## 04. Demo và kiểm tra thực nghiệm
+
+- run_quick_demo_comparison.py: Tạo hình ảnh so sánh nhanh giữa hai demo.
+- run_yolov8n_demo_100.py: Chạy YOLOv8n trên 100 ảnh demo.
+- reproduce_demo_image17.py: Tái tạo kết quả dự đoán trên ảnh demo 17.
+- reproduce_box_count_discrepancy.py: Kiểm tra sai lệch số lượng bounding box.
+- inspect_battery_pred.py: Phân tích chi tiết dự đoán đối tượng pin.
+- run_smoke_test.py: Kiểm tra nhanh toàn bộ pipeline.
+- run_smoke_test_v2.py: Chạy phiên bản smoke test cải tiến.
+
+## 05. Đo hiệu năng mô hình
+
+- benchmark_classifier_runtime.py: Đo thời gian chạy mô hình phân loại.
+- benchmark_inference.py: Đo độ trễ suy luận của mô hình.
+
+Tóm lại: Layer 3 tiếp nhận dữ liệu đã chuẩn hóa từ Layer 2, chuẩn bị môi trường, huấn luyện các mô hình AI, đánh giá độ chính xác bằng các chỉ số phù hợp, so sánh thí nghiệm và đo tốc độ suy luận để lựa chọn mô hình phù hợp nhất.

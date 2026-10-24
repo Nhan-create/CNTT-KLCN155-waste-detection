@@ -1,38 +1,41 @@
-# Layer 1 – Thu thập dữ liệu (Data Acquisition)
+# Layer 1 – Thu thập dữ liệu (Data Acquisition)
+Thu thập ảnh rác từ nhiều nguồn, kiểm tra chất lượng, phát hiện ảnh trùng lặp và lưu trữ dữ liệu kèm manifest.
 
-**Các file**
-- `download_datasets.py` : tải Kaggle datasets (vn_trash, garbage_v2). **Input**: tùy chọn `--output-dir`. **Output**: dữ liệu gốc trong `data/external/` + manifest.
-- `download_100_waste_images.py` : tìm kiếm và tải 100 ảnh đa lớp. **Input**: danh sách query (cố định). **Output**: ảnh trong `data/holdout/` + `manifest_100_anh_online.json`.
-- `download_and_qa_minibatch01.py` : kiểm tra SHA‑256/pHash ảnh thô. **Input**: `data/raw/`. **Output**: ảnh sạch trong `data/processed/minibatch01/` + manifest QA.
-- `download_and_scan_test_images.py` : quét metadata ảnh holdout. **Input**: `data/holdout/`. **Output**: CSV `holdout_scan_report.csv`.
-- `search_candidates.py` : tạo danh sách URL cho mỗi lớp. **Input**: query hard‑code. **Output**: `candidate_urls.json`.
-- `test_queries.py` : kiểm thử số URL trả về. **Input**: `queries.yaml`. **Output**: không tạo file (PyTest).
-- `verify_and_download_candidates_100.py` : tải và xác thực 100 candidate. **Input**: `candidate_urls.json`. **Output**: 100 ảnh trong `data/holdout/` + `manifest_100_verified.json`.
-- `search_and_download_task7_battery_candidates.py` : tải ảnh pin (Task 7). **Input**: query pin. **Output**: `data/raw/task7_battery/` + manifest.
-- `fetch_additional_valid_task7_batteries.py` : bổ sung pin không trùng. **Input**: manifest hiện có. **Output**: ảnh mới + manifest cập nhật.
-- `expand_task7_battery_candidates.py` : augment ảnh pin. **Input**: `data/raw/task7_battery/`. **Output**: `data/expanded/task7_battery/` + manifest.
-- `search_and_download_task8a_candidates.py` : tải ảnh cho 10 lớp (Task 8‑a). **Input**: query 10 lớp. **Output**: `data/raw/task8a/` + manifest.
-- `expand_task8a_candidates.py` : augment dataset 10 lớp. **Input**: `data/raw/task8a/`. **Output**: `data/expanded/task8a/` + manifest.
-- `fetch_task8_multi_source_supplement.py` : bổ sung từ Wikimedia/Flickr. **Input**: manifest Task 8‑a. **Output**: ảnh mới trong `data/raw/task8a/` + manifest.
-- `acquire_task8_wave2_large_batch.py` : lấy batch lớn (~3000) từ OpenImages/TACO. **Input**: `data/raw/task8a/`. **Output**: `data/raw/task8_wave2/` + manifest.
-- `acquire_task8d_pilot_and_candidates.py` : tạo pilot (~150/img/lớp). **Input**: list candidate wave2. **Output**: `data/pilot/task8d/` + manifest.
-- `acquire_scarce_classes_8e.py` : tách lớp hiếm. **Input**: thống kê wave2. **Output**: `data/scarce/` + manifest.
-- `acquire_and_qa_task8f_scarce_classes.py` : QA tập hiếm. **Input**: `data/scarce/`. **Output**: `manifest_scarce_f.json`.
-- `acquire_and_qa_task8g_large_scale.py` : thống kê QA quy mô lớn. **Input**: wave2. **Output**: `manifest_large_g.json`.
-- `acquire_task8h_scarce_classes.py` : lọc sạch tập hiếm. **Input**: QA‑cleaned scarce set. **Output**: `data/clean/scarce/` + manifest.
-- `pilot_and_acquire_task8e_scale.py` : cân bằng pilot (~200/img/lớp). **Input**: pilot + scarce. **Output**: `data/pilot_scaled/` + manifest.
-- `prepare_acquisition_pilot.py` : tạo cấu trúc thư mục pilot và manifest.
-- `supplement_task8d_wikimedia_categories.py` : thêm ảnh Wikimedia cho các category thiếu.
-- `supplement_task8e_to_1100.py` : bổ sung tới 1100 ảnh.
-- `verify_wikimedia_candidates.py` : audit license, độ phân giải, hash; xuất `wikimedia_audit.csv`.
-- `import_and_qa_roboflow_battery.py` : giải nén ZIP Roboflow battery, QA. **Output**: `data/roboflow/battery/` + manifest.
-- `ingest_roboflow_battery_export.py` : tạo layout chuẩn `data/detection/battery/` + hash CSV.
-- `field_capture_import_and_qa.py` : import ảnh thực địa, chuẩn hoá EXIF, kiểm tra blur. **Output**: `data/field/` + QA JSON.
-- `collect_real_detection_data.py` : tạo CSV manifest thực địa.
-- `collect_real_detection_v2.py` : dedup bằng pHash, tạo manifest v2.
-- `build_expansion_source_catalog.py` : tạo catalog YAML nguồn mở rộng.
-- `stage_phase4e_whitelist_candidates.py` : lọc whitelist chất lượng cao, CSV.
-- `stage_whitelisted_pilot_images.py` : tạo symlink whitelist vào `data/whitelist_pilot/` + manifest.
+## 01. Download datasets chuẩn và pilot
 
----
+- download_100_waste_images.py: Tải 100 ảnh đa lớp từ Wikimedia, tạo manifest.
+- download_and_qa_minibatch01.py: Tải và kiểm tra 10 ảnh, phát hiện trùng lặp bằng SHA-256 và pHash.
+- download_and_scan_test_images.py: Quét metadata ảnh holdout, xuất báo cáo CSV.
+- verify_and_download_candidates_100.py: Tải và xác thực 100 ảnh candidate.
+- download_datasets.py: Tải dataset Kaggle chuẩn và pilot, tạo manifest.
 
+## 02. Thu thập và tìm kiếm dữ liệu bổ sung
+
+- acquire_and_qa_task8f_scarce_classes.py: Thu thập và kiểm tra các lớp hiếm task 8f.
+- acquire_and_qa_task8g_large_scale.py: Thu thập dữ liệu quy mô lớn task 8g.
+- acquire_scarce_classes_8e.py: Trích xuất dữ liệu lớp hiếm từ wave2.
+- acquire_task8_wave2_large_batch.py: Thu thập khoảng 3.000 ảnh từ OpenImages và TACO.
+- acquire_task8d_pilot_and_candidates.py: Tạo tập pilot khoảng 150 ảnh mỗi lớp cho task 8d.
+- acquire_task8h_scarce_classes.py: Thu thập dữ liệu lớp hiếm task 8h.
+- expand_task7_battery_candidates.py: Mở rộng dữ liệu pin task 7.
+- expand_task8a_candidates.py: Mở rộng dữ liệu task 8a.
+- fetch_additional_valid_task7_batteries.py: Bổ sung ảnh pin hợp lệ.
+- fetch_task8_multi_source_supplement.py: Bổ sung dữ liệu task 8a từ Wikimedia và Flickr.
+- pilot_and_acquire_task8e_scale.py: Mở rộng dữ liệu pilot task 8e.
+- prepare_acquisition_pilot.py: Chuẩn bị dữ liệu pilot và manifest.
+- search_and_download_task7_battery_candidates.py: Tìm kiếm và tải ảnh pin task 7.
+- search_and_download_task8a_candidates.py: Tìm kiếm và tải ảnh task 8a.
+- supplement_task8d_wikimedia_categories.py: Bổ sung danh mục Wikimedia cho task 8d.
+- supplement_task8e_to_1100.py: Mở rộng dữ liệu task 8e lên 1.100 ảnh.
+- verify_wikimedia_candidates.py: Kiểm tra chất lượng ảnh Wikimedia, xuất báo cáo CSV.
+
+## 03. Tiếp nhận dữ liệu và thu thập thực địa
+
+- build_expansion_source_catalog.py: Tổng hợp danh mục nguồn dữ liệu mở rộng.
+- import_and_qa_roboflow_battery.py: Nhập và kiểm tra dữ liệu pin từ Roboflow.
+- collect_real_detection_data.py: Thu thập ảnh detection thực tế và annotation thô.
+- ingest_roboflow_battery_export.py: Chuẩn hóa dữ liệu pin từ Roboflow và tạo manifest.
+- collect_real_detection_v2.py: Thu thập và chuẩn hóa dữ liệu detection phiên bản 2.
+- stage_phase4e_whitelist_candidates.py: Lọc danh sách ảnh candidate theo whitelist.
+- field_capture_import_and_qa.py: Nhập và kiểm tra dữ liệu ảnh thực địa.
+- stage_whitelisted_pilot_images.py: Chuẩn bị ảnh pilot đã qua whitelist.

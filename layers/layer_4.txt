@@ -1,81 +1,77 @@
-# Layer 4 – Báo cáo & Giao hàng
+# Layer 4 – Báo cáo và bàn giao
 
-## 01_xuat_ket_qua_va_bang_chung
-- export_all_key_reports_to_downloads.py: báo cáo quan trọng → thư mục Downloads
-- export_test_evidence.py: bằng chứng test → zip file
-- export_all_reports_to_downloads.py: toàn bộ báo cáo → Downloads
-- parse_training_logs.py: log training → tóm tắt metrics
-- export_official_results.py: kết quả chính thức → archive
-- print_baseline_summary.py: baseline metrics → console báo cáo
-- export_raw_predictions.py: dự đoán thô → CSV
-- print_suspicious_table.py: detections đáng ngờ → bảng console
+## 01. Xuất kết quả và bằng chứng
 
-## 02_bieu_do_bao_cao_va_contact_sheets
-- analyze_battery_variants_and_sessions.py: dữ liệu pin → phân tích variant
-- build_comprehensive_visual_audit.py: audit hình ảnh → báo cáo visual
-- build_download_reports.py: báo cáo tải xuống → PDF
-- build_visual_dashboard.py: dashboard visual → HTML dashboard
-- detailed_visual_analysis.py: chi tiết visual → hình ảnh phân tích
-- generate_all_140_base_contact_sheets.py: contact sheet 140 lớp → ảnh lưới
-- generate_authoritative_dataset_metrics.py: metrics dataset → JSON report
-- generate_battery_forensic_report.py: báo cáo forensic pin → PDF
-- generate_biological_reannotation_overlays.py: overlay sinh học → hình ảnh overlay
-- generate_class_contact_sheets.py: contact sheet lớp → ảnh lưới
-- generate_data_novelty_report.py: báo cáo novelty dữ liệu → HTML
-- generate_delivery_report.py: báo cáo giao hàng → PDF
-- generate_demo_verification_package.py: gói kiểm chứng demo → zip
-- generate_gt_review_overlays.py: overlay GT review → hình ảnh
-- generate_mini_pilot_qa_overlays.py: overlay mini pilot QA → overlay
-- generate_minibatch01_contact_sheet.py: contact sheet minibatch01 → ảnh lưới
-- generate_patch_evidence_oi.py: bằng chứng patch OI → file evidence
-- generate_report_charts.py: charts báo cáo → PNG/CSV
-- generate_split_contamination_report.py: báo cáo contamination split → CSV
-- generate_task6_visual_comparisons.py: so sánh visual task6 → hình ảnh
-- generate_task7_raw_inspection_grids.py: lưới kiểm tra raw task7 → grid images
-- generate_task7_report.py: báo cáo task7 → PDF
-- generate_task8_program_master_report.py: master report task8 → PDF
-- generate_task8_wave2_handover.py: handover wave2 → package zip
-- generate_task8a_reports_and_package.py: reports & package task8a → zip
-- generate_task8c_reports_and_zip.py: reports task8c → zip
-- generate_task8d_handover.py: handover task8d → zip
-- generate_task8e_handover.py: handover task8e → zip
-- generate_task8f_and_validation_reports.py: reports task8f & validation → PDF
-- generate_task8f_final_signoff_evidence.py: sign‑off evidence task8f → file
-- generate_task8g_reports_and_zip.py: reports task8g → zip
-- generate_task8h_reports_and_zip.py: reports task8h → zip
-- generate_updated_overlays_and_sheets.py: cập nhật overlays & sheets → images
+- export_all_key_reports_to_downloads.py: Xuất các báo cáo quan trọng vào Downloads.
+- export_test_evidence.py: Đóng gói bằng chứng kiểm thử thành file ZIP.
+- export_all_reports_to_downloads.py: Xuất toàn bộ báo cáo vào Downloads.
+- parse_training_logs.py: Tổng hợp metrics từ log huấn luyện.
+- export_official_results.py: Lưu trữ kết quả chính thức.
+- print_baseline_summary.py: In báo cáo metrics baseline.
+- export_raw_predictions.py: Xuất kết quả dự đoán thô sang CSV.
+- print_suspicious_table.py: In bảng các kết quả detection đáng ngờ.
 
-## 03_dong_goi_ban_giao_va_artifacts
-- build_compact_final_verification_delivery.py: verification compact → artifact
-- build_final_delivery.py: final delivery → package zip
-- build_phase4a_delivery.py: phase4a → artifact
-- build_phase4b1_delivery.py: phase4b1 → artifact
-- build_phase4b2_delivery.py: phase4b2 → artifact
-- build_phase4b_delivery.py: phase4b → artifact
-- build_phase4c_delivery.py: phase4c → artifact
-- build_phase4d1_delivery.py: phase4d1 → artifact
-- build_phase4d2_correction_delivery.py: phase4d2 correction → artifact
-- build_phase4d2_delivery.py: phase4d2 → artifact
-- build_phase4e1_delivery.py: phase4e1 → artifact
-- build_phase4e2_delivery.py: phase4e2 → artifact
-- build_phase4e3_delivery.py: phase4e3 → artifact
-- build_phase4e_candidate_manifest.py: manifest candidate → JSON
-- build_phase4e_delivery.py: phase4e → artifact
-- build_phase4e_final_patch_delivery.py: final patch phase4e → artifact
-- build_pilot_preview_qa_delivery.py: pilot preview QA → artifact
-- build_task4_delivery_zip.py: task4 delivery → zip
-- execute_task8i_signoff_and_field_pilot.py: sign‑off task8i & field pilot → report
-- package_part01_delivery.py: package part01 → zip
-- package_part02_verification_delivery.py: package part02 verification → zip
-- package_task5d_fix_delivery.py: package task5d fix → zip
-- package_task6_delivery.py: package task6 → zip
-- package_task6b_and_task7_delivery.py: package task6b & task7 → zip
-- package_task7_final_qa_patch.py: package task7 final QA patch → zip
-- package_task8e_patch_and_task8f_handover.py: package task8e patch & handover task8f → zip
-- package_task8f_semantic_qa_correction.py: package task8f semantic QA correction → zip
-- verify_and_generate_task6b_corrected_report.py: verify task6b corrected → report PDF
-- verify_real_training_combined.py: verify combined training → summary
+## 02. Biểu đồ, báo cáo và hình ảnh kiểm định
 
-## 04_kiem_thu_giao_dien_review_tool
-- test_review_tool_functional.py: test chức năng tool → kết quả unit test
-- verify_review_tool_ui.py: kiểm thử UI tool → screenshot/report
+- analyze_battery_variants_and_sessions.py: Phân tích các biến thể dữ liệu pin.
+- build_comprehensive_visual_audit.py: Tạo báo cáo kiểm định hình ảnh tổng hợp.
+- build_download_reports.py: Xuất báo cáo tải dữ liệu thành PDF.
+- build_visual_dashboard.py: Tạo dashboard trực quan dạng HTML.
+- detailed_visual_analysis.py: Tạo hình ảnh phân tích chi tiết.
+- generate_all_140_base_contact_sheets.py: Tạo bảng ảnh đối chiếu 140 ảnh gốc.
+- generate_authoritative_dataset_metrics.py: Tổng hợp metrics dataset thành JSON.
+- generate_battery_forensic_report.py: Tạo báo cáo phân tích dữ liệu pin dạng PDF.
+- generate_biological_reannotation_overlays.py: Tạo ảnh minh họa nhãn đã hiệu chỉnh.
+- generate_class_contact_sheets.py: Tạo bảng ảnh theo lớp.
+- generate_data_novelty_report.py: Báo cáo mức độ mới của dữ liệu dạng HTML.
+- generate_delivery_report.py: Tạo báo cáo bàn giao dạng PDF.
+- generate_demo_verification_package.py: Đóng gói bằng chứng xác minh demo.
+- generate_gt_review_overlays.py: Tạo ảnh đối chiếu nhãn chuẩn GT.
+- generate_mini_pilot_qa_overlays.py: Tạo ảnh kiểm định mini-pilot.
+- generate_minibatch01_contact_sheet.py: Tạo bảng ảnh Mini-Batch 01.
+- generate_patch_evidence_oi.py: Tổng hợp bằng chứng chỉnh sửa dữ liệu OpenImages.
+- generate_report_charts.py: Xuất biểu đồ báo cáo PNG và dữ liệu CSV.
+- generate_split_contamination_report.py: Báo cáo dữ liệu trùng lặp giữa các tập.
+- generate_task6_visual_comparisons.py: Tạo hình ảnh so sánh task 6.
+- generate_task7_raw_inspection_grids.py: Tạo lưới ảnh kiểm tra dữ liệu thô task 7.
+- generate_task7_report.py: Tạo báo cáo task 7 dạng PDF.
+- generate_task8_program_master_report.py: Tạo báo cáo tổng hợp task 8.
+- generate_task8_wave2_handover.py: Đóng gói bàn giao task 8 wave 2.
+- generate_task8a_reports_and_package.py: Tạo báo cáo và gói bàn giao task 8a.
+- generate_task8c_reports_and_zip.py: Tạo báo cáo và file ZIP task 8c.
+- generate_task8d_handover.py: Đóng gói bàn giao task 8d.
+- generate_task8e_handover.py: Đóng gói bàn giao task 8e.
+- generate_task8f_and_validation_reports.py: Tạo báo cáo task 8f và kiểm định.
+- generate_task8f_final_signoff_evidence.py: Tạo bằng chứng nghiệm thu task 8f.
+- generate_task8g_reports_and_zip.py: Tạo báo cáo và file ZIP task 8g.
+- generate_task8h_reports_and_zip.py: Tạo báo cáo và file ZIP task 8h.
+- generate_updated_overlays_and_sheets.py: Cập nhật ảnh overlay và bảng ảnh đối chiếu.
+
+## 03. Đóng gói và bàn giao sản phẩm
+
+- build_compact_final_verification_delivery.py: Đóng gói kết quả xác minh cuối cùng.
+- build_final_delivery.py: Tạo gói bàn giao cuối cùng.
+- build_phase4a_delivery.py, build_phase4b_delivery.py, build_phase4b1_delivery.py, build_phase4b2_delivery.py: Đóng gói kết quả các giai đoạn tương ứng.
+- build_phase4c_delivery.py, build_phase4d1_delivery.py, build_phase4d2_delivery.py, build_phase4d2_correction_delivery.py: Đóng gói kết quả và bản sửa lỗi các giai đoạn.
+- build_phase4e1_delivery.py, build_phase4e2_delivery.py, build_phase4e3_delivery.py, build_phase4e_delivery.py: Đóng gói kết quả các giai đoạn 4e.
+- build_phase4e_candidate_manifest.py: Tạo manifest cho dữ liệu ứng viên phase 4e.
+- build_phase4e_final_patch_delivery.py: Đóng gói bản sửa lỗi cuối phase 4e.
+- build_pilot_preview_qa_delivery.py: Đóng gói kết quả xem trước và kiểm định pilot.
+- build_task4_delivery_zip.py: Tạo gói bàn giao task 4.
+- execute_task8i_signoff_and_field_pilot.py: Thực hiện nghiệm thu và pilot thực địa task 8i.
+- package_part01_delivery.py, package_part02_verification_delivery.py: Đóng gói bàn giao và xác minh theo từng phần.
+- package_task5d_fix_delivery.py: Đóng gói bản sửa lỗi task 5d.
+- package_task6_delivery.py: Đóng gói kết quả task 6.
+- package_task6b_and_task7_delivery.py: Đóng gói kết quả task 6b và task 7.
+- package_task7_final_qa_patch.py: Đóng gói bản sửa lỗi kiểm định cuối task 7.
+- package_task8e_patch_and_task8f_handover.py: Đóng gói bản sửa task 8e và bàn giao task 8f.
+- package_task8f_semantic_qa_correction.py: Đóng gói bản sửa lỗi ngữ nghĩa task 8f.
+- verify_and_generate_task6b_corrected_report.py: Xác minh và tạo báo cáo task 6b đã chỉnh sửa.
+- verify_real_training_combined.py: Xác minh kết quả huấn luyện kết hợp và tạo báo cáo tổng hợp.
+
+## 04. Kiểm thử công cụ review
+
+- test_review_tool_functional.py: Kiểm thử chức năng của công cụ review.
+- verify_review_tool_ui.py: Kiểm tra giao diện và xuất ảnh chụp hoặc báo cáo.
+
+Tóm lại: Layer 4 tổng hợp kết quả từ Layer 1–3, xuất metrics và biểu đồ, tạo báo cáo kiểm định, lưu bằng chứng thực nghiệm, đóng gói mô hình cùng tài liệu và kiểm thử công cụ review trước khi bàn giao sản phẩm.

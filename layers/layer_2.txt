@@ -1,18 +1,65 @@
-# Layer 2 – Xử lý dữ liệu & Gán nhãn
+# Layer 2 – Xử lý dữ liệu và gán nhãn
+Chuẩn hóa dữ liệu, gán nhãn đối tượng, kiểm định chất lượng, loại bỏ trùng lặp và chia dữ liệu thành các tập train, validation và test.
+## 01. Tiền xử lý và cấu trúc dataset
 
-- **prepare_detection_dataset.py**: chuẩn hoá dữ liệu gốc, sao chép ảnh + label YOLO. *Output*: `data/detection/` và `manifest_detection_v1.csv`.
-- **build_canonical_5000_ledger.py**: tạo ledger 5k mẫu chuẩn. *Output*: `data/audit/ledger_5000.csv`.
-- **scan_all_phash_candidates.py**: tính pHash cho toàn bộ ảnh, tạo candidate clusters. *Output*: `phash_candidates.json`.
-- **find_all_transitive_clusters.py**: gom cluster pHash liên thông. *Output*: `phash_clusters.json`.
-- **cluster_detection_groups.py**: nhóm ảnh theo scene. *Output*: `detection_groups.csv`.
-- **generate_phash_visual_audit.py**: vẽ ảnh mẫu cho các cluster. *Output*: `phash_audit.png`.
-- **verify_phash_cross_split_and_holdout.py**: kiểm tra không trùng qua split. *Output*: báo cáo CSV.
-- **check_split_leakage.py**: audit rò rỉ giữa train/val/test. *Output*: `split_leakage_report.csv`.
-- **annotate_and_qa_task7_battery_batch.py**, **annotate_and_qa_task8_wave1.py**, **annotate_and_qa_task8a_multiclass_batch.py**: gán bbox, QA thủ công. *Output*: `annotations/*.json` và manifest QA.
-- **qa_and_annotate_task8d_batch.py**, **qa_and_annotate_task8e_batch.py**, **qa_and_curate_task8g_batch.py**, **qa_and_curate_task8h_batch.py**: QA + chỉnh sửa bbox. *Output*: `qa_reports/*.json`.
-- **correct_task8f_semantic_qa.py**: sửa lỗi giao diện bbox, lớp. *Output*: `corrected_annotations/*.json`.
-- **reannotate_all_140_battery_bases.py**, **reannotate_battery_minipilot_20.py**: re‑annotate pin. *Output*: `reannotated/*.json`.
-- **crop2.py**, **crop_can.py**, **crop_junction.py**, **exact_banana_fit.py**, **locate_banana_peel_exact.py**, **measure_banana.py**, **measure_banana_cc.py**: xử lý pixel, đo kích thước. *Output*: ảnh đã cắt / CSV đo.
-- **build_detection_splits.py**, **create_split_v2.py**, **build_real_v2_splits.py**: tạo split train/val/test không rò rỉ. *Output*: `data/splits/*.csv` và config YAML.
-- **audit_dataset_integrity_full.py**, **audit_splits_real_v2_distribution.py**, **audit_v3_splits_and_exclusions.py**, **audit_real_detection_images.py**, **audit_taco_coco_exact.py**, **audit_taco_coco_provenance.py**, **audit_taco_exact_categories.py**, **audit_exact_openimages_provenance.py**, **audit_openimages_provenance.py**, **audit_ground_truth_piles.py**, **audit_gt_exact_counts.py**, **audit_hard_negatives_deep.py**, **audit_unreviewed_and_relabel_candidates.py**: kiểm tra chất lượng nguồn. *Output*: báo cáo CSV/JSON.
-- **validate_dataset_v3_quality_gates.py**, **validate_pilot_quality_gates.py**, **validate_pilot_v3_pretraining_readiness.py**, **run_dataset_quality_gates_audit.py**: chạy các gate kiểm định. *Output*: log/JSON gate results.
+- build_canonical_5000_ledger.py: Lập danh sách quản lý 5.000 mẫu chuẩn.
+- build_dataset_v3_candidate.py: Tạo bộ dữ liệu ứng viên phiên bản 3.
+- prepare_detection_dataset.py: Chuẩn hóa ảnh và nhãn theo định dạng YOLO.
+- build_dataset_v3_gap_analysis.py: Phân tích dữ liệu còn thiếu.
+- verify_augmentation_and_loaders.py: Kiểm tra tăng cường dữ liệu và bộ nạp dữ liệu.
+- build_pilot_dataset_v3.py: Tạo bộ dữ liệu pilot phiên bản 3.
+- verify_preprocessing_pipeline.py: Kiểm tra quy trình tiền xử lý.
+
+## 02. Kiểm tra trùng lặp và rò rỉ dữ liệu
+
+- check_split_leakage.py: Kiểm tra rò rỉ dữ liệu giữa train, val và test.
+- generate_phash_visual_audit.py: Tạo hình ảnh kiểm tra trùng lặp bằng pHash.
+- cluster_detection_groups.py: Nhóm ảnh detection theo bối cảnh.
+- scan_all_phash_candidates.py: Phát hiện các nhóm ảnh có khả năng trùng lặp.
+- find_all_transitive_clusters.py: Gom nhóm các ảnh trùng lặp có liên kết.
+- verify_dataset_quality_and_leakage.py: Kiểm tra chất lượng và rò rỉ dữ liệu.
+- generate_phash_contact_sheets.py: Tạo bảng ảnh trực quan để đối chiếu các nhóm trùng lặp.
+- verify_phash_cross_split_and_holdout.py: Kiểm tra trùng lặp giữa các tập dữ liệu và holdout.
+
+## 03. Gán nhãn và kiểm định chất lượng
+
+- annotate_and_generate_overlays_minibatch01.py: Gán nhãn và tạo ảnh minh họa cho Mini-Batch 01.
+- annotate_and_qa_task7_battery_batch.py: Kiểm tra chất lượng dữ liệu pin task 7.
+- annotate_and_qa_task8_wave1.py: Gán nhãn và kiểm tra dữ liệu task 8 wave 1.
+- annotate_and_qa_task8a_multiclass_batch.py: Kiểm tra dữ liệu đa lớp task 8a.
+- build_full_qa_manifests.py: Tổng hợp danh sách kiểm định chất lượng.
+- execute_task8c_quality_gate_and_salvage.py: Kiểm tra tiêu chuẩn chất lượng và xử lý dữ liệu có thể khôi phục task 8c.
+- prepare_task8c_salvage_sheets.py: Tạo bảng ảnh phục vụ rà soát dữ liệu task 8c.
+- qa_and_annotate_task8d_batch.py: Kiểm tra chất lượng và gán nhãn task 8d.
+- qa_and_annotate_task8e_batch.py: Kiểm tra chất lượng và gán nhãn task 8e.
+- qa_and_curate_task8g_batch.py: Kiểm tra và tuyển chọn dữ liệu task 8g.
+- qa_and_curate_task8h_batch.py: Kiểm tra và tuyển chọn dữ liệu task 8h.
+- qa_and_standardize_task8_wave2.py: Kiểm tra và chuẩn hóa dữ liệu task 8 wave 2.
+- validate_detection_annotations.py: Xác thực nhãn detection và phát hiện lỗi.
+
+## 04. Hiệu chỉnh nhãn và gán nhãn lại
+
+- audit_and_reconcile_data.py: Rà soát và thống nhất quyết định xử lý dữ liệu.
+- reannotate_all_140_battery_bases.py: Gán nhãn lại 140 ảnh pin gốc.
+- correct_task8f_semantic_qa.py: Sửa lỗi ngữ nghĩa trong kiểm định task 8f.
+- reannotate_battery_minipilot_20.py: Gán nhãn lại 20 ảnh pin pilot.
+- find_oi_real_waste_salvage.py: Tìm kiếm dữ liệu rác thực tế có thể khôi phục từ OpenImages.
+- reconcile_audited_decisions.py: Đồng bộ các quyết định sau kiểm toán.
+- fix_task8_wave1_qa_and_domain.py: Sửa lỗi kiểm định và thông tin miền dữ liệu task 8 wave 1.
+
+## 05. Tinh chỉnh bounding box và pixel
+
+- crop2.py, crop_can.py, crop_junction.py: Cắt ảnh theo vùng cần phân tích.
+- exact_banana_fit.py: Xác định khung bao chính xác của quả chuối.
+- locate_banana_peel_exact.py: Xác định tọa độ vỏ chuối.
+- measure_banana.py, measure_banana_cc.py: Đo kích thước quả chuối theo pixel.
+- inspect_all_gt_objects.py: Kiểm tra các đối tượng đã được gán nhãn chuẩn.
+- inspect_banana_peel_pixels.py, pixel_audit_81_candidates.py: Kiểm tra pixel của các ảnh vỏ chuối ứng viên.
+- inspect_contours.py, test_adj_banana.py: Kiểm tra đường viền và thử điều chỉnh.
+- inspect_plate_details.py: Kiểm tra chi tiết vùng ảnh dạng đĩa.
+
+## 06. Chia tập dữ liệu và kiểm toán phân phối
+
+- Các script audit_dataset_integrity_full.py, audit_exact_openimages_provenance.py, audit_ground_truth_piles.py, audit_gt_exact_counts.py, audit_hard_negatives_deep.py, audit_openimages_provenance.py, audit_real_detection_images.py, audit_splits_real_v2_distribution.py, audit_taco_coco_exact.py, audit_taco_coco_provenance.py, audit_taco_exact_categories.py, audit_unreviewed_and_relabel_candidates.py và audit_v3_splits_and_exclusions.py: Kiểm tra tính toàn vẹn, nguồn gốc, số lượng, phân phối và chất lượng dữ liệu.
+- build_detection_splits.py, build_ground_truth_v2_proposed.py, build_real_v2_splits.py, create_split_v2.py, find_best_splits.py: Tạo và lựa chọn cách chia dữ liệu train, val và test.
+- run_dataset_quality_gates_audit.py, validate_dataset_v3_quality_gates.py, validate_pilot_quality_gates.py, validate_pilot_v3_pretraining_readiness.py: Kiểm tra các tiêu chí chất lượng và mức độ sẵn sàng của dữ liệu trước khi huấn luyện.
