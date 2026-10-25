@@ -1,0 +1,48 @@
+{
+  "note": "This audit records only files and charts processed by this script. It does not certify the scientific validity of upstream labels/predictions.",
+  "repository_root": "/Users/apple/Documents/GitHub/CNTT-KLCN155-waste-detection",
+  "output_dir": "/Users/apple/Documents/GitHub/CNTT-KLCN155-waste-detection/reports/figures",
+  "inputs": {
+    "ssdlite_training_log": null,
+    "yolo_training_log": null,
+    "classification_metrics": null,
+    "per_class_ap": null,
+    "confusion_matrix": null,
+    "pr_curve": null,
+    "f1_confidence": null,
+    "ablation_benchmark": null
+  },
+  "generated_files": [
+    "/Users/apple/Documents/GitHub/CNTT-KLCN155-waste-detection/reports/figures/chart_generation_audit.json"
+  ],
+  "skipped_charts": [
+    {
+      "chart": "SSDLite Loss/mAP",
+      "reason": "Chưa có log lịch sử huấn luyện /Users/apple/Documents/GitHub/CNTT-KLCN155-waste-detection/reports/metrics/ssdlite_training_log.csv; checkpoint tốt nhất không đủ để dựng đường cong theo epoch."
+    },
+    {
+      "chart": "YOLO Loss/mAP",
+      "reason": "Chưa tìm thấy results.csv tại /Users/apple/Documents/GitHub/CNTT-KLCN155-waste-detection/artifacts/detection_v2/E1_yolov8n_10cls/results.csv; không dựng đường cong giả."
+    },
+    {
+      "chart": "Classification metrics",
+      "reason": "Chưa có file dữ liệu /Users/apple/Documents/GitHub/CNTT-KLCN155-waste-detection/reports/metrics/classification_metrics.csv."
+    },
+    {
+      "chart": "AP theo lớp",
+      "reason": "Chưa có file dữ liệu /Users/apple/Documents/GitHub/CNTT-KLCN155-waste-detection/reports/metrics/per_class_ap.csv."
+    },
+    {
+      "chart": "Confusion matrix",
+      "reason": "Chưa có file dữ liệu /Users/apple/Documents/GitHub/CNTT-KLCN155-waste-detection/reports/metrics/confusion_matrix.csv."
+    },
+    {
+      "chart": "PR/F1",
+      "reason": "Thiếu file nguồn: /Users/apple/Documents/GitHub/CNTT-KLCN155-waste-detection/reports/metrics/pr_curve.csv, /Users/apple/Documents/GitHub/CNTT-KLCN155-waste-detection/reports/metrics/f1_confidence.csv"
+    },
+    {
+      "chart": "Ablation/benchmark",
+      "reason": "Chưa có file dữ liệu /Users/apple/Documents/GitHub/CNTT-KLCN155-waste-detection/reports/metrics/ablation_benchmark.csv."
+    }
+  ]
+}
