@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản đóng gói & bàn giao Phase 4] Đóng gói hồ sơ minh chứng, manifest và tệp nén bàn giao cho `build_task4_delivery_zip`.
 """
 Package Task 4 deliverables into a single zip archive in ~/Downloads.
 """

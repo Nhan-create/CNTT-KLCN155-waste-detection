@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử cấu trúc và thứ tự thực thi các ô lệnh trong notebook huấn luyện Kaggle (notebooks/train_mobilenetv3_kaggle.ipynb).
 from pathlib import Path
 
 import nbformat

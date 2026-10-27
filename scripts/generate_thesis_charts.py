@@ -1,3 +1,4 @@
+# Mô tả: Sinh toàn bộ các biểu đồ chất lượng xuất bản (Loss/mAP curves, Per-class AP50, Confusion Matrix...) vào reports/figures/.
 """Generate verified, publication-ready charts for the CNTT-KLCN155 thesis defense.
 
 All numbers in these charts are loaded directly from the repository's real

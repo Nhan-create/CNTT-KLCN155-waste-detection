@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản xử lý & kiểm định dữ liệu lớp pin (Task 5–7)] Gán nhãn khung bao, rà soát chất lượng điểm ảnh (Visual QA) và chuẩn bị dữ liệu cho `pixel_audit_81_candidates`.
 """Comprehensive Pixel-Level Visual Inspection of 81 Candidate Real Images.
 
 Audits the 81 real images previously marked as 'APPROVED_TECH_AUDIT'.

@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản xử lý & kiểm định dữ liệu lớp pin (Task 5–7)] Sinh báo cáo, bảng tổng hợp hoặc ảnh đối chiếu trực quan (contact sheets/overlays) cho `task6 visual comparisons`.
 """Task 5: Generate Side-by-Side Visual Comparisons (Original/GT | YOLOv8n E1 | YOLOv8n E3).
 
 Covers all 5 required visual inspection groups:

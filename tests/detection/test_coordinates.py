@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử chuẩn hóa xoay chiều EXIF, đệm ảnh letterbox, chiếu ngược tọa độ về ảnh gốc và cắt khung bao tràn biên.
 """Unit tests for coordinate conversions, letterboxing, EXIF handling, and clipping."""
 
 from __future__ import annotations

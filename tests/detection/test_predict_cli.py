@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử giao diện dòng lệnh CLI dự đoán phân loại ảnh (python -m src.detection.predict).
 import subprocess
 import sys
 

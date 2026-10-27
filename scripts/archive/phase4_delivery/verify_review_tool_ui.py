@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản đóng gói & bàn giao Phase 4] Kiểm toán nguồn gốc, cụm pHash và tính toàn vẹn dữ liệu cho `verify_review_tool_ui`.
 """
 scripts/verify_review_tool_ui.py
 --------------------------------

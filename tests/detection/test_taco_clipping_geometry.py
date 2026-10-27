@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử cắt kẹp tọa độ khung bao tràn biên và xử lý hình học cho dữ liệu nguồn TACO.
 """
 tests/detection/test_taco_clipping_geometry.py
 ----------------------------------------------

@@ -1,3 +1,4 @@
+# Mô tả: Khóa thứ tự 10 lớp phát hiện chuẩn (0: battery ➔ 9: trash) và ánh xạ tên nhãn từ các bộ dữ liệu nguồn mở (TACO, Mendeley, Roboflow, OpenImages) về 10 lớp chuẩn.
 """Phase-two detection labels, deliberately separate from classification labels."""
 
 from __future__ import annotations

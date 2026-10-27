@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử công cụ tải dữ liệu KaggleHub (scripts/download_datasets.py) với phiên bản khóa cố định và không lộ thông tin xác thực.
 from pathlib import Path
 
 import kagglehub

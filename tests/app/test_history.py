@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử lưu trữ, truy vấn và đóng kết nối lịch sử phân loại ảnh tĩnh trên SQLite (HistoryRepository).
 import json
 from pathlib import Path
 

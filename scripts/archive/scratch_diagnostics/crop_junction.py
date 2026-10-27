@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Tiện ích chẩn đoán cục bộ] Đo đạc tọa độ điểm ảnh và cắt vùng mẫu kiểm tra cho kịch bản `crop_junction`.
 """
 Inspect base of junction boxes in wiki_neg_junction_boxes.jpg
 """

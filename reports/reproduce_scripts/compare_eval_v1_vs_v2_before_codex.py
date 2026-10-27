@@ -1,3 +1,4 @@
+# Mô tả: So sánh kết quả đánh giá giữa pipeline v1 và v2 phục vụ đối chiếu lịch sử thực nghiệm.
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
 import json

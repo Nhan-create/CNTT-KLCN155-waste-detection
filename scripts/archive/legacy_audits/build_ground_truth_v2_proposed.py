@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Thực thi tác vụ hỗ trợ kiểm toán và xử lý dữ liệu lịch sử trong `build_ground_truth_v2_proposed`.
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
 import json

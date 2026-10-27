@@ -1,3 +1,4 @@
+# Mô tả: Cắt ảnh từng vật thể mẫu theo từng lớp của nguồn Mendeley để phục vụ kiểm toán trực quan ánh xạ nhãn.
 """
 Crop sample objects for each Mendeley class (0, 1, 2, 3, 4, 5, 6, 8, 9)
 with exact provenance:

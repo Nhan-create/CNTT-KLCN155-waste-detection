@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử khói (smoke test) giao diện dòng lệnh huấn luyện phát hiện đa đối tượng (python -m src.detection.train).
 """
 tests/detection/test_train_command_smoke.py
 -------------------------------------------

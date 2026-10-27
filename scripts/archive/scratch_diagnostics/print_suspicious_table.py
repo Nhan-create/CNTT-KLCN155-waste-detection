@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Tiện ích chẩn đoán cục bộ] Thực thi tác vụ hỗ trợ kiểm toán và xử lý dữ liệu lịch sử trong `print_suspicious_table`.
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
 import json

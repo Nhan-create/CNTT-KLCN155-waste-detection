@@ -1,3 +1,4 @@
+# Mô tả: Khám phá các thư mục lớp trong tập dữ liệu đã xử lý, đếm phân bố mẫu theo lớp và tính toán tensor trọng số lớp theo đúng thứ tự chuẩn CLASS_NAMES.
 """Training-facing dataset discovery, counts, and class weights."""
 
 from __future__ import annotations

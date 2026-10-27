@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ lịch sử] Module xử lý luồng phát hiện thời gian thực qua WebRTC (đã ngừng sử dụng trong giao diện chính).
 """Real-time multi-object detection with short box stabilization."""
 
 from __future__ import annotations

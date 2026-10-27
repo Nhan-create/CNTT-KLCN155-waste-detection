@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử bộ bọc WasteDetector cho YOLOv8n: kiểm tra nghiêm ngặt thứ tự 10 lớp, từ chối checkpoint 80 lớp COCO và kẹp biên bbox.
 from pathlib import Path
 
 import numpy as np

@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Kiểm toán nguồn gốc, cụm pHash và tính toàn vẹn dữ liệu cho `find_best_splits`.
 import random
 from collections import Counter
 import pandas as pd

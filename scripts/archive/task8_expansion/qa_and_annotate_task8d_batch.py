@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản mở rộng & kiểm định dữ liệu đa lớp (Task 8)] Gán nhãn khung bao, rà soát chất lượng điểm ảnh (Visual QA) và chuẩn bị dữ liệu cho `qa_and_annotate_task8d_batch`.
 """Build and verify the Task 8D QA & Tight Per-Instance Annotation Manifest (`task8d_qa_manifest.json`).
 
 Updated in Task 8E Section 1 (Evidence-Based Focused Verification & Fix):

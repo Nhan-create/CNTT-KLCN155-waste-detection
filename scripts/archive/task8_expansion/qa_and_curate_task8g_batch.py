@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản mở rộng & kiểm định dữ liệu đa lớp (Task 8)] Gán nhãn khung bao, rà soát chất lượng điểm ảnh (Visual QA) và chuẩn bị dữ liệu cho `qa_and_curate_task8g_batch`.
 """Task 8G — Quality Control, Multi-Class Per-Instance Annotation & Visual QA Pipeline (Tasks 2–4).
 
 Processes the checkpointed Task 8G candidate pool (`task8g_raw_candidates_manifest.json`) in

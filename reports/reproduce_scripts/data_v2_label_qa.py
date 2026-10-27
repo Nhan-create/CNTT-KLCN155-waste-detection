@@ -1,3 +1,4 @@
+# Mô tả: Kiểm tra chất lượng nhãn (Label QA) và phát hiện khung bao giữ chỗ (placeholder) trên bộ dữ liệu phát hiện thực tế v2.
 """Label QA for real detection images (data/detection/images/real + labels/real).
 
 Checks: label file exists, empty files, class ids in 0..9, normalized box validity,

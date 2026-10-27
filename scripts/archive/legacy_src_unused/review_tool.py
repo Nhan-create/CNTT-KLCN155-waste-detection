@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ lịch sử] Công cụ giao diện Streamlit hỗ trợ rà soát và duyệt thủ công nhãn khung bao trên ảnh phát hiện.
 """
 scripts/archive/legacy_src_unused/review_tool.py
 ---------------------

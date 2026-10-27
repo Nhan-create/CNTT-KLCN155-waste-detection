@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản mở rộng & kiểm định dữ liệu đa lớp (Task 8)] Sinh báo cáo, bảng tổng hợp hoặc ảnh đối chiếu trực quan (contact sheets/overlays) cho `task8 wave2 handover`.
 """
 Task 8 Wave 1 Fix + Wave 2 Large-Scale Acquisition — Handover Reports & ZIP Packager.
 

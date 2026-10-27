@@ -1,3 +1,4 @@
+# Mô tả: Tính toán bảng thống kê số lượng ảnh và số lượng khung bao chuẩn xác từ các tệp nhãn trên đĩa.
 """
 scripts/generate_authoritative_dataset_metrics.py
 -------------------------------------------------

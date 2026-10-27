@@ -1,3 +1,4 @@
+# Mô tả: Làm mượt vị trí và điểm số khung bao giữa các khung hình liên tiếp bằng trung bình trượt hàm mũ (EMA) và khớp IoU tham lam.
 """Light temporal stabilization for real-time detection boxes."""
 
 from __future__ import annotations

@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Sinh báo cáo, bảng tổng hợp hoặc ảnh đối chiếu trực quan (contact sheets/overlays) cho `data novelty report`.
 """
 scripts/generate_data_novelty_report.py
 ---------------------------------------

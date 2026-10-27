@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử tích hợp ánh xạ nhãn thực tế từ các bộ dữ liệu nguồn (Mendeley, TACO, Roboflow, OpenImages) về 10 lớp chuẩn.
 """
 Integration tests on REAL dataset annotations, loader, and real checkpoints.
 Authoritative test suite verifying:

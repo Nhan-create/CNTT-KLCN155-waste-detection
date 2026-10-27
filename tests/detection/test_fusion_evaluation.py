@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử đánh giá hiệu quả hợp nhất khung bao Weighted Boxes Fusion (WBF) giữa SSDLite320 và YOLOv8n.
 from pathlib import Path
 
 import pytest

@@ -1,3 +1,4 @@
+# Mô tả: Cung cấp cấu hình nhóm các phép tăng cường dữ liệu ảnh (xoay, lật ngang, biến đổi màu) cho pipeline tiền xử lý phân loại.
 from torchvision import transforms
 
 

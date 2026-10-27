@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử đọc/ghi nguyên tử (atomic write) tệp CSV manifest và tính mã băm SHA-256 kiểm tra tính toàn vẹn.
 from dataclasses import replace
 from pathlib import Path
 

@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử tính toàn vẹn, không rò rỉ SHA-256/pHash và phân bố lớp của bộ chia tập phát hiện thực tế splits_real_v2.
 """Regression tests for the real-only detection split v2 (Agent A, data v2).
 
 Guarantees:

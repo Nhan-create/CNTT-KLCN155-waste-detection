@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Mô tả: Đo độ trễ suy luận (latency) và mức tiêu thụ bộ nhớ của các mô hình phát hiện trong đợt kiểm toán 20261008_192500.
 """
 scripts/benchmark_latency.py
 ----------------------------

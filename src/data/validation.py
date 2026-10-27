@@ -1,3 +1,4 @@
+# Mô tả: Bộ kiểm định độc lập sau khi chia tập (python -m src.data.validation): xác minh đủ 10 lớp ở mỗi split, không có ảnh hỏng, không có trùng SHA-256 và không có bất kỳ cụm pHash nào xuất hiện ở nhiều hơn một split.
 """Post-materialization class and duplicate leakage validation."""
 
 from __future__ import annotations

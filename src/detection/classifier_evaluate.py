@@ -1,3 +1,4 @@
+# Mô tả: CLI đánh giá độc lập checkpoint MobileNetV3-Large trên tập Test (python -m src.detection.classifier_evaluate), xuất báo cáo metrics.json, per_class_metrics.csv và vẽ 2 biểu đồ ma trận nhầm lẫn (raw & normalized).
 """Evaluate one selected checkpoint on the held-out test split."""
 
 from __future__ import annotations

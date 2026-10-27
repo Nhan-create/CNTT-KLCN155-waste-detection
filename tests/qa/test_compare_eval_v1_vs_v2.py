@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử logic khớp khung bao cùng lớp và chính sách tính dương tính giả trên ảnh âm tính khi so sánh pipeline v1 và v2.
 """
 tests/qa/test_compare_eval_v1_vs_v2.py
 ---------------------------------------

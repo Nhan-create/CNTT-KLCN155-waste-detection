@@ -1,3 +1,4 @@
+# Mô tả: Quét các thư mục dataset nguồn (VN Trash Classification, Garbage Classification v2), ánh xạ nhãn về 10 lớp chuẩn, cấp mã định danh ổn định (stable_image_id) và sao chép/liên kết an toàn vào cây data/raw/.
 """Ingest source datasets into a collision-safe raw tree."""
 
 from __future__ import annotations

@@ -1,3 +1,4 @@
+# Mô tả: Kiểm tra tính hợp lệ toàn diện của một bộ dữ liệu phát hiện chuẩn YOLO (kiểm tra tệp dataset.yaml, sự tồn tại của thư mục train/val/test, tính đối xứng ảnh–nhãn và tọa độ chuẩn hóa 0..1).
 """Strict validation for YOLO-format multi-object waste datasets."""
 
 from __future__ import annotations

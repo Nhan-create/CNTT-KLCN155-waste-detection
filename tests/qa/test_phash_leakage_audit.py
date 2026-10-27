@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử báo cáo kiểm toán chống rò rỉ pHash giữa các tập train/val/test và tập đối chứng holdout.
 import sys
 """
 tests/qa/test_phash_leakage_audit.py

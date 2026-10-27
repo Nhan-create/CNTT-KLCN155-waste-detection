@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử khói vòng lặp huấn luyện 2 pha của MobileNetV3-Large trên dữ liệu tổng hợp kích thước nhỏ.
 from pathlib import Path
 
 import torch

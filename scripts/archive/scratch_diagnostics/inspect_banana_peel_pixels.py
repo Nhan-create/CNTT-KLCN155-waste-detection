@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Tiện ích chẩn đoán cục bộ] Kiểm tra chi tiết dữ liệu, khung bao và thuộc tính của `banana peel pixels`.
 """
 scripts/inspect_banana_peel_pixels.py
 Find exact bounding box of the banana peel in wiki_bio_banana_peel_ground.jpg

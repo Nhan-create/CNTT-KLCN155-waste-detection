@@ -1,3 +1,4 @@
+# Mô tả: Kiểm tra an toàn tài nguyên hệ thống trước khi chạy huấn luyện hoặc đánh giá nặng (kiểm tra dung lượng RAM khả dụng, VRAM GPU, dung lượng ổ đĩa trống và quyền ghi thư mục đầu ra).
 """
 src/detection/preflight_guard.py
 --------------------------------

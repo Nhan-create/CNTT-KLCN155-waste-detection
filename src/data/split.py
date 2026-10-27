@@ -1,3 +1,4 @@
+# Mô tả: Thực hiện thuật toán chia tập Group-Stratified Split (70% Train / 15% Val / 15% Test): giữ toàn bộ các ảnh có cùng cluster_id (gần trùng pHash) nằm trong cùng một tập để triệt tiêu hoàn toàn rò rỉ dữ liệu qua biên giới split.
 """Deterministic group-stratified dataset splitting."""
 
 from __future__ import annotations

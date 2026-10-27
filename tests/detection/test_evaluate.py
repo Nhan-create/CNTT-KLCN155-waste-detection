@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử hàm đánh giá độc lập checkpoint MobileNetV3-Large trên tập Test và xuất báo cáo metrics/ma trận nhầm lẫn.
 import csv
 import json
 from pathlib import Path

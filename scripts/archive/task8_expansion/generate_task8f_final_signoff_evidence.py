@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản mở rộng & kiểm định dữ liệu đa lớp (Task 8)] Sinh báo cáo, bảng tổng hợp hoặc ảnh đối chiếu trực quan (contact sheets/overlays) cho `task8f final signoff evidence`.
 """Generate TASK8F_FINAL_SAFETY_SIGN_OFF_REPORT.{md,json} and package TASK8F_FINAL_SIGNOFF_EVIDENCE.zip."""
 from __future__ import annotations
 

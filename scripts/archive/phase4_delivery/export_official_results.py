@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản đóng gói & bàn giao Phase 4] Xuất báo cáo, kết quả dự đoán thô và bằng chứng kiểm thử cho `export_official_results`.
 r"""Export Official Results, Metrics, and History from Provenance Files (P1-R1).
 
 Does NOT hardcode training history.

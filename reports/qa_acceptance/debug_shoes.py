@@ -1,3 +1,4 @@
+# Mô tả: Tiện ích chẩn đoán các trường hợp dự đoán thuộc lớp giày dép (shoes) trên tập kiểm định QA.
 import cv2
 import numpy as np
 

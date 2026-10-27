@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Sinh báo cáo, bảng tổng hợp hoặc ảnh đối chiếu trực quan (contact sheets/overlays) cho `gt review overlays`.
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
 import json

@@ -1,3 +1,4 @@
+# Mô tả: Cung cấp một điểm khởi tạo duy nhất (create_detector) cho cả 3 chế độ backend: ssdlite (Tầng 3A), yolov8n (Tầng 3B) và wbf (Tầng 4 hợp nhất SSDLite + YOLO).
 """Single backend selection contract shared by the demo and evaluation CLI."""
 
 from pathlib import Path

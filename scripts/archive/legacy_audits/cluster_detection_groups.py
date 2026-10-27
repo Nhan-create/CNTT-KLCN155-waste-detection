@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Kiểm toán nguồn gốc, cụm pHash và tính toàn vẹn dữ liệu cho `cluster_detection_groups`.
 """
 scripts/cluster_detection_groups.py
 -----------------------------------

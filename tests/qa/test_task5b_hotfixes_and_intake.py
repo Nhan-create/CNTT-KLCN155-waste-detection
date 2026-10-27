@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử các bản vá an toàn Task 5B: từ chối nạp ảnh thiếu bằng chứng Visual QA hoặc có trạng thái nguồn chưa xác minh.
 """
 tests/qa/test_task5b_hotfixes_and_intake.py
 -------------------------------------------

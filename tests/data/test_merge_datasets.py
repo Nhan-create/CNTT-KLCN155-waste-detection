@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử hợp nhất hai nguồn dữ liệu gốc (VN Trash, Garbage v2) vào cây thư mục raw an toàn không đụng độ tên tệp.
 import re
 from pathlib import Path
 

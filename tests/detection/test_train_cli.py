@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử giao diện dòng lệnh CLI huấn luyện bộ phân loại (python -m src.detection.classifier_train).
 import subprocess
 import sys
 

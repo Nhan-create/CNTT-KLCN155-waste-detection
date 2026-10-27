@@ -1,3 +1,4 @@
+# Mô tả: Thẩm định hai giai đoạn (Two-Stage Refinement): cắt từng vùng ứng viên (proposal) từ detector, đưa qua MobileNetV3-Large phân loại theo lô (MobileNetBatchAdapter) và tính lại điểm tin cậy theo công thức Bayesian (product hoặc blend).
 """Two-stage refinement: detector proposals -> crop -> image classifier -> rescored boxes.
 
 Stage 1 boxes (possibly class-agnostic) are cropped with ~10% padding, classified

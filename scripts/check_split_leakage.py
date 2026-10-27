@@ -1,3 +1,4 @@
+# Mô tả: Kiểm tra chéo toàn bộ mã băm SHA-256 và khoảng cách Hamming pHash giữa các tập train/val/test để đảm bảo 0 rò rỉ dữ liệu.
 r"""Rigorous Cross-Split Data Leakage Verification Script.
 
 Audit Scope & Method:

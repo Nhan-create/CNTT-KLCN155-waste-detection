@@ -1,3 +1,4 @@
+# Mô tả: Đo thời gian suy luận trung bình (ms/ảnh) và FPS của SSDLite320 và YOLOv8n.
 """Inference benchmark and testing script for SSDLite and YOLOv8n models.
 
 Supports CPU and CUDA execution, confidence threshold tuning, and batch/folder evaluation.

@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử tích hợp cổng bảo vệ an toàn tài nguyên phần cứng (RAM, VRAM, ổ đĩa) trong src/detection/preflight_guard.py.
 """
 tests/detection/test_preflight_guard_integration.py
 ---------------------------------------------------

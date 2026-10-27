@@ -1,3 +1,4 @@
+# Mô tả: Quét thư mục ảnh nghiệm thu QA, tính mã băm SHA-256 và lập danh mục kiểm kê tệp (inventory).
 import os
 import sys
 import json

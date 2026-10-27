@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản mở rộng & kiểm định dữ liệu đa lớp (Task 8)] Tìm kiếm, tải về và mở rộng mẫu ảnh thực tế bổ sung cho `supplement_task8e_to_1100`.
 """Supplement `task8e_raw_candidates_manifest.json` from 575 to ~1,100 unique deduplicated candidates.
 
 Reuses the 575 candidates already downloaded in `data/acquisition_staging/task8e_scale_real_waste/`

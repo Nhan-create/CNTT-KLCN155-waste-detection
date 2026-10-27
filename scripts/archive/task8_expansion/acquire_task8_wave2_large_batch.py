@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản mở rộng & kiểm định dữ liệu đa lớp (Task 8)] Tìm kiếm, tải về và mở rộng mẫu ảnh thực tế bổ sung cho `acquire_task8_wave2_large_batch`.
 r"""
 Task 8 Part B (B1 & B2) — Resumable Large-Scale Wave 2 Acquisition (1,000+ Candidate Images).
 

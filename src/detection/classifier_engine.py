@@ -1,3 +1,4 @@
+# Mô tả: Cung cấp các hàm huấn luyện cấp thấp cho MobileNetV3-Large: đóng băng backbone ở Pha 1 (freeze_backbone), mở băng toàn mạng với learning rate phân tầng ở Pha 2 (unfreeze_all) và chạy vòng lặp 1 epoch hỗ trợ AMP (GradScaler).
 """Small, testable primitives for two-phase fine-tuning."""
 
 from __future__ import annotations

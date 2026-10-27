@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản đóng gói & bàn giao Phase 4] Đóng gói hồ sơ minh chứng, manifest và tệp nén bàn giao cho `package_part02_verification_delivery`.
 """
 scripts/package_part02_verification_delivery.py
 ------------------------------------------------

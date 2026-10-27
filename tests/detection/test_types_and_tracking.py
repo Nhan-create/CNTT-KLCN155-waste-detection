@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử các kiểu dữ liệu bất biến (BoundingBox, Detection, DetectionResult) và bộ làm mượt khung bao TemporalDetectionSmoother.
 from src.detection.tracking import TemporalDetectionSmoother, box_iou
 from src.detection.types import BoundingBox, Detection, DetectionResult
 

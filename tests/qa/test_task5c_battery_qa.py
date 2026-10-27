@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử ánh xạ các phân nhóm pin về lớp 0 (battery), tính hợp lệ của manifest pin và sự tồn tại của contact sheets.
 """
 tests/qa/test_task5c_battery_qa.py
 ----------------------------------

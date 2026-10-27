@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản mở rộng & kiểm định dữ liệu đa lớp (Task 8)] Thực thi quy trình kiểm định chất lượng và đóng gói bàn giao cho `pilot_and_acquire_task8e_scale`.
 """Task 8E — Sections 2 & 3: Pilot Evaluation & Large-Scale Real-Waste Acquisition (`pilot_and_acquire_task8e_scale.py`).
 
 Targets:

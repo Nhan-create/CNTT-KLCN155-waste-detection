@@ -1,3 +1,4 @@
+# Mô tả: Tái lập kết quả kiểm toán nguồn gốc dữ liệu TACO và OpenImages ở mức ưu tiên P0 (Giai đoạn 3).
 """Reproduce Phase 3 P0 TACO and Open Images provenance findings.
 
 This audit is read-only. It never changes labels, mappings, manifests, or splits.

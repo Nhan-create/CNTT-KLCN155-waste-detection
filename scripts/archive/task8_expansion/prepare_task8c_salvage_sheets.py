@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản mở rộng & kiểm định dữ liệu đa lớp (Task 8)] Gán nhãn khung bao, rà soát chất lượng điểm ảnh (Visual QA) và chuẩn bị dữ liệu cho `prepare_task8c_salvage_sheets`.
 """
 Prepare 195 high-priority NEEDS_REVIEW salvage candidates for Task 8C visual inspection.
 Computes improved contour/connected-component candidate boxes for Wikimedia Commons items

@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ lịch sử] Module cấu hình giao diện web phiên bản đầu tiên trước khi hợp nhất về src/app/detection_settings.py.
 """Validated runtime settings for the Streamlit application."""
 
 from __future__ import annotations

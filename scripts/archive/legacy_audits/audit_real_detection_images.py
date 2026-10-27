@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Kiểm toán nguồn gốc, cụm pHash và tính toàn vẹn dữ liệu cho `audit_real_detection_images`.
 """
 scripts/audit_real_detection_images.py
 --------------------------------------

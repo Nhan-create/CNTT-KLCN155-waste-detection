@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản mở rộng & kiểm định dữ liệu đa lớp (Task 8)] Tìm kiếm, tải về và mở rộng mẫu ảnh thực tế bổ sung cho `supplement_task8d_wikimedia_categories`.
 """Supplement Task 8D (`SRC_8D_07_WIKIMEDIA_WASTE_CONTEXT_QUERIES`) with curated Wikimedia Commons
 waste/recycling categories and `filetype:bitmap intitle:<item>` waste queries across all 10 classes.
 """

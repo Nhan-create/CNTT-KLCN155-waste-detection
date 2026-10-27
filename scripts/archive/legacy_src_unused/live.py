@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ lịch sử] Module phân loại rác trực tiếp qua webcam trên trình duyệt (đã lưu trữ).
 """Throttled, thread-safe WebRTC frame classification."""
 
 from __future__ import annotations

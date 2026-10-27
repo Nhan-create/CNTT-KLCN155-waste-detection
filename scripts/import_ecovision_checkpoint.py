@@ -1,3 +1,4 @@
+# Mô tả: Nhập trọng số MobileNetV3-Large nguồn mở sang định dạng checkpoint tự mô tả chuẩn của dự án (src/detection/checkpoint.py).
 """Import the pinned MIT EcoVision weights into this project's checkpoint format."""
 
 from __future__ import annotations

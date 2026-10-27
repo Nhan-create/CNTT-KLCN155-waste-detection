@@ -1,3 +1,4 @@
+# Mô tả: CLI điều phối toàn bộ pipeline tiền xử lý dữ liệu từ đầu đến cuối (python -m src.data.run_pipeline): Hợp nhất nguồn ➔ Khử trùng SHA-256/pHash ➔ Chia tập 70/15/15 ➔ Kiểm định chống rò rỉ ➔ Tính trọng số lớp & Xuất báo cáo EDA.
 """End-to-end reproducible ten-class dataset build."""
 
 from __future__ import annotations

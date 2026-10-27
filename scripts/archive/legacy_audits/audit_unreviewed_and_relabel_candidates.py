@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Kiểm toán nguồn gốc, cụm pHash và tính toàn vẹn dữ liệu cho `audit_unreviewed_and_relabel_candidates`.
 """Audit and Systematic Technical Review of Unreviewed and Needs-Relabel Real Candidates.
 
 Audits:

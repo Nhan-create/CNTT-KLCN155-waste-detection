@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử chặn rò rỉ ảnh từ tập Val/Test/Holdout sang tập Train và chống giả mạo siêu dữ liệu phê duyệt.
 """
 tests/qa/test_split_contamination_safety.py
 -------------------------------------------

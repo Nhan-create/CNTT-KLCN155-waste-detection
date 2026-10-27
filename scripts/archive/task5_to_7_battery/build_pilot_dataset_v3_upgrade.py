@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản xử lý & kiểm định dữ liệu lớp pin (Task 5–7)] Thực thi tác vụ hỗ trợ kiểm toán và xử lý dữ liệu lịch sử trong `build_pilot_dataset_v3_upgrade`.
 """
 scripts/build_pilot_dataset_v3_upgrade.py
 -----------------------------------------

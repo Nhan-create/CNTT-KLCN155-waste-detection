@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử các hàm huấn luyện cấp thấp của Classifier: đóng/mở băng backbone 2 pha và chạy 1 epoch huấn luyện/đánh giá.
 import math
 
 import torch

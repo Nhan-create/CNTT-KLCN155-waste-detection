@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Chạy thử nghiệm, tái lập đánh giá hoặc so sánh mô hình cho `run_yolov8n_demo_100`.
 """Run YOLOv8n demo inference on 100 candidate images.
 
 Checkpoint: artifacts/detection_v2/E1_yolov8n_10cls/weights/best.pt

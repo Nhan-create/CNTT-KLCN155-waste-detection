@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Tiện ích chẩn đoán cục bộ] Kiểm tra chi tiết dữ liệu, khung bao và thuộc tính của `18 pairs`.
 """Deep Inspection of 18 Cross-Split pHash Candidate Pairs.
 Analyzes image resolution, modes, pixel stats, and visual content.
 """

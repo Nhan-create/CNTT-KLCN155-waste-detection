@@ -1,3 +1,4 @@
+# Mô tả: Đánh giá đối chiếu độ phân giải suy luận YOLOv8n (imgsz 320 vs 640) và kiểm tra tính hợp lệ của SSDLite320 trên 27 ảnh QA.
 """Evaluate YOLO imgsz 320 vs 640 on the 27 QA images and SSDLite sanity on train images (CPU).
 
 Reuses QA's matching functions read-only; writes only to reports/model_v2/.

@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử tính cô lập hoàn toàn của bộ dữ liệu v3, đảm bảo không ghi đè dữ liệu gốc và xác thực dấu vân tay SHA-256.
 """
 tests/qa/test_dataset_v3_isolation.py
 -------------------------------------

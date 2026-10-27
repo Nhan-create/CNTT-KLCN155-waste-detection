@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử định nghĩa 10 lớp chuẩn (CLASS_NAMES), cấu trúc ManifestRecord và ánh xạ nhãn từ label_mapping.csv.
 from pathlib import Path
 
 import pytest

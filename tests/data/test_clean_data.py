@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử bước làm sạch manifest thô và xuất các báo cáo trùng lặp SHA-256, gần trùng pHash, xung đột nhãn và ảnh lỗi.
 import csv
 import shutil
 from pathlib import Path

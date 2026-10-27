@@ -1,3 +1,4 @@
+# Mô tả: Chạy kiểm thử khói (smoke run) đầu-cuối trên CPU cho cả 4 chế độ của pipeline suy luận phát hiện v2.
 """CPU end-to-end smoke run of the v2 inference pipeline in 4 modes.
 
 Runs the real app flow (create_detector -> build_detection_pipeline ->

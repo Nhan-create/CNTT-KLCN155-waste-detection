@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử khám phá danh sách lớp, đếm số mẫu theo lớp và tính toán trọng số cân bằng lớp (class weights).
 import json
 from pathlib import Path
 

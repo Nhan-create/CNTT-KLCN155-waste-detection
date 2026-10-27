@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản đóng gói & bàn giao Phase 4] Xuất báo cáo, kết quả dự đoán thô và bằng chứng kiểm thử cho `export_all_key_reports_to_downloads`.
 """
 Export all important project reports, manifests, audit evidence, and specifications
 into ~/Downloads/CNTT_KLCN155_Bao_Cao_Va_Bang_Chung_AI_Upgrade.zip

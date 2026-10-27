@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử tính toàn vẹn môi trường Python cục bộ (.venv), đường dẫn gói src và không có bytecode ngoại lai.
 import sys
 import os
 import inspect

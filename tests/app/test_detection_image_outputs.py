@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử định dạng ảnh đầu ra đã vẽ khung bao, bảng thống kê số lượng rác và tên tệp xuất của giao diện phát hiện.
 import io
 import zipfile
 

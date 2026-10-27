@@ -1,3 +1,4 @@
+# Mô tả: Điểm vào ứng dụng Desktop PyQt5 phục vụ phân loại ảnh tĩnh từ đĩa, phân loại luồng camera trực tiếp và ghi lịch sử vào SQLite.
 """Desktop entry point for the ten-class waste classifier."""
 
 from __future__ import annotations

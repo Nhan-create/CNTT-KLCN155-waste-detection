@@ -1,3 +1,4 @@
+# Mô tả: Xuất MobileNetV3-Large sang ONNX và đo tốc độ suy luận thực tế giữa PyTorch CPU, PyTorch GPU và ONNX Runtime.
 """
 scripts/benchmark_classifier_runtime.py
 ---------------------------------------

@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản mở rộng & kiểm định dữ liệu đa lớp (Task 8)] Thực thi quy trình kiểm định chất lượng và đóng gói bàn giao cho `fix_task8_wave1_qa_and_domain`.
 """
 scripts/fix_task8_wave1_qa_and_domain.py
 ----------------------------------------

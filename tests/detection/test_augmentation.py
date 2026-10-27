@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử 4 mức tăng cường dữ liệu Albumentations (none, light, medium, full) và bộ lọc khử khung bao suy biến.
 """Tests for detection data augmentation pipeline and Copy-Paste module."""
 
 import numpy as np

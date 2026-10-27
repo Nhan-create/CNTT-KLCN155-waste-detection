@@ -1,3 +1,4 @@
+# Mô tả: Dịch vụ bọc WastePredictor an toàn luồng (threading.Lock) dùng cho luồng phân loại ảnh tĩnh của ứng dụng Desktop PyQt5 và các bài kiểm thử dịch vụ.
 """Thread-safe access to the shared image predictor."""
 
 from __future__ import annotations

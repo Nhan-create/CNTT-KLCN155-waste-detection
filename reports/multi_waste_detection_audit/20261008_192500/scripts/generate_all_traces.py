@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Mô tả: Sinh toàn bộ nhật ký truy vết dự đoán (traces) và ảnh vẽ khung bao cho đợt kiểm toán đa đối tượng 20261008_192500.
 """
 scripts/generate_all_traces.py
 ------------------------------

@@ -1,3 +1,4 @@
+# Mô tả: Xuất danh sách ảnh đủ điều kiện đưa vào tập Train sau khi đã đối chiếu chéo để loại bỏ hoàn toàn mọi ảnh trùng SHA-256 với tập Val/Test/Holdout và các ảnh chưa được phê duyệt.
 """
 src/detection/export_train_manifest.py
 --------------------------------------

@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử xác nhận toàn bộ 10 lớp rác đều xuất hiện hợp lệ trong các batch dữ liệu nạp vào bộ huấn luyện YOLO.
 import sys
 """
 tests/qa/test_yolo_dataloader_batches.py

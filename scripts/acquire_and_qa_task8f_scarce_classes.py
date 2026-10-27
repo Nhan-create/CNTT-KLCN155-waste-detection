@@ -1,3 +1,4 @@
+# Mô tả: Thu thập và kiểm định chống trùng lặp (dHash/SHA-256) cho các lớp rác hiếm thuộc Task 8F.
 """Task 8F — Part C & Part D: Scarce-Class Real-Waste Expansion & 10-Class Validation Allocation (`acquire_and_qa_task8f_scarce_classes.py`).
 
 Objectives:

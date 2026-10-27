@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản đóng gói & bàn giao Phase 4] Kiểm toán nguồn gốc, cụm pHash và tính toàn vẹn dữ liệu cho `verify_wikimedia_candidates`.
 """Verify all candidate links in batch_a_candidate_manifest.json against Wikimedia MediaWiki API."""
 
 import json

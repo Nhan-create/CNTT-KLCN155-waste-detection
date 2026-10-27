@@ -1,3 +1,4 @@
+# Mô tả: Xây dựng bộ dữ liệu ứng viên v3 sử dụng cổng an toàn safe_dataset_builder.py.
 """
 scripts/build_dataset_v3_candidate.py
 -------------------------------------

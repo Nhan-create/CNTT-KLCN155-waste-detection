@@ -1,3 +1,4 @@
+# Mô tả: Cung cấp dịch vụ phân loại rác đơn vật thể độ chính xác cao (MobileNetClassifier) cho Tab 1 của Streamlit, tự động ưu tiên chạy qua ONNX Runtime nếu có tệp .onnx cùng thư mục (hoặc fallback về PyTorch .pt) và đính kèm hướng dẫn phân loại rác tại nguồn bằng tiếng Việt.
 """High-precision 10-class waste classifier using MobileNetV3-Large (96.18% Accuracy)."""
 
 from __future__ import annotations

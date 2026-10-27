@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Tiện ích chẩn đoán cục bộ] Thực thi tác vụ hỗ trợ kiểm toán và xử lý dữ liệu lịch sử trong `eval_20_targets`.
 import sys
 import json
 from pathlib import Path

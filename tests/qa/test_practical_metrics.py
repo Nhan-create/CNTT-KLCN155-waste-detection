@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử đơn vị có tính tay đối chứng cho module tính chỉ số thực nghiệm AP và Precision/Recall trên tập holdout.
 """Hand-computed unit tests for reports/qa_acceptance/practical_metrics.py."""
 import json
 import math

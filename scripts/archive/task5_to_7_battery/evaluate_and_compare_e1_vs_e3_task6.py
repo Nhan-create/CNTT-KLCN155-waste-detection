@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản xử lý & kiểm định dữ liệu lớp pin (Task 5–7)] Chạy thử nghiệm, tái lập đánh giá hoặc so sánh mô hình cho `evaluate_and_compare_e1_vs_e3_task6`.
 """Task 6: Comprehensive Fair Evaluation of YOLOv8n E1 vs E3 across 4 Benchmarks.
 
 Evaluates:

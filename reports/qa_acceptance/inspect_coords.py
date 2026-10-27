@@ -1,3 +1,4 @@
+# Mô tả: Kiểm tra và đối chiếu tọa độ khung bao giữa nhãn chuẩn và dự đoán của mô hình trên tập QA.
 import cv2
 import numpy as np
 from PIL import Image

@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Kiểm toán nguồn gốc, cụm pHash và tính toàn vẹn dữ liệu cho `find_all_transitive_clusters`.
 r"""Find All Transitive Clusters and Connected Components Across Splits.
 
 Uses:

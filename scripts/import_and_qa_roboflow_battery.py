@@ -1,3 +1,4 @@
+# Mô tả: Giải nén an toàn (chống Zip-Slip) và kiểm định chất lượng ảnh lớp battery từ nguồn bổ sung.
 """
 scripts/import_and_qa_roboflow_battery.py
 -----------------------------------------

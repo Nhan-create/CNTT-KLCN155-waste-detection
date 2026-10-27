@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Chạy thử nghiệm, tái lập đánh giá hoặc so sánh mô hình cho `run_smoke_test`.
 r"""MobileNetV3-Large 10-Class Smoke Test Pipeline.
 
 Executes a 3-epoch smoke test on Train and Val splits ONLY to verify:

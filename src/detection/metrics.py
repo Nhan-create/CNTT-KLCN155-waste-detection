@@ -1,3 +1,4 @@
+# Mô tả: Tính toán thuần túy toàn bộ các độ đo phân loại đa lớp 10 nhãn: Accuracy, Macro-F1, Weighted-F1, Precision/Recall/F1/Support từng lớp, One-vs-Rest Macro AUC và ma trận nhầm lẫn.
 """Pure ten-class metric calculations."""
 
 from __future__ import annotations

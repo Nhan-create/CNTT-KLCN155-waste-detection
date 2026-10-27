@@ -1,3 +1,4 @@
+# Mô tả: So sánh định lượng kết quả đánh giá giữa các phiên bản pipeline phát hiện.
 """
 scripts/compare_eval_v1_vs_v2.py
 ---------------------------------

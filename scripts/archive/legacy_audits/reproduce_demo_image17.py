@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Chạy thử nghiệm, tái lập đánh giá hoặc so sánh mô hình cho `reproduce_demo_image17`.
 import sys
 from pathlib import Path
 

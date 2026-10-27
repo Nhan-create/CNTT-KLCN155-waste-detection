@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử xác thực cấu trúc tệp dataset.yaml, tính đối xứng ảnh-nhãn và tọa độ khung bao chuẩn YOLO.
 import json
 from pathlib import Path
 

@@ -1,3 +1,4 @@
+# Mô tả: Gói bước gán nhãn split và hiện thực hóa các tệp ảnh đã được chọn (keep_for_Output=True) ra cây thư mục vật lý data/processed/<version>/{train,val,test}/<class_name>/.
 """Materialize deterministic train/validation/test directories."""
 
 from pathlib import Path

@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử cửa sổ chính WasteClassifierWindow trên PyQt5 ở chế độ headless (chọn ảnh, bật/tắt camera, hiển thị lịch sử).
 from __future__ import annotations
 
 from dataclasses import replace

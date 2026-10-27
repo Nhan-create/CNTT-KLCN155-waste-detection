@@ -1,3 +1,4 @@
+# Mô tả: Lắp ráp chuỗi pipeline phát hiện hoàn chỉnh từ DetectionWebSettings (Base Detector ➔ TiledDetector ➔ TwoStageDetector ➔ PerClassThresholdDetector), giải mã ảnh tải lên từ trình duyệt (xử lý EXIF), vẽ khung bao và tạo bảng tổng hợp số lượng rác theo lớp.
 """Decode browser images once and run multi-object detection."""
 
 from __future__ import annotations

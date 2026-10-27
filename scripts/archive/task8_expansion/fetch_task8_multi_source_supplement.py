@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản mở rộng & kiểm định dữ liệu đa lớp (Task 8)] Tìm kiếm, tải về và mở rộng mẫu ảnh thực tế bổ sung cho `fetch_task8_multi_source_supplement`.
 """
 scripts/fetch_task8_multi_source_supplement.py
 ----------------------------------------------

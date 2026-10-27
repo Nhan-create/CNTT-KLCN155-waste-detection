@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử đối chiếu toán học bảng thống kê số lượng ảnh và số lượng khung bao chuẩn xác của bộ dữ liệu.
 import sys
 """
 tests/qa/test_authoritative_dataset_metrics.py

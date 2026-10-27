@@ -1,3 +1,4 @@
+# Mô tả: Vẽ khung bao phát hiện lên ảnh kết quả với 2 chế độ trực quan: *Khung viền nổi bật* (highlight — làm tối nhẹ vùng nền ngoài vật thể) và *Hộp chữ nhật viền nét* (bbox), kèm nhãn tiếng Việt và phần trăm độ tin cậy.
 """Draw Vietnamese class labels and confidence onto detection boxes."""
 
 from __future__ import annotations

@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản xử lý & kiểm định dữ liệu lớp pin (Task 5–7)] Thực thi quy trình kiểm định chất lượng và đóng gói bàn giao cho `package_task5d_fix_delivery`.
 """
 scripts/package_task5d_fix_delivery.py
 --------------------------------------

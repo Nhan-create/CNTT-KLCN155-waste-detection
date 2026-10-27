@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Chạy thử nghiệm, tái lập đánh giá hoặc so sánh mô hình cho `re_evaluate_from_raw_json`.
 import sys
 from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parents[3]

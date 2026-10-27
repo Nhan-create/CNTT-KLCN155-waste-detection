@@ -1,3 +1,4 @@
+# Mô tả: Chạy kiểm thử đột biến cô lập (mutation test) để chứng minh độ nhạy của các cổng kiểm định chất lượng dữ liệu.
 """
 Runs an isolated mutation test:
 1. Copies minimal needed source and test files into an isolated directory.

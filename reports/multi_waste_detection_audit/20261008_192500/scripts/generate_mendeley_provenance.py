@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Mô tả: Truy xuất và kiểm tra nguồn gốc dữ liệu Mendeley trong đợt kiểm toán 20261008_192500.
 """
 scripts/generate_mendeley_provenance.py
 ---------------------------------------

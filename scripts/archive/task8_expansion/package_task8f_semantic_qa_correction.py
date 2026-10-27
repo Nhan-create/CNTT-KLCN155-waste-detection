@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản mở rộng & kiểm định dữ liệu đa lớp (Task 8)] Thực thi quy trình kiểm định chất lượng và đóng gói bàn giao cho `package_task8f_semantic_qa_correction`.
 """Build Task 6 Handover Package (`TASK8F_SEMANTIC_QA_CORRECTION.zip`).
 
 Strictly packages ONLY the delta artifacts requested by the PM:

@@ -1,3 +1,4 @@
+# Mô tả: Thư viện kiểm tra các tiêu chuẩn Quality Gates đối với hình học khung bao, taxonomy 10 lớp và trùng lặp bbox.
 """
 Dataset Quality Gates Validation Library (CNTT-KLCN155 Phase 4B)
 Enforces mathematical, perceptual, and structural integrity rules for Object Detection datasets:

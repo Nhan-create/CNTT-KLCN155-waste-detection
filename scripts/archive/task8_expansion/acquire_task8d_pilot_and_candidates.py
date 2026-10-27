@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản mở rộng & kiểm định dữ liệu đa lớp (Task 8)] Tìm kiếm, tải về và mở rộng mẫu ảnh thực tế bổ sung cho `acquire_task8d_pilot_and_candidates`.
 """
 Task 8D — Step 1: Execute 30-Image Source Yield Pilots (7 Sources) & Download High-Yield Real-Waste Candidate Pool.
 

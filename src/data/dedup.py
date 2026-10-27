@@ -1,3 +1,4 @@
+# Mô tả: Kiểm tra khả năng giải mã từng tệp ảnh, tính mã băm SHA-256 (bắt trùng lặp tuyệt đối) và 64-bit Perceptual Hash (pHash), sau đó gom cụm ảnh gần trùng bằng cấu trúc BK-Tree + Union-Find và cách ly các cụm xung đột nhãn (conflict).
 """Image validation and exact/near duplicate clustering."""
 
 from __future__ import annotations

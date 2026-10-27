@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử các hàm sinh mã HTML/CSS trạng thái và biểu tượng favicon trong suốt cho giao diện Streamlit.
 import pytest
 
 from src.app.style import ICON_FREE_CSS, status_markup, transparent_favicon

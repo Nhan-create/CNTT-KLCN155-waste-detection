@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử hồi quy vòng đời kiểm duyệt manifest ảnh ứng viên và máy trạng thái QA (QA State Lifecycle).
 """Regression test for Candidate Manifest and QA State Lifecycle.
 
 Enforces Sprint AI-UPGRADE-01 rules:

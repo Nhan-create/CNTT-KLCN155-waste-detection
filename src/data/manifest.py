@@ -1,3 +1,4 @@
+# Mô tả: Thực hiện đọc/ghi nguyên tử (ghi vào tệp tạm rồi os.replace) cho tệp split_manifest.csv và tạo mã băm SHA-256 đại diện cho toàn bộ trạng thái manifest.
 """Deterministic manifest persistence and fingerprinting."""
 
 from __future__ import annotations

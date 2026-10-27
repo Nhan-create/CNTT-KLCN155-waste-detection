@@ -1,3 +1,4 @@
+# Mô tả: Tiện ích gỡ lỗi chi tiết các khung bao dự đoán trên ca ảnh kiểm thử số 17 trong tập holdout.
 import cv2
 
 im = cv2.imread("data/holdout/images (17).jpg")

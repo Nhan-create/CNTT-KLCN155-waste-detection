@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản xử lý & kiểm định dữ liệu lớp pin (Task 5–7)] Thực thi quy trình kiểm định chất lượng và đóng gói bàn giao cho `package_task6b_and_task7_delivery`.
 """
 Package Task 6B (E3 Evidence Correction) and Task 7 (Diverse Battery Data Acquisition & Visual QA)
 into a single self-contained ZIP archive in ~/Downloads/.

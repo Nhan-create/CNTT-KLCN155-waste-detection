@@ -1,3 +1,4 @@
+# Mô tả: Cổng an toàn dữ liệu (Dataset Safety Gate): ngăn chặn việc quét thư mục tự do không có manifest, cấm ghi đè lên các bộ dữ liệu baseline đã khóa và bắt buộc mọi ảnh nạp mới phải có bằng chứng Visual QA hợp lệ.
 """
 src/detection/safe_dataset_builder.py
 -------------------------------------

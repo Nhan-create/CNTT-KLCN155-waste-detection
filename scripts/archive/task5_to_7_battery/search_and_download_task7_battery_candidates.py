@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản xử lý & kiểm định dữ liệu lớp pin (Task 5–7)] Tìm kiếm, tải về và mở rộng mẫu ảnh thực tế bổ sung cho `search_and_download_task7_battery_candidates`.
 """
 scripts/search_and_download_task7_battery_candidates.py
 -------------------------------------------------------

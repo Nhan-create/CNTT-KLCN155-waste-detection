@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử vòng lặp huấn luyện SSDLite320-MobileNetV3 v2, nạp dữ liệu YoloBoxDataset và chọn checkpoint theo Validation.
 """Phase-3 SSDLite training data path: EXIF, SSD box augmentation, custom class count, COCO init."""
 
 from __future__ import annotations

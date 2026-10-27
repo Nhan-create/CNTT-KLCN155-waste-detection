@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Kiểm tra chi tiết dữ liệu, khung bao và thuộc tính của `backbone transfer`.
 """Analyze layer correspondence, shape matching, and stride/dilation between
 Torchvision MobileNetV3-Large (Classifier) and SSDLite320-MobileNetV3 (Detector).
 """

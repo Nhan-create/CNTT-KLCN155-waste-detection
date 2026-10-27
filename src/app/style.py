@@ -1,3 +1,4 @@
+# Mô tả: Cung cấp các hàm sinh mã HTML/CSS và favicon trong suốt giúp giao diện Streamlit hiển thị đồng nhất, rõ ràng.
 """Text-only presentation primitives for the Streamlit frontend."""
 
 from __future__ import annotations

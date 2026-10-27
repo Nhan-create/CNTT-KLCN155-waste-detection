@@ -1,3 +1,4 @@
+# Mô tả: CLI điều phối huấn luyện 2 pha cho mô hình phân loại MobileNetV3-Large (python -m src.detection.classifier_train), hỗ trợ tiếp tục huấn luyện (--resume last.pt), dừng sớm (early stopping) và chọn best.pt theo Validation Macro-F1.
 """Two-phase MobileNetV3 training and command-line orchestration."""
 
 from __future__ import annotations

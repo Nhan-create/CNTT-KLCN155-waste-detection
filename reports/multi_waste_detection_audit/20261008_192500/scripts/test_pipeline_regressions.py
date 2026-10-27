@@ -1,3 +1,4 @@
+# Mô tả: Bộ kiểm thử hồi quy và đặc tính hóa (characterization tests) cho pipeline phát hiện đa đối tượng rác thải.
 """
 Regression and Characterization Test Suite for Multi-Waste Detection Pipeline.
 Audit testing suite for CNTT-KLCN155 Waste Detection.

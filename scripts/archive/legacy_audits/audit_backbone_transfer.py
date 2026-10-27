@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Kiểm toán nguồn gốc, cụm pHash và tính toàn vẹn dữ liệu cho `audit_backbone_transfer`.
 """Backbone Transfer Audit and Verification Script.
 
 Analyzes layer correspondence, tensor shapes, and transferability between:

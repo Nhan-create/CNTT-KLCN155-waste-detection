@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử xác minh toán học độc lập cho bộ đánh giá mAP/IoU trên các trường hợp dữ liệu tổng hợp kiểm soát được.
 """Synthetic verification tests proving mathematical consistency of detection metrics."""
 
 import math

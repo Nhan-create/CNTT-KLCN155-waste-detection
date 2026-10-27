@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ lịch sử] Module giải mã và phân loại từng khung hình trên tệp video cho giao diện web cũ (đã lưu trữ).
 """Bounded in-memory analysis of uploaded video files."""
 
 from __future__ import annotations

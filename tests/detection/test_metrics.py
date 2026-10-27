@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử tính toán thuần túy các chỉ số phân loại 10 lớp (Accuracy, Macro-F1, Weighted-F1, Per-class metrics, Macro AUC).
 import numpy as np
 import pytest
 

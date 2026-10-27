@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử khởi tạo phép biến đổi ảnh (transforms) chuẩn ImageNet và PyTorch DataLoader cho bộ dữ liệu ImageFolder.
 from pathlib import Path
 
 import torch

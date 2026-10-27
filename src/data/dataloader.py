@@ -1,3 +1,4 @@
+# Mô tả: Tạo phép biến đổi ảnh chuẩn hóa ImageNet (kèm RandomResizedCrop, ColorJitter cho tập Train) và khởi tạo PyTorch DataLoader từ thư mục ImageFolder.
 """Canonical ImageFolder transforms and DataLoader construction."""
 
 from __future__ import annotations

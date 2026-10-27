@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Kiểm tra chi tiết dữ liệu, khung bao và thuộc tính của `checkpoints detailed`.
 import hashlib
 import json
 import os

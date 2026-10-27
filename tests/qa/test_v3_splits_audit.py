@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử đối chiếu số lượng ảnh trong các tập chia v3 và danh sách ảnh bị loại trừ (exclusions).
 import sys
 """
 tests/qa/test_v3_splits_audit.py

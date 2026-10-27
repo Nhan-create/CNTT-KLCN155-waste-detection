@@ -1,3 +1,4 @@
+# Mô tả: Tạo bản chia tập splits_real_v2 khử trùng lặp pHash và cô lập theo cụm bối cảnh.
 """scripts/build_real_v2_splits.py
 ---------------------------------
 Build the real-only (no Mendeley/synthetic) detection split v2 + class-agnostic Stage-1 labels.

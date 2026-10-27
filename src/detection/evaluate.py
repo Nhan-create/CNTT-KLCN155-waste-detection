@@ -1,3 +1,4 @@
+# Mô tả: CLI đánh giá chất lượng mô hình phát hiện độc lập (python -m src.detection.evaluate): tính toán đầy đủ bộ chỉ số chuẩn COCO mAP@0.50, mAP@0.50:0.95, Precision, Recall, F1 tại ngưỡng vận hành, bảng chỉ số riêng từng lớp (per_class_ap50) và tốc độ suy luận (ms/ảnh).
 """COCO bbox evaluation and fixed-threshold precision/recall for phase 2."""
 
 from __future__ import annotations

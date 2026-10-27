@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Kiểm toán nguồn gốc, cụm pHash và tính toàn vẹn dữ liệu cho `verify_training_dry_run_environment`.
 """
 scripts/verify_training_dry_run_environment.py
 ----------------------------------------------

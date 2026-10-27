@@ -1,3 +1,4 @@
+# Mô tả: Huấn luyện SSDLite320-MobileNetV3 trên tập dữ liệu định dạng YOLO (tự động cộng +1 vào class ID khi nạp target để dành 0 cho Background), đánh giá Validation sau mỗi epoch và lưu best.pt / last.pt.
 """Train SSDLite on reviewed bounding boxes; use validation only for model selection."""
 
 from __future__ import annotations

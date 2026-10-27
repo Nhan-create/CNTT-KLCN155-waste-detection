@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử công cụ tải trọng số từ GitHub Release (scripts/download_models.py), xác minh SHA-256 và chống ghi đè âm thầm.
 from __future__ import annotations
 
 import hashlib

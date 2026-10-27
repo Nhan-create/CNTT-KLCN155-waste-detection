@@ -1,3 +1,4 @@
+# Mô tả: Xây dựng các tập chia train/val/test cho bài toán phát hiện đối tượng.
 """
 build_detection_splits.py
 

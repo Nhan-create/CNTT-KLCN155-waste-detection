@@ -1,3 +1,4 @@
+# Mô tả: Kiểm tra hình học khung bao YOLO (tọa độ 0..1, diện tích tối thiểu, chồng lấp trùng lặp IoU cao cùng lớp).
 """
 scripts/validate_detection_annotations.py
 -----------------------------------------

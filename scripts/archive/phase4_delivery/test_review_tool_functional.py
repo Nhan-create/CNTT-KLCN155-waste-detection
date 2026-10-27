@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản đóng gói & bàn giao Phase 4] Thực thi tác vụ hỗ trợ kiểm toán và xử lý dữ liệu lịch sử trong `test_review_tool_functional`.
 """
 scripts/test_review_tool_functional.py
 --------------------------------------

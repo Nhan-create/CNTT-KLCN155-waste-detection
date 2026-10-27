@@ -1,3 +1,4 @@
+# Mô tả: Chuẩn bị và kiểm tra cấu trúc bộ dữ liệu phát hiện YOLO từ nguồn ảnh và nhãn đã quy hoạch.
 """
 scripts/prepare_detection_dataset.py
 ------------------------------------

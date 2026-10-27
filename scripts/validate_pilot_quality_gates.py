@@ -1,3 +1,4 @@
+# Mô tả: Kiểm tra chất lượng các lô ảnh thử nghiệm (pilot batches) trước khi hợp nhất vào tập huấn luyện.
 """
 scripts/validate_pilot_quality_gates.py
 ---------------------------------------

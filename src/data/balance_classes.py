@@ -1,3 +1,4 @@
+# Mô tả: Tính toán trọng số nghịch đảo tần suất lớp (N / (K * n_c)) từ tập Train và lưu vào tệp JSON để dùng trong hàm mất mát CrossEntropyLoss mà không cần nhân bản ảnh trên đĩa.
 """Compute class weights without creating duplicate image files."""
 
 from __future__ import annotations

@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử lắp ráp chuỗi pipeline phát hiện trên ứng dụng (Base Detector, Tiling, Two-Stage, Per-Class Threshold).
 """Per-class thresholds, opt-in pipeline flags and pipeline wiring."""
 
 from __future__ import annotations

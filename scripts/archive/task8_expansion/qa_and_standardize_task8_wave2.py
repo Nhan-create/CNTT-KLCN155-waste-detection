@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản mở rộng & kiểm định dữ liệu đa lớp (Task 8)] Gán nhãn khung bao, rà soát chất lượng điểm ảnh (Visual QA) và chuẩn bị dữ liệu cho `qa_and_standardize_task8_wave2`.
 """
 Task 8 Part B (B3 & B4) — Batch QA, Taxonomy Verification, Domain Tagging, Deduplication,
 YOLO Labels, Overlays, and Contact Sheets for Wave 2 (`task8_wave2_large_batch`).

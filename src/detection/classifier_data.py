@@ -1,3 +1,4 @@
+# Mô tả: Xây dựng ImageFolder Dataset và PyTorch DataLoader cho quá trình huấn luyện MobileNetV3-Large, đồng thời kiểm tra nghiêm ngặt thứ tự thư mục lớp phải khớp tuyệt đối với CLASS_NAMES.
 """Validated ImageFolder datasets and training DataLoaders."""
 
 from __future__ import annotations

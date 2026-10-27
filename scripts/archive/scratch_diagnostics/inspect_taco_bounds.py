@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Tiện ích chẩn đoán cục bộ] Kiểm tra chi tiết dữ liệu, khung bao và thuộc tính của `taco bounds`.
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
 from pathlib import Path

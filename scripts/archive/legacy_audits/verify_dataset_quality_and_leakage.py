@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Kiểm toán nguồn gốc, cụm pHash và tính toàn vẹn dữ liệu cho `verify_dataset_quality_and_leakage`.
 """
 scripts/verify_dataset_quality_and_leakage.py
 ---------------------------------------------

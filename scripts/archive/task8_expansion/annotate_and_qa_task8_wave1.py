@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản mở rộng & kiểm định dữ liệu đa lớp (Task 8)] Gán nhãn khung bao, rà soát chất lượng điểm ảnh (Visual QA) và chuẩn bị dữ liệu cho `annotate_and_qa_task8_wave1`.
 """
 scripts/annotate_and_qa_task8_wave1.py
 --------------------------------------

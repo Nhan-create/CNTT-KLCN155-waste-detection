@@ -1,3 +1,4 @@
+# Mô tả: Định nghĩa kiến trúc MobileNetV3-Large 10 lớp duy nhất trong toàn dự án (thay thế lớp Linear cuối cùng bằng num_classes=10), được dùng chung cho huấn luyện phân loại Giai đoạn 1, khởi tạo backbone SSDLite320 và bộ thẩm định Two-Stage.
 """The single MobileNetV3 architecture definition used by all consumers."""
 
 from torch import nn

@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Thực thi tác vụ hỗ trợ kiểm toán và xử lý dữ liệu lịch sử trong `build_comprehensive_visual_audit`.
 r"""Build Comprehensive Visual Audit Decision Table and Plates.
 
 Audits:

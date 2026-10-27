@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản xử lý & kiểm định dữ liệu lớp pin (Task 5–7)] Sinh báo cáo, bảng tổng hợp hoặc ảnh đối chiếu trực quan (contact sheets/overlays) cho `updated overlays and sheets`.
 """
 Generate updated visual overlays and contact sheets for Mini-Batch 01.
 Includes exact bounding boxes, status banners, watermarks for quarantined/pending images,

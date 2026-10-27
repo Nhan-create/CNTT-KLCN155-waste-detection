@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử tính tương thích hoàn toàn của bộ dữ liệu v3 đối với cấu trúc nạp dữ liệu Ultralytics YOLOv8.
 import pytest
 import sys
 from pathlib import Path

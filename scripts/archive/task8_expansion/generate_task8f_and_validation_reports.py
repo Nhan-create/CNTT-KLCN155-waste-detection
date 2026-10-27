@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản mở rộng & kiểm định dữ liệu đa lớp (Task 8)] Sinh báo cáo, bảng tổng hợp hoặc ảnh đối chiếu trực quan (contact sheets/overlays) cho `task8f and validation reports`.
 """Generate:
 1. `reports/task8_dataset_program/TASK8F_SEMANTIC_QA_CORRECTION_REPORT.md` (Tasks 1–5 + NEEDS_REVIEW queue)
 2. `reports/task8_dataset_program/TASK8F_SCARCE_CLASS_EXPANSION_REPORT.{md,json}` (synchronized with post-correction manifest)

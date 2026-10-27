@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử tính hợp lệ của tệp cấu hình huấn luyện configs/model_config.yaml cho MobileNetV3-Large.
 from pathlib import Path
 
 import yaml

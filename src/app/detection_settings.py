@@ -1,3 +1,4 @@
+# Mô tả: Quản lý toàn bộ cấu hình thời gian chạy cho giao diện phát hiện đa đối tượng: tự động chọn checkpoint mặc định theo thứ tự ưu tiên (E4 v4_expanded ➔ E2/E1 Release v1.0.0-models), nạp bảng ngưỡng hiệu chuẩn riêng từng lớp (detection_thresholds_calibrated.json) và đọc biến môi trường/CLI.
 """Runtime settings for the multi-object detection frontend."""
 
 from __future__ import annotations

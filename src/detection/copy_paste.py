@@ -1,3 +1,4 @@
+# Mô tả: Kỹ thuật tăng cường dữ liệu Copy-Paste cấp đối tượng: trích xuất các mẫu vật thể sạch thuộc lớp hiếm (battery, glass, metal...) vào ngân hàng mẫu (DonorBank) và ghép ngẫu nhiên không chồng lấp lên ảnh huấn luyện.
 """Copy-Paste Data Augmentation Module for Waste Detection (Phase 2).
 
 Implements Simple Copy-Paste (Ghiasi et al., 2021) [5] using verified instance

@@ -1,3 +1,4 @@
+# Mô tả: Tiện ích giải mã và kiểm tra nhanh chuỗi ảnh mã hóa Base64 phục vụ gỡ lỗi giao diện QA.
 import cv2
 
 im = cv2.imread("data/holdout/base64-1717231151649602366964.jpeg")

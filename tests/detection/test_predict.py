@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử lớp WastePredictor dự đoán phân loại ảnh đơn lẻ và theo lô tensor, trả về Top-1, Top-K và cờ low_confidence.
 import re
 from pathlib import Path
 

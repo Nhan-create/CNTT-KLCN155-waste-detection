@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản đóng gói & bàn giao Phase 4] Tìm kiếm, tải về và mở rộng mẫu ảnh thực tế bổ sung cho `search_candidates`.
 """Search candidate waste images from Wikimedia Commons for 20 challenging categories."""
 
 import json

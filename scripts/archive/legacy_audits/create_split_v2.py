@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Thực thi tác vụ hỗ trợ kiểm toán và xử lý dữ liệu lịch sử trong `create_split_v2`.
 """Deterministic Group-Stratified Split Generation (Split V2).
 
 Solves data leakage by:

@@ -1,3 +1,4 @@
+# Mô tả: Khử khung bao trùng lặp và rà soát tính chính xác ngữ nghĩa 10 lớp cho dữ liệu mở rộng Task 8F.
 """Execute TASK 8F QUALITY CORRECTION — SEMANTIC LABEL & REAL-WASTE GATE (Tasks 1–6).
 
 Reads the pre-correction snapshot:

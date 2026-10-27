@@ -1,3 +1,4 @@
+# Mô tả: Tự động dò tìm bộ siêu tham số suy luận tối ưu (ngưỡng confidence, ngưỡng IoU, trọng số WBF) chỉ sử dụng tập Validation (tuyệt đối không chạm tập Test) và ghi ra tệp JSON cấu hình đã chọn.
 """Select detector/WBF inference settings using validation images only."""
 
 from __future__ import annotations

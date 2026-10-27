@@ -1,3 +1,4 @@
+# Mô tả: Tạo bảng kiểm kê chi tiết toàn bộ các tệp nhãn YOLO kèm mã băm SHA-256 và số lượng khung bao theo từng lớp.
 """
 Generates an authoritative, itemized inventory of all 1,562 YOLO annotation files in data/detection/labels.
 Includes:

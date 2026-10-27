@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử giữ nguyên độ phân giải suy luận gốc từ checkpoint YOLOv8n (imgsz=640) trừ khi truyền kích thước tường minh.
 """Inference image size must default to the checkpoint's training imgsz (QA anomaly follow-up)."""
 
 from pathlib import Path

@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử vẽ khung bao phát hiện (Highlight Box / Bounding Box), nhãn tiếng Việt 10 lớp và xử lý hướng ảnh EXIF.
 import io
 import pytest
 from PIL import Image

@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản mở rộng & kiểm định dữ liệu đa lớp (Task 8)] Sinh báo cáo, bảng tổng hợp hoặc ảnh đối chiếu trực quan (contact sheets/overlays) cho `task8h reports and zip`.
 r"""Task 8H — Scarce-Class Dataset Scaling: Ledger V5 Update, Field Collection Plan, Report & Handover ZIP.
 
 Updates & Generates:

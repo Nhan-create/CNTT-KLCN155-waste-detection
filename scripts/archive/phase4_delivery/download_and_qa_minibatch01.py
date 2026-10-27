@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản đóng gói & bàn giao Phase 4] Tìm kiếm, tải về và mở rộng mẫu ảnh thực tế bổ sung cho `download_and_qa_minibatch01`.
 """
 Script to download and verify Mini-Batch 01 (10 Wikimedia images).
 Enforces:

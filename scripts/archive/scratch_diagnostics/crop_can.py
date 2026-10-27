@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Tiện ích chẩn đoán cục bộ] Đo đạc tọa độ điểm ảnh và cắt vùng mẫu kiểm tra cho kịch bản `crop_can`.
 """
 Zoom in on bottom right of utility cabinet in wiki_neg_utility_box_leeds.jpg
 """

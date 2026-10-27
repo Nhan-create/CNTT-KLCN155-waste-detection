@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Thực thi tác vụ hỗ trợ kiểm toán và xử lý dữ liệu lịch sử trong `detailed_visual_analysis`.
 """Analyze the 18 candidate pairs in detail to determine:
 1. Exact visual characteristics of each image.
 2. Background color, foreground shape, color differences.

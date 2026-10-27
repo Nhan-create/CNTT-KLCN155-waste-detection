@@ -1,3 +1,4 @@
+# Mô tả: CLI điều phối huấn luyện trung tâm cho Giai đoạn 2 (python -m src.detection.train): hỗ trợ cả --model ssdlite320_mobilenetv3 và --model yolov8n, tự động tạo bản sao dataset.yaml đã gỡ bỏ đường dẫn tập Test để đảm bảo quá trình huấn luyện không bao giờ đọc tập Test.
 """Train phase-2 SSDLite/YOLOv8n on reviewed train/val data; never run test here."""
 
 from __future__ import annotations

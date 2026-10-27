@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử logic chuyển đổi kết quả dự đoán phân loại sang mô hình hiển thị PredictionView và giải mã ảnh tải lên.
 from src.detection.predict import Prediction, ScoredClass
 from src.app.app_logic import prediction_view
 

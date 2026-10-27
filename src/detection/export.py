@@ -1,3 +1,4 @@
+# Mô tả: CLI xuất checkpoint mô hình phát hiện đã huấn luyện sang định dạng mở ONNX (hoặc TorchScript) sau khi kiểm tra hợp lệ siêu dữ liệu 10 lớp.
 """Export a trained YOLO detector for mobile or accelerated inference."""
 
 from __future__ import annotations

@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Kiểm toán nguồn gốc, cụm pHash và tính toàn vẹn dữ liệu cho `scan_all_phash_candidates`.
 """Scan all pairwise pHash distances <= 4 across ALL clean images in Split V2.
 
 Does not restrict to same class.

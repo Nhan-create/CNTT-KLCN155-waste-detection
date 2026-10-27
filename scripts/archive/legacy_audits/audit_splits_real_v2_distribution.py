@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Kiểm toán nguồn gốc, cụm pHash và tính toàn vẹn dữ liệu cho `audit_splits_real_v2_distribution`.
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
 from pathlib import Path

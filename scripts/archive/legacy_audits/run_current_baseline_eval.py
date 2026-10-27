@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Chạy thử nghiệm, tái lập đánh giá hoặc so sánh mô hình cho `run_current_baseline_eval`.
 """
 Execute rigorous, end-to-end baseline evaluation on data/holdout (27 images, 57 GT objects)
 for both SSDLite320-MobileNetV3 and YOLOv8n.

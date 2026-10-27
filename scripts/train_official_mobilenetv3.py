@@ -1,3 +1,4 @@
+# Mô tả: Script chạy huấn luyện chính thức mô hình phân loại MobileNetV3-Large trên Split V2 (artifacts/official_run/best_model.pt).
 r"""Official MobileNetV3-Large Waste Classification Training (P1.6).
 
 Standard, reproducible two-phase fine-tuning on clean Split V2 (Train + Val):

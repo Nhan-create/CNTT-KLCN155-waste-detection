@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử tính nhất quán số liệu, SHA-256 và phân bố 10 lớp giữa các manifest và báo cáo thuộc chuỗi Task 8.
 """
 Repeatable Consistency & Quality Gate Verification Tests for Task 8C:
 - Verifies Wave 1 manifest (`task8_wave1_qa_manifest.json`), `.txt` label files, and `WAVE1_QA_CORRECTION_REPORT.md`

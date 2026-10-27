@@ -1,3 +1,4 @@
+# Mô tả: Tổng hợp số liệu thực nghiệm đã xác minh và xuất báo cáo kiểm toán kỹ thuật tự động.
 import csv
 import json
 import xml.etree.ElementTree as ET

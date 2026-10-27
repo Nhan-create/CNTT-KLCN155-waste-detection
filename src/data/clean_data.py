@@ -1,3 +1,4 @@
+# Mô tả: Điều phối bước làm sạch trên manifest thô và xuất các báo cáo CSV xác định (exact_duplicates.csv, near_duplicates.csv, label_conflicts.csv, corrupt_files.csv).
 """Audit a raw manifest and write deterministic duplicate reports."""
 
 from __future__ import annotations

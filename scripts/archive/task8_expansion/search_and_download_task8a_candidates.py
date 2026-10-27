@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản mở rộng & kiểm định dữ liệu đa lớp (Task 8)] Tìm kiếm, tải về và mở rộng mẫu ảnh thực tế bổ sung cho `search_and_download_task8a_candidates`.
 """
 scripts/search_and_download_task8a_candidates.py
 ------------------------------------------------

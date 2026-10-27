@@ -1,3 +1,4 @@
+# Mô tả: Lưu trữ và truy vấn lịch sử các lần phân loại ảnh tĩnh của người dùng bằng cơ sở dữ liệu nhẹ SQLite (outputs/history.sqlite3).
 """SQLite persistence for explicit static-image predictions only."""
 
 from __future__ import annotations

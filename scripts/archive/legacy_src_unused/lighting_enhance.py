@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ lịch sử] Module thử nghiệm cân bằng sáng CLAHE/Gamma cho tiền xử lý ảnh (không dùng trong pipeline chính thức).
 import cv2
 import numpy as np
 from PIL import Image

@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản mở rộng & kiểm định dữ liệu đa lớp (Task 8)] Thực thi quy trình kiểm định chất lượng và đóng gói bàn giao cho `package_task8e_patch_and_task8f_handover`.
 """Package TASK 8E FINAL QA PATCH + TASK 8F SCARCE-CLASS EXPANSION handover into 2 balanced ZIP files (each ~335 MB < 500 MB) in ~/Downloads."""
 from __future__ import annotations
 

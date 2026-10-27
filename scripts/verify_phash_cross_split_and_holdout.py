@@ -1,3 +1,4 @@
+# Mô tả: Kiểm tra khoảng cách pHash giữa tập huấn luyện mở rộng và tập đối chứng độc lập DEV-27 (data/holdout).
 """
 scripts/verify_phash_cross_split_and_holdout.py
 -----------------------------------------------

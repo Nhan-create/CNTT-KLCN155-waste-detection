@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản mở rộng & kiểm định dữ liệu đa lớp (Task 8)] Sinh báo cáo, bảng tổng hợp hoặc ảnh đối chiếu trực quan (contact sheets/overlays) cho `task8d handover`.
 """
 Task 8D — Handover Report, Task 8C Representative PM Review Pack, and Delivery ZIP (<500 MB) Generator (`generate_task8d_handover.py`).
 

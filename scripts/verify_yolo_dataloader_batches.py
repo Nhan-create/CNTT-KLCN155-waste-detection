@@ -1,3 +1,4 @@
+# Mô tả: Kiểm tra trực tiếp các batch tensor sinh ra từ DataLoader phát hiện để đảm bảo không lỗi nhãn/tọa độ.
 """
 scripts/verify_yolo_dataloader_batches.py
 -----------------------------------------

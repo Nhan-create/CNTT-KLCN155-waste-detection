@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử suy luận cắt ô cửa sổ trượt (TiledDetector), tính lưới ô cắt thích ứng và khử khung bao cụt ở mép ô.
 """Tiled (SAHI-style) inference: tile geometry, coordinate round-trips and merging.
 
 Uses a real pixel-scanning fake detector (finds solid-colour rectangles in

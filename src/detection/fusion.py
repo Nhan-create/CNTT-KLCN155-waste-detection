@@ -1,3 +1,4 @@
+# Mô tả: Tầng 4 (Hợp nhất dự đoán): Cài đặt thuật toán Weighted Boxes Fusion (WBF) theo từng lớp (class-wise) để kết hợp khung bao từ SSDLite320 và YOLOv8n, kèm lọc khung bao lồng nhau (containment suppression).
 """Class-wise WBF using the reference implementation by Solovyev et al."""
 
 from __future__ import annotations

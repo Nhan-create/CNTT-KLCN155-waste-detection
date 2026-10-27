@@ -1,3 +1,4 @@
+# Mô tả: Cung cấp 4 mức tăng cường dữ liệu dựa trên Albumentations (none, light, medium, full) cho bài toán phát hiện đa đối tượng, kèm bộ lọc loại bỏ các khung bao bị biến dạng hoặc suy biến sau biến đổi hình học.
 """Data Augmentation module for 10-Class Waste Detection (Phase 2).
 
 Implements 4 formal ablation strategies using Albumentations & Simple Copy-Paste:

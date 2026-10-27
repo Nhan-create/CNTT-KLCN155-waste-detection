@@ -1,3 +1,4 @@
+# Mô tả: Tính toán bộ chỉ số nghiệm thu thực tế (AP, Precision, Recall theo ngưỡng IoU) trên tập đối chứng data/holdout.
 """Practical acceptance metrics for the data/holdout holdout (CNTT-KLCN155).
 
 The strict DoD in ``acceptance_evaluator.py`` (FN=0, FP=0, wrong-class=0,

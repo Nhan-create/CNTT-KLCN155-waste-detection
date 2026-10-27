@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản xử lý & kiểm định dữ liệu lớp pin (Task 5–7)] Thực thi tác vụ hỗ trợ kiểm toán và xử lý dữ liệu lịch sử trong `analyze_battery_variants_and_sessions`.
 """
 scripts/analyze_battery_variants_and_sessions.py
 ------------------------------------------------

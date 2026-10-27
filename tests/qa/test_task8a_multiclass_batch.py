@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử định mức số lượng mẫu, bản quyền nguồn gốc và độ phủ 10 lớp của lô mở rộng dữ liệu đa lớp Task 8A.
 """
 tests/qa/test_task8a_multiclass_batch.py
 ----------------------------------------

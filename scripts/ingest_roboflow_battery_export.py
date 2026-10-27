@@ -1,3 +1,4 @@
+# Mô tả: Chuẩn hóa khung bao và nạp dữ liệu lớp battery đã qua kiểm định vào kho dữ liệu.
 """
 scripts/ingest_roboflow_battery_export.py
 -----------------------------------------

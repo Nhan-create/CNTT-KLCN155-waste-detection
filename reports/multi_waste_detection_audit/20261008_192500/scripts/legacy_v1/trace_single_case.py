@@ -1,3 +1,4 @@
+# Mô tả: Trích xuất dữ liệu truy vết chi tiết cho một ca ảnh kiểm thử đơn lẻ trong đợt kiểm toán v1.
 """
 Script trích xuất trace chi tiết cho case ảnh báo lỗi rac-1562828175-1562828212-3852-1562828313.webp.
 Sử dụng chính xác factory và visualization của repo (như web app).

@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử nạp cấu hình runtime Streamlit, chọn checkpoint mặc định (SSDLite320/YOLOv8n) và ngưỡng nhạy từng lớp.
 from pathlib import Path
 
 import pytest

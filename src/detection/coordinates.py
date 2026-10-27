@@ -1,3 +1,4 @@
+# Mô tả: Xử lý toàn bộ hình học tọa độ: xoay ảnh đúng chiều EXIF trước khi suy luận, đệm ảnh giữ tỉ lệ (letterbox_image), chiếu ngược tọa độ dự đoán về kích thước ảnh gốc và cắt khung bao tràn biên.
 """Coordinate conversions, EXIF orientation handling, letterboxing, and box clipping."""
 
 from __future__ import annotations

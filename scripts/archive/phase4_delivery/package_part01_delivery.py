@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản đóng gói & bàn giao Phase 4] Đóng gói hồ sơ minh chứng, manifest và tệp nén bàn giao cho `package_part01_delivery`.
 r"""Package Part 1 Verified Deliverables (P1-R2 Hardened Gates).
 
 Creates:

@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử bản sửa lỗi gán nhãn lại lô 20 ảnh pin (Mini-Pilot 20) và chặn rò rỉ biến thể tăng cường qua các phiên.
 """
 tests/qa/test_task5d_fix_reannotation_and_qa.py
 -----------------------------------------------

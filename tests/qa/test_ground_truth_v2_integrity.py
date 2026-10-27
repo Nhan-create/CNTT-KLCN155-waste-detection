@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử tính toàn vẹn của bộ nhãn chuẩn Ground Truth v1/v2 và quy ước tệp nhãn rỗng cho ảnh âm tính khó (hard negatives).
 import json
 import pytest
 from pathlib import Path

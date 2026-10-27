@@ -1,3 +1,4 @@
+# Mô tả: Điểm vào chính của ứng dụng Web Streamlit gồm 2 Tab: Tab 1 (Phân loại rác đơn vật thể bằng MobileNetV3-Large) và Tab 2 (Phát hiện đa vật thể bằng SSDLite320 / YOLOv8n / WBF, thống kê số lượng từng loại rác và xuất gói .zip).
 """Phase-2 Streamlit frontend: six/ten-class waste detection & high-precision classification."""
 
 from __future__ import annotations

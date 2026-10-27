@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản đóng gói & bàn giao Phase 4] Gán nhãn khung bao, rà soát chất lượng điểm ảnh (Visual QA) và chuẩn bị dữ liệu cho `prepare_acquisition_pilot`.
 """
 scripts/prepare_acquisition_pilot.py
 ------------------------------------

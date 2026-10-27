@@ -1,3 +1,4 @@
+# Mô tả: Các lớp worker chạy trên luồng nền (QThread / QObject) của PyQt5 để đọc khung hình OpenCV và chạy suy luận mô hình mà không làm đơ giao diện chính.
 """Qt workers that keep model inference and camera I/O off the UI thread."""
 
 from __future__ import annotations

@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Chạy thử nghiệm, tái lập đánh giá hoặc so sánh mô hình cho `reproduce_box_count_discrepancy`.
 import sys
 from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parents[3]

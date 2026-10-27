@@ -1,3 +1,4 @@
+# Mô tả: Tiện ích kiểm tra hiển thị nhãn tiếng Việt có dấu trên ảnh kết quả kiểm định QA.
 import cv2
 
 im = cv2.imread("data/holdout/Phan-Loai-Rac-Tai-Ng-01.jpg")

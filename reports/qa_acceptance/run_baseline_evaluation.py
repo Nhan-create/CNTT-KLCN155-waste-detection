@@ -1,3 +1,4 @@
+# Mô tả: Chạy đánh giá đối chứng cơ sở (baseline evaluation) trên tập data/holdout cho cả SSDLite320 và YOLOv8n.
 """
 Run Authoritative Baseline Evaluation on data/holdout for both SSDLite320 and YOLOv8n.
 Computes 1-to-1 matching with Ground Truth, per-object metrics, and DoD compliance verification.

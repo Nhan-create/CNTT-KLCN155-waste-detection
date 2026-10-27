@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản mở rộng & kiểm định dữ liệu đa lớp (Task 8)] Gán nhãn khung bao, rà soát chất lượng điểm ảnh (Visual QA) và chuẩn bị dữ liệu cho `qa_and_annotate_task8e_batch`.
 """Task 8E — Final QA Patch & Regression Audit (`qa_and_annotate_task8e_batch.py`).
 
 Processes all 1,246 Wave 8E candidates (`data/acquisition_staging/task8e_scale_real_waste/task8e_raw_candidates_manifest.json`)

@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Tiện ích chẩn đoán cục bộ] Kiểm tra chi tiết dữ liệu, khung bao và thuộc tính của `street food remains`.
 """
 scripts/inspect_street_food_remains.py
 Examine the exact objects in wiki_bio_street_food_remains.jpg

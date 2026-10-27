@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Tiện ích chẩn đoán cục bộ] Đo đạc tọa độ điểm ảnh và cắt vùng mẫu kiểm tra cho kịch bản `locate_banana_peel_exact`.
 """
 scripts/locate_banana_peel_exact.py
 Find exact pixel boundaries of the banana peel in wiki_bio_banana_peel_ground.jpg

@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử an toàn nạp dữ liệu Phase 4E: xác thực định dạng 5 trường của nhãn YOLO, chỉ số lớp và tọa độ chuẩn hóa.
 """
 tests/qa/test_phase4e_intake_safety.py
 --------------------------------------

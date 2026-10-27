@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử các hàm kiểm tra cổng chất lượng dữ liệu v3 (hình học khung bao, taxonomy 10 lớp, IoU trùng lặp).
 import pytest
 import sys
 import math

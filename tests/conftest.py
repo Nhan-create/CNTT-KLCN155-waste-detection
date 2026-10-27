@@ -1,3 +1,4 @@
+# Mô tả: Cấu hình dùng chung của pytest (fixtures, thiết lập môi trường kiểm thử tự động cho toàn bộ dự án).
 """
 tests/conftest.py
 -----------------

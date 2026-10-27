@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản mở rộng & kiểm định dữ liệu đa lớp (Task 8)] Tìm kiếm, tải về và mở rộng mẫu ảnh thực tế bổ sung cho `acquire_and_qa_task8g_large_scale`.
 """Task 8G — Large-Scale Real-Waste Data Expansion (`acquire_and_qa_task8g_large_scale.py`).
 
 Executes a checkpointed, large-scale acquisition & visual QA wave (`~1,150–1,300` new unique deduplicated candidates)

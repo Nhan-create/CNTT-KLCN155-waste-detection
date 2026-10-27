@@ -1,3 +1,4 @@
+# Mô tả: Xây dựng và chuẩn hóa tệp dữ liệu nhãn chuẩn Ground Truth cho tập ảnh kiểm định QA (data/holdout).
 import json
 import os
 from pathlib import Path

@@ -1,3 +1,4 @@
+# Mô tả: Định nghĩa nguồn sự thật cho 10 lớp rác chuẩn (CLASS_NAMES), cấu trúc bản ghi ManifestRecord (18 trường) và hàm đọc/kiểm tra bảng ánh xạ nhãn data/metadata/label_mapping.csv.
 """Canonical labels and manifest schema for the ten-class dataset."""
 
 from __future__ import annotations

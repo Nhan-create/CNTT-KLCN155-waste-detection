@@ -1,3 +1,4 @@
+# Mô tả: Tập hợp các hàm dùng chung đảm bảo tính tái lập khoa học giữa hai nhánh SSDLite320 và YOLOv8n: cố định seed ngẫu nhiên, băm SHA-256 toàn bộ danh sách ảnh/nhãn (dataset_fingerprint) và ghi tệp JSON metadata của lần chạy.
 """Dataset provenance and reproducibility shared by both phase-2 detectors."""
 
 from __future__ import annotations

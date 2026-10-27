@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Thực thi tác vụ hỗ trợ kiểm toán và xử lý dữ liệu lịch sử trong `build_full_qa_manifests`.
 """Build comprehensive QA evaluation manifest, approved/rejected manifests, and replacement candidate list.
 
 Destination: data/holdout/demo_multiobject_100_20261012/manifests/

@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Chạy thử nghiệm, tái lập đánh giá hoặc so sánh mô hình cho `run_smoke_test_v2`.
 r"""MobileNetV3-Large Smoke Test on Verified Leak-Free Split V2.
 
 Verifies:

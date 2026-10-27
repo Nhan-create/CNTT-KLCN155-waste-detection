@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử trình điều phối huấn luyện phát hiện (src/detection/train.py) và cơ chế chặn tuyệt đối tập Test khi huấn luyện.
 from types import SimpleNamespace
 
 from src.detection.train import _best_f1_confidence, _serialize_test_metrics

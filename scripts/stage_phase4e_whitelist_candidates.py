@@ -1,3 +1,4 @@
+# Mô tả: Đưa các ảnh ứng viên nằm trong danh sách trắng (whitelist) đã duyệt Visual QA vào khu vực staging.
 """
 scripts/stage_phase4e_whitelist_candidates.py
 ---------------------------------------------

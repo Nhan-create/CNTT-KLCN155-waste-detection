@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử tính nhất quán của báo cáo hiệu chỉnh Task 6B và kiểm định chống rò rỉ cho lô ảnh ứng viên pin đa dạng ở Task 7.
 """
 Automated QA & Consistency Tests for AI-UPGRADE-01:
 - Part A: Task 6B E3 Evidence Correction (Holdout metrics, V3 per-class table, training_log reconciliation, Recall by threshold)

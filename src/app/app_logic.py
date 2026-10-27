@@ -1,3 +1,4 @@
+# Mô tả: Giải mã byte ảnh tải lên và chuyển đổi đối tượng Prediction thô thành PredictionView đã gắn nhãn hiển thị tiếng Việt, sẵn sàng để hiển thị lên giao diện mà không phụ thuộc vào thư viện UI.
 """Framework-independent helpers for Streamlit media rendering."""
 
 from __future__ import annotations

@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử giao diện dòng lệnh CLI của công cụ kiểm định bộ dữ liệu (python -m src.data.validation).
 import subprocess
 import sys
 from pathlib import Path

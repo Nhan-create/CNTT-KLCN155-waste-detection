@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản mở rộng & kiểm định dữ liệu đa lớp (Task 8)] Tìm kiếm, tải về và mở rộng mẫu ảnh thực tế bổ sung cho `acquire_scarce_classes_8e`.
 """Acquire ~180 high-yield real-waste candidates for scarce classes (0: battery, 1: biological, 3: clothes, 4: glass, 8: shoes, 2: cardboard, 5: metal, 6: paper)
 from explicit waste/decay/litter Wikimedia Commons subcategories & intitle searches + strict waste-title Open Images V7 train/validation records.
 Appends to `task8e_raw_candidates_manifest.json` (~1,066 -> ~1,240 candidates, well within 1,000-1,500).

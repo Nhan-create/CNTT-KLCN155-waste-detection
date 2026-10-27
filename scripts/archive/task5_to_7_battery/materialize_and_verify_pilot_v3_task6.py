@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản xử lý & kiểm định dữ liệu lớp pin (Task 5–7)] Gán nhãn khung bao, rà soát chất lượng điểm ảnh (Visual QA) và chuẩn bị dữ liệu cho `materialize_and_verify_pilot_v3_task6`.
 """
 scripts/materialize_and_verify_pilot_v3_task6.py
 ------------------------------------------------

@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản xử lý & kiểm định dữ liệu lớp pin (Task 5–7)] Thực thi quy trình kiểm định chất lượng và đóng gói bàn giao cho `package_task7_final_qa_patch`.
 """
 Generate TASK7_FINAL_QA_PATCH_REPORT.md and package TASK7_FINAL_QA_PATCH.zip
 for PM final sign-off of the 2 patched images (task7_30 and task7_53).

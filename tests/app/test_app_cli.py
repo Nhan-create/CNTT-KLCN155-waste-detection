@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử giao diện dòng lệnh (CLI) và tham số khởi chạy của ứng dụng Desktop PyQt5 (app.py).
 import subprocess
 import sys
 from pathlib import Path

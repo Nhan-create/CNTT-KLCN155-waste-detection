@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Tìm kiếm, tải về và mở rộng mẫu ảnh thực tế bổ sung cho `download_and_scan_test_images`.
 """Download, scan for security/malware, sanitize, and save 20 challenging waste images to data/holdout."""
 
 from __future__ import annotations

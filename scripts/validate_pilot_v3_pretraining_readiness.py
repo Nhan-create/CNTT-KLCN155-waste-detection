@@ -1,3 +1,4 @@
+# Mô tả: Kiểm tra tính sẵn sàng toàn diện trước khi chạy huấn luyện thử nghiệm Pilot v3.
 """
 scripts/validate_pilot_v3_pretraining_readiness.py
 --------------------------------------------------

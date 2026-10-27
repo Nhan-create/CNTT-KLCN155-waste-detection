@@ -1,3 +1,4 @@
+# Mô tả: Kiểm toán các tệp chia tập v3 và danh sách các ảnh bị loại trừ (quarantine/exclusions).
 """
 scripts/audit_v3_splits_and_exclusions.py
 -----------------------------------------

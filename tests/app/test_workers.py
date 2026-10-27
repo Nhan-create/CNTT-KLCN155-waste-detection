@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử các luồng nền QThread (ImageInferenceWorker, CameraInferenceWorker) xử lý ảnh và camera tách biệt khỏi UI thread.
 from __future__ import annotations
 
 from pathlib import Path

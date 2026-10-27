@@ -1,3 +1,4 @@
+# Mô tả: Tái lập độc lập kết quả đánh giá trên tập Validation của MobileNetV3-Large (xác minh SHA-256 checkpoint và manifest).
 r"""Deterministic Independent Validation Reproduction Script for MobileNetV3.
 
 Verifies checkpoint predictions against the clean Validation split (Split V2):

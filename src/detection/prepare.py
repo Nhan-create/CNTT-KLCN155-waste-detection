@@ -1,3 +1,4 @@
+# Mô tả: CLI xuất các ảnh và khung bao đã được kiểm duyệt (reviewed=True) thành bộ dữ liệu định dạng YOLO chia sẵn 70/15/15 theo cụm bối cảnh chụp (scene_id) để chống rò rỉ nền cảnh giữa các tập.
 """Export reviewed boxes into a fixed-seed, scene-isolated 70/15/15 dataset."""
 
 from __future__ import annotations

@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản xử lý & kiểm định dữ liệu lớp pin (Task 5–7)] Thực thi quy trình kiểm định chất lượng và đóng gói bàn giao cho `package_task6_delivery`.
 """Package all Task 6 deliverables into ~/Downloads/CNTT_KLCN155_Task6_E3_Training_Delivery.zip."""
 
 from __future__ import annotations

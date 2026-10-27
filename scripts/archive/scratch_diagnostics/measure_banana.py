@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Tiện ích chẩn đoán cục bộ] Đo đạc tọa độ điểm ảnh và cắt vùng mẫu kiểm tra cho kịch bản `measure_banana`.
 """
 Measure exact bounding box of the banana peel on scratch_banana_crop2.jpg
 """

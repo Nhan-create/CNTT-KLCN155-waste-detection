@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản mở rộng & kiểm định dữ liệu đa lớp (Task 8)] Thực thi quy trình kiểm định chất lượng và đóng gói bàn giao cho `execute_task8c_quality_gate_and_salvage`.
 """
 Task 8C — Real-Waste Data Quality Gate, 3-Criteria Separation, 175 QA_PASS Full Re-Audit,
 and 200-Candidate NEEDS_REVIEW Salvage Execution Script.

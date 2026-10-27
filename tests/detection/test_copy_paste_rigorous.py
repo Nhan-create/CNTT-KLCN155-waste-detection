@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử chuyên sâu kỹ thuật tăng cường dữ liệu Copy-Paste (DonorBank, kiểm soát chồng lấp IoU và bảo toàn nhãn).
 """Rigorous Verification Tests for Copy-Paste Augmentation (Academic ML Standards).
 
 Covers all critical edge cases required by PM:

@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ lịch sử] Module làm mượt dự đoán phân loại giữa các khung hình video liên tiếp (đã lưu trữ).
 """Temporal probability smoothing shared by uploaded and live video."""
 
 from __future__ import annotations

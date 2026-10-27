@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử khởi tạo ImageFolder Dataset, DataLoader và tensor trọng số lớp cho quá trình huấn luyện Classifier.
 from pathlib import Path
 
 import pytest

@@ -1,3 +1,4 @@
+# Mô tả: Cài đặt cửa sổ chính WasteClassifierWindow của ứng dụng Desktop PyQt5: quản lý nút chọn ảnh, bật/tắt camera, hiển thị kết quả Top-1/Top-3 và bảng lịch sử phân loại.
 """PyQt5 desktop composition for static-image and webcam classification."""
 
 from __future__ import annotations

@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử bộ thẩm định 2 giai đoạn (TwoStageDetector): cắt vùng proposal có đệm và kết hợp điểm số với MobileNetV3-Large.
 """Two-stage refinement: padded crops, classifier->canonical class mapping, rescoring, NMS."""
 
 from __future__ import annotations

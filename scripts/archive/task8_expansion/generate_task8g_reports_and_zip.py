@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản mở rộng & kiểm định dữ liệu đa lớp (Task 8)] Sinh báo cáo, bảng tổng hợp hoặc ảnh đối chiếu trực quan (contact sheets/overlays) cho `task8g reports and zip`.
 r"""Task 8G — Canonical 5,000 Ledger Update, Milestone 500/5,000 Tracking, Report Generation & Handover ZIP (Tasks 4 & 5).
 
 Updates:

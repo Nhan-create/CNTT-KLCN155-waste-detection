@@ -1,3 +1,4 @@
+# Mô tả: Nhập và kiểm tra chất lượng ảnh chụp thực địa (first-party field capture), đảm bảo không rò rỉ sang tập Val/Test.
 """Task 8I (Final Hotfix) — Safe First-Party Field Capture Import, Split-Isolation & QA Tool.
 
 Enforces strict separation between technical file/YOLO validation and human real-waste context verification:

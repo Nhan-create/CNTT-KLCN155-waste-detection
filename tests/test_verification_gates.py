@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử bộ cổng xác minh tự động (Verification Gates) và bảng quyết định nghiệm thu bàn giao Phần 1.
 r"""Automated Test Suite for Verification Gates (Part 1 Acceptance Hardening).
 
 Tests:

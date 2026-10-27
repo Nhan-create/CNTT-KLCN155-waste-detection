@@ -1,3 +1,4 @@
+# Mô tả: Tải đúng phiên bản đã khóa của 2 bộ dữ liệu Kaggle (VN Trash v1, Garbage v2 v12) qua KaggleHub và sinh tệp cấu hình cục bộ.
 """Download the two pinned Kaggle dataset versions through KaggleHub."""
 
 from __future__ import annotations

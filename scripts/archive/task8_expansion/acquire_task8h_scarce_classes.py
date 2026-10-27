@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản mở rộng & kiểm định dữ liệu đa lớp (Task 8)] Tìm kiếm, tải về và mở rộng mẫu ảnh thực tế bổ sung cho `acquire_task8h_scarce_classes`.
 """Task 8H — Scarce-Class Dataset Scaling: Multi-Source Pilot & Checkpointed Acquisition Pipeline.
 
 Strictly targets the 5 scarce classes:

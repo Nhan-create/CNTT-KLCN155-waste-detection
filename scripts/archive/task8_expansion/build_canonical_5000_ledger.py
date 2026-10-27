@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản mở rộng & kiểm định dữ liệu đa lớp (Task 8)] Thực thi tác vụ hỗ trợ kiểm toán và xử lý dữ liệu lịch sử trong `build_canonical_5000_ledger`.
 """
 Task 8E/8F — Part B: Canonical 5,000-Image/Class Dataset Ledger (`build_canonical_5000_ledger.py`).
 

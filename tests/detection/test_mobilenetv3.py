@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử khởi tạo kiến trúc mạng phân loại MobileNetV3-Large với đầu ra 10 lớp rác chuẩn.
 import pytest
 import torch
 from torch import nn

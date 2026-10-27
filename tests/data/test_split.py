@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử thuật toán chia tập Group-Stratified 70/15/15 đảm bảo giữ nguyên cụm pHash trong cùng một split.
 from collections import defaultdict
 from dataclasses import replace
 from pathlib import Path

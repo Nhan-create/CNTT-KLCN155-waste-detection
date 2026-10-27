@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử hoàn thiện dữ liệu lớp pin Task 5E, tính nhất quán ảnh đại diện chuẩn và tính sẵn sàng trước huấn luyện Pilot v3.
 """
 tests/qa/test_task5e_complete_battery_and_pretrain.py
 -----------------------------------------------------

@@ -1,3 +1,4 @@
+# Mô tả: Kiểm tra độc lập tính nhất quán và toàn vẹn SHA-256 của gói hồ sơ rà soát Ground Truth Giai đoạn 3.
 """Independent consistency checks for the Phase 3 GT review package."""
 
 from __future__ import annotations

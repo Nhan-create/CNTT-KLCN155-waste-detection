@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử khả năng import thành công toàn bộ các module public trong src và thực thi bytecode nội bộ.
 import importlib
 import inspect
 from pathlib import Path

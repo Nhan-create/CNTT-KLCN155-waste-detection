@@ -1,3 +1,4 @@
+# Mô tả: Tải tự động các gói trọng số từ GitHub Release v1.0.0-models, đối chiếu kích thước byte + mã băm SHA-256 và giải nén an toàn vào artifacts/.
 """Download and verify trained model checkpoints from the pinned GitHub Release."""
 
 from __future__ import annotations

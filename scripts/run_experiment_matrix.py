@@ -1,3 +1,4 @@
+# Mô tả: Chạy ma trận thực nghiệm phát hiện đa đối tượng (E1 YOLOv8n, E2 SSDLite320, WBF), tự động gọi tune trên Val và evaluate trên Test.
 """Automated Execution and Evaluation Orchestrator for Phase-2 Experiment Matrix.
 
 Covers the 2x4 Matrix (SSDLite320-MobileNetV3 and YOLOv8n across 4 Augmentations:

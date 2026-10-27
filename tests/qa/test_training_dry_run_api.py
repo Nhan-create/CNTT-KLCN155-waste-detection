@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử chạy thử (dry-run) API huấn luyện SSDLite320 với batch hỗn hợp ảnh dương/âm và cổng bảo vệ tài nguyên preflight_guard.
 """
 tests/qa/test_training_dry_run_api.py
 -------------------------------------

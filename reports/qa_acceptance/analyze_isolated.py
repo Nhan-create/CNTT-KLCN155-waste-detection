@@ -1,3 +1,4 @@
+# Mô tả: Phân tích chi tiết kết quả dự đoán trên từng ảnh đơn lẻ trong tập kiểm định QA.
 import cv2
 import numpy as np
 from pathlib import Path

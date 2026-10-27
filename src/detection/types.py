@@ -1,3 +1,4 @@
+# Mô tả: Định nghĩa hợp đồng dữ liệu đầu ra độc lập framework cho toàn bộ các mô hình phát hiện (Tầng 3A, 3B, Tầng 4, Tầng 5).
 """Framework-independent detection result types."""
 
 from __future__ import annotations

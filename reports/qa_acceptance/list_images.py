@@ -1,3 +1,4 @@
+# Mô tả: Liệt kê danh sách các tệp ảnh kiểm thử trong tập nghiệm thu QA kèm kích thước và thông tin cơ bản.
 import json
 
 with open('reports/qa_acceptance/manifest_hinh_anh_rac.json', 'r', encoding='utf-8') as f:

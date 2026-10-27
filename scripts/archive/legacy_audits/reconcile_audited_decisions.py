@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Kiểm toán nguồn gốc, cụm pHash và tính toàn vẹn dữ liệu cho `reconcile_audited_decisions`.
 """
 Script to apply rigorous pixel-audited review decisions to manifests, ambiguous queue, and readiness report.
 """

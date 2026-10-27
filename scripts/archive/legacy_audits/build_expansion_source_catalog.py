@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Thực thi tác vụ hỗ trợ kiểm toán và xử lý dữ liệu lịch sử trong `build_expansion_source_catalog`.
 """
 scripts/build_expansion_source_catalog.py
 -----------------------------------------

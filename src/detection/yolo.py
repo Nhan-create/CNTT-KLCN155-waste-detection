@@ -1,3 +1,4 @@
+# Mô tả: Tầng 3B (Mô hình đối chứng): Bọc mô hình Ultralytics YOLOv8n với cơ chế kiểm tra nghiêm ngặt thứ tự 10 lớp, xác thực kiến trúc Decoupled Head và giữ nguyên độ phân giải gốc của checkpoint (imgsz=640, không ép xuống 320).
 """Lazy Ultralytics YOLO adapter with strict waste-label validation."""
 
 from __future__ import annotations

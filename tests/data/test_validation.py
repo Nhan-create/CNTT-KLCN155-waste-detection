@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử bộ kiểm định độc lập sau chia tập (đủ 10 lớp, không có ảnh lỗi và 0 rò rỉ cụm trùng lặp qua train/val/test).
 from pathlib import Path
 
 import numpy as np

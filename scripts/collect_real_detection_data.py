@@ -1,3 +1,4 @@
+# Mô tả: Thu thập và chuyển đổi nhãn COCO sang YOLO 10 lớp từ các nguồn dữ liệu rác thực tế.
 """
 scripts/collect_real_detection_data.py
 --------------------------------------

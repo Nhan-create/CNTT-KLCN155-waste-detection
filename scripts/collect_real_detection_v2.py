@@ -1,3 +1,4 @@
+# Mô tả: Phiên bản v2 của công cụ thu thập và chuẩn hóa ảnh phát hiện rác thực tế.
 """scripts/collect_real_detection_v2.py
 -------------------------------------
 Data v2 expansion (Agent A). Non-destructive: never overwrites an existing image or label.

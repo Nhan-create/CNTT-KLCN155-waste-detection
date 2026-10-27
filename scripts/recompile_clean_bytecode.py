@@ -1,3 +1,4 @@
+# Mô tả: Xóa toàn bộ tệp .pyc cũ có chứa đường dẫn ngoại lai và biên dịch lại bytecode sạch cho toàn bộ workspace.
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
 import os

@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản xử lý & kiểm định dữ liệu lớp pin (Task 5–7)] Chạy thử nghiệm, tái lập đánh giá hoặc so sánh mô hình cho `run_task6_e3_pilot_training`.
 """
 scripts/run_task6_e3_pilot_training.py
 --------------------------------------

@@ -1,3 +1,4 @@
+# Mô tả: Bọc đối tượng detector bên dưới một khóa luồng (threading.Lock) để đảm bảo nhiều phiên truy cập trên Streamlit không gọi đồng thời vào cùng một instance mô hình PyTorch/Ultralytics.
 """Serialized access to a shared detector model."""
 
 from __future__ import annotations

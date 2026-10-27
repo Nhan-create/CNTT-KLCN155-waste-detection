@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử cơ chế đóng an toàn (fail-closed) khi nạp dữ liệu mới: chặn tuyệt đối ảnh bị cách ly hoặc chưa duyệt QA.
 """
 tests/qa/test_fail_closed_dataset_intake.py
 -------------------------------------------

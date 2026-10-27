@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản đóng gói & bàn giao Phase 4] Xuất báo cáo, kết quả dự đoán thô và bằng chứng kiểm thử cho `export_test_evidence`.
 """
 scripts/export_test_evidence.py
 --------------------------------

@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Kiểm toán nguồn gốc, cụm pHash và tính toàn vẹn dữ liệu cho `find_oi_real_waste_salvage`.
 """
 Render an inspection sheet of 36 Open Images NEEDS_REVIEW candidates with 1..3 boxes
 across biological, cardboard, clothes, glass, metal, paper, and shoes for Task 8C Task 4 salvage.

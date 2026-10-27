@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Thực thi tác vụ hỗ trợ kiểm toán và xử lý dữ liệu lịch sử trong `build_visual_dashboard`.
 """
 Build an interactive, modern, standalone HTML dashboard for baseline evaluation results
 (CNTT-KLCN155 Waste Detection).

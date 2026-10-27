@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Kiểm toán nguồn gốc, cụm pHash và tính toàn vẹn dữ liệu cho `verify_augmentation_and_loaders`.
 """Empirical Verification Script for Detection Augmentation & Training Loaders.
 
 Verifies:

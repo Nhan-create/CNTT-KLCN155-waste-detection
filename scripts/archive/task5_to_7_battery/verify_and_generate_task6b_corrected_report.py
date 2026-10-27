@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản xử lý & kiểm định dữ liệu lớp pin (Task 5–7)] Kiểm toán nguồn gốc, cụm pHash và tính toàn vẹn dữ liệu cho `verify_and_generate_task6b_corrected_report`.
 """
 scripts/verify_and_generate_task6b_corrected_report.py
 ------------------------------------------------------

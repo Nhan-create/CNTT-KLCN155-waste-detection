@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản mở rộng & kiểm định dữ liệu đa lớp (Task 8)] Sinh báo cáo, bảng tổng hợp hoặc ảnh đối chiếu trực quan (contact sheets/overlays) cho `task8c reports and zip`.
 """
 Generate all Task 8C reports, SHA-256 reference manifest for unchanged raw Wave 2 images,
 and package the compact handover ZIP (`< 500 MB`):

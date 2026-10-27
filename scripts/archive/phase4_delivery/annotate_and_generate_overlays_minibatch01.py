@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản đóng gói & bàn giao Phase 4] Gán nhãn khung bao, rà soát chất lượng điểm ảnh (Visual QA) và chuẩn bị dữ liệu cho `annotate_and_generate_overlays_minibatch01`.
 """
 Annotate Mini-Batch 01 with tight, QA-reviewed bounding boxes,
 generate YOLO label files in data/acquisition_staging/batch_a_mini01/labels/,

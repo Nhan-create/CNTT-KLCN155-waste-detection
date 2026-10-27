@@ -1,3 +1,4 @@
+# Mô tả: Cung cấp lớp WastePredictor và CLI (python -m src.detection.predict) để suy luận phân loại ảnh đơn lẻ hoặc theo lô tensor, trả về nhãn Top-1, danh sách Top-K kèm cờ cảnh báo low_confidence khi xác suất dưới ngưỡng (0.55).
 """Metadata-safe, lazy image prediction with MobileNetV3."""
 
 from __future__ import annotations

@@ -1,3 +1,4 @@
+# Mô tả: Trình chạy huấn luyện và đánh giá các mô hình phát hiện trên bộ dữ liệu thực tế detection_real_v2.
 """Phase-3 (data v2, real-only) detector training/evaluation runner.
 
 Sequential GPU usage: run ONE command at a time.

@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử module đánh giá nghiệm thu DoD (acceptance_evaluator.py), tính toán IoU và kiểm tra tính toàn vẹn Ground Truth.
 import json
 import pytest
 from pathlib import Path

@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử hiện thực hóa (materialize) các thư mục ảnh train/val/test vật lý trên đĩa từ manifest đã chia.
 from dataclasses import replace
 from pathlib import Path
 

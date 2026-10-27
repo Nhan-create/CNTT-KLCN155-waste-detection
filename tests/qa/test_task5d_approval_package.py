@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử gói phê duyệt dữ liệu pin Task 5D: kiểm tra đủ 140 ảnh gốc trên contact sheets và đối chiếu số lượng khung bao.
 """
 tests/qa/test_task5d_approval_package.py
 ----------------------------------------

@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Tiện ích chẩn đoán cục bộ] Kiểm tra chi tiết dữ liệu, khung bao và thuộc tính của `plate details`.
 """Inspect visual content of controversial pairs:
 Pair 10, Pair 12, Pair 18, Pair 11, Pair 14.
 """

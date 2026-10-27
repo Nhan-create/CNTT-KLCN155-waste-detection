@@ -1,3 +1,4 @@
+# Mô tả: Quản lý việc đọc/ghi tệp manifest CSV chứa thông tin nguồn gốc, trạng thái kiểm duyệt (reviewed) và mã băm SHA-256 của từng ảnh trong bộ dữ liệu phát hiện Giai đoạn 2.
 """Reviewed per-image annotation provenance for phase-two detection data."""
 
 from __future__ import annotations

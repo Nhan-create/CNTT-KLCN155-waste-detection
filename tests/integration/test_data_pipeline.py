@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử tích hợp toàn trình pipeline tiền xử lý dữ liệu xây dựng bộ dữ liệu 10 lớp hợp lệ từ đầu đến cuối.
 from pathlib import Path
 
 import numpy as np

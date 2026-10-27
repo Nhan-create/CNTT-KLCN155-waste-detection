@@ -1,3 +1,4 @@
+# Mô tả: Xác minh tính tương thích của cấu trúc dữ liệu và nhãn đối với bộ nạp dữ liệu Ultralytics YOLOv8.
 """
 scripts/verify_yolo_v3_compatibility.py
 ---------------------------------------

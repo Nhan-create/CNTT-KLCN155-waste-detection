@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử tổng hợp thống kê khám phá dữ liệu (EDA) và xuất báo cáo phân bố mẫu theo nguồn, lớp và kích thước ảnh.
 import json
 from pathlib import Path
 

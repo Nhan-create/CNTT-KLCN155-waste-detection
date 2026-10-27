@@ -1,3 +1,4 @@
+# Mô tả: Phân tích khám phá dữ liệu (EDA) từ danh sách bản ghi manifest và xuất báo cáo JSON tổng hợp số lượng mẫu theo nguồn, theo lớp, theo split và thống kê kích thước ảnh.
 """Structured exploratory reporting for manifest records."""
 
 from __future__ import annotations

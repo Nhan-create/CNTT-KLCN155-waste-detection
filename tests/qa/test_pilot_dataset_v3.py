@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử cấu trúc thư mục, đối xứng 1-1 giữa ảnh và nhãn, cùng hình học khung bao của bộ dữ liệu Pilot v3.
 """
 tests/qa/test_pilot_dataset_v3.py
 ---------------------------------

@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử hồi quy quy tắc ánh xạ nhãn nguồn mở về 10 lớp phát hiện chuẩn và từ chối nhãn ngoài phạm vi.
 """Regression tests for 10-class detection mapping across entire pipeline.
 
 Verifies:

@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử kết quả huấn luyện và đánh giá thử nghiệm E3 (YOLOv8n Pilot v3) ở Task 6, đảm bảo các tài sản đóng băng không bị sửa đổi.
 """
 tests/qa/test_task6_e3_training_and_eval.py
 -------------------------------------------

@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử thuật toán băm SHA-256, pHash 64-bit, cây BK-Tree và gom cụm ảnh trùng/gần trùng hoặc xung đột nhãn.
 import shutil
 from pathlib import Path
 

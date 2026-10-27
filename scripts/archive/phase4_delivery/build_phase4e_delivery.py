@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản đóng gói & bàn giao Phase 4] Đóng gói hồ sơ minh chứng, manifest và tệp nén bàn giao cho `build_phase4e_delivery`.
 """
 scripts/build_phase4e_delivery.py
 ---------------------------------

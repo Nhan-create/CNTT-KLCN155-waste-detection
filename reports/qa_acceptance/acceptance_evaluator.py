@@ -1,3 +1,4 @@
+# Mô tả: Module đánh giá nghiệm thu độc lập theo tiêu chí DoD (tính toán IoU, đối chiếu dự đoán với Ground Truth).
 """DoD Acceptance Evaluation Module for Waste Detection (CNTT-KLCN155).
 
 Evaluates predictions against Frozen Ground Truth on the mandatory acceptance dataset:

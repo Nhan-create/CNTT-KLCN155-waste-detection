@@ -1,3 +1,4 @@
+# Mô tả: Kiểm toán toàn diện quy tắc ánh xạ nhãn từ bộ dữ liệu nguồn Mendeley sang hệ thống 10 lớp chuẩn của dự án.
 """
 Comprehensive audit of Mendeley source annotations vs dataset-v1 converted annotations.
 Examines every file and bounding box across splits.

@@ -1,3 +1,4 @@
+# Mô tả: Chẩn đoán và so sánh trực tiếp dự đoán thô của Ultralytics YOLO với kết quả qua bộ bọc WasteDetector.
 """Probe: compare raw Ultralytics predictions with WasteDetector wrapper (CPU only).
 
 Usage: .venv\\Scripts\\python.exe reports/model_v2/scripts/yolo_box_anomaly_probe.py

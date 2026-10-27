@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản xử lý & kiểm định dữ liệu lớp pin (Task 5–7)] Sinh báo cáo, bảng tổng hợp hoặc ảnh đối chiếu trực quan (contact sheets/overlays) cho `task7 report`.
 """
 Generate TASK7_DIVERSE_BATTERY_DATA_ACQUISITION_AND_QA_REPORT.md directly from
 verified Task 7 JSON manifests (task7_qa_manifest.json, task7_leakage_report.json,

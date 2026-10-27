@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử hợp đồng cấu trúc giao diện Streamlit (streamlit_app.py) và các điểm kết nối dịch vụ suy luận.
 from pathlib import Path
 
 

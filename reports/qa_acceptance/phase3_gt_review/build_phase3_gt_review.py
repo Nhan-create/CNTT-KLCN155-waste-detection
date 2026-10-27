@@ -1,3 +1,4 @@
+# Mô tả: Đóng gói bộ hồ sơ rà soát nhãn chuẩn Ground Truth Giai đoạn 3 mà không làm thay đổi dữ liệu gốc.
 """Build the Phase 3 Ground Truth review package without modifying either GT file.
 
 The package is evidence for human approval.  It copies the in-scope source images,

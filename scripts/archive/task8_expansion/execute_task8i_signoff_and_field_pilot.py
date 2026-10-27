@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản mở rộng & kiểm định dữ liệu đa lớp (Task 8)] Thực thi quy trình kiểm định chất lượng và đóng gói bàn giao cho `execute_task8i_signoff_and_field_pilot`.
 """Task 8I (Including Final Hotfix) — Real-Waste Source Sign-Off & Field Data Pilot QA Safety.
 
 Executes all Tasks of Task 8I and Task 8I Final Hotfix:

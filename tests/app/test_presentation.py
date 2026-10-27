@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử bảng ánh xạ 10 mã lớp tiếng Anh chuẩn sang nhãn hiển thị tiếng Việt trong src/app/presentation.py.
 from src.data.schema import CLASS_NAMES
 from src.app.presentation import COLOR_BY_CLASS, DISPLAY_NAMES_VI, present_label
 

@@ -1,3 +1,4 @@
+# Mô tả: Kiểm tra siêu dữ liệu, kiến trúc và mã băm SHA-256 của các tệp trọng số checkpoint trong dự án.
 """
 Inspection of the 4 reported checkpoints through product code and PyTorch introspection.
 Exports exact SHA-256, file size, architecture, head shape, class names,

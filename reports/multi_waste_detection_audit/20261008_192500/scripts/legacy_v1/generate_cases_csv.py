@@ -1,3 +1,4 @@
+# Mô tả: Tạo tệp cases.csv và ảnh kết quả overlay cho các ca kiểm thử trên tập data/holdout (phiên bản kiểm toán v1).
 """
 Tạo cases.csv và ảnh overlay cho các ca kiểm thử đa dạng từ data/holdout.
 """

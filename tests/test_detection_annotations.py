@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử bộ kiểm định hình học khung bao YOLO, chỉ số lớp hợp lệ và phát hiện khung bao trùng lặp.
 """
 tests/test_detection_annotations.py
 ------------------------------------

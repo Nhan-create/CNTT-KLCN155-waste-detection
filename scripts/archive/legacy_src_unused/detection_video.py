@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ lịch sử] Module xử lý phát hiện đa vật thể trên tệp video tải lên (đã ngừng sử dụng trong giao diện chính).
 """Sample uploaded video frames and detect every visible waste object."""
 
 from __future__ import annotations

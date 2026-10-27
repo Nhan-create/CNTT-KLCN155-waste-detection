@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Tiện ích chẩn đoán cục bộ] Kiểm toán nguồn gốc, cụm pHash và tính toàn vẹn dữ liệu cho `verify_20_targets`.
 import sys
 import json
 import time

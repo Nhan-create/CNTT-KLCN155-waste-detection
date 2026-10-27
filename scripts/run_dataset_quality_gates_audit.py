@@ -1,3 +1,4 @@
+# Mô tả: Chạy kiểm toán tự động các cổng chất lượng dữ liệu trên bộ dữ liệu phát hiện.
 """
 scripts/run_dataset_quality_gates_audit.py
 -----------------------------------------

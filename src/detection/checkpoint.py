@@ -1,3 +1,4 @@
+# Mô tả: Quản lý định dạng lưu trữ và kiểm tra tính toàn vẹn của checkpoint MobileNetV3-Large (format_version=1), đóng gói kèm danh sách 10 lớp, kích thước ảnh đầu vào, thông số chuẩn hóa ImageNet và fingerprint SHA-256 của dataset.
 """Versioned, self-describing MobileNetV3 checkpoint contract."""
 
 from __future__ import annotations

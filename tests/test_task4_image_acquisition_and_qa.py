@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử đơn vị và hồi quy cho quy trình thu thập ảnh thực tế, định dạng nhãn và cổng QA của Task 4.
 """
 Unit and regression tests for Task 4: Real Image Acquisition & QA.
 Verifies:

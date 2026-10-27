@@ -1,3 +1,4 @@
+# Mô tả: Tầng 3A (Mô hình chính): Xây dựng mô hình SSDLite320-MobileNetV3-Large, truyền trọng số backbone từ MobileNetV3-Large Giai đoạn 1, xử lý quy ước nhãn 0=Background, 1..10=Foreground (decode trừ 1 về 0..9) và chạy suy luận ở kích thước chuẩn 320×320.
 """Ten-class SSDLite320-MobileNetV3 detector, initialized with stage-1 backbone weights."""
 
 from __future__ import annotations

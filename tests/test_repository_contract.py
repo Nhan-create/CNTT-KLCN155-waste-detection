@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử hợp đồng cấu trúc repository: đồng bộ 10 lớp trong README/Tienxulidulieu, cấu hình CI và quy tắc .gitignore.
 from pathlib import Path
 
 from src.data.schema import CLASS_NAMES

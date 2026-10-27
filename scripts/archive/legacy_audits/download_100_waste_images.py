@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Tìm kiếm, tải về và mở rộng mẫu ảnh thực tế bổ sung cho `download_100_waste_images`.
 """Search online, verify security/antivirus, sanitize, and download 100 diverse waste images to data/holdout."""
 
 from __future__ import annotations

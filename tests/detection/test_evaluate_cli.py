@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử giao diện dòng lệnh CLI đánh giá bộ phân loại (python -m src.detection.classifier_evaluate).
 import subprocess
 import sys
 

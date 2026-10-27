@@ -1,3 +1,4 @@
+# Mô tả: Bảng ánh xạ chuẩn từ 10 mã lớp tiếng Anh (battery..trash) sang tên hiển thị tiếng Việt (Pin..Rác khác) dùng chung cho cả Streamlit, PyQt5 và bộ vẽ khung bao visualization.py.
 """Pure display metadata for canonical waste class identifiers."""
 
 from __future__ import annotations

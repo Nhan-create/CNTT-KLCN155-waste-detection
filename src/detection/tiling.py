@@ -1,3 +1,4 @@
+# Mô tả: Cắt ảnh độ phân giải lớn thành các ô cửa sổ trượt có chồng lấp (SAHI-style sliced inference), chạy detector trên cả ảnh toàn cục lẫn từng ô cắt, rồi hợp nhất và khử các khung bao bị cắt cụt ở mép ô nội bộ.
 """SAHI-style sliced inference for large images.
 
 Large images are split into overlapping tiles; the wrapped detector runs on

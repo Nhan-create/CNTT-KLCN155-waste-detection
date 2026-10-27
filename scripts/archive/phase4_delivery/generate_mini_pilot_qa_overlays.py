@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản đóng gói & bàn giao Phase 4] Sinh báo cáo, bảng tổng hợp hoặc ảnh đối chiếu trực quan (contact sheets/overlays) cho `mini pilot qa overlays`.
 """
 scripts/generate_mini_pilot_qa_overlays.py
 Generate visual overlay evidence for all 4 images:

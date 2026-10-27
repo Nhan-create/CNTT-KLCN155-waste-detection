@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Kiểm toán nguồn gốc, cụm pHash và tính toàn vẹn dữ liệu cho `audit_gt_exact_counts`.
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
 import json

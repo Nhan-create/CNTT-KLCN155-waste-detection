@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản xử lý & kiểm định dữ liệu lớp pin (Task 5–7)] Gán nhãn khung bao, rà soát chất lượng điểm ảnh (Visual QA) và chuẩn bị dữ liệu cho `annotate_and_qa_task7_battery_batch`.
 """
 scripts/annotate_and_qa_task7_battery_batch.py
 ----------------------------------------------

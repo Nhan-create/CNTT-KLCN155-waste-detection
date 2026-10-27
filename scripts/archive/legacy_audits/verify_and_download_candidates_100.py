@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Kiểm toán nguồn gốc, cụm pHash và tính toàn vẹn dữ liệu cho `verify_and_download_candidates_100`.
 """Verify and download 100 candidate images from Wikimedia Commons manifest.
 
 Handles caching, individual title fallbacks for non-ASCII titles,

@@ -1,3 +1,4 @@
+# Mô tả: [Lưu trữ — Kịch bản kiểm toán lịch sử] Kiểm toán nguồn gốc, cụm pHash và tính toàn vẹn dữ liệu cho `verify_preprocessing_pipeline`.
 """Preprocessing Pipeline Verification Script (P1.4).
 
 Verifies:

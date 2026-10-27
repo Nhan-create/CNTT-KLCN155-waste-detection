@@ -1,3 +1,4 @@
+# Mô tả: Đánh giá độc lập cổng nghiệm thu cuối cùng (Gate A) của MobileNetV3-Large trên tập Test và đo độ trễ suy luận CPU.
 r"""Official Gate A Independent Final Test Evaluation Script for MobileNetV3.
 
 Protocol & Verification:

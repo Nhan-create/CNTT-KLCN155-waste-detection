@@ -1,3 +1,4 @@
+# Mô tả: Kiểm thử lưu, nạp và kiểm tra tính tương thích metadata của tệp checkpoint MobileNetV3-Large.
 from dataclasses import replace
 from pathlib import Path
 
