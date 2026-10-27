@@ -8,9 +8,9 @@ from pathlib import Path
 
 from PyQt5.QtWidgets import QApplication
 
-from src.inference.predict import WastePredictor
-from src.ui.history import HistoryRepository
-from src.ui.main_window import WasteClassifierWindow
+from src.detection.predict import WastePredictor
+from src.app.history import HistoryRepository
+from src.app.main_window import WasteClassifierWindow
 
 
 def build_parser() -> argparse.ArgumentParser:

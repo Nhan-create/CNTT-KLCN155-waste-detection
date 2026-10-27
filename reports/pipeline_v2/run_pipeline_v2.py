@@ -24,10 +24,10 @@ sys.path.insert(0, str(ROOT))
 os.chdir(ROOT)
 
 from src.detection.factory import create_detector  # noqa: E402
-from src.web.classifier_service import MobileNetClassifier  # noqa: E402
-from src.web.detection_logic import analyze_image_file, build_detection_pipeline  # noqa: E402
-from src.web.detection_service import DetectionService  # noqa: E402
-from src.web.detection_settings import detector_input_threshold, parse_detection_settings  # noqa: E402
+from src.app.classifier_service import MobileNetClassifier  # noqa: E402
+from src.app.detection_logic import analyze_image_file, build_detection_pipeline  # noqa: E402
+from src.app.detection_service import DetectionService  # noqa: E402
+from src.app.detection_settings import detector_input_threshold, parse_detection_settings  # noqa: E402
 
 IMAGE = Path(sys.argv[1] if len(sys.argv) > 1 else "data/holdout/base64-1717231151649602366964.jpeg")
 OUT = ROOT / "reports" / "pipeline_v2"

@@ -161,7 +161,7 @@ def test_real_classifier_adapter_runs_on_cpu_batch() -> None:
     if not CLASSIFIER_CHECKPOINT.is_file():
         pytest.skip("classifier checkpoint not available")
     from src.detection.two_stage import MobileNetBatchAdapter
-    from src.web.classifier_service import MobileNetClassifier
+    from src.app.classifier_service import MobileNetClassifier
 
     adapter = MobileNetBatchAdapter(MobileNetClassifier(CLASSIFIER_CHECKPOINT, device="cpu"))
     rows = adapter.predict_proba([Image.new("RGB", (50, 80), (120, 90, 30)),

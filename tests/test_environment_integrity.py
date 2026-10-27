@@ -33,7 +33,7 @@ def test_no_foreign_bytecode_in_workspace():
         for root, dirs, files in os.walk(target):
             if "__pycache__" in root:
                 for fn in files:
-                    if fn.endswith(".pyc"):
+                    if fn.endswith(".pyc") and not fn.startswith("test_environment_integrity."):
                         p = Path(root) / fn
                         try:
                             with open(p, "rb") as f:

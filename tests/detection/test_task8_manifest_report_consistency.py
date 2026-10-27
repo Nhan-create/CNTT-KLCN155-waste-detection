@@ -641,7 +641,9 @@ def test_task8g_large_scale_expansion_and_quality_gates() -> None:
     rep_p = REPORTS_DIR / "TASK8G_LARGE_SCALE_EXPANSION_REPORT.json"
     ledger_p = REPORTS_DIR / "CANONICAL_5000_DATASET_LEDGER.json"
     val_plan_p = REPORTS_DIR / "REAL_WASTE_10CLASS_VALIDATION_PLAN.json"
-    zip_p = REPO_ROOT / "TASK8G_LARGE_SCALE_EXPANSION.zip"
+    zip_p = REPO_ROOT / "artifacts" / "deliveries" / "TASK8G_LARGE_SCALE_EXPANSION.zip"
+    if not zip_p.exists():
+        zip_p = REPO_ROOT / "TASK8G_LARGE_SCALE_EXPANSION.zip"
 
     assert ckpt_p.exists() and raw_p.exists() and qa_p.exists() and rep_p.exists() and zip_p.exists()
     qa = json.loads(qa_p.read_text(encoding="utf-8"))
@@ -728,7 +730,9 @@ def test_task8h_scarce_class_scaling_and_quality_gates() -> None:
     field_md_p = REPORTS_DIR / "SCARCE_CLASS_FIELD_COLLECTION_PLAN.md"
     ledger_p = REPORTS_DIR / "CANONICAL_5000_DATASET_LEDGER.json"
     val_plan_p = REPORTS_DIR / "REAL_WASTE_10CLASS_VALIDATION_PLAN.json"
-    zip_p = REPO_ROOT / "TASK8H_SCARCE_CLASS_SCALING.zip"
+    zip_p = REPO_ROOT / "artifacts" / "deliveries" / "TASK8H_SCARCE_CLASS_SCALING.zip"
+    if not zip_p.exists():
+        zip_p = REPO_ROOT / "TASK8H_SCARCE_CLASS_SCALING.zip"
 
     assert ckpt_p.exists() and raw_p.exists() and qa_p.exists() and lic_p.exists()
     assert rep_p.exists() and field_p.exists() and field_md_p.exists() and zip_p.exists()
@@ -850,8 +854,12 @@ def test_task8i_inaturalist_signoff_and_field_pilot_tools() -> None:
     delta_json_p = REPORTS_DIR / "TASK8I_HOTFIX_MANIFEST_AND_LEDGER_DELTA.json"
     delta_md_p = REPORTS_DIR / "TASK8I_HOTFIX_MANIFEST_AND_LEDGER_DELTA.md"
     ledger_p = REPORTS_DIR / "CANONICAL_5000_DATASET_LEDGER.json"
-    zip_p = REPO_ROOT / "TASK8I_SOURCE_SIGNOFF_AND_FIELD_PILOT.zip"
-    hf_zip_p = REPO_ROOT / "TASK8I_FINAL_HOTFIX_FIELD_QA_SAFETY.zip"
+    zip_p = REPO_ROOT / "artifacts" / "deliveries" / "TASK8I_SOURCE_SIGNOFF_AND_FIELD_PILOT.zip"
+    if not zip_p.exists():
+        zip_p = REPO_ROOT / "TASK8I_SOURCE_SIGNOFF_AND_FIELD_PILOT.zip"
+    hf_zip_p = REPO_ROOT / "artifacts" / "deliveries" / "TASK8I_FINAL_HOTFIX_FIELD_QA_SAFETY.zip"
+    if not hf_zip_p.exists():
+        hf_zip_p = REPO_ROOT / "TASK8I_FINAL_HOTFIX_FIELD_QA_SAFETY.zip"
 
     for p in (
         inat_json_p,

@@ -15,7 +15,7 @@
 |---|---|---|---|
 | **A** | **Data / Mapping** | - `src/detection/schema.py`<br>- `configs/detection_source_mapping.yaml`<br>- `reports/reproduce_scripts/audit_mendeley_mapping.py`<br>- `tests/detection/test_real_mapping_integration.py`<br>- `data/detection/labels/` (đánh dấu/quarantine) | Source samples/metadata thật, expected độc lập, output converter, patch và regression tests. |
 | **B** | **Model / Inference** | - `src/detection/ssdlite.py`<br>- `src/detection/ssdlite_train.py`<br>- `src/detection/yolo.py`<br>- `src/detection/factory.py`<br>- `configs/` liên quan training/inference | Config, split fingerprint, checkpoint hash, training logs, best/completed epochs và predictions thật. |
-| **C** | **Coordinates / Rendering** | - `src/detection/visualization.py`<br>- `src/detection/fusion.py`<br>- `src/web/detection_logic.py`<br>- `src/web/detection_settings.py`<br>- `streamlit_app.py`<br>- Chuyển đổi tọa độ, EXIF, letterbox, clipping | Patch, kiểm thử tọa độ xuôi/ngược, overlay qua luồng ứng dụng thực tế. |
+| **C** | **Coordinates / Rendering** | - `src/detection/visualization.py`<br>- `src/detection/fusion.py`<br>- `src/app/detection_logic.py`<br>- `src/app/detection_settings.py`<br>- `streamlit_app.py`<br>- Chuyển đổi tọa độ, EXIF, letterbox, clipping | Patch, kiểm thử tọa độ xuôi/ngược, overlay qua luồng ứng dụng thực tế. |
 | **D** | **QA Độc lập** | - `reports/qa_acceptance/`<br>- Manifest và Ground Truth độc lập `data/holdout`<br>- Đánh giá baseline và nghiệm thu DoD<br>*(Tuyệt đối không sửa code mô hình/inference, không sửa GT để khớp prediction)* | Manifest 27 ảnh `data/holdout`, SHA-256, Ground Truth từng ảnh/vật thể, bảng đánh giá một-một, lỗi và bằng chứng. |
 
 ---

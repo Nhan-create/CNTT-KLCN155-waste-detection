@@ -13,11 +13,11 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
     [
         "src.data.schema",
         "src.data.validation",
-        "src.models.mobilenetv3",
-        "src.training.train",
-        "src.evaluation.evaluate",
-        "src.inference.predict",
-        "src.ui.main_window",
+        "src.detection.mobilenetv3",
+        "src.detection.classifier_train",
+        "src.detection.classifier_evaluate",
+        "src.detection.predict",
+        "src.app.main_window",
         "scripts.download_datasets",
     ],
 )
@@ -29,10 +29,10 @@ def test_public_modules_import(module: str) -> None:
     "module_name",
     [
         "src.data.dedup",
-        "src.evaluation.evaluate",
-        "src.preprocessing.run_pipeline",
-        "src.training.train",
-        "src.ui.main_window",
+        "src.detection.classifier_evaluate",
+        "src.data.run_pipeline",
+        "src.detection.classifier_train",
+        "src.app.main_window",
     ],
 )
 def test_public_modules_execute_workspace_bytecode(module_name: str) -> None:

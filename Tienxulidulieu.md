@@ -37,7 +37,7 @@ Garbage Classification v2 đã có 10 nhãn chuẩn; pipeline chỉ chuẩn hóa
 
 ### Bước 1 — Ingest có provenance
 
-`src/preprocessing/merge_datasets.py` đọc layout `Train/Test` của VN Trash và layout `original` hoặc split/class của Garbage v2. Với mỗi file hợp lệ về phần mở rộng:
+`src/data/merge_datasets.py` đọc layout `Train/Test` của VN Trash và layout `original` hoặc split/class của Garbage v2. Với mỗi file hợp lệ về phần mở rộng:
 
 1. lưu `source_dataset`, `original_label`, `original_split` và `source_path`;
 2. tạo `image_id` ổn định bằng SHA-256 của chuỗi provenance `source + split + relative_path`;
@@ -48,7 +48,7 @@ Output là `raw_manifest.csv`; provenance không bị mất khi hợp nhất hai
 
 ### Bước 2 — Kiểm tra ảnh và tạo fingerprint
 
-`src/preprocessing/clean_data.py` cùng `src/data/dedup.py`:
+`src/data/clean_data.py` cùng `src/data/dedup.py`:
 
 - Pillow mở, `load()` và chuyển thử ảnh sang RGB;
 - ghi extension, width, height, mode;
@@ -106,7 +106,7 @@ Huấn luyện gọi validator và dừng nếu `validation.is_valid` là false.
 
 ### Bước 7 — Class weights
 
-Không oversample vật lý mặc định. `src/preprocessing/balance_classes.py` tính trọng số chỉ từ train:
+Không oversample vật lý mặc định. `src/data/balance_classes.py` tính trọng số chỉ từ train:
 
 ```text
 w_c = N / (K × n_c)
@@ -156,7 +156,7 @@ outputs/data/v1/
 ## 6. Lệnh chạy
 
 ```bash
-python -m src.preprocessing.run_pipeline \
+python -m src.data.run_pipeline \
   --config configs/preprocessing_config.yaml \
   --raw-root data/raw \
   --metadata-root data/metadata/v1 \

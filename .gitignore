@@ -91,6 +91,7 @@ kaggle.json
 
 # Test, lint, notebook, and coverage caches
 .pytest_cache/
+.pytest_pycache/
 .pytest_temp/
 .ruff_cache/
 .mypy_cache/

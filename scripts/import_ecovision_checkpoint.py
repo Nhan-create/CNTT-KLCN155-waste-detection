@@ -14,8 +14,8 @@ from urllib.request import Request, urlopen
 import torch
 
 from src.data.schema import CLASS_NAMES
-from src.models.mobilenetv3 import MODEL_ID, build_model
-from src.training.checkpoint import CheckpointMetadata, load_checkpoint, save_checkpoint
+from src.detection.mobilenetv3 import MODEL_ID, build_model
+from src.detection.checkpoint import CheckpointMetadata, load_checkpoint, save_checkpoint
 
 SOURCE_MODEL = "AmadFR/ecovision_mobilenetv3"
 SOURCE_REVISION = "7c2daeea3f684058ae8a1c9656c50fc7309fc36c"

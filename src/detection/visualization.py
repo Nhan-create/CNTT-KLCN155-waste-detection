@@ -7,7 +7,7 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 from src.detection.types import DetectionResult
-from src.ui.presentation import COLOR_BY_CLASS, present_label
+from src.app.presentation import COLOR_BY_CLASS, present_label
 
 DETECTION_CLASS_NAMES_VI = (
     "Pin",

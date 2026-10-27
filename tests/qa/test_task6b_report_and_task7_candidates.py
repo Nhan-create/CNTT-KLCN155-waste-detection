@@ -22,7 +22,9 @@ def _sha256(path: Path) -> str:
 
 
 def test_part_a_task6b_corrected_report_consistency():
-    report_path = REPO_ROOT / "TASK6_E3_CORRECTED_EVALUATION_REPORT.md"
+    report_path = REPO_ROOT / "reports" / "archive" / "task_reports" / "TASK6_E3_CORRECTED_EVALUATION_REPORT.md"
+    if not report_path.exists():
+        report_path = REPO_ROOT / "TASK6_E3_CORRECTED_EVALUATION_REPORT.md"
     audit_path = V3_DIR / "task6b_report_consistency_audit.json"
     errata_path = V3_DIR / "E3_yolov8n_pilot" / "training_log_errata_and_reconciliation.json"
     eval_json_path = V3_DIR / "evaluation_e1_vs_e3" / "e1_vs_e3_comprehensive_evaluation.json"
@@ -80,7 +82,9 @@ def test_part_a_task6b_corrected_report_consistency():
 def test_frozen_checkpoints_and_production_default_untouched():
     e1_best = REPO_ROOT / "artifacts" / "detection_v2" / "E1_yolov8n_10cls" / "weights" / "best.pt"
     e3_best = V3_DIR / "E3_yolov8n_pilot" / "weights" / "best.pt"
-    settings_py = REPO_ROOT / "src" / "web" / "detection_settings.py"
+    settings_py = REPO_ROOT / "src" / "app" / "detection_settings.py"
+    if not settings_py.exists():
+        settings_py = REPO_ROOT / "src" / "web" / "detection_settings.py"
 
     assert _sha256(e1_best) == "7e986deed90ba4208f4662039c1e78b2d03ffb41a6e57e8235184db78aec32d8"
     assert _sha256(e3_best) == "e451cb8d0a0faab9374f5dac90811bba681b2827d51aba07f6e6a120b5364169"
@@ -95,7 +99,9 @@ def test_part_b_task7_candidates_labels_and_zero_leakage():
     leakage_p = TASK7_DIR / "task7_leakage_report.json"
     proposal_p = TASK7_DIR / "task7_dataset_v4_and_e4_proposal.json"
     e4_yaml_p = REPO_ROOT / "configs" / "training_yolov8n_v4_proposed_DO_NOT_RUN.yaml"
-    report_p = REPO_ROOT / "TASK7_DIVERSE_BATTERY_DATA_ACQUISITION_AND_QA_REPORT.md"
+    report_p = REPO_ROOT / "reports" / "archive" / "task_reports" / "TASK7_DIVERSE_BATTERY_DATA_ACQUISITION_AND_QA_REPORT.md"
+    if not report_p.exists():
+        report_p = REPO_ROOT / "TASK7_DIVERSE_BATTERY_DATA_ACQUISITION_AND_QA_REPORT.md"
 
     for p in (qa_manifest_p, leakage_p, proposal_p, e4_yaml_p, report_p):
         assert p.exists(), f"Missing required Task 7 deliverable: {p}"

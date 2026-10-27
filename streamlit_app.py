@@ -15,8 +15,8 @@ from PIL import Image, ImageOps
 
 from src.detection.schema import DETECTION_CLASS_NAMES
 from src.detection.visualization import detection_label
-from src.web.classifier_service import ClassificationOutput, MobileNetClassifier
-from src.web.detection_logic import (
+from src.app.classifier_service import ClassificationOutput, MobileNetClassifier
+from src.app.detection_logic import (
     ImageDetectionOutput,
     analyze_image_file,
     annotated_filename,
@@ -25,8 +25,8 @@ from src.web.detection_logic import (
     count_rows,
     detection_rows,
 )
-from src.web.detection_service import DetectionService
-from src.web.detection_settings import (
+from src.app.detection_service import DetectionService
+from src.app.detection_settings import (
     DETECTION_BACKENDS,
     DetectionWebSettings,
     detector_input_threshold,
@@ -35,7 +35,7 @@ from src.web.detection_settings import (
     parse_detection_settings,
     paths_for_backend,
 )
-from src.web.style import ICON_FREE_CSS, StatusTone, status_markup, transparent_favicon
+from src.app.style import ICON_FREE_CSS, StatusTone, status_markup, transparent_favicon
 
 st.set_page_config(
     page_title="Nhận diện rác trong ảnh",

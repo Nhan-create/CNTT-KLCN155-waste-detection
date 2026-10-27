@@ -88,12 +88,15 @@ flowchart TD
   - Tối ưu hóa triển khai: Mô hình xuất sang định dạng ONNX FP32 đạt độ trễ suy luận **7.40 ms/ảnh** trên CPU laptop 6 luồng.
 
 ### 2.2. Giai đoạn 2 — Phát hiện đa đối tượng, Tiling, Two-Stage và Hợp nhất dự đoán (ĐÃ TRIỂN KHAI TRONG CODE)
-- **Mô hình chính (Primary Model):** **SSDLite320-MobileNetV3 (`E2_ssdlite320_10cls`)**
-  - Kế thừa 258/308 tensor keys đặc trưng từ backbone MobileNetV3 đã huấn luyện ở Giai đoạn 1 (Background = 0, Foreground = 1..10).
-  - Tối ưu hóa cho thiết bị biên với kích thước ảnh đầu vào $320 \times 320$, độ phức tạp tính toán thấp.
-- **Mô hình đối chứng (Benchmark Model):** **YOLOv8n (`E1_yolov8n_10cls` & `E3_yolov8n_pilot`)**
-  - Kiến trúc một giai đoạn (Single-stage anchor-free detector) 10 lớp (`0..9`), đóng vai trò mốc đối chứng về độ chính xác và tốc độ.
-- **Pipeline Hậu xử lý Đa tầng (`src/web/detection_logic.py`):**
+- **Mô hình chính (Primary Model — Tầng 3A):** **SSDLite320-MobileNetV3**
+  - Hỗ trợ kế thừa 258/308 tensor keys đặc trưng từ backbone MobileNetV3 đã huấn luyện ở Giai đoạn 1 (`Background = 0`, `Foreground = 1..10`, kích thước đầu vào $320 \times 320$).
+  - **Phân biệt Checkpoint ứng dụng và Checkpoint nghiên cứu:**
+    - *Checkpoint mặc định của ứng dụng (`src/app/detection_settings.py`):* tự động nạp `artifacts/detection_v4_expanded/E4_ssdlite320_10cls/weights/best.pt` (nếu có trên đĩa) hoặc fallback về `artifacts/detection_v2/E2_ssdlite320_10cls/weights/best.pt` (từ gói GitHub Release `v1.0.0-models`).
+    - *Checkpoint baseline nghiên cứu hiện tại:* `artifacts/detection_v4_unified_1run/SSDLite320_v4_unified_1run/weights/best.pt` (45 epochs, best epoch 38) — đối tượng kiểm toán GĐ0 theo [`docs/pm/SSDLITE320_QUALITY_GATES.md`](docs/pm/SSDLITE320_QUALITY_GATES.md), không tự động thay thế checkpoint mặc định của ứng dụng.
+- **Mô hình đối chứng (Benchmark Model — Tầng 3B):** **YOLOv8n**
+  - Kiến trúc một giai đoạn (Single-stage anchor-free detector) 10 lớp (`0..9`), đóng vai trò mô hình đối chứng độc lập.
+  - *Checkpoint mặc định của ứng dụng:* ưu tiên `artifacts/detection_v4_expanded/E4_yolov8n_10cls/weights/best.pt` (nếu có trên đĩa) hoặc fallback về `artifacts/detection_v2/E1_yolov8n_10cls/weights/best.pt` (cùng các bản nghiên cứu `E3_yolov8n_pilot` và `YOLOv8n_v4_unified_1run`).
+- **Pipeline Hậu xử lý Đa tầng (`src/app/detection_logic.py`):**
   - **Cắt ô ảnh (`src/detection/tiling.py`):** Tự động chia ảnh lớn ($\ge 800\text{px}$) thành lưới ô $640 \times 640$ có chồng lấp để phát hiện rác nhỏ và lọc bỏ các khung bao nhiễu tràn ô.
   - **Thẩm định hai giai đoạn (`src/detection/two_stage.py`):** Kết hợp điểm của Detector (Stage 1) với xác suất phân loại của `MobileNetV3-Large` (Stage 2) theo công thức nhân xác suất Bayesian (`product`, `min_proposal_gate=0.28`) nhằm loại bỏ triệt để dương tính giả trên nền đường phố, biển hiệu và tủ điện.
   - **Chuẩn hóa tọa độ (`src/detection/coordinates.py`):** Đảm bảo xoay EXIF, đệm tỉ lệ letterbox và chiếu ngược tọa độ chính xác về kích thước ảnh gốc.
@@ -106,7 +109,7 @@ flowchart TD
 
 ## 3. HỆ THỐNG MƯỜI NHÓM RÁC THỐNG NHẤT (TAXONOMY 10 CLASSES)
 
-Nhóm nghiên cứu và PM đã thống nhất chuẩn hóa **10 nhóm rác chi tiết** xuyên suốt cả Giai đoạn 1 và Giai đoạn 2:
+Trong toàn bộ mã nguồn hiện hành (`src/detection/schema.py`, `AGENTS.md`, `GLOSSARY.md`), hệ thống đang sử dụng **10 nhóm rác cố định** xuyên suốt cả Giai đoạn 1 và Giai đoạn 2 (đồng thời có dự thảo tờ trình đề xuất điều chỉnh đề cương từ 6 nhóm gốc sang 10 lớp tại [`docs/proposal/TO_TRINH_XIN_DIEU_CHINH_DE_CUONG_10_LOP.md`](docs/proposal/TO_TRINH_XIN_DIEU_CHINH_DE_CUONG_10_LOP.md); lưu ý không mặc định tờ trình đã được GVHD phê duyệt chính thức nếu chưa có văn bản xác nhận):
 
 | Class ID | Tên tiếng Anh | Tên tiếng Việt | Đặc điểm nhận dạng thực tế | Loại thùng rác đề xuất |
 |:---:|:---|:---|:---|:---|
@@ -129,16 +132,16 @@ Nhóm nghiên cứu và PM đã thống nhất chuẩn hóa **10 nhóm rác chi 
 |:---|:---|:---:|
 | **Dữ liệu sạch Classification** | `data/processed_v2/` và `data/audit/split_manifest_v2.csv` | **VERIFIED (14.829 ảnh)** |
 | **Trọng số Classifier chính thức** | `artifacts/official_run/best_model.pt` | **VERIFIED (Acc 96.18%)** |
-| **Dịch vụ Classifier Web / Stage-2** | `src/web/classifier_service.py` | **VERIFIED** |
-| **Công cụ gán nhãn Review Tool** | `src/ui/review_tool.py` | **VERIFIED (Có chặn box pending)** |
+| **Dịch vụ Classifier Web / Stage-2** | `src/app/classifier_service.py` | **VERIFIED** |
+| **Công cụ gán nhãn Review Tool** | `scripts/archive/legacy_src_unused/review_tool.py` | **VERIFIED (Có chặn box pending)** |
 | **Cổng kiểm duyệt Dataset & Phần cứng** | `src/detection/safe_dataset_builder.py` & `src/detection/preflight_guard.py` | **VERIFIED (Fail-closed)** |
-| **Code & Checkpoint SSDLite320 (E2)** | `src/detection/ssdlite_train.py` & `artifacts/detection_v2/E2_ssdlite320_10cls/` | **VERIFIED (10 lớp, +1/-1 shift)** |
-| **Code & Checkpoint YOLOv8n (E1/E3)** | `src/detection/yolo.py` & `artifacts/detection_v2/E1_yolov8n_10cls/` | **VERIFIED (10 lớp chuẩn)** |
+| **Code & Checkpoints SSDLite320 (Tầng 3A — Mô hình chính)** | `src/detection/ssdlite.py`, `src/detection/ssdlite_train.py`; App default: `E4_ssdlite320_10cls` / `E2_ssdlite320_10cls`; Research baseline: `SSDLite320_v4_unified_1run` | **VERIFIED CODE / ĐANG CHUẨN BỊ GĐ0 AUDIT** |
+| **Code & Checkpoints YOLOv8n (Tầng 3B — Mô hình đối chứng)** | `src/detection/yolo.py`; App default: `E4_yolov8n_10cls` / `E1_yolov8n_10cls`; Research runs: `E3_yolov8n_pilot`, `YOLOv8n_v4_unified_1run` | **VERIFIED (Giữ nguyên đối chứng)** |
 | **Tiling, Two-Stage & Coordinates** | `src/detection/tiling.py`, `src/detection/two_stage.py`, `src/detection/coordinates.py` | **VERIFIED** |
 | **Augmentation & Copy-Paste** | `src/detection/augmentation.py` & `src/detection/copy_paste.py` | **VERIFIED (4 chiến lược)** |
 | **Thuật toán WBF & Grid Search** | `src/detection/fusion.py` & `src/detection/tune.py` | **VERIFIED** |
 | **Đánh giá COCO mAP & Thực địa** | `src/detection/evaluate.py` & `reports/qa_acceptance/practical_metrics.py` | **VERIFIED** |
-| **Giao diện Web Streamlit (2 Tabs)** | `streamlit_app.py`, `src/web/detection_logic.py`, `src/detection/visualization.py` | **VERIFIED (Hoàn chỉnh)** |
+| **Giao diện Web Streamlit (2 Tabs)** | `streamlit_app.py`, `src/app/detection_logic.py`, `src/detection/visualization.py` | **VERIFIED (Hoàn chỉnh)** |
 
 ---
 
@@ -166,7 +169,7 @@ streamlit run streamlit_app.py
 
 ### 5.3. Khởi chạy Công cụ Thẩm định Nhãn nội bộ (Review Tool)
 ```powershell
-streamlit run src/ui/review_tool.py -- --manifest data/audit/real_detection_source_manifest.csv
+streamlit run scripts/archive/legacy_src_unused/review_tool.py -- --manifest data/audit/real_detection_source_manifest.csv
 ```
 - Tính năng: Kiểm tra trực quan từng ảnh và từng bounding box, gán nhãn lại, chuyển trạng thái `APPROVED` / `REJECTED`, tích hợp cơ chế chặn lưu phê duyệt nếu còn bounding box nghi vấn ở trạng thái `PENDING`.
 
@@ -174,28 +177,26 @@ streamlit run src/ui/review_tool.py -- --manifest data/audit/real_detection_sour
 
 ## 6. LỘ TRÌNH CÁC BƯỚC ĐÃ TRIỂN KHAI & TIẾP THEO (ACTION PLAN)
 
-### Bước 1: Thống nhất đề cương 10 lớp với GVHD — **ĐÃ HOÀN THÀNH**
-- Đã lập tờ trình và báo cáo đối chiếu tại `docs/plan/PROPOSAL_ARCHITECTURE_ALIGNMENT_REVIEW.md` và `docs/proposal/TO_TRINH_XIN_DIEU_CHINH_DE_CUONG_10_LOP.md`.
+### Bước 1: Hồ sơ đối chiếu đề cương 10 lớp — **ĐÃ SOẠN THẢO DỰ THẢO TỜ TRÌNH**
+- Đã lập báo cáo đối chiếu tại `docs/plan/PROPOSAL_ARCHITECTURE_ALIGNMENT_REVIEW.md` và dự thảo tờ trình tại `docs/proposal/TO_TRINH_XIN_DIEU_CHINH_DE_CUONG_10_LOP.md`. Giữ nguyên ánh xạ 10 lớp hiện hành trong code theo quyết định của PM; không khẳng định tờ trình đã được GVHD phê duyệt chính thức khi chưa có bằng chứng xác nhận.
 
-### Bước 2: Đồng bộ Taxonomy 10 lớp trong toàn bộ Mã nguồn Detection — **ĐÃ HOÀN THÀNH**
-- Toàn bộ `src/detection/schema.py`, `dataset.py`, `ssdlite.py`, `yolo.py`, `fusion.py`, `evaluate.py` và `streamlit_app.py` đã khóa cứng 10 lớp chuẩn và vượt qua toàn bộ bộ kiểm thử `pytest`.
+### Bước 2: Đồng bộ Taxonomy 10 lớp trong toàn bộ Mã nguồn Detection — **ĐÃ HOÀN THÀNH TRONG CODE**
+- Toàn bộ `src/detection/schema.py`, `dataset.py`, `ssdlite.py`, `yolo.py`, `fusion.py`, `evaluate.py` và `streamlit_app.py` đang vận hành với 10 lớp cố định `[0: battery .. 9: trash]`.
 
-### Bước 3: Mở rộng & Kiểm định Dữ liệu Đa đối tượng Thực tế (Task 4 ➔ Task 8) — **ĐANG MỞ RỘNG QUY MÔ**
-- Đã thiết lập cổng kiểm duyệt `fail-closed` (`src/detection/safe_dataset_builder.py`), kiểm tra pHash/SHA-256 chống rò rỉ với tập Test (299 ảnh) và tập Holdout thực tế (27 ảnh, 57 GT boxes).
+### Bước 3: Mở rộng Dữ liệu Đa đối tượng & Kiểm toán Độc lập T1/T2 — **ĐÃ GHI NHẬN HIỆN TRẠNG**
+- Đã thiết lập cổng kiểm duyệt `fail-closed` (`src/detection/safe_dataset_builder.py`) và thực hiện kiểm toán độc lập tại [`reports/qa_acceptance/T1_report.md`](reports/qa_acceptance/T1_report.md) và [`reports/qa_acceptance/T2_report.md`](reports/qa_acceptance/T2_report.md). Tập 27 ảnh `data/holdout` được chuyển sang vai trò **`DEV-27`** (chỉ phục vụ regression/sanity check, không dùng làm Final Blind Test).
 
-### Bước 4: Lập trình Module Augmentation, Tiling & Two-Stage — **ĐÃ HOÀN THÀNH**
+### Bước 4: Lập trình Module Augmentation, Tiling & Two-Stage — **ĐÃ HOÀN THÀNH TRONG CODE**
 - Đã hoàn thiện `src/detection/augmentation.py`, `src/detection/copy_paste.py`, `src/detection/tiling.py`, `src/detection/two_stage.py`, và `src/detection/coordinates.py`.
 
-### Bước 5: Huấn luyện Baseline E1 (`YOLOv8n`), E2 (`SSDLite320`) & E3 Pilot — **ĐÃ HOÀN THÀNH**
-- Đã huấn luyện và kiểm định thực nghiệm `E1_yolov8n_10cls`, `E2_ssdlite320_10cls` (nạp 258 backbone keys từ `MobileNetV3-Large`) và `E3_yolov8n_pilot` (chi tiết tại `docs/BAO_CAO_TONG_HOP_AUDIT_VA_NANG_CAP_MO_HINH_KLCN155.md`).
+### Bước 5: Các đợt Huấn luyện E1–E4 và `v4_unified_1run` — **ĐÃ LƯU TRỮ CHECKPOINTS**
+- Đã lưu trữ các checkpoints ứng dụng (`E1_yolov8n_10cls`, `E2_ssdlite320_10cls`, `E4_ssdlite320_10cls`, `E4_yolov8n_10cls`), bản thử nghiệm (`E3_yolov8n_pilot`) và baseline nghiên cứu (`SSDLite320_v4_unified_1run`, `YOLOv8n_v4_unified_1run`).
 
-### Bước 6: Tối ưu hóa Weighted Boxes Fusion (WBF) và Đánh giá Ablation
-- **Hành động:**
-  - Chạy script `src/detection/tune.py` thực hiện Grid Search tìm bộ trọng số $w_{\text{SSD}}, w_{\text{YOLO}}$ và ngưỡng IoU tối ưu trên tập Validation.
-  - Mở khóa tập Test độc lập (chỉ chạy duy nhất 1 lần) để đánh giá đối sánh công bằng: SSDLite vs YOLOv8n vs WBF Ensemble.
-  - Đánh giá phân tách trên các nhóm điều kiện ảnh khó: thiếu sáng, ngược sáng, vật thể nhỏ, che khuất, chồng lấn.
-  - Đo đạc thông lượng suy luận: Latency batch size 1 (ms), FPS, dung lượng mô hình (MB), mức tiêu thụ RAM/VRAM.
-- **Tiêu chí nghiệm thu:** Bảng tổng hợp số liệu ablation đầy đủ đưa vào Chương 4 của Báo cáo khóa luận.
+### Bước 6: Lộ trình Nâng cấp SSDLite320 (Tầng 3A) theo Quality Gate (GĐ0 ➔ GĐ5) — **ĐANG CHỜ PM PHÊ DUYỆT BẮT ĐẦU GĐ0**
+- **Tài liệu quy chuẩn:** [`docs/pm/SSDLITE320_QUALITY_GATES.md`](docs/pm/SSDLITE320_QUALITY_GATES.md) (trạng thái `DRAFT`).
+- **Hành động theo từng cổng:**
+  - **GĐ0 (Verification & Data Audit):** Kiểm toán toàn diện baseline `SSDLite320_v4_unified_1run` (45 epochs, best epoch 38), tái lập metrics, giải thích nguyên nhân các lớp `trash`, `paper`, `cardboard` nhận diện thấp, khóa Validation và xây dựng tập Test cuối độc lập.
+  - **GĐ1 ➔ GĐ5:** Chỉ chuyển giai đoạn khi đạt đồng thời cả 5 chỉ số (`mAP50`, `mAP50:95`, `Precision`, `Recall`, `F1`) trên cùng một checkpoint theo đúng giao thức đánh giá và được PM phê duyệt.
 
 ### Bước 7: Đóng gói Bàn giao, Hoàn thiện Báo cáo và Thiết kế Slide Bảo vệ
 - **Hành động:**

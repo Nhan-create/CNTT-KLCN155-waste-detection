@@ -5,7 +5,7 @@ import yaml
 from PIL import Image
 
 from src.data.schema import CLASS_NAMES
-from src.preprocessing.run_pipeline import run_pipeline
+from src.data.run_pipeline import run_pipeline
 
 
 def test_pipeline_builds_valid_ten_class_dataset(tmp_path: Path) -> None:

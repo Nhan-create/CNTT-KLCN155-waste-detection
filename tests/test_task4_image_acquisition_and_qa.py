@@ -106,7 +106,9 @@ def test_strict_zero_approval_dod():
         assert "visual_qa" in item
 
 def test_baseline_correction_artifact():
-    corr_path = ROOT / "BASELINE_CORRECTION.md"
+    corr_path = ROOT / "reports/archive/task_reports/BASELINE_CORRECTION.md"
+    if not corr_path.exists():
+        corr_path = ROOT / "BASELINE_CORRECTION.md"
     assert corr_path.exists(), "Missing BASELINE_CORRECTION.md"
     content = corr_path.read_text(encoding="utf-8")
     

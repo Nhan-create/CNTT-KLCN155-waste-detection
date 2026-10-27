@@ -25,7 +25,7 @@ from src.detection.visualization import (
     DETECTION_DISPLAY_NAMES,
     detection_label,
 )
-from src.ui.presentation import DISPLAY_NAMES_VI
+from src.app.presentation import DISPLAY_NAMES_VI
 from src.detection.yolo import WasteDetector, DetectionError
 from src.detection.ssdlite import SSDLiteWasteDetector, tensor_detections
 from src.detection.ssdlite_train import YoloBoxDataset

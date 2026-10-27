@@ -53,7 +53,7 @@ def build_class_mapping(classifier_class_names: Sequence[str]) -> tuple[int, ...
 
 
 class MobileNetBatchAdapter:
-    """Batch inference adapter around ``src.web.classifier_service.MobileNetClassifier``."""
+    """Batch inference adapter around ``src.app.classifier_service.MobileNetClassifier``."""
 
     def __init__(self, classifier) -> None:
         self.classifier = classifier

@@ -51,7 +51,63 @@ MobileNetV3-Large dùng các khối inverted residual, depthwise convolution, po
 3. dùng weighted cross-entropy, label smoothing `0.1`, AdamW, cosine schedule, gradient clipping và AMP khi có CUDA;
 4. chọn `best.pt` theo **validation macro-F1**, không dùng test để chọn model.
 
-Định nghĩa model chỉ có một nguồn tại `src/models/mobilenetv3.py`. Train, evaluate, CLI và GUI đều đọc chung checkpoint tự mô tả để không lệch thứ tự lớp.
+Định nghĩa model chỉ có một nguồn tại `src/detection/mobilenetv3.py`. Train, evaluate, CLI và GUI đều đọc chung checkpoint tự mô tả để không lệch thứ tự lớp.
+
+## Cấu trúc thư mục dự án
+
+Dự án được tổ chức tinh gọn theo kiến trúc phân tầng (3 phân hệ cốt lõi trong `src/` đồng bộ với `tests/` và hệ thống cấu hình/tài liệu):
+
+```text
+CNTT-KLCN155-waste-detection/
+├── streamlit_app.py                          # Điểm vào chính ứng dụng Web Streamlit (Tab 1: Phân loại đơn vật thể, Tab 2: Phát hiện đa vật thể)
+├── app.py                                    # Điểm vào ứng dụng Desktop PyQt5 (phân loại ảnh tĩnh, camera trực tiếp & lưu lịch sử SQLite)
+├── src/                                      # Mã nguồn cốt lõi (63 files .py chia thành 3 phân hệ chuyên biệt)
+│   ├── detection/                            # [35 files] Tầng mô hình AI, huấn luyện, đánh giá, suy luận & hậu xử lý đa giai đoạn
+│   │   ├── types.py                          # Hợp đồng đầu ra chuẩn hóa: BoundingBox, Detection, DetectionResult
+│   │   ├── schema.py                         # Định nghĩa 10 lớp phát hiện chuẩn (DETECTION_CLASS_NAMES) & ánh xạ nhãn nguồn
+│   │   ├── coordinates.py                    # Xử lý xoay chiều EXIF, đệm tỉ lệ letterbox, chiếu ngược tọa độ về ảnh gốc & cắt biên
+│   │   ├── ssdlite.py                        # Tầng 3A (Mô hình chính): SSDLite320-MobileNetV3 (320x320), kế thừa backbone Stage-1
+│   │   ├── ssdlite_train.py                  # Vòng lặp huấn luyện SSDLite320 (nhãn 0=BG, 1..10=FG) & chọn best.pt theo Validation mAP
+│   │   ├── yolo.py                           # Tầng 3B (Mô hình đối chứng): Bộ bọc WasteDetector cho YOLOv8n (imgsz=640)
+│   │   ├── factory.py                        # Hàm khởi tạo thống nhất create_detector cho backend ssdlite, yolov8n và wbf
+│   │   ├── fusion.py                         # Tầng 4: Hợp nhất khung bao Weighted Boxes Fusion (WBF) theo từng lớp (FusionDetector)
+│   │   ├── tune.py                           # Dò tìm lưới ngưỡng confidence/IoU/trọng số WBF chỉ trên tập Validation
+│   │   ├── tiling.py                         # Cắt ô cửa sổ trượt (SAHI-style TiledDetector) giúp bắt vật thể rác kích thước nhỏ
+│   │   ├── two_stage.py                      # Thẩm định 2 giai đoạn (TwoStageDetector): dùng MobileNetV3-Large chấm lại vùng cắt proposal
+│   │   ├── tracking.py                       # Làm mượt khung bao theo thời gian (TemporalDetectionSmoother) cho luồng video/camera
+│   │   ├── visualization.py                  # Vẽ khung bao (Highlight Box / Bounding Box) & nhãn tiếng Việt lên ảnh kết quả
+│   │   ├── augmentation.py, copy_paste.py    # 4 mức tăng cường Albumentations & kỹ thuật ghép mẫu Copy-Paste cho lớp hiếm
+│   │   ├── balance_split.py                  # Cân bằng tần suất lấy mẫu ảnh huấn luyện (Repeat-Factor Sampling)
+│   │   ├── dataset.py, manifest.py, prepare.py, safe_dataset_builder.py, export_train_manifest.py # Kiểm định & xuất dữ liệu YOLO an toàn
+│   │   ├── train.py, evaluate.py, export.py, training_common.py, preflight_guard.py               # CLI huấn luyện, đánh giá COCO mAP & xuất ONNX
+│   │   ├── mobilenetv3.py, checkpoint.py     # Kiến trúc MobileNetV3-Large 10 lớp & quản lý checkpoint tự mô tả
+│   │   └── classifier_data.py, classifier_engine.py, classifier_train.py, classifier_evaluate.py, metrics.py, predict.py # Huấn luyện & dự đoán Classifier
+│   ├── data/                                 # [15 files] Tầng tiền xử lý dữ liệu, khử trùng lặp & kiểm định chống rò rỉ
+│   │   ├── schema.py                         # Định nghĩa 10 lớp chuẩn (CLASS_NAMES), ManifestRecord & đọc bảng label_mapping.csv
+│   │   ├── merge_datasets.py                 # Hợp nhất các bộ dữ liệu nguồn (VN Trash, Garbage v2) vào cây raw an toàn
+│   │   ├── dedup.py, clean_data.py           # Khử trùng lặp tuyệt đối (SHA-256) & gần trùng (64-bit pHash BK-Tree + Union-Find)
+│   │   ├── split.py, split_dataset.py        # Chia tập 70/15/15 phân tầng theo cụm pHash (Group-Stratified Split) chống rò rỉ
+│   │   ├── validation.py                     # Kiểm định độc lập sau chia tập (đủ 10 lớp, 0 ảnh hỏng, 0 rò rỉ cụm qua train/val/test)
+│   │   └── run_pipeline.py, balance_classes.py, dataset.py, dataloader.py, augmentation.py, eda.py, manifest.py # Pipeline dữ liệu đầu-cuối
+│   └── app/                                  # [12 files] Tầng dịch vụ ứng dụng & giao diện người dùng (Tầng 5)
+│       ├── detection_settings.py             # Quản lý cấu hình runtime Streamlit, đường dẫn trọng số mặc định & ngưỡng từng lớp
+│       ├── detection_logic.py                # Lắp ráp pipeline phát hiện (Base -> Tiling -> TwoStage -> PerClassThreshold) & giải mã ảnh
+│       ├── detection_service.py              # Dịch vụ bọc detector an toàn luồng (thread-safe) cho giao diện Web
+│       ├── classifier_service.py             # Dịch vụ phân loại MobileNetV3-Large (ONNX / PyTorch) kèm hướng dẫn phân loại rác tại nguồn
+│       ├── app_logic.py, inference_service.py, presentation.py, style.py # Chuẩn hóa dữ liệu hiển thị & tên lớp tiếng Việt
+│       └── main_window.py, workers.py, history.py                        # Giao diện PyQt5 Desktop, luồng QThread & lịch sử SQLite
+├── configs/                                  # 23 files cấu hình YAML/JSON cho dataset, huấn luyện, WBF, ngưỡng hiệu chuẩn & manifest release
+├── scripts/                                  # 37 scripts CLI đang hoạt động (download_models.py, download_datasets.py, generate_thesis_charts.py...)
+│   └── archive/                              # Kho lưu trữ có phân loại các script lịch sử / kiểm toán một lần theo từng giai đoạn
+├── tests/                                    # 93 files kiểm thử tự động (detection, data, app, integration, qa)
+├── docs/                                     # Tài liệu cấu trúc (PROJECT_STRUCTURE.md), kiến trúc (architecture/), kế hoạch (plan/), cổng PM (pm/)
+├── reports/                                  # Báo cáo thực nghiệm, biểu đồ khóa luận (figures/) & kiểm định QA độc lập (qa_acceptance/)
+├── notebooks/                                # Notebook huấn luyện chuẩn hóa trên Kaggle GPU & Google Colab
+├── data/                                     # Bảng ánh xạ nhãn gốc (data/metadata/label_mapping.csv) & dữ liệu cục bộ
+└── artifacts/                                # Nơi lưu trữ các trọng số mô hình (.pt, .onnx) tải về từ GitHub Release v1.0.0-models
+```
+
+👉 **[Xem hướng dẫn chi tiết cấu trúc source code](docs/PROJECT_STRUCTURE.md)**
 
 ## Mười lớp chuẩn
 
@@ -153,12 +209,16 @@ python scripts/download_models.py --verify-only
 
 ### 3. Danh mục chi tiết các file trọng số (`artifacts/...`)
 
-| Đường dẫn trong dự án | Tên mô hình & Vai trò trong ứng dụng | Dung lượng | SHA-256 |
+| Đường dẫn trong dự án | Tên mô hình, Phân loại & Vai trò thực tế | Dung lượng | SHA-256 |
 |---|---|---:|---|
-| `artifacts/official_run/best_model.pt` | **MobileNetV3-Large 10-Class Classifier** *(Mặc định cho Tab 1 Phân loại & Tab 2 Two-Stage)* | `48.57 MB` (`50,929,856` bytes) | `c824fec4f3d1dffff946cd8ad7e2d4f121be33e684dda4e6af92b5bda343e424` |
-| `artifacts/detection_v2/E2_ssdlite320_10cls/weights/best.pt` | **SSDLite320-MobileNetV3 10-Class Detector (E2)** *(Mô hình phát hiện chính mặc định)* | `27.14 MB` (`28,459,990` bytes) | `c9eb52efe6c5592340843d7678ae7d742eb2250d5ee9aaebbae620b8ebd465e7` |
-| `artifacts/detection_v2/E1_yolov8n_10cls/weights/best.pt` | **YOLOv8n 10-Class Detector (E1)** *(Mô hình phát hiện đối chứng mặc định & WBF)* | `5.94 MB` (`6,228,451` bytes) | `7e986deed90ba4208f4662039c1e78b2d03ffb41a6e57e8235184db78aec32d8` |
-| `artifacts/detection_v3_pilot/E3_yolov8n_pilot/weights/best.pt` | **YOLOv8n v3 Pilot 10-Class Detector (E3)** *(Thử nghiệm riêng — chỉ nạp khi truyền `--detector`)* | `5.92 MB` (`6,211,491` bytes) | `e451cb8d0a0faab9374f5dac90811bba681b2827d51aba07f6e6a120b5364169` |
+| `artifacts/official_run/best_model.pt` | **[App Default — Stage 1/2 Classifier]** `MobileNetV3-Large` 10 lớp *(Mặc định cho Tab 1 Phân loại & Tab 2 Two-Stage)* | `48.57 MB` (`50,929,856` bytes) | `c824fec4f3d1dffff946cd8ad7e2d4f121be33e684dda4e6af92b5bda343e424` |
+| `artifacts/detection_v4_expanded/E4_ssdlite320_10cls/weights/best.pt` | **[App Default trên máy nếu tồn tại — Tầng 3A Primary]** `SSDLite320-MobileNetV3 (E4 v4_expanded)` *(Được `DEFAULT_SSDLITE_PATH` trong `src/app/detection_settings.py` ưu tiên nạp khi có trên đĩa)* | `27.14 MB` (`28,455,254` bytes) | `7a85e6875037f0b4a60a9084c07a3d2c8420975166e9e6b07466ec9d587f78c3` |
+| `artifacts/detection_v2/E2_ssdlite320_10cls/weights/best.pt` | **[App Default Fallback (Gói Release `v1.0.0-models`) — Tầng 3A Primary]** `SSDLite320-MobileNetV3 (E2 v2)` *(Nạp tự động nếu máy chưa có bản `E4`)* | `27.14 MB` (`28,459,990` bytes) | `c9eb52efe6c5592340843d7678ae7d742eb2250d5ee9aaebbae620b8ebd465e7` |
+| `artifacts/detection_v4_expanded/E4_yolov8n_10cls/weights/best.pt` | **[App Default trên máy nếu tồn tại — Tầng 3B Control]** `YOLOv8n (E4 v4_expanded)` *(Được `DEFAULT_YOLO_PATH` trong `src/app/detection_settings.py` ưu tiên nạp khi có trên đĩa)* | `5.93 MB` (`6,219,683` bytes) | `946342d7fcc4caa58252357706bafa93e86dd7f94412d22adad75d195e43e661` |
+| `artifacts/detection_v2/E1_yolov8n_10cls/weights/best.pt` | **[App Default Fallback (Gói Release `v1.0.0-models`) — Tầng 3B Control]** `YOLOv8n (E1 v2)` *(Nạp tự động nếu máy chưa có bản `E4`)* | `5.94 MB` (`6,228,451` bytes) | `7e986deed90ba4208f4662039c1e78b2d03ffb41a6e57e8235184db78aec32d8` |
+| `artifacts/detection_v4_unified_1run/SSDLite320_v4_unified_1run/weights/best.pt` | **[Research Baseline — Kiểm toán GĐ0]** `SSDLite320_v4_unified_1run` (`epoch 38/45`) *(Baseline nghiên cứu Tầng 3A theo [docs/pm/SSDLITE320_QUALITY_GATES.md](docs/pm/SSDLITE320_QUALITY_GATES.md) — không tự động thay thế checkpoint mặc định của ứng dụng)* | `27.14 MB` (`28,459,798` bytes) | `7704b13018538fd68bf62a70d09dbb76989176497f76811079139176193f7e31` |
+| `artifacts/detection_v4_unified_1run/YOLOv8n_v4_unified_1run/weights/best.pt` | **[Research Control — Tầng 3B]** `YOLOv8n_v4_unified_1run` *(Bản đối chứng nghiên cứu cùng đợt `v4_unified_1run`)* | `23.34 MB` (`24,477,338` bytes) | `9f7d0edaf8e426ccafa3accd9a0c28ec0cac216626b60469c378e92e35f4f5a3` |
+| `artifacts/detection_v3_pilot/E3_yolov8n_pilot/weights/best.pt` | **[Experimental Pilot — Tầng 3B]** `YOLOv8n v3 Pilot (E3)` *(Thử nghiệm riêng — chỉ nạp khi truyền `--detector`)* | `5.92 MB` (`6,211,491` bytes) | `e451cb8d0a0faab9374f5dac90811bba681b2827d51aba07f6e6a120b5364169` |
 
 ### 4. Quy trình Clone và Chạy nhanh ứng dụng trên Windows PowerShell
 
@@ -218,7 +278,7 @@ Notebook tự tìm layout input, ghi cấu hình đường dẫn đã phân gi�
 Khi dùng downloader ở trên, truyền config local mà nó tạo:
 
 ```powershell
-python -m src.preprocessing.run_pipeline `
+python -m src.data.run_pipeline `
   --config data/sources/preprocessing_config.local.yaml `
   --raw-root data/raw `
   --metadata-root data/metadata/v1 `
@@ -239,7 +299,7 @@ Các kiểm tra gồm: file corrupt, nhãn không ánh xạ, exact duplicate b�
 ## Huấn luyện và resume
 
 ```bash
-python -m src.training.train \
+python -m src.detection.classifier_train \
   --data-root data/processed/v1 \
   --manifest data/metadata/v1/split_manifest.csv \
   --config configs/model_config.yaml \
@@ -251,7 +311,7 @@ python -m src.training.train \
 Nếu thiếu VRAM, thêm `--batch-size 16`. Tiếp tục một lần chạy bị ngắt bằng checkpoint `last.pt`:
 
 ```bash
-python -m src.training.train \
+python -m src.detection.classifier_train \
   --data-root data/processed/v1 \
   --manifest data/metadata/v1/split_manifest.csv \
   --config configs/model_config.yaml \
@@ -268,7 +328,7 @@ python -m src.training.train \
 Chỉ đánh giá sau khi model đã được chọn bằng validation:
 
 ```bash
-python -m src.evaluation.evaluate \
+python -m src.detection.classifier_evaluate \
   --checkpoint artifacts/run-001/best.pt \
   --test-root data/processed/v1/test \
   --output-dir outputs/evaluation/run-001 \
@@ -280,7 +340,7 @@ Output gồm accuracy, macro-F1, weighted-F1, precision/recall/F1/support từng
 ## Dự đoán bằng CLI
 
 ```bash
-python -m src.inference.predict \
+python -m src.detection.predict \
   --checkpoint artifacts/run-001/best.pt \
   --image path/to/image.jpg \
   --top-k 3 \
@@ -298,10 +358,11 @@ Sau khi đã cài đặt môi trường, chạy ứng dụng tại thư mục g�
 streamlit run streamlit_app.py
 ```
 
-Mặc định ứng dụng tự động nạp bộ trọng số 10 lớp đã huấn luyện ([`src/web/detection_settings.py`](src/web/detection_settings.py)):
-- **YOLOv8n (E1 - Đối chứng):** `artifacts/detection_v2/E1_yolov8n_10cls/weights/best.pt`
-- **SSDLite320-MobileNetV3 (E2 - Mô hình chính):** `artifacts/detection_v2/E2_ssdlite320_10cls/weights/best.pt`
-- **MobileNetV3-Large Classifier (Stage-1 / Stage-2):** `artifacts/official_run/best_model.pt`
+Cơ chế lựa chọn checkpoint mặc định của ứng dụng trong [`src/app/detection_settings.py`](src/app/detection_settings.py) (`backend` mặc định là `ssdlite`, tách biệt với checkpoint baseline nghiên cứu):
+- **SSDLite320-MobileNetV3 (Mô hình chính — Tầng 3A, `DEFAULT_SSDLITE_PATH`):** Tự động kiểm tra theo thứ tự: (1) `artifacts/detection_v4_expanded/E4_ssdlite320_10cls/weights/best.pt` nếu có trên đĩa ➔ (2) `artifacts/detection_v2/E2_ssdlite320_10cls/weights/best.pt` (từ gói `v1.0.0-models`) ➔ (3) `artifacts/detection/waste-ssdlite320-mobilenetv3-combined-seed42/weights/best.pt`.
+- **YOLOv8n (Mô hình đối chứng — Tầng 3B, `DEFAULT_YOLO_PATH`):** Tự động kiểm tra theo thứ tự: (1) `artifacts/detection_v4_expanded/E4_yolov8n_10cls/weights/best.pt` nếu có trên đĩa ➔ (2) `artifacts/detection_v2/E1_yolov8n_10cls/weights/best.pt` (từ gói `v1.0.0-models`) ➔ (3) `artifacts/detection/waste-yolov8n-combined-seed42/weights/best.pt`.
+- **MobileNetV3-Large Classifier (Stage-1 / Stage-2, `DEFAULT_CLASSIFIER_PATH`):** `artifacts/official_run/best_model.pt`.
+- **Phân biệt với Checkpoint Baseline Nghiên cứu:** Run `artifacts/detection_v4_unified_1run/SSDLite320_v4_unified_1run/weights/best.pt` là baseline phục vụ kiểm toán và nâng cấp theo lộ trình Quality Gate ([`docs/pm/SSDLITE320_QUALITY_GATES.md`](docs/pm/SSDLITE320_QUALITY_GATES.md)), **không** tự động thay thế checkpoint mặc định của ứng dụng.
 
 Có thể tùy chỉnh đường dẫn detector hoặc chế độ chạy bằng biến môi trường hoặc CLI:
 
