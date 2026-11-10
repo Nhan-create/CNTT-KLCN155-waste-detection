@@ -26,16 +26,16 @@ VI_LABELS = {
 }
 
 BIN_RECOMMENDATIONS = {
-    "biological": ("🟢 Thùng Xanh lá (Rác hữu cơ)", "Thức ăn thừa, vỏ rau củ quả, bã trà, lá cây."),
-    "plastic": ("🟡 Thùng Vàng / Trắng (Rác tái chế)", "Chai nhựa, túi nilon sạch, hộp xốp sạch, ly nhựa."),
-    "paper": ("🟡 Thùng Vàng / Trắng (Rác tái chế)", "Giấy vụn, thùng carton, sách báo cũ."),
-    "cardboard": ("🟡 Thùng Vàng / Trắng (Rác tái chế)", "Bìa carton, hộp giấy carton sóng."),
-    "metal": ("🟡 Thùng Vàng / Trắng (Rác tái chế)", "Lon nước ngọt, vỏ đồ hộp kim loại, dây đồng."),
-    "glass": ("🟡 Thùng Vàng / Trắng (Rác tái chế)", "Chai lọ thủy tinh, ly chén thủy tinh vỡ."),
-    "battery": ("🔴 Thùng Đỏ / Cam (Rác nguy hại)", "Pin tiểu, pin điện thoại, ắc quy, bóng đèn huỳnh quang."),
-    "clothes": ("⚪ Thùng Xám / Tái sử dụng", "Quần áo cũ còn dùng được (quyên góp) hoặc vải vụn."),
-    "shoes": ("⚪ Thùng Xám / Tái sử dụng", "Giày dép cũ hư hỏng."),
-    "trash": ("⚪ Thùng Xám (Rác vô cơ khác)", "Rác thải sinh hoạt không thể tái chế, túi rác hỗn hợp."),
+    "biological": ("Thùng Xanh lá (Rác hữu cơ)", "Thức ăn thừa, vỏ rau củ quả, bã trà, lá cây."),
+    "plastic": ("Thùng Vàng / Trắng (Rác tái chế)", "Chai nhựa, túi nilon sạch, hộp xốp sạch, ly nhựa."),
+    "paper": ("Thùng Vàng / Trắng (Rác tái chế)", "Giấy vụn, thùng carton, sách báo cũ."),
+    "cardboard": ("Thùng Vàng / Trắng (Rác tái chế)", "Bìa carton, hộp giấy carton sóng."),
+    "metal": ("Thùng Vàng / Trắng (Rác tái chế)", "Lon nước ngọt, vỏ đồ hộp kim loại, dây đồng."),
+    "glass": ("Thùng Vàng / Trắng (Rác tái chế)", "Chai lọ thủy tinh, ly chén thủy tinh vỡ."),
+    "battery": ("Thùng Đỏ / Cam (Rác nguy hại)", "Pin tiểu, pin điện thoại, ắc quy, bóng đèn huỳnh quang."),
+    "clothes": ("Thùng Xám / Tái sử dụng", "Quần áo cũ còn dùng được (quyên góp) hoặc vải vụn."),
+    "shoes": ("Thùng Xám / Tái sử dụng", "Giày dép cũ hư hỏng."),
+    "trash": ("Thùng Xám (Rác vô cơ khác)", "Rác thải sinh hoạt không thể tái chế, túi rác hỗn hợp."),
 }
 
 _IMAGENET_MEAN = np.array([0.485, 0.456, 0.406], dtype=np.float32).reshape(3, 1, 1)
@@ -47,17 +47,17 @@ def summarize_bin_guidance(class_ids: Iterable[str]) -> list[tuple[str, str]]:
     classes = set(class_ids)
     guidance: list[tuple[str, str]] = []
     if "biological" in classes:
-        guidance.append(("🟢 **Thùng Xanh lá (Rác hữu cơ):** Thức ăn thừa, rau củ quả, lá cây.", "success"))
+        guidance.append(("**Thùng Xanh lá (Rác hữu cơ):** Thức ăn thừa, rau củ quả, lá cây.", "success"))
     if classes.intersection({"plastic", "paper", "cardboard", "metal", "glass"}):
         guidance.append(
-            ("🟡 **Thùng Vàng / Trắng (Rác tái chế):** Nhựa, giấy, bìa carton, kim loại, thủy tinh.", "success")
+            ("**Thùng Vàng / Trắng (Rác tái chế):** Nhựa, giấy, bìa carton, kim loại, thủy tinh.", "success")
         )
     if "battery" in classes:
-        guidance.append(("🔴 **Thùng Đỏ / Cam (Rác nguy hại):** Pin, ắc quy, bóng đèn, rác độc hại.", "error"))
+        guidance.append(("**Thùng Đỏ / Cam (Rác nguy hại):** Pin, ắc quy, bóng đèn, rác độc hại.", "error"))
     if classes.intersection({"clothes", "shoes", "trash"}):
         guidance.append(
             (
-                "⚪ **Thùng Xám / Thu gom riêng:** Quần áo cũ, giày dép (tái sử dụng/quyên góp), rác vô cơ khác.",
+                "**Thùng Xám / Thu gom riêng:** Quần áo cũ, giày dép (tái sử dụng/quyên góp), rác vô cơ khác.",
                 "neutral",
             )
         )

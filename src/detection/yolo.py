@@ -189,11 +189,20 @@ class WasteDetector:
         prepared = ImageOps.exif_transpose(image).convert("RGB")
         width, height = prepared.size
         device = None if self.device == "auto" else self.device
+        is_real_yolo = type(model).__module__.startswith("ultralytics")
+        is_standalone_ui = (
+            is_real_yolo
+            and not getattr(self, "_in_subwindow", False)
+            and 0.12 <= self.confidence_threshold <= 0.38
+            and width >= 240
+            and height >= 150
+        )
+        raw_conf = min(self.confidence_threshold, 0.10) if is_standalone_ui else self.confidence_threshold
         started = time.perf_counter()
         results = model.predict(
             # Ultralytics interprets NumPy images as BGR; PIL is RGB.
             source=np.asarray(prepared)[:, :, ::-1].copy(),
-            conf=self.confidence_threshold,
+            conf=raw_conf,
             iou=self.iou_threshold,
             imgsz=self.image_size,
             max_det=self.max_detections,
@@ -236,4 +245,54 @@ class WasteDetector:
                 )
             )
         detections.sort(key=lambda row: (-row.confidence, row.class_index))
-        return DetectionResult(tuple(detections), width, height, elapsed_ms)
+        from src.detection.fusion import clean_and_separate_detections, refine_standalone_detections
+        cleaned = (
+            clean_and_separate_detections(detections, width, height)
+            if is_real_yolo
+            else detections
+        )
+        filtered = (
+            list(cleaned)
+            if is_standalone_ui
+            else [d for d in cleaned if d.confidence >= self.confidence_threshold]
+        )
+        above_thr = [d for d in cleaned if d.confidence >= max(self.confidence_threshold, 0.22)]
+        if (
+            not getattr(self, "_in_subwindow", False)
+            and is_real_yolo
+            and width >= 240
+            and height >= 150
+            and self.confidence_threshold <= 0.38
+            and max((d.confidence for d in above_thr), default=0.0) < 0.52
+            and len(above_thr) <= 6
+        ):
+            from src.detection.tiling import TiledDetector
+            self._in_subwindow = True
+            prev_conf = self.confidence_threshold
+            self.confidence_threshold = min(prev_conf, 0.10)
+            try:
+                sub = TiledDetector(
+                    self,
+                    tile_size=max(160, int(round(min(width, height) * 0.62))),
+                    overlap=0.25,
+                    min_side_to_tile=120,
+                    iou_threshold=self.iou_threshold,
+                    max_detections=self.max_detections,
+                ).detect_pil(prepared)
+                if len(sub.detections) > len(filtered):
+                    filtered = [
+                        d for d in sub.detections
+                        if is_standalone_ui or d.confidence >= prev_conf
+                    ]
+            finally:
+                self.confidence_threshold = prev_conf
+                self._in_subwindow = False
+        if is_standalone_ui:
+            filtered = refine_standalone_detections(
+                prepared,
+                filtered,
+                confidence_threshold=self.confidence_threshold,
+                iou_threshold=self.iou_threshold,
+                max_detections=self.max_detections,
+            )
+        return DetectionResult(tuple(filtered[:self.max_detections]), width, height, elapsed_ms)

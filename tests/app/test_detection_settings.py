@@ -12,6 +12,30 @@ from src.app.detection_settings import (
 )
 
 
+def test_calibration_profile_rejects_a_different_checkpoint_or_scoring_mode(tmp_path: Path) -> None:
+    import json
+    from dataclasses import replace
+
+    from src.app.detection_settings import load_per_class_thresholds
+    from src.detection.evaluation import pipeline_identity
+
+    checkpoint = tmp_path / "ssdlite.pt"
+    checkpoint.write_bytes(b"version-one")
+    settings = parse_detection_settings(["--detector", str(checkpoint)], {})
+    profile = tmp_path / "thresholds.json"
+    profile.write_text(json.dumps({
+        "selected_on": "val", "pipeline": pipeline_identity(settings),
+        "per_class_thresholds": {"plastic": .5},
+    }), encoding="utf-8")
+
+    assert load_per_class_thresholds(profile, settings=settings) == (("plastic", .5),)
+    with pytest.raises(ValueError, match="pipeline"):
+        load_per_class_thresholds(profile, settings=replace(settings, two_stage_scoring_mode="blend"))
+    checkpoint.write_bytes(b"version-two")
+    with pytest.raises(ValueError, match="pipeline"):
+        load_per_class_thresholds(profile, settings=settings)
+
+
 def test_default_is_phase2_ssdlite() -> None:
     settings = parse_detection_settings([], {})
 

@@ -1,0 +1,14 @@
+{
+  "per_class_thresholds": {
+    "battery": 0.28,
+    "biological": 0.25,
+    "cardboard": 0.25,
+    "clothes": 0.35,
+    "glass": 0.25,
+    "metal": 0.25,
+    "paper": 0.25,
+    "plastic": 0.25,
+    "shoes": 0.35,
+    "trash": 0.28
+  }
+}

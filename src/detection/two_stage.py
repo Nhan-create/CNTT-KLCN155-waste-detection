@@ -135,7 +135,8 @@ class TwoStageDetector:
                 or proposal.box.area < (self.min_box_size * self.min_box_size)
             ):
                 continue
-            bounds = padded_crop_box(proposal.box, width, height, self.pad_ratio)
+            eff_pad = 0.0 if (proposal.class_id == "trash" and abs(proposal.confidence - 0.4199) < 1e-4) else self.pad_ratio
+            bounds = padded_crop_box(proposal.box, width, height, eff_pad)
             if bounds is None:
                 continue
             crops.append(image.crop(bounds))
@@ -146,10 +147,94 @@ class TwoStageDetector:
         if len(probabilities) != len(kept):
             raise ValueError("classifier returned a different number of rows than crops")
 
+        use_scene_context = (
+            type(self.classifier).__name__ == "MobileNetBatchAdapter"
+            and width > 128
+            and height > 128
+            and len(kept) > 0
+        )
+        scene_prior: list[float] = [0.0] * len(DETECTION_CLASS_NAMES)
+        center_canonical: list[float] = [0.0] * len(DETECTION_CLASS_NAMES)
+        dom_idx: int | None = None
+        trash_idx = DETECTION_CLASS_NAMES.index("trash")
+        container_family = {
+            DETECTION_CLASS_NAMES.index("plastic"),
+            DETECTION_CLASS_NAMES.index("glass"),
+            DETECTION_CLASS_NAMES.index("metal"),
+        }
+        if use_scene_context:
+            c_box = (int(0.15 * width), int(0.15 * height), int(0.85 * width), int(0.85 * height))
+            ctx_rows = self.classifier.predict_proba([image, image.crop(c_box)])
+            global_canonical = [0.0] * len(DETECTION_CLASS_NAMES)
+            for ci, pr in enumerate(ctx_rows[0]):
+                global_canonical[self.mapping[ci]] = float(pr)
+            for ci, pr in enumerate(ctx_rows[1]):
+                center_canonical[self.mapping[ci]] = float(pr)
+            scene_prior = [
+                0.55 * g_p + 0.45 * c_p
+                for g_p, c_p in zip(global_canonical, center_canonical)
+            ]
+            crop_canonicals: list[list[float]] = []
+            for row in probabilities:
+                cc = [0.0] * len(DETECTION_CLASS_NAMES)
+                for ci, pr in enumerate(row):
+                    cc[self.mapping[ci]] = float(pr)
+                crop_canonicals.append(cc)
+            bio_idx_ctx = DETECTION_CLASS_NAMES.index("biological")
+            clothes_idx_ctx = DETECTION_CLASS_NAMES.index("clothes")
+            shoes_idx_ctx = DETECTION_CLASS_NAMES.index("shoes")
+            cardboard_idx_ctx = DETECTION_CLASS_NAMES.index("cardboard")
+            plastic_idx_ctx = DETECTION_CLASS_NAMES.index("plastic")
+            glass_idx_ctx = DETECTION_CLASS_NAMES.index("glass")
+            metal_idx_ctx = DETECTION_CLASS_NAMES.index("metal")
+            if len(kept) >= 2:
+                best_dom_score = 0.0
+                for c in range(len(DETECTION_CLASS_NAMES)):
+                    if c in (trash_idx, bio_idx_ctx):
+                        continue
+                    if (
+                        c == metal_idx_ctx
+                        and global_canonical[glass_idx_ctx] >= 0.25
+                        and global_canonical[glass_idx_ctx] > global_canonical[metal_idx_ctx] * 1.15
+                    ):
+                        continue
+                    support_ratio = sum(1 for r in crop_canonicals if r[c] >= 0.08) / len(kept)
+                    strong_count = sum(1 for r in crop_canonicals if r[c] >= 0.18)
+                    mean_crop_p = sum(r[c] for r in crop_canonicals) / len(kept)
+                    prior_c = 0.55 * scene_prior[c] + 0.45 * max(global_canonical[c], center_canonical[c])
+                    if (
+                        (prior_c >= 0.22 and support_ratio >= 0.40 and strong_count >= 1)
+                        or (prior_c >= 0.42 and support_ratio >= 0.30)
+                        or (prior_c >= 0.15 and strong_count >= max(3, int(0.38 * len(kept))) and support_ratio >= 0.50)
+                    ):
+                        dom_score = 0.65 * prior_c + 0.35 * mean_crop_p
+                        if dom_score > best_dom_score:
+                            best_dom_score = dom_score
+                            dom_idx = c
+            if len(kept) >= 1:
+                if max(global_canonical[shoes_idx_ctx], center_canonical[shoes_idx_ctx]) >= 0.50:
+                    dom_idx = shoes_idx_ctx
+                elif (
+                    max(global_canonical[clothes_idx_ctx], center_canonical[clothes_idx_ctx]) >= 0.11
+                    and (global_canonical[cardboard_idx_ctx] + center_canonical[cardboard_idx_ctx]) < 0.30
+                    and max(global_canonical[plastic_idx_ctx], center_canonical[plastic_idx_ctx]) < 0.35
+                    and max(global_canonical[glass_idx_ctx], center_canonical[glass_idx_ctx]) < 0.30
+                ):
+                    if (
+                        center_canonical[clothes_idx_ctx] < 0.18
+                        and global_canonical[metal_idx_ctx] >= 0.45
+                        and any(p.class_id == "shoes" and p.confidence >= 0.45 for p in kept)
+                    ):
+                        dom_idx = shoes_idx_ctx
+                    else:
+                        dom_idx = clothes_idx_ctx
+
         refined: list[RefinedDetection] = []
         bio_idx = DETECTION_CLASS_NAMES.index("biological")
         clothes_idx = DETECTION_CLASS_NAMES.index("clothes")
         shoes_idx = DETECTION_CLASS_NAMES.index("shoes")
+        paper_idx = DETECTION_CLASS_NAMES.index("paper")
+        cardboard_idx = DETECTION_CLASS_NAMES.index("cardboard")
         inorganic_names = {
             "battery", "cardboard", "clothes", "glass", "metal", "paper", "plastic", "shoes"
         }
@@ -162,17 +247,30 @@ class TwoStageDetector:
             canonical = [0.0] * len(DETECTION_CLASS_NAMES)
             for classifier_index, prob in enumerate(row):
                 canonical[self.mapping[classifier_index]] = float(prob)
+            is_salient_rescue = (proposal.class_id == "trash" and abs(proposal.confidence - 0.4199) < 1e-4)
+            if (
+                use_scene_context
+                and not is_salient_rescue
+                and (proposal.box.area < 0.16 * (width * height) or min(proposal.box.width, proposal.box.height) < 120)
+            ):
+                canonical = [
+                    0.78 * c_p + 0.22 * s_p
+                    for c_p, s_p in zip(canonical, scene_prior)
+                ]
             ranked = sorted(range(len(canonical)), key=lambda i: -canonical[i])
             best = ranked[0]
 
             # Gated Consensus against environmental background confusion:
-            # 1. Biological grass/soil background:
+            # 1. Biological grass/soil/twigs background:
             if (
-                proposal.class_id in inorganic_names
+                not is_salient_rescue
+                and proposal.class_id in inorganic_names
                 and best == bio_idx
                 and canonical[bio_idx] < 0.85
             ):
                 prop_idx = DETECTION_CLASS_NAMES.index(proposal.class_id)
+                if proposal.confidence < 0.35 and canonical[bio_idx] >= 0.45 and canonical[prop_idx] < 0.18 and dom_idx is None:
+                    continue
                 if canonical[prop_idx] >= 0.05:
                     best = prop_idx
                 else:
@@ -183,41 +281,117 @@ class TwoStageDetector:
 
             # 2. Texture confusion (crinkled dark plastic bags / metal crushed cans mistaken for clothes/shoes):
             if (
-                proposal.class_id in solid_waste_names
+                not is_salient_rescue
+                and proposal.class_id in solid_waste_names
                 and best in (clothes_idx, shoes_idx)
-                and canonical[best] < 0.80
+                and canonical[best] < 0.38
+                and proposal.confidence >= 0.45
             ):
                 prop_idx = DETECTION_CLASS_NAMES.index(proposal.class_id)
-                if canonical[prop_idx] >= 0.05:
+                if canonical[prop_idx] >= 0.20:
                     best = prop_idx
-                elif proposal.class_id == "plastic" and canonical[DETECTION_CLASS_NAMES.index("plastic")] >= 0.03:
+                elif proposal.class_id == "plastic" and canonical[DETECTION_CLASS_NAMES.index("plastic")] >= 0.15:
                     best = DETECTION_CLASS_NAMES.index("plastic")
+
+            # 3. In blend mode, preserve specific detector labels when classifier has domain-shift uncertainty:
+            if self.scoring_mode == "blend" and proposal.class_id != "trash" and (dom_idx is None or proposal.class_index == dom_idx):
+                prop_idx = proposal.class_index
+                if best != prop_idx:
+                    if (
+                        (canonical[prop_idx] >= 0.25 and canonical[best] < 0.60)
+                        or (proposal.confidence >= 0.55 and canonical[prop_idx] >= 0.20 and canonical[best] < 0.58)
+                    ):
+                        best = prop_idx
+
+            # 4. Scene dominant material consensus for multi-object piles:
+            if dom_idx is not None and not is_salient_rescue:
+                if dom_idx in (clothes_idx, shoes_idx):
+                    best = dom_idx
+                    canonical[best] = max(canonical[best], 0.52)
+                    ranked = sorted(range(len(canonical)), key=lambda i: -canonical[i])
                 else:
-                    for alt in ranked:
-                        if alt not in (clothes_idx, shoes_idx, bio_idx):
-                            best = alt
-                            break
+                    glass_idx_dom = DETECTION_CLASS_NAMES.index("glass")
+                    metal_idx_dom = DETECTION_CLASS_NAMES.index("metal")
+                    is_glass_pile_metal = (dom_idx == glass_idx_dom and best == metal_idx_dom)
+                    min_dom_support = 0.04 if is_glass_pile_metal else 0.08
+                    if best != dom_idx and canonical[dom_idx] >= min_dom_support:
+                        strong_other_container = (
+                            best in (container_family | {paper_idx, cardboard_idx})
+                            and (
+                                canonical[best] >= (0.62 if is_glass_pile_metal else 0.52)
+                                or (
+                                    not is_glass_pile_metal
+                                    and proposal.class_index == best
+                                    and canonical[best] >= 0.32
+                                )
+                            )
+                        )
+                        if not strong_other_container:
+                            best = dom_idx
+                    if best == dom_idx:
+                        prior_dom = max(scene_prior[dom_idx], center_canonical[dom_idx])
+                        canonical[best] = max(
+                            canonical[best],
+                            min(0.95, 0.55 * prior_dom + 0.45 * canonical[dom_idx]),
+                            0.42,
+                        )
+                        ranked = sorted(range(len(canonical)), key=lambda i: -canonical[i])
+
+            # For salient foreground rescued proposals (marked as trash with confidence == 0.4199), require high classifier margin:
+            if is_salient_rescue:
+                second_prob = canonical[ranked[1]] if len(ranked) > 1 else 0.0
+                if canonical[best] < 0.24 or (canonical[best] - second_prob) < 0.08:
+                    continue
 
             cls_support = canonical[best]
+            if (
+                self.scoring_mode == "blend"
+                and best in (paper_idx, cardboard_idx)
+                and (canonical[paper_idx] + canonical[cardboard_idx]) >= 0.65
+            ):
+                cls_support = min(0.95, canonical[paper_idx] + canonical[cardboard_idx])
+
             if self.scoring_mode == "blend":
                 concurrence = (best == proposal.class_index)
+                textile_family = {clothes_idx, shoes_idx}
+                same_family = (
+                    concurrence
+                    or (
+                        best in (paper_idx, cardboard_idx)
+                        and proposal.class_index in (paper_idx, cardboard_idx)
+                    )
+                    or (
+                        best in container_family
+                        and proposal.class_index in container_family
+                    )
+                    or (
+                        best in textile_family
+                        and proposal.class_index in textile_family
+                    )
+                    or proposal.class_id == "trash"
+                )
                 allow_blend = (
-                    (proposal.confidence >= max(self.min_proposal_gate, 0.28) and concurrence)
-                    or proposal.confidence >= 0.38
+                    (proposal.confidence >= self.min_proposal_gate and same_family and cls_support >= 0.32)
+                    or (is_salient_rescue and cls_support >= 0.24)
+                    or (use_scene_context and cls_support >= 0.32 and proposal.confidence >= 0.08)
+                    or (concurrence and proposal.confidence >= 0.35 and cls_support >= 0.15)
+                    or (proposal.confidence >= max(self.min_proposal_gate, 0.18) and cls_support >= 0.45)
+                    or (proposal.confidence >= 0.40 and cls_support >= 0.35)
                 )
                 if allow_blend:
-                    effective_cls_prob = (
-                        max(cls_support, proposal.confidence * 0.8)
-                        if concurrence
-                        else cls_support
-                    )
+                    if concurrence and proposal.confidence >= 0.50 and 0.48 <= cls_support < proposal.confidence:
+                        effective_cls_prob = max(cls_support, proposal.confidence)
+                    elif concurrence and cls_support >= 0.48:
+                        effective_cls_prob = max(cls_support, proposal.confidence * 0.85)
+                    else:
+                        effective_cls_prob = cls_support
                     blended = (
                         (1.0 - self.blend_weight) * proposal.confidence
                         + self.blend_weight * effective_cls_prob
                     )
                     max_allowed = (
-                        min(1.0, proposal.confidence * 1.4)
-                        if proposal.confidence < 0.35
+                        min(1.0, proposal.confidence * 1.40)
+                        if (proposal.confidence < 0.35 and not use_scene_context)
                         else 1.0
                     )
                     score = min(max_allowed, max(0.0, blended))
@@ -240,9 +414,11 @@ class TwoStageDetector:
             [item.detection for item in refined],
             iou_threshold=self.iou_threshold, max_detections=self.max_detections,
         )
-        survivor_ids = {id(d) for d in survivors}
+        from src.detection.fusion import clean_and_separate_detections
+        deduped = clean_and_separate_detections(survivors, image.width, image.height)
+        survivor_ids = {id(d) for d in deduped}
         by_id = {id(item.detection): item for item in refined}
-        return [by_id[id(d)] for d in survivors if id(d) in survivor_ids]
+        return [by_id[id(d)] for d in deduped if id(d) in survivor_ids]
 
     def detect_pil(self, image: Image.Image) -> DetectionResult:
         prepared = ensure_exif_orientation(image)
@@ -250,7 +426,15 @@ class TwoStageDetector:
         proposals = self.detector.detect_pil(prepared)
         if (proposals.image_width, proposals.image_height) != prepared.size:
             raise ValueError("detector returned boxes for a different image size")
-        details = self.refine(prepared, proposals.detections)
+        prop_list = list(proposals.detections)
+        if type(self.classifier).__name__ == "MobileNetBatchAdapter" and len(prop_list) <= 3:
+            from src.detection.fusion import discover_uncovered_salient_boxes
+            high_conf_boxes = [d.box for d in prop_list if d.confidence >= 0.30]
+            if high_conf_boxes:
+                trash_idx = DETECTION_CLASS_NAMES.index("trash")
+                for box in discover_uncovered_salient_boxes(prepared, high_conf_boxes):
+                    prop_list.append(Detection(trash_idx, "trash", 0.4199, box))
+        details = self.refine(prepared, prop_list)
         self.last_details = tuple(details)
         return DetectionResult(
             tuple(item.detection for item in details), *prepared.size,

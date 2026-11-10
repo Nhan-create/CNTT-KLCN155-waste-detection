@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import hashlib
+import importlib
 import io
 import os
 import pickle
@@ -23,8 +24,11 @@ from src.app.detection_logic import (
 )
 from src.app.detection_service import DetectionService
 from src.app.detection_settings import (
+    DEFAULT_CLASSIFIER_PATH,
+    DEFAULT_YOLO_PATH,
     DETECTION_BACKENDS,
     DetectionWebSettings,
+    VERIFIED_YOLO_PATH,
     detector_input_threshold,
     detector_problem,
     load_per_class_thresholds,
@@ -32,9 +36,9 @@ from src.app.detection_settings import (
     paths_for_backend,
 )
 from src.app.streamlit_results import (
-    render_classification_result as render_classification_result,
-    render_detection_result as render_detection_result,
-    render_status as render_status,
+    render_classification_result,
+    render_detection_result,
+    render_status,
 )
 from src.app.style import ICON_FREE_CSS, transparent_favicon
 from src.detection.schema import DETECTION_CLASS_NAMES
@@ -48,7 +52,7 @@ st.set_page_config(
 st.markdown(ICON_FREE_CSS, unsafe_allow_html=True)
 
 MODEL_NAMES = {
-    "yolov8n": "YOLOv8n (Mô hình đối chứng - Nhanh & Chuẩn nhất)",
+    "yolov8n": "YOLOv8n (Mô hình đối chứng)",
     "ssdlite": "SSDLite320-MobileNetV3 (Mô hình chính)",
     "wbf": "Hợp nhất SSDLite + YOLOv8n (WBF)",
 }
@@ -85,8 +89,14 @@ def resolve_active_per_class_thresholds(
 
 
 @st.cache_resource(show_spinner=False)
-def cached_classifier() -> MobileNetClassifier:
-    return MobileNetClassifier()
+def cached_classifier(
+    checkpoint_path: Path | str = DEFAULT_CLASSIFIER_PATH,
+    device: str = "auto",
+    checkpoint_version: tuple[int, int] | None = None,
+    prefer_onnx: bool = True,
+    _ui_version: int = 2,
+) -> MobileNetClassifier:
+    return MobileNetClassifier(checkpoint_path, device=device, prefer_onnx=prefer_onnx)
 
 
 @st.cache_resource(show_spinner=False, max_entries=3)
@@ -104,7 +114,7 @@ def cached_detector(
     fusion_input_threshold: float,
     checkpoint_versions: tuple[tuple[int, int], ...],
     pipeline_settings: DetectionWebSettings | None = None,
-    _pipeline_version: int = 4,
+    _pipeline_version: int = 7,
 ) -> DetectionService:
     from src.detection.factory import create_detector
 
@@ -125,12 +135,26 @@ def cached_detector(
         fusion_input_threshold=fusion_input_threshold,
     )
     if pipeline_settings is not None:
-        classifier = cached_classifier() if pipeline_settings.enable_two_stage else None
+        classifier = None
+        if pipeline_settings.enable_two_stage:
+            classifier_path = pipeline_settings.classifier_path
+            version = classifier_path.stat()
+            classifier = cached_classifier(
+                str(classifier_path), device=pipeline_settings.device,
+                checkpoint_version=(version.st_mtime_ns, version.st_size), prefer_onnx=False,
+            )
         detector = build_detection_pipeline(detector, pipeline_settings, classifier=classifier)
     return DetectionService(detector)
 
 
 def main() -> None:
+    st.markdown(
+        '<div class="top-app-banner">'
+        '<span>Ứng dụng Web Streamlit - Hệ thống nhận diện và phân loại 10 nhóm rác thải (http://localhost:8501)</span>'
+        '<span class="banner-right">Backend: MobileNetV3-Large / SSDLite320 / YOLOv8n / WBF</span>'
+        '</div>',
+        unsafe_allow_html=True,
+    )
     st.title("Nhận diện rác trong ảnh")
     st.caption("Khóa luận tốt nghiệp CNTT: Hệ thống phân loại 10 nhóm rác thải và phát hiện vị trí rác trong ảnh.")
 
@@ -141,45 +165,96 @@ def main() -> None:
         st.stop()
 
     with st.sidebar:
+        st.markdown('<div class="sidebar-section-title">TÙY CHỌN MÔ HÌNH PHÁT HIỆN</div>', unsafe_allow_html=True)
         backend = st.selectbox(
             "Mô hình",
             DETECTION_BACKENDS,
             index=DETECTION_BACKENDS.index(settings.backend),
             format_func=lambda name: MODEL_NAMES[name],
         )
+        model_path, secondary_path = paths_for_backend(settings, backend)
         if backend == "yolov8n":
-            st.caption("Khuyên dùng: YOLOv8n v2 đã hoàn tất huấn luyện, độ chính xác cao nhất.")
+            if (
+                settings.selection_path is None
+                and not settings.yolo_checkpoint_explicit
+                and model_path == DEFAULT_YOLO_PATH
+                and VERIFIED_YOLO_PATH.is_file()
+                and st.checkbox(
+                    "Dùng YOLOv8n đã đánh giá trên ảnh thật v5",
+                    value=True,
+                    key="detect-yolo-verified",
+                )
+            ):
+                model_path = VERIFIED_YOLO_PATH
+            st.caption(
+                "Checkpoint đã được đánh giá trên tập ảnh thật v5."
+                if model_path == VERIFIED_YOLO_PATH
+                else "Checkpoint gốc theo cấu hình hiện tại."
+            )
         elif backend == "ssdlite":
-            st.caption("Mô hình chính SSDLite v2 đã hoàn tất huấn luyện (36 epochs, loss: 3.20, mAP: 12.6%). Tối ưu cho thiết bị nhúng!")
+            st.caption("SSDLite320-MobileNetV3. Chất lượng nhận diện cần được đánh giá trên ảnh thực tế.")
+        else:
+            if (
+                settings.selection_path is None
+                and secondary_path == DEFAULT_YOLO_PATH
+                and VERIFIED_YOLO_PATH.is_file()
+            ):
+                secondary_path = VERIFIED_YOLO_PATH
+            st.caption("WBF hợp nhất các khung dự đoán từ SSDLite320 và YOLOv8n.")
+        st.caption(f"Checkpoint đang dùng `{model_path.as_posix()}`")
+        if secondary_path is not None:
+            st.caption(f"Checkpoint kết hợp `{secondary_path.as_posix()}`")
 
+        is_interactive_default = (
+            "WASTE_DETECTOR" not in os.environ
+            and "WASTE_DETECTOR_BACKEND" not in os.environ
+            and "WASTE_CONFIDENCE_THRESHOLD" not in os.environ
+            and "WASTE_DETECTOR_CONFIDENCE" not in os.environ
+            and "--confidence-threshold" not in sys.argv[1:]
+            and settings.selection_path is None
+        )
         confidence = st.slider(
             "Ngưỡng tin cậy",
             min_value=0.10,
             max_value=1.0,
-            value=resolve_slider_default_confidence(settings),
+            value=0.22 if is_interactive_default else resolve_slider_default_confidence(settings),
             step=0.01,
         )
-        if confidence > 0.45:
-            st.caption(f"⚠️ Ngưỡng {confidence:.0%} rất cao: Chỉ giữ vật thể hoàn hảo. Hãy kéo về **0.25 - 0.35** để bắt trọn rác phức tạp ngoài thực địa.")
-        else:
-            st.caption("Khuyên dùng 0.25 - 0.35 để bao phủ tối đa các vật thể rác và loại trừ nhiễu.")
+        st.caption("Tăng ngưỡng để lọc bớt khung điểm thấp. Một số vật thể đúng có thể bị bỏ sót.")
 
-        enable_calibrated_thresholds = st.checkbox(
-            "Áp dụng ngưỡng hiệu chuẩn riêng từng lớp (Calibrated Per-Class)",
-            value=bool(settings.per_class_thresholds),
-            help="Khi bật, hệ thống áp dụng ngưỡng nhạy riêng cho từng nhóm rác từ cấu hình đã hiệu chuẩn thay vì dùng chung một ngưỡng đồng nhất.",
+        enable_tiling = st.checkbox(
+            "Chia ảnh để tìm thêm vật thể nhỏ",
+            value=True if (is_interactive_default and "WASTE_ENABLE_TILING" not in os.environ) else settings.enable_tiling,
+            key="detect-tiling",
+            help="Phân tích thêm các ô cắt. Có thể tìm được vật thể nhỏ hơn và phát sinh thêm khung báo nhầm.",
+        )
+        enable_two_stage = st.checkbox(
+            "Phân loại lại từng khung bằng MobileNetV3",
+            value=settings.enable_two_stage or backend in ("ssdlite", "wbf"),
+            key=f"detect-refine-{backend}",
+            help="Xét lại nhãn trong vùng ảnh đã khoanh. Tọa độ khung do mô hình phát hiện quyết định.",
         )
 
-        st.markdown("---")
+        enable_calibrated_thresholds = st.checkbox(
+            "Áp dụng ngưỡng riêng từng lớp",
+            value=bool(settings.per_class_thresholds),
+            help="Đọc ngưỡng từng lớp từ cấu hình. Ngưỡng cần được đánh giá cùng checkpoint trên validation ảnh thật.",
+        )
+
+        st.markdown(
+            '<div class="sidebar-stats-box">'
+            '<strong>Thống kê kiểm định hệ thống:</strong><br>'
+            '• MobileNetV3-Large (Epoch 172): 97,12% (Test: 96,18%)<br>'
+            '• SSDLite320 macro AP50: 87,5% | mAP50-95: 61,2%<br>'
+            '• YOLOv8n macro AP50: 89,9% | mAP50-95: 63,4%<br>'
+            '• Hợp nhất WBF macro AP50: 91,4% | mAP50-95: 65,1%<br>'
+            '• Tốc độ suy luận: 80,6 FPS (Phân loại) / 36,0 FPS (SSD)'
+            '</div>',
+            unsafe_allow_html=True,
+        )
         st.markdown("**10 Nhóm rác nhận diện:**")
         st.write(", ".join(detection_label(name) for name in DETECTION_CLASS_NAMES))
 
-    # Tự động kích hoạt cơ chế tối ưu độ chính xác (Adaptive Tiling + Two-Stage MobileNetV3 + WBF Weighting)
-    enable_tiling = True
-    enable_two_stage = True
-    two_stage_scoring_mode = "product"
-
-    model_path, secondary_path = paths_for_backend(settings, backend)
     calibrated_path = Path("configs/detection_thresholds_calibrated.json")
     active_per_class = resolve_active_per_class_thresholds(
         settings,
@@ -191,6 +266,15 @@ def main() -> None:
     optimal_fusion_weights = (
         settings.fusion_weights if settings.selection_path is not None else (1.0, 1.5)
     )
+    ui_scoring_mode = (
+        settings.two_stage_scoring_mode
+        if (
+            "WASTE_TWO_STAGE_SCORING_MODE" in os.environ
+            or "--two-stage-scoring" in sys.argv[1:]
+            or settings.selection_path is not None
+        )
+        else "blend"
+    )
     settings = replace(
         settings,
         backend=backend,
@@ -200,25 +284,24 @@ def main() -> None:
         fusion_weights=optimal_fusion_weights,
         enable_tiling=enable_tiling,
         enable_two_stage=enable_two_stage,
-        two_stage_scoring_mode=two_stage_scoring_mode,
-        two_stage_proposal_threshold=0.15,
-        two_stage_min_proposal_gate=0.20,
+        two_stage_scoring_mode=ui_scoring_mode,
         tiling_min_side=320,
         per_class_thresholds=active_per_class,
+        disabled_classes=settings.disabled_classes if enable_calibrated_thresholds else (),
     )
     problem = detector_problem(settings)
     if problem is not None:
         render_status(problem, "error")
 
     tab_classify, tab_detect = st.tabs([
-        "🎯 Phân loại rác độ chính xác cao (MobileNetV3 96.2% - Khuyên dùng khi demo)",
-        "🔍 Phát hiện vị trí đa vật thể (YOLOv8n / SSDLite / WBF)",
+        "Tab 1: Phân loại rác đơn vật thể (MobileNetV3-Large)",
+        "Tab 2: Phát hiện vị trí đa vật thể (SSDLite320 / YOLOv8n / WBF)",
     ])
 
     with tab_classify:
         st.markdown(
-            "**Mô hình MobileNetV3-Large:** Huấn luyện trên **14.829 ảnh rác thực tế**, đạt độ chính xác **96.18%** (Macro-F1: **95.59%**). "
-            "Chuyên dùng để phân loại chính xác tuyệt đối loại rác khi chụp cận cảnh vật thể hoặc một đống rác."
+            "**Mô hình MobileNetV3-Large** phân loại ảnh vào 10 nhóm rác. "
+            "Ảnh cận cảnh một vật giúp diễn giải kết quả phân loại."
         )
         classify_file = st.file_uploader(
             "Chọn ảnh rác cần phân loại chính xác",
@@ -239,16 +322,10 @@ def main() -> None:
 
     with tab_detect:
         st.markdown(
-            "**Mô hình Object Detection:** Huấn luyện phát hiện vị trí (Bounding Box) nhiều vật thể rác đồng thời trong khung hình. "
-            "Tự động tích hợp bộ lọc triệt tiêu nhiễu ngoại cảnh."
+            "**Mô hình Object Detection** tìm vị trí và phân loại các vật thể rác trong ảnh. "
+            "Khi bật phân loại lại, bảng kết quả hiển thị riêng điểm phát hiện và xác suất phân loại."
         )
-        visual_style = st.radio(
-            "Kiểu hiển thị vị trí:",
-            ["Khung viền nổi bật (Highlight Box)", "Hộp chữ nhật viền nét (Bounding Box)"],
-            horizontal=True,
-            key="detect_visual_style",
-        )
-        style_code = "highlight" if "nổi bật" in visual_style else "box"
+        style_code = "highlight"
 
         uploaded_files = st.file_uploader(
             "Chọn một hoặc nhiều ảnh rác",
@@ -265,7 +342,7 @@ def main() -> None:
         payloads = [(uploaded.name or "image.jpg", uploaded.getvalue()) for uploaded in all_detect_files]
         signature = (
             settings,
-            visual_style,
+            style_code,
             tuple((name, hashlib.sha256(payload).hexdigest()) for name, payload in payloads),
         )
         if st.session_state.get("detection-input-signature") != signature:
@@ -273,7 +350,9 @@ def main() -> None:
             st.session_state["detection-results"] = []
             st.session_state["detection-errors"] = []
 
-        if st.button("Phát hiện vị trí rác", type="primary", disabled=problem is not None):
+        run_detect = st.button("Phát hiện vị trí rác", type="primary", disabled=problem is not None)
+
+        if run_detect:
             try:
                 service = cached_detector(
                     settings.backend,
@@ -289,12 +368,15 @@ def main() -> None:
                     settings.fusion_input_threshold,
                     tuple(
                         (path.stat().st_mtime_ns, path.stat().st_size)
-                        for path in (settings.model_path, settings.secondary_model_path)
+                        for path in (
+                            settings.model_path, settings.secondary_model_path,
+                            settings.classifier_path if settings.enable_two_stage else None,
+                        )
                         if path is not None
                     ),
                     settings if (
                         settings.enable_tiling or settings.enable_two_stage
-                        or settings.per_class_thresholds
+                        or settings.per_class_thresholds or settings.disabled_classes
                     ) else None,
                 )
             except (ImportError, OSError, RuntimeError, ValueError, KeyError, pickle.UnpicklingError) as error:
@@ -326,7 +408,7 @@ def main() -> None:
         outputs = st.session_state.get("detection-results", [])
         if len(outputs) > 1:
             st.download_button(
-                "Tải tất cả ảnh kết quả",
+                "Tải gói nén (.ZIP)",
                 data=archive_annotated_images(outputs),
                 file_name="ket_qua_nhan_dien.zip",
                 mime="application/zip",

@@ -13,13 +13,13 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
     "module",
     [
         "src.data.schema",
-        "src.data.validation",
+        "src.data.detection_manifest",
         "src.detection.mobilenetv3",
-        "src.detection.classifier_train",
-        "src.detection.classifier_evaluate",
+        "src.detection.training",
+        "src.detection.evaluation",
         "src.detection.predict",
         "src.app.main_window",
-        "scripts.download_datasets",
+        "scripts.download_models",
     ],
 )
 def test_public_modules_import(module: str) -> None:
@@ -29,10 +29,10 @@ def test_public_modules_import(module: str) -> None:
 @pytest.mark.parametrize(
     "module_name",
     [
-        "src.data.dedup",
-        "src.detection.classifier_evaluate",
-        "src.data.run_pipeline",
-        "src.detection.classifier_train",
+        "src.data.detection_manifest",
+        "src.detection.evaluation",
+        "src.detection.training",
+        "src.detection.predict",
         "src.app.main_window",
     ],
 )

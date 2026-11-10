@@ -8,7 +8,7 @@ import hashlib
 import json
 import math
 from collections.abc import Mapping, Sequence
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 
 DEFAULT_SSDLITE_V4_PATH = Path(
@@ -42,6 +42,7 @@ DEFAULT_YOLO_PATH = (
     )
 )
 DEFAULT_DETECTOR_PATH = DEFAULT_YOLO_PATH
+VERIFIED_YOLO_PATH = Path("artifacts/yolov8n_real/weights/verified.pt")
 DETECTION_BACKENDS = ("yolov8n", "ssdlite", "wbf")
 DEFAULT_CLASSIFIER_PATH = Path("artifacts/official_run/best_model.pt")
 DEFAULT_THRESHOLDS_PATH = Path("configs/detection_thresholds.json")
@@ -69,6 +70,7 @@ class DetectionWebSettings:
     # Optional per-class operating thresholds as sorted (class_id, threshold) pairs
     # (tuple keeps the frozen settings hashable); missing classes use confidence_threshold.
     per_class_thresholds: tuple[tuple[str, float], ...] = ()
+    disabled_classes: tuple[str, ...] = ()
     thresholds_path: Path | None = None
     enable_tiling: bool = False
     tile_size: int = 640
@@ -83,6 +85,7 @@ class DetectionWebSettings:
     two_stage_scoring_mode: str = "product"
     two_stage_blend_weight: float = 0.65
     two_stage_min_proposal_gate: float = 0.12
+    yolo_checkpoint_explicit: bool = False
 
 
 def class_threshold(settings: DetectionWebSettings, class_id: str) -> float:
@@ -100,14 +103,33 @@ def detector_input_threshold(settings: DetectionWebSettings) -> float:
     return min(values)
 
 
-def load_per_class_thresholds(path: Path) -> tuple[tuple[str, float], ...]:
+def load_per_class_thresholds(
+    path: Path, *, settings: DetectionWebSettings | None = None,
+) -> tuple[tuple[str, float], ...]:
     """Read ``{"per_class_thresholds": {class_id: thr}}`` or a flat ``{class_id: thr}`` JSON."""
+    return load_threshold_configuration(path, settings=settings)[0]
+
+
+def load_threshold_configuration(
+    path: Path, *, settings: DetectionWebSettings | None = None,
+) -> tuple[tuple[tuple[str, float], ...], tuple[str, ...]]:
+    """Load thresholds and classes without a supported validation operating point."""
     from src.detection.schema import DETECTION_CLASS_NAMES
 
     try:
         payload = json.loads(Path(path).read_text(encoding="utf-8"))
     except (OSError, ValueError) as error:
         raise ValueError(f"Invalid per-class thresholds file {path}: {error}") from error
+    disabled = payload.get("disabled_classes", []) if isinstance(payload, dict) else []
+    if not isinstance(disabled, list) or any(name not in DETECTION_CLASS_NAMES for name in disabled):
+        raise ValueError("Invalid disabled classes in threshold profile")
+    if isinstance(payload, dict) and "pipeline" in payload:
+        from src.detection.evaluation import pipeline_identity
+
+        if settings is None or payload.get("selected_on") != "val":
+            raise ValueError("Calibrated thresholds require their validation-selected pipeline")
+        if payload["pipeline"] != pipeline_identity(settings):
+            raise ValueError("Calibrated thresholds do not match the checkpoint and pipeline")
     if isinstance(payload, dict) and "per_class_thresholds" in payload:
         payload = payload["per_class_thresholds"]
     if not isinstance(payload, dict):
@@ -122,13 +144,17 @@ def load_per_class_thresholds(path: Path) -> tuple[tuple[str, float], ...]:
         if not (math.isfinite(value) and 0.0 <= value <= 1.0):
             raise ValueError(f"Threshold for {name} must be within [0, 1]")
         pairs.append((name, value))
-    return tuple(sorted(pairs))
+    return tuple(sorted(pairs)), tuple(sorted(set(disabled)))
 
 
 
 def validate_detection_settings(settings: DetectionWebSettings) -> None:
     if settings.backend not in DETECTION_BACKENDS:
         raise ValueError(f"backend must be one of {DETECTION_BACKENDS}")
+    from src.detection.schema import DETECTION_CLASS_NAMES
+
+    if any(name not in DETECTION_CLASS_NAMES for name in settings.disabled_classes):
+        raise ValueError("disabled_classes must contain canonical detection class names")
     if not 0.0 <= settings.confidence_threshold <= 1.0:
         raise ValueError("confidence_threshold must be between 0 and 1")
     if not 0.0 <= settings.iou_threshold <= 1.0:
@@ -297,13 +323,15 @@ def parse_detection_settings(
     thresholds_path = values.thresholds
     if thresholds_path is None and DEFAULT_THRESHOLDS_PATH.is_file():
         thresholds_path = DEFAULT_THRESHOLDS_PATH
-    per_class = load_per_class_thresholds(thresholds_path) if thresholds_path else ()
     model_path = values.detector
     if model_path is None and environ.get("WASTE_DETECTOR"):
         model_path = Path(environ["WASTE_DETECTOR"])
     secondary_path = values.secondary_detector
     if secondary_path is None and environ.get("WASTE_SECONDARY_DETECTOR"):
         secondary_path = Path(environ["WASTE_SECONDARY_DETECTOR"])
+    yolo_checkpoint_explicit = (
+        model_path if values.backend == "yolov8n" else secondary_path
+    ) is not None
     if selection:
         if model_path is not None or secondary_path is not None or values.backend != selection["backend"]:
             raise ValueError("--selection cannot be combined with checkpoint/backend overrides")
@@ -331,7 +359,6 @@ def parse_detection_settings(
         live_inference_fps=values.live_inference_fps,
         tracker_iou_threshold=values.tracker_iou_threshold,
         tracker_max_missed=values.tracker_max_missed,
-        per_class_thresholds=per_class,
         thresholds_path=thresholds_path,
         enable_tiling=bool(values.enable_tiling),
         enable_two_stage=bool(values.enable_two_stage),
@@ -339,7 +366,11 @@ def parse_detection_settings(
         two_stage_scoring_mode=values.two_stage_scoring_mode,
         two_stage_proposal_threshold=values.two_stage_proposal_threshold,
         two_stage_min_proposal_gate=values.two_stage_min_proposal_gate,
+        yolo_checkpoint_explicit=yolo_checkpoint_explicit,
     )
+    if thresholds_path:
+        per_class, disabled = load_threshold_configuration(thresholds_path, settings=settings)
+        settings = replace(settings, per_class_thresholds=per_class, disabled_classes=disabled)
     validate_detection_settings(settings)
     return settings
 

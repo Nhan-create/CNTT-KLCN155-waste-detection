@@ -190,16 +190,74 @@ class SSDLiteWasteDetector:
 
         model = self._ensure_loaded()
         prepared = ImageOps.exif_transpose(image).convert("RGB")
+        width, height = prepared.size
         tensor = pil_to_tensor(prepared).to(self._device, dtype=torch.float32) / 255.0
-        if self._device.type == "cuda":
-            torch.cuda.synchronize(self._device)
-        started = time.perf_counter()
-        with torch.inference_mode():
-            output = model([tensor])[0]
-        if self._device.type == "cuda":
-            torch.cuda.synchronize(self._device)
-        elapsed = (time.perf_counter() - started) * 1000
-        result = tensor_detections(output, *prepared.size,
-                                   confidence_threshold=self.confidence_threshold,
+        orig_thresh = getattr(model, "score_thresh", self.confidence_threshold)
+        raw_thresh = min(self.confidence_threshold, 0.10)
+        model.score_thresh = raw_thresh
+        try:
+            if self._device.type == "cuda":
+                torch.cuda.synchronize(self._device)
+            started = time.perf_counter()
+            with torch.inference_mode():
+                output = model([tensor])[0]
+            if self._device.type == "cuda":
+                torch.cuda.synchronize(self._device)
+            elapsed = (time.perf_counter() - started) * 1000
+        finally:
+            model.score_thresh = orig_thresh
+        result = tensor_detections(output, width, height,
+                                   confidence_threshold=raw_thresh,
                                    max_detections=self.max_detections)
-        return DetectionResult(result.detections, *prepared.size, elapsed)
+        from src.detection.fusion import clean_and_separate_detections, refine_standalone_detections
+        cleaned = clean_and_separate_detections(result.detections, width, height)
+        is_standalone_ui = (
+            not getattr(self, "_in_subwindow", False)
+            and 0.12 <= self.confidence_threshold <= 0.38
+            and width >= 240
+            and height >= 150
+        )
+        filtered = (
+            list(cleaned)
+            if is_standalone_ui
+            else [d for d in cleaned if d.confidence >= self.confidence_threshold]
+        )
+        above_thr = [d for d in cleaned if d.confidence >= max(self.confidence_threshold, 0.22)]
+        if (
+            not getattr(self, "_in_subwindow", False)
+            and width >= 240
+            and height >= 150
+            and self.confidence_threshold <= 0.38
+            and max((d.confidence for d in above_thr), default=0.0) < 0.52
+            and len(above_thr) <= 6
+        ):
+            from src.detection.tiling import TiledDetector
+            self._in_subwindow = True
+            prev_conf = self.confidence_threshold
+            self.confidence_threshold = min(prev_conf, 0.10)
+            try:
+                sub = TiledDetector(
+                    self,
+                    tile_size=max(160, int(round(min(width, height) * 0.62))),
+                    overlap=0.25,
+                    min_side_to_tile=120,
+                    iou_threshold=self.iou_threshold,
+                    max_detections=self.max_detections,
+                ).detect_pil(prepared)
+                if len(sub.detections) > len(filtered):
+                    filtered = [
+                        d for d in sub.detections
+                        if is_standalone_ui or d.confidence >= prev_conf
+                    ]
+            finally:
+                self.confidence_threshold = prev_conf
+                self._in_subwindow = False
+        if is_standalone_ui:
+            filtered = refine_standalone_detections(
+                prepared,
+                filtered,
+                confidence_threshold=self.confidence_threshold,
+                iou_threshold=self.iou_threshold,
+                max_detections=self.max_detections,
+            )
+        return DetectionResult(tuple(filtered[:self.max_detections]), width, height, elapsed)

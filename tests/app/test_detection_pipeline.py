@@ -92,6 +92,50 @@ def test_apply_class_thresholds() -> None:
     assert [(d.class_id, d.confidence) for d in kept.detections] == [("paper", 0.25), ("glass", 0.55)]
 
 
+@pytest.mark.parametrize("include_paper", [False, True])
+def test_disabled_class_rejects_saturated_score_and_keeps_details_aligned(include_paper) -> None:
+    from src.detection.two_stage import RefinedDetection
+
+    plastic = _det("plastic", 1.0)
+    paper = _det("paper", 0.8, 50)
+    plastic_detail = RefinedDetection(plastic, 1.0, 1.0, "plastic", (("plastic", 1.0),))
+    paper_detail = RefinedDetection(paper, 0.8, 1.0, "paper", (("paper", 1.0),))
+    detector = Fixed([plastic, paper] if include_paper else [plastic])
+    detector.last_details = (plastic_detail, paper_detail) if include_paper else (plastic_detail,)
+    pipeline = PerClassThresholdDetector(
+        detector, 0.29, (("plastic", 1.0),), disabled_classes=("plastic",)
+    )
+
+    result = pipeline.detect_pil(Image.new("RGB", (100, 100)))
+
+    assert result.detections == ((paper,) if include_paper else ())
+    assert pipeline.last_details == ((paper_detail,) if include_paper else ())
+
+
+def test_pipeline_applies_disabled_classes_without_thresholds() -> None:
+    from dataclasses import replace
+
+    settings = replace(parse_detection_settings([], {}), disabled_classes=("plastic",))
+    pipeline = build_detection_pipeline(Fixed([_det("plastic", 1.0)]), settings)
+
+    assert pipeline.detect_pil(Image.new("RGB", (100, 100))).detections == ()
+
+
+def test_pipeline_keeps_profile_disabled_classes_when_settings_omit_them(tmp_path) -> None:
+    from dataclasses import replace
+
+    profile = tmp_path / "thresholds.json"
+    profile.write_text(json.dumps({
+        "per_class_thresholds": {"plastic": 1.0}, "disabled_classes": ["plastic"],
+    }), encoding="utf-8")
+    settings = replace(
+        parse_detection_settings(["--thresholds", str(profile)], {}), disabled_classes=()
+    )
+    pipeline = build_detection_pipeline(Fixed([_det("plastic", 1.0)]), settings)
+
+    assert pipeline.detect_pil(Image.new("RGB", (100, 100))).detections == ()
+
+
 def test_pipeline_with_per_class_only_filters_and_shows_rows(tmp_path: Path) -> None:
     path = tmp_path / "thr.json"
     path.write_text(json.dumps({"battery": 0.7}), "utf-8")
@@ -124,6 +168,8 @@ def test_pipeline_two_stage_with_fake_classifier_exposes_top3() -> None:
     output = analyze_image_file("b.png", buffer.getvalue(), DetectionService(pipeline))
     assert [(d.class_id, round(d.confidence, 3)) for d in output.result.detections] == [("metal", 0.72)]
     rows = detection_rows(output.result, output.details)
+    assert rows[0]["Điểm phát hiện"] == "80.0%"
+    assert rows[0]["Xác suất phân loại"] == "90.0%"
     assert rows[0]["Top-3 phân loại"].startswith(f"{rows[0]['Loại rác']} 90%")
 
 
